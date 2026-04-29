@@ -1,32 +1,36 @@
-name: Black Tower Update
+name: BLACK TOWER Daily Update
+
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天運行一次
-  workflow_dispatch: # 允許手動點火
+    - cron: '0 20 * * *'  # 每天台北时间凌晨4点执行
+  workflow_dispatch:  # 支持手动触发
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Checkout 代码
+        uses: actions/checkout@v4
+        
+      - name: 设置 Python 3.11
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run script
+          python-version: '3.11'
+          
+      - name: 安装依赖
+        run: |
+          pip install -r requirements.txt
+          
+      - name: 运行 BLACK TOWER
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python app.py
-
-      - name: Deploy to GitHub Pages
+        run: |
+          python app.py
+          
+      - name: 部署到 GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./
           publish_branch: gh-pages
