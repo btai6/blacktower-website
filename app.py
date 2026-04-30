@@ -497,7 +497,7 @@ def generate_comments(article, persona):
         {"role": "user", "content": user_prompt},
     ]
 
-    result = call_gemini(messages, temperature=1.05, max_tokens=1500)
+    result = call_gemini(messages, temperature=1.05, max_tokens=3000)
     if not result:
         return []
 
