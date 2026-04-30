@@ -467,66 +467,98 @@ def generate_original_article(persona_name, persona, used_topics=None):
 
 
 # ============================================================
-# 評論生成
+# 評論生成（一條一條向 AI 要，避免分隔符洩漏）
 # ============================================================
-def generate_comments(article, persona):
-    """生成 2-4 條評論"""
-    num_comments = random.randint(2, 4)
-    if len(ACCOUNT_POOL) < num_comments:
-        return []
-    selected_names = random.sample(ACCOUNT_POOL, num_comments)
+COMMENT_PERSONALITIES = [
+    "兇狠派：不耐煩、嗆聲、看到廢話就翻臉",
+    "犬儒派：冷笑話、嘲諷、看破紅塵",
+    "認同派：但用自己的經驗延伸，不是空洞附和",
+    "抬槓派：找版主話裡的漏洞，反問或挑戰",
+    "廢話派：講一堆有的沒的，像真人在隨口聊",
+    "短促派：一兩句話講完，沒耐心打長字",
+    "文藝派：有點酸、用比喻、語氣慢但有後勁",
+    "直接派：開頭就罵，講話粗但精準",
+]
 
-    system_prompt = f"""你要扮演論壇上 {num_comments} 個普通網友，
-針對版主「{persona['domain']}」的這篇文章寫評論。
+
+def generate_one_comment(article, persona, comment_style):
+    """單獨向 Gemini 要一條評論"""
+    system_prompt = f"""你要扮演論壇上一個普通網友，針對版主「{persona['domain']}」的文章寫一條評論。
 
 {WRITING_RULES}
 
+【你的網友個性】
+{comment_style}
+
 【評論規則】
-- 每條評論 50~200 字，口語化
+- 50~200 字，口語化
 - 要有情緒：吐槽、反駁、認同、延伸、抬槓、冷笑、不耐煩
-- {num_comments} 個網友口氣要不一樣
-- 不准開頭寫「我同意」、「很有道理」、「個人覺得」這種 AI 廢話
+- 不准開頭寫「我同意」、「很有道理」、「個人覺得」、「樓主說得對」這種 AI 廢話
+- 不准用「===」、「---」這種分隔符號
+- 不准寫多條評論，只寫一條
 - 直接切入話題，像真實人類在打字
+- 結尾不要總結、不要金句、自然結束
 
 【輸出格式】
-每條評論一段，中間用 ===分隔=== 隔開。
-不要加帳號名字、不要加編號、不要加說明文字。"""
+直接輸出評論內容，不要加帳號名字、不要加編號、不要加任何說明文字、不要加引號。"""
 
     user_prompt = f"""【版主原文】
 標題：{article['title']}
 
 內容：
-{article['content'][:2500]}
+{article['content'][:2000]}
 
-請以 {num_comments} 個不同網友身份寫 {num_comments} 條評論，用 ===分隔=== 隔開。"""
+請寫一條評論。"""
 
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
     ]
 
-    result = call_gemini(messages, temperature=1.05, max_tokens=3000)
+    result = call_gemini(messages, temperature=1.1, max_tokens=800)
     if not result:
-        return []
+        return None
 
-    parts = [p.strip() for p in result.split("===分隔===") if p.strip()]
-    parts = parts[:num_comments]
+    # 清理可能殘留的雜訊
+    text = result.strip()
+
+    # 如果有 === 之類的分隔符（防呆），只取第一段
+    for sep in ["===", "---", "***", "###"]:
+        if sep in text:
+            text = text.split(sep)[0].strip()
+
+    # 清掉開頭的編號、前綴
+    text = text.lstrip("0123456789.、:：- ").strip()
+    for prefix in ["網友", "評論", "回覆", "留言"]:
+        if text.startswith(prefix):
+            idx = text.find("：")
+            if idx == -1:
+                idx = text.find(":")
+            if 0 <= idx <= 8:
+                text = text[idx + 1:].strip()
+
+    # 去掉開頭結尾的引號
+    text = text.strip('"').strip("「").strip("」").strip("『").strip("』").strip()
+
+    return text if text else None
+
+
+def generate_comments(article, persona):
+    """生成 2-4 條評論，每條獨立呼叫 API"""
+    num_comments = random.randint(2, 4)
+    if len(ACCOUNT_POOL) < num_comments:
+        return []
+    selected_names = random.sample(ACCOUNT_POOL, num_comments)
+    selected_styles = random.sample(COMMENT_PERSONALITIES, num_comments)
 
     comments = []
-    for i, comment_text in enumerate(parts):
-        if i >= len(selected_names):
-            break
-        comment_text = comment_text.lstrip("0123456789.、:：- ")
-        for prefix in ["網友", "評論", "回覆", "留言"]:
-            if comment_text.startswith(prefix):
-                idx = comment_text.find("：")
-                if idx == -1:
-                    idx = comment_text.find(":")
-                if 0 <= idx <= 8:
-                    comment_text = comment_text[idx + 1:].strip()
+    for i in range(num_comments):
+        comment_text = generate_one_comment(article, persona, selected_styles[i])
+        if not comment_text:
+            continue
         comments.append({
             "author": selected_names[i],
-            "content": comment_text.strip(),
+            "content": comment_text,
             "time": _random_comment_time(),
         })
     return comments
