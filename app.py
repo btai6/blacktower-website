@@ -213,7 +213,7 @@ WRITING_RULES = """
 # ============================================================
 # Gemini API 呼叫（含備援）
 # ============================================================
-def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
+def call_gemini(messages, temperature=0.9, max_tokens=4000, model=None):
     """呼叫 Google Gemini API，messages 用 OpenAI 格式內部轉成 Gemini 格式"""
     if not GOOGLE_API_KEY:
         print("  [錯誤] GOOGLE_API_KEY 未設置")
