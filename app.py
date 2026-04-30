@@ -26,9 +26,9 @@ GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 GOOGLE_GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
 # 主要使用免費實驗版 Flash
-GEMINI_MODEL = "gemini-2.0-flash-exp"
+GEMINI_MODEL = "gemini-3-flash-preview"
 # 備援模型
-GEMINI_FALLBACK_MODEL = "gemini-1.5-flash"
+GEMINI_FALLBACK_MODEL = "gemini-3.1-flash-lite-preview"
 
 
 # ============================================================
