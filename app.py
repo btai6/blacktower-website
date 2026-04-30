@@ -17,6 +17,14 @@ import time
 from datetime import datetime
 import requests
 import feedparser
+from datetime import timedelta
+
+
+def _random_comment_time():
+    """評論時間隨機落在發文後 10 分鐘到 6 小時之間，避免評論時間跟發文時間相同"""
+    minutes_later = random.randint(10, 360)
+    comment_dt = datetime.now() + timedelta(minutes=minutes_later)
+    return comment_dt.strftime("%H:%M")
 
 
 # ============================================================
@@ -213,7 +221,7 @@ WRITING_RULES = """
 # ============================================================
 # Gemini API 呼叫（含備援）
 # ============================================================
-def call_gemini(messages, temperature=0.9, max_tokens=4000, model=None):
+def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
     """呼叫 Google Gemini API，messages 用 OpenAI 格式內部轉成 Gemini 格式"""
     if not GOOGLE_API_KEY:
         print("  [錯誤] GOOGLE_API_KEY 未設置")
@@ -367,7 +375,7 @@ def generate_monitoring_article(persona_name, persona):
         {"role": "user", "content": user_prompt},
     ]
 
-    content = call_gemini(messages, temperature=0.9, max_tokens=4000)
+    content = call_gemini(messages, temperature=0.9, max_tokens=4500)
     if not content:
         return None
 
@@ -432,7 +440,7 @@ def generate_original_article(persona_name, persona, used_topics=None):
         {"role": "user", "content": user_prompt},
     ]
 
-    content = call_gemini(messages, temperature=1.0, max_tokens=2500)
+    content = call_gemini(messages, temperature=1.0, max_tokens=4000)
     if not content:
         return None
 
@@ -519,7 +527,7 @@ def generate_comments(article, persona):
         comments.append({
             "author": selected_names[i],
             "content": comment_text.strip(),
-            "time": datetime.now().strftime("%H:%M"),
+            "time": _random_comment_time(),
         })
     return comments
 
