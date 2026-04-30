@@ -8,26 +8,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          
+
       - name: Run BLACK TOWER
         env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python app.py
-          
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
