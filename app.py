@@ -367,7 +367,7 @@ def generate_monitoring_article(persona_name, persona):
         {"role": "user", "content": user_prompt},
     ]
 
-    content = call_gemini(messages, temperature=0.9, max_tokens=3500)
+    content = call_gemini(messages, temperature=0.9, max_tokens=4000)
     if not content:
         return None
 
