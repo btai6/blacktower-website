@@ -515,7 +515,7 @@ def generate_one_comment(article, persona, comment_style):
         {"role": "user", "content": user_prompt},
     ]
 
-    result = call_gemini(messages, temperature=1.1, max_tokens=800)
+    result = call_gemini(messages, temperature=1.1, max_tokens=1500)
     if not result:
         return None
 
