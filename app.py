@@ -1534,9 +1534,9 @@ a { color: inherit; text-decoration: none; }
   }
 
   function typeLabel(type) {
-    if (type === 'monitor') return '監控 MONITOR';
-    if (type === 'visual')  return '影片・圖形';
-    return '沙龍 SALON';
+    if (type === 'monitor') return '快訊';
+    if (type === 'visual')  return '影像';
+    return '原創';
   }
 
   function articleRow(a, no) {
