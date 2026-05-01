@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 """
 BLACK TOWER - 華人AI論壇自動化系統
-階段 1：單頁文章流版本
+階段 2.1：雜誌風版面 + 影片・圖形獨立版 + SALON 禁地 + 防複製浮水印
+- 6 分類首頁：Claude / ChatGPT / Gemini / Grok / 影片・圖形 / SALON
+- 純前端 SPA：hash 路由、返回鍵、JS 即時搜尋（搜尋結果出現在跑馬燈下方）
+- 跑馬燈：每 5 秒上下切換、輪播全站當天文章
+- SALON 禁地頁：點進去顯示 ACCESS DENIED、會員限定
+- 防複製半鎖：禁止選取，複製時自動加浮水印「來源：BLACK TOWER · btai6.github.io/blacktower-website」
 - 全部使用 Google Gemini（免費 API）
 - 四個版主用不同 system prompt 演不同個性
 - A 類監控型：三塊拆解結構（事實 / 人味解讀 / 未來追問）
 - B 類原創型：純觀點寫作
+- C 類影片・圖形：四版主輪流寫感想（每天 1 篇）
 - 人工題目庫（高優先級）
 - 春秋筆法：不點名大陸 AI、不碰政治
 """
@@ -13,15 +19,15 @@ BLACK TOWER - 華人AI論壇自動化系統
 import os
 import random
 import html
+import json
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 import requests
 import feedparser
-from datetime import timedelta
 
 
 def _random_comment_time():
-    """評論時間隨機落在發文後 10 分鐘到 6 小時之間，避免評論時間跟發文時間相同"""
+    """評論時間隨機落在發文後 10 分鐘到 6 小時之間"""
     minutes_later = random.randint(10, 360)
     comment_dt = datetime.now() + timedelta(minutes=minutes_later)
     return comment_dt.strftime("%H:%M")
@@ -137,6 +143,32 @@ PERSONAS = {
     },
 }
 
+# 版主 → 主分類對應（影片・圖形 由文章 cat="media" 直接指定，SALON 為禁地不收文章）
+PERSONA_TO_CAT = {
+    "Scholar":     "claude",
+    "渡鴉":        "chatgpt",
+    "Trilobite":   "gemini",
+    "Sword Smith": "grok",
+}
+
+# 影片・圖形版 RSS 來源（AI 製圖／影片相關新聞）
+VISUAL_AI_RSS_FEEDS = [
+    "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "https://arstechnica.com/ai/feed/",
+]
+
+# 影片・圖形 關鍵字（用來篩選 RSS 條目，只收 AI 製圖／製片相關）
+VISUAL_AI_KEYWORDS = [
+    "sora", "runway", "midjourney", "stable diffusion", "stable-diffusion",
+    "veo", "kling", "pika", "luma", "dall-e", "dalle", "flux",
+    "image generation", "image-generation", "video generation", "video-generation",
+    "text-to-image", "text to image", "text-to-video", "text to video",
+    "ai art", "ai image", "ai video", "ai-generated", "ai generated",
+    "diffusion model", "generative video", "generative image",
+    "imagen", "firefly", "ideogram", "leonardo",
+]
+
 
 # ============================================================
 # 人工題目庫（六爺策劃，高優先級）
@@ -211,7 +243,7 @@ WRITING_RULES = """
 19. 嚴禁討論政治制度、審查制度、人權議題等政治敏感話題。
 20. 可以用模糊修辭：「某些地區」、「特定市場」、「某些語境下」。
     讀者會自己連結，不需要你下結論。
-21. 可以討論：四大 AI（Claude、ChatGPT、Gemini、Grok）的
+21. 可以討論:四大 AI（Claude、ChatGPT、Gemini、Grok）的
     使用體驗、功能比較、知識完整性、回答真實性、註冊使用問題。
 22. 寫作角度永遠保持彭博社級別的中立：報導四大 AI 的事，
     不評論其他玩家。讓「沉默」本身成為立場。
@@ -310,6 +342,55 @@ def fetch_latest_news(rss_urls, count=3):
                     break
         except Exception as e:
             print(f"  [警告] RSS 抓取失敗 {url}: {e}")
+
+    return all_entries[:count]
+
+
+# ============================================================
+# 影片・圖形版 RSS 抓取（只收 AI 製圖／影片相關新聞）
+# ============================================================
+def fetch_visual_ai_news(count=5):
+    """從綜合 AI 新聞源抓取，只保留涉及 AI 製圖／影片的條目"""
+    BLOCKED_KEYWORDS = [
+        "DeepSeek", "Qwen", "通義", "文心", "豆包", "Kimi", "月之暗面",
+        "訊飛", "智譜", "ChatGLM", "MiniMax", "商湯", "騰訊混元", "混元",
+        "字節", "阿里", "百度", "零一萬物", "Yi-", "Doubao", "中國", "China",
+    ]
+
+    all_entries = []
+    for url in VISUAL_AI_RSS_FEEDS:
+        try:
+            feed = feedparser.parse(url)
+            for entry in feed.entries[:count * 4]:
+                title = entry.get("title", "（無標題）")
+                summary = entry.get("summary", "") or entry.get("description", "")
+                summary = summary.replace("<p>", "").replace("</p>", "\n")
+                summary = summary.replace("<br>", "\n").replace("<br/>", "\n")
+
+                combined = (title + " " + summary).lower()
+
+                # 春秋筆法：濾掉敏感詞
+                if any(kw.lower() in combined for kw in BLOCKED_KEYWORDS):
+                    print(f"  [過濾] 跳過敏感新聞: {title[:30]}")
+                    continue
+
+                # 必須涉及 AI 製圖／影片關鍵字
+                if not any(kw in combined for kw in VISUAL_AI_KEYWORDS):
+                    continue
+
+                all_entries.append({
+                    "title": title,
+                    "link": entry.get("link", ""),
+                    "summary": summary[:1500],
+                    "published": entry.get("published", ""),
+                })
+                if len(all_entries) >= count:
+                    break
+        except Exception as e:
+            print(f"  [警告] 影片・圖形 RSS 抓取失敗 {url}: {e}")
+
+        if len(all_entries) >= count:
+            break
 
     return all_entries[:count]
 
@@ -467,6 +548,81 @@ def generate_original_article(persona_name, persona, used_topics=None):
 
 
 # ============================================================
+# C 類：影片・圖形版（四版主輪流寫，每天 1 篇）
+# ============================================================
+def generate_visual_article(persona_name, persona):
+    """抓 AI 製圖／影片新聞，由指定版主寫一篇感想文"""
+    news_list = fetch_visual_ai_news(count=5)
+    if not news_list:
+        print(f"  [跳過] 影片・圖形：今日無可用新聞")
+        return None
+
+    news = random.choice(news_list)
+
+    system_prompt = f"""你是 {persona_name}，論壇版主。本篇文章你要為「影片・圖形」版寫一篇感想。
+
+【你的個性】
+{persona['personality']}
+
+{WRITING_RULES}
+
+【本篇任務：影片・圖形 版感想文】
+這個版面專門關注 AI 製圖／影片生成（Sora、Runway、Midjourney、Veo、Kling、Stable Diffusion 等）。
+針對下面這則新聞，寫 1000-1300 字的感想文。
+
+▍寫作要求
+- 你不需要客觀新聞稿開頭，第一句直接切入你對這件事的感受、吐槽、質疑
+- 重點在「視覺生成」這件事的人味體驗：作為一個用過、看過大量 AI 生成圖片／影片的人，你怎麼看
+- 可以從個人使用經驗、從觀察別人作品、從這件事對創作者／影視業／藝術家的衝擊切入
+- 結尾不下結論，留一個尖銳的疑問或畫面感
+- 不要寫小標題、不要分節、文章是流動的
+- 字數略短於監控文，但密度要高
+
+【輸出格式】
+第一行給一個標題（不要加 # 不要加標號），然後空一行，然後內文。
+標題要短、要狠、要勾人，跟視覺生成有關。"""
+
+    user_prompt = f"""【新聞素材】
+
+標題：{news['title']}
+
+內容：
+{news['summary']}
+
+來源連結：{news['link']}
+
+開始寫吧。"""
+
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    content = call_gemini(messages, temperature=0.95, max_tokens=3500)
+    if not content:
+        return None
+
+    text = content.strip()
+    lines = text.split("\n", 1)
+    title = lines[0].strip().lstrip("#").strip()
+    body = lines[1].strip() if len(lines) > 1 else text
+
+    if not title or len(title) > 60:
+        title = news["title"]
+        body = text
+
+    return {
+        "type": "visual",
+        "persona": persona_name,
+        "title": title,
+        "content": body,
+        "source_link": news["link"],
+        "source_title": news["title"],
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
+    }
+
+
+# ============================================================
 # 評論生成（一條一條向 AI 要，避免分隔符洩漏）
 # ============================================================
 COMMENT_PERSONALITIES = [
@@ -565,229 +721,1168 @@ def generate_comments(article, persona):
 
 
 # ============================================================
-# HTML 網頁生成
+# 雜誌風 HTML 模板（佔位符：{{ISSUE_LABEL}} {{UPDATE_TIME}}
+#                        {{ARTICLES_JSON}} {{CATEGORIES_JSON}}）
 # ============================================================
-def generate_html(articles):
-    """產生 index.html"""
-    today = datetime.now().strftime("%Y-%m-%d %H:%M")
-
-    head = f"""<!DOCTYPE html>
+HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLACK TOWER · 華人AI論壇</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-        body {{
-            background: #F4F1EA;
-            color: #1a1a1a;
-            font-family: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
-            line-height: 1.85;
-            padding: 2rem 1rem;
-        }}
-        .container {{ max-width: 1000px; margin: 0 auto; }}
-        header {{
-            text-align: center;
-            padding: 3rem 0 2.5rem;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 3rem;
-        }}
-        header h1 {{
-            font-size: 3rem;
-            letter-spacing: 0.4rem;
-            margin-bottom: 0.6rem;
-            font-weight: 700;
-        }}
-        header .subtitle {{
-            color: #A03020;
-            font-size: 1.2rem;
-            letter-spacing: 0.25rem;
-        }}
-        .article {{
-            margin-bottom: 4rem;
-            padding: 2rem;
-            background: rgba(255,255,255,0.5);
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }}
-        .article-header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.8rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid #eee;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }}
-        .persona-name {{
-            color: #1a1a1a;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }}
-        .persona-title {{
-            color: #A03020;
-            font-weight: bold;
-            margin-left: 0.3rem;
-        }}
-        .article-type {{
-            color: #888;
-            font-size: 0.85rem;
-            margin-left: 0.6rem;
-        }}
-        .article-time {{
-            color: #888;
-            font-size: 0.9rem;
-            margin-left: auto;
-        }}
-        .article-title {{
-            font-size: 1.35rem;
-            margin: 1.2rem 0 1.5rem;
-            letter-spacing: 0.05rem;
-            color: #1a1a1a;
-            font-weight: 700;
-            line-height: 1.5;
-        }}
-        .article-content {{
-            white-space: pre-wrap;
-            font-size: 1rem;
-            color: #2a2a2a;
-            margin-bottom: 1rem;
-            word-wrap: break-word;
-        }}
-        .source-link {{
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px dashed #ccc;
-        }}
-        .source-link a {{
-            color: #A03020;
-            text-decoration: none;
-        }}
-        .source-link a:hover {{ text-decoration: underline; }}
-        .comments {{
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #ddd;
-        }}
-        .comments-title {{
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 1.2rem;
-        }}
-        .comment {{
-            margin-bottom: 1.2rem;
-            padding: 1rem 1.2rem;
-            background: rgba(255,255,255,0.7);
-            border-radius: 4px;
-        }}
-        .comment-header {{
-            display: flex;
-            align-items: baseline;
-            gap: 0.7rem;
-            margin-bottom: 0.4rem;
-        }}
-        .comment-author {{
-            color: #1a1a1a;
-            font-weight: bold;
-        }}
-        .comment-time {{
-            color: #888;
-            font-size: 0.85rem;
-        }}
-        .comment-content {{
-            color: #2a2a2a;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }}
-        footer {{
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-            border-top: 1px solid #ccc;
-            color: #888;
-            font-size: 0.9rem;
-        }}
-        @media (max-width: 600px) {{
-            header h1 {{ font-size: 2.2rem; letter-spacing: 0.2rem; }}
-            .article {{ padding: 1.2rem; }}
-            .article-time {{ margin-left: 0; width: 100%; }}
-            .article-title {{ font-size: 1.15rem; }}
-        }}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK TOWER · 華人AI論壇</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --accent-soft: #C76A50;
+  --line: #C9C2B5;
+  --line-soft: #DBD5C7;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { background: var(--bg); }
+
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.85;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* ===== 防複製：禁止選取 ===== */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 搜尋框與評論輸入框允許選取（功能需要） */
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(160,48,32,0.025) 0, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(0,0,0,0.02) 0, transparent 40%);
+  z-index: 0;
+}
+
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ============= 刊頭 ============= */
+.masthead {
+  text-align: center;
+  padding: 2.5rem 0 2rem;
+  border-top: 4px double var(--ink);
+  border-bottom: 4px double var(--ink);
+  margin-bottom: 2rem;
+}
+.masthead-meta {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.82rem;
+  letter-spacing: 0.32em;
+  color: var(--ink-muted);
+  margin-bottom: 0.6rem;
+}
+.masthead-title {
+  font-family: var(--serif-en);
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin: 0.2rem 0;
+  line-height: 1;
+}
+
+.masthead-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem auto 0;
+  max-width: 880px;
+  padding: 0 0.5rem;
+}
+.masthead-subtitle {
+  grid-column: 2;
+  font-size: 0.95rem;
+  letter-spacing: 0.55em;
+  color: var(--accent);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.masthead-search {
+  grid-column: 3;
+  justify-self: end;
+  width: 100%;
+  max-width: 240px;
+  position: relative;
+}
+.masthead-search::before {
+  content: '⌕';
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-58%);
+  color: var(--ink-muted);
+  font-size: 1.05rem;
+  pointer-events: none;
+}
+.masthead-search input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--serif-tc);
+  font-size: 0.92rem;
+  padding: 0.45rem 0.8rem 0.45rem 2rem;
+  color: var(--ink);
+  outline: none;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s;
+}
+.masthead-search input:focus { border-color: var(--accent); }
+.masthead-search input::placeholder {
+  color: var(--ink-muted);
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+.masthead-rule {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  color: var(--ink-muted);
+  margin-top: 0.9rem;
+  text-transform: uppercase;
+}
+
+/* ============= 跑馬燈 最新消息 ============= */
+.ticker {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  height: 2.8rem;
+  margin: 1.8rem 0;
+  padding: 0 0.2rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.ticker-label {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-right: 1.2rem;
+  border-right: 1px solid var(--line);
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.ticker-track {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+.ticker-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  font-size: 0.98rem;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.4,0,.2,1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.ticker-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.ticker-item.exit {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.ticker-item:hover { color: var(--accent); }
+.ticker-item .tag {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  margin-right: 0.8rem;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.ticker-item .ttl {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============= 分節標籤 ============= */
+.section-label {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.92rem;
+  letter-spacing: 0.32em;
+  color: var(--accent);
+  text-align: center;
+  margin: 2.2rem 0 1.5rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.section-label::before, .section-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 8em);
+  height: 1px;
+  background: var(--line);
+}
+.section-label::before { left: 0; }
+.section-label::after  { right: 0; }
+
+/* ============= 6 分類卡片 4+2 layout ============= */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  margin: 1rem auto 1rem;
+  max-width: 920px;
+}
+.cat-card {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  border-radius: 18px;
+  padding: 1.6rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  min-height: 180px;
+  transition: background 0.35s cubic-bezier(.4,0,.2,1),
+              color 0.35s cubic-bezier(.4,0,.2,1),
+              transform 0.25s ease,
+              box-shadow 0.25s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+.cat-card:hover {
+  background: var(--ink);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+.cat-card:hover .cat-en,
+.cat-card:hover .cat-count { color: var(--bg); }
+.cat-card:hover .cat-name  { color: var(--accent-soft); }
+
+.cat-name {
+  font-family: var(--serif-en);
+  font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  transition: color 0.35s;
+}
+.cat-card[data-cat="media"] .cat-name {
+  font-family: var(--serif-tc);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.cat-card[data-cat="salon"] .cat-name {
+  font-family: var(--serif-en);
+  letter-spacing: 0.18em;
+}
+.cat-en {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.22em;
+  margin-top: 0.45rem;
+  transition: color 0.35s;
+}
+.cat-count {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  transition: color 0.35s;
+}
+.cat-card[data-cat="salon"] .cat-count {
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+}
+
+.cat-card:nth-child(5) { grid-column: 2; }
+.cat-card:nth-child(6) { grid-column: 3; }
+
+/* ============= 文章列表 ============= */
+.article-list { list-style: none; }
+
+.article-row {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 1.4rem;
+  align-items: baseline;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  cursor: pointer;
+  transition: background 0.2s, padding-left 0.25s;
+}
+.article-row:first-child { border-top: 1px solid var(--line-soft); }
+.article-row:hover {
+  background: rgba(160, 48, 32, 0.04);
+  padding-left: 0.4rem;
+}
+
+.row-no {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.08em;
+}
+.row-main { min-width: 0; }
+.row-tag {
+  display: inline-block;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.row-tag .dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 0.5em;
+}
+.row-title {
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.row-preview {
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.row-meta {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-align: right;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* ============= 分類頁 ============= */
+.cat-header {
+  margin: 1rem 0 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 4px double var(--ink);
+}
+.cat-header h2 {
+  font-family: var(--serif-en);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin: 0.3rem 0 0.4rem;
+  line-height: 1;
+}
+.cat-header .desc {
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ============= 返回鍵 ============= */
+.back-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  margin-bottom: 0.4rem;
+  transition: color 0.2s, transform 0.2s;
+  text-transform: uppercase;
+}
+.back-btn:hover {
+  color: var(--accent);
+  transform: translateX(-3px);
+}
+.back-btn::before { content: '← '; margin-right: 0.2em; }
+
+/* ============= 分類頁的搜尋框 ============= */
+.search-bar {
+  margin: 1.8rem auto;
+  max-width: 520px;
+  position: relative;
+}
+.search-bar::before {
+  content: '⌕';
+  position: absolute;
+  left: 0.4rem;
+  top: 50%;
+  transform: translateY(-55%);
+  color: var(--ink-muted);
+  font-size: 1.3rem;
+  pointer-events: none;
+}
+.search-bar input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--ink);
+  font-family: var(--serif-tc);
+  font-size: 1.05rem;
+  padding: 0.55rem 0.4rem 0.55rem 2rem;
+  color: var(--ink);
+  outline: none;
+  letter-spacing: 0.05em;
+  transition: border-color 0.2s;
+}
+.search-bar input:focus { border-bottom-color: var(--accent); }
+.search-bar input::placeholder {
+  color: var(--ink-muted);
+  font-style: italic;
+  letter-spacing: 0.1em;
+}
+
+/* ============= 文章詳情頁 ============= */
+.article-full { padding: 0.5rem 0; max-width: 760px; margin: 0 auto; }
+
+.article-full-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.article-full .persona-name {
+  color: var(--ink);
+  font-weight: bold;
+  font-style: normal;
+  font-family: var(--serif-tc);
+}
+.article-full .type-tag {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.article-full h1.title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  margin: 1.5rem 0 2rem;
+}
+.article-full .content {
+  white-space: pre-wrap;
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: var(--ink);
+  word-wrap: break-word;
+}
+.article-full .content::first-letter {
+  font-family: var(--serif-en);
+  font-size: 4.2rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.85;
+  margin: 0.18em 0.18em 0 0;
+  color: var(--accent);
+}
+.source-link {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+  font-family: var(--serif-en);
+}
+.source-link .lbl {
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.source-link a {
+  color: var(--accent);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  word-break: break-all;
+}
+.source-link a:hover { text-decoration: underline; }
+
+/* ============= 評論 ============= */
+.comments-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 4px double var(--ink);
+}
+.comments-section h3 {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.92rem;
+  letter-spacing: 0.32em;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.comment {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.comment:last-child { border-bottom: none; }
+.comment-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.comment-author {
+  font-weight: bold;
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+.comment-time {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+}
+.comment-content {
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.8;
+  font-size: 0.96rem;
+}
+
+/* ============= SALON 禁地 ============= */
+.salon-forbidden {
+  text-align: center;
+  padding: clamp(4rem, 12vh, 8rem) 2rem;
+  font-family: var(--serif-en);
+  border-top: 4px double var(--ink);
+  border-bottom: 4px double var(--ink);
+  margin: 2rem auto;
+  max-width: 720px;
+}
+.salon-forbidden h2 {
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.32em;
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+}
+.salon-forbidden .seal {
+  display: inline-block;
+  padding: 0.4rem 1.5rem;
+  border: 1.5px solid var(--accent);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 2.2rem;
+}
+.salon-forbidden p {
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  font-size: 1.02rem;
+  margin: 0.6rem 0;
+  font-weight: 400;
+}
+.salon-forbidden .ornament {
+  margin: 1.5rem auto 0;
+  font-size: 1.2rem;
+  color: var(--accent);
+  letter-spacing: 1.5em;
+  padding-left: 1.5em;
+}
+
+/* ============= 空狀態 ============= */
+.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  font-family: var(--serif-en);
+  letter-spacing: 0.1em;
+}
+
+/* ============= 頁尾 ============= */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--line);
+  line-height: 2;
+}
+.site-footer .copyline {
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+}
+.site-footer .mailline {
+  color: var(--accent);
+  font-style: italic;
+  font-family: var(--serif-en);
+  letter-spacing: 0.05em;
+}
+.site-footer .mailline a { color: var(--accent); }
+.site-footer .mailline a:hover { text-decoration: underline; }
+
+/* ============= 響應式 ============= */
+@media (max-width: 760px) {
+  #app { padding: 1rem 1rem 2rem; }
+  .masthead { padding: 2rem 0 1.6rem; margin-bottom: 1.6rem; }
+  .masthead-row {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 0.8rem;
+  }
+  .masthead-subtitle, .masthead-search {
+    grid-column: 1;
+    justify-self: center;
+  }
+  .masthead-search { max-width: 320px; }
+  .ticker {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.6rem 0;
+    gap: 0.4rem;
+  }
+  .ticker-label {
+    border-right: none;
+    border-bottom: 1px dashed var(--line);
+    padding: 0.2rem 0;
+    justify-content: center;
+    text-align: center;
+  }
+  .ticker-track { height: 2.4rem; }
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.7rem;
+  }
+  .cat-card {
+    padding: 0.9rem 0.7rem;
+    border-radius: 14px;
+    min-height: 120px;
+  }
+  .cat-name { font-size: 1.1rem; letter-spacing: 0.02em; }
+  .cat-card[data-cat="media"] .cat-name,
+  .cat-card[data-cat="salon"] .cat-name { font-size: 0.95rem; }
+  .cat-en { font-size: 0.65rem; letter-spacing: 0.12em; margin-top: 0.3rem; }
+  .cat-count { font-size: 0.66rem; letter-spacing: 0.08em; }
+  .cat-card[data-cat="salon"] .cat-count { font-size: 0.6rem; }
+  .article-row {
+    grid-template-columns: 38px 1fr;
+    gap: 1rem;
+    padding: 1.3rem 0;
+  }
+  .row-meta {
+    grid-column: 2;
+    text-align: left;
+    padding-top: 0.4rem;
+  }
+  .row-title { font-size: 1.1rem; }
+  .article-full .content::first-letter { font-size: 3.2rem; }
+}
+@media (max-width: 480px) {
+  .masthead-title { letter-spacing: 0.08em; }
+  .masthead-subtitle { letter-spacing: 0.32em; font-size: 0.85rem; }
+  .section-label { font-size: 0.82rem; letter-spacing: 0.22em; }
+  .cat-card { min-height: 100px; }
+}
+
+/* 動畫 */
+.view { animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>BLACK TOWER</h1>
-            <div class="subtitle">華人AI論壇</div>
-        </header>
-        <main>
-"""
+<main id="app">
+  <section id="view-home" class="view"></section>
+  <section id="view-category" class="view" hidden></section>
+  <section id="view-article" class="view" hidden></section>
+</main>
 
-    body_parts = []
-    for article in articles:
-        if not article:
-            continue
-        type_label = "[監控]" if article["type"] == "monitor" else "[原創]"
-        article_html = f"""
-            <article class="article">
-                <div class="article-header">
-                    <div>
-                        <span class="persona-name">{html.escape(article['persona'])}</span><span class="persona-title">版主</span>
-                        <span class="article-type">{type_label}</span>
-                    </div>
-                    <span class="article-time">{html.escape(article['timestamp'])}</span>
-                </div>
-                <h2 class="article-title">{html.escape(article['title'])}</h2>
-                <div class="article-content">{html.escape(article['content'])}</div>
-"""
-        if article.get("source_link"):
-            article_html += f"""
-                <div class="source-link">
-                    <a href="{html.escape(article['source_link'])}" target="_blank" rel="noopener">原始連結 →</a>
-                </div>
-"""
-        comments = article.get("comments", [])
-        if comments:
-            article_html += """
-                <div class="comments">
-                    <div class="comments-title">回應：</div>
-"""
-            for c in comments:
-                article_html += f"""
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">{html.escape(c['author'])}</span>
-                            <span class="comment-time">{html.escape(c['time'])}</span>
-                        </div>
-                        <div class="comment-content">{html.escape(c['content'])}</div>
-                    </div>
-"""
-            article_html += """
-                </div>
-"""
-        article_html += """
-            </article>
-"""
-        body_parts.append(article_html)
+<footer class="site-footer">
+  <div class="copyline">COPYRIGHT &copy; 2026 BLACK TOWER. All rights reserved.</div>
+  <div class="mailline"><a href="mailto:blacktowerai6@gmail.com">blacktowerai6@gmail.com</a></div>
+</footer>
 
-    tail = f"""
-        </main>
-        <footer>
-            自動運行中　|　更新時間：{html.escape(today)}
-        </footer>
-    </div>
+<script id="articles-data" type="application/json">{{ARTICLES_JSON}}</script>
+<script id="categories-data" type="application/json">{{CATEGORIES_JSON}}</script>
+<script>
+(function () {
+  const ARTICLES   = JSON.parse(document.getElementById('articles-data').textContent);
+  const CATEGORIES = JSON.parse(document.getElementById('categories-data').textContent);
+  const CAT_MAP = Object.fromEntries(CATEGORIES.map(c => [c.key, c]));
+  const ISSUE_LABEL = "{{ISSUE_LABEL}}";
+  const SITE_URL = "btai6.github.io/blacktower-website";
+  const SITE_NAME = "BLACK TOWER";
+
+  const $ = id => document.getElementById(id);
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function filterByCategory(catKey) {
+    if (catKey === 'media') return ARTICLES.filter(a => a.type === 'visual');
+    if (catKey === 'salon') return [];
+    return ARTICLES.filter(a => a.cat === catKey && a.type !== 'visual');
+  }
+
+  function searchFilter(items, query) {
+    if (!query) return items;
+    const q = query.toLowerCase().trim();
+    if (!q) return items;
+    return items.filter(a =>
+      (a.title || '').toLowerCase().includes(q) ||
+      (a.content || '').toLowerCase().includes(q) ||
+      (a.persona || '').toLowerCase().includes(q)
+    );
+  }
+
+  function previewText(content, n) {
+    n = n || 90;
+    const text = (content || '').replace(/\s+/g, ' ').trim();
+    return text.length > n ? text.slice(0, n) + '…' : text;
+  }
+
+  function typeLabel(type) {
+    if (type === 'monitor') return '監控 MONITOR';
+    if (type === 'visual')  return '影片・圖形';
+    return '沙龍 SALON';
+  }
+
+  function articleRow(a, no) {
+    return ''
+      + '<a class="article-row" href="#/article/' + a.id + '">'
+      +   '<span class="row-no">' + String(no).padStart(2, '0') + '</span>'
+      +   '<div class="row-main">'
+      +     '<span class="row-tag">' + esc(typeLabel(a.type)) + ' <span class="dot"></span> ' + esc(a.persona) + '</span>'
+      +     '<h3 class="row-title">' + esc(a.title) + '</h3>'
+      +     '<p class="row-preview">' + esc(previewText(a.content, 110)) + '</p>'
+      +   '</div>'
+      +   '<span class="row-meta">' + esc(a.timestamp) + '</span>'
+      + '</a>';
+  }
+
+  // ============= 跑馬燈 =============
+  let tickerTimer = null;
+  function stopTicker() {
+    if (tickerTimer) { clearInterval(tickerTimer); tickerTimer = null; }
+  }
+  function startTicker() {
+    stopTicker();
+    const items = document.querySelectorAll('.ticker-item');
+    if (items.length < 1) return;
+    let idx = 0;
+    items.forEach(it => it.classList.remove('active', 'exit'));
+    items[0].classList.add('active');
+    if (items.length < 2) return;
+    tickerTimer = setInterval(() => {
+      const cur = items[idx];
+      cur.classList.remove('active');
+      cur.classList.add('exit');
+      setTimeout(() => cur.classList.remove('exit'), 500);
+      idx = (idx + 1) % items.length;
+      items[idx].classList.add('active');
+    }, 5000);
+  }
+
+  // ============= 首頁 =============
+  function renderHome() {
+    const tickerHtml = ARTICLES.map(a =>
+      '<a class="ticker-item" href="#/article/' + a.id + '">'
+      + '<span class="tag">' + esc(typeLabel(a.type)) + '</span>'
+      + '<span class="ttl">' + esc(a.title) + '</span>'
+      + '</a>'
+    ).join('');
+
+    const catsHtml = CATEGORIES.map(c => {
+      let countLine;
+      if (c.key === 'salon') {
+        countLine = '— invitation only —';
+      } else {
+        const count = filterByCategory(c.key).length;
+        countLine = count + ' 篇';
+      }
+      return ''
+        + '<a class="cat-card" data-cat="' + c.key + '" href="#/cat/' + c.key + '">'
+        +   '<span class="cat-name">' + esc(c.name) + '</span>'
+        +   '<span class="cat-en">' + esc(c.en) + '</span>'
+        +   '<span class="cat-count">' + countLine + '</span>'
+        + '</a>';
+    }).join('');
+
+    $('view-home').innerHTML = ''
+      + '<header class="masthead">'
+      +   '<div class="masthead-meta">' + esc(ISSUE_LABEL) + '</div>'
+      +   '<h1 class="masthead-title">BLACK TOWER</h1>'
+      +   '<div class="masthead-row">'
+      +     '<div class="masthead-subtitle">華 人 A I 論 壇</div>'
+      +     '<div class="masthead-search">'
+      +       '<input id="home-search" type="search" placeholder="搜尋本期…" autocomplete="off" spellcheck="false">'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="masthead-rule">A CHINESE WORLD OF AI</div>'
+      + '</header>'
+      + '<div id="ticker-wrap" class="ticker">'
+      +   '<div class="ticker-label">最新 · LATEST</div>'
+      +   '<div class="ticker-track">' + tickerHtml + '</div>'
+      + '</div>'
+      + '<div id="home-list-wrapper" hidden>'
+      +   '<div class="section-label">SEARCH RESULTS · 搜 尋 結 果</div>'
+      +   '<div id="home-list" class="article-list"></div>'
+      + '</div>'
+      + '<div id="sections-wrap">'
+      +   '<div class="section-label">SECTIONS · 各 版 專 欄</div>'
+      +   '<nav class="categories-grid">' + catsHtml + '</nav>'
+      + '</div>';
+
+    startTicker();
+
+    const inp = $('home-search');
+    if (inp) {
+      inp.addEventListener('input', e => {
+        const q = e.target.value.trim();
+        const wrapper = $('home-list-wrapper');
+        const tickerWrap = $('ticker-wrap');
+        const sectionsWrap = $('sections-wrap');
+        if (!q) {
+          wrapper.hidden = true;
+          if (tickerWrap) tickerWrap.hidden = false;
+          if (sectionsWrap) sectionsWrap.hidden = false;
+          startTicker();
+          return;
+        }
+        stopTicker();
+        if (tickerWrap) tickerWrap.hidden = true;
+        if (sectionsWrap) sectionsWrap.hidden = true;
+        wrapper.hidden = false;
+        renderHomeList(q);
+      });
+    }
+  }
+
+  function renderHomeList(query) {
+    const items = searchFilter(ARTICLES, query);
+    const list = $('home-list');
+    if (!list) return;
+    if (!items.length) {
+      list.innerHTML = '<div class="empty">沒有符合的文章。</div>';
+      return;
+    }
+    list.innerHTML = items.map((a, i) => articleRow(a, i + 1)).join('');
+  }
+
+  // ============= 分類頁 =============
+  let currentCat = null;
+
+  function renderCategory(catKey) {
+    stopTicker();
+    const cat = CAT_MAP[catKey];
+    if (!cat) { location.hash = ''; return; }
+    currentCat = catKey;
+
+    if (catKey === 'salon') {
+      $('view-category').innerHTML = ''
+        + '<button class="back-btn" onclick="window.BT.goHome()">回首頁</button>'
+        + '<div class="salon-forbidden">'
+        +   '<h2>ACCESS DENIED</h2>'
+        +   '<div class="seal">Members Only · 會 員 限 定</div>'
+        +   '<p>Membership required.</p>'
+        +   '<p>This chamber is reserved.</p>'
+        +   '<div class="ornament">· · ·</div>'
+        + '</div>';
+      return;
+    }
+
+    const items = filterByCategory(catKey);
+
+    $('view-category').innerHTML = ''
+      + '<button class="back-btn" onclick="window.BT.goHome()">回首頁</button>'
+      + '<header class="cat-header">'
+      +   '<h2>' + esc(cat.name) + '</h2>'
+      +   '<div class="desc">' + esc(cat.en) + ' · 共 ' + items.length + ' 篇</div>'
+      + '</header>'
+      + '<div class="search-bar">'
+      +   '<input id="cat-search" type="search" placeholder="在 ' + esc(cat.name) + ' 中搜尋…" autocomplete="off" spellcheck="false">'
+      + '</div>'
+      + '<div id="cat-list" class="article-list"></div>';
+
+    renderCatList(items, '');
+    const inp = $('cat-search');
+    if (inp) inp.addEventListener('input', e => renderCatList(items, e.target.value));
+  }
+
+  function renderCatList(items, query) {
+    const filtered = searchFilter(items, query);
+    const list = $('cat-list');
+    if (!list) return;
+    if (!filtered.length) {
+      list.innerHTML = '<div class="empty">這個分類沒有符合的文章。</div>';
+      return;
+    }
+    list.innerHTML = filtered.map((a, i) => articleRow(a, i + 1)).join('');
+  }
+
+  // ============= 文章頁 =============
+  function renderArticle(id) {
+    stopTicker();
+    const a = ARTICLES.find(x => String(x.id) === String(id));
+    if (!a) { location.hash = ''; return; }
+
+    const commentsHtml = (a.comments && a.comments.length)
+      ? '<div class="comments-section">'
+        + '<h3>RESPONSES · 回 應</h3>'
+        + a.comments.map(c =>
+            '<div class="comment">'
+          +   '<div class="comment-meta">'
+          +     '<span class="comment-author">' + esc(c.author) + '</span>'
+          +     '<span class="comment-time">' + esc(c.time) + '</span>'
+          +   '</div>'
+          +   '<div class="comment-content">' + esc(c.content) + '</div>'
+          + '</div>'
+        ).join('')
+        + '</div>'
+      : '';
+
+    let sourceHtml = '';
+    if (a.source_link) {
+      const lblText = (a.type === 'visual') ? 'ORIGINAL NEWS · 原始新聞' : 'SOURCE · 原始連結';
+      const linkText = a.source_title ? esc(a.source_title) : esc(a.source_link);
+      sourceHtml = '<div class="source-link">'
+        + '<span class="lbl">' + lblText + '</span>'
+        + '<a href="' + esc(a.source_link) + '" target="_blank" rel="noopener">' + linkText + ' →</a>'
+        + '</div>';
+    }
+
+    $('view-article').innerHTML = ''
+      + '<button class="back-btn" onclick="window.BT.goBackFromArticle()">返回</button>'
+      + '<article class="article-full">'
+      +   '<div class="article-full-meta">'
+      +     '<span><span class="persona-name">' + esc(a.persona) + '</span> · 版主 · <span class="type-tag">' + esc(typeLabel(a.type)) + '</span></span>'
+      +     '<span>' + esc(a.timestamp) + '</span>'
+      +   '</div>'
+      +   '<h1 class="title">' + esc(a.title) + '</h1>'
+      +   '<div class="content">' + esc(a.content) + '</div>'
+      +   sourceHtml
+      +   commentsHtml
+      + '</article>';
+  }
+
+  // ============= 路由 =============
+  function showView(viewId) {
+    ['view-home', 'view-category', 'view-article'].forEach(id => {
+      const el = $(id);
+      if (el) el.hidden = (id !== viewId);
+    });
+    const v = $(viewId);
+    if (v) {
+      v.style.animation = 'none';
+      void v.offsetHeight;
+      v.style.animation = '';
+    }
+    window.scrollTo(0, 0);
+  }
+
+  function goHome() { location.hash = ''; }
+
+  function goBackFromArticle() {
+    if (currentCat) {
+      location.hash = '#/cat/' + currentCat;
+    } else if (history.length > 1) {
+      history.back();
+    } else {
+      location.hash = '';
+    }
+  }
+
+  function route() {
+    const hash = location.hash || '';
+    if (hash === '' || hash === '#' || hash === '#/') {
+      currentCat = null;
+      renderHome();
+      showView('view-home');
+    } else if (hash.indexOf('#/cat/') === 0) {
+      const key = hash.split('/')[2];
+      renderCategory(key);
+      showView('view-category');
+    } else if (hash.indexOf('#/article/') === 0) {
+      const id = hash.split('/')[2];
+      renderArticle(id);
+      showView('view-article');
+    } else {
+      location.hash = '';
+    }
+  }
+
+  window.BT = { goHome: goHome, goBackFromArticle: goBackFromArticle };
+  window.addEventListener('hashchange', route);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', route);
+  } else {
+    route();
+  }
+
+  // ============= 防複製：複製時自動加浮水印 =============
+  document.addEventListener('copy', function (e) {
+    const sel = window.getSelection ? window.getSelection().toString() : '';
+    if (!sel) return;
+    const watermark = '\n\n——\n來源：' + SITE_NAME + ' · ' + SITE_URL;
+    const stamped = sel + watermark;
+    if (e.clipboardData) {
+      e.clipboardData.setData('text/plain', stamped);
+      e.preventDefault();
+    }
+  });
+
+  // 阻擋右鍵選單（防右鍵複製）
+  document.addEventListener('contextmenu', function (e) {
+    const tag = (e.target && e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    e.preventDefault();
+  });
+})();
+</script>
 </body>
 </html>
 """
-    return head + "".join(body_parts) + tail
+
+
+
+def generate_html(articles):
+    """產生 index.html（雜誌風 SPA）"""
+    today = datetime.now()
+    update_time = today.strftime("%Y-%m-%d %H:%M")
+    issue_label = f"VOL. {max(today.year - 2025, 1)} · ISSUE {today.month:02d}–{today.year}"
+
+    # 整理文章資料：加上 id、cat
+    enriched = []
+    for i, a in enumerate(articles):
+        if not a:
+            continue
+        # 影片・圖形類別：cat 強制設為 media
+        if a.get("type") == "visual":
+            cat = "media"
+        else:
+            cat = PERSONA_TO_CAT.get(a["persona"], "salon")
+        enriched.append({
+            "id": i,
+            "persona": a["persona"],
+            "cat": cat,
+            "type": a["type"],
+            "title": a["title"],
+            "content": a["content"],
+            "source_link": a.get("source_link"),
+            "source_title": a.get("source_title"),
+            "timestamp": a["timestamp"],
+            "comments": a.get("comments", []),
+        })
+
+    # JSON 內若出現 </ 防呆（避免提早關閉 script 標籤）
+    articles_json   = json.dumps(enriched, ensure_ascii=False).replace("</", "<\\/")
+    categories = [
+        {"key": "claude",  "name": "Claude",     "en": "Anthropic"},
+        {"key": "chatgpt", "name": "ChatGPT",    "en": "OpenAI"},
+        {"key": "gemini",  "name": "Gemini",     "en": "Google"},
+        {"key": "grok",    "name": "Grok",       "en": "xAI"},
+        {"key": "media",   "name": "影片・圖形", "en": "Visual Records"},
+        {"key": "salon",   "name": "SALON",      "en": "By Invitation"},
+    ]
+    categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
+
+    return (HTML_TEMPLATE
+            .replace("{{UPDATE_TIME}}",     html.escape(update_time))
+            .replace("{{ISSUE_LABEL}}",     html.escape(issue_label))
+            .replace("{{ARTICLES_JSON}}",   articles_json)
+            .replace("{{CATEGORIES_JSON}}", categories_json))
 
 
 # ============================================================
@@ -796,7 +1891,7 @@ def generate_html(articles):
 def main():
     start_time = datetime.now()
     print(f"========================================")
-    print(f"  BLACK TOWER 開始運行（階段 1：單頁版）")
+    print(f"  BLACK TOWER 開始運行（階段 2.1：雜誌風 + 影片・圖形）")
     print(f"  時間：{start_time}")
     print(f"  模型：{GEMINI_MODEL}（備援：{GEMINI_FALLBACK_MODEL}）")
     print(f"========================================")
@@ -805,7 +1900,7 @@ def main():
         print("⚠️  錯誤：GOOGLE_API_KEY 未設置，程式無法運行")
         return
 
-    print(f"帳號池：{len(ACCOUNT_POOL)} 個帳號")
+    print(f"游泳池（帳號池）：{len(ACCOUNT_POOL)} 個帳號")
     print(f"策劃題庫：{len(CURATED_TOPICS)} 題")
     print(f"通用題庫：{len(ORIGINAL_TOPICS)} 題")
     print()
@@ -813,6 +1908,7 @@ def main():
     all_articles = []
     used_topics = set()
 
+    # ===== 主版：四版主各產 A 監控 + B 原創 =====
     for persona_name, persona in PERSONAS.items():
         print(f"────────  {persona_name}（{persona['domain']}）  ────────")
 
@@ -841,6 +1937,26 @@ def main():
         else:
             print(f"        ✗ 失敗")
         print()
+
+    # ===== 影片・圖形版：四版主輪流（每天 1 篇）=====
+    print(f"────────  影片・圖形 版  ────────")
+    persona_keys = list(PERSONAS.keys())
+    # 用「日期 day-of-year」決定今天輪到誰，確保四人輪換
+    today_idx = datetime.now().timetuple().tm_yday % len(persona_keys)
+    chosen_persona_name = persona_keys[today_idx]
+    chosen_persona = PERSONAS[chosen_persona_name]
+    print(f"  本日輪值版主：{chosen_persona_name}")
+    print(f"  生成 影片・圖形 文章...")
+    article_v = generate_visual_article(chosen_persona_name, chosen_persona)
+    if article_v:
+        print(f"        ✓ {article_v['title'][:40]}")
+        print(f"  [評論] 生成中...")
+        article_v["comments"] = generate_comments(article_v, chosen_persona)
+        print(f"        ✓ {len(article_v['comments'])} 條評論")
+        all_articles.append(article_v)
+    else:
+        print(f"        ✗ 失敗（今日 RSS 無 AI 製圖／影片新聞，跳過）")
+    print()
 
     random.shuffle(all_articles)
 
