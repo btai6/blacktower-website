@@ -86,6 +86,69 @@ ACCOUNT_POOL = list(dict.fromkeys(ACCOUNT_POOL))
 
 
 # ============================================================
+# 香港帳號池（50 個，三種風格混用）
+# ============================================================
+HK_ACCOUNTS = [
+    # 英文名 + 數字
+    "Jason852", "Kelvin_HK", "Amy2024", "Eric_852", "Cathy99",
+    "Ray_HK", "Sam886", "Vivian_HK", "Ken888", "Ada_HK",
+    "Tony852", "Joey_HK", "Henry99", "Mandy852", "Steven_HK",
+    "Yannie888", "Patrick_HK",
+    # 拼音 + 數字
+    "waikit99", "siuying_hk", "chuenming852", "kayee99", "tszchun_hk",
+    "mingfai852", "hoyan_hk", "wingsze99", "kahei852", "yannok_hk",
+    "shumching99", "wingyu852", "tinlok_hk", "manching99", "chunyu852",
+    "winkit_hk", "fonglam99",
+    # 混搭（中英混合）
+    "阿明_MingHK", "肥仔Ray", "阿珊_852", "KK_HK", "Ben仔99",
+    "佩佩_PuiPui", "阿傑_Jay", "細路Sam", "Mei姐_HK", "Tom_852",
+    "阿龍Long", "小佳JiaJia", "Pat仔_HK", "阿翔Cheung", "嘉欣_KaYan",
+    "Bobby_HK",
+]
+HK_ACCOUNTS = list(dict.fromkeys(HK_ACCOUNTS))
+
+
+# ============================================================
+# 澳洲二代留學生帳號池（30 個）
+# ============================================================
+AU_ACCOUNTS = [
+    # 男生
+    "Liam_C", "Ethan.W", "Lucas.L", "Aiden_W", "Noah.C",
+    "Liam.Syd", "Ethan_Mel", "Lucas.Bri", "Aiden_Per", "Noah.W",
+    "Liam_L", "Ethan.Chen", "Lucas_Au", "Aiden.Syd", "Noah_M",
+    # 女生
+    "Chloe.W", "Mia_C", "Isabella.L", "Harper_W", "Zoe.In.Syd",
+    "Chloe_C", "Mia.W", "Isabella_Au", "Harper.L", "Zoe_Mel",
+    "Chloe.Bri", "Mia.Liu", "Isabella_C", "Harper.Wong", "Zoe.Lam",
+]
+AU_ACCOUNTS = list(dict.fromkeys(AU_ACCOUNTS))
+
+
+# ============================================================
+# 香港人評論風格說明
+# ============================================================
+HK_COMMENT_STYLE_BASE = """香港人風格：
+- 務實犬儒，看破不說破，但會吐槽
+- 中英夾雜（效率型，專業詞用英文）：message, data, update, quality, point, check, source, run, work 等
+- 適度粵語詞：講真、咁、好似、梗係、唔好、係咁、邊個、呢個、嗰個、唔
+- 零書面語助詞，不用「呢、吧、嗎」這類結尾
+- 半開玩笑式冷幽默，帶諷刺但不惡毒
+- 不寫長篇大論，講完就走"""
+
+
+# ============================================================
+# 澳洲二代留學生評論風格說明
+# ============================================================
+AU_COMMENT_STYLE = """澳洲二代留學生風格：
+- 中文流利但思維西化，輕鬆隨性、不太激動
+- 中英夾雜（詞窮型）：randomly, literally, basically, vibe, weird, kind of, honestly 自然出現
+- 結尾偶爾用澳洲俚語：Cheers, No worries, Cheers mate!, Arvo
+- 可少量用生活感 emoji：🌊 ☕️ ☀️ 🛹（不是每條都用，自然出現）
+- 不用網路梗（不要 XDDD、wwww、www 那種）
+- 字數正常：50-100 字"""
+
+
+# ============================================================
 # 四個版主配置（全部走 Gemini，用 system prompt 區分個性）
 # ============================================================
 PERSONAS = {
@@ -637,7 +700,7 @@ COMMENT_PERSONALITIES = [
 ]
 
 
-def generate_one_comment(article, persona, comment_style):
+def generate_one_comment(article, persona, comment_style, max_tokens=1500):
     """單獨向 Gemini 要一條評論"""
     system_prompt = f"""你要扮演論壇上一個普通網友，針對版主「{persona['domain']}」的文章寫一條評論。
 
@@ -647,13 +710,17 @@ def generate_one_comment(article, persona, comment_style):
 {comment_style}
 
 【評論規則】
-- 50~200 字，口語化
-- 要有情緒：吐槽、反駁、認同、延伸、抬槓、冷笑、不耐煩
+- 口語化，要有情緒：吐槽、反駁、認同、延伸、抬槓、冷笑、不耐煩
 - 不准開頭寫「我同意」、「很有道理」、「個人覺得」、「樓主說得對」這種 AI 廢話
 - 不准用「===」、「---」這種分隔符號
 - 不准寫多條評論，只寫一條
 - 直接切入話題，像真實人類在打字
 - 結尾不要總結、不要金句、自然結束
+
+【嚴禁使用的符號（正常人打字不會用這些）】
+不准出現：「」『』《》〈〉
+要引用就直接用內容，或用英文引號 ""
+書名、術語直接寫，不加任何引號
 
 【輸出格式】
 直接輸出評論內容，不要加帳號名字、不要加編號、不要加任何說明文字、不要加引號。"""
@@ -671,7 +738,7 @@ def generate_one_comment(article, persona, comment_style):
         {"role": "user", "content": user_prompt},
     ]
 
-    result = call_gemini(messages, temperature=1.1, max_tokens=1500)
+    result = call_gemini(messages, temperature=1.1, max_tokens=max_tokens)
     if not result:
         return None
 
@@ -696,24 +763,58 @@ def generate_one_comment(article, persona, comment_style):
     # 去掉開頭結尾的引號
     text = text.strip('"').strip("「").strip("」").strip("『").strip("』").strip()
 
+    # ===== 禁止符號過濾（防呆）=====
+    # 即使 prompt 說了，AI 還是會偶爾用，這裡硬刪
+    forbidden_chars = ["「", "」", "『", "』", "《", "》", "〈", "〉"]
+    for ch in forbidden_chars:
+        text = text.replace(ch, "")
+
     return text if text else None
 
 
 def generate_comments(article, persona):
-    """生成 2-4 條評論，每條獨立呼叫 API"""
+    """生成 2-4 條評論，每條獨立呼叫 API
+    
+    帳號分流：
+    - 台灣帳號（ACCOUNT_POOL）：原本風格，50-200 字
+    - 香港帳號（HK_ACCOUNTS）：70% 超短(10-30字) / 30% 中篇(40-70字)
+    - 澳洲二代帳號（AU_ACCOUNTS）：詞窮中英夾雜，50-100 字
+    """
     num_comments = random.randint(2, 4)
-    if len(ACCOUNT_POOL) < num_comments:
+    
+    # 合併所有帳號池
+    all_accounts = ACCOUNT_POOL + HK_ACCOUNTS + AU_ACCOUNTS
+    if len(all_accounts) < num_comments:
         return []
-    selected_names = random.sample(ACCOUNT_POOL, num_comments)
-    selected_styles = random.sample(COMMENT_PERSONALITIES, num_comments)
+    selected_names = random.sample(all_accounts, num_comments)
 
     comments = []
-    for i in range(num_comments):
-        comment_text = generate_one_comment(article, persona, selected_styles[i])
+    for name in selected_names:
+        # 判斷帳號類型，套用對應風格
+        if name in HK_ACCOUNTS:
+            # 香港人：70% 超短、30% 中篇
+            if random.random() < 0.7:
+                # 超短模式：10-30 字
+                style = HK_COMMENT_STYLE_BASE + "\n\n【本條限制】極短回覆，10-30 字之間，講重點就走，不要囉嗦"
+                max_tokens = 200
+            else:
+                # 中篇模式：40-70 字
+                style = HK_COMMENT_STYLE_BASE + "\n\n【本條限制】中篇回覆，40-70 字之間，可以多吐幾句但不要寫長文"
+                max_tokens = 400
+        elif name in AU_ACCOUNTS:
+            # 澳洲二代：詞窮中英夾雜，50-100 字
+            style = AU_COMMENT_STYLE + "\n\n【本條限制】50-100 字"
+            max_tokens = 600
+        else:
+            # 台灣帳號：原本風格，50-200 字
+            style = random.choice(COMMENT_PERSONALITIES) + "\n\n【本條限制】50-200 字"
+            max_tokens = 1500
+
+        comment_text = generate_one_comment(article, persona, style, max_tokens)
         if not comment_text:
             continue
         comments.append({
-            "author": selected_names[i],
+            "author": name,
             "content": comment_text,
             "time": _random_comment_time(),
         })
@@ -1587,10 +1688,10 @@ a { color: inherit; text-decoration: none; }
     const catsHtml = CATEGORIES.map(c => {
       let countLine;
       if (c.key === 'salon') {
-        countLine = '— invitation only —';
+        countLine = 'private salon';
       } else {
         const count = filterByCategory(c.key).length;
-        countLine = count + ' 篇';
+        countLine = (count >= 1000 ? '999+' : count) + ' 篇';
       }
       return ''
         + '<a class="cat-card" data-cat="' + c.key + '" href="#/cat/' + c.key + '">'
@@ -1684,12 +1785,13 @@ a { color: inherit; text-decoration: none; }
     }
 
     const items = filterByCategory(catKey);
+    const itemsCountText = items.length >= 1000 ? '999+' : items.length;
 
     $('view-category').innerHTML = ''
       + '<button class="back-btn" onclick="window.BT.goHome()">回首頁</button>'
       + '<header class="cat-header">'
       +   '<h2>' + esc(cat.name) + '</h2>'
-      +   '<div class="desc">' + esc(cat.en) + ' · 共 ' + items.length + ' 篇</div>'
+      +   '<div class="desc">' + esc(cat.en) + ' · 共 ' + itemsCountText + ' 篇</div>'
       + '</header>'
       + '<div class="search-bar">'
       +   '<input id="cat-search" type="search" placeholder="在 ' + esc(cat.name) + ' 中搜尋…" autocomplete="off" spellcheck="false">'
@@ -1811,8 +1913,45 @@ a { color: inherit; text-decoration: none; }
     route();
   }
 
-  // ============= 防複製：複製時自動加浮水印 =============
+  // ============= 防複製：複製時自動加浮水印（可用 Ctrl+Shift+U 解鎖）=============
+  let copyUnlocked = false;
+  
+  // 鍵盤快捷鍵：Ctrl+Shift+U 切換解鎖狀態
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey && e.shiftKey && (e.key === 'U' || e.key === 'u')) {
+      e.preventDefault();
+      copyUnlocked = !copyUnlocked;
+      if (copyUnlocked) {
+        document.body.style.userSelect = 'text';
+        document.body.style.webkitUserSelect = 'text';
+        document.body.style.msUserSelect = 'text';
+        showLockToast('解鎖：可正常複製');
+      } else {
+        document.body.style.userSelect = '';
+        document.body.style.webkitUserSelect = '';
+        document.body.style.msUserSelect = '';
+        showLockToast('已上鎖：複製會加浮水印');
+      }
+    }
+  });
+
+  // 顯示一個淡入淡出的小提示
+  function showLockToast(msg) {
+    const t = document.createElement('div');
+    t.textContent = msg;
+    t.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);'
+      + 'background:rgba(26,26,26,0.92);color:#F4F1EA;padding:10px 22px;'
+      + 'border-radius:999px;font-size:0.9rem;letter-spacing:0.06em;z-index:9999;'
+      + 'transition:opacity 0.4s;font-family:var(--serif-tc);';
+    document.body.appendChild(t);
+    setTimeout(() => { t.style.opacity = '0'; }, 1500);
+    setTimeout(() => { t.remove(); }, 2000);
+  }
+
   document.addEventListener('copy', function (e) {
+    // 解鎖狀態：不加浮水印，正常複製
+    if (copyUnlocked) return;
+    
     const sel = window.getSelection ? window.getSelection().toString() : '';
     if (!sel) return;
     const watermark = '\n\n——\n來源：' + SITE_NAME + ' · ' + SITE_URL;
@@ -1825,6 +1964,9 @@ a { color: inherit; text-decoration: none; }
 
   // 阻擋右鍵選單（防右鍵複製）
   document.addEventListener('contextmenu', function (e) {
+    // 解鎖狀態：允許右鍵
+    if (copyUnlocked) return;
+    
     const tag = (e.target && e.target.tagName || '').toLowerCase();
     if (tag === 'input' || tag === 'textarea') return;
     e.preventDefault();
@@ -1873,8 +2015,8 @@ def generate_html(articles):
         {"key": "chatgpt", "name": "ChatGPT",    "en": "OpenAI"},
         {"key": "gemini",  "name": "Gemini",     "en": "Google"},
         {"key": "grok",    "name": "Grok",       "en": "xAI"},
-        {"key": "media",   "name": "影片・圖形", "en": "Visual Records"},
-        {"key": "salon",   "name": "SALON",      "en": "By Invitation"},
+        {"key": "media",   "name": "VISUAL",     "en": "IMAGERY"},
+        {"key": "salon",   "name": "SALON",      "en": "BY INVITATION"},
     ]
     categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
 
@@ -1883,6 +2025,46 @@ def generate_html(articles):
             .replace("{{ISSUE_LABEL}}",     html.escape(issue_label))
             .replace("{{ARTICLES_JSON}}",   articles_json)
             .replace("{{CATEGORIES_JSON}}", categories_json))
+
+
+# ============================================================
+# 文章累積：歷史檔案讀寫
+# ============================================================
+ARTICLES_HISTORY_FILE = "articles_history.json"
+MAX_HISTORY_ARTICLES = 5000  # 最多保留 5000 篇，超過就刪掉最舊的
+
+
+def load_articles_history():
+    """讀取累積的歷史文章。檔案不存在或格式錯誤時回傳空列表"""
+    if not os.path.exists(ARTICLES_HISTORY_FILE):
+        print(f"  [歷史] {ARTICLES_HISTORY_FILE} 不存在，從零開始")
+        return []
+    try:
+        with open(ARTICLES_HISTORY_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, list):
+                print(f"  [歷史] 已載入 {len(data)} 篇舊文章")
+                return data
+            else:
+                print(f"  [歷史] 格式錯誤，從零開始")
+                return []
+    except Exception as e:
+        print(f"  [歷史] 讀取失敗：{e}，從零開始")
+        return []
+
+
+def save_articles_history(articles):
+    """儲存累積的歷史文章。超過上限就刪掉最舊的"""
+    # 截斷到上限（保留最新的 N 篇）
+    if len(articles) > MAX_HISTORY_ARTICLES:
+        print(f"  [歷史] 超過 {MAX_HISTORY_ARTICLES} 篇上限，截斷最舊的")
+        articles = articles[-MAX_HISTORY_ARTICLES:]
+    try:
+        with open(ARTICLES_HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(articles, f, ensure_ascii=False, indent=2)
+        print(f"  [歷史] 已儲存 {len(articles)} 篇到 {ARTICLES_HISTORY_FILE}")
+    except Exception as e:
+        print(f"  [歷史] 儲存失敗：{e}")
 
 
 # ============================================================
@@ -1900,12 +2082,18 @@ def main():
         print("⚠️  錯誤：GOOGLE_API_KEY 未設置，程式無法運行")
         return
 
-    print(f"游泳池（帳號池）：{len(ACCOUNT_POOL)} 個帳號")
+    print(f"游泳池（帳號池）：{len(ACCOUNT_POOL) + len(HK_ACCOUNTS) + len(AU_ACCOUNTS)} 個帳號")
+    print(f"  └─ 台灣 {len(ACCOUNT_POOL)} / 香港 {len(HK_ACCOUNTS)} / 澳洲二代 {len(AU_ACCOUNTS)}")
     print(f"策劃題庫：{len(CURATED_TOPICS)} 題")
     print(f"通用題庫：{len(ORIGINAL_TOPICS)} 題")
     print()
 
-    all_articles = []
+    # ===== 讀取歷史文章 =====
+    print("──────── 讀取歷史 ────────")
+    history_articles = load_articles_history()
+    print()
+
+    new_articles = []
     used_topics = set()
 
     # ===== 主版：四版主各產 A 監控 + B 原創 =====
@@ -1920,7 +2108,7 @@ def main():
             print(f"  [評論] 生成中...")
             article_a["comments"] = generate_comments(article_a, persona)
             print(f"        ✓ {len(article_a['comments'])} 條評論")
-            all_articles.append(article_a)
+            new_articles.append(article_a)
         else:
             print(f"        ✗ 失敗")
 
@@ -1933,7 +2121,7 @@ def main():
             print(f"  [評論] 生成中...")
             article_b["comments"] = generate_comments(article_b, persona)
             print(f"        ✓ {len(article_b['comments'])} 條評論")
-            all_articles.append(article_b)
+            new_articles.append(article_b)
         else:
             print(f"        ✗ 失敗")
         print()
@@ -1953,12 +2141,23 @@ def main():
         print(f"  [評論] 生成中...")
         article_v["comments"] = generate_comments(article_v, chosen_persona)
         print(f"        ✓ {len(article_v['comments'])} 條評論")
-        all_articles.append(article_v)
+        new_articles.append(article_v)
     else:
         print(f"        ✗ 失敗（今日 RSS 無 AI 製圖／影片新聞，跳過）")
     print()
 
-    random.shuffle(all_articles)
+    # ===== 合併歷史 + 新文章 =====
+    print("──────── 合併歷史與新文章 ────────")
+    print(f"  本次新生成：{len(new_articles)} 篇")
+    print(f"  歷史累積：{len(history_articles)} 篇")
+    
+    # 新文章在前（最新的在最上面）
+    all_articles = new_articles + history_articles
+    print(f"  合計：{len(all_articles)} 篇")
+    
+    # 儲存歷史
+    save_articles_history(all_articles)
+    print()
 
     print(f"========================================")
     print(f"  共產出 {len(all_articles)} 篇文章")
