@@ -1873,7 +1873,7 @@ def generate_html(articles):
         {"key": "chatgpt", "name": "ChatGPT",    "en": "OpenAI"},
         {"key": "gemini",  "name": "Gemini",     "en": "Google"},
         {"key": "grok",    "name": "Grok",       "en": "xAI"},
-        {"key": "media",   "name": "影片・圖形", "en": "Visual Records"},
+        {"key": "media",   "name": "VISUAL", "en": "Visual Records"},
         {"key": "salon",   "name": "SALON",      "en": "By Invitation"},
     ]
     categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
