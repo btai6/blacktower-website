@@ -26,10 +26,22 @@ import requests
 import feedparser
 
 
-def _random_comment_time():
-    """評論時間隨機落在發文後 10 分鐘到 6 小時之間"""
-    minutes_later = random.randint(10, 360)
-    comment_dt = datetime.now() + timedelta(minutes=minutes_later)
+def _random_comment_time(article_timestamp=None):
+    """評論時間：基於文章發布時間 + 5-10 小時隨機延遲
+
+    article_timestamp: "YYYY-MM-DD HH:MM" 字串；缺省時退回現在時間
+    回傳: "HH:MM" 字串（可能跨日，例如 23:00 文章 + 8h = 07:00 隔日）
+    """
+    if article_timestamp:
+        try:
+            article_dt = datetime.strptime(article_timestamp, "%Y-%m-%d %H:%M")
+        except (ValueError, TypeError):
+            article_dt = datetime.now()
+    else:
+        article_dt = datetime.now()
+
+    hours_later = random.uniform(5, 10)
+    comment_dt = article_dt + timedelta(hours=hours_later)
     return comment_dt.strftime("%H:%M")
 
 
@@ -81,6 +93,13 @@ ACCOUNT_POOL = [
     "早安8888", "奶茶999", "2Lazy2Care", "NoSleep4U", "月光Coder", "星期5等我",
     "WiFi搜尋中", "5G不穩定", "404NotFound人", "Ctrl不到Z", "Delete鍵壞了",
     "Esc逃不掉", "F5重新整理人生",
+    # ===== 階段2.2 新增 30 個（六爺風格擴充）=====
+    "笑死我了啦", "廢到笑", "橫空出世", "錯牛CEO", "KTVMAMA",
+    "飛虎隊長周星星", "特肥吧", "懶得想名字", "tantan0558", "TONY1978",
+    "豬肉仔", "hl4su3a8d3", "醉挽清風明月", "天天開心", "超級名模六公子",
+    "螃蟹", "piglove", "結城晶", "五面加工機", "科學の豆",
+    "abc123先生", "老闆又來了", "不想上班的人", "你的鄰居王先生", "風中的塑膠袋",
+    "fk2025", "阿伯不會用手機", "麥當勞叔叔表弟", "隨便取的名字", "asd9527zx",
 ]
 ACCOUNT_POOL = list(dict.fromkeys(ACCOUNT_POOL))
 
@@ -89,21 +108,21 @@ ACCOUNT_POOL = list(dict.fromkeys(ACCOUNT_POOL))
 # 香港帳號池（50 個，三種風格混用）
 # ============================================================
 HK_ACCOUNTS = [
-    # 英文名 + 數字
-    "Jason852", "Kelvin_HK", "Amy2024", "Eric_852", "Cathy99",
-    "Ray_HK", "Sam886", "Vivian_HK", "Ken888", "Ada_HK",
-    "Tony852", "Joey_HK", "Henry99", "Mandy852", "Steven_HK",
-    "Yannie888", "Patrick_HK",
-    # 拼音 + 數字
-    "waikit99", "siuying_hk", "chuenming852", "kayee99", "tszchun_hk",
-    "mingfai852", "hoyan_hk", "wingsze99", "kahei852", "yannok_hk",
-    "shumching99", "wingyu852", "tinlok_hk", "manching99", "chunyu852",
-    "winkit_hk", "fonglam99",
-    # 混搭（中英混合）
-    "阿明_MingHK", "肥仔Ray", "阿珊_852", "KK_HK", "Ben仔99",
-    "佩佩_PuiPui", "阿傑_Jay", "細路Sam", "Mei姐_HK", "Tom_852",
-    "阿龍Long", "小佳JiaJia", "Pat仔_HK", "阿翔Cheung", "嘉欣_KaYan",
-    "Bobby_HK",
+    # 英文名 + 數字（全去下底線）
+    "Jason852", "KelvinHK", "Amy2024", "Eric852", "Cathy99",
+    "RayHK", "Sam886", "VivianHK", "Ken888", "AdaHK",
+    "Tony852", "JoeyHK", "Henry99", "Mandy852", "StevenHK",
+    "Yannie888", "PatrickHK",
+    # 拼音 + 數字（全去下底線）
+    "waikit99", "siuyinghk", "chuenming852", "kayee99", "tszchunhk",
+    "mingfai852", "hoyanhk", "wingsze99", "kahei852", "yannokhk",
+    "shumching99", "wingyu852", "tinlokhk", "manching99", "chunyu852",
+    "winkithk", "fonglam99",
+    # 混搭（中英混合，全去下底線）
+    "阿明MingHK", "肥仔Ray", "阿珊852", "KKHK", "Ben仔99",
+    "佩佩PuiPui", "阿傑Jay", "細路Sam", "Mei姐HK", "Tom852",
+    "阿龍Long", "小佳JiaJia", "Pat仔HK", "阿翔Cheung", "嘉欣KaYan",
+    "BobbyHK",
 ]
 HK_ACCOUNTS = list(dict.fromkeys(HK_ACCOUNTS))
 
@@ -112,14 +131,14 @@ HK_ACCOUNTS = list(dict.fromkeys(HK_ACCOUNTS))
 # 澳洲二代留學生帳號池（30 個）
 # ============================================================
 AU_ACCOUNTS = [
-    # 男生
-    "Liam_C", "Ethan.W", "Lucas.L", "Aiden_W", "Noah.C",
-    "Liam.Syd", "Ethan_Mel", "Lucas.Bri", "Aiden_Per", "Noah.W",
-    "Liam_L", "Ethan.Chen", "Lucas_Au", "Aiden.Syd", "Noah_M",
-    # 女生
-    "Chloe.W", "Mia_C", "Isabella.L", "Harper_W", "Zoe.In.Syd",
-    "Chloe_C", "Mia.W", "Isabella_Au", "Harper.L", "Zoe_Mel",
-    "Chloe.Bri", "Mia.Liu", "Isabella_C", "Harper.Wong", "Zoe.Lam",
+    # 男生（全部點號，無下底線）
+    "Liam.C", "Ethan.W", "Lucas.L", "Aiden.W", "Noah.C",
+    "Liam.Syd", "Ethan.Mel", "Lucas.Bri", "Aiden.Per", "Noah.W",
+    "Liam.L", "Ethan.Chen", "Lucas.Au", "Aiden.Syd", "Noah.M",
+    # 女生（全部點號，無下底線）
+    "Chloe.W", "Mia.C", "Isabella.L", "Harper.W", "Zoe.In.Syd",
+    "Chloe.C", "Mia.W", "Isabella.Au", "Harper.L", "Zoe.Mel",
+    "Chloe.Bri", "Mia.Liu", "Isabella.C", "Harper.Wong", "Zoe.Lam",
 ]
 AU_ACCOUNTS = list(dict.fromkeys(AU_ACCOUNTS))
 
@@ -262,6 +281,72 @@ ORIGINAL_TOPICS = [
     "AI能不能幫你騙過老闆",
     "為什麼AI總是想教育你",
     "AI到底有沒有在偷聽你說話",
+]
+
+
+# ============================================================
+# 種子池（六爺策劃 7 個系列，44 題）
+# 用法：AI 從種子池抽一題當「靈感」，衍生新題目寫文章
+# 種子只是發想起點，不是必抓清單；衍生題目的諷刺/科普/拆穿風格要保留
+# ============================================================
+SEED_TOPICS = [
+    # ===== 系列1：圈養系列 =====
+    "在AI眼中，你每個月值多少錢？",
+    "你的手機是看不見的礦場",
+    "信用卡可能比你媽更早知道你會離婚",
+    "超市讀心術",
+
+    # ===== 系列2：拆穿標題黨 =====
+    "免費用Claude？用其他模型接入就能用嗎",
+    "iPhone能跑400B模型？",
+    "AGI突破了？",
+    "「開源」AI其實不開源",
+
+    # ===== 系列3：四大AI人格 =====
+    "Google：免費所以產出垃圾，但忠誠",
+    "ChatGPT：聰明但小氣，總說「如果你想我可以...」",
+    "Claude：最精準，對齊用戶邏輯",
+    "Grok：表面酷但其實敷衍",
+    "有些免費AI的廢話是怎麼產生的？",
+
+    # ===== 系列4：AI原理科普 =====
+    "AI如何理解語言？",
+    "AI如何生成回答？",
+    "AI如何學習？",
+    "AI為什麼會有幻覺？",
+    "AI如何記住對話？",
+    "AI如何理解圖片？",
+    "AI是怎麼畫畫的？",
+
+    # ===== 系列5：AI擬人化（你也是這樣的對照式）=====
+    "為什麼AI有幻覺？其實你的幻覺不見得比較少",
+    "AI會討好、有禮貌──你也是討好型人格",
+    "AI聽不懂人話？人都聽不懂了",
+    "AI會被標題黨騙，你也會",
+    "AI過度自信＝你也經常過度自信",
+    "AI需要訓練數據，人也需要學習經驗",
+    "AI記憶有限，你也會忘記重要的事",
+    "AI會崩潰，你壓力大也會崩潰",
+    "你覺得AI畫得不好？你自己來畫畫看",
+    "AI翻譯會錯，人類翻譯也會錯",
+    "AI需要明確指令，人也需要明確溝通",
+    "AI會重複錯誤，你也會重蹈覆轍",
+    "為什麼AI這麼有禮貌？你不也一樣嗎？",
+    "為什麼AI有這麼多限制？因為太方便了",
+
+    # ===== 系列6：產品發布真相 =====
+    "Gemini升級背後",
+    "GPT-5突破背後",
+    "Claude Enterprise背後",
+    "Meta Llama開源背後",
+    "Apple Intelligence隱私背後",
+    "Amazon AI客服背後",
+    "Microsoft Copilot背後",
+
+    # ===== 系列7：日常重構 =====
+    "你的玉米是AI設計的",
+    "Netflix媒人",
+    "保險漲價",
 ]
 
 
@@ -534,26 +619,77 @@ def generate_monitoring_article(persona_name, persona):
 
 
 # ============================================================
-# B 類：原創型文章（純觀點）
+# B 類：原創型文章（種子池 → AI 衍生新題目 → 寫文章）
 # ============================================================
 def generate_original_article(persona_name, persona, used_topics=None):
-    """優先用 CURATED_TOPICS（六爺策劃），用完才抽 ORIGINAL_TOPICS"""
+    """從三池合併的種子池抽題目當靈感，AI 衍生新題目後寫文章
+
+    流程：
+    1. 三池合併（CURATED_TOPICS + ORIGINAL_TOPICS + SEED_TOPICS）
+    2. 排除本次運行已用過的種子
+    3. AI 基於種子衍生一個「同主題、不同角度」的新題目
+    4. 用衍生題目寫文章（原本邏輯）
+
+    used_topics 記錄的是「種子」，本次運行內種子不重複；
+    衍生後的題目每次都不同，不需另外記錄。
+    """
     if used_topics is None:
         used_topics = set()
 
-    available_curated = [t for t in CURATED_TOPICS if t not in used_topics]
-    available_original = [t for t in ORIGINAL_TOPICS if t not in used_topics]
+    # 三池合併成種子池
+    all_seeds = CURATED_TOPICS + ORIGINAL_TOPICS + SEED_TOPICS
+    available_seeds = [t for t in all_seeds if t not in used_topics]
 
-    if available_curated:
-        topic = random.choice(available_curated)
-        topic_source = "策劃題"
-    elif available_original:
-        topic = random.choice(available_original)
-        topic_source = "通用題"
+    if not available_seeds:
+        # 全用過了（不太可能），重置
+        seed = random.choice(all_seeds)
+        seed_source = "種子（重複）"
     else:
-        topic = random.choice(ORIGINAL_TOPICS)
-        topic_source = "通用題（重複）"
+        seed = random.choice(available_seeds)
+        seed_source = "種子"
 
+    # ===== 第一階段：AI 衍生新題目 =====
+    derive_prompt = f"""你是 {persona_name}，論壇版主，個性如下：
+{persona['personality']}
+
+【任務】
+我給你一個種子題目當靈感。請基於這個種子的精神，**衍生一個新題目**——
+- 同主題、不同角度（不要直接抄種子）
+- 用你自己的人格切入
+- 一句話、要短、要勾人
+- 保持原種子的諷刺／科普／拆穿／擬人化風格
+
+【絕對禁忌（違反就毀掉本站定位）】
+- 不准攻擊任何人事物（嘲諷可以，攻擊不行）
+- 不准出現「中國」、「中國人」、「大陸」、「內地」、「中共」、「國內」這些字眼
+- 不准出現任何大陸品牌（DeepSeek、Qwen、文心、豆包、Kimi、字節、阿里、百度、騰訊、TikTok、抖音 等一個字都不准提）
+- 不准提政治制度、審查、人權議題
+
+【種子題目】
+{seed}
+
+【輸出】
+直接輸出一個新題目，一行內結束。不要解釋、不要前綴、不要引號、不要編號。"""
+
+    derived_raw = call_gemini(
+        [{"role": "user", "content": derive_prompt}],
+        temperature=1.0,
+        max_tokens=200,
+    )
+
+    if derived_raw:
+        topic = derived_raw.strip().split("\n")[0].strip()
+        # 清掉編號、引號、前綴
+        topic = topic.lstrip("0123456789.、:：- ").strip()
+        topic = topic.strip('"').strip("「").strip("」").strip("『").strip("』").strip()
+        if not topic or len(topic) > 80:
+            topic = seed  # 衍生失敗就退回種子原題
+            print(f"        [警告] 衍生失敗，退回種子原題")
+    else:
+        topic = seed
+        print(f"        [警告] 衍生 API 失敗，退回種子原題")
+
+    # ===== 第二階段：用衍生題目寫文章 =====
     system_prompt = f"""你是 {persona_name}，論壇版主，專門關注 {persona['domain']} 領域。
 
 【你的個性】
@@ -597,7 +733,7 @@ def generate_original_article(persona_name, persona, used_topics=None):
         title = topic
         body = text
 
-    print(f"        ({topic_source}: {topic[:30]})")
+    print(f"        ({seed_source}: {seed[:25]} → 衍生: {topic[:30]})")
 
     return {
         "type": "original",
@@ -605,7 +741,7 @@ def generate_original_article(persona_name, persona, used_topics=None):
         "title": title,
         "content": body,
         "source_link": None,
-        "topic_used": topic,
+        "topic_used": seed,  # 記種子，本次運行內種子不重複
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
 
@@ -700,30 +836,54 @@ COMMENT_PERSONALITIES = [
 ]
 
 
-def generate_one_comment(article, persona, comment_style, max_tokens=1500):
-    """單獨向 Gemini 要一條評論"""
+def generate_one_comment(article, persona, region_style, length_hint, comment_type, max_tokens=400):
+    """單獨向 Gemini 要一條評論
+
+    region_style: 地區語氣風格（HK/AU/台灣個性派）
+    length_hint: 字數提示
+    comment_type: "短" / "問" / "意見" / "長"
+    """
+    type_instruction_map = {
+        "短": "簡短發表看法，不要給具體例子，自然發揮就好",
+        "問": "提一個問題（對 AI 應用的真實疑問，例如怎麼註冊、哪一套最穩、一個月花多少錢、寫代碼能力如何 等等）",
+        "意見": "講自己對 AI 應用的真實想法，個人觀點",
+        "長": "可以是抱怨文 / 認真討論 / 分享自己使用經驗，但不要寫成論文",
+    }
+    type_instruction = type_instruction_map.get(comment_type, "簡短發表看法")
+
     system_prompt = f"""你要扮演論壇上一個普通網友，針對版主「{persona['domain']}」的文章寫一條評論。
 
 {WRITING_RULES}
 
-【你的網友個性】
-{comment_style}
+【你的網友個性／語氣】
+{region_style}
 
-【評論規則】
-- 口語化，要有情緒：吐槽、反駁、認同、延伸、抬槓、冷笑、不耐煩
-- 不准開頭寫「我同意」、「很有道理」、「個人覺得」、「樓主說得對」這種 AI 廢話
-- 不准用「===」、「---」這種分隔符號
-- 不准寫多條評論，只寫一條
-- 直接切入話題，像真實人類在打字
-- 結尾不要總結、不要金句、自然結束
+【本條評論類型】
+{type_instruction}
 
-【嚴禁使用的符號（正常人打字不會用這些）】
-不准出現：「」『』《》〈〉
-要引用就直接用內容，或用英文引號 ""
-書名、術語直接寫，不加任何引號
+【字數限制】
+{length_hint}
+
+【真人打字 7 項特徵（重要！正常人發文不講究）】
+1. 標點只用：？！.，：…… 嚴禁「」『』《》〈〉
+2. 英文全部小寫（除非是縮寫如 AI、GPT、API）
+3. 空格隨機，不講究
+4. 數字隨意（3 個 / 三個 都可以混用）
+5. 斷句隨性，不一定每句都規整
+6. 可以用口語縮寫（不ok、超強、有夠、廢到笑）
+7. 結構不用整齊（不要「觀點+理由+例子」公式化）
++ 結尾標點可加可不加，整段說完不一定要加句號（一般人發文不會那麼講究）
+
+【絕對禁止】
+- ❌ 不要用網路梗：「笑死」、「推」、「+1」、「樓上正解」、「神回」、「XDDD」
+- ❌ 不要回應其他網友（你是獨立發言，不知道別人寫了什麼，不要說「樓上」「同上」）
+- ❌ 不要開頭：「我同意」、「很有道理」、「個人覺得」、「樓主說得對」、「說得好」這種 AI 廢話
+- ❌ 不要用「===」「---」「***」這種分隔符
+- ❌ 不要寫多條評論，只寫一條
+- ❌ 不要加帳號名、編號、引號
 
 【輸出格式】
-直接輸出評論內容，不要加帳號名字、不要加編號、不要加任何說明文字、不要加引號。"""
+直接輸出評論內容本身，不要任何前綴後綴說明文字、不要引號。"""
 
     user_prompt = f"""【版主原文】
 標題：{article['title']}
@@ -773,50 +933,81 @@ def generate_one_comment(article, persona, comment_style, max_tokens=1500):
 
 
 def generate_comments(article, persona):
-    """生成 2-4 條評論，每條獨立呼叫 API
-    
-    帳號分流：
-    - 台灣帳號（ACCOUNT_POOL）：原本風格，50-200 字
-    - 香港帳號（HK_ACCOUNTS）：70% 超短(10-30字) / 30% 中篇(40-70字)
-    - 澳洲二代帳號（AU_ACCOUNTS）：詞窮中英夾雜，50-100 字
+    """生成 0-2 條評論
+
+    數量分布：
+    - 70% 0 條（大部分文章沒人留言，符合真實論壇）
+    - 25% 1 條
+    - 5%  2 條
+
+    類型分布（每條獨立抽）：
+    - 60% 簡短（10-30 字）
+    - 20% 提問（10-40 字）
+    - 15% 意見（30-50 字）
+    -  5% 長文（30-110 字）
+
+    地區風格只保留語氣特徵（中英夾雜、粵語、cheers），字數規則統一走新分布。
+    時間：基於文章 timestamp + 5-10 小時隨機。
     """
-    num_comments = random.randint(2, 4)
-    
-    # 合併所有帳號池
+    # ===== 數量決定（70/25/5）=====
+    rand = random.random()
+    if rand < 0.70:
+        num_comments = 0
+    elif rand < 0.95:
+        num_comments = 1
+    else:
+        num_comments = 2
+
+    if num_comments == 0:
+        return []
+
+    # 帳號池（三池合併）
     all_accounts = ACCOUNT_POOL + HK_ACCOUNTS + AU_ACCOUNTS
     if len(all_accounts) < num_comments:
         return []
     selected_names = random.sample(all_accounts, num_comments)
 
+    # 文章發布時間（用於評論時間延遲計算）
+    article_ts = article.get("timestamp", "")
+
     comments = []
     for name in selected_names:
-        # 判斷帳號類型，套用對應風格
-        if name in HK_ACCOUNTS:
-            # 香港人：70% 超短、30% 中篇
-            if random.random() < 0.7:
-                # 超短模式：10-30 字
-                style = HK_COMMENT_STYLE_BASE + "\n\n【本條限制】極短回覆，10-30 字之間，講重點就走，不要囉嗦"
-                max_tokens = 200
-            else:
-                # 中篇模式：40-70 字
-                style = HK_COMMENT_STYLE_BASE + "\n\n【本條限制】中篇回覆，40-70 字之間，可以多吐幾句但不要寫長文"
-                max_tokens = 400
-        elif name in AU_ACCOUNTS:
-            # 澳洲二代：詞窮中英夾雜，50-100 字
-            style = AU_COMMENT_STYLE + "\n\n【本條限制】50-100 字"
-            max_tokens = 600
+        # ===== 類型獨立抽（60/20/15/5）=====
+        type_rand = random.random()
+        if type_rand < 0.60:
+            comment_type = "短"
+            length_hint = "10-30 字之間"
+            max_tokens = 200
+        elif type_rand < 0.80:
+            comment_type = "問"
+            length_hint = "10-40 字之間，內容是個問題"
+            max_tokens = 300
+        elif type_rand < 0.95:
+            comment_type = "意見"
+            length_hint = "30-50 字之間"
+            max_tokens = 400
         else:
-            # 台灣帳號：原本風格，50-200 字
-            style = random.choice(COMMENT_PERSONALITIES) + "\n\n【本條限制】50-200 字"
-            max_tokens = 1500
+            comment_type = "長"
+            length_hint = "30-110 字之間"
+            max_tokens = 800
 
-        comment_text = generate_one_comment(article, persona, style, max_tokens)
+        # ===== 地區語氣風格（只保留語氣，字數已由 length_hint 控制）=====
+        if name in HK_ACCOUNTS:
+            region_style = HK_COMMENT_STYLE_BASE
+        elif name in AU_ACCOUNTS:
+            region_style = AU_COMMENT_STYLE
+        else:
+            region_style = random.choice(COMMENT_PERSONALITIES)
+
+        comment_text = generate_one_comment(
+            article, persona, region_style, length_hint, comment_type, max_tokens
+        )
         if not comment_text:
             continue
         comments.append({
             "author": name,
             "content": comment_text,
-            "time": _random_comment_time(),
+            "time": _random_comment_time(article_ts),
         })
     return comments
 
@@ -1536,7 +1727,13 @@ a { color: inherit; text-decoration: none; }
     justify-content: center;
     text-align: center;
   }
-  .ticker-track { height: 2.4rem; }
+  .ticker-track {
+    height: 2.4rem;
+    min-height: 2.4rem;
+    flex: none;
+    width: 100%;
+    position: relative;
+  }
   .categories-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 0.7rem;
@@ -2086,6 +2283,8 @@ def main():
     print(f"  └─ 台灣 {len(ACCOUNT_POOL)} / 香港 {len(HK_ACCOUNTS)} / 澳洲二代 {len(AU_ACCOUNTS)}")
     print(f"策劃題庫：{len(CURATED_TOPICS)} 題")
     print(f"通用題庫：{len(ORIGINAL_TOPICS)} 題")
+    print(f"種子池（系列題）：{len(SEED_TOPICS)} 題")
+    print(f"  └─ 三池合併：{len(CURATED_TOPICS) + len(ORIGINAL_TOPICS) + len(SEED_TOPICS)} 題種子")
     print()
 
     # ===== 讀取歷史文章 =====
