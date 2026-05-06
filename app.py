@@ -936,9 +936,9 @@ def generate_comments(article, persona):
     """生成 0-2 條評論
 
     數量分布：
-    - 70% 0 條（大部分文章沒人留言，符合真實論壇）
-    - 25% 1 條
-    - 5%  2 條
+    - 35% 0 條（大部分文章沒人留言，符合真實論壇）
+    - 50% 1 條
+    - 15%  2 條
 
     類型分布（每條獨立抽）：
     - 60% 簡短（10-30 字）
@@ -951,9 +951,9 @@ def generate_comments(article, persona):
     """
     # ===== 數量決定（70/25/5）=====
     rand = random.random()
-    if rand < 0.70:
+    if rand < 0.35:
         num_comments = 0
-    elif rand < 0.95:
+    elif rand < 0.85:
         num_comments = 1
     else:
         num_comments = 2
