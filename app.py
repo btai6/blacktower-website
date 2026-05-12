@@ -903,7 +903,7 @@ def generate_one_comment(article, persona, region_style, length_hint, comment_ty
         return None
 
     # 清理可能殘留的雜訊
-   text = result.strip()
+    text = result.strip()
 
     # ===== 過濾 Gemini 思考框架洩漏 =====
     lines_raw = text.split('\n')
