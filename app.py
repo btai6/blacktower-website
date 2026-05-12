@@ -987,19 +987,19 @@ def generate_comments(article, persona):
         if type_rand < 0.60:
             comment_type = "短"
             length_hint = "10-30 字之間"
-            max_tokens = 200
+            max_tokens = 350
         elif type_rand < 0.80:
             comment_type = "問"
             length_hint = "10-40 字之間，內容是個問題"
-            max_tokens = 300
+            max_tokens = 450
         elif type_rand < 0.95:
             comment_type = "意見"
             length_hint = "30-50 字之間"
-            max_tokens = 400
+            max_tokens = 550
         else:
             comment_type = "長"
             length_hint = "30-110 字之間"
-            max_tokens = 800
+            max_tokens = 900
 
         # ===== 地區語氣風格（只保留語氣，字數已由 length_hint 控制）=====
         if name in HK_ACCOUNTS:
