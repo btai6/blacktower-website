@@ -24,7 +24,7 @@ import time
 from datetime import datetime, timedelta
 import requests
 import feedparser
-
+import re
 
 def _random_comment_time(article_timestamp=None):
     """評論時間：基於文章發布時間 + 5-10 小時隨機延遲
@@ -905,6 +905,16 @@ def generate_one_comment(article, persona, region_style, length_hint, comment_ty
     # 清理可能殘留的雜訊
     text = result.strip()
 
+    # ===== 過濾 Gemini 思考框架洩漏 =====
+    lines_raw = text.split('\n')
+    clean_lines = [l for l in lines_raw
+                   if not re.match(r'^\*?\s*Idea\s*\d+', l.strip(), re.IGNORECASE)
+                   and not re.match(r'^\*?\s*Cost:', l.strip(), re.IGNORECASE)
+                   and not re.match(r'^\*?\s*Option\s*\d+', l.strip(), re.IGNORECASE)]
+    text = '\n'.join(clean_lines).strip()
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)
+    text = re.sub(r'(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)', r'\1', text)
+
     # 如果有 === 之類的分隔符（防呆），只取第一段
     for sep in ["===", "---", "***", "###"]:
         if sep in text:
@@ -977,19 +987,19 @@ def generate_comments(article, persona):
         if type_rand < 0.60:
             comment_type = "短"
             length_hint = "10-30 字之間"
-            max_tokens = 200
+            max_tokens = 350
         elif type_rand < 0.80:
             comment_type = "問"
             length_hint = "10-40 字之間，內容是個問題"
-            max_tokens = 300
+            max_tokens = 450
         elif type_rand < 0.95:
             comment_type = "意見"
             length_hint = "30-50 字之間"
-            max_tokens = 400
+            max_tokens = 550
         else:
             comment_type = "長"
             length_hint = "30-110 字之間"
-            max_tokens = 800
+            max_tokens = 900
 
         # ===== 地區語氣風格（只保留語氣，字數已由 length_hint 控制）=====
         if name in HK_ACCOUNTS:
