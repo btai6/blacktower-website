@@ -903,7 +903,17 @@ def generate_one_comment(article, persona, region_style, length_hint, comment_ty
         return None
 
     # 清理可能殘留的雜訊
-    text = result.strip()
+   text = result.strip()
+
+    # ===== 過濾 Gemini 思考框架洩漏 =====
+    lines_raw = text.split('\n')
+    clean_lines = [l for l in lines_raw
+                   if not re.match(r'^\*?\s*Idea\s*\d+', l.strip(), re.IGNORECASE)
+                   and not re.match(r'^\*?\s*Cost:', l.strip(), re.IGNORECASE)
+                   and not re.match(r'^\*?\s*Option\s*\d+', l.strip(), re.IGNORECASE)]
+    text = '\n'.join(clean_lines).strip()
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)
+    text = re.sub(r'(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)', r'\1', text)
 
     # 如果有 === 之類的分隔符（防呆），只取第一段
     for sep in ["===", "---", "***", "###"]:
