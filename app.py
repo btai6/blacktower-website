@@ -883,7 +883,8 @@ def generate_one_comment(article, persona, region_style, length_hint, comment_ty
 - ❌ 不要加帳號名、編號、引號
 
 【輸出格式】
-直接輸出評論內容本身，不要任何前綴後綴說明文字、不要引號。"""
+直接輸出評論內容本身，不要任何前綴後綴說明文字、不要引號。
+不要思考過程，不要寫 Idea 1/Idea 2/Cost/Option，不要規劃結構，不要解釋你要寫什麼，直接寫評論。"""
 
     user_prompt = f"""【版主原文】
 標題：{article['title']}
@@ -987,19 +988,19 @@ def generate_comments(article, persona):
         if type_rand < 0.60:
             comment_type = "短"
             length_hint = "10-30 字之間"
-            max_tokens = 350
+            max_tokens = 700
         elif type_rand < 0.80:
             comment_type = "問"
             length_hint = "10-40 字之間，內容是個問題"
-            max_tokens = 450
+            max_tokens = 800
         elif type_rand < 0.95:
             comment_type = "意見"
             length_hint = "30-50 字之間"
-            max_tokens = 550
+            max_tokens = 1000
         else:
             comment_type = "長"
             length_hint = "30-110 字之間"
-            max_tokens = 900
+            max_tokens = 1500
 
         # ===== 地區語氣風格（只保留語氣，字數已由 length_hint 控制）=====
         if name in HK_ACCOUNTS:
