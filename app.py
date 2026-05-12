@@ -24,7 +24,7 @@ import time
 from datetime import datetime, timedelta
 import requests
 import feedparser
-
+import re
 
 def _random_comment_time(article_timestamp=None):
     """評論時間：基於文章發布時間 + 5-10 小時隨機延遲
