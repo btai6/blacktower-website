@@ -1911,7 +1911,6 @@ a { color: inherit; text-decoration: none; }
 
     $('view-home').innerHTML = ''
       + '<header class="masthead">'
-      +   '<div class="masthead-meta">' + esc(ISSUE_LABEL) + '</div>'
       +   '<h1 class="masthead-title">BLACK TOWER</h1>'
       +   '<div class="masthead-row">'
       +     '<div class="masthead-subtitle">華 人 A I 論 壇</div>'
