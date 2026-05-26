@@ -1024,12 +1024,15 @@ a { color: inherit; text-decoration: none; }
       if (c.key === 'salon') {
         countLine = 'private salon';
       } else if (c.key === 'media') {
-        countLine = '';  // 韭菜加工區不顯示張數，避免手機版壓到下方
+        countLine = '';  // 韭菜加工區不顯示張數
       } else {
         const count = filterByCategory(c.key).length;
         countLine = (count >= 1000 ? '999+' : count) + ' 篇';
       }
-      const countHtml = countLine ? '<span class="cat-count">' + countLine + '</span>' : '';
+      // 韭菜加工區用透明佔位元素保持 3 行結構，讓 YOUTUBE SHORTS 跟 SALON 的 BY INVITATION 垂直對齊
+      const countHtml = countLine
+        ? '<span class="cat-count">' + countLine + '</span>'
+        : '<span class="cat-count" aria-hidden="true" style="visibility:hidden">.</span>';
       return ''
         + '<a class="cat-card" data-cat="' + c.key + '" href="#/cat/' + c.key + '">'
         +   '<span class="cat-name">' + esc(c.name) + '</span>'
