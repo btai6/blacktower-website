@@ -509,6 +509,7 @@ def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
         "generationConfig": {
             "temperature": temperature,
             "maxOutputTokens": max_tokens,
+            "thinkingConfig": {"thinkingBudget": 0},
         },
     }
     if system_prompt:
@@ -646,6 +647,16 @@ def generate_monitoring_article(persona_name, persona):
 【本篇任務：三塊拆解結構】
 針對下面這則新聞，寫一篇 1500 字左右的監控型文章，嚴格分成三塊。
 
+▍輸出格式（必須遵守）
+第一行：一個改寫的中文標題（不是直譯英文標題，是改寫成黑塔風格）
+- 要短、要狠、要勾人，跟新聞核心有關
+- 不要用「快訊」「重磅」「驚！」這種農場標題
+- 不要用冒號分段（XX：XX）
+- 不准加 # 號、不准加引號、不准加書名號
+- 不准超過 30 個字
+第二行：空一行
+第三行起：正文三塊
+
 ▍第一塊：事實切片（400-500 字）
 只寫客觀事實。誰、做了什麼、什麼時候、影響什麼。
 不准帶情緒、不准帶觀點、不准用形容詞渲染。
@@ -671,14 +682,14 @@ def generate_monitoring_article(persona_name, persona):
 
     user_prompt = f"""【新聞素材】
 
-標題：{news['title']}
+標題（英文原文，僅供參考，不要直接複製）：{news['title']}
 
 內容：
 {news['summary']}
 
 來源連結：{news['link']}
 
-開始寫吧。三塊結構嚴格遵守，但不要寫小標題。"""
+開始寫吧。第一行先給中文標題，空一行，再寫三塊。三塊結構嚴格遵守，不要寫小標題。"""
 
     messages = [
         {"role": "system", "content": system_prompt},
@@ -689,12 +700,24 @@ def generate_monitoring_article(persona_name, persona):
     if not content:
         return None
 
+    # 解析：第一行 = 中文標題、其餘 = 正文
+    text = content.strip()
+    lines = text.split("\n", 1)
+    title = lines[0].strip().lstrip("#").strip().strip("「」\"'《》【】")
+    body = lines[1].strip() if len(lines) > 1 else text
+
+    # Fallback：標題解析失敗或太長就退回原英文標題
+    if not title or len(title) > 60:
+        title = news["title"]
+        body = text
+
     return {
         "type": "monitor",
         "persona": persona_name,
-        "title": news["title"],
-        "content": content.strip(),
+        "title": title,
+        "content": body,
         "source_link": news["link"],
+        "source_title": news["title"],  # 保留英文原標題，文章頁顯示在連結文字
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
 
