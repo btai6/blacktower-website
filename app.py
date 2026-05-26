@@ -2134,16 +2134,17 @@ a { color: inherit; text-decoration: none; }
       if (c.key === 'salon') {
         countLine = 'private salon';
       } else if (c.key === 'media') {
-        countLine = (VIDEOS.length >= 1000 ? '999+' : VIDEOS.length) + ' 部';
+        countLine = '';  // 韭菜加工區不顯示張數，避免手機版壓到下方
       } else {
         const count = filterByCategory(c.key).length;
         countLine = (count >= 1000 ? '999+' : count) + ' 篇';
       }
+      const countHtml = countLine ? '<span class="cat-count">' + countLine + '</span>' : '';
       return ''
         + '<a class="cat-card" data-cat="' + c.key + '" href="#/cat/' + c.key + '">'
         +   '<span class="cat-name">' + esc(c.name) + '</span>'
         +   '<span class="cat-en">' + esc(c.en) + '</span>'
-        +   '<span class="cat-count">' + countLine + '</span>'
+        +   countHtml
         + '</a>';
     }).join('');
 
