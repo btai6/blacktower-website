@@ -1421,9 +1421,9 @@ a { color: inherit; text-decoration: none; }
   transition: color 0.35s;
 }
 .cat-card[data-cat="media"] .cat-name {
-  font-family: var(--serif-tc);
+  font-family: var(--serif-en);
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
 }
 .cat-card[data-cat="salon"] .cat-name {
   font-family: var(--serif-en);
@@ -1991,6 +1991,7 @@ a { color: inherit; text-decoration: none; }
   .cat-card[data-cat="media"] .cat-name,
   .cat-card[data-cat="salon"] .cat-name { font-size: 0.95rem; }
   .cat-en { font-size: 0.65rem; letter-spacing: 0.12em; margin-top: 0.3rem; }
+  .cat-card[data-cat="media"] .cat-en { font-size: 0.58rem; letter-spacing: 0.08em; }
   .cat-count { font-size: 0.66rem; letter-spacing: 0.08em; }
   .cat-card[data-cat="salon"] .cat-count { font-size: 0.6rem; }
   .article-row {
@@ -2540,7 +2541,7 @@ def generate_html(articles, videos=None):
         {"key": "chatgpt", "name": "ChatGPT",    "en": "OpenAI"},
         {"key": "gemini",  "name": "Gemini",     "en": "Google"},
         {"key": "grok",    "name": "Grok",       "en": "xAI"},
-        {"key": "media",   "name": "韭菜加工區",     "en": "LEEK FACTORY"},
+        {"key": "media",   "name": "LEEK FACTORY",     "en": "YOUTUBE SHORTS"},
         {"key": "salon",   "name": "SALON",      "en": "BY INVITATION"},
     ]
     categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
