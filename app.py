@@ -58,6 +58,87 @@ GEMINI_FALLBACK_MODEL = "gemini-3.1-flash-lite-preview"
 
 
 # ============================================================
+# YouTube 韭菜加工區（從 @黑塔AI 頻道自動抓取短視頻）
+# ============================================================
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
+YOUTUBE_CHANNEL_HANDLE = "@黑塔AI"
+_YOUTUBE_CHANNEL_ID_CACHE = None
+
+
+def fetch_youtube_channel_id():
+    """從頻道 handle 取得 channel ID（會快取）"""
+    global _YOUTUBE_CHANNEL_ID_CACHE
+    if _YOUTUBE_CHANNEL_ID_CACHE:
+        return _YOUTUBE_CHANNEL_ID_CACHE
+    if not YOUTUBE_API_KEY:
+        return None
+    try:
+        url = "https://www.googleapis.com/youtube/v3/channels"
+        params = {
+            "part": "id",
+            "forHandle": YOUTUBE_CHANNEL_HANDLE,
+            "key": YOUTUBE_API_KEY,
+        }
+        r = requests.get(url, params=params, timeout=15)
+        data = r.json()
+        if data.get("items"):
+            _YOUTUBE_CHANNEL_ID_CACHE = data["items"][0]["id"]
+            print(f"  [YouTube] 頻道 ID: {_YOUTUBE_CHANNEL_ID_CACHE}")
+            return _YOUTUBE_CHANNEL_ID_CACHE
+        print(f"  [YouTube] 頻道查詢失敗：{data}")
+    except Exception as e:
+        print(f"  [YouTube] 頻道 ID 抓取失敗: {e}")
+    return None
+
+
+def fetch_youtube_videos(max_results=50):
+    """抓取頻道全部影片（最多 50 部，從新到舊）
+
+    回傳: [{"vid": "...", "title": "...", "published": "YYYY-MM-DD", "ratio": "916"}]
+    ratio 預設 "916"（直式短影片），以後出橫幅影片可手動覆寫
+    """
+    if not YOUTUBE_API_KEY:
+        print(f"  [YouTube] 跳過：YOUTUBE_API_KEY 未設置")
+        return []
+
+    channel_id = fetch_youtube_channel_id()
+    if not channel_id:
+        print(f"  [YouTube] 跳過：無法取得頻道 ID")
+        return []
+
+    try:
+        url = "https://www.googleapis.com/youtube/v3/search"
+        params = {
+            "part": "snippet",
+            "channelId": channel_id,
+            "maxResults": max_results,
+            "order": "date",
+            "type": "video",
+            "key": YOUTUBE_API_KEY,
+        }
+        r = requests.get(url, params=params, timeout=15)
+        data = r.json()
+        videos = []
+        for item in data.get("items", []):
+            vid = item.get("id", {}).get("videoId")
+            snippet = item.get("snippet", {})
+            title = snippet.get("title", "").strip()
+            published = snippet.get("publishedAt", "")
+            if vid and title:
+                videos.append({
+                    "vid": vid,
+                    "title": title,
+                    "published": published[:10] if published else "",
+                    "ratio": "916",  # 預設直式；以後橫幅手動改 "169"
+                })
+        print(f"  [YouTube] 抓到 {len(videos)} 部影片")
+        return videos
+    except Exception as e:
+        print(f"  [YouTube] 影片抓取失敗: {e}")
+        return []
+
+
+# ============================================================
 # 220 個帳號池
 # ============================================================
 ACCOUNT_POOL = [
@@ -1032,6 +1113,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO Meta -->
+<meta name="description" content="BLACK TOWER 黑塔 - 華人AI論壇，繁體中文AI評論媒體，深度觀察 Claude、ChatGPT、Gemini、Grok 四大平台">
+<meta name="keywords" content="華人AI論壇,華人AI圈,中文AI評論,AI觀察媒體,繁體中文AI,黑塔AI,BLACK TOWER">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
 <title>BLACK TOWER · 華人AI論壇</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1710,6 +1802,147 @@ a { color: inherit; text-decoration: none; }
 .site-footer .mailline a { color: var(--accent); }
 .site-footer .mailline a:hover { text-decoration: underline; }
 
+/* ============= 韭菜加工區（影片列表 + Modal）============= */
+.video-list {
+  list-style: none;
+  padding: 0;
+}
+.video-row {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 1.4rem;
+  align-items: baseline;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  cursor: pointer;
+  transition: background 0.2s, padding-left 0.25s;
+}
+.video-row:first-child { border-top: 1px solid var(--line-soft); }
+.video-row:hover {
+  background: rgba(160, 48, 32, 0.04);
+  padding-left: 0.4rem;
+}
+.video-row .row-no {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.08em;
+}
+.video-row .video-title {
+  font-family: var(--serif-tc);
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+  min-width: 0;
+}
+.video-row .video-date {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* Modal 遮罩 */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInModal 0.25s ease;
+}
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal 內容容器（桌機：置中 9:16 box）*/
+.video-modal-box {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  max-height: 90vh;
+  max-width: 90vw;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.video-modal-box.ratio-169 {
+  width: 720px;
+  height: 405px;
+}
+.video-modal-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* 關閉按鈕 ✕ */
+.video-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.video-modal-close:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* 手機：9:16 全屏 */
+@media (max-width: 760px) {
+  .video-modal-box {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  .video-modal-box.ratio-169 {
+    width: 100vw;
+    height: 56.25vw;
+    max-height: 100vh;
+  }
+  .video-modal-close {
+    top: max(12px, env(safe-area-inset-top, 12px));
+    right: max(12px, env(safe-area-inset-right, 12px));
+    width: 42px;
+    height: 42px;
+    font-size: 1.35rem;
+  }
+  .video-row {
+    grid-template-columns: 38px 1fr;
+    gap: 1rem;
+    padding: 1.3rem 0;
+  }
+  .video-row .video-date {
+    grid-column: 2;
+    text-align: left;
+    padding-top: 0.4rem;
+  }
+  .video-row .video-title { font-size: 1.05rem; }
+}
+
 /* ============= 響應式 ============= */
 @media (max-width: 760px) {
   #app { padding: 1rem 1rem 2rem; }
@@ -1802,10 +2035,12 @@ a { color: inherit; text-decoration: none; }
 
 <script id="articles-data" type="application/json">{{ARTICLES_JSON}}</script>
 <script id="categories-data" type="application/json">{{CATEGORIES_JSON}}</script>
+<script id="videos-data" type="application/json">{{VIDEOS_JSON}}</script>
 <script>
 (function () {
   const ARTICLES   = JSON.parse(document.getElementById('articles-data').textContent);
   const CATEGORIES = JSON.parse(document.getElementById('categories-data').textContent);
+  const VIDEOS     = JSON.parse(document.getElementById('videos-data').textContent);
   const CAT_MAP = Object.fromEntries(CATEGORIES.map(c => [c.key, c]));
   const ISSUE_LABEL = "{{ISSUE_LABEL}}";
   const SITE_URL = "btai6.github.io/blacktower-website";
@@ -1820,7 +2055,7 @@ a { color: inherit; text-decoration: none; }
   }
 
   function filterByCategory(catKey) {
-    if (catKey === 'media') return ARTICLES.filter(a => a.type === 'visual');
+    if (catKey === 'media') return [];  // 韭菜加工區走 VIDEOS，不走 ARTICLES
     if (catKey === 'salon') return [];
     return ARTICLES.filter(a => a.cat === catKey && a.type !== 'visual');
   }
@@ -1897,6 +2132,8 @@ a { color: inherit; text-decoration: none; }
       let countLine;
       if (c.key === 'salon') {
         countLine = 'private salon';
+      } else if (c.key === 'media') {
+        countLine = (VIDEOS.length >= 1000 ? '999+' : VIDEOS.length) + ' 部';
       } else {
         const count = filterByCategory(c.key).length;
         countLine = (count >= 1000 ? '999+' : count) + ' 篇';
@@ -1991,6 +2228,11 @@ a { color: inherit; text-decoration: none; }
       return;
     }
 
+    if (catKey === 'media') {
+      renderLeekFactory(cat);
+      return;
+    }
+
     const items = filterByCategory(catKey);
     const itemsCountText = items.length >= 1000 ? '999+' : items.length;
 
@@ -2008,6 +2250,79 @@ a { color: inherit; text-decoration: none; }
     renderCatList(items, '');
     const inp = $('cat-search');
     if (inp) inp.addEventListener('input', e => renderCatList(items, e.target.value));
+  }
+
+  // ============= 韭菜加工區（影片列表 + Modal）=============
+  function renderLeekFactory(cat) {
+    const cnt = VIDEOS.length >= 1000 ? '999+' : VIDEOS.length;
+    let listHtml;
+    if (!VIDEOS.length) {
+      listHtml = '<div class="empty">韭菜還沒長出來，等一下。</div>';
+    } else {
+      listHtml = '<ul class="video-list">' + VIDEOS.map((v, i) =>
+        '<li class="video-row" data-vid="' + esc(v.vid) + '" data-ratio="' + esc(v.ratio || '916') + '" data-title="' + esc(v.title) + '">'
+        + '<span class="row-no">' + String(i + 1).padStart(2, '0') + '</span>'
+        + '<span class="video-title">' + esc(v.title) + '</span>'
+        + '<span class="video-date">' + esc(v.published || '') + '</span>'
+        + '</li>'
+      ).join('') + '</ul>';
+    }
+
+    $('view-category').innerHTML = ''
+      + '<button class="back-btn" onclick="window.BT.goHome()">回首頁</button>'
+      + '<header class="cat-header">'
+      +   '<h2>' + esc(cat.name) + '</h2>'
+      +   '<div class="desc">' + esc(cat.en) + ' · 共 ' + cnt + ' 部</div>'
+      + '</header>'
+      + listHtml;
+
+    document.querySelectorAll('.video-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const vid = row.getAttribute('data-vid');
+        const ratio = row.getAttribute('data-ratio') || '916';
+        const title = row.getAttribute('data-title') || '';
+        openVideoModal(vid, ratio, title);
+      });
+    });
+  }
+
+  function openVideoModal(vid, ratio, title) {
+    // 觸發 GA 事件（如果 GA 已載入）
+    if (typeof gtag === 'function') {
+      gtag('event', 'video_click', {
+        video_id: vid,
+        video_title: title,
+      });
+    }
+
+    const ratioClass = (ratio === '169') ? 'ratio-169' : '';
+    const modal = document.createElement('div');
+    modal.className = 'video-modal';
+    modal.id = 'video-modal-instance';
+    modal.innerHTML = ''
+      + '<div class="video-modal-box ' + ratioClass + '">'
+      +   '<button class="video-modal-close" aria-label="關閉">✕</button>'
+      +   '<iframe '
+      +     'src="https://www.youtube.com/embed/' + encodeURIComponent(vid) + '?autoplay=1&playsinline=1&rel=0" '
+      +     'allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" '
+      +     'allowfullscreen></iframe>'
+      + '</div>';
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+
+    const close = () => {
+      const el = document.getElementById('video-modal-instance');
+      if (el) el.remove();
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', escHandler);
+    };
+    const escHandler = (e) => { if (e.key === 'Escape') close(); };
+
+    modal.querySelector('.video-modal-close').addEventListener('click', close);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) close();
+    });
+    document.addEventListener('keydown', escHandler);
   }
 
   function renderCatList(items, query) {
@@ -2186,8 +2501,10 @@ a { color: inherit; text-decoration: none; }
 
 
 
-def generate_html(articles):
+def generate_html(articles, videos=None):
     """產生 index.html（雜誌風 SPA）"""
+    if videos is None:
+        videos = []
     today = datetime.now()
     update_time = today.strftime("%Y-%m-%d %H:%M")
     issue_label = f"VOL. {max(today.year - 2025, 1)} · ISSUE {today.month:02d}–{today.year}"
@@ -2217,12 +2534,13 @@ def generate_html(articles):
 
     # JSON 內若出現 </ 防呆（避免提早關閉 script 標籤）
     articles_json   = json.dumps(enriched, ensure_ascii=False).replace("</", "<\\/")
+    videos_json     = json.dumps(videos, ensure_ascii=False).replace("</", "<\\/")
     categories = [
         {"key": "claude",  "name": "Claude",     "en": "Anthropic"},
         {"key": "chatgpt", "name": "ChatGPT",    "en": "OpenAI"},
         {"key": "gemini",  "name": "Gemini",     "en": "Google"},
         {"key": "grok",    "name": "Grok",       "en": "xAI"},
-        {"key": "media",   "name": "VISUAL",     "en": "IMAGERY"},
+        {"key": "media",   "name": "韭菜加工區",     "en": "LEEK FACTORY"},
         {"key": "salon",   "name": "SALON",      "en": "BY INVITATION"},
     ]
     categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
@@ -2231,6 +2549,7 @@ def generate_html(articles):
             .replace("{{UPDATE_TIME}}",     html.escape(update_time))
             .replace("{{ISSUE_LABEL}}",     html.escape(issue_label))
             .replace("{{ARTICLES_JSON}}",   articles_json)
+            .replace("{{VIDEOS_JSON}}",     videos_json)
             .replace("{{CATEGORIES_JSON}}", categories_json))
 
 
@@ -2335,24 +2654,9 @@ def main():
             print(f"        ✗ 失敗")
         print()
 
-    # ===== 影片・圖形版：四版主輪流（每天 1 篇）=====
-    print(f"────────  影片・圖形 版  ────────")
-    persona_keys = list(PERSONAS.keys())
-    # 用「日期 day-of-year」決定今天輪到誰，確保四人輪換
-    today_idx = datetime.now().timetuple().tm_yday % len(persona_keys)
-    chosen_persona_name = persona_keys[today_idx]
-    chosen_persona = PERSONAS[chosen_persona_name]
-    print(f"  本日輪值版主：{chosen_persona_name}")
-    print(f"  生成 影片・圖形 文章...")
-    article_v = generate_visual_article(chosen_persona_name, chosen_persona)
-    if article_v:
-        print(f"        ✓ {article_v['title'][:40]}")
-        print(f"  [評論] 生成中...")
-        article_v["comments"] = generate_comments(article_v, chosen_persona)
-        print(f"        ✓ {len(article_v['comments'])} 條評論")
-        new_articles.append(article_v)
-    else:
-        print(f"        ✗ 失敗（今日 RSS 無 AI 製圖／影片新聞，跳過）")
+    # ===== 韭菜加工區：抓 YouTube 短影片（取代舊的影片・圖形版）=====
+    print(f"────────  韭菜加工區（YouTube 抓取）  ────────")
+    leek_videos = fetch_youtube_videos(max_results=50)
     print()
 
     # ===== 合併歷史 + 新文章 =====
@@ -2369,9 +2673,9 @@ def main():
     print()
 
     print(f"========================================")
-    print(f"  共產出 {len(all_articles)} 篇文章")
+    print(f"  共產出 {len(all_articles)} 篇文章 / {len(leek_videos)} 部影片")
     print(f"  生成 index.html...")
-    html_content = generate_html(all_articles)
+    html_content = generate_html(all_articles, videos=leek_videos)
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
 
