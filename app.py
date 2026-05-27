@@ -54,7 +54,7 @@ GOOGLE_GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/model
 # 主要使用免費實驗版 Flash
 GEMINI_MODEL = "gemini-3-flash-preview"
 # 備援模型
-GEMINI_FALLBACK_MODEL = "gemini-3.1-flash-lite-preview"
+GEMINI_FALLBACK_MODEL = "gemini-2.5-flash"
 
 
 # ============================================================
@@ -203,14 +203,16 @@ def fetch_reddit_comments(post_id, subreddit, limit=5):
 
 
 def fetch_hn_search(query, limit=5):
-    """從 Algolia HN API 搜尋 AI 相關高分帖"""
+    """從 Algolia HN API 搜尋 AI 相關高分帖（近 30 天）"""
     try:
-        url = "https://hn.algolia.com/api/v1/search"
+        # 只搜近 30 天的帖子，按時間排序取最新的
+        since = int((datetime.now() - timedelta(days=30)).timestamp())
+        url = "https://hn.algolia.com/api/v1/search_by_date"
         params = {
             "tags": "story",
             "query": query,
             "hitsPerPage": limit,
-            "numericFilters": "points>20",  # 至少 20 分起跳
+            "numericFilters": f"points>20,created_at_i>{since}",
         }
         r = requests.get(url, params=params, timeout=15)
         data = r.json()
@@ -643,11 +645,23 @@ WRITING_RULES = """
 # ============================================================
 # Gemini API 呼叫（含備援）
 # ============================================================
+_last_gemini_call = 0  # 節流：避免 429 Too Many Requests
+
+
 def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
     """呼叫 Google Gemini API，messages 用 OpenAI 格式內部轉成 Gemini 格式"""
+    global _last_gemini_call
+
     if not GOOGLE_API_KEY:
         print("  [錯誤] GOOGLE_API_KEY 未設置")
         return None
+
+    # 節流：每次呼叫之間至少間隔 5 秒
+    now = time.time()
+    elapsed = now - _last_gemini_call
+    if elapsed < 5:
+        time.sleep(5 - elapsed)
+    _last_gemini_call = time.time()
 
     if model is None:
         model = GEMINI_MODEL
