@@ -1085,6 +1085,7 @@ def generate_discussion_article(persona_name, persona, source_post, source_comme
 - 不用「綜上所述」「總的來說」「值得注意的是」「不可否認」
 - 不評論大陸模型，只能點名
 - 不農場標題（不用「驚！」「重磅」「快訊」）"""
+- 模型版本號只用當前主流版本。若素材提到超過 12 個月前發布的舊版本號，不引用，只寫模型名稱本身（Claude、ChatGPT、Gemini、Grok），不帶版本號。
 
     user_prompt = f"""【真實技術討論素材】
 
