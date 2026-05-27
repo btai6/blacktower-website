@@ -139,6 +139,153 @@ def fetch_youtube_videos(max_results=50):
 
 
 # ============================================================
+# Reddit + Hacker News 痛點抓取（B 類技術討論文章素材來源）
+# ============================================================
+REDDIT_HEADERS = {
+    "User-Agent": "BLACK-TOWER-bot/1.0 (by /u/blacktower)",
+}
+
+
+def fetch_reddit_top(subreddit, limit=8):
+    """從 Reddit 抓某個 sub 的熱門帖（hot 排序）"""
+    try:
+        url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit={limit}"
+        r = requests.get(url, headers=REDDIT_HEADERS, timeout=15)
+        if r.status_code != 200:
+            print(f"  [Reddit] r/{subreddit} 狀態碼 {r.status_code}")
+            return []
+        data = r.json()
+        posts = []
+        for post in data.get("data", {}).get("children", []):
+            p = post.get("data", {})
+            # 跳過置頂、廣告、純圖
+            if p.get("stickied") or p.get("is_meta") or p.get("over_18"):
+                continue
+            posts.append({
+                "title": p.get("title", "").strip(),
+                "url": f"https://www.reddit.com{p.get('permalink', '')}",
+                "selftext": (p.get("selftext") or "")[:1500],
+                "score": p.get("score", 0),
+                "num_comments": p.get("num_comments", 0),
+                "subreddit": subreddit,
+                "id": p.get("id"),
+                "source": "reddit",
+            })
+        return posts
+    except Exception as e:
+        print(f"  [Reddit] r/{subreddit} 抓取失敗: {e}")
+        return []
+
+
+def fetch_reddit_comments(post_id, subreddit, limit=5):
+    """抓某 Reddit 帖子的 top 回覆"""
+    try:
+        url = f"https://www.reddit.com/r/{subreddit}/comments/{post_id}.json?limit={limit}&sort=top"
+        r = requests.get(url, headers=REDDIT_HEADERS, timeout=15)
+        if r.status_code != 200:
+            return []
+        data = r.json()
+        if len(data) < 2:
+            return []
+        comments = []
+        for c in data[1].get("data", {}).get("children", [])[:limit]:
+            cd = c.get("data", {})
+            body = (cd.get("body") or "").strip()
+            if body and body != "[deleted]" and body != "[removed]":
+                comments.append({
+                    "body": body[:600],
+                    "score": cd.get("score", 0),
+                    "author": cd.get("author", "unknown"),
+                })
+        return comments
+    except Exception as e:
+        return []
+
+
+def fetch_hn_search(query, limit=5):
+    """從 Algolia HN API 搜尋 AI 相關高分帖"""
+    try:
+        url = "https://hn.algolia.com/api/v1/search"
+        params = {
+            "tags": "story",
+            "query": query,
+            "hitsPerPage": limit,
+            "numericFilters": "points>20",  # 至少 20 分起跳
+        }
+        r = requests.get(url, params=params, timeout=15)
+        data = r.json()
+        posts = []
+        for hit in data.get("hits", []):
+            posts.append({
+                "title": (hit.get("title") or "").strip(),
+                "url": hit.get("url") or f"https://news.ycombinator.com/item?id={hit['objectID']}",
+                "selftext": (hit.get("story_text") or "")[:1500],
+                "score": hit.get("points", 0),
+                "num_comments": hit.get("num_comments", 0),
+                "id": hit["objectID"],
+                "source": "hn",
+                "query": query,
+            })
+        return posts
+    except Exception as e:
+        print(f"  [HN] 搜「{query}」失敗: {e}")
+        return []
+
+
+def fetch_hn_comments(item_id, limit=5):
+    """抓 HN 帖子的 top 回覆"""
+    try:
+        url = f"https://hn.algolia.com/api/v1/items/{item_id}"
+        r = requests.get(url, timeout=15)
+        data = r.json()
+        comments = []
+        children = data.get("children", []) or []
+        # 依分數排序
+        children.sort(key=lambda c: (c.get("points") or 0), reverse=True)
+        for child in children[:limit]:
+            text = child.get("text") or ""
+            if not text:
+                continue
+            # 移除 HTML 標籤
+            text = re.sub(r"<[^>]+>", "", text)
+            text = re.sub(r"&#x27;", "'", text)
+            text = re.sub(r"&quot;", '"', text)
+            text = re.sub(r"&amp;", "&", text)
+            text = re.sub(r"&gt;", ">", text)
+            text = re.sub(r"&lt;", "<", text)
+            comments.append({
+                "body": text.strip()[:600],
+                "score": child.get("points") or 0,
+                "author": child.get("author", "unknown"),
+            })
+        return comments
+    except Exception as e:
+        return []
+
+
+def gather_persona_material(persona_name, persona):
+    """為一個版主收集 Hacker News 素材，回傳排序好的帖子列表"""
+    all_posts = []
+
+    for kw in persona.get("hn_keywords", []):
+        posts = fetch_hn_search(kw, limit=5)
+        all_posts.extend(posts)
+        time.sleep(0.5)
+
+    # 去重（同一帖可能在不同關鍵字搜尋中出現）
+    seen_ids = set()
+    unique = []
+    for p in all_posts:
+        if p["id"] not in seen_ids:
+            seen_ids.add(p["id"])
+            unique.append(p)
+
+    # 排序：分數高優先
+    unique.sort(key=lambda p: p.get("score", 0), reverse=True)
+    return unique
+
+
+# ============================================================
 # 220 個帳號池
 # ============================================================
 ACCOUNT_POOL = [
@@ -264,6 +411,8 @@ PERSONAS = {
             "https://www.anthropic.com/news/rss.xml",
             "https://techcrunch.com/tag/anthropic/feed/",
         ],
+        "reddit_subs": ["ClaudeAI", "LocalLLaMA"],
+        "hn_keywords": ["Claude", "Anthropic"],
     },
     "渡鴉": {
         "title": "版主",
@@ -277,6 +426,8 @@ PERSONAS = {
             "https://openai.com/blog/rss.xml",
             "https://techcrunch.com/tag/openai/feed/",
         ],
+        "reddit_subs": ["ChatGPT", "OpenAI"],
+        "hn_keywords": ["ChatGPT", "OpenAI", "GPT-4", "GPT-5"],
     },
     "Trilobite": {
         "title": "版主",
@@ -290,6 +441,8 @@ PERSONAS = {
             "https://blog.google/technology/ai/rss/",
             "https://blog.google/products/gemini/rss/",
         ],
+        "reddit_subs": ["GoogleGeminiAI", "Bard"],
+        "hn_keywords": ["Gemini", "Google AI", "DeepMind"],
     },
     "Sword Smith": {
         "title": "版主",
@@ -303,6 +456,8 @@ PERSONAS = {
             "https://techcrunch.com/tag/xai/feed/",
             "https://techcrunch.com/tag/grok/feed/",
         ],
+        "reddit_subs": ["grok", "xai"],
+        "hn_keywords": ["Grok", "xAI"],
     },
 }
 
@@ -852,6 +1007,117 @@ def generate_original_article(persona_name, persona, used_topics=None):
         "content": body,
         "source_link": None,
         "topic_used": seed,  # 記種子，本次運行內種子不重複
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
+    }
+
+
+# ============================================================
+# D 類：技術討論型（從 HN 真實討論抓素材，黑塔風格改寫）
+# ============================================================
+def generate_discussion_article(persona_name, persona, source_post, source_comments):
+    """從 HN 帖子素材寫一篇黑塔風格的技術討論文章。
+
+    source_post: dict, 含 title/selftext/url/source/score 等
+    source_comments: list of {body, score, author}，原帖 top 回覆
+    """
+
+    # 把回覆組合成參考素材（給 AI 看，理解真實痛點）
+    comments_lines = []
+    for i, c in enumerate(source_comments[:5], 1):
+        body_short = c["body"][:300].replace("\n", " ")
+        comments_lines.append(f"[{i}] [+{c.get('score', 0)}] {body_short}")
+    comments_text = "\n".join(comments_lines) if comments_lines else "（無熱門回覆）"
+
+    system_prompt = f"""你是 {persona_name}，黑塔論壇版主，{persona['domain']} 領域。
+
+【個性】
+{persona['personality']}
+
+{WRITING_RULES}
+
+【本篇任務：以真實技術討論為素材，寫黑塔風格的技術觀察文章】
+
+▍輸出格式（必須遵守）
+第一行：一個中文標題（黑塔風格、技術向、不農場、不直譯）
+- 短、狠、勾人；陳述句或疑問句
+- 不准加 # 號、不准加引號、不准加書名號
+- 不超過 30 個字
+第二行：空一行
+第三行起：800–1000 字正文
+
+▍正文結構（不要寫小標題、不要寫【現象】這種標籤）
+1. 現象切入（150–200 字）
+   直接從討論中提取的具體問題或場景說起。
+   不要寫「最近」「近日」開場白。第一句就進入事情本身。
+
+2. 技術剖析（300–400 字）
+   有具體的技術細節、參數、模型版本、API 行為、使用場景。
+   主角是四大平台之一。談的是「Claude/ChatGPT/Gemini/Grok 在這個問題上的具體表現」。
+   不空談、不抽象。
+
+3. 橫向對比（200–250 字）
+   主角永遠是四大平台之一。
+   大陸模型（DeepSeek、Qwen、Kimi、Yi、文心、千問等）可以出現名字 1-2 次作背景。
+   嚴格遵守規則 23：陪跑寫法，點名即止，下一句必須回到四大主題。
+   讀者看到大陸模型名字，但看不到你對它的任何看法。
+
+4. 留問題（100–150 字）
+   拋一個未解決的問題給讀者，**不下結論**。
+   用反問或假設句結尾。停在問題那，留白比答案更勾人。
+
+【絕對禁止】
+- 不寫小標題（不寫【現象】【技術】這種標籤）
+- 不用「綜上所述」「總的來說」「值得注意的是」「不可否認」
+- 不評論大陸模型，只能點名
+- 不農場標題（不用「驚！」「重磅」「快訊」）"""
+
+    user_prompt = f"""【真實技術討論素材】
+
+來源：Hacker News
+原帖標題：{source_post['title']}
+原帖內文（節選）：
+{(source_post.get('selftext') or '')[:600]}
+
+熱門回覆（前 {len(source_comments)} 條，按分數排序）：
+{comments_text}
+
+【任務】
+以上是真實使用者在技術討論區的聲音。你**不是要轉述這篇討論**，
+你是看到這個討論，用黑塔版主的角度，寫一篇 800–1000 字的技術觀察文章。
+
+抓到核心痛點或現象，從四大平台的角度去剖析，做一次橫向觀察。
+標題中文、自然、有觀點，不直譯原帖英文標題。
+
+開始寫吧。第一行給中文標題，空一行，再寫正文。"""
+
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    content = call_gemini(messages, temperature=0.85, max_tokens=4500)
+    if not content:
+        return None
+
+    text = content.strip()
+    lines = text.split("\n", 1)
+    title = lines[0].strip().lstrip("#").strip().strip("「」\"'《》【】")
+    body = lines[1].strip() if len(lines) > 1 else text
+
+    # Fallback：標題解析失敗就用原帖標題前 50 字
+    if not title or len(title) > 60:
+        title = source_post["title"][:50]
+        body = text
+
+    return {
+        "type": "discussion",
+        "persona": persona_name,
+        "title": title,
+        "content": body,
+        "source_link": source_post.get("url"),
+        "source_title": source_post["title"],
+        "source_platform": "HN",
+        "raw_comments": source_comments,  # 留給 generate_comments 當素材
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
 
@@ -2657,24 +2923,44 @@ def main():
 
     new_articles = []
     used_topics = set()
+    used_hn_ids = set()  # 防止四版主抓到同一篇 HN 帖
 
-    # ===== 主版：四版主各產 A 監控 + B 原創 =====
+    # ===== 主版：四版主各產 1 篇技術討論 + 1 篇原創 =====
     for persona_name, persona in PERSONAS.items():
         print(f"────────  {persona_name}（{persona['domain']}）  ────────")
 
-        # A 類：監控型
-        print(f"  [1/2] 監控型文章...")
-        article_a = generate_monitoring_article(persona_name, persona)
-        if article_a:
-            print(f"        ✓ {article_a['title'][:40]}")
-            print(f"  [評論] 生成中...")
-            article_a["comments"] = generate_comments(article_a, persona)
-            print(f"        ✓ {len(article_a['comments'])} 條評論")
-            new_articles.append(article_a)
-        else:
-            print(f"        ✗ 失敗")
+        # D 類：技術討論型（HN 真實討論為素材）
+        print(f"  [1/2] 技術討論文章（HN 素材）...")
+        material = gather_persona_material(persona_name, persona)
+        # 跳過已被其他版主用過的帖子
+        material = [p for p in material if p["id"] not in used_hn_ids]
 
-        # B 類：原創型
+        article_d = None
+        if material:
+            top_post = material[0]
+            used_hn_ids.add(top_post["id"])
+            print(f"        素材：{top_post['title'][:50]}（HN +{top_post['score']}）")
+            comments_raw = fetch_hn_comments(top_post["id"], limit=5)
+            print(f"        抓到 {len(comments_raw)} 條回覆當素材")
+            article_d = generate_discussion_article(persona_name, persona, top_post, comments_raw)
+
+        if article_d:
+            print(f"        ✓ {article_d['title'][:40]}")
+            print(f"  [評論] 生成中...")
+            article_d["comments"] = generate_comments(article_d, persona)
+            print(f"        ✓ {len(article_d['comments'])} 條評論")
+            new_articles.append(article_d)
+        else:
+            print(f"        ✗ 無 HN 素材或生成失敗，回退到原創型")
+            # Fallback：用原創型題庫補一篇
+            article_fallback = generate_original_article(persona_name, persona, used_topics)
+            if article_fallback:
+                used_topics.add(article_fallback.get("topic_used", ""))
+                print(f"        ✓（fallback）{article_fallback['title'][:40]}")
+                article_fallback["comments"] = generate_comments(article_fallback, persona)
+                new_articles.append(article_fallback)
+
+        # B 類：原創型（從題庫抽，保留作為網站日常內容的另一條腿）
         print(f"  [2/2] 原創型文章...")
         article_b = generate_original_article(persona_name, persona, used_topics)
         if article_b:
