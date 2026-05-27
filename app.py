@@ -414,7 +414,7 @@ PERSONAS = {
             "https://techcrunch.com/tag/anthropic/feed/",
         ],
         "reddit_subs": ["ClaudeAI", "LocalLLaMA"],
-        "hn_keywords": ["Claude", "Anthropic"],
+        "hn_keywords": ["Claude", "Anthropic", "Claude vs", "DeepSeek Claude"],
     },
     "渡鴉": {
         "title": "版主",
@@ -429,7 +429,7 @@ PERSONAS = {
             "https://techcrunch.com/tag/openai/feed/",
         ],
         "reddit_subs": ["ChatGPT", "OpenAI"],
-        "hn_keywords": ["ChatGPT", "OpenAI", "GPT-4", "GPT-5"],
+        "hn_keywords": ["ChatGPT", "OpenAI", "GPT-4", "GPT-5", "DeepSeek OpenAI", "Qwen ChatGPT"],
     },
     "Trilobite": {
         "title": "版主",
@@ -444,7 +444,7 @@ PERSONAS = {
             "https://blog.google/products/gemini/rss/",
         ],
         "reddit_subs": ["GoogleGeminiAI", "Bard"],
-        "hn_keywords": ["Gemini", "Google AI", "DeepMind"],
+        "hn_keywords": ["Gemini", "Google AI", "DeepMind", "DeepSeek Gemini", "Qwen Gemini"],
     },
     "Sword Smith": {
         "title": "版主",
@@ -459,7 +459,7 @@ PERSONAS = {
             "https://techcrunch.com/tag/grok/feed/",
         ],
         "reddit_subs": ["grok", "xai"],
-        "hn_keywords": ["Grok", "xAI"],
+        "hn_keywords": ["Grok", "xAI", "DeepSeek Grok", "Grok vs"],
     },
 }
 
@@ -1071,7 +1071,8 @@ def generate_discussion_article(persona_name, persona, source_post, source_comme
 
 3. 橫向對比（200–250 字）
    主角永遠是四大平台之一。
-   大陸模型（DeepSeek、Qwen、Kimi、Yi、文心、千問等）可以出現名字 1-2 次作背景。
+   【必做】在這段主動引入 1-2 個當前最相關的大陸模型名字作陪跑背景
+   （從 DeepSeek、Qwen、Kimi、Yi、文心、千問、Doubao 中根據討論主題選最合適的）。
    嚴格遵守規則 23：陪跑寫法，點名即止，下一句必須回到四大主題。
    讀者看到大陸模型名字，但看不到你對它的任何看法。
 
@@ -2388,9 +2389,8 @@ a { color: inherit; text-decoration: none; }
   }
 
   function typeLabel(type) {
-    if (type === 'monitor') return '快訊';
-    if (type === 'visual')  return '影像';
-    return '原創';
+    // 韭菜加工區的影片有獨立的流程不走這裡，文章一律顯示「觀察」
+    return '觀察';
   }
 
   function articleRow(a, no) {
@@ -2671,15 +2671,8 @@ a { color: inherit; text-decoration: none; }
         + '</div>'
       : '';
 
+    // 文章一律不顯示出處連結（黑塔原創定位）
     let sourceHtml = '';
-    if (a.source_link) {
-      const lblText = (a.type === 'visual') ? 'ORIGINAL NEWS · 原始新聞' : 'SOURCE · 原始連結';
-      const linkText = a.source_title ? esc(a.source_title) : esc(a.source_link);
-      sourceHtml = '<div class="source-link">'
-        + '<span class="lbl">' + lblText + '</span>'
-        + '<a href="' + esc(a.source_link) + '" target="_blank" rel="noopener">' + linkText + ' →</a>'
-        + '</div>';
-    }
 
     $('view-article').innerHTML = ''
       + '<button class="back-btn" onclick="window.BT.goBackFromArticle()">返回</button>'
