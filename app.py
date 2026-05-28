@@ -203,10 +203,10 @@ def fetch_reddit_comments(post_id, subreddit, limit=5):
 
 
 def fetch_hn_search(query, limit=5):
-    """從 Algolia HN API 搜尋 AI 相關高分帖（近 30 天）"""
+    """從 Algolia HN API 搜尋 AI 相關高分帖（近 7 天）"""
     try:
-        # 只搜近 30 天的帖子，按時間排序取最新的
-        since = int((datetime.now() - timedelta(days=30)).timestamp())
+        # 只搜近 7 天的帖子，避免抓到舊資料
+        since = int((datetime.now() - timedelta(days=7)).timestamp())
         url = "https://hn.algolia.com/api/v1/search_by_date"
         params = {
             "tags": "story",
@@ -263,6 +263,42 @@ def fetch_hn_comments(item_id, limit=5):
         return comments
     except Exception as e:
         return []
+
+
+def fetch_mainland_hook():
+    """搜尋大陸 AI 廠商最新 HN 動態，回傳最熱帖子標題當陪跑鉤子"""
+    vendors = ["DeepSeek", "Qwen", "Alibaba AI", "Baidu AI", "ByteDance AI", "Kimi AI"]
+    best = None
+    for vendor in vendors:
+        posts = fetch_hn_search(vendor, limit=3)
+        for p in posts:
+            if best is None or p["score"] > best["score"]:
+                best = p
+        time.sleep(0.5)
+    if best:
+        print(f"  [陪跑鉤子] {best['title'][:50]}（HN +{best['score']}）")
+        return best["title"]
+    print(f"  [陪跑鉤子] 本週無大陸廠商 HN 動態")
+    return ""
+
+
+def extract_mainland_model(hook_title):
+    """從 HN 標題提取大陸 AI 模型或產品名稱"""
+    if not hook_title:
+        return ""
+    prompt = f"""以下是一個 Hacker News 標題，請從中提取大陸 AI 模型或產品名稱。
+只輸出名稱本身，例如「DeepSeek R2」「Qwen3」「Kimi k2」。
+找不到就輸出空白。不要解釋，不要標點，只輸出名稱，一行結束。
+
+標題：{hook_title}"""
+    result = call_gemini(
+        [{"role": "user", "content": prompt}],
+        temperature=0,
+        max_tokens=20,
+    )
+    name = (result or "").strip().split("\n")[0].strip() if result else ""
+    print(f"  [陪跑鉤子] 提取模型名：{name or '（無）'}")
+    return name
 
 
 def gather_persona_material(persona_name, persona):
@@ -640,6 +676,19 @@ WRITING_RULES = """
     （不論大陸模型或四大外的其他平台），一句話帶過即止。
     不接第二句，不給任何評論、參數、結論、分析。
     讀者看到名字，看不到你對它的任何看法。
+
+▍C. 技術觀察品質鐵律（針對高層主管與資深技術人員讀者）
+24. 技術類文章必須有至少一個具體場景：
+    什麼任務、什麼條件下、什麼環境。
+    不准只說「功能強大」「性能優異」，說不出具體場景的技術描述一律刪除。
+25. 允許並要求在四大之間下直接判斷：
+    例如「Claude 在超過 8 萬 token 的長文本任務上，注意力衰減比 GPT-4o 明顯」、
+    「Gemini 的 function calling 在工具數超過 15 個時開始不穩定」。
+    判斷可以錯，但不能沒有。給出立場才有討論價值。
+26. 嚴禁萬金油收尾：
+    「各有優缺點」、「視需求而定」、「因人而異」、「具體情況具體分析」、
+    「取決於使用場景」一律禁止作為文章收尾。
+    這些句子等於什麼都沒說。結尾要有觀點、有問題、有留白，不要廢話。
 """
 
 
@@ -657,11 +706,11 @@ def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
         print("  [錯誤] GOOGLE_API_KEY 未設置")
         return None
 
-    # 節流：每次呼叫之間至少間隔 5 秒
+    # 節流：每次呼叫之間至少間隔 8 秒
     now = time.time()
     elapsed = now - _last_gemini_call
-    if elapsed < 5:
-        time.sleep(5 - elapsed)
+    if elapsed < 8:
+        time.sleep(8 - elapsed)
     _last_gemini_call = time.time()
 
     if model is None:
@@ -693,6 +742,22 @@ def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
 
     try:
         response = requests.post(url, json=payload, timeout=180)
+
+        # 429 專用處理：等 20-30 秒後重試同一模型，不立刻切備援
+        if response.status_code == 429:
+            wait_sec = random.randint(20, 30)
+            print(f"  [錯誤] {model}: 429 Too Many Requests")
+            print(f"  [等待] {wait_sec} 秒後重試同一模型...")
+            time.sleep(wait_sec)
+            _last_gemini_call = time.time()
+            response = requests.post(url, json=payload, timeout=180)
+            if response.status_code == 429:
+                print(f"  [失敗] {model} 重試後仍 429")
+                if model != GEMINI_FALLBACK_MODEL:
+                    print(f"  [重試] 改用 {GEMINI_FALLBACK_MODEL}")
+                    return call_gemini(messages, temperature, max_tokens, GEMINI_FALLBACK_MODEL)
+                return None
+
         response.raise_for_status()
         result = response.json()
         candidates = result.get("candidates", [])
@@ -1028,11 +1093,12 @@ def generate_original_article(persona_name, persona, used_topics=None):
 # ============================================================
 # D 類：技術討論型（從 HN 真實討論抓素材，黑塔風格改寫）
 # ============================================================
-def generate_discussion_article(persona_name, persona, source_post, source_comments):
+def generate_discussion_article(persona_name, persona, source_post, source_comments, mainland_model=""):
     """從 HN 帖子素材寫一篇黑塔風格的技術討論文章。
 
     source_post: dict, 含 title/selftext/url/source/score 等
     source_comments: list of {body, score, author}，原帖 top 回覆
+    mainland_model: 陪跑鉤子（大陸模型名稱，可為空）
     """
 
     # 把回覆組合成參考素材（給 AI 看，理解真實痛點）
@@ -1084,8 +1150,18 @@ def generate_discussion_article(persona_name, persona, source_post, source_comme
 - 不寫小標題（不寫【現象】【技術】這種標籤）
 - 不用「綜上所述」「總的來說」「值得注意的是」「不可否認」
 - 不評論大陸模型，只能點名
-- 不農場標題（不用「驚！」「重磅」「快訊」）"""
-- 模型版本號只用當前主流版本。若素材提到超過 12 個月前發布的舊版本號，不引用，只寫模型名稱本身（Claude、ChatGPT、Gemini、Grok），不帶版本號。
+- 不農場標題（不用「驚！」「重磅」「快訊」）
+- 模型版本號只用當前主流版本。若素材提到超過 12 個月前發布的舊版本號，不引用，只寫模型名稱本身（Claude、ChatGPT、Gemini、Grok），不帶版本號。"""
+
+    # 陪跑鉤子：有大陸模型名時加入 user_prompt
+    mainland_hint = ""
+    if mainland_model:
+        mainland_hint = f"""
+【陪跑背景板】
+本週 {mainland_model} 剛有新動態（HN 上有人在討論）。
+標題或開頭可帶這個名字當搜尋鉤子。
+正文橫向對比段可出現 1-2 次，永遠用對照組句型：「相較於 {mainland_model}，{persona['domain'].split('/')[0].strip()} 的 XXX 做法是…」
+{mainland_model} 從來不是主角，全篇不給任何分析、參數、結論。"""
 
     user_prompt = f"""【真實技術討論素材】
 
@@ -1096,7 +1172,7 @@ def generate_discussion_article(persona_name, persona, source_post, source_comme
 
 熱門回覆（前 {len(source_comments)} 條，按分數排序）：
 {comments_text}
-
+{mainland_hint}
 【任務】
 以上是真實使用者在技術討論區的聲音。你**不是要轉述這篇討論**，
 你是看到這個討論，用黑塔版主的角度，寫一篇 800–1000 字的技術觀察文章。
@@ -1209,6 +1285,81 @@ def generate_visual_article(persona_name, persona):
         "content": body,
         "source_link": news["link"],
         "source_title": news["title"],
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
+    }
+
+
+
+# ============================================================
+# R 類：SONAR 快訊（週一觸發，情報員語氣，300字）
+# ============================================================
+def generate_sonar_article(persona_name, persona, mainland_model=""):
+    """SONAR 快訊：情報員語氣，週一觸發，280-320字，四大本週動態為主"""
+
+    # 抓本週該版主域的最新 HN 動態
+    posts = []
+    for kw in persona.get("hn_keywords", [])[:2]:
+        posts.extend(fetch_hn_search(kw, limit=3))
+        time.sleep(0.5)
+    posts.sort(key=lambda p: p.get("score", 0), reverse=True)
+    top_news = posts[0]["title"] if posts else "（本週無重大動態）"
+
+    mainland_hint = ""
+    if mainland_model:
+        mainland_hint = f"\n【本週陪跑背景】{mainland_model} 近期有新動態。文中可點名一次即止，我們都知道，但沒意見。"
+
+    system_prompt = f"""你是 {persona_name}，黑塔論壇版主，{persona['domain']} 領域。
+
+{WRITING_RULES}
+
+【本篇任務：SONAR 快訊】
+SONAR 是黑塔的情報雷達欄目，每週一次。
+語氣像情報員交班，不是新聞台主播。不是評論員寫稿。
+
+寫作要求：
+- 主角是 {persona['domain']} 本週的關鍵動態
+- 語氣冷靜、精準、帶點距離感，像在讀情報摘要
+- 「我們注意到了，但不下結論」的氣質
+- 不要新聞稿開頭，第一句直接給訊號
+- 如有大陸模型最新動態，可點名一次即止，絕不評論
+- 結尾停在觀察，不下判斷，不給建議
+- 字數 280-320 字，不能更長
+{mainland_hint}
+
+【輸出格式】
+第一行：標題（SONAR 快訊風格，短）
+空一行
+正文（280-320字）"""
+
+    user_prompt = f"""【本週素材】
+{persona['domain']} 最熱 HN 討論：{top_news}
+
+開始寫。"""
+
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    content = call_gemini(messages, temperature=0.85, max_tokens=1200)
+    if not content:
+        return None
+
+    text = content.strip()
+    lines = text.split("\n", 1)
+    title = lines[0].strip().lstrip("#").strip().strip("「」\"'《》【】")
+    body = lines[1].strip() if len(lines) > 1 else text
+
+    if not title or len(title) > 60:
+        title = f"SONAR · {persona['domain']} 本週訊號"
+        body = text
+
+    return {
+        "type": "sonar",
+        "persona": persona_name,
+        "title": title,
+        "content": body,
+        "source_link": None,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
 
@@ -1426,7 +1577,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- SEO Meta -->
 <meta name="description" content="BLACK TOWER 黑塔 - 華人AI論壇，繁體中文AI評論媒體，深度觀察 Claude、ChatGPT、Gemini、Grok 四大平台">
-<meta name="keywords" content="華人AI論壇,華人AI圈,中文AI評論,AI觀察媒體,繁體中文AI,黑塔AI,BLACK TOWER">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
 <script>
@@ -1435,7 +1585,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   gtag('js', new Date());
   gtag('config', 'G-YQQ3PP0NNX');
 </script>
-<title>BLACK TOWER · 華人AI論壇</title>
+<title>{{PAGE_TITLE}}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
@@ -2809,15 +2959,34 @@ a { color: inherit; text-decoration: none; }
 
 
 
-def generate_html(articles, videos=None):
+def generate_html(articles, videos=None, new_articles=None):
     """產生 index.html（雜誌風 SPA）"""
     if videos is None:
         videos = []
+    if new_articles is None:
+        new_articles = []
     today = datetime.now()
     update_time = today.strftime("%Y-%m-%d %H:%M")
     issue_label = f"VOL. {max(today.year - 2025, 1)} · ISSUE {today.month:02d}–{today.year}"
 
-    # 整理文章資料：加上 id、cat
+    # 動態 title：用當天新文章標題串成
+    TYPE_PREFIX = {
+        "discussion": "觀察",
+        "original": "原創",
+        "sonar": "SONAR",
+        "monitor": "觀察",
+        "visual": "影片",
+    }
+    if new_articles:
+        today_titles = [a["title"] for a in new_articles[:3] if a.get("title")]
+        if today_titles:
+            page_title = f"BLACK TOWER 黑塔｜今日觀察：{'、'.join(today_titles)}"
+        else:
+            page_title = "BLACK TOWER 黑塔 - 華人AI論壇，繁體中文AI評論媒體"
+    else:
+        page_title = "BLACK TOWER 黑塔 - 華人AI論壇，繁體中文AI評論媒體"
+
+    # 整理文章資料：加上 id、cat、prefix
     enriched = []
     for i, a in enumerate(articles):
         if not a:
@@ -2832,6 +3001,7 @@ def generate_html(articles, videos=None):
             "persona": a["persona"],
             "cat": cat,
             "type": a["type"],
+            "prefix": TYPE_PREFIX.get(a.get("type", ""), "觀察"),
             "title": a["title"],
             "content": a["content"],
             "source_link": a.get("source_link"),
@@ -2856,6 +3026,7 @@ def generate_html(articles, videos=None):
     return (HTML_TEMPLATE
             .replace("{{UPDATE_TIME}}",     html.escape(update_time))
             .replace("{{ISSUE_LABEL}}",     html.escape(issue_label))
+            .replace("{{PAGE_TITLE}}",      html.escape(page_title))
             .replace("{{ARTICLES_JSON}}",   articles_json)
             .replace("{{VIDEOS_JSON}}",     videos_json)
             .replace("{{CATEGORIES_JSON}}", categories_json))
@@ -2929,6 +3100,12 @@ def main():
     history_articles = load_articles_history()
     print()
 
+    # ===== 陪跑鉤子：抓大陸廠商最新 HN 動態 =====
+    print("──────── 陪跑鉤子 ────────")
+    hook_title = fetch_mainland_hook()
+    mainland_model = extract_mainland_model(hook_title)
+    print()
+
     new_articles = []
     used_topics = set()
     used_hn_ids = set()  # 防止四版主抓到同一篇 HN 帖
@@ -2950,7 +3127,7 @@ def main():
             print(f"        素材：{top_post['title'][:50]}（HN +{top_post['score']}）")
             comments_raw = fetch_hn_comments(top_post["id"], limit=5)
             print(f"        抓到 {len(comments_raw)} 條回覆當素材")
-            article_d = generate_discussion_article(persona_name, persona, top_post, comments_raw)
+            article_d = generate_discussion_article(persona_name, persona, top_post, comments_raw, mainland_model)
 
         if article_d:
             print(f"        ✓ {article_d['title'][:40]}")
@@ -2982,6 +3159,21 @@ def main():
             print(f"        ✗ 失敗")
         print()
 
+    # ===== SONAR 快訊：每週一觸發 =====
+    today_weekday = datetime.now().weekday()  # 0 = 週一
+    if today_weekday == 0:
+        print(f"────────  SONAR 快訊（週一）  ────────")
+        for persona_name, persona in PERSONAS.items():
+            print(f"  [SONAR] {persona_name}...")
+            sonar = generate_sonar_article(persona_name, persona, mainland_model)
+            if sonar:
+                sonar["comments"] = []
+                new_articles.append(sonar)
+                print(f"        ✓ {sonar['title'][:40]}")
+            else:
+                print(f"        ✗ 失敗")
+        print()
+
     # ===== 韭菜加工區：抓 YouTube 短影片（取代舊的影片・圖形版）=====
     print(f"────────  韭菜加工區（YouTube 抓取）  ────────")
     leek_videos = fetch_youtube_videos(max_results=50)
@@ -3003,7 +3195,7 @@ def main():
     print(f"========================================")
     print(f"  共產出 {len(all_articles)} 篇文章 / {len(leek_videos)} 部影片")
     print(f"  生成 index.html...")
-    html_content = generate_html(all_articles, videos=leek_videos)
+    html_content = generate_html(all_articles, videos=leek_videos, new_articles=new_articles)
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
 
