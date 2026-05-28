@@ -57,10 +57,17 @@ GEMINI_MODEL = "gemini-2.5-flash"
 GEMINI_FALLBACK_MODEL = "gemini-3-flash-preview"
 
 # 多 API key 輪替池（429 時先換 key，不立刻換模型）
+# 讀取所有可用 key：GEMINI_API_KEY + GOOGLE_API_KEY ~ GOOGLE_API_KEY_8
 _GEMINI_KEY_POOL = [k for k in [
+    os.environ.get("GEMINI_API_KEY", ""),
     os.environ.get("GOOGLE_API_KEY", ""),
     os.environ.get("GOOGLE_API_KEY_2", ""),
     os.environ.get("GOOGLE_API_KEY_3", ""),
+    os.environ.get("GOOGLE_API_KEY_4", ""),
+    os.environ.get("GOOGLE_API_KEY_5", ""),
+    os.environ.get("GOOGLE_API_KEY_6", ""),
+    os.environ.get("GOOGLE_API_KEY_7", ""),
+    os.environ.get("GOOGLE_API_KEY_8", ""),
 ] if k]
 _current_key_index = 0  # 全域指針，追蹤當前使用的 key
 
