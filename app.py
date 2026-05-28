@@ -56,6 +56,14 @@ GEMINI_MODEL = "gemini-3-flash-preview"
 # 備援模型
 GEMINI_FALLBACK_MODEL = "gemini-2.5-flash"
 
+# 多 API key 輪替池（429 時先換 key，不立刻換模型）
+_GEMINI_KEY_POOL = [k for k in [
+    os.environ.get("GOOGLE_API_KEY", ""),
+    os.environ.get("GOOGLE_API_KEY_2", ""),
+    os.environ.get("GOOGLE_API_KEY_3", ""),
+] if k]
+_current_key_index = 0  # 全域指針，追蹤當前使用的 key
+
 
 # ============================================================
 # YouTube 韭菜加工區（從 @黑塔AI 頻道自動抓取短視頻）
@@ -265,6 +273,139 @@ def fetch_hn_comments(item_id, limit=5):
         return []
 
 
+# ============================================================
+# V2EX：抓取熱門 AI 相關帖子（中文技術討論，大陸程式設計師聚集）
+# ============================================================
+V2EX_AI_KEYWORDS = [
+    "claude", "chatgpt", "gemini", "grok", "openai", "anthropic",
+    "大模型", "llm", "ai", "人工智能", "token", "api", "prompt",
+    "gpt", "agent", "rag", "fine-tune", "finetune",
+]
+
+def fetch_v2ex_hot(limit=10):
+    """抓 V2EX 今日熱帖，篩選 AI 相關主題
+    V2EX 的 /api/topics/hot.json 不需要任何認證，完全公開
+    回傳格式與 HN/Reddit 統一：{"title", "url", "selftext", "score", "id", "source"}
+    """
+    try:
+        r = requests.get(
+            "https://www.v2ex.com/api/topics/hot.json",
+            headers={"User-Agent": "BLACK-TOWER-bot/1.0"},
+            timeout=15,
+        )
+        if r.status_code != 200:
+            print(f"  [V2EX] 熱帖抓取失敗，狀態碼 {r.status_code}")
+            return []
+        data = r.json()
+        posts = []
+        for item in data:
+            title = (item.get("title") or "").strip()
+            content = (item.get("content") or "").strip()
+            combined = (title + " " + content).lower()
+            if not any(kw in combined for kw in V2EX_AI_KEYWORDS):
+                continue
+            posts.append({
+                "title": title,
+                "url": item.get("url") or f"https://www.v2ex.com/t/{item.get('id','')}",
+                "selftext": content[:1500],
+                "score": item.get("replies", 0),  # V2EX 用回覆數當熱度指標
+                "num_comments": item.get("replies", 0),
+                "id": str(item.get("id", "")),
+                "source": "v2ex",
+            })
+            if len(posts) >= limit:
+                break
+        print(f"  [V2EX] 抓到 {len(posts)} 篇 AI 相關帖")
+        return posts
+    except Exception as e:
+        print(f"  [V2EX] 抓取失敗: {e}")
+        return []
+
+
+# ============================================================
+# GitHub Issues：抓取知名 AI 框架的最新 Issue（技術密度最高）
+# 目標倉庫：LangChain / AutoGPT / LiteLLM
+# GitHub API 免費，不需要 Token（每小時 60 次匿名請求）
+# ============================================================
+GITHUB_AI_REPOS = [
+    ("langchain-ai", "langchain"),
+    ("Significant-Gravitas", "AutoGPT"),
+    ("BerriAI", "litellm"),
+]
+
+GITHUB_ISSUE_KEYWORDS = [
+    "claude", "openai", "gemini", "grok", "anthropic",
+    "rate limit", "429", "context", "token", "hallucination",
+    "json", "output", "prompt", "api", "model", "timeout",
+    "error", "fail", "broken", "regression", "slow",
+]
+
+
+def fetch_github_issues(limit_per_repo=5):
+    """抓取 AI 框架 GitHub Issues（最新 open issues，含關鍵字篩選）
+    回傳格式與 HN/Reddit 統一
+    """
+    all_posts = []
+    headers = {
+        "User-Agent": "BLACK-TOWER-bot/1.0",
+        "Accept": "application/vnd.github+json",
+    }
+    # 若有 GITHUB_TOKEN 就加上，提升限速到每小時 5000 次
+    gh_token = os.environ.get("GITHUB_TOKEN", "")
+    if gh_token:
+        headers["Authorization"] = f"Bearer {gh_token}"
+
+    for owner, repo in GITHUB_AI_REPOS:
+        try:
+            url = f"https://api.github.com/repos/{owner}/{repo}/issues"
+            params = {
+                "state": "open",
+                "sort": "updated",
+                "direction": "desc",
+                "per_page": 20,
+            }
+            r = requests.get(url, headers=headers, params=params, timeout=15)
+            if r.status_code == 403:
+                print(f"  [GitHub] {owner}/{repo}: API 限速，跳過")
+                continue
+            if r.status_code != 200:
+                print(f"  [GitHub] {owner}/{repo}: 狀態碼 {r.status_code}")
+                continue
+            data = r.json()
+            count = 0
+            for issue in data:
+                # 排除 PR（GitHub API /issues 包含 PR）
+                if issue.get("pull_request"):
+                    continue
+                title = (issue.get("title") or "").strip()
+                body = (issue.get("body") or "").strip()
+                combined = (title + " " + body).lower()
+                if not any(kw in combined for kw in GITHUB_ISSUE_KEYWORDS):
+                    continue
+                all_posts.append({
+                    "title": f"[{repo}] {title}",
+                    "url": issue.get("html_url", ""),
+                    "selftext": body[:1500],
+                    "score": issue.get("comments", 0),
+                    "num_comments": issue.get("comments", 0),
+                    "id": f"gh_{issue.get('id', '')}",
+                    "source": "github_issues",
+                    "repo": repo,
+                })
+                count += 1
+                if count >= limit_per_repo:
+                    break
+            print(f"  [GitHub] {owner}/{repo}：篩出 {count} 個 Issue")
+            time.sleep(0.5)
+        except Exception as e:
+            print(f"  [GitHub] {owner}/{repo} 抓取失敗: {e}")
+
+    # 依留言數排序（留言多 = 討論熱）
+    all_posts.sort(key=lambda p: p.get("score", 0), reverse=True)
+    print(f"  [GitHub] 合計 {len(all_posts)} 個 Issue")
+    return all_posts
+
+
 def fetch_mainland_hook():
     """搜尋大陸 AI 廠商最新 HN 動態，回傳最熱帖子標題當陪跑鉤子"""
     vendors = ["DeepSeek", "Qwen", "Alibaba AI", "Baidu AI", "ByteDance AI", "Kimi AI"]
@@ -302,13 +443,34 @@ def extract_mainland_model(hook_title):
 
 
 def gather_persona_material(persona_name, persona):
-    """為一個版主收集 Hacker News 素材，回傳排序好的帖子列表"""
+    """為一個版主收集素材，來源：HN + V2EX + GitHub Issues
+    回傳排序好的帖子列表（分數高優先）
+    """
     all_posts = []
 
+    # 1. Hacker News（原有來源，技術英文社群）
     for kw in persona.get("hn_keywords", []):
         posts = fetch_hn_search(kw, limit=5)
         all_posts.extend(posts)
         time.sleep(0.5)
+
+    # 2. V2EX（中文技術社群，大陸工程師真實聲音）
+    # 每次呼叫都抓一次，所有版主共享同一批結果（外部快取在 main）
+    # 這裡從全域快取取；若快取不存在就抓
+    v2ex_posts = _MATERIAL_CACHE.get("v2ex", [])
+    # 過濾出跟這個版主領域相關的帖子
+    domain_kws = [kw.lower() for kw in persona.get("hn_keywords", [])]
+    for p in v2ex_posts:
+        combined = (p["title"] + " " + p["selftext"]).lower()
+        if any(kw in combined for kw in domain_kws):
+            all_posts.append(p)
+
+    # 3. GitHub Issues（AI 框架技術討論，具體版本/場景/錯誤）
+    gh_posts = _MATERIAL_CACHE.get("github_issues", [])
+    for p in gh_posts:
+        combined = (p["title"] + " " + p["selftext"]).lower()
+        if any(kw in combined for kw in domain_kws):
+            all_posts.append(p)
 
     # 去重（同一帖可能在不同關鍵字搜尋中出現）
     seen_ids = set()
@@ -321,6 +483,10 @@ def gather_persona_material(persona_name, persona):
     # 排序：分數高優先
     unique.sort(key=lambda p: p.get("score", 0), reverse=True)
     return unique
+
+
+# 全域素材快取（V2EX / GitHub Issues 只抓一次，所有版主共用）
+_MATERIAL_CACHE: dict = {}
 
 
 # ============================================================
@@ -698,12 +864,31 @@ WRITING_RULES = """
 _last_gemini_call = 0  # 節流：避免 429 Too Many Requests
 
 
+def _get_active_key():
+    """回傳當前輪替 key；池子空時回傳主 key"""
+    global _current_key_index
+    if _GEMINI_KEY_POOL:
+        return _GEMINI_KEY_POOL[_current_key_index % len(_GEMINI_KEY_POOL)]
+    return GOOGLE_API_KEY
+
+
+def _rotate_key():
+    """輪到下一個 key，回傳新 key（若只有一個 key 就原地不動）"""
+    global _current_key_index
+    if len(_GEMINI_KEY_POOL) > 1:
+        _current_key_index = (_current_key_index + 1) % len(_GEMINI_KEY_POOL)
+        print(f"  [Key輪替] 切換到 key #{_current_key_index + 1}（共 {len(_GEMINI_KEY_POOL)} 個）")
+    return _get_active_key()
+
+
 def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
-    """呼叫 Google Gemini API，messages 用 OpenAI 格式內部轉成 Gemini 格式"""
+    """呼叫 Google Gemini API，messages 用 OpenAI 格式內部轉成 Gemini 格式
+    429 策略：先輪換 API key（最多試完所有 key），才降級切備援模型
+    """
     global _last_gemini_call
 
-    if not GOOGLE_API_KEY:
-        print("  [錯誤] GOOGLE_API_KEY 未設置")
+    if not _GEMINI_KEY_POOL and not GOOGLE_API_KEY:
+        print("  [錯誤] 無任何 GOOGLE_API_KEY 設置")
         return None
 
     # 節流：每次呼叫之間至少間隔 8 秒
@@ -728,7 +913,6 @@ def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
         elif role == "assistant":
             contents.append({"role": "model", "parts": [{"text": content}]})
 
-    url = f"{GOOGLE_GEMINI_BASE_URL}/{model}:generateContent?key={GOOGLE_API_KEY}"
     payload = {
         "contents": contents,
         "generationConfig": {
@@ -740,24 +924,59 @@ def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
     if system_prompt:
         payload["systemInstruction"] = {"parts": [{"text": system_prompt}]}
 
+    # 第一次嘗試（用當前 key）
+    active_key = _get_active_key()
+    url = f"{GOOGLE_GEMINI_BASE_URL}/{model}:generateContent?key={active_key}"
     try:
         response = requests.post(url, json=payload, timeout=180)
+    except Exception as e:
+        print(f"  [錯誤] {model}: {e}")
+        if model != GEMINI_FALLBACK_MODEL:
+            print(f"  [重試] 改用 {GEMINI_FALLBACK_MODEL}")
+            time.sleep(2)
+            return call_gemini(messages, temperature, max_tokens, GEMINI_FALLBACK_MODEL)
+        return None
 
-        # 429 專用處理：等 20-30 秒後重試同一模型，不立刻切備援
+    # 429 處理：先輪 key，用完所有 key 再等，最後才換模型
+    if response.status_code == 429:
+        print(f"  [錯誤] {model} key#{_current_key_index + 1}: 429 Too Many Requests")
+        keys_tried = 1
+        # 輪換其他 key
+        while keys_tried < len(_GEMINI_KEY_POOL):
+            next_key = _rotate_key()
+            url = f"{GOOGLE_GEMINI_BASE_URL}/{model}:generateContent?key={next_key}"
+            time.sleep(3)
+            _last_gemini_call = time.time()
+            try:
+                response = requests.post(url, json=payload, timeout=180)
+                if response.status_code != 429:
+                    break
+                print(f"  [錯誤] {model} key#{_current_key_index + 1}: 仍 429")
+            except Exception as e:
+                print(f"  [錯誤] key輪替請求失敗: {e}")
+            keys_tried += 1
+
+        # 所有 key 都 429 了，等 20-30 秒再試一次
         if response.status_code == 429:
             wait_sec = random.randint(20, 30)
-            print(f"  [錯誤] {model}: 429 Too Many Requests")
-            print(f"  [等待] {wait_sec} 秒後重試同一模型...")
+            print(f"  [等待] 全部 {len(_GEMINI_KEY_POOL)} 個 key 都 429，等 {wait_sec} 秒後重試...")
             time.sleep(wait_sec)
             _last_gemini_call = time.time()
-            response = requests.post(url, json=payload, timeout=180)
+            active_key = _get_active_key()
+            url = f"{GOOGLE_GEMINI_BASE_URL}/{model}:generateContent?key={active_key}"
+            try:
+                response = requests.post(url, json=payload, timeout=180)
+            except Exception as e:
+                print(f"  [錯誤] 最終重試失敗: {e}")
+                return None
             if response.status_code == 429:
-                print(f"  [失敗] {model} 重試後仍 429")
+                print(f"  [失敗] {model} 所有 key 均 429")
                 if model != GEMINI_FALLBACK_MODEL:
-                    print(f"  [重試] 改用 {GEMINI_FALLBACK_MODEL}")
+                    print(f"  [降級] 切換到備援模型 {GEMINI_FALLBACK_MODEL}")
                     return call_gemini(messages, temperature, max_tokens, GEMINI_FALLBACK_MODEL)
                 return None
 
+    try:
         response.raise_for_status()
         result = response.json()
         candidates = result.get("candidates", [])
@@ -3087,6 +3306,7 @@ def main():
         print("⚠️  錯誤：GOOGLE_API_KEY 未設置，程式無法運行")
         return
 
+    print(f"API Key 數量：{len(_GEMINI_KEY_POOL)} 個（429 時自動輪替）")
     print(f"游泳池（帳號池）：{len(ACCOUNT_POOL) + len(HK_ACCOUNTS) + len(AU_ACCOUNTS)} 個帳號")
     print(f"  └─ 台灣 {len(ACCOUNT_POOL)} / 香港 {len(HK_ACCOUNTS)} / 澳洲二代 {len(AU_ACCOUNTS)}")
     print(f"策劃題庫：{len(CURATED_TOPICS)} 題")
@@ -3106,6 +3326,15 @@ def main():
     mainland_model = extract_mainland_model(hook_title)
     print()
 
+    # ===== 素材預抓：V2EX + GitHub Issues（只抓一次，四版主共用）=====
+    print("──────── 素材預抓 ────────")
+    print("  [V2EX] 抓取中...")
+    _MATERIAL_CACHE["v2ex"] = fetch_v2ex_hot(limit=20)
+    print("  [GitHub Issues] 抓取中...")
+    _MATERIAL_CACHE["github_issues"] = fetch_github_issues(limit_per_repo=5)
+    print(f"  素材快取：V2EX {len(_MATERIAL_CACHE['v2ex'])} 篇 / GitHub Issues {len(_MATERIAL_CACHE['github_issues'])} 篇")
+    print()
+
     new_articles = []
     used_topics = set()
     used_hn_ids = set()  # 防止四版主抓到同一篇 HN 帖
@@ -3114,8 +3343,8 @@ def main():
     for persona_name, persona in PERSONAS.items():
         print(f"────────  {persona_name}（{persona['domain']}）  ────────")
 
-        # D 類：技術討論型（HN 真實討論為素材）
-        print(f"  [1/2] 技術討論文章（HN 素材）...")
+        # D 類：技術討論型（HN / V2EX / GitHub Issues 素材）
+        print(f"  [1/2] 技術討論文章（多來源素材）...")
         material = gather_persona_material(persona_name, persona)
         # 跳過已被其他版主用過的帖子
         material = [p for p in material if p["id"] not in used_hn_ids]
@@ -3124,8 +3353,13 @@ def main():
         if material:
             top_post = material[0]
             used_hn_ids.add(top_post["id"])
-            print(f"        素材：{top_post['title'][:50]}（HN +{top_post['score']}）")
-            comments_raw = fetch_hn_comments(top_post["id"], limit=5)
+            source_label = top_post.get("source", "hn").upper()
+            print(f"        素材：{top_post['title'][:50]}（{source_label} +{top_post['score']}）")
+            # GitHub Issues 和 V2EX 沒有 HN 格式的 item id，跳過抓回覆
+            if top_post.get("source") == "hn":
+                comments_raw = fetch_hn_comments(top_post["id"], limit=5)
+            else:
+                comments_raw = []
             print(f"        抓到 {len(comments_raw)} 條回覆當素材")
             article_d = generate_discussion_article(persona_name, persona, top_post, comments_raw, mainland_model)
 
