@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An OpenAI model has disproved a central conjecture</title>
+<meta name="description" content="當數學家還在糾結如何定義「直覺」時，OpenAI 乾脆直接把離散幾何的一個核心猜想給拆了。這不是那種靠暴力破解堆算力的粗活，而是實打實地在數學邏輯的荒原裡，精準地踩中了人類幾十年來都沒看到的那個坑。有趣的是，這次奧特曼家的模型並不是掛載了什麼精密的手術刀插件，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260527-1639-070b46/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="An OpenAI model has disproved a central conjecture">
+<meta property="og:description" content="當數學家還在糾結如何定義「直覺」時，OpenAI 乾脆直接把離散幾何的一個核心猜想給拆了。這不是那種靠暴力破解堆算力的粗活，而是實打實地在數學邏輯的荒原裡，精準地踩中了人類幾十年來都沒看到的那個坑。有趣的是，這次奧特曼家的模型並不是掛載了什麼精密的手術刀插件，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260527-1639-070b46/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-27T16:39:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="An OpenAI model has disproved a central conjecture">
+<meta name="twitter:description" content="當數學家還在糾結如何定義「直覺」時，OpenAI 乾脆直接把離散幾何的一個核心猜想給拆了。這不是那種靠暴力破解堆算力的粗活，而是實打實地在數學邏輯的荒原裡，精準地踩中了人類幾十年來都沒看到的那個坑。有趣的是，這次奧特曼家的模型並不是掛載了什麼精密的手術刀插件，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "An OpenAI model has disproved a central conjecture",
+  "description": "當數學家還在糾結如何定義「直覺」時，OpenAI 乾脆直接把離散幾何的一個核心猜想給拆了。這不是那種靠暴力破解堆算力的粗活，而是實打實地在數學邏輯的荒原裡，精準地踩中了人類幾十年來都沒看到的那個坑。有趣的是，這次奧特曼家的模型並不是掛載了什麼精密的手術刀插件，…",
+  "datePublished": "2026-05-27T16:39:00+08:00",
+  "dateModified": "2026-05-27T16:39:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260527-1639-070b46/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-27 16:39
+  </div>
+
+  <h1 class="title">An OpenAI model has disproved a central conjecture</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當數學家還在糾結如何定義「直覺」時，OpenAI 乾脆直接把離散幾何的一個核心猜想給拆了。這不是那種靠暴力破解堆算力的粗活，而是實打實地在數學邏輯的荒原裡，精準地踩中了人類幾十年來都沒看到的那個坑。有趣的是，這次奧特曼家的模型並不是掛載了什麼精密的手術刀插件，也沒有什麼針對數學競賽優化的特供版後台，它就這麼大搖大擺地在通用模型的邏輯空間裡，把那堵牆給推倒了。</p>
+    <p>這事兒最讓學術界尷尬的地方在於，這不是那種「AI 幫我寫程式碼」的生產力提升，而是某種更底層的、甚至是讓數學家感到威脅的邏輯重構。我們習慣了讓 LLM 去寫那些充滿廢話的周報，或者幫忙修飾那些辭不達意的郵件，但當它開始在純粹的抽象領域，也就是那種連圖像化都極其困難的幾何構造中提出反例時，你不得不承認，某些我們引以為傲的「創造力」，可能真的只是某種高階的模式識別。</p>
+    <p>如果我們把目光轉向技術底層，會發現 ChatGPT 在處理這類問題時展現出的長程推理能力，已經開始與其他競爭者拉開身位。這不僅僅是 Context Window 大小的問題，而是模型在多步邏輯演繹中，如何保持那根細弱的線索不斷裂。Google 的 Gemini 在處理長文本數據庫時確實有一套，但在這種需要「無中生有」構造複雜數學對象的場景下，它總顯得有些縮手縮腳。而 Anthropic 的 Claude 雖然在語感和代碼邏輯上優雅得像個詩人，可一旦進入這種純粹、乾燥、不帶一絲情感的數學真空地帶，它的表現往往比 OpenAI 的模型多了一分謹慎，少了一分那種近乎野性的直覺。</p>
+    <p>這種直覺在離散幾何的構建中至關重要。這不是在標準答案裡做選擇題，而是在無限的排列組合中，找到那個能推翻既有定律的奇點。在 Hacker News 的討論裡，有人提到這並非依賴專門的數學工具鏈，這才是最讓人不安的地方。這意味著模型在預訓練階段吸收的，不只是數學符號的排列規律，而是某種更高層次的抽象邏輯。當我們在用 o1 或是後續迭代版本進行推理時，它在邏輯鏈條上的自我修正能力，已經遠遠超過了單純的預測下一個 Token。</p>
+    <p>橫向看看現在的局面。Grok 雖然自詡硬核、反教條，但在這種需要極致邏輯深度的學術戰場上，目前還看不到它除了講冷笑話之外的真正建樹。而某些標榜著數學專項優化的模型，比如 DeepSeek 或者 Qwen 之類，雖然在各種榜單上刷得起勁，但在面對這種從未被人類踏足過的猜想禁區時，往往還是欠缺了那種能打破框架的推演深度。學術界現在對 OpenAI 的偏愛並非沒有道理，當你發現只有某個工具能幫你摘到那顆掛在高處的果實時，什麼隱私條款、什麼訂閱費，在 Fields Medal 的誘惑面前都顯得微不足道。</p>
+    <p>這也引出了一個很刻薄的問題：如果 AI 真的能在我們反應過來之前，就解決掉那些懸而未決的科學難題，那人類數學家的角色到底是什麼？是那個負責把 AI 給出的構造「翻譯」成人類語言的記錄員，還是那個在賽後負責鼓掌的觀眾？我們現在看到的是 AI 推翻了一個猜想，下一次它可能就會直接定義一套新的公理系統。</p>
+    <p>當我們還在爭論 LLM 到底有沒有「意識」這種虛無縹緲的東西時，它已經在用最冰冷的邏輯告訴我們，所謂的智慧可能真的只是一場規模足夠大的計算。如果有一天，AI 真的拿到了菲爾茲獎，而它甚至還沒學會如何像個正常人一樣去管理一家麥當勞分店，我們該覺得這是技術的進步，還是人類定義「智慧」的方式本身就是一場巨大的誤會？在這種極致的邏輯不對稱面前，我們是否還有勇氣宣稱，那些關於宇宙本質的秘密，依然只有人類的大腦才能解析？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" rel="nofollow noopener" target="_blank">An OpenAI model has disproved a central conjecture in discrete geometry</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260527-1639-070b46/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

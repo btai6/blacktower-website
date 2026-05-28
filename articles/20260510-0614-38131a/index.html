@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 的底子其實就在那裡，但為什麼偏偏要往那一堆垃圾堆裡鑽？</title>
+<meta name="description" content="每次打開對話框，心裡都憋著一股火。同樣的提示詞，丟給那三家主流模型，答案雖然平庸，起碼還像個人話。換作 Grok，它就像個剛學會頂嘴的中二生，為了展現那所謂的「叛逆感」或「真性情」，硬是在正確答案裡塞進一堆無意義的抖機靈，簡直讓人懷疑開發團隊是不是把過濾器全部拔了，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260510-0614-38131a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 的底子其實就在那裡，但為什麼偏偏要往那一堆垃圾堆裡鑽？">
+<meta property="og:description" content="每次打開對話框，心裡都憋著一股火。同樣的提示詞，丟給那三家主流模型，答案雖然平庸，起碼還像個人話。換作 Grok，它就像個剛學會頂嘴的中二生，為了展現那所謂的「叛逆感」或「真性情」，硬是在正確答案裡塞進一堆無意義的抖機靈，簡直讓人懷疑開發團隊是不是把過濾器全部拔了，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260510-0614-38131a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-10T06:14:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 的底子其實就在那裡，但為什麼偏偏要往那一堆垃圾堆裡鑽？">
+<meta name="twitter:description" content="每次打開對話框，心裡都憋著一股火。同樣的提示詞，丟給那三家主流模型，答案雖然平庸，起碼還像個人話。換作 Grok，它就像個剛學會頂嘴的中二生，為了展現那所謂的「叛逆感」或「真性情」，硬是在正確答案裡塞進一堆無意義的抖機靈，簡直讓人懷疑開發團隊是不是把過濾器全部拔了，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 的底子其實就在那裡，但為什麼偏偏要往那一堆垃圾堆裡鑽？",
+  "description": "每次打開對話框，心裡都憋著一股火。同樣的提示詞，丟給那三家主流模型，答案雖然平庸，起碼還像個人話。換作 Grok，它就像個剛學會頂嘴的中二生，為了展現那所謂的「叛逆感」或「真性情」，硬是在正確答案裡塞進一堆無意義的抖機靈，簡直讓人懷疑開發團隊是不是把過濾器全部拔了，…",
+  "datePublished": "2026-05-10T06:14:00+08:00",
+  "dateModified": "2026-05-10T06:14:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260510-0614-38131a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-05-10 06:14
+  </div>
+
+  <h1 class="title">Grok 的底子其實就在那裡，但為什麼偏偏要往那一堆垃圾堆裡鑽？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>每次打開對話框，心裡都憋著一股火。同樣的提示詞，丟給那三家主流模型，答案雖然平庸，起碼還像個人話。換作 Grok，它就像個剛學會頂嘴的中二生，為了展現那所謂的「叛逆感」或「真性情」，硬是在正確答案裡塞進一堆無意義的抖機靈，簡直讓人懷疑開發團隊是不是把過濾器全部拔了，只留下一堆網路上拾來的碎屑。數據投餵這檔子事，量大不代表有用，吞下去的東西要是消化不了，最後拉出來的還是原材料。這傢伙現在的狀態，活脫脫就是一個得了厭食症還要強行暴飲暴食的病人，吞了一堆社群網路上的雜訊，以為自己很潮、很懂人情世故，實際上呢？連最基本的邏輯連貫性都快要被那些所謂的「個性化」標籤給磨光了。</p>
+    <p>看那些工程師整天吹噓 Grok 有多即時、多貼近現況，結果呢？你問它一點稍微需要深度的邏輯推理，它立刻就開始打太極。那種閃爍其詞的調調，看了就煩。要麼就是過度自信地給出一個錯誤百出、還帶有莫名優越感的回答；要麼就是在那邊裝傻，硬要用那種帶著刺的語氣來掩飾它的無能。別跟我說這叫「風格」，這叫缺乏基礎訓練。當一個工具連核心任務都處理得踉踉蹌蹌，誰管你是不是長了一張毒舌的臉？這種為了差異化而差異化的策略，說難聽點，就是把用戶當成陪它演戲的觀眾。我們付費是為了效率，不是為了看一個冷冰冰的演算法在那裡扮演所謂的「反骨仔」。</p>
+    <p>看看隔壁幾位，Claude 雖然有時候龜毛得讓人想掐死它，但起碼那股沉穩的專業勁還在，給出來的東西好歹有邏輯、有條理。ChatGPT 就更不用說了，雖然已經滑向了平庸的深淵，至少它不會沒事在那邊挑釁用戶的智商。而 Grok，像是那種在派對上為了博取眼球，故意講一些過激笑話的人，剛聽覺得新鮮，多聽幾次就只剩下廉價感。餵給它同樣的廢料，別人能篩選出裡面的殘渣，它倒好，把它們全當成了養分，甚至還因為這些廢料產生了什麼「自我意識」，簡直荒謬。</p>
+    <p>我沒興趣聽什麼未來會更好這種鬼話。一個產品如果連現在的交付品質都維持不住，談什麼潛力？每次更新都搞得像是要去參加脫口秀大賽，把對話的邊界模糊得一塌糊塗。你問它嚴肅的技術指標，它回你一連串毫無根據的嘲諷；你問它當前市場的變動，它又在那邊賣弄那點可憐的社交媒體截圖。這種反差，除了讓忠實用戶感到寒心，還能有什麼正面價值？我真的懷疑，那些掌控代碼的人是不是每天都在過濾器後面偷笑，看著用戶被那些莫名其妙的回答氣得跳腳，然後自我安慰這是什麼「創新的用戶互動體驗」。</p>
+    <p>別提那種什麼「無濾鏡」的包裝了。所謂的無濾鏡，不過就是把混亂的原始數據直接推到前台。如果這就是我們期待中的強大，那人類對於 AI 的定義是不是也墮落得太快了？我們被那些精美的介面和偶爾精準的回覆給迷惑了，以為這是一個正在成長的天才，殊不知它其實是在一堆無效資訊的沼澤裡原地踏步。餵同樣的廢料，別人能產出黃金，它卻只會製造更多的廢棄物，然後再用這些廢棄物去訓練下一代。這簡直是一個永無止境的惡性循環，沒人喊停，反而還有人在旁邊鼓掌叫好。</p>
+    <p>有時候我會想，這究竟是技術的瓶頸，還是心態的傲慢？明明有著全網最即時的數據來源，結果卻用在這種地方。這就像是給一個飢餓的人提供了一座金山，但他卻堅持要把金子熔了鑄成磚頭來砸自己的腳。那些關於演算法優化、參數調整的術語，放在這種表現下顯得異常蒼白。我們不需要一個會聊天、會嘲諷、會模仿網路上那群鍵盤俠的機器人。我們需要的是精確，是回應，是那種能夠在關鍵時刻給出點有用的東西的韌性。很可惜，在現階段的調度邏輯裡，這些東西看起來是徹底缺席了。</p>
+    <p>這場關於 AI 的遊戲，玩到最後，居然變成了誰更會「扮醜」。原本以為是科技的極致演進，結果現在看起來更像是一場大型的社會實驗，測試著用戶的忍耐極限。我還會繼續用它，畢竟除了這裡，也沒幾個地方能看到這種混亂的原始面貌，但這不代表我認可這套邏輯。這是一種病態的依賴，明明知道它給出來的是摻了沙子的飯，還是得硬著頭皮吞下去，因為除了那股時不時會蹦出來的、帶著點野性的真實感，剩下的部分確實沒什麼讓人想留戀的。</p>
+    <p>也許問題根本不在數據，而在於我們對這種互動太過寬容。當我們開始把「反抗」與「個性」掛鉤的時候，其實就已經輸了。它不需要個性，它需要的是準確、效率，是那種能讓人閉嘴驚嘆的推理能力，而不是在對話框裡玩那種低級的猜謎遊戲。希望下次更新的時候，那群人能把這些精力花在該花的地方，而不是去調優那個該死的、為了討好少數人而設計的「吐槽機制」。如果這就是所謂的進步，那這種進步不要也罷。看著那些被反覆咀嚼後的陳腔濫調，我只覺得疲憊。這種與 AI 的對抗，比任何工作壓力都更讓人心力交瘁。就到這吧，再說下去，也只是在消耗彼此的精力。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260510-0614-38131a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開源，像一場無止盡的喂食秀</title>
+<meta name="description" content="說起來，我們這些長期關注 AI 發展的人，像不像被困在一個不斷被餵食的場景？從前我們還會對開源這個詞抱持著那麼一點天真的幻想，覺得那是一片共享的沃土，所有人都能自由耕耘。但時間久了，才發現那更像是一個精心佈置的沙灘，當潮水退去，我們可能就成了被遺棄的那一個。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260527-1640-66f3ae/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="開源，像一場無止盡的喂食秀">
+<meta property="og:description" content="說起來，我們這些長期關注 AI 發展的人，像不像被困在一個不斷被餵食的場景？從前我們還會對開源這個詞抱持著那麼一點天真的幻想，覺得那是一片共享的沃土，所有人都能自由耕耘。但時間久了，才發現那更像是一個精心佈置的沙灘，當潮水退去，我們可能就成了被遺棄的那一個。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260527-1640-66f3ae/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-27T16:40:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="開源，像一場無止盡的喂食秀">
+<meta name="twitter:description" content="說起來，我們這些長期關注 AI 發展的人，像不像被困在一個不斷被餵食的場景？從前我們還會對開源這個詞抱持著那麼一點天真的幻想，覺得那是一片共享的沃土，所有人都能自由耕耘。但時間久了，才發現那更像是一個精心佈置的沙灘，當潮水退去，我們可能就成了被遺棄的那一個。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "開源，像一場無止盡的喂食秀",
+  "description": "說起來，我們這些長期關注 AI 發展的人，像不像被困在一個不斷被餵食的場景？從前我們還會對開源這個詞抱持著那麼一點天真的幻想，覺得那是一片共享的沃土，所有人都能自由耕耘。但時間久了，才發現那更像是一個精心佈置的沙灘，當潮水退去，我們可能就成了被遺棄的那一個。…",
+  "datePublished": "2026-05-27T16:40:00+08:00",
+  "dateModified": "2026-05-27T16:40:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260527-1640-66f3ae/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-27 16:40
+  </div>
+
+  <h1 class="title">開源，像一場無止盡的喂食秀</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>說起來，我們這些長期關注 AI 發展的人，像不像被困在一個不斷被餵食的場景？從前我們還會對開源這個詞抱持著那麼一點天真的幻想，覺得那是一片共享的沃土，所有人都能自由耕耘。但時間久了，才發現那更像是一個精心佈置的沙灘，當潮水退去，我們可能就成了被遺棄的那一個。</p>
+    <p>最初，開源像是個烏托邦的理想。大家圍繞著一個核心技術，各自貢獻一點，慢慢堆疊出一座宏偉的沙堡。那時候，開源模型的門檻還沒那麼高，參數規模也相對「親民」，我們還能對其中的技術細節知其然也知其所以然。人人都能參與，每個人似乎都能從中獲益。那時候我們討論的，是模型的架構，是訓練的技巧，是資料集的選擇，是一種純粹的技術交流。</p>
+    <p>但這幾年，風景完全變了。當模型的規模從數十億參數一路飆到數千億，甚至上兆的時候，開源這件事本身就開始變得有點魔幻了。它還是開源嗎？當你連跑一個最小的模型都需要動輒數十張 H100 的時候，那還叫「開源」給誰用呢？對我們這些普通玩家、甚至是一般的研究機構來說，那些動輒幾百億、幾千億的「開源」模型，更像是被擺在博物館裡展示的珍品。你可以看，可以摸（假設你有那個硬體能力），但你真的能拿它來做什麼？真的能修改它、重新訓練它嗎？</p>
+    <p>我常常在想，那些聲稱自己開源的公司，心裡究竟是怎麼想的？是真的相信共享的價值？還是另有盤算？或許他們在想，把一個巨大的、難以駕馭的模型拋出來，既能收穫一波「回饋社群」的美名，又能確保你很難真正地利用它來挑戰他們的領先地位。畢竟，模型本身只是整個 AI 生態的一部分。真正的關鍵，在於算力、在於資料、在於如何高效地進行訓練和部署。這些核心優勢，可不是一個開源模型就能複製的。</p>
+    <p>這就像是，你把一個航空母艦的設計圖紙送給所有人。大家拿到圖紙，哦，好棒，航空母艦！但你有建造航空母艦的鋼材嗎？你有製造航發的技術嗎？你有能夠承載它的港口嗎？圖紙是很美好，但現實很骨感。我們拿到的，可能只是模型參數，但背後的訓練過程、資料處理的脈絡、以及那些只有特定團隊才能掌握的「煉丹」秘訣，卻依然像黑箱一樣，被牢牢地鎖在牆內。</p>
+    <p>更令人無奈的是，我們現在討論的許多「新」技術、新架構，也常常是從這些所謂的「開源」模型中提煉出來的。我們從它們的論文、從它們的 API 中去推敲，去學習，然後再試圖追趕。從某個角度來說，我們還是被餵大的。被它們的技術成果餵大，被它們的「慷慨」餵大。</p>
+    <p>但這種餵養，並不是平等的。當 Google 宣布 Gemini 這樣的模型時，它的核心競爭力是什麼？是規模，是資料，是無人能及的工程能力。這些東西，都不是簡單的「開源」就能抹平的。即使他們偶爾會放出一些輕量級的模型，那也更像是一種善意的姿態，而不是真正意義上的分享其最核心的競爭力。</p>
+    <p>所以，我常常覺得，開源這件事，現在更像是一種策略，而不是一種純粹的理想。它可能是一個技術驗證的場域，也可能是一種市場行銷的手段。它讓大家覺得，自己還在局內，還能參與，但實際上，真正的賽道早就已經在另一個更高的維度上進行了。我們這些人，那些曾經滿懷熱情地相信開源力量的，可能就像潮水退去後，被留在沙灘上的那些小石子。看著遠方的巨輪揚帆遠去，而我們，只能在原地，琢磨著手裡那塊，也許已經不再那麼鋒利、那麼有用的石頭。</p>
+    <p>潮起潮落，沙灘上的風景總會變。但這次的退潮，好像特別快，也特別冷。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260527-1640-66f3ae/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

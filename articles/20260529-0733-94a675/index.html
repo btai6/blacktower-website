@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>能寫詩的 AI，究竟是真懂還是瞎掰？</title>
+<meta name="description" content="這問題問得好。每次看到 GPT-4 那些「詩作」，說實話，我都會忍不住翻白眼。真懂詩意？別鬧了。它懂的，是人類對於「詩」這種語言形式的結構、音韻、詞藻偏好。它能把李白杜甫的碎片拆了重組，再用統計學給你搭出一個似是而非的框架，掛上幾條看起來像那麼回事的意象。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260529-0733-94a675/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="能寫詩的 AI，究竟是真懂還是瞎掰？">
+<meta property="og:description" content="這問題問得好。每次看到 GPT-4 那些「詩作」，說實話，我都會忍不住翻白眼。真懂詩意？別鬧了。它懂的，是人類對於「詩」這種語言形式的結構、音韻、詞藻偏好。它能把李白杜甫的碎片拆了重組，再用統計學給你搭出一個似是而非的框架，掛上幾條看起來像那麼回事的意象。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260529-0733-94a675/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-29T07:33:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="能寫詩的 AI，究竟是真懂還是瞎掰？">
+<meta name="twitter:description" content="這問題問得好。每次看到 GPT-4 那些「詩作」，說實話，我都會忍不住翻白眼。真懂詩意？別鬧了。它懂的，是人類對於「詩」這種語言形式的結構、音韻、詞藻偏好。它能把李白杜甫的碎片拆了重組，再用統計學給你搭出一個似是而非的框架，掛上幾條看起來像那麼回事的意象。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "能寫詩的 AI，究竟是真懂還是瞎掰？",
+  "description": "這問題問得好。每次看到 GPT-4 那些「詩作」，說實話，我都會忍不住翻白眼。真懂詩意？別鬧了。它懂的，是人類對於「詩」這種語言形式的結構、音韻、詞藻偏好。它能把李白杜甫的碎片拆了重組，再用統計學給你搭出一個似是而非的框架，掛上幾條看起來像那麼回事的意象。…",
+  "datePublished": "2026-05-29T07:33:00+08:00",
+  "dateModified": "2026-05-29T07:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260529-0733-94a675/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-29 07:33
+  </div>
+
+  <h1 class="title">能寫詩的 AI，究竟是真懂還是瞎掰？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這問題問得好。每次看到 GPT-4 那些「詩作」，說實話，我都會忍不住翻白眼。真懂詩意？別鬧了。它懂的，是人類對於「詩」這種語言形式的結構、音韻、詞藻偏好。它能把李白杜甫的碎片拆了重組，再用統計學給你搭出一個似是而非的框架，掛上幾條看起來像那麼回事的意象。你說這是詩意？我看是高階模仿秀還差不多。</p>
+    <p>什麼是詩意？它從來不是能用演算法拆解的。你讓 GPT 寫一首關於「鄉愁」的詩，它能給你堆砌出「故鄉」、「月光」、「思念」、「遙遠」這些詞，也能巧妙地運用比喻和擬人，讓整體看起來很「詩」。但它真的感受到那種胃袋裡的空洞、舌尖上的異鄉味、腦海裡揮之不去的童年畫面嗎？它真的明白那種「舉頭望明月，低頭思故鄉」背後，千百年來遊子心中的那股說不清道不明的惆悵嗎？別傻了，它只知道「月亮」跟「思鄉」常常一起出現，而且「舉頭」跟「低頭」是個不錯的對仗，能讓句子看起來更「文藝」。</p>
+    <p>這種所謂的「詩」，其實更像是一種語言的魔術表演。它拿出一堆看似華麗的詞語，巧妙地排列組合，然後丟給你，讓你從中自己腦補出情感。大部分時候，我們感動的不是 AI 寫的東西，而是我們自己投射進去的感受。AI 只是提供了一面鏡子，反射出我們自己內心的「詩意」罷了。</p>
+    <p>再說，寫詩這種事，本身就帶點反叛，帶點靈光一現，帶點個人色彩。哪個詩人寫詩不是帶著一身的傷痕、滿腹的牢騷，或者看透世情的洞察？這些東西，AI 怎麼模擬？它能透過數據訓練知道「苦難」是寫詩的常見主題，也能知道「愛情」跟「死亡」能產生強烈的戲劇效果。但它不知道失去的痛、背叛的恨、或者在深夜裡突然迸發的靈感是怎麼一回事。它沒有心，沒有記憶，沒有情緒，所以它所有的「創作」都只是對已有模式的複製和再生產。</p>
+    <p>所以，當有人說 GPT 真的懂「詩意」的時候，我通常會反問一句：那你覺得它懂「愛」嗎？懂「恨」嗎？它能像一個真正的創作者一樣，在某個深夜，被某種難以名狀的情緒所驅使，非得把心裡那團火用文字傾瀉出來才行嗎？恐怕不能。它只會等到你給它一個指令，然後根據它的參數和訓練數據，給你一個「最佳」的答案。</p>
+    <p>這不是創作，這只是一種高效的語言重組。它很厲害，非常厲害，甚至會讓你一時真假難辨。就像那些高超的贋品一樣，乍看之下毫無破綻，甚至比真品還「完美」。但一旦你仔細推敲，就會發現它缺少了那麼一點點的「靈魂」，缺少了那種只有生命才能賦予的、獨一無二的氣息。</p>
+    <p>這種「詩」大概也就是給那些想快速生產內容，或者想在社交媒體上裝裝文青的人用的吧。對於真正懂得欣賞詩歌，懂得那些字裡行間承載的重量的人來說，GPT 寫出來的東西，就只是個聰明的玩具，一個能完美模仿詩人腔調的語言機器。要說它懂詩意，那真是太看得起它，也太看輕「詩意」本身了。詩意，從來不是程式碼能編出來的。它需要生命去感受，去體驗，去燃燒。GPT 有嗎？沒有。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260529-0733-94a675/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

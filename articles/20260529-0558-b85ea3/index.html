@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 DeepSeek 也在「一本正經胡說八道</title>
+<meta name="description" content="有人在抱怨，問 AI 關於惡意軟體的事，結果拿到一堆廢話。更扯的是，把這堆廢話貼到 GitHub 上問，竟然有人回覆的內容跟 AI 給的一模一樣，還被抓包刪掉。然後，又來一個，還是同樣的 AI 產物。這年頭，連討論區都快被 AI 垃圾淹沒了，你還指望從裡面找到什麼真知灼見嗎？…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260529-0558-b85ea3/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 DeepSeek 也在「一本正經胡說八道">
+<meta property="og:description" content="有人在抱怨，問 AI 關於惡意軟體的事，結果拿到一堆廢話。更扯的是，把這堆廢話貼到 GitHub 上問，竟然有人回覆的內容跟 AI 給的一模一樣，還被抓包刪掉。然後，又來一個，還是同樣的 AI 產物。這年頭，連討論區都快被 AI 垃圾淹沒了，你還指望從裡面找到什麼真知灼見嗎？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260529-0558-b85ea3/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-29T05:58:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 DeepSeek 也在「一本正經胡說八道">
+<meta name="twitter:description" content="有人在抱怨，問 AI 關於惡意軟體的事，結果拿到一堆廢話。更扯的是，把這堆廢話貼到 GitHub 上問，竟然有人回覆的內容跟 AI 給的一模一樣，還被抓包刪掉。然後，又來一個，還是同樣的 AI 產物。這年頭，連討論區都快被 AI 垃圾淹沒了，你還指望從裡面找到什麼真知灼見嗎？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 DeepSeek 也在「一本正經胡說八道",
+  "description": "有人在抱怨，問 AI 關於惡意軟體的事，結果拿到一堆廢話。更扯的是，把這堆廢話貼到 GitHub 上問，竟然有人回覆的內容跟 AI 給的一模一樣，還被抓包刪掉。然後，又來一個，還是同樣的 AI 產物。這年頭，連討論區都快被 AI 垃圾淹沒了，你還指望從裡面找到什麼真知灼見嗎？…",
+  "datePublished": "2026-05-29T05:58:00+08:00",
+  "dateModified": "2026-05-29T05:58:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260529-0558-b85ea3/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-29 05:58
+  </div>
+
+  <h1 class="title">當 DeepSeek 也在「一本正經胡說八道</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>有人在抱怨，問 AI 關於惡意軟體的事，結果拿到一堆廢話。更扯的是，把這堆廢話貼到 GitHub 上問，竟然有人回覆的內容跟 AI 給的一模一樣，還被抓包刪掉。然後，又來一個，還是同樣的 AI 產物。這年頭，連討論區都快被 AI 垃圾淹沒了，你還指望從裡面找到什麼真知灼見嗎？以前是寫作業作弊，現在是連工作都拿 AI 截圖來敷衍，還以為自己多聰明。這哪是解決問題，根本是製造更多問題。</p>
+    <p>這現象，OpenAI 最該摸著良心想想。GPT-4o 確實很能寫，從詩歌到程式碼，從新聞稿到技術文件，寫出來的東西乍看之下都挺像樣。但像樣，不代表有用。尤其是那些需要精確事實、即時資訊或是針對特定情境的判斷時，它往往會開始「幻覺」。不是編造不存在的資料庫，就是把不相關的資訊硬湊在一起。最可怕的是，它還能把這些幻覺包裝得頭頭是道，讓你一時半會兒還真分不出來。這不只是準確性的問題，更是信任度的崩塌。當你發現 AI 在一本正經地胡說八道，而你卻花了時間去辨識這些垃圾，那種挫敗感，足以讓任何一個認真的開發者對它敬而遠之。這背後暴露的，是當前大型語言模型在知識邊界和事實校驗上的根本性缺陷。儘管 OpenAI 號稱投入了大量資源在模型對齊和安全訓練上，但對於這種「看似正確實則錯誤」的內容產出，似乎還沒有找到釜底抽薪的解決辦法。</p>
+    <p>相較於 DeepSeek 近期在中文語境下的表現，OpenAI 在處理多語言資訊、特別是那些需要跨文化背景理解的複雜技術問題時，有時也會顯露出類似的「水土不服」。雖然 DeepSeek 在某些特定任務上展現出不錯的性能，但面對全球化的技術討論，任何模型都難免遇到知識盲區或理解偏差。而 Claude 倒是比較傾向於「我不知道」或「無法確定」，這在某種程度上是一種負責任的表現。它在處理長文本時的上下文記憶力雖有時衰減，但至少在輸出內容的「保守性」上，比 GPT 系列少了一些「一本正經胡說八道」的勇氣。至於 Gemini，它的多模態能力確實令人驚艷，但在純文本的知識問答上，有時會顯得過於「泛泛而談」，缺乏深度和精準度。Grok 則更像是一個實驗品，它的即時資訊抓取能力值得觀察，但在資訊的篩選和驗證上，恐怕還有很長的路要走。</p>
+    <p>AI 產生的垃圾內容，已經開始反噬我們賴以生存的資訊環境。當我們無法分辨哪些是真人言論，哪些是機器生成的廢話，整個網路討論的價值還剩下多少？我們還能相信什麼？或者說，當 AI 已經學會了「一本正經地胡說八道」，人類又該如何在這個資訊洪流中，找回屬於自己的判斷力？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=48230104" rel="nofollow noopener" target="_blank">Tell HN: I&#x27;m tired of AI-generated answers</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260529-0558-b85ea3/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

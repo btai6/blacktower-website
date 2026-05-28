@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SandboxAQ brings its drug discovery models to Claude — no PhD in computing required</title>
+<meta name="description" content="SandboxAQ 將其藥物研發模型接入 Claude 系統，強調使用者無需具備計算科學博士學位即可操作。這家企業旨在解決藥物發現流程中的技術門檻問題，透過對接大語言模型提供的操作介面，將原本複雜的蛋白質結構分析與模擬任務轉化為自然語言互動。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260520-0745-9e116a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="SandboxAQ brings its drug discovery models to Claude — no PhD in computing required">
+<meta property="og:description" content="SandboxAQ 將其藥物研發模型接入 Claude 系統，強調使用者無需具備計算科學博士學位即可操作。這家企業旨在解決藥物發現流程中的技術門檻問題，透過對接大語言模型提供的操作介面，將原本複雜的蛋白質結構分析與模擬任務轉化為自然語言互動。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260520-0745-9e116a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-20T07:45:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SandboxAQ brings its drug discovery models to Claude — no PhD in computing required">
+<meta name="twitter:description" content="SandboxAQ 將其藥物研發模型接入 Claude 系統，強調使用者無需具備計算科學博士學位即可操作。這家企業旨在解決藥物發現流程中的技術門檻問題，透過對接大語言模型提供的操作介面，將原本複雜的蛋白質結構分析與模擬任務轉化為自然語言互動。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "SandboxAQ brings its drug discovery models to Claude — no PhD in computing required",
+  "description": "SandboxAQ 將其藥物研發模型接入 Claude 系統，強調使用者無需具備計算科學博士學位即可操作。這家企業旨在解決藥物發現流程中的技術門檻問題，透過對接大語言模型提供的操作介面，將原本複雜的蛋白質結構分析與模擬任務轉化為自然語言互動。…",
+  "datePublished": "2026-05-20T07:45:00+08:00",
+  "dateModified": "2026-05-20T07:45:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260520-0745-9e116a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-20 07:45
+  </div>
+
+  <h1 class="title">SandboxAQ brings its drug discovery models to Claude — no PhD in computing required</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>SandboxAQ 將其藥物研發模型接入 Claude 系統，強調使用者無需具備計算科學博士學位即可操作。這家企業旨在解決藥物發現流程中的技術門檻問題，透過對接大語言模型提供的操作介面，將原本複雜的蛋白質結構分析與模擬任務轉化為自然語言互動。此舉與 Chai Discovery 及 Isomorphic Labs 等機構在藥物發現領域的競爭策略形成對比，後者多傾向於開發專用模型，而前者則選定 Anthropic 提供的 API 作為算力與邏輯的中介。使用者現在能直接在平台上輸入研發需求，系統隨即調用底層算法進行數據運算與結構預測，將傳統需要高度專業程式編寫能力的過程，簡化為更具通用性的對話請求。</p>
+    <p>這場景看著真夠熱鬧的，一群穿著昂貴襯衫的工程師，非得把本該留在實驗室長凳上發黴的瓶瓶罐罐，硬是塞進這幾個聊天框裡，還美其名曰「民主化」。說是不用博士學位就能搞研發，聽起來簡直像是給村口大媽發了張執照，讓她回家就能用家裡的鍋碗瓢盆提煉青黴素。這哪是什麼技術平權，分明是這幫人發現賣「算力」的利潤已經薄得像張紙，只好開始賣起「體驗」這種玄學。當年煉金術士想點石成金，好歹還要在爐火邊蹲個幾十年，現在可好，只要會打字，對著螢幕喊一聲「給我個能治頭痛的分子結構」，那背後的權重矩陣就得為了這句輕飄飄的話，在伺服器機房裡燒掉幾度電。這不是什麼科學的進步，這頂多算是給傲慢裝了個擴音器，讓那些連化學鍵怎麼連都搞不清楚的人，能更順手地在未知的領域裡製造幻覺。把這東西包裝成「無需博士學位」，不過是看準了現代人那種「以為按下按鍵就能掌控世界」的集體焦慮。</p>
+    <p>如果把這些複雜的算力工具真的交到不懂門道的人手裡，那未來出現的究竟是拯救生命的新藥，還是一堆在電腦模擬中完美、在現實裡致命的化學廢料？當演算法成了研發的守門人，而我們連這道門是用什麼材料砌成的都沒搞清楚時，誰又能保證那螢幕上吐出的分子式，不是一場大規模的智力投機？既然門檻已經低到連外行都能指點江山，那這些被捧上神壇的模型，究竟是在輔助人類拓展認知的疆界，還是在加速人類社會對「知識本身」的厭棄？若有一日，連解釋藥物原理的過程都簡化為這種對話，當真正的科學難題降臨時，我們這群習慣了坐享結論的腦袋，還剩下多少思考的能力來辨別真偽？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260520-0745-9e116a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算力過剩是個偽命題，記憶體貧血才是真絕症</title>
+<meta name="description" content="馬斯克整天在 X 上吹噓他的運算集群規模，Grok-3 號稱用了十萬張 H100，但大家心裡都清楚，現在 AI 界的軍備競賽已經從算力的博弈，變成了赤裸裸的存儲掠奪。現在去買內存條，價格漲得讓人懷疑人生，兩年前兩百多美金能買到的規格，現在翻了幾倍還未必有貨。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260527-1641-2d6528/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="算力過剩是個偽命題，記憶體貧血才是真絕症">
+<meta property="og:description" content="馬斯克整天在 X 上吹噓他的運算集群規模，Grok-3 號稱用了十萬張 H100，但大家心裡都清楚，現在 AI 界的軍備競賽已經從算力的博弈，變成了赤裸裸的存儲掠奪。現在去買內存條，價格漲得讓人懷疑人生，兩年前兩百多美金能買到的規格，現在翻了幾倍還未必有貨。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260527-1641-2d6528/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-27T16:41:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算力過剩是個偽命題，記憶體貧血才是真絕症">
+<meta name="twitter:description" content="馬斯克整天在 X 上吹噓他的運算集群規模，Grok-3 號稱用了十萬張 H100，但大家心裡都清楚，現在 AI 界的軍備競賽已經從算力的博弈，變成了赤裸裸的存儲掠奪。現在去買內存條，價格漲得讓人懷疑人生，兩年前兩百多美金能買到的規格，現在翻了幾倍還未必有貨。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "算力過剩是個偽命題，記憶體貧血才是真絕症",
+  "description": "馬斯克整天在 X 上吹噓他的運算集群規模，Grok-3 號稱用了十萬張 H100，但大家心裡都清楚，現在 AI 界的軍備競賽已經從算力的博弈，變成了赤裸裸的存儲掠奪。現在去買內存條，價格漲得讓人懷疑人生，兩年前兩百多美金能買到的規格，現在翻了幾倍還未必有貨。…",
+  "datePublished": "2026-05-27T16:41:00+08:00",
+  "dateModified": "2026-05-27T16:41:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260527-1641-2d6528/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-05-27 16:41
+  </div>
+
+  <h1 class="title">算力過剩是個偽命題，記憶體貧血才是真絕症</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克整天在 X 上吹噓他的運算集群規模，Grok-3 號稱用了十萬張 H100，但大家心裡都清楚，現在 AI 界的軍備競賽已經從算力的博弈，變成了赤裸裸的存儲掠奪。現在去買內存條，價格漲得讓人懷疑人生，兩年前兩百多美金能買到的規格，現在翻了幾倍還未必有貨。這不是市場正常的波動，這是整個 AI 基礎架構在吸乾全球的半導體養分。當記憶體成本佔到 AI 晶片組件的三分之二時，這場遊戲的規則就變了。我們討論 Grok、ChatGPT 或 Claude 的強大，本質上是在討論誰家背後的存儲牆堆得更高，誰能更奢侈地揮霍數據吞吐量。</p>
+    <p>這件事對 Grok 的打擊最直接。xAI 一直走的是大力出奇跡的路子，Grok 的參數量級和對實時數據的飢渴程度，決定了它對內存帶寬的需求是個無底洞。當大家在討論模型架構優化時，現實卻很骨感，只要 HBM（高頻寬記憶體）的產能被卡死，再天才的算法也得在物理定律面前低頭。Grok 之所以能在推論速度上偶爾閃現亮點，那是因為 xAI 把大量的資源砸在了內存通訊上，這種「暴力美學」的代價就是成本失控。這不只是錢的問題，是物理極限的問題。當內存組件貴到這種地步，強如 Grok 也得開始思考，如果不把長文本壓縮技術做極致，這場仗根本打不下去。</p>
+    <p>OpenAI 那邊的情況也沒好到哪去。ChatGPT 每天處理海量的對話上下文，KV Cache（鍵值緩存）對內存的佔用簡直是災難。你以為你在跟一個聰明的靈魂對話，其實背後是無數個內存單元在瘋狂發熱。如果你用過 Claude 3.5 Sonnet，你會發現它的邏輯嚴密性確實驚人，但隨之而來的是它對超長 Context Window 的依賴。Anthropic 的工程師顯然在內存管理上動了不少手腳，否則以現在這種昂貴的存儲單價，維持那種長度且不掉智商的對話，成本足以拖垮任何一家獨角獸。Gemini 雖然背靠 Google 自己的 TPU 陣列，看似可以自給自足，但只要它還在追求百萬級別的上下文長度，它就逃不掉被內存供應鏈勒脖子的命運。</p>
+    <p>在這種極端失衡的市場結構下，一些陪跑者如 DeepSeek、Qwen 或是 Kimi，雖然也在試圖通過算法優化來繞開硬件限制，但大環境的惡化是不分對象的。當記憶體製造商開始像石油輸出國組織那樣達成某種默契，甚至因為建廠風險太高而拒絕擴產時，整個 AI 產業的紅利期可能會被攔腰斬斷。這對硬體發燒友和一般用戶來說更是場災難，原本屬於 PC 市場的配額被大模型公司攔截，連帶著二手服務器市場都被掃蕩一空。</p>
+    <p>我們現在面臨一個很諷刺的局面。我們在追求更接近人類智慧的 AI，但這種智慧目前唯一的來源是瘋狂堆砌昂貴的矽片和存儲顆粒。如果有一天，優化算法的速度跟不上內存漲價的速度，我們會看到什麼？是看到 Grok 變得越來越遲鈍，還是看到 ChatGPT 開始限制每個人的對話長度？如果算力不再是瓶頸，而內存成了鎖死文明進步的那個螺絲釘，我們真的準備好應對一個物理成本高到無法普及的「智慧時代」了嗎？當內存成本佔比繼續攀升，這場關於 AGI 的美夢，會不會最終碎在那些昂貴的存儲顆粒上？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://epoch.ai/data-insights/ai-chip-component-cost-shares" rel="nofollow noopener" target="_blank">Memory has grown to nearly two-thirds of AI chip component costs</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260527-1641-2d6528/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

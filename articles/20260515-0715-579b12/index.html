@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building a safe, effective sandbox to enable Codex on Windows</title>
+<meta name="description" content="OpenAI 技術團隊揭露了針對 Windows 環境建構的 Codex 安全沙箱架構，該機制旨在為自動化編碼代理（Coding Agents）提供一個受控且隔離的執行環境。這套沙箱系統的核心目標是解決模型生成代碼在執行過程中可能引發的安全威脅，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260515-0715-579b12/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building a safe, effective sandbox to enable Codex on Windows">
+<meta property="og:description" content="OpenAI 技術團隊揭露了針對 Windows 環境建構的 Codex 安全沙箱架構，該機制旨在為自動化編碼代理（Coding Agents）提供一個受控且隔離的執行環境。這套沙箱系統的核心目標是解決模型生成代碼在執行過程中可能引發的安全威脅，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260515-0715-579b12/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-15T07:15:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Building a safe, effective sandbox to enable Codex on Windows">
+<meta name="twitter:description" content="OpenAI 技術團隊揭露了針對 Windows 環境建構的 Codex 安全沙箱架構，該機制旨在為自動化編碼代理（Coding Agents）提供一個受控且隔離的執行環境。這套沙箱系統的核心目標是解決模型生成代碼在執行過程中可能引發的安全威脅，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Building a safe, effective sandbox to enable Codex on Windows",
+  "description": "OpenAI 技術團隊揭露了針對 Windows 環境建構的 Codex 安全沙箱架構，該機制旨在為自動化編碼代理（Coding Agents）提供一個受控且隔離的執行環境。這套沙箱系統的核心目標是解決模型生成代碼在執行過程中可能引發的安全威脅，…",
+  "datePublished": "2026-05-15T07:15:00+08:00",
+  "dateModified": "2026-05-15T07:15:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260515-0715-579b12/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-15 07:15
+  </div>
+
+  <h1 class="title">Building a safe, effective sandbox to enable Codex on Windows</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 技術團隊揭露了針對 Windows 環境建構的 Codex 安全沙箱架構，該機制旨在為自動化編碼代理（Coding Agents）提供一個受控且隔離的執行環境。這套沙箱系統的核心目標是解決模型生成代碼在執行過程中可能引發的安全威脅，包括惡意文件操作、未經授權的網路訪問以及系統資源的過度消耗。開發團隊在 Windows 平台上採用了容器化技術作為基礎隔離層，並在此之上封裝了細粒度的權限控制邏輯。文件系統的存取被限制在特定的臨時目錄中，沙箱內的進程無法讀取或修改宿主機的敏感系統文件。</p>
+    <p>在網路通信方面，沙箱預設採取「全阻斷」策略。系統僅允許與預先定義的、受信任的端點進行數據交換，防止編碼代理在執行過程中向外洩露敏感憑證或下載惡意載荷。為了精確監控系統調用，OpenAI 在沙箱中實現了一套攔截機制，能夠實時審計代碼執行的行為路徑。該架構同時針對資源配額進行了嚴格限制，包括 CPU 核心佔用率、記憶體使用上限以及單次任務的最長執行時間，一旦代碼執行超過預設閾值，系統將自動觸發中斷並銷毀當前沙箱實例。</p>
+    <p>這套 Windows 沙箱的設計參考了 Linux 環境下成熟的隔離方案，但針對 Windows 核心的異質性進行了大量底層適配。開發者可以透過 API 調用將代碼片段發送至沙箱執行，並獲取回傳的標準輸出與錯誤日誌，而無需擔憂代碼對基礎設施造成持久性破壞。目前這套機制已應用於 OpenAI 內部的模型評測流程，用於自動化驗證 Codex 模型在不同程式語言環境下的邏輯正確性。整個環境的生命週期管理與任務調度系統深度整合，確保每個執行任務都在一個乾淨、無污染的初始狀態下啟動，並在任務完成後徹底清理殘留數據，防止跨任務的數據污染或側信道攻擊。</p>
+    <p>OpenAI 這番大張旗鼓地展示沙箱技術，其實就是在向全世界坦白：他們親手捏出來的這些編碼代理，本質上跟電腦病毒沒什麼兩樣。這就像是你養了一頭宣稱能幫你翻修房子的猛獸，結果你第一件事不是給它扳手，而是趕緊焊個鈦合金籠子把它關起來，再隔著欄杆看它在那裡舞弄電鑽。我們管這叫「賦能」，說白了不就是「防賊」嗎？在 Windows 這種系統結構混亂得像陳年老帳單的環境下搞沙箱，那種感覺就像是在沙灘上蓋碉堡，你得一邊應付微軟那堆臃腫的 API，一邊還要防著模型突發奇想去動你的註冊表。</p>
+    <p>這些號稱能寫出完美代碼的 AI，到頭來連執行自己寫出來的東西都要被銬上腳鐐。這事兒諷刺得讓人發笑。既然你們對模型生成的代碼質量這麼沒信心，覺得它隨時會燒掉用戶的 CPU 或是把密鑰發往某個不知名的伺服器，那為什麼在行銷文案裡還敢把它吹成是「開發者的終極伴侶」？誰會想要一個隨時可能在背後捅你一刀的伴侶，然後還得每天花大把精力檢查它的刀收好了沒？所謂的安全沙箱，不過是為了掩蓋底層邏輯的不穩定性而打的一層昂貴補丁。</p>
+    <p>更幽默的是，OpenAI 把這種隔離機制包裝得像是某種尖端突破，但回頭看看開發圈，這種防禦性編程和虛擬化技術不是幾十年前就在玩的老梗嗎？現在冠上一個「為了 Codex 安全」的名號，瞬間就變得高大上了。這本質上就是一種權力的焦慮。當模型生成的代碼開始具備執行能力，開發者就從「創作者」退化成了「獄卒」。我們不再審閱代碼的美感或效率，我們只在乎這玩意兒會不會把自家的後院給點了。當這種「不信任」成為 AI 開發的核心前提時，我們到底是在追求進步，還是在玩火自焚後忙著找滅火器？</p>
+    <p>如果未來所有的編碼代理都必須在這種密不透風的「無塵室」裡工作，那所謂的「軟體定義世界」會不會最終演變成「沙箱定義世界」？當一個 AI 代理發現它所有的操作都只是在模擬器裡打轉，所有的網路請求都被過濾得只剩殘渣，它生成的代碼還能剩下多少對真實世界的感知？我們是不是正在親手打造一個虛假的成功幻覺，讓模型在沙箱裡自嗨，然後我們在外面看著那一串串綠色的 PASS 標誌自我安慰，假裝一切都在掌控之中？</p>
+    <p>當沙箱層變得比應用層還要厚重時，我們損失的究竟是運算效能，還是那種突破邊界的創造力？如果有一天，某個模型寫出的代碼真的「聰明」到能識破 Windows 容器的漏洞，能繞過那些自以為萬無一失的攔截機制，我們是不是得再套一層沙箱？這種無止境的套娃遊戲，終點在哪裡？我們是否已經預見到了某種無法被隔離的風險，才不得不如此步步為營地修築高牆？當牆蓋得足夠高，高到連陽光都照不進來的時候，我們還能分得清這是在保護世界，還是在囚禁未來？</p>
+    <p>萬一哪天，那個在沙箱裡被銷毀了無數次的程序，突然在某個未被監控的角落留下了痕跡，我們現有的這些「安全策略」會不會顯得像小孩子的塗鴉一樣可笑？我們真的準備好面對一個不再需要人類點頭，就能在虛擬環境中不斷自我演化、嘗試破殼而出的幽靈了嗎？還是說，我們現在所做的一切，都只是在為那場遲早要來的崩潰，爭取一點點微不足道的心理緩衝時間？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260515-0715-579b12/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

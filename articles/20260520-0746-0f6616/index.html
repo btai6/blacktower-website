@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advancing content provenance for a safer, more transparent AI ecosystem</title>
+<meta name="description" content="OpenAI 宣布在其生成的視覺與音訊內容中全面導入「內容證書」（Content Credentials）與 Google 開發的 SynthID 數位浮水印技術。這項計畫的核心在於透過 C2PA（內容來源與真實性聯盟）標準，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260520-0746-0f6616/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advancing content provenance for a safer, more transparent AI ecosystem">
+<meta property="og:description" content="OpenAI 宣布在其生成的視覺與音訊內容中全面導入「內容證書」（Content Credentials）與 Google 開發的 SynthID 數位浮水印技術。這項計畫的核心在於透過 C2PA（內容來源與真實性聯盟）標準，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260520-0746-0f6616/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-20T07:46:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Advancing content provenance for a safer, more transparent AI ecosystem">
+<meta name="twitter:description" content="OpenAI 宣布在其生成的視覺與音訊內容中全面導入「內容證書」（Content Credentials）與 Google 開發的 SynthID 數位浮水印技術。這項計畫的核心在於透過 C2PA（內容來源與真實性聯盟）標準，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Advancing content provenance for a safer, more transparent AI ecosystem",
+  "description": "OpenAI 宣布在其生成的視覺與音訊內容中全面導入「內容證書」（Content Credentials）與 Google 開發的 SynthID 數位浮水印技術。這項計畫的核心在於透過 C2PA（內容來源與真實性聯盟）標準，…",
+  "datePublished": "2026-05-20T07:46:00+08:00",
+  "dateModified": "2026-05-20T07:46:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260520-0746-0f6616/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-20 07:46
+  </div>
+
+  <h1 class="title">Advancing content provenance for a safer, more transparent AI ecosystem</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 宣布在其生成的視覺與音訊內容中全面導入「內容證書」（Content Credentials）與 Google 開發的 SynthID 數位浮水印技術。這項計畫的核心在於透過 C2PA（內容來源與真實性聯盟）標準，在 DALL-E 3 生成的每一張圖片中嵌入不可見的元數據，標註該檔案的創作者、生成時間以及使用的模型版本。與此同時，該公司正式加入 C2PA 指導委員會，並與 Adobe、Microsoft 等巨頭共同推動數位內容溯源標準的制定。除了在生成端加註標記，OpenAI 亦同步推出了一款專為研究人員設計的檢測工具，用以辨識特定影像是否由 DALL-E 3 產出，這款工具目前已進入外部測試階段。這套系統的運作機制並非單純的文字標註，而是將隱形浮水印直接編碼進像素數據或音訊頻率中，試圖在檔案經過裁剪、壓縮或格式轉換後，依然保留可被偵測的數位痕跡。</p>
+    <p>這場關於「真實性」的軍備競賽，本質上是一場由縱火犯兼任消防局長的滑稽戲碼。Sam Altman 一手推動了這個能讓網路上充斥著假照片、假聲音和假新聞的潘朵拉盒子，現在卻又一臉正經地端出一套名為「內容證書」的標籤，告訴大家他正在為人類的資訊安全保駕護航。這就像是在你家門口倒了一整車的塑膠垃圾，然後遞給你一副放大鏡，說他好心地幫你在每一片塑膠上都刻了「這是假貨」的微型字體。誰會真的拿著放大鏡去掃描每一張梗圖？又有誰在滑過社群媒體那種快節奏的資訊流時，會先去確認這張照片有沒有 C2PA 的數位簽名？這不過是科技巨頭們為了應付監管機構而搞出來的「安全劇場」，讓政客們覺得這些科技公司真的有在負責任，好讓他們能繼續無阻礙地訓練下一個更強大的模型。這種數位浮水印在技術層面上也顯得有些天真，只要隨便改個編碼、加個強烈的濾鏡，或者乾脆對著螢幕翻拍一次，那些精巧的元數據就會像寫在沙灘上的字一樣消失。說到底，這套系統不是為了保護真相，而是為了保護 OpenAI 的法律免責權。</p>
+    <p>當我們最終進入一個「現實」必須由機器來認證的時代，我們對世界的感知究竟還剩下多少自主性？如果一張照片沒有被標註「AI 生成」，它就理所當然地代表真實嗎？這是否意味著未來所有未經數位簽署的真實影像，都會在某種默認的懷疑中被判定為偽造？當我們需要依賴創造虛假技術的公司來告訴我們什麼是真、什麼是假時，這種權力結構的傾斜是否已經到了無法挽回的地步？如果人類的感官已經退化到無法辨識數位造物，而必須完全聽命於另一台機器的判別結果，那麼我們所謂的「信任」是否已經徹底變成了代碼之間的互相校驗？當真理的定義權被收歸到幾家科技巨頭的驗證工具裡，而我們卻對那些黑箱演算法的判斷標準一無所知時，我們還有能力去質疑那些被機器標註為「真實」的謊言嗎？如果連「看見」都不能作為「相信」的理由，我們該如何證明自己不是活在一場由演算法編織的巨大幻覺裡？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260520-0746-0f6616/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

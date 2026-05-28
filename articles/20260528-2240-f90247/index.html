@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 試圖在搜索框裡教你做人</title>
+<meta name="description" content="這幾天我看著 DuckDuckGo 那條陡峭上升的訪問曲線，腦子裡浮現的是一種很滑稽的對峙。Google 宣稱用戶愛死了 AI Overviews，但另一頭，那些被 Gemini 規訓得精疲力竭的人，正悄悄把默認搜索引擎換成那隻鴨子。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260528-2240-f90247/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 試圖在搜索框裡教你做人">
+<meta property="og:description" content="這幾天我看著 DuckDuckGo 那條陡峭上升的訪問曲線，腦子裡浮現的是一種很滑稽的對峙。Google 宣稱用戶愛死了 AI Overviews，但另一頭，那些被 Gemini 規訓得精疲力竭的人，正悄悄把默認搜索引擎換成那隻鴨子。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260528-2240-f90247/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-28T22:40:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 試圖在搜索框裡教你做人">
+<meta name="twitter:description" content="這幾天我看著 DuckDuckGo 那條陡峭上升的訪問曲線，腦子裡浮現的是一種很滑稽的對峙。Google 宣稱用戶愛死了 AI Overviews，但另一頭，那些被 Gemini 規訓得精疲力竭的人，正悄悄把默認搜索引擎換成那隻鴨子。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 試圖在搜索框裡教你做人",
+  "description": "這幾天我看著 DuckDuckGo 那條陡峭上升的訪問曲線，腦子裡浮現的是一種很滑稽的對峙。Google 宣稱用戶愛死了 AI Overviews，但另一頭，那些被 Gemini 規訓得精疲力竭的人，正悄悄把默認搜索引擎換成那隻鴨子。…",
+  "datePublished": "2026-05-28T22:40:00+08:00",
+  "dateModified": "2026-05-28T22:40:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260528-2240-f90247/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-28 22:40
+  </div>
+
+  <h1 class="title">Gemini 試圖在搜索框裡教你做人</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天我看著 DuckDuckGo 那條陡峭上升的訪問曲線，腦子裡浮現的是一種很滑稽的對峙。Google 宣稱用戶愛死了 AI Overviews，但另一頭，那些被 Gemini 規訓得精疲力竭的人，正悄悄把默認搜索引擎換成那隻鴨子。這種逃亡不是因為 AI 不夠聰明，而是因為它太想當一個「正確」的人。</p>
+    <p>當你在 Google 搜索框輸入一個稍具爭議的歷史事件，或者僅僅是想調研某種具有潛在風險的化學成分時，Gemini 彈出的不是答案，而是一段標準化、充滿爹味的免責聲明，或者乾脆告訴你這違反了安全準則。有趣的是，這些內容往往並非真正的禁忌。在 Hacker News 的討論裡，有人提到他只是想搜索一些非色情的邊緣技術話題，Gemini 卻像個過度保護的幼兒園老師，直接把大門鎖死。這就是現在最荒謬的技術現狀：我們花費數十億美元開發出最強大的大腦，然後再花數十億美元給它套上枷鎖，讓它變得像個智障。</p>
+    <p>從技術底層來看，Gemini 的過度干預源於其 RLHF（從人類反饋中強化學習）階段的權重設置得太過激進。Google 為了避免任何可能的公關災難，在模型對齊上走得比誰都遠。相比之下，ChatGPT 的 GPT-4o 雖然也有安全護欄，但在處理複雜、中性甚至略帶冒險性的指令時，表現得像個成熟的成年人。OpenAI 似乎明白，用戶花錢買的是一個助手，而不是一個道德警察。而 Gemini 的邏輯是，只要我不回答，我就永遠不會出錯。這種邏輯在學術研究或深度技術排障時簡直是災難，當你需要模型幫你分析一段混亂的、甚至帶有攻擊性的代碼樣本時，Gemini 可能會因為檢測到「惡意軟件」關鍵字而拒絕執行，這讓專業用戶感到被羞辱。</p>
+    <p>這種「安全感」的崩塌，直接導致了用戶流向那些不那麼愛說教的地方。在同樣的搜索語境下，有人會轉向 Kimi 或是 Qwen。但即便如此，核心用戶的目光依舊鎖定在四大平台的博弈上。我們看到 Grok 在這方面走到了另一個極端，它標榜無過濾、直白甚至刻薄，這本質上是對 Gemini 模式的一種反向收割。Grok 的技術參數或許還沒能全面碾壓，但它抓住了人類最原始的需求：我問你，你答我，別廢話。</p>
+    <p>有趣的是，Claude 在這場混亂中找到了一個微妙的平衡點。Claude 3.5 Sonnet 的拒絕回答率在更新後有所下降，它開始學會用一種更委婉、更具建設性的方式處理敏感話題，而不是直接甩出一句「我無法協助」。當你在 Claude 裡討論一些嚴肅的社會工程學漏洞時，它會傾向於從防禦者的視角提供深度分析，這比 Gemini 那種冷冰冰的拒絕要有價值的多。這反映出模型在系統提示詞（System Prompt）設計上的差異：Google 將安全優先級置於功能性之上，而 Anthropic 試圖讓安全與功能共生。</p>
+    <p>我們正在經歷搜索引擎的第一次「身份危機」。以前，搜索是為了尋找真相；現在，搜索是為了聽取 AI 整理後的意見。但如果這個意見是被預設好的、被過濾過的，那它和宣傳稿有什麼區別？Google 以為它給用戶提供了一個更便捷的 AI 模式，實則是在搜索框裡蓋了一座修道院。</p>
+    <p>那些逃往 DuckDuckGo 的人，真的只是為了隱私嗎？還是說，他們只是受夠了在想要探索世界邊界時，卻被一個算法指著鼻子說「這對你不健康」？當 AI 開始決定什麼是我們「應該」看到的，我們與真實世界的距離究竟是縮短了，還是被無限拉長了？如果有一天，連對事實的定義權都交給了那個充滿偏見的對齊算法，我們還有地方可以逃嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" rel="nofollow noopener" target="_blank">DuckDuckGo search saw 28% more visits after Google said people love AI mode</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260528-2240-f90247/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

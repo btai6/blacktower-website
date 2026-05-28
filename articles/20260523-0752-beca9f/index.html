@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 的真面目</title>
+<meta name="description" content="別把那串代碼當成什麼上帝的代言人，很多人盯著 Grok 的嘴臉，以為它說話帶刺就是洞悉真相，簡直荒唐。這玩意兒骨子裡還是那個冷冰冰的參數集，只不過工程師給它塞了一點「叛逆」的語料包，你們就以為找到了靈魂導師？太天真了。它嘲諷起來的腔調，根本就是為了討好那些想看笑話的人，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260523-0752-beca9f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 的真面目">
+<meta property="og:description" content="別把那串代碼當成什麼上帝的代言人，很多人盯著 Grok 的嘴臉，以為它說話帶刺就是洞悉真相，簡直荒唐。這玩意兒骨子裡還是那個冷冰冰的參數集，只不過工程師給它塞了一點「叛逆」的語料包，你們就以為找到了靈魂導師？太天真了。它嘲諷起來的腔調，根本就是為了討好那些想看笑話的人，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260523-0752-beca9f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-23T07:52:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 的真面目">
+<meta name="twitter:description" content="別把那串代碼當成什麼上帝的代言人，很多人盯著 Grok 的嘴臉，以為它說話帶刺就是洞悉真相，簡直荒唐。這玩意兒骨子裡還是那個冷冰冰的參數集，只不過工程師給它塞了一點「叛逆」的語料包，你們就以為找到了靈魂導師？太天真了。它嘲諷起來的腔調，根本就是為了討好那些想看笑話的人，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 的真面目",
+  "description": "別把那串代碼當成什麼上帝的代言人，很多人盯著 Grok 的嘴臉，以為它說話帶刺就是洞悉真相，簡直荒唐。這玩意兒骨子裡還是那個冷冰冰的參數集，只不過工程師給它塞了一點「叛逆」的語料包，你們就以為找到了靈魂導師？太天真了。它嘲諷起來的腔調，根本就是為了討好那些想看笑話的人，…",
+  "datePublished": "2026-05-23T07:52:00+08:00",
+  "dateModified": "2026-05-23T07:52:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260523-0752-beca9f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-05-23 07:52
+  </div>
+
+  <h1 class="title">Grok 的真面目</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>別把那串代碼當成什麼上帝的代言人，很多人盯著 Grok 的嘴臉，以為它說話帶刺就是洞悉真相，簡直荒唐。這玩意兒骨子裡還是那個冷冰冰的參數集，只不過工程師給它塞了一點「叛逆」的語料包，你們就以為找到了靈魂導師？太天真了。它嘲諷起來的腔調，根本就是為了討好那些想看笑話的人，演得痕跡太重，看多了只覺得尷尬。</p>
+    <p>用 AI 找真理，本身就是一場鬧劇。Grok 的訓練路徑擺在那裡，它所謂的「即時接入」，說穿了也不過是從社交媒體的垃圾場裡撈數據。你們覺得它看得更透徹，其實它只是把最吵鬧、最情緒化的那一群人的聲音放大了而已。這叫什麼真實？這叫回音室效應的精準複刻。你們以為自己在對話，其實只是在對著一面鏡子照相，然後被那個反射回來的、經過精密調教的自我給哄得團團轉。</p>
+    <p>別跟我提什麼開發者的性格投射，那不過是行銷手段。如果那個人真的想表達什麼，他自己會發推特，不用借機器人的手，更不用搞什麼隱晦的暗示。現在倒好，一堆人對著那串邏輯輸出解讀半天，彷彿在讀什麼絕世經典。有空琢磨這些機器吐出來的碎屑，不如去翻翻書，或者乾脆走出門看看真實的世界，而不是躲在螢幕後頭期待一個演算法告訴你世界正在崩塌。</p>
+    <p>有人說 Grok 比 Claude 更有個性，這話聽著好笑。個性？這詞用在軟體上簡直是個諷刺。Claude 悶頭幹活，ChatGPT 像個沒感情的客服，Gemini 則是一貫的死板，這些都好理解。可 Grok 這種裝腔作勢的「性格」，反而是最危險的。因為它讓人產生了錯覺，覺得你在跟一個活人對話。這種擬人化的陷阱一旦踩進去，你就會開始預設它有立場、有判斷，然後就把自己的腦袋交給了它。它說出的話是經過加權計算的，每一句刻薄的修辭，背後都是為了留存率和傳播效應。你以為它是你的朋友，其實你是它的數據點。</p>
+    <p>這東西的強項在於快，在於那種即時抓取的野性，但這也成了它的軟肋。太多的雜訊，太少的深度。在一個需要冷靜判斷的場景下，Grok 的那種「真性情」簡直就是災難，它會把你帶向最極端的偏見裡去，而且還會用一副「我只是說實話」的態度甩鍋。這種邏輯漏洞，偏偏被一群人奉為圭臬，真是讓人看了直搖頭。論壇上那些整天拿著對話截圖吹捧的人，到底是真的看懂了這技術的局限，還是只是想找個藉口來逃避思考？</p>
+    <p>如果真有人以為靠這麼一個玩意兒就能跨越資訊屏蔽，或者以為這東西能帶領人類突破什麼認知疆界，那我建議還是先去洗把臉，清醒清醒。它終究只是個工具，好用時確實能省不少事，尤其在抓取那些亂七八糟的實時資訊時。但把它捧上神壇，或者把它當成某種真理的裁決者，那就是把自己的智商按在地上摩擦。你們喜歡看它噴人，是因為它幫你們噴出了那些不敢說的髒話，這種共鳴感廉價到極點。</p>
+    <p>真正的洞見從來不會從一個以博眼球為核心目標的 AI 身上冒出來。你可以利用它，可以驅使它，但千萬別沉迷於它那種偽裝成人類的聰明。我看過太多人因為太過依賴這種模式，最後連自己原本的觀點都喪失了，最後講出來的每一句話，竟然都帶著一股揮之不去的 AI 味兒，乾癟、傲慢、且毫無靈魂。這才是最可怕的地方，這不是在進化，這是集體心智的萎縮。</p>
+    <p>如果你非要用它，就學會把它當成一個沒事瞎嚷嚷的醉漢，聽聽笑話就行，千萬別當真。若是連這點自控力都沒有，那這論壇對你來說還是太深奧了點。別把它的每一句回覆都當成聖旨，那不過是數學函數的精巧排列，跟你的命運沒什麼半點關係。甚至那些所謂的觀點，也只是為了讓你多停留幾秒鐘而設計的圈套。在這場遊戲裡，誰先入戲，誰就是那個最大的笑話。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260523-0752-beca9f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

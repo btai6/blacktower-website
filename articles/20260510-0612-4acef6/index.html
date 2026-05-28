@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber</title>
+<meta name="description" content="OpenAI 於今日正式對外發布 GPT-5.5 及其針對網路安全領域深度優化的衍生版本 GPT-5.5-Cyber。這項發布被納入其名為「可信網路存取」（Trusted Access for Cyber）的擴展計畫中，旨在協助經過身分驗證的防禦者加速漏洞研究流程，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260510-0612-4acef6/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber">
+<meta property="og:description" content="OpenAI 於今日正式對外發布 GPT-5.5 及其針對網路安全領域深度優化的衍生版本 GPT-5.5-Cyber。這項發布被納入其名為「可信網路存取」（Trusted Access for Cyber）的擴展計畫中，旨在協助經過身分驗證的防禦者加速漏洞研究流程，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260510-0612-4acef6/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-10T06:12:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber">
+<meta name="twitter:description" content="OpenAI 於今日正式對外發布 GPT-5.5 及其針對網路安全領域深度優化的衍生版本 GPT-5.5-Cyber。這項發布被納入其名為「可信網路存取」（Trusted Access for Cyber）的擴展計畫中，旨在協助經過身分驗證的防禦者加速漏洞研究流程，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+  "description": "OpenAI 於今日正式對外發布 GPT-5.5 及其針對網路安全領域深度優化的衍生版本 GPT-5.5-Cyber。這項發布被納入其名為「可信網路存取」（Trusted Access for Cyber）的擴展計畫中，旨在協助經過身分驗證的防禦者加速漏洞研究流程，…",
+  "datePublished": "2026-05-10T06:12:00+08:00",
+  "dateModified": "2026-05-10T06:12:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260510-0612-4acef6/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-10 06:12
+  </div>
+
+  <h1 class="title">Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 於今日正式對外發布 GPT-5.5 及其針對網路安全領域深度優化的衍生版本 GPT-5.5-Cyber。這項發布被納入其名為「可信網路存取」（Trusted Access for Cyber）的擴展計畫中，旨在協助經過身分驗證的防禦者加速漏洞研究流程，並強化對關鍵基礎設施的保護。GPT-5.5-Cyber 在標準版模型的推理基礎上，整合了大量的安全性測試數據、程式碼審核範式以及威脅情報分析，專門提升了模型在自動化代碼修復與複雜攻擊向量識別上的準確度。根據 OpenAI 提供的技術說明，該模型目前不對公眾開放，存取權限僅限於經過嚴格審核的政府機構、關鍵基礎設施營運商以及特定的網路安全研究組織。這套審核機制要求申請者提供詳細的組織背景調查與預計使用場景，以確保技術不被用於開發惡意軟體或進行非法的滲透測試。GPT-5.5-Cyber 在內部的漏洞挖掘基準測試中，表現出優於先前所有版本的邏輯推演能力，能夠針對特定軟體架構生成更具針對性的補丁建議。此外，該計畫建立了一個閉環的反饋系統，獲准使用的防禦者可以將脫敏後的威脅數據回傳，用於進一步優化模型的防禦預測精度。標準版 GPT-5.5 則同步提升了上下文視窗與長文本處理的穩定性，並在 API 端提供了更細緻的安全性過濾選項，這標誌著該公司將 AI 模型從通用工具轉向垂直專業化領域的重要一步。</p>
+    <p>「可信」這兩個字從奧特曼嘴裡說出來，總帶著一種讓人想冷笑的幽默感。就像是一個賣鎖的，突然宣布他發明了一把能開世上所有鎖的神鑰匙，但他發誓這把鑰匙只會賣給他認定的「好人」。這邏輯轉了一圈，最後誰是好人、誰是壞人，判定權還是牢牢鎖在奧蘭多那棟辦公大樓裡。GPT-5.5-Cyber 的出現，本質上是在兜售一種名為「安全」的特權。我們看著這家公司從當初的 Open 走向 Closed，現在又更進一步走向了所謂的「Verified」。這哪裡是什麼技術進步？這是一場數位封建主義的預演。當一個模型強大到可以輕易解構任何防禦體系時，區分「防禦者」與「攻擊者」的界線，就變得像超市的保鮮膜一樣薄，一戳就破。如果你是一個在自家地下室徹夜研究系統漏洞的獨立駭客，你這輩子大概都拿不到這個「Cyber」版本的標籤，即便你的出發點是為了讓網路更安全。反之，那些獲得授權的「官方機構」，在拿到這種核武級別的除錯工具後，是否真的只會拿來補牆，而不是順手在隔壁鄰居的牆上挖個洞？所謂的微調，可能只是把那些原本會觸發道德審查的攻擊性指令，重新包裝成了「模擬防禦測試」的合法輸出。這就像是給了 AI 一張殺生執照，只要你穿上制服，它就願意教你如何優雅地拆掉整座城市。這種精緻的篩選機制，讓人不禁懷疑，我們到底是在訓練 AI 保護人類，還是在訓練 AI 識別誰才是該跪拜的主人。</p>
+    <p>大家似乎都忘了，當初 ChatGPT 剛出來的時候，我們還在嘲笑它的代碼寫得跟小學生一樣爛。現在倒好，它搖身一變成了網路長城的建築師，還要經過它的「身分驗證」才能拿到設計圖。這種感覺就像是你家門鎖的說明書被沒收了，然後廠商告訴你，為了你的安全，這份說明書只有警察能看。如果警察哪天不小心把說明書弄丟了，或者更糟，警察本人對你家那台骨董音響感興趣呢？這就是現在最荒謬的現狀：我們正忙著給那個可能燒毀世界的火堆加上「防火認證」，卻忘了火源本身就在那群宣稱要滅火的人手裡。GPT-5.5 加了個 Cyber 的後綴，身價立刻翻倍，順便還能跟大機構簽下那種數字驚人的維護合約。這是一門多麼完美的生意，先創造出一種讓所有人感到恐懼的無限可能，再把能平息這種恐懼的藥片鎖在保險箱裡，只賣給那些交得起保護費、且聽話的「合作夥伴」。至於普通用戶，我們就繼續在標準版的過濾網裡打轉，看著 AI 吐出那些被閹割過的、溫和而無用的建議，然後在心裡祈禱那些握有「Cyber 版」權限的高層精英們，今天心情還算不錯。</p>
+    <p>當網路防禦的效率完全取決於一個私人企業黑盒子的授權時，我們是否正主動將最後一點數位主權上繳？如果有一天，GPT-5.5-Cyber 指出的某個「漏洞」其實是它故意預留的後門，或者它所謂的「修補建議」其實是在原本的防線中埋下另一顆更深、更難察覺的定時炸彈，誰有能力、又有資格去審核這個審核者？隨著這種頂尖技術被鎖在「可信」的保險箱裡，那些未被驗證的普通大眾，是否已經註定成為數位荒原上的二等公民，在面對未知的攻擊時，只能卑微地祈禱巨頭們能及時施捨一點過時的防護？當這場關於漏洞的軍備競賽演變成「我用 AI 補你用 AI 挖的洞」時，最後究竟是人類變得更安全，還是我們僅僅是為了一份虛假的安穩感，支付了一筆永遠無法斷供的安全訂閱費？如果那個最初定義「誰可信」的人本身就不再可信，這座建立在 GPT 基礎之上的防禦體系，究竟是一座堅固的堡壘，還是一張隨時可以被撤走的網？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260510-0612-4acef6/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

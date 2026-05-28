@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馬斯克把 Grok 抬上開源神壇的代價是 3140 億個參數</title>
+<meta name="description" content="馬斯克這人雖然瘋，但說話算話這點確實讓人沒話說，Grok-1 說開源就真的把那 314 億個參數的權重給扔出來了。現在壓力全到了 OpenAI 和 Google 那邊。大家都在喊著要開源，結果最後是這個整天在 X 上跟人吵架的傢伙先動了手。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260527-1626-928af4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="馬斯克把 Grok 抬上開源神壇的代價是 3140 億個參數">
+<meta property="og:description" content="馬斯克這人雖然瘋，但說話算話這點確實讓人沒話說，Grok-1 說開源就真的把那 314 億個參數的權重給扔出來了。現在壓力全到了 OpenAI 和 Google 那邊。大家都在喊著要開源，結果最後是這個整天在 X 上跟人吵架的傢伙先動了手。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260527-1626-928af4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-27T16:26:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="馬斯克把 Grok 抬上開源神壇的代價是 3140 億個參數">
+<meta name="twitter:description" content="馬斯克這人雖然瘋，但說話算話這點確實讓人沒話說，Grok-1 說開源就真的把那 314 億個參數的權重給扔出來了。現在壓力全到了 OpenAI 和 Google 那邊。大家都在喊著要開源，結果最後是這個整天在 X 上跟人吵架的傢伙先動了手。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "馬斯克把 Grok 抬上開源神壇的代價是 3140 億個參數",
+  "description": "馬斯克這人雖然瘋，但說話算話這點確實讓人沒話說，Grok-1 說開源就真的把那 314 億個參數的權重給扔出來了。現在壓力全到了 OpenAI 和 Google 那邊。大家都在喊著要開源，結果最後是這個整天在 X 上跟人吵架的傢伙先動了手。…",
+  "datePublished": "2026-05-27T16:26:00+08:00",
+  "dateModified": "2026-05-27T16:26:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260527-1626-928af4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-05-27 16:26
+  </div>
+
+  <h1 class="title">馬斯克把 Grok 抬上開源神壇的代價是 3140 億個參數</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克這人雖然瘋，但說話算話這點確實讓人沒話說，Grok-1 說開源就真的把那 314 億個參數的權重給扔出來了。現在壓力全到了 OpenAI 和 Google 那邊。大家都在喊著要開源，結果最後是這個整天在 X 上跟人吵架的傢伙先動了手。314B 的參數量，這不是在開玩笑，這是在秀肌肉。這種體量在當前的開源界基本上是降維打擊，光是那個權重文件就夠硬體玩家們喝一壺的。</p>
+    <p>技術細節上有點意思，Grok-1 採用的 Mixture of Experts 結構，八個專家裡每次激活兩個，實際跑起來的活躍參數大概是 86B。這種設計邏輯很明顯是為了平衡推理效率和模型容量，但問題是，這麼大的模型在實際應用中真的能比 ChatGPT 的 GPT-4 或者 Claude 3 更聰明嗎？我們在黑塔論壇裡看了太多的參數量迷信，數據質量要是跟不上，參數再多也只是堆砌出來的脂肪。</p>
+    <p>xAI 的博客裡拿 Grok-1 去跟 GPT-3.5 和 Claude 2 比，這就很賊。現在是什麼時代了？Claude 3 已經在推理能力上快把 GPT-4 逼瘋了，Gemini 1.5 的長文本窗口大得嚇人，你拿一個剛出爐的模型去比人家的上一代產品，這不是耍流氓嗎？Grok 的獨特性在於它能實時抓取 X 上的數據，但這種數據的噪聲大得驚人。一個模型如果天天餵的是網民的抬槓和情緒化發言，它的邏輯底層到底穩不穩，這是個巨大的問號。</p>
+    <p>再看看現在的開源環境，Meta 的 Llama 系列還在憋大招，Mistral 也在後面追。至於 DeepSeek、Qwen 這些名字雖然也常在榜單上晃悠，但它們在 Grok 這種純粹的力量展示面前，顯得像是在另一個維度玩遊戲。Grok 開源的是權重，不是訓練代碼或數據集。這就是馬斯克的陽謀，我把這個核彈頭扔給你，但怎麼造導彈、怎麼維護，你自己看著辦。這對開發者來說是份大禮，但也可能是個巨大的坑。</p>
+    <p>ChatGPT 依賴微軟的算力優勢搞封閉生態，Google 靠著 Gemini 的多模態整合能力守城，Claude 則在精細化理解上越走越遠。Grok 橫插一腳，走的是「大而全」且「我行我素」的路子。它不追求那種溫良恭儉讓的 AI 助手感，它追求的是一種未經修飾的暴力美學。但在 8x86B 這種結構下，如果你沒有足夠優質的 Token 去填滿它的胃口，這 314B 參數最終可能只會變成一種算力的浪費。</p>
+    <p>大家現在最關心的是，這麼大的模型，訓練時到底吃了多少 Token？如果訓練量不足，這模型就是個虛胖的巨人。比起 GPT-4 那種深不可測的邏輯鏈條，Grok 現在展現出來的更多是廣度而非深度。它在 Apache 2.0 協議下的開放，確實給了那些不滿 OpenAI 壟斷的人一線希望，但這線希望的維護成本極高。誰家裡有那麼多 H100 能跑得動這玩意？</p>
+    <p>這就引出了一個更尖銳的問題，當模型規模大到一定程度，邊際效應是不是已經開始遞減了？我們看到 Claude 3 Opus 用更小的代價實現了更強的邏輯，而 Grok 卻還在參數堆砌的道路上狂奔。如果未來 AI 的競爭變成了單純的堆料比賽，那這場遊戲最後只會剩下那幾個燒得起錢的瘋子。</p>
+    <p>Grok 這次開源到底是在推動技術民主化，還是只是馬斯克為了羞辱 Sam Altman 而演的一場大戲？當我們真的把這 314B 參數跑起來時，發現它在某些邏輯測試中還不如規模更小的 Claude 3，那時候這場「開源神話」該如何收場？這尊巨神兵已經立在路口了，接下來是它大殺四方，還是成為大家硬碟裡的一堆廢鐵？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/xai-org/grok" rel="nofollow noopener" target="_blank">Grok</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260527-1626-928af4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

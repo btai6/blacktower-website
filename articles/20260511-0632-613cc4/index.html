@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Anthropic’s Mythos has rewritten Firefox’s approach to cybersecurity</title>
+<meta name="description" content="Anthropic 研發的自動化安全檢測工具 Mythos 在 Mozilla Firefox 的程式碼庫中識別出多個高風險漏洞，這項發現已獲得 Mozilla 安全研究團隊證實。根據 TechCrunch 報導，Mythos 利用大型語言模型的推理能力，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260511-0632-613cc4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Anthropic’s Mythos has rewritten Firefox’s approach to cybersecurity">
+<meta property="og:description" content="Anthropic 研發的自動化安全檢測工具 Mythos 在 Mozilla Firefox 的程式碼庫中識別出多個高風險漏洞，這項發現已獲得 Mozilla 安全研究團隊證實。根據 TechCrunch 報導，Mythos 利用大型語言模型的推理能力，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260511-0632-613cc4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-11T06:32:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How Anthropic’s Mythos has rewritten Firefox’s approach to cybersecurity">
+<meta name="twitter:description" content="Anthropic 研發的自動化安全檢測工具 Mythos 在 Mozilla Firefox 的程式碼庫中識別出多個高風險漏洞，這項發現已獲得 Mozilla 安全研究團隊證實。根據 TechCrunch 報導，Mythos 利用大型語言模型的推理能力，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "How Anthropic’s Mythos has rewritten Firefox’s approach to cybersecurity",
+  "description": "Anthropic 研發的自動化安全檢測工具 Mythos 在 Mozilla Firefox 的程式碼庫中識別出多個高風險漏洞，這項發現已獲得 Mozilla 安全研究團隊證實。根據 TechCrunch 報導，Mythos 利用大型語言模型的推理能力，…",
+  "datePublished": "2026-05-11T06:32:00+08:00",
+  "dateModified": "2026-05-11T06:32:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260511-0632-613cc4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-11 06:32
+  </div>
+
+  <h1 class="title">How Anthropic’s Mythos has rewritten Firefox’s approach to cybersecurity</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 研發的自動化安全檢測工具 Mythos 在 Mozilla Firefox 的程式碼庫中識別出多個高風險漏洞，這項發現已獲得 Mozilla 安全研究團隊證實。根據 TechCrunch 報導，Mythos 利用大型語言模型的推理能力，針對 C++ 程式語法中的記憶體安全問題與複雜邏輯缺陷進行深度掃描，發現了多個過去透過靜態分析工具與人工審核皆未能察覺的技術漏洞。Mozilla 已針對這些受影響的代碼區塊完成修復，並計畫將 Mythos 整合至 Firefox 的持續集成系統中，以實現代碼提交階段的即時安全審計。此次合作標誌著瀏覽器開發流程的重大轉變，從依賴事後修補與漏洞賞金計畫的被動防禦，轉向由 AI 驅動的主動代碼清理。Anthropic 表示，Mythos 的核心優勢在於處理跨模組的代碼相依性，能夠模擬潛在的攻擊路徑並預判緩衝區溢位等嚴重安全威脅。Mozilla 安全主管指出，這些漏洞若被惡意利用，可能導致遠端執行代碼或使用者數據洩漏。目前，Mythos 尚處於特定合作階段，並未對公眾全面開放，但其在 Firefox 項目中的表現已引發安全社群對於軟體供應鏈安全評估標準的重新討論。</p>
+    <p>Mozilla 找上 Anthropic 來幫忙修補那艘名為 Firefox 的破船，這事聽起來就像是一位守著古老圖書館的館長，終於意識到那些堆積如山的莎士比亞手稿裡，其實藏滿了足以讓整座建築付之一炬的蛀蟲。我們過去談論網路安全，總愛帶著一種西西弗斯式的浪漫，彷彿程式設計師每晚挑燈夜戰去修補那些指針引用與內存分配，是在進行某種神聖的抗爭。事實上，在數百萬行堆疊如拉比林斯迷宮的 C++ 代碼面前，人類那點微末的專注力，充其量只是在泰坦尼克號撞上冰山前，試圖用抹布擦乾甲板上的積水。Mythos 這個名字取得倒也狂妄，彷彿它不是在寫腳本，而是在編織一套關於代碼起源與毀滅的新神話。當它輕而易舉地揪出那些連資深工程師都感到頭暈目眩的邏輯缺陷時，那種所謂的「職人精神」顯得既滑稽又廉價。我們曾天真地以為代碼是邏輯的詩篇，但在這類審計工具眼裡，那不過是一堆語法錯誤堆砌起來的廢紙堆，充滿了因人類疏忽而留下的後門。過去那些漏洞賞金獵人在城牆下撿拾碎銀子的日子大概快到頭了，當算力可以直接接管防禦，這種從被動挨打到主動清洗的過渡，其實更像是一場無聲的判決。它判處了舊式開發流程的死刑，也宣告了人類在面對自己創造的數位造物時，已經徹底失去了掌控全局的資格。這哪裡是在協作？這根本是在為人類的智力侷限舉行一場優雅的葬禮。我們引以為傲的複雜系統，在這種跨時空的審判面前，不過是隨時可以被拆解的積木，每一塊都刻著漏洞。</p>
+    <p>如果屠龍者本身就是火種，那麼這座被重重保護的城堡，真的還能稱之為避難所嗎？當 Mythos 這種層級的工具成為軟體世界的基礎設施，我們是否該問問：如果它能如此精準地識破防禦，那麼它在無聲無息中構建出的進攻藍圖，究竟正存放在誰的雲端？如果有一天，這類工具判定某個系統性漏洞「不宜被修復」，因為其修復成本將導致數位世界的秩序停滯，我們是否還保有按下一鍵清除的權利？當人類不再是代碼的最後審查者，我們對安全感的定義，是否也將隨之異化為對算法的盲目信仰？如果這場神話的終點不是救贖，而是將所有軟體都置於一種隨時可以被「反向解析」的透明狀態，那麼隱私與自由的防護欄還剩下幾寸？我們是在加固城牆，還是在親手交出開門的鑰匙，只為了換取一個暫時沒有報警聲的寧靜夜晚？這種由算力堆砌出來的正義，其邊界到底是由技術決定，還是由背後的商業契約所圈定？當我們慶幸於瀏覽器變得更安全時，是否想過，這種安全感本身就是一種建立在黑盒之上的幻覺？當 AI 讀懂了所有代碼，而我們卻讀不懂 AI 的時候，誰才是那個真正掌握安全密碼的人？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260511-0632-613cc4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

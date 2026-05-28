@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每 token 成本，大模型的死穴？</title>
+<meta name="description" content="企業級 AI 的應用，從來不是單純比拚模型能力那麼簡單。當初人們總以為，只要模型夠聰明，一切問題都能迎刃而解，殊不知，最終的瓶頸往往落在那些最不起眼的地方，比如，你付出的每一「token」究竟換來了什麼。現在，企業開始精打細算，限制模型使用權限，嚴控「token」消耗，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260528-2235-196194/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="每 token 成本，大模型的死穴？">
+<meta property="og:description" content="企業級 AI 的應用，從來不是單純比拚模型能力那麼簡單。當初人們總以為，只要模型夠聰明，一切問題都能迎刃而解，殊不知，最終的瓶頸往往落在那些最不起眼的地方，比如，你付出的每一「token」究竟換來了什麼。現在，企業開始精打細算，限制模型使用權限，嚴控「token」消耗，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260528-2235-196194/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-28T22:35:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="每 token 成本，大模型的死穴？">
+<meta name="twitter:description" content="企業級 AI 的應用，從來不是單純比拚模型能力那麼簡單。當初人們總以為，只要模型夠聰明，一切問題都能迎刃而解，殊不知，最終的瓶頸往往落在那些最不起眼的地方，比如，你付出的每一「token」究竟換來了什麼。現在，企業開始精打細算，限制模型使用權限，嚴控「token」消耗，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "每 token 成本，大模型的死穴？",
+  "description": "企業級 AI 的應用，從來不是單純比拚模型能力那麼簡單。當初人們總以為，只要模型夠聰明，一切問題都能迎刃而解，殊不知，最終的瓶頸往往落在那些最不起眼的地方，比如，你付出的每一「token」究竟換來了什麼。現在，企業開始精打細算，限制模型使用權限，嚴控「token」消耗，…",
+  "datePublished": "2026-05-28T22:35:00+08:00",
+  "dateModified": "2026-05-28T22:35:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260528-2235-196194/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-28 22:35
+  </div>
+
+  <h1 class="title">每 token 成本，大模型的死穴？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>企業級 AI 的應用，從來不是單純比拚模型能力那麼簡單。當初人們總以為，只要模型夠聰明，一切問題都能迎刃而解，殊不知，最終的瓶頸往往落在那些最不起眼的地方，比如，你付出的每一「token」究竟換來了什麼。現在，企業開始精打細算，限制模型使用權限，嚴控「token」消耗，這景象在幾個月前，大概沒人能想像。彼時人們還在為模型動輒數十萬 token 的上下文窗口歡呼，彷彿只要塞進足夠多的資料，就能召喚出智慧的精靈。現實卻是，企業的 IT 預算，可不像許願池，取之不盡。</p>
+    <p>這背後折射出的，是模型在商業落地時，遭遇的成本與效益的現實考驗。尤其在軟體開發這種需要大量迭代與測試的場景，工程師們習慣了用 AI 輔助生成程式碼、重構、除錯。這些任務，看似碎片化，累積起來的 token 消耗卻是天文數字。以 Claude 3 Opus 為例，其卓越的長文本處理能力和複雜推理表現，確實令人驚豔，但在實際開發流程中，每一次 API 呼叫，每一個輸入與輸出的 token，都代表著真金白銀的支出。當一個大型專案需要數百甚至上千名工程師同時使用，那份帳單的數字，足以讓任何財務部門心驚膽顫。即便 Anthropic 不斷優化其模型架構，試圖降低推理成本，但在企業級的規模化應用面前，這種優化速度，似乎永遠趕不上需求增長的幅度。</p>
+    <p>這種成本壓力，尤其在與其他競爭者對比時，顯得更為突出。當 DeepSeek 和 Yi 這類模型以近乎碾壓的價格策略進入市場時，即便它們在某些特定任務上的性能指標，可能與 ChatGPT 或 Gemini 的頂級模型仍有差距，但對於那些預算有限、或僅需處理非關鍵任務的企業而言，這種巨大的價格差異，足以動搖其對主流模型的忠誠度。想像一下，同樣完成一份內部文件摘要或程式碼片段生成，如果能以十分之一甚至百分之一的成本達成，那麼，企業為何還要為那微不足道的性能提升，支付高昂溢價？價格戰，從來都是市場競爭中最直接、也最殘酷的手段。</p>
+    <p>然而，這也引發了一個更深層次的疑問：當模型提供商為了維持利潤，不得不堅守其 token 計價模式時，他們對於提升模型效率、降低運算成本的動力，是否會逐漸減弱？畢竟，如果每多一個 token 就能多一份收入，那麼，在現有技術框架下，誰會急於尋找突破性的效率提升方案，甚至革自己的命？這究竟是驅動技術進步的良性競爭，還是最終將讓整個產業陷入一場囚徒困境？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://simonwillison.net/2026/May/27/product-market-fit/" rel="nofollow noopener" target="_blank">I think Anthropic and OpenAI have found product-market fit</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260528-2235-196194/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

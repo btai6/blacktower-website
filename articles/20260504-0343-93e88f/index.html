@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building the compute infrastructure for the Intelligence Age</title>
+<meta name="description" content="OpenAI 發布了關於構建智慧時代算力基礎設施的報告，核心計畫指向代號為「Stargate」的超級運算集群。該計畫旨在擴展資料中心容量，以支撐人工通用智慧（AGI）的長期發展目標。報告詳述了目前對於硬體效能、能源供應及冷卻技術的具體需求，並強調透過大規模基礎設施投資，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260504-0343-93e88f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building the compute infrastructure for the Intelligence Age">
+<meta property="og:description" content="OpenAI 發布了關於構建智慧時代算力基礎設施的報告，核心計畫指向代號為「Stargate」的超級運算集群。該計畫旨在擴展資料中心容量，以支撐人工通用智慧（AGI）的長期發展目標。報告詳述了目前對於硬體效能、能源供應及冷卻技術的具體需求，並強調透過大規模基礎設施投資，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260504-0343-93e88f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-04T03:43:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Building the compute infrastructure for the Intelligence Age">
+<meta name="twitter:description" content="OpenAI 發布了關於構建智慧時代算力基礎設施的報告，核心計畫指向代號為「Stargate」的超級運算集群。該計畫旨在擴展資料中心容量，以支撐人工通用智慧（AGI）的長期發展目標。報告詳述了目前對於硬體效能、能源供應及冷卻技術的具體需求，並強調透過大規模基礎設施投資，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Building the compute infrastructure for the Intelligence Age",
+  "description": "OpenAI 發布了關於構建智慧時代算力基礎設施的報告，核心計畫指向代號為「Stargate」的超級運算集群。該計畫旨在擴展資料中心容量，以支撐人工通用智慧（AGI）的長期發展目標。報告詳述了目前對於硬體效能、能源供應及冷卻技術的具體需求，並強調透過大規模基礎設施投資，…",
+  "datePublished": "2026-05-04T03:43:00+08:00",
+  "dateModified": "2026-05-04T03:43:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260504-0343-93e88f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-04 03:43
+  </div>
+
+  <h1 class="title">Building the compute infrastructure for the Intelligence Age</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 發布了關於構建智慧時代算力基礎設施的報告，核心計畫指向代號為「Stargate」的超級運算集群。該計畫旨在擴展資料中心容量，以支撐人工通用智慧（AGI）的長期發展目標。報告詳述了目前對於硬體效能、能源供應及冷卻技術的具體需求，並強調透過大規模基礎設施投資，確保其模型訓練與推理任務在未來數年內的算力供給。這項建設涉及數千億美元的資本支出，計畫將電力能源效率與晶片集群互聯效率作為技術迭代的重點，目標在於消除目前模型開發過程中遭遇的算力瓶頸。</p>
+    <p>又是這些堆砌硬體的宏大敘事，真夠讓人膩味的。這群人坐在矽谷的冷氣房裡，動不動就揮舞著「AGI」這張毫無定義的支票，彷彿只要把地球上所有的電都燒光，把海量的機櫃塞進沙漠，那個傳說中的全知全能就會從電線裡蹦出來似的。他們把這稱作「智慧時代的基建」，聽著就像是十九世紀鐵路大亨在吹噓鋪設鋼軌能帶來文明一樣，只不過這次運送的不是煤炭和糧食，而是為了讓機器學會怎麼模仿人類說廢話，或是多畫幾張帶有六根手指的插圖。這種對算力的崇拜，簡直像是某種現代版的煉金術，只不過鍊金術士至少還知道自己在騙人，而這些人看起來是真的相信，只要給足了電費和晶片，人類的終極問題就能迎刃而解。看著那串長得離譜的預算數字，我甚至懷疑他們是不是在玩一種昂貴的社交遊戲，看誰能在倒閉前把資本市場的信心榨取到最後一滴，畢竟這種級別的燒錢，普通人連做夢都不敢這麼編。</p>
+    <p>如果把這些資源全部砸下去，最後換來的只是一個更有禮貌、更會甩鍋、甚至連數學題都會算錯的機器人，那人類文明是不是在某種層面上已經承認了自己的集體平庸？當我們把所有的希望寄託在一個需要消耗一座城市電力才能運轉的盒子，我們到底是在迎接所謂的智慧，還是僅僅在建立一座金碧輝煌的、數位化的圖騰？如果這套耗盡資源打造出來的「星門」最終只通往一堆無用的數據垃圾，那麼在電力枯竭與硬體報廢之後，除了幾份漂亮的財務報表，我們還剩下什麼？難道智慧真的只能建立在這種極端消耗的基礎之上，而非來自於人類大腦那不到二十瓦的運作效率？究竟是我們真的需要如此龐大的算力來跨越門檻，還是因為我們除了堆疊硬體之外，根本就已經對如何理解智慧感到束手無策？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260504-0343-93e88f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

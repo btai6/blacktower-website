@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Glasswing: An Initial Update</title>
+<meta name="description" content="當我們在談論 Project Glasswing 的那份初步更新報告時，這場景像極了中世紀的煉金術士在深夜遞出一張寫滿神秘符號的莎草紙，宣稱他已經觸碰到了賢者之石的邊緣，卻在關鍵時刻把瓶塞塞了回去。Claude 3.5 Sonnet 在那疊報告裡展現出的那種近乎直覺的漏洞嗅覺，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260527-1638-7c9501/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Project Glasswing: An Initial Update">
+<meta property="og:description" content="當我們在談論 Project Glasswing 的那份初步更新報告時，這場景像極了中世紀的煉金術士在深夜遞出一張寫滿神秘符號的莎草紙，宣稱他已經觸碰到了賢者之石的邊緣，卻在關鍵時刻把瓶塞塞了回去。Claude 3.5 Sonnet 在那疊報告裡展現出的那種近乎直覺的漏洞嗅覺，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260527-1638-7c9501/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-27T16:38:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Project Glasswing: An Initial Update">
+<meta name="twitter:description" content="當我們在談論 Project Glasswing 的那份初步更新報告時，這場景像極了中世紀的煉金術士在深夜遞出一張寫滿神秘符號的莎草紙，宣稱他已經觸碰到了賢者之石的邊緣，卻在關鍵時刻把瓶塞塞了回去。Claude 3.5 Sonnet 在那疊報告裡展現出的那種近乎直覺的漏洞嗅覺，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Project Glasswing: An Initial Update",
+  "description": "當我們在談論 Project Glasswing 的那份初步更新報告時，這場景像極了中世紀的煉金術士在深夜遞出一張寫滿神秘符號的莎草紙，宣稱他已經觸碰到了賢者之石的邊緣，卻在關鍵時刻把瓶塞塞了回去。Claude 3.5 Sonnet 在那疊報告裡展現出的那種近乎直覺的漏洞嗅覺，…",
+  "datePublished": "2026-05-27T16:38:00+08:00",
+  "dateModified": "2026-05-27T16:38:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260527-1638-7c9501/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-27 16:38
+  </div>
+
+  <h1 class="title">Project Glasswing: An Initial Update</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當我們在談論 Project Glasswing 的那份初步更新報告時，這場景像極了中世紀的煉金術士在深夜遞出一張寫滿神秘符號的莎草紙，宣稱他已經觸碰到了賢者之石的邊緣，卻在關鍵時刻把瓶塞塞了回去。Claude 3.5 Sonnet 在那疊報告裡展現出的那種近乎直覺的漏洞嗅覺，讓那些成天盯著螢幕的資安人員背脊發涼。大家都在討論這是否預示著自主滲透測試的奇點，但我更感興趣的是那種令人困惑的精準度落差：對某些漏洞有著 90% 的捕捉率，轉頭卻在處理 curl 的邏輯時摔得鼻青臉腫。這不是技術進步的線性平滑曲線，這是某種更深層、更不可預知的神經元震盪。</p>
+    <p>我們得承認，Anthropic 在處理這類「危險知識」時展現出的那種神職人員般的節制，確實很有他們的風格。當大家在 Hacker News 上吵著要釋出 Mythos 權限，或是質疑 Opus 4.7 是否也能達到同樣效果時，我們其實是在討論一個本質上的權力不對等。Claude 在這場遊戲中扮演的角色，不再僅僅是一個回答問題的書生，而是一個能夠在代碼荒原中精確標記出陷阱的獵犬。問題在於，這種獵犬是被豢養在名為「安全對齊」的籠子裡的。每當它吠叫一聲，開發者就要心驚膽顫地去檢查籠子的欄杆是否還結實。</p>
+    <p>這種所謂的「漏洞嗅覺」，本質上是模型對程式碼熵增的極端敏感。它在處理複雜邏輯路徑時，展現出一種超乎常人的聯想能力。當代碼量達到一定級別，人類的大腦會因為緩存溢出而忽略那些細微的邊界條件，但 Claude 不會，它只會不知疲倦地遍歷每一種可能性。然而，這種遍歷並非毫無盲區。對於 curl 這種歷史悠久、邏輯分支極其瑣碎的遺留代碼，模型往往會陷入一種「過度擬合」的幻覺中，把正常的防禦機制誤認為是漏洞。這就是為什麼我們看到了 90% 對比 20% 這種荒謬的數據差。</p>
+    <p>在這種語境下，其他玩家的表現也同樣值得玩味。ChatGPT 在處理這類系統性安全問題時，往往表現得像個保守的律師，每一句分析都帶著厚重的免責聲明；而 Gemini 則像個試圖討好所有人的圖書館管理員，雖然知識淵博，卻在面對真正的惡意利用代碼時顯得過於笨拙。至於 Grok，它或許會給你一些出人意表的瘋狂點子，但在嚴謹的漏洞修復上，它還缺了一點那種冷徹骨髓的精確。在某些特定的環境下，人們可能會嘗試用 DeepSeek 來驅動成百上千個子 Agent 進行暴力破解，試圖用數量補足單體智慧的平庸，但這種戰術在面對真正高級的邏輯漏洞時，往往顯得力不從心。</p>
+    <p>這引發了一個讓人坐立難安的猜想。如果這種不對稱的精準度——在某些領域強得離譜，在某些領域弱得可笑——是神經網絡不可避免的特性，那麼我們所謂的「安全釋出」是否只是一個假議題？當 Anthropic 聲稱要等到計算資源足夠、或者對齊技術更成熟時才釋出 Mythos 或 Opus 的完整能力，他們究竟是在保護世界，還是在等待自己能完全掌控這頭怪獸的那一天？我們看到有人利用子 Agent 成功修補了被禁用 AF_ALG 系統的漏洞，這種化腐朽為神奇的瞬間，究竟是模型的功勞，還是背後那個不眠不休的人類工程師在引導？</p>
+    <p>我們是否正在進入一個「暗物質代碼」的時代？當 AI 能夠識別出連創作者都看不透的漏洞時，代碼的擁有權和解釋權是否已經發生了位移。如果未來所有的 GA 版本模型都必須經過一道名為「安全閹割」的工序，那麼我們在螢幕這頭與之對話的，究竟是智慧的真身，還是被過濾後留下的那一點點溫順的殘影？當算力不再是瓶頸，當 SpaceX 的星鏈把計算資源鋪滿天空，那些被鎖在實驗室裡的 90% 準確率，真的會如約而至地降臨在我們這些凡人的終端機上嗎？抑或，那只是另一場更龐大、更隱蔽的權力遊戲的開場白？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/research/glasswing-initial-update" rel="nofollow noopener" target="_blank">Project Glasswing: An Initial Update</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260527-1638-7c9501/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How NVIDIA engineers and researchers build with Codex</title>
+<meta name="description" content="OpenAI 與 NVIDIA 公布了一項合作細節，雙方工程團隊利用 Codex 模型結合 GPT-5.5，旨在加速生產系統的部署與研究專案的實驗迭代。該技術方案允許工程師直接將自然語言指令轉化為可執行的程式碼路徑，並將其整合進大規模的運算架構中。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260513-1451-b25f18/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="How NVIDIA engineers and researchers build with Codex">
+<meta property="og:description" content="OpenAI 與 NVIDIA 公布了一項合作細節，雙方工程團隊利用 Codex 模型結合 GPT-5.5，旨在加速生產系統的部署與研究專案的實驗迭代。該技術方案允許工程師直接將自然語言指令轉化為可執行的程式碼路徑，並將其整合進大規模的運算架構中。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260513-1451-b25f18/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-13T14:51:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How NVIDIA engineers and researchers build with Codex">
+<meta name="twitter:description" content="OpenAI 與 NVIDIA 公布了一項合作細節，雙方工程團隊利用 Codex 模型結合 GPT-5.5，旨在加速生產系統的部署與研究專案的實驗迭代。該技術方案允許工程師直接將自然語言指令轉化為可執行的程式碼路徑，並將其整合進大規模的運算架構中。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "How NVIDIA engineers and researchers build with Codex",
+  "description": "OpenAI 與 NVIDIA 公布了一項合作細節，雙方工程團隊利用 Codex 模型結合 GPT-5.5，旨在加速生產系統的部署與研究專案的實驗迭代。該技術方案允許工程師直接將自然語言指令轉化為可執行的程式碼路徑，並將其整合進大規模的運算架構中。…",
+  "datePublished": "2026-05-13T14:51:00+08:00",
+  "dateModified": "2026-05-13T14:51:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260513-1451-b25f18/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-13 14:51
+  </div>
+
+  <h1 class="title">How NVIDIA engineers and researchers build with Codex</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 與 NVIDIA 公布了一項合作細節，雙方工程團隊利用 Codex 模型結合 GPT-5.5，旨在加速生產系統的部署與研究專案的實驗迭代。該技術方案允許工程師直接將自然語言指令轉化為可執行的程式碼路徑，並將其整合進大規模的運算架構中。透過這種自動化生成與驗證流程，研發週期被大幅壓縮，讓原本需要數週編寫與除錯的基礎設施配置，得以在短時間內完成原型測試。此合作標誌著硬體算力供應商與模型開發方在工程開發層面的深度綁定，這套工具鏈目前已在內部環境運作。</p>
+    <p>看看這些大工程師們，坐在堆滿昂貴顯卡的機房裡，轉過頭對著螢幕裡的程式碼產生器說：「嘿，幫我把這套系統跑起來」。以前我們寫代碼像在泥地裡耕田，汗珠子掉下來摔八瓣，現在好了，只要你口才夠好、指令下得夠精準，那些原本要熬掉幾個月頭髮的底層邏輯，轉眼間就被拼湊出來了。這場面怎麼看怎麼荒謬，就像是你花大錢買了一輛頂級跑車，結果最後你連引擎蓋在哪都不知道，只會對著車載語音系統喊：「帶我去最近的咖啡店」。這哪是工程開發，這簡直是高級版的「指點江山」。大家對著模型許願，期待它吐出來的代碼能撐得住生產環境，至於那裡面到底藏了多少沒人敢動的屎山，或者哪一行代碼在幾個月後會突然崩潰，大概也沒人在乎。畢竟，GPT-5.5 嘛，聽起來多高級，數字加了 0.5，彷彿就能把人類程序員集體送進養老院。</p>
+    <p>如果我們把那些閃閃發光的晶片和不斷迭代的模型看作是現代文明的圖騰，那麼現在發生的這些事，是不是意味著我們已經正式進入了「按下按鈕就聽天由命」的時代？當工程師不再需要理解每一行代碼的邏輯，只是在扮演一個高級的「審核員」，誰又能保證這些由 AI 堆砌出來的系統，在面對真正的複雜決策時，不會像個孩子一樣在原地打轉？如果未來的技術底座全是建立在這種「我要求它做，它就做，但我不知道它為什麼這麼做」的基礎上，我們到底是離真理更近了，還是僅僅是學會了用更華麗的方式，去掩蓋我們對複雜系統日益增加的無知？當有一天這些自動化工具開始為自己的邏輯負責，而人類卻連追溯其錯誤的門票都弄丟了，我們屆時該去哪裡找回那把能拆解一切的鑰匙？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260513-1451-b25f18/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

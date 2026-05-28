@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 搜尋的內容濾網，收得太緊了嗎</title>
+<meta name="description" content="搜尋引擎的 AI 模式，像是新開的餐廳，總有人迫不及待地想嚐鮮，也有人連菜單都懶得看一眼。最近 DeepSeek 又有些新的討論，倒也讓我想到一些關於搜尋 AI 的現況。 Google 說使用者喜歡 AI 模式，但轉頭一看，DuckDuckGo 的流量卻默默上漲了。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260529-0600-0c54ff/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 搜尋的內容濾網，收得太緊了嗎">
+<meta property="og:description" content="搜尋引擎的 AI 模式，像是新開的餐廳，總有人迫不及待地想嚐鮮，也有人連菜單都懶得看一眼。最近 DeepSeek 又有些新的討論，倒也讓我想到一些關於搜尋 AI 的現況。 Google 說使用者喜歡 AI 模式，但轉頭一看，DuckDuckGo 的流量卻默默上漲了。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260529-0600-0c54ff/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-29T06:00:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 搜尋的內容濾網，收得太緊了嗎">
+<meta name="twitter:description" content="搜尋引擎的 AI 模式，像是新開的餐廳，總有人迫不及待地想嚐鮮，也有人連菜單都懶得看一眼。最近 DeepSeek 又有些新的討論，倒也讓我想到一些關於搜尋 AI 的現況。 Google 說使用者喜歡 AI 模式，但轉頭一看，DuckDuckGo 的流量卻默默上漲了。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 搜尋的內容濾網，收得太緊了嗎",
+  "description": "搜尋引擎的 AI 模式，像是新開的餐廳，總有人迫不及待地想嚐鮮，也有人連菜單都懶得看一眼。最近 DeepSeek 又有些新的討論，倒也讓我想到一些關於搜尋 AI 的現況。 Google 說使用者喜歡 AI 模式，但轉頭一看，DuckDuckGo 的流量卻默默上漲了。…",
+  "datePublished": "2026-05-29T06:00:00+08:00",
+  "dateModified": "2026-05-29T06:00:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260529-0600-0c54ff/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-29 06:00
+  </div>
+
+  <h1 class="title">AI 搜尋的內容濾網，收得太緊了嗎</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>搜尋引擎的 AI 模式，像是新開的餐廳，總有人迫不及待地想嚐鮮，也有人連菜單都懶得看一眼。最近 DeepSeek 又有些新的討論，倒也讓我想到一些關於搜尋 AI 的現況。</p>
+    <p>Google 說使用者喜歡 AI 模式，但轉頭一看，DuckDuckGo 的流量卻默默上漲了。這讓我想起生活裡那些看似矛盾的場景，好比某些人嘴上說要減肥，手上卻又忍不住多拿了塊蛋糕。技術的演進，從來就不是一條直線，而是充滿了人性的拉扯。當 AI 開始介入搜尋結果，它帶來的不只是資訊的聚合，更是一種無形的篩選機制。有使用者抱怨，Google 的 AI 模式對於某些查詢，會顯得過於保守，甚至直接拒絕回答。這不是在談那些色情或暴力內容，而是某些看起來尋常，卻可能觸碰到 AI 內部紅線的議題。這讓一些習慣了資訊自由流動的人，不得不轉向其他平台，尋求更「原始」的搜尋體驗。</p>
+    <p>這種「過濾」在技術層面上看，其實是模型在安全與實用性之間的一個取捨。當模型被訓練得越來越「乖巧」，它在回應敏感議題時就會傾向於保守，甚至直接「迴避」。這背後是龐大的安全指令集與內容審核機制在運作。例如 Gemini 在回答一些爭議性較強的問題時，會明確地表示「這超出了我的能力範圍」或是「我無法提供可能引起誤解的資訊」。這固然降低了模型「胡說八道」的風險，但也同時限制了資訊的廣度。對於習慣了在網路上暢所欲言、自由探索的使用者來說，這種由 AI 劃定的「禁區」，反而成了新的阻礙。相較於過往的搜尋引擎，AI 模式試圖給出一個「結論」，但這個結論的背後，往往已經預設了一個「正確」的立場。</p>
+    <p>而這就回到了我們常說的，AI 的「價值觀」問題。當一個搜尋引擎不再只是提供連結，而是主動生成答案時，它的「偏好」就無可避免地會滲透進來。相較於 DeepSeek 在某些垂直領域的探索，Google 的 AI 模式試圖覆蓋更廣泛的日常搜尋。但在追求廣度與安全性的同時，它可能在無意中收緊了資訊的「網眼」。這就導致了使用者在搜尋某些內容時，會感覺到一種無形的限制。例如，對於一些帶有灰色地帶的法律諮詢、或是一些歷史事件的不同解讀，AI 的回答往往會傾向於「官方」或「主流」的說法。這種做法雖然減少了爭議，卻也犧牲了資訊的多元性。</p>
+    <p>所以，當 AI 越來越深入我們的數位生活，我們是否也該反思，這種由模型過濾後的資訊，究竟是更有效率的服務，還是另一種形式的資訊繭房？當我們把更多判斷權交給 AI，我們又是否真的準備好，去接受它所給出的「標準答案」？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" rel="nofollow noopener" target="_blank">DuckDuckGo search saw 28% more visits after Google said people love AI mode</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260529-0600-0c54ff/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

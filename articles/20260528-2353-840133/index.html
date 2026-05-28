@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>軟體工程師，別只顧著寫程式了</title>
+<meta name="description" content="企業級 AI 的成本效益問題，從來就不是一句「降價」能說清楚的。當我們在談論 Anthropic 或 OpenAI 找到了「產品市場契合點」時，往往只看到表面的訂閱數字或 API 調用量。然而，真正的痛點，卻藏在那些關於「token 費用」和「負責任使用」的公司內部會議裡。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260528-2353-840133/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="軟體工程師，別只顧著寫程式了">
+<meta property="og:description" content="企業級 AI 的成本效益問題，從來就不是一句「降價」能說清楚的。當我們在談論 Anthropic 或 OpenAI 找到了「產品市場契合點」時，往往只看到表面的訂閱數字或 API 調用量。然而，真正的痛點，卻藏在那些關於「token 費用」和「負責任使用」的公司內部會議裡。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260528-2353-840133/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-28T23:53:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="軟體工程師，別只顧著寫程式了">
+<meta name="twitter:description" content="企業級 AI 的成本效益問題，從來就不是一句「降價」能說清楚的。當我們在談論 Anthropic 或 OpenAI 找到了「產品市場契合點」時，往往只看到表面的訂閱數字或 API 調用量。然而，真正的痛點，卻藏在那些關於「token 費用」和「負責任使用」的公司內部會議裡。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "軟體工程師，別只顧著寫程式了",
+  "description": "企業級 AI 的成本效益問題，從來就不是一句「降價」能說清楚的。當我們在談論 Anthropic 或 OpenAI 找到了「產品市場契合點」時，往往只看到表面的訂閱數字或 API 調用量。然而，真正的痛點，卻藏在那些關於「token 費用」和「負責任使用」的公司內部會議裡。…",
+  "datePublished": "2026-05-28T23:53:00+08:00",
+  "dateModified": "2026-05-28T23:53:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260528-2353-840133/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-28 23:53
+  </div>
+
+  <h1 class="title">軟體工程師，別只顧著寫程式了</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>企業級 AI 的成本效益問題，從來就不是一句「降價」能說清楚的。當我們在談論 Anthropic 或 OpenAI 找到了「產品市場契合點」時，往往只看到表面的訂閱數字或 API 調用量。然而，真正的痛點，卻藏在那些關於「token 費用」和「負責任使用」的公司內部會議裡。這不是幾百塊月費那麼簡單的事，而是一場關於資源配置與價值創造的長期戰役。</p>
+    <p>我們看到，越來越多的軟體工程師開始依賴 AI 輔助編程，甚至將其視為不可或缺的工具。這股趨勢確實加速了任務自動化的進程，但同時也悄悄地改變了工程師的角色定位。過去，我們可能更關注如何寫出高效的程式碼；現在，則需要思考如何高效地「引導」AI 寫出程式碼，以及如何管理隨之而來的成本。這份「引導」的藝術，遠比表面看起來複雜。例如，在處理大型程式庫或複雜系統架構時，Claude 3 Opus 在上下文理解上的優勢，能讓它在長文本提示下保持較高的連貫性，減少錯誤的生成；而 GPT-4o 則在多模態輸入與輸出上展現出彈性，或許能為程式碼的視覺化或解釋帶來新思路。然而，這些進步都伴隨著相應的 token 消耗，一旦提示設計不當，成本便會如脫韁野馬。</p>
+    <p>從技術層面來看，模型本身的效率與定價策略確實值得深究。當企業對「token 預算」錙銖必較時，模型提供商的激勵機制就變得微妙起來。如果利潤主要來自於按 token 計費，那麼推動 token 效率優化，降低計算成本的動力，是否會被這種商業模式所稀釋？當然，市場競爭是驅動進步的永恆動力。當某些廠商，例如 DeepSeek V2 或 Qwen 2，以極低的價格進入市場時，無疑會給 Anthropic 和 OpenAI 帶來壓力。但價格戰從來不是故事的全部。企業級應用更看重模型的穩定性、安全性、可解釋性，以及在特定場景下的微調能力。一個便宜但不可靠的模型，其隱性成本可能遠超表面價格。</p>
+    <p>所以，問題的癥結點便浮現了：軟體工程師們，在享受 AI 帶來的效率紅利時，是否已經意識到自己正在成為「成本中心」的一部分？當公司要求「對 token 更負責」時，這不僅是對預算的限制，更是對工程師 AI 使用素養的一次考驗。如何精煉提示、如何設計能夠有效利用上下文、如何選擇最適合任務的模型，這些都將成為未來軟體工程師的核心能力。我們是否已經準備好，從單純的程式碼書寫者，轉變為同時也是 AI 成本的管理者，甚至是 AI 效率的設計師？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://simonwillison.net/2026/May/27/product-market-fit/" rel="nofollow noopener" target="_blank">I think Anthropic and OpenAI have found product-market fit</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260528-2353-840133/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

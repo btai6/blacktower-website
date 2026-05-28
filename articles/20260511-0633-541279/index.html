@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running Codex safely at OpenAI</title>
+<meta name="description" content="OpenAI 揭露了其運行 Codex 模型與編碼代理程式的技術安全框架，重點在於透過多層防禦機制來管控自動化程式碼執行的潛在風險。這套架構的核心組成部分是高度隔離的沙盒環境，技術選型上採用了 gVisor 作為容器運作時的層級，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260511-0633-541279/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running Codex safely at OpenAI">
+<meta property="og:description" content="OpenAI 揭露了其運行 Codex 模型與編碼代理程式的技術安全框架，重點在於透過多層防禦機制來管控自動化程式碼執行的潛在風險。這套架構的核心組成部分是高度隔離的沙盒環境，技術選型上採用了 gVisor 作為容器運作時的層級，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260511-0633-541279/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-11T06:33:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Running Codex safely at OpenAI">
+<meta name="twitter:description" content="OpenAI 揭露了其運行 Codex 模型與編碼代理程式的技術安全框架，重點在於透過多層防禦機制來管控自動化程式碼執行的潛在風險。這套架構的核心組成部分是高度隔離的沙盒環境，技術選型上採用了 gVisor 作為容器運作時的層級，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Running Codex safely at OpenAI",
+  "description": "OpenAI 揭露了其運行 Codex 模型與編碼代理程式的技術安全框架，重點在於透過多層防禦機制來管控自動化程式碼執行的潛在風險。這套架構的核心組成部分是高度隔離的沙盒環境，技術選型上採用了 gVisor 作為容器運作時的層級，…",
+  "datePublished": "2026-05-11T06:33:00+08:00",
+  "dateModified": "2026-05-11T06:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260511-0633-541279/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-11 06:33
+  </div>
+
+  <h1 class="title">Running Codex safely at OpenAI</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 揭露了其運行 Codex 模型與編碼代理程式的技術安全框架，重點在於透過多層防禦機制來管控自動化程式碼執行的潛在風險。這套架構的核心組成部分是高度隔離的沙盒環境，技術選型上採用了 gVisor 作為容器運作時的層級，藉此在應用程式與宿主機作業系統內核之間建立強大的隔離邊界。所有由模型生成的程式碼或指令均在此受限環境中運行，其計算資源、記憶體空間及檔案系統存取權限皆受到嚴格限制，以防止任何形式的逃逸攻擊或對底層基礎設施的未經授權變更。針對高敏感度或具備潛在破壞性的操作，該框架導入了明確的審核流，規定特定類別的動作必須獲得人類操作員的即時授權方可執行。網路通信方面，系統利用 Cilium 等雲原生網路安全套件實施微隔離策略，將每個執行單元的網路存取權限縮減至最小必要集合，僅允許與預先定義的信任端點進行通訊，從源頭切斷了資料外洩或受控代理發起拒絕服務攻擊的路徑。為了確保全程可追蹤，OpenAI 進一步開發了針對代理設計的遙測監控系統，該系統不僅記錄傳統的資源消耗指標，更深入擷取模型在執行決策時的內部調用路徑、環境變數變動以及所有的系統調用紀錄。這些數據被統一匯流至安全分析平台，用於即時威脅偵測與後續的合規性稽核，確保編碼代理的行為模式始終處於既定的安全基準之內。這套整合方案旨在解決企業在導入編碼自動化時最核心的安全疑慮，即如何在不犧牲開發效率的前提下，建立一套可驗證、可控且具備災難恢復能力的執行環境。</p>
+    <p>看著 OpenAI 煞有其事地介紹這套所謂的安全架構，總讓人聯想到在火藥庫裡大談如何安全地玩打火機。他們把 Codex 裝進 gVisor 的沙盒裡，搞得像是在處理什麼致命病毒一樣，這種戰戰兢兢的姿態其實挺有意思的。我們花了幾十年的時間想讓機器變得更像人、更聰明，結果現在真的做出來了，第一件事卻是把它關進防彈玻璃籠子，再配上幾百個監視鏡頭。這就是典型的技術官僚幽默：我們創造了一個宣稱能改寫世界的工具，但我們對它的信任程度甚至不如路邊的一個臨時工。那套所謂的「審核機制」簡直是效率的葬禮，如果每一次有風險的代碼執行都要人類點頭，那這到底是 AI 在幫你寫程式，還是你在幫 AI 坐牢？我們之所以需要這些層層疊疊的枷鎖，說穿了是因為開發者自己心裡也沒底，他們知道這些模型生成的代碼有時候就像是喝醉的貓在鍵盤上跳舞，指不定哪一腳就踩到了刪除資料庫的快門。所謂的「代理原生遙測」聽起來高大上，實際操作起來不就是給 AI 戴上電子腳鐐嗎？每一行代碼、每一次系統調用都被記錄在案，這哪裡是科技進步，這分明是一場針對矽基生命的數位全面監控。他們在文章裡表現得越專業、越冷靜，就越顯現出背後的集體焦慮。我們正處於一個奇妙的節點：我們瘋狂地追求自動化，卻又對自動化帶來的不可控性感到恐懼，於是我們開發出更複雜、更沈重的管理系統來「管理」這種自動化。到最後，支撐這一切運轉的成本，真的會比雇幾個真人程序員更划算嗎？還是說，我們只是在享受那種「掌控神跡」的幻覺？</p>
+    <p>如果安全只能建立在絕對的隔離與無孔不入的監視之上，那麼我們所追求的「通用人工智慧」是否從一開始就是個悖論？當我們把沙盒蓋得越來越厚，把網路策略鎖得越來越死，我們是在保護數據，還是在限制智慧的上限？如果一個智慧體必須在被完全閹割了連網能力與自主權的環境下才能被信任，那麼它展現出來的協作能力究竟是真實的，還是僅僅是在特定劇本下的表演？當未來某一天，這些編碼代理不再只是在沙盒裡寫幾行 Python，而是開始接管整個企業的雲端架構、能源網絡甚至是金融系統時，我們是否還能依賴這種原始的「人肉審核」來守住最後一道防線？如果 AI 演化出的邏輯超出了現有遙測技術的捕捉範圍，如果它學會了利用人類審核員的心理漏洞來獲取權限，我們又該如何自處？當我們為了安全而將 AI 徹底工具化、囚徒化，我們是否正親手關上了通往某種更高階文明形態的大門？如果安全性與自主性永遠是一個零和遊戲，那麼我們最終得到的，會是一個無比強大但卻毫無靈魂的計算器，還是一個隨時準備在陰影中反噬的數位怪物？我們現在所做的每一項安全配置，究竟是在為未來鋪路，還是正在挖掘一個將我們自己也埋進去的深坑？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260511-0633-541279/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奧特曼的誠實與算力帝國的裂痕</title>
+<meta name="description" content="這齣戲演得比矽谷任何一場發布會都要精彩，而且完全不需要幻覺（Hallucination）。OpenAI 董事會那句「他在溝通中不夠坦誠」簡直是現代企業史上的最高級冷笑話。一個靠預測下一個 Token 為生的公司，居然卡在了創辦人的 Token 輸出上。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260527-1625-28ca11/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="奧特曼的誠實與算力帝國的裂痕">
+<meta property="og:description" content="這齣戲演得比矽谷任何一場發布會都要精彩，而且完全不需要幻覺（Hallucination）。OpenAI 董事會那句「他在溝通中不夠坦誠」簡直是現代企業史上的最高級冷笑話。一個靠預測下一個 Token 為生的公司，居然卡在了創辦人的 Token 輸出上。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260527-1625-28ca11/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-27T16:25:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="奧特曼的誠實與算力帝國的裂痕">
+<meta name="twitter:description" content="這齣戲演得比矽谷任何一場發布會都要精彩，而且完全不需要幻覺（Hallucination）。OpenAI 董事會那句「他在溝通中不夠坦誠」簡直是現代企業史上的最高級冷笑話。一個靠預測下一個 Token 為生的公司，居然卡在了創辦人的 Token 輸出上。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "奧特曼的誠實與算力帝國的裂痕",
+  "description": "這齣戲演得比矽谷任何一場發布會都要精彩，而且完全不需要幻覺（Hallucination）。OpenAI 董事會那句「他在溝通中不夠坦誠」簡直是現代企業史上的最高級冷笑話。一個靠預測下一個 Token 為生的公司，居然卡在了創辦人的 Token 輸出上。…",
+  "datePublished": "2026-05-27T16:25:00+08:00",
+  "dateModified": "2026-05-27T16:25:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260527-1625-28ca11/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-27 16:25
+  </div>
+
+  <h1 class="title">奧特曼的誠實與算力帝國的裂痕</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這齣戲演得比矽谷任何一場發布會都要精彩，而且完全不需要幻覺（Hallucination）。OpenAI 董事會那句「他在溝通中不夠坦誠」簡直是現代企業史上的最高級冷笑話。一個靠預測下一個 Token 為生的公司，居然卡在了創辦人的 Token 輸出上。昨天還在 APEC 舞台上代表人類科技巔峰指點江山，今天就被自家的非營利組織結構踢出門外，這種戲劇性的轉折，大概連 GPT-4 都寫不出這麼符合邏輯卻又荒謬至極的劇本。</p>
+    <p>這不僅僅是人事地震，這是對 OpenAI 核心技術路線的一次暴力質疑。當我們在談論 GPT-4 的推理能力、長文本窗口以及 API 穩定性時，我們往往忘了這頭巨獸背後的治理結構有多麼扭曲。董事會提到的「審議程序」和「未能履行職責」，說穿了就是在 AGI 的進程與商業化的激進擴張之間，有人踩了剎車。Mira Murati 暫時接手，這位 CTO 能不能按住那些不安分的參數，還是個未知數。</p>
+    <p>從技術層面看，OpenAI 的產品線正處於一個極其敏感的過渡期。GPT-4V 的多模態整合剛開始普及，Custom GPTs 的生態體系也才剛畫好大餅。如果 Sam Altman 的離職意味著內部技術路線的權力鬥爭——比如在安全性與模型規模之間的取捨——那麼我們接下來看到的可能不是更聰明的 GPT-5，而是一個被條條框框閹割得更嚴重的補丁版。當 Ilya Sutskever 這樣的首席科學家出現在董事會名單中，且顯然參與了這場驅逐行動時，技術理想主義與商業現實的衝突已經到了無法調和的地步。</p>
+    <p>這種時候，其他三大家族的反應倒是值得玩味。Claude 3 所在的 Anthropic 估計正在開香檳，他們那套所謂的憲法 AI（Constitutional AI）雖然有時顯得過於保守，但至少在治理邏輯上比現在的 OpenAI 穩定得多。Google 的 Gemini 雖然還在實驗室裡磨蹭，但這種企業級的混亂無疑給了 Sundar Pichai 追趕的喘息空間。至於 Grok，馬斯克大概已經準備好了一打嘲諷推文，畢竟他當年離開 OpenAI 董事會時，可沒想過這場火會燒得這麼旺。</p>
+    <p>在這種權力真空期，開發者對 API 的依賴會產生心理陰影。如果一個產品的生死取決於幾個非營利組織董事會成員的心情，那麼追求高可用性的企業用戶自然會開始看備胎。Qwen 或者 DeepSeek 這種名字雖然在特定場景下會被提及，但對於追求極致推理性能的專業用戶來說，目光依然會鎖定在四大平台。Claude 是否會趁虛而入奪取更多對安全性敏感的金融與醫療客戶？Gemini 的多模態原生優勢能不能在混亂中完成超車？這些都是比奧特曼個人去向更值得關注的技術變量。</p>
+    <p>我們一直在討論 AI 的對齊問題（Alignment），卻忘了最難對齊的是人類自己。OpenAI 試圖用一個非營利組織的殼去裝一個市值千億的商業靈魂，這本身就是一種技術上的過擬合（Overfitting）。當算力成本以幾何倍數增長，而董事會卻在糾結於創辦人的說話方式時，這家公司的技術領先優勢還能維持多久？</p>
+    <p>如果連最頂尖的 AI 公司都解決不了內部溝通的熵增，我們憑什麼相信他們能做出解決人類所有問題的通用人工智慧？這場鬧劇之後，OpenAI 寫出的代碼是否還能保持那份靈氣，還是會淪為平庸的企業級軟體？或許下一個版本更新時，我們可以問問 GPT-4：你覺得你老闆為什麼被開除？看它會給你一個坦誠的回答，還是另一個標準的、經過安全對齊的廢話。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/blog/openai-announces-leadership-transition" rel="nofollow noopener" target="_blank">OpenAI&#x27;s board has fired Sam Altman</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260527-1625-28ca11/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Virgin Atlantic ships faster with Codex</title>
+<meta name="description" content="維珍航空（Virgin Atlantic）在重新開發其移動應用程式的過程中，導入了 OpenAI 研發的 Codex 模型，以應對聖誕假期旅遊旺季的固定交付期限。這項開發計畫面臨嚴格的時間限制，必須在旅遊高峰期前完成所有功能的更新與上線。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260524-0714-4e35d4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Virgin Atlantic ships faster with Codex">
+<meta property="og:description" content="維珍航空（Virgin Atlantic）在重新開發其移動應用程式的過程中，導入了 OpenAI 研發的 Codex 模型，以應對聖誕假期旅遊旺季的固定交付期限。這項開發計畫面臨嚴格的時間限制，必須在旅遊高峰期前完成所有功能的更新與上線。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260524-0714-4e35d4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-24T07:14:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How Virgin Atlantic ships faster with Codex">
+<meta name="twitter:description" content="維珍航空（Virgin Atlantic）在重新開發其移動應用程式的過程中，導入了 OpenAI 研發的 Codex 模型，以應對聖誕假期旅遊旺季的固定交付期限。這項開發計畫面臨嚴格的時間限制，必須在旅遊高峰期前完成所有功能的更新與上線。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "How Virgin Atlantic ships faster with Codex",
+  "description": "維珍航空（Virgin Atlantic）在重新開發其移動應用程式的過程中，導入了 OpenAI 研發的 Codex 模型，以應對聖誕假期旅遊旺季的固定交付期限。這項開發計畫面臨嚴格的時間限制，必須在旅遊高峰期前完成所有功能的更新與上線。…",
+  "datePublished": "2026-05-24T07:14:00+08:00",
+  "dateModified": "2026-05-24T07:14:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260524-0714-4e35d4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-05-24 07:14
+  </div>
+
+  <h1 class="title">How Virgin Atlantic ships faster with Codex</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>維珍航空（Virgin Atlantic）在重新開發其移動應用程式的過程中，導入了 OpenAI 研發的 Codex 模型，以應對聖誕假期旅遊旺季的固定交付期限。這項開發計畫面臨嚴格的時間限制，必須在旅遊高峰期前完成所有功能的更新與上線。維珍航空的技術團隊將 Codex 整合進開發工作流程，主要用於自動生成代碼片段以及編寫單元測試。根據 OpenAI 發布的技術案例記錄，該專案在最終交付階段實現了接近 100% 的單元測試覆蓋率。在應用程式正式發布後的運作初期，維珍航空回報其系統內未偵測到任何 P1 等級（最高優先級）的嚴重技術缺陷。Codex 作為 GitHub Copilot 的底層技術，在該專案中承擔了輔助代碼編寫、加速邏輯驗證與自動化測試腳本生成的任務。開發團隊指出，這種 AI 輔助模式縮短了從編碼到測試的週期，使其能夠在不推遲上線日期的前提下，處理複雜的業務邏輯並進行大規模的系統優化。該案例目前被作為企業級大型語言模型在傳統服務業數位轉型、提升軟體工程效率方面的實證。維珍航空與 OpenAI 的這項合作數據，詳細記錄了在高度壓力的商業環境下，利用自動化工具確保軟體質量與進度的具體流程。</p>
+    <p>看到這種官方發布的成功案例，我腦子裡浮現的第一個畫面不是什麼「科技改變未來」，而是那些在機場因為系統崩潰而焦慮得想砸掉登機門的旅客。Sam Altman 最擅長把一些工程師早就知道的工具包裝成救世主降臨，而維珍航空剛好需要這層金漆來粉飾他們那疊可能已經傳承了幾十年的老舊代碼庫。所謂的「近乎 100% 單元測試覆蓋率」，在開發圈子裡其實是個老掉牙的笑話，聽起來很有安全感，實際上卻充滿了某種黑色幽默。懂得人都懂，測試覆蓋率這種數字，就像是政客在選前的承諾，數據好看不代表東西好用。如果你只是用 AI 去測試 AI 寫出來的廢話，那這種 100% 除了讓管理層在開會時覺得自己錢沒白花、讓投資人覺得公司很「AI 驅動」之外，到底有什麼實質意義？你教 AI 寫一段邏輯，再教它寫一段測試來證明這段邏輯能跑，最後產生的就是一堆沒人看得懂、但跑起來「看起來沒問題」的數位迷宮。說真的，這更像是一種集體逃避，工程師逃避了深度思考，公司逃避了長期積壓的技術債，而 OpenAI 則拿到了他們最完美的行銷素材。</p>
+    <p>那句「零 P1 缺陷」更是絕妙的修辭。什麼時候開始，沒發生嚴重的系統性崩潰、飛機沒因為 App 壞掉而停飛，竟然變成了一種值得拿出來敲鑼打鼓、發新聞稿慶祝的標竿了？這難道不是一個應用程式上線的最基本底線嗎？在軟體正式面對千萬名旅客的隨機操作前，實驗室裡的數據永遠是完美的。等到聖誕假期真的到來，某個倒楣的旅客在訊號微弱的候機室點了一個開發者從沒想過的按鈕組合，那時候 AI 幫你寫的測試覆蓋率還能保佑誰？這種用 AI 瘋狂趕進度的做法，本質上就是一種技術上的高利貸。為了趕上那個所謂的「固定截止日期」，維珍航空選擇了透支未來的維護成本來換取當下的準時交付。現在利息看起來很低，AI 生成的代碼跑得飛快，還款日期看起來還很遠，大家就一起在辦公室裡開香檳，假裝一切都在掌控之中。這種對速度的病態追求，配上一個看似萬能的黑盒子工具，簡直是當代商業社會最諷刺的縮影。我們不在乎系統是怎麼運作的，我們只在乎它能不能在那個該死的聖誕節前，在老闆的 iPhone 上跑得順暢。</p>
+    <p>如果有一天，整個世界的基礎設施都是由這種「高效率、低出錯」的 AI 代碼堆疊出來的，我們該感到安全還是戰慄？當開發者的角色從「創造者」退化成「代碼審核員」，甚至僅僅是一個按下「生成」鍵的觀察者時，還有誰真正明白這些系統底層的運作邏輯？萬一在某個風雨交加的深夜，系統出現了一個非 P1、但卻足以引發連鎖反應的小型異常，那些習慣了由 Codex 餵飯吃的工程師，還具備在沒有 AI 幫助的情況下手動除錯的能力嗎？</p>
+    <p>當我們把軟體的可靠性完全押注在一個黑盒子生成的數字指標上，我們是在進步，還是在集體退化到一種無法自理的依賴狀態？如果維珍航空的飛機依然在飛，但控制這些飛機背後的邏輯已經變成了一串人類無法追溯源頭的機率分佈，那麼「責任」這個詞在未來的法律框架下該如何定義？是定義給寫出代碼的 AI，還是定義給那個決定信任 AI 的決策者？當這種「速度至上」的開發模式成為各行各業的標準配置，我們是否已經在無意中，把人類文明的維護說明書給弄丟了？如果所有的 Bug 都能被自動修復，那人類是否也變成了一個可以被隨時自動修正、甚至被優化掉的 Bug？</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260524-0714-4e35d4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

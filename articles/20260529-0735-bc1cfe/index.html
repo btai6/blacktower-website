@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI，真的來聽你說話嗎？</title>
+<meta name="description" content="大概是兩年前吧，我還在想，等 AI 越來越聰明了，是不是就能幫我處理掉那些堆積如山，看了就頭疼的信件、報告。那時候，腦子裡勾勒的畫面，就是我動動嘴，AI 就能把我的想法整理得條理分明，然後再潤飾成一篇篇優雅的文字。感覺就像有個隨身秘書，而且還是個不抱怨、不請假，全年無休的。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260529-0735-bc1cfe/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI，真的來聽你說話嗎？">
+<meta property="og:description" content="大概是兩年前吧，我還在想，等 AI 越來越聰明了，是不是就能幫我處理掉那些堆積如山，看了就頭疼的信件、報告。那時候，腦子裡勾勒的畫面，就是我動動嘴，AI 就能把我的想法整理得條理分明，然後再潤飾成一篇篇優雅的文字。感覺就像有個隨身秘書，而且還是個不抱怨、不請假，全年無休的。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260529-0735-bc1cfe/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-29T07:35:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI，真的來聽你說話嗎？">
+<meta name="twitter:description" content="大概是兩年前吧，我還在想，等 AI 越來越聰明了，是不是就能幫我處理掉那些堆積如山，看了就頭疼的信件、報告。那時候，腦子裡勾勒的畫面，就是我動動嘴，AI 就能把我的想法整理得條理分明，然後再潤飾成一篇篇優雅的文字。感覺就像有個隨身秘書，而且還是個不抱怨、不請假，全年無休的。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI，真的來聽你說話嗎？",
+  "description": "大概是兩年前吧，我還在想，等 AI 越來越聰明了，是不是就能幫我處理掉那些堆積如山，看了就頭疼的信件、報告。那時候，腦子裡勾勒的畫面，就是我動動嘴，AI 就能把我的想法整理得條理分明，然後再潤飾成一篇篇優雅的文字。感覺就像有個隨身秘書，而且還是個不抱怨、不請假，全年無休的。…",
+  "datePublished": "2026-05-29T07:35:00+08:00",
+  "dateModified": "2026-05-29T07:35:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260529-0735-bc1cfe/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-29 07:35
+  </div>
+
+  <h1 class="title">AI，真的來聽你說話嗎？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>大概是兩年前吧，我還在想，等 AI 越來越聰明了，是不是就能幫我處理掉那些堆積如山，看了就頭疼的信件、報告。那時候，腦子裡勾勒的畫面，就是我動動嘴，AI 就能把我的想法整理得條理分明，然後再潤飾成一篇篇優雅的文字。感覺就像有個隨身秘書，而且還是個不抱怨、不請假，全年無休的。</p>
+    <p>現在看來，那時的想法還真是……太天真了。</p>
+    <p>這一年多的時間，我們看到了多少「進步」？模型越來越大，參數越來越多，能處理的文字量也越來越長。從幾千字到幾萬字，甚至有人說可以讀完整本書。這一切，聽起來都像是為了「更好地理解你」而設計的。但實際用起來呢？我發現，它不是在「聽」你說話，更像是在「等」你把話說完，然後從一大堆預設好的答案裡，挑一個最接近的給你。</p>
+    <p>這讓我想起小時候去廟裡求籤。你問一個問題，抽一支籤，籤文的解釋總是有點模糊不清，需要你自己去揣摩。AI 其實也差不多。你問它一個問題，它給你一段聽起來很專業，但實際上常常是正確的廢話。你需要反覆追問、引導、修正，才能慢慢讓它靠近你想要的答案。這過程，像不像你在跟一個有點耳背，又有點固執的老人家說話？你得放大音量，重複幾次，還要用點耐心，他才可能聽懂。</p>
+    <p>尤其在那些需要真正理解語境、情感，甚至潛台詞的任務上，AI 的「聽力」簡直是災難。你讓它寫個情感豐富的故事，它可能給你一堆華麗的辭藻堆砌，卻感受不到一絲溫度。你讓它分析一個複雜的人際關係問題，它會給你一套邏輯完美，但缺乏人情味的建議。它能分析字面意義上的邏證明，卻對人性的多變與矛盾一無所知。</p>
+    <p>我們以為 AI 訓練的是「語言」，是「智慧」。但其實，它訓練的更多是「機率」，是「模式」。它從浩瀚的文本數據中，學會了哪種詞語組合最常出現，哪種句式最可能跟在某個問題後面。它不是在理解你的思想，而是在預測你的下一個字、下一句話。它就像一個超級聰明的大數據分析師，知道大部分人這麼說的時候，後面會接著什麼。但它永遠不會懂，你說這句話時，心裡真正的感受是什麼。</p>
+    <p>我曾試圖讓某個模型幫我整理一場會議記錄，那場會議的討論內容有點跳躍，中間夾雜著一些玩笑話和臨時插進來的新點子。結果呢？它給出的記錄，要嘛把玩笑話當真，要嘛直接忽略那些看似不重要的插曲。它只抓住了最明確的、最符合「會議記錄」模式的內容。那些真正體現思維火花和人際互動的部分，全被它無情地濾掉了。</p>
+    <p>更別提那些需要「跨模態」理解的場景。你給它一張模糊的圖片，然後描述你對圖片的某種抽象感受，再請它根據這種感受生成一段文字。你會發現，它的理解常常會偏離十萬八千里。因為「感受」這種東西，對它來說，就像空氣一樣，抓不住、摸不著。它只能從標籤、從文字描述中去推斷。</p>
+    <p>所以，我們真的要問自己，AI 到底在「聽」什麼？它聽的是你說出的詞，而不是你詞背後的意。它處理的是你給出的數據，而不是你數據裡蘊含的靈魂。它能模仿人類的語氣，卻無法真正擁有情感。</p>
+    <p>或許，我們從一開始就搞錯了方向。AI 不是我們的傾聽者，它更像是一個工具，一個巨大的，能處理海量資訊的超級計算機。它的價值在於效率，在於自動化，在於從雜亂中找出規律。它能幫我們省去重複性的勞動，能幫我們快速獲取資訊。但指望它來理解你、共情你、或者代替你思考那些需要靈魂參與的事情……那就真的太高估它，也太低估我們自己了。</p>
+    <p>我們與 AI 的對話，與其說是「溝通」，不如說是「操控」。我們在不斷地學習如何給出最精確的指令，如何引導它走到我們預設的結果。我們不再是那個動動嘴就能讓秘書把事情辦妥的主人，反而像是個馴獸師，必須學會一套複雜的技巧，才能讓這隻「聰明的野獸」照著我們的意思行動。</p>
+    <p>現在，我不再奢望 AI 能「聽懂」我。我只是把它當成一個聰明的計算器，或者一個巨大的資料庫。需要計算，就給它數字；需要查找，就給它關鍵字。至於那些需要思考、需要感受、需要判斷的事情，我還是會自己來。</p>
+    <p>畢竟，有些話，還是說給真正會「聽」的人，才更有意義。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260529-0735-bc1cfe/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
