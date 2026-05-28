@@ -23,9 +23,17 @@ jobs:
       
       - name: Run BLACK TOWER
         env:
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+         GOOGLE_API_KEY_2: ${{ secrets.GOOGLE_API_KEY_2 }}
+         GOOGLE_API_KEY_3: ${{ secrets.GOOGLE_API_KEY_3 }}
+         GOOGLE_API_KEY_4: ${{ secrets.GOOGLE_API_KEY_4 }}
+         GOOGLE_API_KEY_5: ${{ secrets.GOOGLE_API_KEY_5 }}
+         GOOGLE_API_KEY_6: ${{ secrets.GOOGLE_API_KEY_6 }}
+         GOOGLE_API_KEY_7: ${{ secrets.GOOGLE_API_KEY_7 }}
+         GOOGLE_API_KEY_8: ${{ secrets.GOOGLE_API_KEY_8 }}
+         OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+         YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
           python app.py
       
