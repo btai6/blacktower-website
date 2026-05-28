@@ -3158,7 +3158,7 @@ def main():
         else:
             print(f"        ✗ 失敗")
         print()
-
+        time.sleep(60)
     # ===== SONAR 快訊：每週一觸發 =====
     today_weekday = datetime.now().weekday()  # 0 = 週一
     if today_weekday == 0:
