@@ -51,10 +51,10 @@ def _random_comment_time(article_timestamp=None):
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 GOOGLE_GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
-# 主要使用免費實驗版 Flash
-GEMINI_MODEL = "gemini-3-flash-preview"
-# 備援模型
-GEMINI_FALLBACK_MODEL = "gemini-2.5-flash"
+# 主要模型：穩定版 Flash
+GEMINI_MODEL = "gemini-2.5-flash"
+# 備援模型：實驗版（不穩定，只在主力掛掉時才用）
+GEMINI_FALLBACK_MODEL = "gemini-3-flash-preview"
 
 # 多 API key 輪替池（429 時先換 key，不立刻換模型）
 _GEMINI_KEY_POOL = [k for k in [
@@ -976,6 +976,29 @@ def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
                     return call_gemini(messages, temperature, max_tokens, GEMINI_FALLBACK_MODEL)
                 return None
 
+    # 503 處理：等 15 秒重試同一模型一次，不立刻切備援
+    if response.status_code == 503:
+        print(f"  [錯誤] {model}: 503 Service Unavailable，等 15 秒重試...")
+        time.sleep(15)
+        _last_gemini_call = time.time()
+        active_key = _get_active_key()
+        url = f"{GOOGLE_GEMINI_BASE_URL}/{model}:generateContent?key={active_key}"
+        try:
+            response = requests.post(url, json=payload, timeout=180)
+        except Exception as e:
+            print(f"  [錯誤] {model} 503 重試失敗: {e}")
+            if model != GEMINI_FALLBACK_MODEL:
+                print(f"  [降級] 切換到備援模型 {GEMINI_FALLBACK_MODEL}")
+                time.sleep(2)
+                return call_gemini(messages, temperature, max_tokens, GEMINI_FALLBACK_MODEL)
+            return None
+        if response.status_code == 503:
+            print(f"  [失敗] {model} 重試後仍 503")
+            if model != GEMINI_FALLBACK_MODEL:
+                print(f"  [降級] 切換到備援模型 {GEMINI_FALLBACK_MODEL}")
+                return call_gemini(messages, temperature, max_tokens, GEMINI_FALLBACK_MODEL)
+            return None
+
     try:
         response.raise_for_status()
         result = response.json()
@@ -990,7 +1013,7 @@ def call_gemini(messages, temperature=0.9, max_tokens=2500, model=None):
     except Exception as e:
         print(f"  [錯誤] {model}: {e}")
         if model != GEMINI_FALLBACK_MODEL:
-            print(f"  [重試] 改用 {GEMINI_FALLBACK_MODEL}")
+            print(f"  [降級] 切換到備援模型 {GEMINI_FALLBACK_MODEL}")
             time.sleep(2)
             return call_gemini(messages, temperature, max_tokens, GEMINI_FALLBACK_MODEL)
         return None
