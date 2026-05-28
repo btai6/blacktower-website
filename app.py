@@ -21,10 +21,19 @@ import random
 import html
 import json
 import time
+import hashlib
 from datetime import datetime, timedelta
 import requests
 import feedparser
 import re
+
+# ============================================================
+# SEO 靜態化配置
+# ============================================================
+SITE_BASE_URL = "https://blacktowerai.com"  # 正式網址（無尾斜線）
+SITE_NAME_FULL = "BLACK TOWER 黑塔"
+SITE_TAGLINE = "華人AI論壇 · 繁體中文AI評論媒體"
+ARTICLES_DIR = "articles"  # 每篇獨立 HTML 的根目錄
 
 def _random_comment_time(article_timestamp=None):
     """評論時間：基於文章發布時間 + 5-10 小時隨機延遲
@@ -3208,6 +3217,414 @@ a { color: inherit; text-decoration: none; }
 
 
 
+# ============================================================
+# SEO 靜態化：每篇獨立 HTML + sitemap.xml
+# ============================================================
+def ensure_article_slug(article):
+    """為文章補上穩定 slug（一旦生成就不變）
+
+    格式：YYYYMMDD-HHMM-{md5前6碼}
+    例如：20260529-1430-a3f2c1
+    """
+    if article.get("slug"):
+        return article["slug"]
+
+    ts = article.get("timestamp", "")
+    # 把 "2026-05-29 14:30" 轉成 "20260529-1430"
+    try:
+        dt = datetime.strptime(ts, "%Y-%m-%d %H:%M")
+        ts_part = dt.strftime("%Y%m%d-%H%M")
+    except (ValueError, TypeError):
+        ts_part = datetime.now().strftime("%Y%m%d-%H%M")
+
+    # 用 persona + title 做 hash，避免同分鐘多篇撞 slug
+    seed = (article.get("persona", "") + "|" + article.get("title", ""))
+    hash_part = hashlib.md5(seed.encode("utf-8")).hexdigest()[:6]
+
+    slug = f"{ts_part}-{hash_part}"
+    article["slug"] = slug
+    return slug
+
+
+def make_article_excerpt(content, max_chars=140):
+    """把文章內文擷取成 meta description（限 140 字元，去換行）"""
+    # 去除 HTML 標籤、多餘空白
+    text = re.sub(r"<[^>]+>", "", content or "")
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) <= max_chars:
+        return text
+    # 截斷時盡量在標點處斷
+    snippet = text[:max_chars]
+    for sep in ["。", "！", "？", "，", " "]:
+        idx = snippet.rfind(sep)
+        if idx > max_chars - 30:
+            return snippet[:idx + 1] + "…"
+    return snippet + "…"
+
+
+def make_article_keywords(article):
+    """為文章生成 meta keywords：版主領域 + 四大 AI + 通用詞"""
+    persona = article.get("persona", "")
+    base_kws = ["Claude", "ChatGPT", "Gemini", "Grok", "AI評測", "大模型", "黑塔", "BLACK TOWER"]
+
+    persona_kws = {
+        "Scholar": ["Anthropic", "Claude AI"],
+        "渡鴉": ["OpenAI", "GPT-5", "GPT-4"],
+        "Trilobite": ["Google AI", "DeepMind"],
+        "Sword Smith": ["xAI", "Grok AI"],
+    }
+    extra = persona_kws.get(persona, [])
+    return ", ".join(extra + base_kws)
+
+
+# ============================================================
+# 單篇文章獨立 HTML 模板（TDK 完整 + 文章內容 + 返回首頁）
+# ============================================================
+ARTICLE_PAGE_TEMPLATE = r"""<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<meta name="keywords" content="{{KEYWORDS}}">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="{{CANONICAL}}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="{{ISO_TIME}}">
+<meta property="article:author" content="{{PERSONA}}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{TITLE_JSON}}",
+  "description": "{{DESCRIPTION_JSON}}",
+  "datePublished": "{{ISO_TIME}}",
+  "dateModified": "{{ISO_TIME}}",
+  "author": {
+    "@type": "Person",
+    "name": "{{PERSONA}}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "{{SITE_BASE}}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{CANONICAL}}"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    {{PREFIX}}<span class="dot">·</span>{{CAT_NAME}}<span class="dot">·</span>{{TIMESTAMP}}
+  </div>
+
+  <h1 class="title">{{TITLE}}</h1>
+
+  <div class="byline">
+    版主　<span class="persona">{{PERSONA}}</span>
+  </div>
+
+  <article class="content">
+{{CONTENT_HTML}}
+  </article>
+
+  {{SOURCE_BLOCK}}
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · {{CANONICAL_JS}}';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
+"""
+
+
+def generate_article_page(article):
+    """為單篇文章生成獨立 HTML（含完整 TDK + JSON-LD）
+
+    回傳: (slug, html_string)
+    """
+    slug = ensure_article_slug(article)
+    canonical = f"{SITE_BASE_URL}/{ARTICLES_DIR}/{slug}/"
+
+    title = article.get("title", "（無標題）")
+    persona = article.get("persona", "")
+    content = article.get("content", "")
+    timestamp = article.get("timestamp", "")
+    prefix = article.get("prefix", "觀察")
+
+    # 分類中文名
+    cat = article.get("cat", "")
+    cat_name_map = {
+        "claude":  "Claude",
+        "chatgpt": "ChatGPT",
+        "gemini":  "Gemini",
+        "grok":    "Grok",
+        "media":   "LEEK FACTORY",
+        "salon":   "SALON",
+    }
+    cat_name = cat_name_map.get(cat, "")
+
+    # description
+    description = make_article_excerpt(content, max_chars=140)
+    keywords = make_article_keywords(article)
+
+    # ISO 時間（Schema.org 要求）
+    try:
+        dt = datetime.strptime(timestamp, "%Y-%m-%d %H:%M")
+        iso_time = dt.strftime("%Y-%m-%dT%H:%M:00+08:00")
+    except (ValueError, TypeError):
+        iso_time = datetime.now().strftime("%Y-%m-%dT%H:%M:00+08:00")
+
+    # 文章內容轉 HTML：把每段包 <p>
+    paragraphs = [p.strip() for p in (content or "").split("\n") if p.strip()]
+    content_html = "\n".join(f"    <p>{html.escape(p)}</p>" for p in paragraphs)
+
+    # 出處區塊（如果有）
+    src_link = article.get("source_link")
+    src_title = article.get("source_title")
+    if src_link and src_title:
+        source_block = (
+            f'<div class="source-line">資料來源：'
+            f'<a href="{html.escape(src_link)}" rel="nofollow noopener" target="_blank">'
+            f'{html.escape(src_title)}</a></div>'
+        )
+    else:
+        source_block = ""
+
+    # JSON-LD 用：需要把雙引號跳脫
+    title_json = title.replace('"', '\\"').replace('\\', '\\\\')
+    desc_json = description.replace('"', '\\"').replace('\\', '\\\\')
+
+    page = (ARTICLE_PAGE_TEMPLATE
+            .replace("{{TITLE}}",         html.escape(title))
+            .replace("{{TITLE_JSON}}",    title_json)
+            .replace("{{DESCRIPTION}}",   html.escape(description))
+            .replace("{{DESCRIPTION_JSON}}", desc_json)
+            .replace("{{KEYWORDS}}",      html.escape(keywords))
+            .replace("{{CANONICAL}}",     html.escape(canonical))
+            .replace("{{CANONICAL_JS}}",  canonical.replace("'", ""))
+            .replace("{{SITE_BASE}}",     SITE_BASE_URL)
+            .replace("{{ISO_TIME}}",      iso_time)
+            .replace("{{PERSONA}}",       html.escape(persona))
+            .replace("{{PREFIX}}",        html.escape(prefix))
+            .replace("{{CAT_NAME}}",      html.escape(cat_name))
+            .replace("{{TIMESTAMP}}",     html.escape(timestamp))
+            .replace("{{CONTENT_HTML}}",  content_html)
+            .replace("{{SOURCE_BLOCK}}",  source_block))
+
+    return slug, page
+
+
+def generate_sitemap_xml(articles):
+    """為所有文章生成 sitemap.xml（首頁 + 每篇文章）"""
+    today_iso = datetime.now().strftime("%Y-%m-%d")
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+    # 首頁
+    lines.append(f"  <url>")
+    lines.append(f"    <loc>{SITE_BASE_URL}/</loc>")
+    lines.append(f"    <lastmod>{today_iso}</lastmod>")
+    lines.append(f"    <changefreq>daily</changefreq>")
+    lines.append(f"    <priority>1.0</priority>")
+    lines.append(f"  </url>")
+
+    for a in articles:
+        if not a:
+            continue
+        slug = a.get("slug")
+        if not slug:
+            continue
+        # 文章發布日當作 lastmod
+        try:
+            dt = datetime.strptime(a.get("timestamp", ""), "%Y-%m-%d %H:%M")
+            lastmod = dt.strftime("%Y-%m-%d")
+        except (ValueError, TypeError):
+            lastmod = today_iso
+        lines.append(f"  <url>")
+        lines.append(f"    <loc>{SITE_BASE_URL}/{ARTICLES_DIR}/{slug}/</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
+        lines.append(f"    <changefreq>monthly</changefreq>")
+        lines.append(f"    <priority>0.7</priority>")
+        lines.append(f"  </url>")
+
+    lines.append("</urlset>")
+    return "\n".join(lines)
+
+
+def generate_robots_txt():
+    """robots.txt：允許所有爬蟲 + 指向 sitemap"""
+    return (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "\n"
+        f"Sitemap: {SITE_BASE_URL}/sitemap.xml\n"
+    )
+
+
+def write_static_articles(enriched_articles):
+    """把所有文章逐篇寫成 articles/{slug}/index.html
+    回傳: 成功寫入的文章列表（含 slug）
+    """
+    os.makedirs(ARTICLES_DIR, exist_ok=True)
+    written = []
+    for a in enriched_articles:
+        if not a:
+            continue
+        try:
+            slug, page_html = generate_article_page(a)
+            article_dir = os.path.join(ARTICLES_DIR, slug)
+            os.makedirs(article_dir, exist_ok=True)
+            with open(os.path.join(article_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(page_html)
+            written.append(a)
+        except Exception as e:
+            print(f"  [靜態化] 失敗 {a.get('title','')[:30]}: {e}")
+    return written
+
+
 def generate_html(articles, videos=None, new_articles=None):
     """產生 index.html（雜誌風 SPA）"""
     if videos is None:
@@ -3235,7 +3652,7 @@ def generate_html(articles, videos=None, new_articles=None):
     else:
         page_title = "BLACK TOWER 黑塔 - 華人AI論壇，繁體中文AI評論媒體"
 
-    # 整理文章資料：加上 id、cat、prefix
+    # 整理文章資料：加上 id、cat、prefix、slug
     enriched = []
     for i, a in enumerate(articles):
         if not a:
@@ -3245,8 +3662,12 @@ def generate_html(articles, videos=None, new_articles=None):
             cat = "media"
         else:
             cat = PERSONA_TO_CAT.get(a["persona"], "salon")
+        # 補 slug（一旦有就不變，沒有就生成；同時寫回原 article 物件供後續 sitemap 用）
+        slug = ensure_article_slug(a)
         enriched.append({
             "id": i,
+            "slug": slug,
+            "permalink": f"/{ARTICLES_DIR}/{slug}/",
             "persona": a["persona"],
             "cat": cat,
             "type": a["type"],
@@ -3462,10 +3883,57 @@ def main():
     html_content = generate_html(all_articles, videos=leek_videos, new_articles=new_articles)
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
+    print(f"  ✓ index.html 完成（{len(html_content):,} 字元）")
+
+    # ===== SEO 靜態化：每篇文章獨立 HTML + sitemap.xml + robots.txt =====
+    print()
+    print("──────── SEO 靜態化 ────────")
+
+    # 為 all_articles 補上 cat 欄位（靜態頁需要顯示分類名）
+    seo_articles = []
+    for a in all_articles:
+        if not a:
+            continue
+        a_copy = dict(a)
+        if a_copy.get("type") == "visual":
+            a_copy["cat"] = "media"
+        else:
+            a_copy["cat"] = PERSONA_TO_CAT.get(a_copy.get("persona", ""), "salon")
+        a_copy["prefix"] = {
+            "discussion": "觀察",
+            "original": "原創",
+            "sonar": "SONAR",
+            "monitor": "觀察",
+            "visual": "影片",
+        }.get(a_copy.get("type", ""), "觀察")
+        # 確保 slug
+        ensure_article_slug(a_copy)
+        # 把 slug 寫回原 dict（同步給歷史檔案）
+        for orig in all_articles:
+            if orig is a:
+                orig["slug"] = a_copy["slug"]
+        seo_articles.append(a_copy)
+
+    print(f"  [靜態化] 開始寫入 {len(seo_articles)} 篇獨立 HTML...")
+    written = write_static_articles(seo_articles)
+    print(f"  [靜態化] ✓ 成功寫入 {len(written)} 篇到 /{ARTICLES_DIR}/")
+
+    print(f"  [sitemap] 生成 sitemap.xml...")
+    sitemap_xml = generate_sitemap_xml(seo_articles)
+    with open("sitemap.xml", "w", encoding="utf-8") as f:
+        f.write(sitemap_xml)
+    print(f"  [sitemap] ✓ sitemap.xml 完成（{len(written) + 1} 個 URL）")
+
+    print(f"  [robots] 生成 robots.txt...")
+    with open("robots.txt", "w", encoding="utf-8") as f:
+        f.write(generate_robots_txt())
+    print(f"  [robots] ✓ robots.txt 完成")
+
+    # 重新存歷史（這次帶上 slug 欄位）
+    save_articles_history(all_articles)
 
     end_time = datetime.now()
     duration = end_time - start_time
-    print(f"  ✓ index.html 完成（{len(html_content):,} 字元）")
     print(f"  總耗時：{duration}")
     print(f"========================================")
 
