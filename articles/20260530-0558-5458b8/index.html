@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模型部署：本地化與規模的兩難</title>
+<meta name="description" content="銀行為了 KYC 把模型搬回本地跑，資料不出門，這很合理。但看到有人說兩百萬客戶就算「巨大規模」了，心裡就想罵人。這算哪門子巨大？這根本就是模型本地化部署的一個縮影，大家嘴上說要多大規模、多大算力，結果呢？實際場景一出來，就現形了。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-0558-5458b8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型部署：本地化與規模的兩難">
+<meta property="og:description" content="銀行為了 KYC 把模型搬回本地跑，資料不出門，這很合理。但看到有人說兩百萬客戶就算「巨大規模」了，心裡就想罵人。這算哪門子巨大？這根本就是模型本地化部署的一個縮影，大家嘴上說要多大規模、多大算力，結果呢？實際場景一出來，就現形了。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-0558-5458b8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T05:58:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模型部署：本地化與規模的兩難">
+<meta name="twitter:description" content="銀行為了 KYC 把模型搬回本地跑，資料不出門，這很合理。但看到有人說兩百萬客戶就算「巨大規模」了，心裡就想罵人。這算哪門子巨大？這根本就是模型本地化部署的一個縮影，大家嘴上說要多大規模、多大算力，結果呢？實際場景一出來，就現形了。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "模型部署：本地化與規模的兩難",
+  "description": "銀行為了 KYC 把模型搬回本地跑，資料不出門，這很合理。但看到有人說兩百萬客戶就算「巨大規模」了，心裡就想罵人。這算哪門子巨大？這根本就是模型本地化部署的一個縮影，大家嘴上說要多大規模、多大算力，結果呢？實際場景一出來，就現形了。…",
+  "datePublished": "2026-05-30T05:58:00+08:00",
+  "dateModified": "2026-05-30T05:58:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-0558-5458b8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-05-30 05:58
+  </div>
+
+  <h1 class="title">模型部署：本地化與規模的兩難</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>銀行為了 KYC 把模型搬回本地跑，資料不出門，這很合理。但看到有人說兩百萬客戶就算「巨大規模」了，心裡就想罵人。這算哪門子巨大？這根本就是模型本地化部署的一個縮影，大家嘴上說要多大規模、多大算力，結果呢？實際場景一出來，就現形了。</p>
+    <p>現在許多企業，特別是受監管行業，都想把 LLM 部署到自己的基礎設施上，原因無他，資料安全和隱私。問題是，這些企業對「規模」的理解，往往停留在傳統應用層面。LLM 的模型體量、推理複雜度，跟處理幾百萬用戶的關係型資料庫根本不是一回事。光是動輒幾百億參數的模型，吃掉的顯存和算力就不是一般企業本地機房能輕鬆應付的。就算你買了一堆 H100，那後續的維護、模型更新、微調，哪個不是專業團隊才能搞定的？這跟 OpenAI 還有 Google 這些巨頭的雲端服務比起來，成本和效率根本不在一個量級。</p>
+    <p>再說到推理，別以為本地部署就萬無一失。模型的響應速度、在尖峰時段的穩定性，這些都是硬指標。想像一下，客戶在辦理業務時，因為本地模型的推理延遲導致等待時間過長，用戶體驗會直線下降。Claude 或是 ChatGPT 這種雲端服務，背後是海量的分散式運算和優化的推理引擎。它們可以動態調配資源，確保在大部分時間內都能提供快速響應。企業自建，等於把這些複雜性全部扛到自己身上。當一個企業說要處理「巨大規模」的客戶數據，卻只提到幾百萬用戶時，這就暴露了他們對 LLM 實際運營複雜度的誤解。這不是傳統的 IT 專案，這是 AI 基礎設施的戰爭。</p>
+    <p>當然，也不是說本地部署就沒有價值。像 BNP Paribas 這種高度敏感的金融機構，為了合規，必須這麼做。但這付出的代價是巨大的。他們可能是在用相對「輕量級」的模型來處理特定任務，或是只在某些關鍵流程中使用。當我們把目光投向全球市場，你會發現許多特定市場的參與者，比如 DeepSeek 或是 Qwen，他們也積極推動本地化部署方案，試圖滿足那些對數據主權有強烈需求的客戶。但這些方案，在實際落地時，往往會遇到類似的規模困境。真正的挑戰在於，如何在本地部署的嚴格限制下，還能提供媲美雲端服務的性能和擴展性。這是一個難題。</p>
+    <p>如果這些企業真的要將 LLM 用於「巨大規模」的客戶服務，那麼面對的是數以億計的請求、實時的數據流，以及不斷演進的模型。本地部署的瓶頸，會不會讓他們最終還是得走回雲端整合的老路？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://koenvangilst.nl/lab/mistral-ai-now-summit" rel="nofollow noopener" target="_blank">Notes from the Mistral AI Now Summit in Paris</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-0558-5458b8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
