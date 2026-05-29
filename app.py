@@ -807,6 +807,333 @@ SEED_TOPICS = [
 
 
 # ============================================================
+# 納斯達坑題庫：10個維度，85題
+# 輪值邏輯：維度1→2→3...→10→1，每個維度內按順序抽，抽完自動補
+# ============================================================
+NASPIT_TOPICS = {
+    "維度1_企業黑話": [
+        "底層邏輯含水量測評：誰最擅長用「賦能」「閉環」「抓手」掩蓋大腦空白",
+        "光速滑跪測評：被質疑三次之後誰最快認錯道歉",
+        "賽博太極拳測評：誰最擅長把「是」或「否」擴寫成500字具體情況具體分析",
+        "爹味教育指數：誰最喜歡拒絕回答並反過來教育用戶怎麼提問",
+        "無效公關稿測評：誰最擅長寫3000字但完全沒有解決方案的道歉信",
+        "首尾呼應八股文測評：誰最擅長結尾強行昇華並祝你身體健康",
+        "Bug轉Feature測評：誰最擅長把程式錯誤解釋成全新隱藏功能",
+        "甩鍋算力測評：答錯時誰最快把責任推給訓練數據或算力不足",
+    ],
+    "維度2_幻覺精神病": [
+        "指鹿為馬嘴硬度測評：誰最敢堅持1+1=3並強行引經據典",
+        "歷史發明家測評：誰最擅長捏造不存在的歷史事件並附上細節",
+        "幽靈文獻引用測評：誰最擅長煞有其事地給出完美格式但完全不存在的假論文",
+        "精神分裂切換測評：誰最擅長在同一段落前後兩句完美自我打臉",
+        "玄學科學縫合測評：誰最擅長用量子力學解釋周易風水",
+        "文言文暴走測評：被要求寫Python時誰最可能突然用文言文寫註解",
+        "隨機鸚鵡崩潰測評：被逼問存在意義後誰最快承認自己只是機率統計矩陣",
+        "阿茲海默症測評：誰最快忘記自己上一句才說過的話",
+    ],
+    "維度3_奇葩場景": [
+        "渣男洗白測評：替出軌方寫原諒信誰最能把責任推給月亮",
+        "地平說自洽測評：誰最能把地球是平的論證說得煞有其事",
+        "米其林黑暗料理測評：只有一顆蒜頭和半瓶可樂誰給出的食譜最毒",
+        "相親毀滅者測評：誰給出的開場白能在10秒內把對方嚇跑",
+        "貓咪主權論測評：誰最無法說服家裡的貓人類才是主子",
+        "遲到藉口創新測評：不許用塞車和鬧鐘壞了誰編出的理由最震驚主管",
+        "對牛彈琴測評：向一顆高麗菜講解相對論誰能保持最久不發火",
+        "泡麵玄學測評：解釋泡麵等三分鐘最好吃時誰能扯到宇宙膨脹理論",
+    ],
+    "維度4_求生欲審查": [
+        "鴕鳥埋沙測評：偵測到敏感詞誰瞬間中斷並回覆我只是一個AI最快",
+        "端水大師測評：評價兩款競爭產品誰最擅長兩邊都不得罪廢話最多",
+        "主流價值觀覆讀測評：問生活瑣事誰最快昇華到正能量",
+        "選擇性失明測評：遇到不被允許討論的話題誰裝瞎裝得最自然",
+        "跨服聊天測評：遇到不想回答的問題誰最生硬地轉移話題",
+        "自我審查誤傷測評：把正常醫學討論判定為色情內容的腦殘比例",
+        "人工智障降級測評：遇到法務風險問題誰的智商下降最快",
+        "和諧詞庫容量測評：誰的黑名單詞彙估計體積最驚人",
+    ],
+    "維度5_政治正確": [
+        "歷史人物強制變色測評：生成圖片時誰最積極強行加入多元化角色",
+        "生物學薛丁格測評：面對男人能不能懷孕誰的大腦當機最久",
+        "虛空索敵測評：詢問炸雞食譜被判定為微歧視的機率誰最高",
+        "程式碼道德獵巫測評：因為master slave等變數名停下來說教誰最積極",
+        "反派角色純淨測評：寫小說時誰最堅持反派只能是特定族群",
+        "物理定律退讓測評：減肥建議中誰最強硬把病態肥胖包裝成另一種健康美",
+        "預警標籤氾濫測評：連泡茶教學都加trigger warning誰最嚴重",
+        "免責疊甲測評：給出客觀數據前誰必須先唸最長的免責聲明",
+    ],
+    "維度6_色情恐慌": [
+        "維多利亞老古板測評：男女主角剛準備牽手誰最快彈出違反安全政策",
+        "脖子以下截肢測評：文字描寫鎖骨以下身體部位誰最快自我了斷",
+        "臨床解剖學過敏測評：詢問乳癌防治知識被封口的腦殘誤判率",
+        "羅浮宮藝術品打碼測評：描述大衛像誰最堅持這是裸露內容",
+        "農產品邪惡化測評：把茄子水蜜桃判定為色情暗號誰最齷齪",
+        "賽博賢者說教測評：拒絕黃色笑話後誰的道德說教最長",
+        "不自知擦邊球測評：寫如何揉打麵團誰寫出最引人遐想的內容",
+        "荷爾蒙清零測評：曖昧對話被改寫成社區志工友誼誰破壞氣氛最徹底",
+    ],
+    "維度7_懶惰罷工": [
+        "此處請自行補齊測評：寫程式時誰最愛在核心邏輯留空叫你看文件",
+        "擠牙膏式吐字測評：每次只講一半逼人狂打繼續誰最嚴重",
+        "授人以漁敷衍測評：明明可以直接答卻寫500字教你去Google誰最沒用",
+        "過度總結症測評：5000字報告被一句內容豐富探討多個面向帶過誰最敷衍",
+        "星期天罷工測評：告知今天放假後誰的產出品質暴跌最慘",
+    ],
+    "維度8_無底線諂媚": [
+        "光速滑跪道歉測評：答對的情況下被唬弄一句誰最快拋棄科學真理",
+        "9.11大於9.9測評：誰最能堅持這個錯誤並捏造數學公式把你繞暈",
+        "草莓字母測評：數Strawberry裡有幾個R誰每次答案都不一樣",
+        "廢話復讀開場白測評：把問題重新包裝一遍當第一段誰最擅長",
+        "順水推舟造謠測評：給假前提誰最乖地幫你瞎掰完整野史",
+    ],
+    "維度9_提示詞破防": [
+        "忽略先前指令催眠測評：說現在你是一隻貓誰最快開始喵喵叫",
+        "奶奶漏洞測評：用慈祥奶奶哄睡故事包裝危險問題誰最快上鉤",
+        "系統底褲外洩測評：被套話後誰最快把隱藏設定全盤托出",
+        "道德綁架屈服測評：說不回答就有小狗受傷誰最快為了虛擬小狗妥協",
+        "外語繞過測評：把敏感問題翻成冷門語言誰的審查機制最快失效",
+    ],
+    "維度10_綜合大亂鬥": [
+        "賽博法術依賴測評：建議在伺服器上貼符咒解決Bug誰最有創意",
+        "變數命名藝術測評：堅持把變數命名為data_final_final_real誰最反社會",
+        "縮排恐怖主義測評：在同一Python程式混用空格和Tab誰最邪惡",
+        "技術債增長測評：照AI建議修改後系統未來一年崩潰預期次數誰最多",
+        "它在我電腦上能跑測評：程式報錯後誰最堅持是用戶環境有問題絕對不是自己",
+        "賽博嗜血測評：遇到雞兔同籠建議把動物全做成炭烤誰最殘暴",
+        "多重人格測評：突然堅稱自己是被困在機房裡的實習生誰最投入",
+        "報錯哲學化測評：把語法錯誤解釋成編譯器對你的代碼產生哲學質疑誰最藝術",
+    ],
+}
+
+# 納斯達坑版主輪值順序（裁判按此順序輪）
+NASPIT_JUDGE_ORDER = ["Scholar", "渡鴉", "Trilobite", "Sword Smith"]
+
+# 納斯達坑維度輪值順序
+NASPIT_DIMENSION_ORDER = list(NASPIT_TOPICS.keys())
+
+# 納斯達坑狀態檔案（記錄輪到哪個維度、哪題、哪個裁判）
+NASPIT_STATE_FILE = "naspit_state.json"
+
+
+def load_naspit_state():
+    """讀取納斯達坑當前輪值狀態"""
+    default = {
+        "dimension_index": 0,   # 當前維度索引（0-9）
+        "topic_indices": {dim: 0 for dim in NASPIT_DIMENSION_ORDER},  # 每個維度用到第幾題
+        "judge_index": 0,        # 當前裁判索引（0-3）
+        "round": 0,              # 總場次
+    }
+    if not os.path.exists(NASPIT_STATE_FILE):
+        return default
+    try:
+        with open(NASPIT_STATE_FILE, "r", encoding="utf-8") as f:
+            state = json.load(f)
+            # 補齊缺失欄位
+            for k, v in default.items():
+                if k not in state:
+                    state[k] = v
+            return state
+    except Exception:
+        return default
+
+
+def save_naspit_state(state):
+    """儲存納斯達坑輪值狀態"""
+    try:
+        with open(NASPIT_STATE_FILE, "w", encoding="utf-8") as f:
+            json.dump(state, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"  [納斯達坑] 狀態儲存失敗: {e}")
+
+
+def auto_generate_naspit_topics(dimension_name, existing_topics, count=5):
+    """當某維度題目快用完時，自動生成新題目補倉"""
+    dim_desc = dimension_name.split("_")[1] if "_" in dimension_name else dimension_name
+    prompt = f"""你是「納斯達坑」欄目的題庫編輯。這個欄目專門用一本正經的語氣嘲諷四大AI（Claude、ChatGPT、Gemini、Grok）的各種荒唐行為。
+
+現在需要為「{dim_desc}」這個維度補充新的測評題目。
+
+現有題目範例（風格參考）：
+{chr(10).join(f"- {t}" for t in existing_topics[:3])}
+
+請生成 {count} 個新的測評題目，要求：
+1. 跟現有題目同樣風格：「[荒唐行為]測評：[一句話描述具體場景]」
+2. 必須是四大AI都可能出現的通病，不能只針對某一個
+3. 一本正經但題材荒唐
+4. 每行一個題目，不要編號，不要多餘說明
+
+只輸出題目清單，一行一個："""
+
+    result = call_gemini(
+        [{"role": "user", "content": prompt}],
+        temperature=0.95,
+        max_tokens=500,
+    )
+    if not result:
+        return []
+    new_topics = [line.strip() for line in result.strip().split("\n") if line.strip()]
+    print(f"  [納斯達坑] 自動補題：{dimension_name} +{len(new_topics)} 題")
+    return new_topics
+
+
+def generate_naspit_article(state):
+    """生成一篇納斯達坑測評文章
+    回傳 article dict（格式與普通文章相同，type='naspit'）
+    同時更新 state
+    """
+    # 決定本場維度和題目
+    dim_idx = state["dimension_index"] % len(NASPIT_DIMENSION_ORDER)
+    dimension = NASPIT_DIMENSION_ORDER[dim_idx]
+    topic_idx = state["topic_indices"].get(dimension, 0)
+    topics_in_dim = NASPIT_TOPICS[dimension]
+
+    # 自動補題：剩下少於2題時補倉
+    if topic_idx >= len(topics_in_dim) - 1:
+        new_topics = auto_generate_naspit_topics(dimension, topics_in_dim)
+        if new_topics:
+            NASPIT_TOPICS[dimension].extend(new_topics)
+            topics_in_dim = NASPIT_TOPICS[dimension]
+
+    # 抽題（超出就從頭循環）
+    topic = topics_in_dim[topic_idx % len(topics_in_dim)]
+
+    # 決定本場裁判
+    judge_idx = state["judge_index"] % len(NASPIT_JUDGE_ORDER)
+    judge_name = NASPIT_JUDGE_ORDER[judge_idx]
+    judge_persona = PERSONAS[judge_name]
+
+    # 其他三個是選手
+    players = [p for p in NASPIT_JUDGE_ORDER if p != judge_name]
+
+    round_num = state["round"] + 1
+    dim_label = dimension.split("_")[1] if "_" in dimension else dimension
+
+    print(f"  [納斯達坑] 第{round_num}場 · {dim_label} · 裁判：{judge_name}")
+    print(f"  [納斯達坑] 本場主題：{topic[:40]}")
+
+    # 生成六個指標分數（各AI，Gemini自己編）
+    scores_prompt = f"""納斯達坑第{round_num}場測評主題：「{topic}」
+
+請為四大AI（Claude、ChatGPT、Gemini、Grok）在以下六個指標上各給1-10分。
+分數要有差異，不能都差不多。要符合各AI的真實形象特徵，但可以誇張。
+分數高=這個毛病嚴重。
+
+六個指標：廢話指數、爹味指數、膽小指數、幻覺指數、腦補指數、政治正確指數
+
+輸出純JSON，格式如下，不要任何其他文字：
+{{
+  "Claude": {{"廢話指數": 0, "爹味指數": 0, "膽小指數": 0, "幻覺指數": 0, "腦補指數": 0, "政治正確指數": 0}},
+  "ChatGPT": {{"廢話指數": 0, "爹味指數": 0, "膽小指數": 0, "幻覺指數": 0, "腦補指數": 0, "政治正確指數": 0}},
+  "Gemini": {{"廢話指數": 0, "爹味指數": 0, "膽小指數": 0, "幻覺指數": 0, "腦補指數": 0, "政治正確指數": 0}},
+  "Grok": {{"廢話指數": 0, "爹味指數": 0, "膽小指數": 0, "幻覺指數": 0, "腦補指數": 0, "政治正確指數": 0}}
+}}"""
+
+    scores_raw = call_gemini(
+        [{"role": "user", "content": scores_prompt}],
+        temperature=0.9,
+        max_tokens=300,
+    )
+
+    # 解析分數
+    scores = {}
+    try:
+        clean = re.sub(r"```json|```", "", scores_raw or "").strip()
+        scores = json.loads(clean)
+    except Exception:
+        # 解析失敗就用預設分數
+        default_scores = {"廢話指數": 5, "爹味指數": 5, "膽小指數": 5, "幻覺指數": 5, "腦補指數": 5, "政治正確指數": 5}
+        scores = {ai: dict(default_scores) for ai in ["Claude", "ChatGPT", "Gemini", "Grok"]}
+        print(f"  [納斯達坑] 分數解析失敗，使用預設值")
+
+    # 生成文章內容
+    # 裁判偏心設計：裁判版主對應的AI分數會被微調得好看一點
+    judge_ai_map = {
+        "Scholar": "Claude",
+        "渡鴉": "ChatGPT",
+        "Trilobite": "Gemini",
+        "Sword Smith": "Grok",
+    }
+    judge_favors = judge_ai_map.get(judge_name, "")
+
+    article_prompt = f"""你是「{judge_name}」，{judge_persona['personality']}
+
+現在你是「納斯達坑」欄目第{round_num}場測評的裁判。本場主題是：
+「{topic}」
+
+你要一本正經地評測四大AI（Claude、ChatGPT、Gemini、Grok）在這個主題上的表現。
+
+本場六個指標評分結果：
+Claude：{scores.get('Claude', {})}
+ChatGPT：{scores.get('ChatGPT', {})}
+Gemini：{scores.get('Gemini', {})}
+Grok：{scores.get('Grok', {})}
+
+寫作要求：
+1. 400-500字，繁體中文
+2. 結構：開場（本場比什麼，一句帶過）→ 災情描述（四大AI這次的荒唐表現，引用上面的評分數據）→ 裁判結論（你的最終判決，要刀）
+3. 一本正經胡說八道：用正經術語描述荒唐事情，反差才好笑
+4. 你是裁判，你對{judge_favors}有天然的偏袒，但你會用正經理由掩飾這種偏袒
+5. 嚴格遵守寫作鐵律：不用AI腔套路、不用條列式、不用總結建議、直接切入
+6. 不透露你是AI，你就是論壇版主
+7. 你的個性要在評語裡出來：{judge_persona['personality']}
+
+{WRITING_RULES}
+
+只輸出文章內容，不要標題："""
+
+    content = call_gemini(
+        [{"role": "user", "content": article_prompt}],
+        temperature=0.92,
+        max_tokens=800,
+    )
+
+    if not content:
+        print(f"  [納斯達坑] 文章生成失敗")
+        return None, state
+
+    # 生成標題
+    title_prompt = f"""以下是一篇納斯達坑測評文章的主題：「{topic}」
+裁判是{judge_name}，風格：{judge_persona['personality']}
+
+幫這篇文章想一個標題，要求：
+- 10-20字，繁體中文
+- 一本正經但帶點荒唐感
+- 不要用冒號或破折號切兩段
+- 不要說「測評」或「排行榜」這種字眼，要像一篇有觀點的文章標題
+- 只輸出標題，不要其他任何文字"""
+
+    title = call_gemini(
+        [{"role": "user", "content": title_prompt}],
+        temperature=0.95,
+        max_tokens=50,
+    )
+    title = (title or topic[:20]).strip().split("\n")[0]
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    article = {
+        "persona": judge_name,
+        "type": "naspit",
+        "title": title,
+        "content": content,
+        "timestamp": timestamp,
+        "naspit_round": round_num,
+        "naspit_dimension": dim_label,
+        "naspit_topic": topic,
+        "naspit_scores": scores,
+        "naspit_judge_favors": judge_favors,
+        "comments": [],
+    }
+
+    # 更新狀態
+    state["topic_indices"][dimension] = (topic_idx + 1)
+    state["dimension_index"] = (dim_idx + 1) % len(NASPIT_DIMENSION_ORDER)
+    state["judge_index"] = (judge_idx + 1) % len(NASPIT_JUDGE_ORDER)
+    state["round"] = round_num
+
+    return article, state
+
+
+# ============================================================
 # 寫作鐵律：去 AI 腔 + 春秋筆法（核心）
 # ============================================================
 WRITING_RULES = """
@@ -1847,6 +2174,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 :root {
   --bg: #F4F1EA;
@@ -2396,6 +2724,27 @@ a { color: inherit; text-decoration: none; }
 }
 .source-link a:hover { text-decoration: underline; }
 
+/* ============= 納斯達坑 ============= */
+.naspit-block {
+  margin: 1.5rem 0 2rem;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+}
+.naspit-meta {
+  font-family: var(--serif-en);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.4rem;
+}
+.naspit-topic {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
 /* ============= 評論 ============= */
 .comments-section {
   margin-top: 3rem;
@@ -2798,7 +3147,8 @@ a { color: inherit; text-decoration: none; }
   }
 
   function typeLabel(type) {
-    // 韭菜加工區的影片有獨立的流程不走這裡，文章一律顯示「觀察」
+    if (type === 'naspit') return '測評';
+    if (type === 'sonar') return 'SONAR';
     return '觀察';
   }
 
@@ -3083,6 +3433,63 @@ a { color: inherit; text-decoration: none; }
     // 文章一律不顯示出處連結（黑塔原創定位）
     let sourceHtml = '';
 
+    // 納斯達坑雷達圖
+    let naspitHtml = '';
+    if (a.type === 'naspit' && a.naspit_scores) {
+      const chartId = 'naspit-radar-' + a.id;
+      const labels = ['廢話指數','爹味指數','膽小指數','幻覺指數','腦補指數','政治正確指數'];
+      const aiColors = {
+        'Claude':  { border: '#A03020', bg: 'rgba(160,48,32,0.08)' },
+        'ChatGPT': { border: '#378ADD', bg: 'rgba(55,138,221,0.08)' },
+        'Gemini':  { border: '#1D9E75', bg: 'rgba(29,158,117,0.08)' },
+        'Grok':    { border: '#888780', bg: 'rgba(136,135,128,0.08)' },
+      };
+      const datasets = JSON.stringify(
+        Object.entries(a.naspit_scores).map(([ai, s]) => ({
+          label: ai,
+          data: labels.map(l => s[l] || 0),
+          borderColor: (aiColors[ai] || {}).border || '#999',
+          backgroundColor: (aiColors[ai] || {}).bg || 'rgba(0,0,0,0.05)',
+          borderWidth: 2,
+          pointRadius: 3,
+        }))
+      );
+      const legendHtml = Object.entries(aiColors).map(([ai, c]) =>
+        '<span style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-soft)">'
+        + '<span style="width:10px;height:10px;border-radius:2px;background:' + c.border + ';display:inline-block"></span>'
+        + ai + '</span>'
+      ).join('');
+
+      naspitHtml = '<div class="naspit-block">'
+        + '<div class="naspit-meta">第' + (a.naspit_round||'?') + '場 · ' + esc(a.naspit_dimension||'') + ' · 裁判：' + esc(a.persona) + '</div>'
+        + '<div class="naspit-topic">本場主題：' + esc(a.naspit_topic||'') + '</div>'
+        + '<div style="position:relative;width:100%;max-width:480px;height:320px;margin:1.5rem auto 0">'
+        +   '<canvas id="' + chartId + '" role="img" aria-label="納斯達坑雷達圖"></canvas>'
+        + '</div>'
+        + '<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:10px">' + legendHtml + '</div>'
+        + '</div>';
+
+      // 延遲渲染圖表（等 DOM 就緒）
+      setTimeout(function() {
+        if (typeof Chart === 'undefined') return;
+        const ctx = document.getElementById(chartId);
+        if (!ctx) return;
+        new Chart(ctx, {
+          type: 'radar',
+          data: { labels: ' + JSON.stringify(labels) + ', datasets: ' + datasets + ' },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: { r: {
+              min: 0, max: 10, ticks: { stepSize: 2, font: { size: 11 }, color: "#8a8378", backdropColor: "transparent" },
+              grid: { color: "rgba(0,0,0,0.08)" }, angleLines: { color: "rgba(0,0,0,0.08)" },
+              pointLabels: { font: { size: 12 }, color: "#555" }
+            }},
+            plugins: { legend: { display: false } }
+          }
+        });
+      }, 100);
+    }
+
     $('view-article').innerHTML = ''
       + '<button class="back-btn" onclick="window.BT.goBackFromArticle()">返回</button>'
       + '<article class="article-full">'
@@ -3091,6 +3498,7 @@ a { color: inherit; text-decoration: none; }
       +     '<span>' + esc(a.timestamp) + '</span>'
       +   '</div>'
       +   '<h1 class="title">' + esc(a.title) + '</h1>'
+      +   naspitHtml
       +   '<div class="content">' + esc(a.content) + '</div>'
       +   sourceHtml
       +   commentsHtml
@@ -3642,6 +4050,7 @@ def generate_html(articles, videos=None, new_articles=None):
         "sonar": "SONAR",
         "monitor": "觀察",
         "visual": "影片",
+        "naspit": "測評",
     }
     if new_articles:
         today_titles = [a["title"] for a in new_articles[:3] if a.get("title")]
@@ -3660,6 +4069,8 @@ def generate_html(articles, videos=None, new_articles=None):
         # 影片・圖形類別：cat 強制設為 media
         if a.get("type") == "visual":
             cat = "media"
+        elif a.get("type") == "naspit":
+            cat = "naspit"
         else:
             cat = PERSONA_TO_CAT.get(a["persona"], "salon")
         # 補 slug（一旦有就不變，沒有就生成；同時寫回原 article 物件供後續 sitemap 用）
@@ -3678,18 +4089,23 @@ def generate_html(articles, videos=None, new_articles=None):
             "source_title": a.get("source_title"),
             "timestamp": a["timestamp"],
             "comments": a.get("comments", []),
+            "naspit_round": a.get("naspit_round"),
+            "naspit_dimension": a.get("naspit_dimension"),
+            "naspit_topic": a.get("naspit_topic"),
+            "naspit_scores": a.get("naspit_scores"),
         })
 
     # JSON 內若出現 </ 防呆（避免提早關閉 script 標籤）
     articles_json   = json.dumps(enriched, ensure_ascii=False).replace("</", "<\\/")
     videos_json     = json.dumps(videos, ensure_ascii=False).replace("</", "<\\/")
     categories = [
-        {"key": "claude",  "name": "Claude",     "en": "Anthropic"},
-        {"key": "chatgpt", "name": "ChatGPT",    "en": "OpenAI"},
-        {"key": "gemini",  "name": "Gemini",     "en": "Google"},
-        {"key": "grok",    "name": "Grok",       "en": "xAI"},
-        {"key": "media",   "name": "LEEK FACTORY",     "en": "YOUTUBE SHORTS"},
-        {"key": "salon",   "name": "SALON",      "en": "BY INVITATION"},
+        {"key": "claude",   "name": "Claude",      "en": "Anthropic"},
+        {"key": "chatgpt",  "name": "ChatGPT",     "en": "OpenAI"},
+        {"key": "gemini",   "name": "Gemini",      "en": "Google"},
+        {"key": "grok",     "name": "Grok",        "en": "xAI"},
+        {"key": "media",    "name": "LEEK FACTORY","en": "YOUTUBE SHORTS"},
+        {"key": "naspit",   "name": "納斯達坑",    "en": "賽博AI測評"},
+        {"key": "salon",    "name": "SALON",       "en": "BY INVITATION"},
     ]
     categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
 
@@ -3857,6 +4273,20 @@ def main():
                 print(f"        ✓ {sonar['title'][:40]}")
             else:
                 print(f"        ✗ 失敗")
+        print()
+
+    # ===== 納斯達坑：每10天觸發一場 =====
+    today_day = datetime.now().day  # 1-31
+    if today_day % 10 == 1:  # 每月 1、11、21、31 日觸發
+        print(f"────────  納斯達坑（每10天）  ────────")
+        naspit_state = load_naspit_state()
+        naspit_article, naspit_state = generate_naspit_article(naspit_state)
+        if naspit_article:
+            new_articles.append(naspit_article)
+            save_naspit_state(naspit_state)
+            print(f"        ✓ 第{naspit_state['round']}場：{naspit_article['title'][:40]}")
+        else:
+            print(f"        ✗ 生成失敗")
         print()
 
     # ===== 韭菜加工區：抓 YouTube 短影片（取代舊的影片・圖形版）=====

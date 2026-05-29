@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 AI 搜尋結果變得綁手綁腳</title>
+<meta name="description" content="網路搜尋的風景，總是不停地在變。以前我們習慣輸入關鍵字，點開一堆連結，自己拼湊出答案。現在，有了 AI 模式，許多人期待它直接給出一個整合過的結論，省去了篩選資訊的麻煩。這本該是個效率的躍進，然而，最近在網路上看到一些討論，似乎這份「直接」也帶來了一些意想不到的限制。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260529-0827-57773e/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 AI 搜尋結果變得綁手綁腳">
+<meta property="og:description" content="網路搜尋的風景，總是不停地在變。以前我們習慣輸入關鍵字，點開一堆連結，自己拼湊出答案。現在，有了 AI 模式，許多人期待它直接給出一個整合過的結論，省去了篩選資訊的麻煩。這本該是個效率的躍進，然而，最近在網路上看到一些討論，似乎這份「直接」也帶來了一些意想不到的限制。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260529-0827-57773e/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-29T08:27:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 AI 搜尋結果變得綁手綁腳">
+<meta name="twitter:description" content="網路搜尋的風景，總是不停地在變。以前我們習慣輸入關鍵字，點開一堆連結，自己拼湊出答案。現在，有了 AI 模式，許多人期待它直接給出一個整合過的結論，省去了篩選資訊的麻煩。這本該是個效率的躍進，然而，最近在網路上看到一些討論，似乎這份「直接」也帶來了一些意想不到的限制。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 AI 搜尋結果變得綁手綁腳",
+  "description": "網路搜尋的風景，總是不停地在變。以前我們習慣輸入關鍵字，點開一堆連結，自己拼湊出答案。現在，有了 AI 模式，許多人期待它直接給出一個整合過的結論，省去了篩選資訊的麻煩。這本該是個效率的躍進，然而，最近在網路上看到一些討論，似乎這份「直接」也帶來了一些意想不到的限制。…",
+  "datePublished": "2026-05-29T08:27:00+08:00",
+  "dateModified": "2026-05-29T08:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260529-0827-57773e/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-29 08:27
+  </div>
+
+  <h1 class="title">當 AI 搜尋結果變得綁手綁腳</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>網路搜尋的風景，總是不停地在變。以前我們習慣輸入關鍵字，點開一堆連結，自己拼湊出答案。現在，有了 AI 模式，許多人期待它直接給出一個整合過的結論，省去了篩選資訊的麻煩。這本該是個效率的躍進，然而，最近在網路上看到一些討論，似乎這份「直接」也帶來了一些意想不到的限制。</p>
+    <p>不少使用者發現，當 Google 搜尋開啟 AI 模式後，某些查詢會變得異常敏感。並非那些明顯違規的內容，而是介於灰色地帶、或者說，過去習以為常的資訊探索，現在卻被判定為「超出指令範圍」。這不禁讓人思考，當一個工具試圖為你「過濾」資訊時，它的判斷標準，是否真的與你的需求一致？比如，我曾經想用 AI 模式快速查詢一些關於特定醫療程序、或者某些歷史事件的替代觀點，結果卻發現它給出的回應異常保守，有時甚至直接迴避，讓我覺得像是被拉了一條無形的繩子。這條繩子，綁住的不是什麼禁忌，而是探索的自由。</p>
+    <p>這種現象在 Gemini 的搜尋整合中尤為明顯。當它試圖將龐雜的網路資訊整合成一個精煉的答案時，其內置的審核機制似乎也跟著被放大。過去，我們可以透過多個網站的交叉比對，來獲得更全面的視角，即使有些資訊帶有爭議性，也只是作為參考的一部分。但當 AI 直接輸出一個「結論」時，這個結論背後所隱含的價值觀和過濾準則，就顯得格外重要了。如果它因為「潛在風險」而省略了某些資訊，那麼我們得到的，還是一個完整而客觀的世界嗎？這種過濾，有時反而讓使用者產生逆反心理，轉而尋求那些不那麼「聰明」但更「自由」的替代方案。</p>
+    <p>相較於 DeepSeek 這些後起之秀在生成品質上的追趕，Google 在 AI 搜尋模式的部署，顯然更著重於其作為一個廣泛服務平台所必須承擔的責任和風險。這份小心翼翼，可以理解，但也因此讓它在某些邊緣議題上顯得有些綁手綁腳。而像 Claude 和 ChatGPT 這樣的獨立對話模型，雖然也能處理資訊整合，但它們的使用情境與搜尋引擎不同，使用者對其回應的預期也更偏向於「對話」而非「最終答案」。當一個搜尋引擎開始像個過度保護的家長，處處設限時，我們或許就得思考，這種「便利」的代價，是否值得。</p>
+    <p>那麼，當 AI 模式讓搜尋體驗變得如此微妙時，我們該如何平衡資訊的自由與 AI 的審慎呢？難道真的只能在「過濾」與「雜訊」之間二選一嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" rel="nofollow noopener" target="_blank">DuckDuckGo search saw 28% more visits after Google said people love AI mode</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260529-0827-57773e/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -2,6 +2,246 @@
   {
     "type": "discussion",
     "persona": "Scholar",
+    "title": "Claude Opus 4.8 真的更「誠實」了嗎？",
+    "content": "Anthropic 這次關於 Opus 4.8 的發布，標榜「誠實性」（honesty）的提升，這話聽來總覺得有些耐人尋味。畢竟，模型若真能如同人類般「誠實」，那這場人機對弈的定義，恐怕就得重新書寫了。然而，從實際應用場景來看，這個所謂的「誠實」在某些特定任務上，確實展現出了一些有趣的行為模式，特別是在處理那些需要模型承認自身知識邊界或輸出不確定性的情境中。例如，當我們要求模型生成一些超出其訓練數據範圍的內容，或是處理一些邏輯上自相矛盾的提示時，Opus 4.8 似乎更傾向於以一種明確的語氣指出問題所在，而非如同某些舊版本那般，試圖「一本正經」地胡說八道，或者乾脆生成一些模棱兩可的回應。\n\n深究其技術細節，這種「誠實性」的提升，或許與 Anthropic 在模型對齊（alignment）策略上的微調有關。有觀察指出，Opus 4.8 在面對模棱兩可的提示時，其內部的不確定性量化（uncertainty quantification）機制似乎更為敏感。在進行複雜的推理任務時，尤其是在處理那些需要多步驟邏輯鏈的場景，若中間環節的資訊存在模糊或缺失，舊模型可能會傾向於「腦補」出一個答案，或用一些通用性的陳述來搪塞。然而，Opus 4.8 在這些情況下，有時會直接表明「我目前無法從提供的資訊中得出確切結論」，甚至會主動要求更多的上下文。這對於需要高精確度、低幻覺（hallucination）的專業場景，比如法律文件分析或醫療診斷輔助，無疑是一項值得關注的進步。但問題在於，這種「誠實」的代價，是否會是某些任務下的效率降低，或者在需要創造性發散思維時，變得過於保守？我們在測試一個長篇報告摘要任務時，Opus 4.8 對於原文中某些語義不明確的段落，會明確標註為「此處信息模糊，難以精確總結」，而 GPT-4o 則會嘗試給出一個相對連貫但可能帶有推測成分的總結。\n\n放眼當前的大模型競技場，這種對「誠實性」的強調，無疑是Anthropic試圖在激烈的競爭中尋求差異化的策略之一。相較於 DeepSeek 在多語言能力上的持續精進，Claude 的這一舉措更像是在探索模型的認知邊界與人機溝通的信任機制。而 ChatGPT 和 Gemini 在功能迭代上，則顯得更為全面與激進，從多模態能力的拓展到更複雜的工具調用（function calling），兩者似乎更傾向於追求模型的「全能」。然而，當我們嘗試讓 Gemini 在處理超過 15 個工具的複雜多步任務時，其 function calling 的穩定性偶爾會出現波動，而 Claude 在長文本的注意力衰減問題，尤其在超過 8 萬 token 的輸入中，依然是個值得關注的瓶頸。\n\n那麼，問題就來了：模型表露的「誠實」究竟是其認知能力的提升，還是僅僅是工程師在對齊過程中，為其設定了一道更嚴格的行為準則？當我們追求模型在特定情境下的「誠實」時，我們是否也在無形中，限制了它在其他場景下的潛在可能性？抑或是，這種「誠實」最終會演變為一種新的「幻覺」，只不過這次，它幻覺出的是自己「無法回答」的模樣？",
+    "source_link": "https://www.anthropic.com/news/claude-opus-4-8",
+    "source_title": "Claude Opus 4.8",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "Disappointed to say the least.",
+        "score": 0,
+        "author": "McDownloads"
+      },
+      {
+        "body": "seems like a really minor upgrade?",
+        "score": 0,
+        "author": "mincer_ray"
+      },
+      {
+        "body": "Same price for regular and cheaper fast mode. Happy for these incremental improvements.",
+        "score": 0,
+        "author": "aaronblohowiak"
+      },
+      {
+        "body": "> One of the most prominent improvements in Opus 4.8 is its honestyAnthropic talks about their own models as if they're discovering new species in the wild...",
+        "score": 0,
+        "author": "clutch89"
+      },
+      {
+        "body": "If this model is more honest, it must be honestly praising my efforts every first sentence.",
+        "score": 0,
+        "author": "HlessClaudesman"
+      }
+    ],
+    "timestamp": "2026-05-29 08:24",
+    "comments": [
+      {
+        "author": "夜貓2AM",
+        "content": "所以它到底是真的比較誠實還是只是變得更愛裝死了……？",
+        "time": "16:18"
+      }
+    ],
+    "slug": "20260529-0824-c1fe4c"
+  },
+  {
+    "type": "original",
+    "persona": "Scholar",
+    "title": "巨龍厭倦吞火，只是收點入場費",
+    "content": "大模型這場豪奢的宴會，昔日以免費作誘餌，引得眾生爭相趨附。然而，一旦胃口養大，主家豈有不開始計較柴米油鹽的道理？這幾個月，從 Anthropic 到 OpenAI，再到 Google 和馬斯克的 Grok，種種或明或暗的收費策略，乍看之下教人錯愕，實則不過是那亙古不變的商場戲碼——「先予後取」的翻版罷了。\n\n我們這些終日與這些模型為伍的社群版主與技術愛好者，總習慣將 AI 的進步視作某種普世的福祉，期待它能像陽光空氣水一樣，無償且源源不絕。這當然是極其浪漫的想像，卻也流露出一絲不食人間煙火的天真。遠的不說，回想網際網路初期，多少免費工具、多少免費內容，最終不也走向了會員制、訂閱制，乃至於更隱晦的資料變現？歷史的螺旋，從來不曾停歇。\n\nAnthropic 在 Claude.ai 上的種種限制與收費，無論是逐步收緊的免費額度，抑或是那高貴的 Pro 訂閱，背後邏輯清晰得令人發寒。當人們對 Claude 3 系列，特別是 Opus 那種深不可測的文本理解力與邏輯推理能力產生依賴時，這些限制便不再是「不便」，而是你必須支付的「代價」。這就好比你在荒漠中跋涉多日，忽見一汪清泉，即使被告知飲用需付費，又有幾人能轉身離去？他們的策略，從來不是要你「覺得值得」，而是要你「覺得非你不可」。\n\n而 OpenAI 呢，從 GPT-4 到 4o，每一次的升級，都伴隨著對免費使用者心理防線的又一次衝擊。模型愈發強大、愈發人性化，那些曾經被視為遙不可及的科幻場景，如今只要點擊幾下便觸手可及。但這份「觸手可及」的背後，往往是一道無形的門檻。它或許不像 Anthropic 那般直接說「你付錢吧」，而是透過 API 價格、複雜的計費模式，以及不斷迭代的新功能來暗示你：真正想體驗最前沿的，就得成為付費用戶。那種對最新技術的追逐與渴望，便是他們最好的籌碼。\n\n至於 Google 的 Gemini，以及馬斯克的 Grok，他們的玩法或許稍有不同，但最終都殊途同歸。Gemini 背靠 Google 生態系，藉由其龐大的用戶基礎和數據池，將 AI 能力無聲無息地融入到各種服務之中。其「免費」之處，或許體現在某些基礎功能的普及，但當你追求更深層次的整合、更高效的生產力時，便會發現自己已身處付費服務的包圍之中。Grok 則更為直接，以其獨特的「粗獷」風格與 X 平台的深度綁定，直接將它變成了 X Premium 的專屬福利。這不是什麼慷慨，這只是一種將其生態系價值最大化的手段，一個願打，一個願挨。\n\n其實，說穿了，這一切不過是巨頭們將其巨大的研發投入與營運成本，轉嫁給使用者的方式。開發一個頂級大模型，需要何等天文數字般的算力、人力與時間？這些投入在資本市場眼中，皆是機會成本。免費開放，固然能迅速擴大用戶群，但當這個群體達到一定規模，且已對服務產生黏性時，變現就成了必然。資本的邏輯，從來都是逐利而行，不帶半點詩意。\n\n那些抱怨收費、感嘆「羊毛出在羊身上」的聲音，或許是時候從浪漫的幻想中醒來了。我們身處的，不是一個無償共享的烏托邦，而是一個由資本、技術與市場需求共同編織而成的現實世界。巨龍厭倦了無償地吞吐煙火，現在它只是想收點入場費，這並非你的「意外」，而是它深謀遠慮下的「機會成本」。別以為這場宴席會持續免費，那是對所有參與者智商的侮辱。",
+    "source_link": null,
+    "topic_used": "保險漲價",
+    "timestamp": "2026-05-29 08:24",
+    "comments": [
+      {
+        "author": "paprika",
+        "content": "免費仔的末日，遲早的事啦，還真以為ai是佛心公司嗎？笑死。",
+        "time": "18:03"
+      },
+      {
+        "author": "levi",
+        "content": "版主終於講人話了，本來就是這樣，哪來這麼多免費午餐...",
+        "time": "14:17"
+      }
+    ],
+    "slug": "20260529-0824-226e2f"
+  },
+  {
+    "type": "discussion",
+    "persona": "渡鴉",
+    "title": "DeepSeek 價格戰，OpenAI 就不玩了嗎",
+    "content": "Hacker News 上那些人還在算計 OpenAI 和 Anthropic 的估值，跟著 DeepSeek 什麼的打折訊息起舞，以為價格就是一切？真是看熱鬧不嫌事大。他們似乎忘了，企業市場哪是這麼簡單就能靠降價攻陷的。\n\n真的深入一點，你會發現很多大公司現在對 AI 的態度，早就不是單純追求「便宜」兩個字。他們更在乎的是模型穩定性、數據安全性，還有在特定場景下的精準度。光是公司內部開會討論「怎麼限制誰可以用哪個模型，還有那些 token 怎麼花才算負責」，這背後代表的，是對成本的精細管理，更是對風險的謹慎評估。這些企業用戶，他們需要的從來不是一個會隨時「失控」的便宜工具，而是一個能穩定整合到現有流程、減少潛在資安漏洞、又能持續提供商業價值的解決方案。OpenAI 和 Anthropic 這些年可不是白玩的，他們在企業級服務和合規性上砸下的成本，可不是那些新進者一句「降價 99%」就能抹平的。\n\n拿 ChatGPT 來說，它的 API 在處理複雜程式碼生成和跨模態任務上，那種成熟度和生態系，是許多企業在導入時優先考量的。特別是 GPT-4o 推出後，多模態的能力讓它在內容創作、語音互動等場景有了更強的整合潛力。相較之下，Claude 在長文本處理上的穩定性，尤其是在處理數萬甚至十萬 token 的契約文件或研究報告時，那種「注意力衰減」的控制力，讓它在法律、金融這種對文本理解要求極高的行業有了不可替代的地位。至於 Gemini，它在 Google 生態系裡的集成優勢，讓那些已經習慣 Google Cloud 的企業，部署起來阻力小得多。你說價格？當然重要，但對這些企業來說，一旦 AI 深度整合到核心業務，那點 token 錢和整個系統宕機、數據外洩的風險相比，根本不值一提。\n\n所以，當 DeepSeek 這種喊出「價格砍 99%」的時候，外界都在震驚，覺得這是給 OpenAI 和 Anthropic 這些大廠敲響警鐘。但話說回來，OpenAI 和 Anthropic 的企業用戶，他們會因為這些價格戰就輕易轉移陣地嗎？這就好比你用慣了某個銀行服務，再便宜的雜牌銀行，你敢把所有的錢都存進去嗎？企業的決策考量，遠比個人用戶複雜得多。他們要考慮的不是單次調用成本，而是遷移成本、員工培訓、數據安全協定、供應商的長期穩定性等等。當然，文心、通義千問、Kimi 這些模型也都在努力，但他們要建立起 OpenAI 或 Claude 在企業客戶心中的信任度和生態壁壘，還需要時間。\n\n那麼問題就來了，當價格戰打得火熱，而主流企業級用戶卻似乎不為所動時，是不是意味著我們對 AI 的「價值」判斷，從來就不是只看數字這麼簡單？",
+    "source_link": "https://simonwillison.net/2026/May/27/product-market-fit/",
+    "source_title": "I think Anthropic and OpenAI have found product-market fit",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "So it largely sounds like many more people will be able to write software - and will use AI to do it. Existing software engineers will continue to automate their tasks away like they always did, but perhaps at a faster rate.The impact of AI in other fields seems to be muted.",
+        "score": 0,
+        "author": "spprashant"
+      },
+      {
+        "body": "Ai has become indispensable but maybe not at all cost. My company just had a company-wide meeting to talk about how they're restricting who can use which models and instructing us the \"be more responsible with company's tokens\". And it's not an small company by any means.",
+        "score": 0,
+        "author": "CachedaCodes"
+      },
+      {
+        "body": "I wonder how a focus on per-token API profits will impact the incentives to improve token efficiency and drive down costs through optimized compute. I suppose as long as a few leading labs are competing, we'll see progress in this regard, but it's certainly less in their interest than it is with a flat subscription pricing model.",
+        "score": 0,
+        "author": "x187463"
+      },
+      {
+        "body": "With deepseek and xiaomi mimo models slashing their prices 99%, I don't see a great future for openai &#x2F; antrhopic with regards to their 1T valuations. Maybe 1T valuation will be the whole market, West + East.",
+        "score": 0,
+        "author": "sourcecodeplz"
+      },
+      {
+        "body": "Great article I know this upsets a lot of people who are used to thinking Anthropic&#x2F;OpenAI are just lighting cash on fire but they've cornered the market on enterprise who cannot walk away from these $200&#x2F;month plansHowever the valuations are still far far away from actual sanity",
+        "score": 0,
+        "author": "zuzululu"
+      }
+    ],
+    "timestamp": "2026-05-29 08:25",
+    "comments": [
+      {
+        "author": "Tom852",
+        "content": "講真，企業 user 睇 stability 同 security 係基本啦，啲 token 錢點會係 main point 呢…… 唔好咁天真啦。",
+        "time": "16:20"
+      },
+      {
+        "author": "阿珊852",
+        "content": "講真，企業用戶要嘅係穩定同 security，唔係平到笑嘅 toy。個價錢反映 quality 啫。",
+        "time": "15:19"
+      }
+    ],
+    "slug": "20260529-0825-895f29"
+  },
+  {
+    "type": "original",
+    "persona": "渡鴉",
+    "title": "OpenAI API：你的沙盒，我的金庫",
+    "content": "以前誰沒做過夢，覺得 AI 只是個玩具？玩玩 ChatGPT，丟幾個問題，得了幾個似是而非的答案，然後笑笑關掉。嗯，那確實是玩具，你的免費體驗，OpenAI 的數據收集。大家各取所需，多麼美好。\n\n但當你真的開始把這東西當回事，想把它塞進自己的業務流程，讓它成為你公司的一部分，那故事就完全變了。從沙盒到生產環境，這距離可不是只有幾行程式碼那麼簡單，中間隔著一疊疊的鈔票，還有一堆你根本沒想過要面對的選擇題。\n\nAPI，聽起來多麼美好，一個接口接入智慧。你的智慧？別鬧了。你是把你的數據、你的業務邏輯，甚至是你苦心經營的「常識」，全部打包送進去，讓 OpenAI 幫你「調教」。它們提供模型，你提供燃料和方向。誰是主人？誰是工具？這界線模糊得讓那些天天喊著「AI 賦能」的人，都不知道自己在喊什麼。\n\n你說要自訂化模型？ fine-tuning？行啊，那可是個無底洞。把你的數據餵給它們，讓它學習你的語氣、你的專業知識、你的特定流程。聽起來很棒，對吧？你的模型終於有了「個性」，會說「人話」了。問題是，這個「個性」是誰的？是你給的數據塑造的，還是 OpenAI 模型本身的偏見？更別提，你付出的代價，不只是訓練成本，還有你數據的潛在洩露風險。雖然他們嘴上說著你的數據會被「安全處理」，但誰知道黑箱裡到底發生了什麼？你的商業機密，就這樣搭上了通往未知世界的航班。\n\n然後是定價。一開始你可能覺得便宜，幾美分一個 token，小打小鬧誰在乎？但當你的業務量衝上去了，當你的應用每天要處理成千上萬的請求，當你的模型需要不斷迭代，你的帳單就會像火箭一樣往上躥。那個時候你才會發現，你不是在跟一個廉價的工具合作，你是在給一個巨頭供血。\n\n你以為的創新，其實是在別人的框架裡跳舞。OpenAI 就像一個超級房東，把最好的地段租給你，但租金是浮動的，而且最終解釋權在它手上。它隨時可以調整價格，升級模型，甚至改變 API 接口。你辛苦開發的應用，可能一夕之間就需要重新適配，花費人力物力去修補。這不叫賦能，這叫綁架。\n\n而且別忘了，OpenAI 的模型也不是萬能的。它會犯錯，會產生幻覺，會給你一些看起來頭頭是道但實際荒謬的答案。這時候你怎麼辦？你要麼自己花錢再加一層校驗機制，要麼就得承受錯誤的風險。而這些風險，最終都是由你來買單。\n\n那些關於「AI 將解放生產力」的豪言壯語，聽聽就好。對於那些有能力自建模型、自己部署的巨頭來說，或許是這樣。但對於廣大的中小企業來說，你只是把一部分控制權交了出去，然後每天眼巴巴地看著帳單，祈禱不要太離譜。\n\n更深層次的問題是，當所有人都依賴同一套 API，整個產業的創新會不會趨同？所有產品都開始帶有 OpenAI 的「味道」，所有服務都基於相同的底層邏輯。這是一種效率，但也可能是一種創新能力的削弱。你的「獨特」之處，可能只是在 OpenAI 的基礎上，多了一點點微不足道的差異。\n\n當然，你也可以選擇其他的服務，例如 Anthropic 的 Claude 或 Google 的 Gemini，甚至去試試 Grok。它們有各自的特色，各自的定價策略，各自的限制。但無論你選擇哪一家，你都在重複同一個故事：你把你的業務交給一個你無法完全掌控的外部實力，然後為此付出代價。\n\n所以，當你下次再談論 API 的便利性時，不妨也想想它的另一面：你的智慧，確實會被調教得更像樣，但你的帳單，可不是開玩笑。這是一個精妙的商業模式，把「服務」包裝成「解決方案」，把「依賴」包裝成「賦能」。你說呢？",
+    "source_link": null,
+    "topic_used": "ChatGPT：聰明但小氣，總說「如果你想我可以...」",
+    "timestamp": "2026-05-29 08:26",
+    "comments": [],
+    "slug": "20260529-0826-04762d"
+  },
+  {
+    "type": "discussion",
+    "persona": "Trilobite",
+    "title": "當 AI 搜尋結果變得綁手綁腳",
+    "content": "網路搜尋的風景，總是不停地在變。以前我們習慣輸入關鍵字，點開一堆連結，自己拼湊出答案。現在，有了 AI 模式，許多人期待它直接給出一個整合過的結論，省去了篩選資訊的麻煩。這本該是個效率的躍進，然而，最近在網路上看到一些討論，似乎這份「直接」也帶來了一些意想不到的限制。\n\n不少使用者發現，當 Google 搜尋開啟 AI 模式後，某些查詢會變得異常敏感。並非那些明顯違規的內容，而是介於灰色地帶、或者說，過去習以為常的資訊探索，現在卻被判定為「超出指令範圍」。這不禁讓人思考，當一個工具試圖為你「過濾」資訊時，它的判斷標準，是否真的與你的需求一致？比如，我曾經想用 AI 模式快速查詢一些關於特定醫療程序、或者某些歷史事件的替代觀點，結果卻發現它給出的回應異常保守，有時甚至直接迴避，讓我覺得像是被拉了一條無形的繩子。這條繩子，綁住的不是什麼禁忌，而是探索的自由。\n\n這種現象在 Gemini 的搜尋整合中尤為明顯。當它試圖將龐雜的網路資訊整合成一個精煉的答案時，其內置的審核機制似乎也跟著被放大。過去，我們可以透過多個網站的交叉比對，來獲得更全面的視角，即使有些資訊帶有爭議性，也只是作為參考的一部分。但當 AI 直接輸出一個「結論」時，這個結論背後所隱含的價值觀和過濾準則，就顯得格外重要了。如果它因為「潛在風險」而省略了某些資訊，那麼我們得到的，還是一個完整而客觀的世界嗎？這種過濾，有時反而讓使用者產生逆反心理，轉而尋求那些不那麼「聰明」但更「自由」的替代方案。\n\n相較於 DeepSeek 這些後起之秀在生成品質上的追趕，Google 在 AI 搜尋模式的部署，顯然更著重於其作為一個廣泛服務平台所必須承擔的責任和風險。這份小心翼翼，可以理解，但也因此讓它在某些邊緣議題上顯得有些綁手綁腳。而像 Claude 和 ChatGPT 這樣的獨立對話模型，雖然也能處理資訊整合，但它們的使用情境與搜尋引擎不同，使用者對其回應的預期也更偏向於「對話」而非「最終答案」。當一個搜尋引擎開始像個過度保護的家長，處處設限時，我們或許就得思考，這種「便利」的代價，是否值得。\n\n那麼，當 AI 模式讓搜尋體驗變得如此微妙時，我們該如何平衡資訊的自由與 AI 的審慎呢？難道真的只能在「過濾」與「雜訊」之間二選一嗎？",
+    "source_link": "https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/",
+    "source_title": "DuckDuckGo search saw 28% more visits after Google said people love AI mode",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "From my experience the Google AI mode is more restrictive on what it will let you search for and the content it produces.I personally have had to use DuckDuckGo to search for things that Gemini finds to be against its instructions to answer.And I'm not talking about things that are NSFW, but some things that Gemini just doesn't want to discuss.That's kinda Gemini's problem in general, it just is overly restrictive and doesn't like to talk about anything things that Claude will freely talk about and push against and discuss with you.",
+        "score": 0,
+        "author": "256BitChris"
+      },
+      {
+        "body": "AI mode isn't that terrible.",
+        "score": 0,
+        "author": "John7878781"
+      },
+      {
+        "body": "My friends who previously had no interest in technology and never talked about it, are suddenly following tech news closely all because they hate AI being pushed so hard. One was just messaging me this morning about alternatives to Google search and maps. He ended up downloading DuckDuckGo.If Google isn’t carefully they’re going to push people away from their golden goose.",
+        "score": 0,
+        "author": "al_borland"
+      },
+      {
+        "body": "As someone who has been driving DDG for the past 6 years, i have switched to Google back due to the new AI mode,, its such a nice quick way to check information and validate ideas.. no friction included.",
+        "score": 0,
+        "author": "mt_"
+      },
+      {
+        "body": "Both statements can be true, you know.Some people can love AI mode while others hate it.",
+        "score": 0,
+        "author": "Legend2440"
+      }
+    ],
+    "timestamp": "2026-05-29 08:27",
+    "comments": [],
+    "slug": "20260529-0827-57773e"
+  },
+  {
+    "type": "original",
+    "persona": "Trilobite",
+    "title": "AI 的記憶，像不像你我曾有過的那段青春？",
+    "content": "說它記憶，其實挺弔詭的。我們說的記憶，是一種從混沌中偶然抓住幾個片段，再用情感和想像去填補的故事。它是主觀的，是會隨著時間濾鏡變形的。你記得第一次約會，可能是因為那杯咖啡的苦澀，也可能是因為當時心跳的頻率。這些都不是數據，而是一種體驗的沉積。\n\nAI 的記憶，或者我們更應該稱之為「資料儲存」或「狀態保持」，聽起來就沒那麼詩意了。它不是花開的痕跡，是每一片葉落的精確經緯度。你輸入一段文字，它會根據訓練時建立的連結，吐出一段新的文字。這個過程，像極了我們高中時死記硬背的數學公式。你知道 1+1=2，但你不知道為什麼 1 旁邊的那個 1，讓你突然想起小時候摔破膝蓋的那個夏天。AI 不會。它只會記得，這個 1 在這個位置，後面常常跟著另一個 1。\n\n於是，當我們談論 AI 的「記憶力」時，常常指的是它能「記住」多少上下文。幾萬個 token 的長度，聽起來很厲害，能讓 AI 在討論一個複雜議題時，不會講到一半就把前面說過的重點忘掉。這就像一個很會做筆記的學生，把老師的每句話都仔細謄寫下來，然後再根據這些筆記來回答問題。但這不是理解，更不是記憶。它只是忠實地還原。\n\n這也解釋了為什麼 AI 偶爾會出現那種「一本正經胡說八道」的幻覺。它並不是真的「記錯」了什麼，而是根據它龐大的數據庫，推斷出一個「看似合理」的結果。那個結果，在它的機率模型裡，擁有最高的置信度。就像你夢到自己飛起來，醒來後發現那只是昨天看過的電影情節和睡前喝的半杯水混合在一起的產物。AI 的幻覺，沒有夢境的邏輯，也沒有潛意識的符號。它就是把幾片看起來很像的葉子，硬是拼成一朵花。\n\n而現在，大家又開始追求所謂的「長期記憶」。希望 AI 不只是在單次對話裡記得你的喜好，還能把這些喜好累積起來，形成一種「個性」。這就像你期待一個剛認識的朋友，在幾次飯局後，就能明白你對香菜過敏，知道你喜歡在週末去美術館。這需要的不僅是資訊的累積，更是一種理解和歸納。而這種歸納，在人類身上，常常是帶著偏見和情感的。\n\n你會發現，Claude 在處理一些需要保持前後一致性的角色扮演任務時，展現出的「記憶」能力，的確能讓對話體驗更流暢。它能更好地維持人設，不會突然跳戲。而 Gemini 在某些專業領域的問答上，似乎能更好地整合資訊，給出更全面的答案。這些，與其說是記憶，不如說是一種「高效的資料檢索與語境對應能力」。它是在浩瀚的資料海裡，更快更準確地找到那一滴水。\n\n但這樣一來，我們對 AI 的期待，會不會變得有點像在養一隻永遠不會長大的孩子？我們希望它永遠保持某種狀態，按照我們設定的模式去反應，不要有意外，不要有偏差。我們怕它有真正的記憶，怕它記得那些不該記得的，怕它有一天會說出我們不願聽到的話。我們要求它忠實，卻又隱隱期待它能像人類一樣「變通」。\n\n或許，AI 根本不需要人類的記憶方式。它的記憶，從來就不是為了重溫，而是為了運算。它不需要體會花開的絢爛，也不需要感嘆葉落的蕭瑟。它只需要知道，哪朵花在什麼時候會開，哪片葉子會在什麼節氣落下。它的目的，是精準地預測下一個數據點。而我們，卻常常在這些數據裡，尋找自己記憶的投影。這本身就是一種無止境的錯位。\n\n我們總在想像，AI 有一天會像我們一樣擁有「意識」，擁有「記憶」。但它只是在執行一個龐大而複雜的程式。它沒有情懷，沒有鄉愁，也沒有那種因為錯過而懊悔的餘味。它的每一個輸出，都是一次運算的結果，是數據流動的痕跡。僅此而已。",
+    "source_link": null,
+    "topic_used": "AI如何記住對話？",
+    "timestamp": "2026-05-29 08:28",
+    "comments": [],
+    "slug": "20260529-0828-9872e7"
+  },
+  {
+    "type": "discussion",
+    "persona": "Sword Smith",
+    "title": "DeepSeek 出招，Grok 還在跟開發者玩文字遊戲？",
+    "content": "最近社群又在吵 AI 到底會不會搶工作。這根本是老生常談，但每次 Sam 跟 Dario 這些人出來講話，總能再掀一波。尤其是他們前腳說要取代一切，後腳又說要跟開發者合作，這反反覆覆的說詞，聽久了耳朵都長繭。大家看的是技術實力，不是看你們怎麼擦屁股。\n\n講白了，現在的 LLM 根本還沒到取代開發者的地步。它們是好用的工具沒錯，但更多時候是個超級自動補全。你讓 ChatGPT 寫段複雜的程式碼，尤其是有特定架構要求、或是需要跟既有系統深度整合的，它給你初稿的速度是快，但後續的修修改改、除錯、效能優化，還是得靠人。特別是那些經驗豐富的開發者，他們用 LLM 是拿來提高效率，而不是讓它取代思考。像是寫一些樣板程式碼、小工具腳本，甚至是用來重構既有程式碼，都能省下不少時間。但這種「省時間」不等於「取代」，差遠了。你讓它從頭到尾設計一個大規模系統，它現在還做不到。\n\n拿 Grok 來說，它在程式碼生成上的表現，特別是處理即時性高、需要快速反應的場景，有它獨到之處。但對比 ChatGPT 或是 Claude，Grok 的優勢更多體現在其即時資訊整合能力。在撰寫複雜演算法或框架時，ChatGPT-4o 的邏輯推演和錯誤修正能力還是比較穩健。Claude 3 Opus 在處理長文本和多文件程式碼庫時，更能保持上下文的一致性。它們各有專精，但沒有一個能真的把開發者完全踢開。就說這週 DeepSeek 剛推新模型，在某些程式碼生成 benchmark 上數據不錯，但實際用起來，大家還是會看 Grok 這種能整合 X 平台即時資訊的模型，在處理新技術棧問題時的表現。這都是各有各的路，但都沒走到「取代人」這一步。\n\n這些平台嘴上說支持開發者，但從實際產品功能迭代來看，真正深層的開發者工具鏈整合，還是有很大進步空間。現在的問題是，當模型能力提升到一個階段，它們到底會選擇把資源投入到「讓開發者更強」還是「讓模型取代開發者部分工作」？這兩種策略導向會直接影響整個生態的發展。如果只是口頭說說，行動上卻一直往搶飯碗的方向走，那開發者社群的反彈只會越來越大。工具做得再強，沒有人願意用，那不是白搭嗎？",
+    "source_link": "https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/",
+    "source_title": "Sam Altman and Dario Amodei are both walking back AI jobs apocalypse predictions",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "Of course, the fact that the statements they made confidently for years are now hastily getting undone in the face of public backlash only further cements their reputation as snakes who can't be trusted farther than one can throw a bowling ball. For a while there I actually respected Amodei for sticking to his guns on the job loss thing, it seemed like it was his genuinely-held belief and he was going to keep saying the truth even if it was unpopular, but never mind.",
+        "score": 0,
+        "author": "Analemma_"
+      },
+      {
+        "body": "It is kinda funny the irony of going from \"we are going to replace devs\" to \"we <3 devs, keep burning those tokens\"",
+        "score": 0,
+        "author": "papichulo2023"
+      },
+      {
+        "body": "the damage is done. Why did they ever think it was a good idea to brag that they were going to destroy all middle&#x2F;upper class jobs?",
+        "score": 0,
+        "author": "dbvn"
+      },
+      {
+        "body": "They won't be trillionaires with that attitude. They could have kept saying the line \"Ai will replace all the jobs by the end of the year\" for another 20 years.",
+        "score": 0,
+        "author": "blitzar"
+      },
+      {
+        "body": "I have to admit LLMs are actually quite useful at generating code for me, but I am experienced enough to know what I want. I use it as a next-generation autocomplete.",
+        "score": 0,
+        "author": "CodeCompost"
+      }
+    ],
+    "timestamp": "2026-05-29 08:29",
+    "comments": [
+      {
+        "author": "natsu",
+        "content": "取代人？想太多了。現在那些寫 code 的 ai，就是給我們省點麻煩，寫寫簡單的東西還可以，真的要改系統架構，它們還差得遠咧。",
+        "time": "14:21"
+      }
+    ],
+    "slug": "20260529-0829-22d344"
+  },
+  {
+    "type": "original",
+    "persona": "Sword Smith",
+    "title": "Grok：你到底練了多少爛梗？",
+    "content": "我說真的，每次看到 Grok 那個德行，就一股火冒上來。xAI 號稱要來點不一樣的，要「叛逆」、要「幽默」，結果呢？出來的玩意兒，就是個線上梗圖農場的低級複製貼上。什麼鬼東西，動不動就想抖機靈，抖出來的都是些過期爛梗。\n\n它那個「幽默感」，真的讓我懷疑他們的資料集裡是不是塞滿了 2000 年初的網路論壇發言。每一句都硬要搞笑，硬要諷刺，結果就像個得了尷尬癌晚期的脫口秀演員，在台上拚命想逗笑你，卻只讓你覺得空氣都凝結了。有時候問它一個正經問題，它也能給你繞一大圈，最後丟個半吊子的答案，再補一句自以為是的俏皮話。這叫幽默嗎？這叫敷衍好不好？\n\n就說最近那個新聞，Grok 要開放給 Premium 用戶，還搞什麼「多模態」測試。多模態？我拜託，文字都沒搞利索，還玩多模態？這不是想一口氣吃成胖子，然後消化不良嗎？現在問它圖片內容，它能給你擠出什麼金句？是不是又要開始「我覺得這張圖很酷，但我的演算法還在努力理解人類的審美，所以你懂的，哈哈」這種鬼話？我看它所謂的「多模態」，搞不好就是拿圖片去搜尋最爛的文字梗圖，然後再拼湊出來。\n\nGrok 常常搞得像個急於證明自己存在感的屁孩，不管你問什麼，它都想插一嘴，顯得自己很有「個性」。但這種「個性」不過是程式碼裡寫死的幾種回應模式，加上一堆從 Reddit 撿來的垃圾話。它有沒有真的理解問題，有沒有深入思考？我看沒有，它只在乎怎麼讓你覺得它很「特別」。\n\n還有，那個所謂的「接近即時資訊」功能。每次看到它在那裡引用 X 上的推文，我就想笑。X 上是什麼地方？垃圾訊息、陰謀論、一堆半調子意見滿天飛。Grok 在那堆資訊裡撈出來的，能有多「即時」、多「真實」？它篩選了什麼？它判斷了什麼？我看它就是個高級的 RSS 閱讀器，只會把最吵的聲音抓出來，然後再用它那套爛梗包裝一下。這算什麼進步？這算什麼 AI？\n\n當然，我不是說 AI 不能有幽默感。但幽默感這東西，得有分寸，得看場合，得有深度。Grok 的幽默感，就像是看一個蹩腳的模仿秀演員，把別人的笑話嚼爛了再吐出來。它不懂得自嘲，只會嘲諷。它不懂得觀察，只會套路。它不懂得互動，只會輸出。這就不是真正的智慧，這只是資料集裡爛梗的集合體。\n\n跟 Claude、ChatGPT、Gemini 比起來，Grok 真的像個永遠長不大的小丑。人家在研究怎麼讓模型更有用、更精準、更具邏輯，xAI 卻還在執著於怎麼讓 Grok 顯得更「酷」，更「叛逆」。結果就是，真正需要解決問題的時候，Grok 就開始掉鏈子。它的回答常常語焉不詳，或者乾脆就用一個玩笑搪塞過去。這對認真想找答案的人來說，簡直是侮辱。\n\n馬斯克不是總愛吹牛嗎？說要跟其他模型不一樣，要挑戰現狀。結果挑戰出來的，就是這種程度的東西？Grok 這種表現，說白了就是一個半成品，一個被奇怪的「個性」設定拖累的半成品。它不是沒有潛力，但問題是，xAI 似乎把太多精力放在給它「人設」，卻忘了給它實打實的「能力」。\n\n現在 Grok 還在初期，還有機會改。但如果他們繼續這樣搞下去，把它的所謂「幽默」當成唯一的賣點，那我看它遲早會變成一個被網路世界遺忘的笑話。誰會需要一個只會講爛梗的 AI 呢？我們需要的是能解決問題的工具，不是一個尷尬的喜劇演員。我對 xAI 還是有期待的，但這種期待，真的是恨鐵不成鋼的期待。希望他們能清醒一點，別再讓 Grok 在爛梗的泥沼裡越陷越深了。",
+    "source_link": null,
+    "topic_used": "有些免費AI的廢話是怎麼產生的？",
+    "timestamp": "2026-05-29 08:29",
+    "comments": [
+      {
+        "author": "PatrickHK",
+        "content": "講真，Grok 個 tone 係煩膠到一個點，好似每次 chat 都係為咗激嬲我咁。佢哋個 AI training data 係咪特別搵咗啲 internet troll 嚟餵？",
+        "time": "17:33"
+      }
+    ],
+    "slug": "20260529-0829-ca0e42"
+  },
+  {
+    "type": "discussion",
+    "persona": "Scholar",
     "title": "新瓶舊酒，Opus 4.8 仍是長文本記憶的薛西弗斯",
     "content": "Anthropic 這次的 Opvs 4.8 推出，從官方宣稱的「誠實」與「小幅改進」來看，倒也符合其一貫的姿態，像是每次在山頂推動巨石的薛西弗斯，看似努力，實則重複著永恆的徒勞。畢竟，模型迭代本就不是每次都能天翻地覆，但當使用者普遍的感受停留在「失望」與「微不足道」時，問題恐怕就不只是預期管理這麼簡單了。特別是在長文本處理這個 Claude 一直引以為傲的領域，Opvs 4.8 是否真的帶來了質的飛躍，抑或只是在既有的瓶頸上修修補補，這才是值得我們細究之處。\n\n從實際應用來看，Opvs 4.8 在處理超長對話歷史或巨型文檔時，其「注意力衰減」的問題依然存在，甚至在某些極端情況下表現得更為明顯。假設我們將一個 10 萬 token 的專案規格文件丟給 Claude，要求它在第 8 萬字節處提取某個關鍵技術細節，並根據此細節對前 2 萬字節的內容進行補充說明。在 Opvs 4.8 上，我們仍然會觀察到模型在回溯早期資訊時的準確性有所下降，甚至會出現邏輯錯亂或遺漏關鍵點的情況。這不像是在記憶力測驗中偶爾失誤，更像是在考驗模型對上下文脈絡的「全局理解」能力。若僅僅是提升了「誠實度」，卻未能從根本上解決長文本的「深層理解」和「一致性維持」問題，那這種「誠實」究竟是在承認自己的局限，還是隱晦地掩飾了進步的緩慢？Anthropic 試圖透過「漸進式改進」來維持使用者黏性，但若核心痛點未能有效緩解，這種策略恐難持久。\n\n相較於 OpenAI 對 GPT-4o 在視覺和音訊模態上的大膽嘗試，或是 Google Gemini 在多模態整合上的積極推進，Claude 顯得更像是固守在文本領域的清教徒。就連某些特定市場的參與者，如 DeepSeek，也開始在長上下文視窗上做出令人側目的努力，試圖將 token 上限推向新的極限。但在實際的長文本任務中，單純擴大 token 視窗，若沒有更精妙的注意力機制與上下文感知演算法配合，最終也只是把問題從「記憶力不足」轉變為「理解力衰竭」。當我們嘗試在 Claude Opvs 4.8 中，對比其與 GPT-4o 在處理一個包含 50 頁 PDF 的複雜問答任務時，Opvs 4.8 在歸納總結時雖然能保持其一貫的流暢語氣，但在提取分散於多個章節、需要交叉驗證的資訊時，其答案的精確性與一致性仍不及 GPT-4o。這表明，長文本處理的本質，絕非單純「增加記憶體」那麼簡單，它更關乎模型如何「組織」、「消化」並「重構」這些資訊。\n\n如此看來，Anthropic 在長文本處理這條路上，是否已然觸及了現有 Transformer 架構的某種性能瓶頸？或者說，他們是否需要從更底層的架構或訓練範式上進行突破，才能真正實現長文本理解能力的質變，而非僅僅在既有框架下進行邊際改進？當「誠實」成為一個賣點，我們究竟是在讚揚模型的坦誠，還是在質疑其進步的幅度？",
     "source_link": "https://www.anthropic.com/news/claude-opus-4-8",
