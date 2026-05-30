@@ -2304,7 +2304,7 @@ a { color: inherit; text-decoration: none; }
 .section-label::before { left: 0; }
 .section-label::after  { right: 0; }
 
-/* ============= 6 分類卡片 4+2 layout ============= */
+# /* ============= 8 分類卡片 4+4 layout ============= */
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2378,8 +2378,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.72rem;
 }
 
-.cat-card:nth-child(5) { grid-column: 2; }
-.cat-card:nth-child(6) { grid-column: 3; }
 
 /* ============= 文章列表 ============= */
 .article-list { list-style: none; }
