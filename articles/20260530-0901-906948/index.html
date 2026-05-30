@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新版 Claude，真話總是難聽？</title>
+<meta name="description" content="最近關於 Claude Opus 的討論，大抵是繞著「更新」與「感知」的落差打轉。Anthropic 一再強調模型在「誠實性」與「穩健性」上的提升，尤其是在處理事實性錯誤和模型幻覺方面。這聽起來像是一場技術的勝利，但用戶的反應卻是另一番光景，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-0901-906948/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="新版 Claude，真話總是難聽？">
+<meta property="og:description" content="最近關於 Claude Opus 的討論，大抵是繞著「更新」與「感知」的落差打轉。Anthropic 一再強調模型在「誠實性」與「穩健性」上的提升，尤其是在處理事實性錯誤和模型幻覺方面。這聽起來像是一場技術的勝利，但用戶的反應卻是另一番光景，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-0901-906948/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T09:01:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新版 Claude，真話總是難聽？">
+<meta name="twitter:description" content="最近關於 Claude Opus 的討論，大抵是繞著「更新」與「感知」的落差打轉。Anthropic 一再強調模型在「誠實性」與「穩健性」上的提升，尤其是在處理事實性錯誤和模型幻覺方面。這聽起來像是一場技術的勝利，但用戶的反應卻是另一番光景，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "新版 Claude，真話總是難聽？",
+  "description": "最近關於 Claude Opus 的討論，大抵是繞著「更新」與「感知」的落差打轉。Anthropic 一再強調模型在「誠實性」與「穩健性」上的提升，尤其是在處理事實性錯誤和模型幻覺方面。這聽起來像是一場技術的勝利，但用戶的反應卻是另一番光景，…",
+  "datePublished": "2026-05-30T09:01:00+08:00",
+  "dateModified": "2026-05-30T09:01:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-0901-906948/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-30 09:01
+  </div>
+
+  <h1 class="title">新版 Claude，真話總是難聽？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>最近關於 Claude Opus 的討論，大抵是繞著「更新」與「感知」的落差打轉。Anthropic 一再強調模型在「誠實性」與「穩健性」上的提升，尤其是在處理事實性錯誤和模型幻覺方面。這聽起來像是一場技術的勝利，但用戶的反應卻是另一番光景，大多是「失望透頂」和「感覺升級幅度不大」的抱怨。這裡頭的落差，並非單純的期望管理問題，而是觸及了 LLM 發展至今的一個核心矛盾：模型「更誠實」究竟意味著什麼，以及這種誠實如何與用戶的實際需求產生連結？</p>
+    <p>我們都知道，大型語言模型的訓練目標之一，便是減少幻覺，確保輸出內容的真實性與準確性。Anthropic 的描述，無疑是想讓 Opus 在這個面向拔得頭籌。他們可能透過強化 RLHF、引入更多的對抗性訓練資料，或是調整模型的內部驗證機制，讓模型在不確定時傾向於承認不確定，而非憑空捏造。從工程角度來看，這確實是模型穩健性的一種體現。例如，在面對一些模稜兩可的查詢，或是知識邊界的灰色地帶時，過去的模型可能為了「給出答案」而生造內容，現在的 Opus 或許會更頻繁地給出「我不知道」或者「我無法確定」的回應。這在某種需要高精度事實查證的應用場景下，確實有其價值。想像一下，當你將 Claude 用於審核法律文件或醫學摘要時，一個「寧缺毋濫」的態度，遠比一套華麗卻有瑕疵的說辭來得重要。然而，對於那些習慣於模型「無所不知」的用戶而言，這種「誠實」的回應，反倒可能被解讀為模型的「能力不足」或「退步」。</p>
+    <p>這種微妙的平衡，在其他平台也屢見不鮮。ChatGPT 曾幾何時，也在追求更穩定的輸出和更少的事實錯誤上耗費心力，其間也伴隨著一些用戶對「創造力下降」的質疑。Gemini 在早期版本也曾因過度保守的輸出而引發討論，之後又在多模態能力上不斷加強，試圖在創新與穩健之間找到支點。這些平台在不同階段，都面臨著類似的困境：當模型被設計得更加「謹慎」時，它在某些方面可能會顯得「不那麼聰明」或「不那麼好用」。最近某些模型，例如 Kimi 在長文本處理上的宣傳，也聚焦於其信息提取的準確性，這與 Anthropic 強調的「誠實」有異曲同工之妙。而 Qwen 這類模型，同樣在強調其在事實性問答上的表現。但無論這些模型如何標榜，用戶最終評判的，仍是實際交互中能否得到預期的幫助，而不僅僅是模型自我宣稱的某種「美德」。</p>
+    <p>所以問題來了，當模型被訓練得越來越「誠實」，甚至誠實到讓你感覺它「沒有以前那麼有創意」，或者「答案不再那麼豐富」時，這種誠實對你而言，究竟是進步還是退步？當一個 AI 選擇對你坦誠它的無知，而非用巧妙的文字包裝一個錯誤的答案時，你真的會為它的「美德」買單，還是轉而尋找一個更「善解人意」的夥伴？畢竟，人類對「誠實」的定義，有時也包含著一種不戳破的溫柔，而非單純的技術性真實。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/news/claude-opus-4-8" rel="nofollow noopener" target="_blank">Claude Opus 4.8</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-0901-906948/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

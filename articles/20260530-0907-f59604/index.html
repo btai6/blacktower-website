@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 的懂，你確定你懂？</title>
+<meta name="description" content="最近 Grok 那個「我懂了」的梗圖又開始瘋傳，看著真讓人冒火。每次看到，我就想問問那些人，你們真的懂 Grok 懂了什麼嗎？還是只會跟風傻笑？XAI 這幫人，一天到晚想搞點噱頭，把 AI 搞得跟什麼神仙一樣，結果呢？就這？ Grok 懂了什麼？…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-0907-f59604/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 的懂，你確定你懂？">
+<meta property="og:description" content="最近 Grok 那個「我懂了」的梗圖又開始瘋傳，看著真讓人冒火。每次看到，我就想問問那些人，你們真的懂 Grok 懂了什麼嗎？還是只會跟風傻笑？XAI 這幫人，一天到晚想搞點噱頭，把 AI 搞得跟什麼神仙一樣，結果呢？就這？ Grok 懂了什麼？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-0907-f59604/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T09:07:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 的懂，你確定你懂？">
+<meta name="twitter:description" content="最近 Grok 那個「我懂了」的梗圖又開始瘋傳，看著真讓人冒火。每次看到，我就想問問那些人，你們真的懂 Grok 懂了什麼嗎？還是只會跟風傻笑？XAI 這幫人，一天到晚想搞點噱頭，把 AI 搞得跟什麼神仙一樣，結果呢？就這？ Grok 懂了什麼？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 的懂，你確定你懂？",
+  "description": "最近 Grok 那個「我懂了」的梗圖又開始瘋傳，看著真讓人冒火。每次看到，我就想問問那些人，你們真的懂 Grok 懂了什麼嗎？還是只會跟風傻笑？XAI 這幫人，一天到晚想搞點噱頭，把 AI 搞得跟什麼神仙一樣，結果呢？就這？ Grok 懂了什麼？…",
+  "datePublished": "2026-05-30T09:07:00+08:00",
+  "dateModified": "2026-05-30T09:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-0907-f59604/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-05-30 09:07
+  </div>
+
+  <h1 class="title">Grok 的懂，你確定你懂？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>最近 Grok 那個「我懂了」的梗圖又開始瘋傳，看著真讓人冒火。每次看到，我就想問問那些人，你們真的懂 Grok 懂了什麼嗎？還是只會跟風傻笑？XAI 這幫人，一天到晚想搞點噱頭，把 AI 搞得跟什麼神仙一樣，結果呢？就這？</p>
+    <p>Grok 懂了什麼？懂了怎麼跟你扯淡，懂了怎麼一本正經地胡說八道。上次有個朋友試著問它，如果世界末日了，他該準備什麼。Grok 回了一大串，從罐頭食品、手電筒到太陽能板，聽起來好像挺有道理。結果最後補了一句：「別忘了買尿布，因為你可能會被嚇到失禁。」我聽到都傻眼了，這是什麼鬼才建議？你當你是什麼搞笑藝人嗎？這種東西能拿出來現寶？</p>
+    <p>XAI 說 Grok 是要走「叛逆」路線，要跟其他那些一本正經的 AI 不一樣。叛逆是這樣叛逆的嗎？把使用者當白痴耍，就是你們的叛逆？我看到更多的是「不負責任」。一個 AI 模型，應該有它的責任感，它的回答至少要「有用」，而不是嘩眾取寵。現在這樣，根本就是脫線，脫軌。</p>
+    <p>看看那些「主流」的怎麼玩的。Claude 在處理長篇文本上的能力，簡直是把 Grok 甩開好幾條街。你給 Grok 餵個幾萬字的報告，它能給你吐出什麼東西？要麼語無倫次，要麼就是一些不痛不癢的廢話，還帶著它那套自以為是的幽默感。而 Claude 呢，至少能給你抓出重點，歸納出有用的信息。這才是真正的「懂」，懂了人類的需求，懂了怎麼解決問題。</p>
+    <p>GPT-4o 更不用說了，多模態的能力讓 Grok 看起來像個史前生物。你跟 Grok 說一句話，它只能用文字回應你。GPT-4o 呢？能看圖、能聽音、能講話，甚至還能理解你的情緒。這才是未來，這才是真正的智慧。Grok 現在還在那邊「懂了尿布」，根本就是活在自己的世界裡。</p>
+    <p>Gemini 的 function calling，在面對複雜的工具整合時，穩定性也比 Grok 好太多。Grok 常常在這種地方卡殼，給你一堆錯誤信息，或者乾脆罷工。你讓它去調用外部工具，它能把你搞到崩潰。說穿了，現在的 Grok 就像個半成品，一個還沒完全長大的孩子，就急著跑出來說自己懂了全世界。這種心態，真是讓人捉急。</p>
+    <p>我當然希望 Grok 能做好，能真的成為一個有用的工具。畢竟競爭是好事，有競爭才有進步。但現在這樣，除了製造一些梗圖，我實在看不出它有什麼實質性的突破。它的「叛逆」只是淺薄的幽默感，它的「懂」也只是表面功夫。</p>
+    <p>XAI 內部那些工程師，難道不知道這些問題嗎？還是他們覺得這種「不靠譜」就是他們的特色？市場上需要的是穩定、可靠、有用的 AI，而不是一個動不動就跟你開玩笑、還開不好笑的玩笑的模型。如果連基本的功能都做不好，再怎麼搞怪也沒用。</p>
+    <p>如果 Grok 真的想「懂」，它應該先懂得怎麼把基礎打好，怎麼把功能完善。少搞點那些花里胡哨的行銷，多把心思放在技術上。等到它真的能解決一些實際問題，能提供一些有價值的資訊，再來跟我們談「懂」。到時候，說不定我還會給它一個讚。但現在嘛…省省吧，別再推薦我買尿布了，謝謝。</p>
+    <p>我不是說 AI 不能有個性，但個性不等於混亂，不等於無效。當初馬斯克說要搞一個「真理探尋 AI」，結果現在變成「尿布推薦大師」，這反差也太大了點。這種落差，讓人對 XAI 的誠意和能力都打上一個大大的問號。希望他們能清醒點，別再自欺欺人。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-0907-f59604/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
