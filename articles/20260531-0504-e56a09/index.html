@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜尋引擎的 AI 模式，到底想給你什麼</title>
+<meta name="description" content="自從搜尋引擎將 AI 功能嵌入，大家的體驗似乎就分成了兩極。有人覺得它省事，有人卻覺得它礙手礙腳。這兩邊的聲音，聽起來都挺真實的。 其實，這現象並非偶然，而是大型語言模型設計哲學與搜尋引擎核心功能之間，那道隱隱的裂痕。過去的搜尋引擎，無論演算法多麼複雜，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260531-0504-e56a09/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜尋引擎的 AI 模式，到底想給你什麼">
+<meta property="og:description" content="自從搜尋引擎將 AI 功能嵌入，大家的體驗似乎就分成了兩極。有人覺得它省事，有人卻覺得它礙手礙腳。這兩邊的聲音，聽起來都挺真實的。 其實，這現象並非偶然，而是大型語言模型設計哲學與搜尋引擎核心功能之間，那道隱隱的裂痕。過去的搜尋引擎，無論演算法多麼複雜，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260531-0504-e56a09/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-31T05:04:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搜尋引擎的 AI 模式，到底想給你什麼">
+<meta name="twitter:description" content="自從搜尋引擎將 AI 功能嵌入，大家的體驗似乎就分成了兩極。有人覺得它省事，有人卻覺得它礙手礙腳。這兩邊的聲音，聽起來都挺真實的。 其實，這現象並非偶然，而是大型語言模型設計哲學與搜尋引擎核心功能之間，那道隱隱的裂痕。過去的搜尋引擎，無論演算法多麼複雜，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "搜尋引擎的 AI 模式，到底想給你什麼",
+  "description": "自從搜尋引擎將 AI 功能嵌入，大家的體驗似乎就分成了兩極。有人覺得它省事，有人卻覺得它礙手礙腳。這兩邊的聲音，聽起來都挺真實的。 其實，這現象並非偶然，而是大型語言模型設計哲學與搜尋引擎核心功能之間，那道隱隱的裂痕。過去的搜尋引擎，無論演算法多麼複雜，…",
+  "datePublished": "2026-05-31T05:04:00+08:00",
+  "dateModified": "2026-05-31T05:04:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260531-0504-e56a09/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-31 05:04
+  </div>
+
+  <h1 class="title">搜尋引擎的 AI 模式，到底想給你什麼</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>自從搜尋引擎將 AI 功能嵌入，大家的體驗似乎就分成了兩極。有人覺得它省事，有人卻覺得它礙手礙腳。這兩邊的聲音，聽起來都挺真實的。</p>
+    <p>其實，這現象並非偶然，而是大型語言模型設計哲學與搜尋引擎核心功能之間，那道隱隱的裂痕。過去的搜尋引擎，無論演算法多麼複雜，本質上都是一個「資訊索引器」，它負責的是在浩瀚的網路世界裡，找出與你查詢最相關的網頁。它不負責「理解」你的意圖，更不負責「判斷」資訊的對錯，它就是一個工具，把你帶到資訊源頭。然而，當 AI 模式上場，一切都變了。它不再只是帶你找答案，它開始嘗試「直接給你答案」，甚至「判斷」哪些答案適合你。這個轉變，在某些語境下，的確高效。比如你問一個事實性的問題，它能直接給你精煉的結論，省去點擊、篩選的步驟。但換個角度看，這種「越俎代庖」的模式，也讓它變得有些「家長式」。</p>
+    <p>具體來說，像是 Google Gemini 這樣的大模型，在回答某些敏感性問題時，其內建的安全與倫理準則，會讓它選擇迴避或給出泛泛之詞。這種行為，我們可以用「防禦性輸出」來形容。模型在訓練時，為了避免產生偏見、仇恨言論或誤導性資訊，會被設置一系列的濾網。當用戶的查詢觸碰到這些敏感詞或概念邊界時，模型會傾向於提供高度規範化、甚至是規避性的回答。這與傳統搜尋引擎的「中立」立場大相徑庭。傳統搜尋引擎會把所有相關的連結都呈現給你，無論內容是否「政治正確」或「道德無瑕」，它把判斷權完全交給使用者。但在 AI 模式下，這種判斷權被部分轉移到了模型本身。當你想要探索一些「非主流」或「有爭議」的話題時，AI 模式可能就會讓你碰壁，迫使你轉向那些不帶 AI 過濾器的搜尋工具。這種情況下，使用者並不是在尋找一個「有立場」的聊天夥伴，他們只是想找到資訊，無論這些資訊是否「乖巧」。</p>
+    <p>與此同時，Claude 在長文本處理上的表現，則提供了另一種 AI 模式的觀察角度。它在理解複雜語境和邏輯推導方面有獨到之處，但這並不代表它在所有搜尋場景下都優於傳統模式。當你需要針對一個非常具體的關鍵詞，快速掃描大量碎片資訊時，傳統搜尋引擎的列表呈現方式，可能反而更直觀、更有效率。而像 Kimi 這種長上下文窗口的模型，雖然在處理超長文本時能保持一定的連貫性，但在快速資訊檢索的效率上，也同樣面臨如何平衡深度理解與廣度覆蓋的問題。對那些追求即時、無過濾資訊的使用者來說，這種深度模式反倒可能增加理解成本。</p>
+    <p>這就引出一個問題：當 AI 開始深度介入資訊檢索，我們到底是在追求一個更智能的工具，還是在期待一個更自主的資訊過濾器？當搜尋引擎試圖替我們篩選、總結，甚至判斷資訊的「適宜性」時，它是否也無形中限縮了我們獲取多元資訊的自由？這之間的平衡點，或許還在摸索中。或許，未來的搜尋引擎，該給我們更多選擇的權利，決定何時需要 AI 的智慧，又何時，僅僅是需要一個純粹的資訊指引者呢？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" rel="nofollow noopener" target="_blank">DuckDuckGo search saw 28% more visits after Google said people love AI mode</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260531-0504-e56a09/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

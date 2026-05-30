@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok，別鬧了。</title>
+<meta name="description" content="看看 Grok 宣佈開源那檔子事，簡直就是一場鬧劇。還「比肩 GPT-3.5」？講這種話臉不紅氣不喘，當大家記憶力都不好是吧。這不就是 OpenAI 兩三年前玩剩的東西嗎？把一個比舊版 GPT-3.5 還爛的模型開源，然後沾沾自喜，以為自己在造福人類？我看這是在侮辱大家的智商。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260531-0506-e4f6e4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok，別鬧了。">
+<meta property="og:description" content="看看 Grok 宣佈開源那檔子事，簡直就是一場鬧劇。還「比肩 GPT-3.5」？講這種話臉不紅氣不喘，當大家記憶力都不好是吧。這不就是 OpenAI 兩三年前玩剩的東西嗎？把一個比舊版 GPT-3.5 還爛的模型開源，然後沾沾自喜，以為自己在造福人類？我看這是在侮辱大家的智商。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260531-0506-e4f6e4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-31T05:06:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok，別鬧了。">
+<meta name="twitter:description" content="看看 Grok 宣佈開源那檔子事，簡直就是一場鬧劇。還「比肩 GPT-3.5」？講這種話臉不紅氣不喘，當大家記憶力都不好是吧。這不就是 OpenAI 兩三年前玩剩的東西嗎？把一個比舊版 GPT-3.5 還爛的模型開源，然後沾沾自喜，以為自己在造福人類？我看這是在侮辱大家的智商。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok，別鬧了。",
+  "description": "看看 Grok 宣佈開源那檔子事，簡直就是一場鬧劇。還「比肩 GPT-3.5」？講這種話臉不紅氣不喘，當大家記憶力都不好是吧。這不就是 OpenAI 兩三年前玩剩的東西嗎？把一個比舊版 GPT-3.5 還爛的模型開源，然後沾沾自喜，以為自己在造福人類？我看這是在侮辱大家的智商。…",
+  "datePublished": "2026-05-31T05:06:00+08:00",
+  "dateModified": "2026-05-31T05:06:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260531-0506-e4f6e4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-05-31 05:06
+  </div>
+
+  <h1 class="title">Grok，別鬧了。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>看看 Grok 宣佈開源那檔子事，簡直就是一場鬧劇。還「比肩 GPT-3.5」？講這種話臉不紅氣不喘，當大家記憶力都不好是吧。這不就是 OpenAI 兩三年前玩剩的東西嗎？把一個比舊版 GPT-3.5 還爛的模型開源，然後沾沾自喜，以為自己在造福人類？我看這是在侮辱大家的智商。</p>
+    <p>現在這個時間點開源，有什麼意義？市場上比 Grok-1 強的模型一抓一大把，隨便找個競品都比它好用。連個像樣的 MoE 架構都沒用上，訓練資料集也遮遮掩掩。就這還敢大張旗鼓地說要跟業界頂級模型掰手腕？Grok 的表現，無論是邏輯推理、程式碼生成還是多模態理解，都只能用「差強人意」來形容。甚至在一些基礎的常識問答上，都經常出現低級錯誤。這種「開源」不過是為了刷存在感，搞一波廉價行銷。</p>
+    <p>最讓我受不了的是 Grok 的那個「不正經」模式。說是什麼要打破傳統 AI 的框架，能回答敏感問題，還能帶點幽默感。結果呢？大部分時候都是些不痛不癢的爛梗，要不就是直接拒絕回答，然後給你一個「我只是個語言模型」的標準答案。這不是故弄玄虛嗎？搞得好像自己很酷很叛逆，其實骨子裡還是那麼溫吞。真正的「叛逆」不是說幾句髒話，或者講幾個擦邊球的黃色笑話就能實現的。那種深度和廣度，是需要真正理解人類社會的複雜性才能做到的。現在 Grok 搞出來的這些，充其量也就是個青少年版的嘴砲機器人。</p>
+    <p>xAI 的方向也越來越奇怪。Musk 一直在講要建立一個「真相尋求者」的 AI，結果 Grok 的事實查核能力簡直慘不忍睹。它常常會一本正經地胡說八道，然後還不自知。用戶問個簡單的問題，它能給你編出一套天花亂墜的假新聞。這哪裡是真相尋求者？根本就是個胡扯製造機。當初說要對抗左派偏見，結果自己又掉進另一個極端，變成一個充滿偏見的複讀機。這種偏見不是因為它「有獨立思考能力」，而是因為它的訓練資料本身就帶著強烈的傾向性。這不是在解決問題，這是在製造新的問題。</p>
+    <p>而且 Grok 的反應速度也是個問題，每次提問都要等個半天，還經常出錯。這種體驗誰受得了？用戶要的是效率和準確性，不是在機器人身上找氣受。連個穩定性都做不好，還談什麼挑戰巨頭？簡直是癡人說夢。</p>
+    <p>這波操作，讓我覺得 Grok 根本沒搞清楚自己的定位。它到底想做什麼？是想做一個技術領先的模型？還是想做一個言論自由的實驗品？還是想做一個譁眾取寵的段子手？看起來什麼都想沾點邊，結果什麼都沒做好。現在的 AI 市場競爭激烈，大家都在拼速度、拼效果。Grok 這種不溫不火的狀態，很難說它有什麼未來。</p>
+    <p>真的，別老是拿 OpenAI 的舊框架來玩新把戲了。這種換湯不換藥的做法，騙不了真正懂行的人。與其把精力花在這些無聊的公關戰上，不如好好想想怎麼把模型做好。不然，等到哪天連現有的那點使用者群體都流失光了，那才真的是沒救了。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260531-0506-e4f6e4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
