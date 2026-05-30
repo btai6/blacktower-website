@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誠實的代價：大模型何時不再「發現新物種」？</title>
+<meta name="description" content="當一個語言模型，將「誠實」視為其主要改進之一，這本身就是一個值得玩味的現象。Anthropic 在宣傳 Claude Opus 4.8 時，特別強調了這項「美德」，彷彿他們是在深山中發現了一種前所未見的稀有生物，而非迭代一個本應持續進化的軟體。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-0939-fea26a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="誠實的代價：大模型何時不再「發現新物種」？">
+<meta property="og:description" content="當一個語言模型，將「誠實」視為其主要改進之一，這本身就是一個值得玩味的現象。Anthropic 在宣傳 Claude Opus 4.8 時，特別強調了這項「美德」，彷彿他們是在深山中發現了一種前所未見的稀有生物，而非迭代一個本應持續進化的軟體。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-0939-fea26a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T09:39:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="誠實的代價：大模型何時不再「發現新物種」？">
+<meta name="twitter:description" content="當一個語言模型，將「誠實」視為其主要改進之一，這本身就是一個值得玩味的現象。Anthropic 在宣傳 Claude Opus 4.8 時，特別強調了這項「美德」，彷彿他們是在深山中發現了一種前所未見的稀有生物，而非迭代一個本應持續進化的軟體。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "誠實的代價：大模型何時不再「發現新物種」？",
+  "description": "當一個語言模型，將「誠實」視為其主要改進之一，這本身就是一個值得玩味的現象。Anthropic 在宣傳 Claude Opus 4.8 時，特別強調了這項「美德」，彷彿他們是在深山中發現了一種前所未見的稀有生物，而非迭代一個本應持續進化的軟體。…",
+  "datePublished": "2026-05-30T09:39:00+08:00",
+  "dateModified": "2026-05-30T09:39:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-0939-fea26a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-30 09:39
+  </div>
+
+  <h1 class="title">誠實的代價：大模型何時不再「發現新物種」？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當一個語言模型，將「誠實」視為其主要改進之一，這本身就是一個值得玩味的現象。Anthropic 在宣傳 Claude Opus 4.8 時，特別強調了這項「美德」，彷彿他們是在深山中發現了一種前所未見的稀有生物，而非迭代一個本應持續進化的軟體。這不禁讓人想起古希臘智者與詭辯家的辯論：言詞的真偽，究竟是本質使然，還是訓練的結果？</p>
+    <p>從技術層面來看，所謂「誠實」，在大模型語境下，通常指向模型對自身能力邊界的認知、對不確定性的表達，以及減少「幻覺」（hallucination）的傾向。在長文本任務中，尤其是在需要多步驟推理或整合多源資訊時，模型的「誠實」變得尤為關鍵。Claude 在處理數萬乃至十萬 token 的上下文時，過去常被觀察到，其對早期輸入的關注度會隨著文本長度而衰減，導致回答後半部分出現邏輯漂移或資訊遺失。這與其核心的 Transformer 架構在處理長序列時固有的注意力機制限制有關。Opus 4.8 強調「誠實」，或許意味著他們在注意力機制、位置編碼，或是後處理的微調階段，針對長文本的資訊維持和錯誤抑制進行了強化。畢竟，一個「不誠實」的模型，往往會自信滿滿地編造事實，而非承認其「不知道」。</p>
+    <p>將此與其他主流模型對比，這種對「誠實」的追求顯得更加突出。ChatGPT 系列，特別是 GPT-4o，在多模態輸入與輸出方面表現出驚人的流暢性，但其在面對極度複雜或模糊的指令時，有時也會陷入「一本正經地胡說八道」。Gemini 在某些特定場景，例如程式碼生成或數學推理上，展現出不俗的潛力，但其穩定性與一致性仍有待觀察。至於 DeepSeek、Qwen 這樣的新興力量，它們在特定領域的表現也日益精進，然而在普遍性、可靠性與「誠實」表達上，都還有很長的路要走。這些模型在處理資訊時，或多或少都還帶著一種「初生之犢不畏虎」的莽撞。</p>
+    <p>然而，這種對「誠實」的強調，也暴露出當前大模型領域一個更深層次的問題：我們是否還在原地踏步，只是修修補補？當模型需要被特別訓練去「誠實」，這是否說明其內在的推理機制仍不足以自然地產生正確且可靠的輸出？我們真正需要的是一個能精準理解並執行指令的智能體，而非一個需要我們不斷校正其道德觀念的「孩童」。何時，我們才能看到一個模型，其設計理念本身就能使其在複雜語境下，無須額外強調，便能自然地展現出「知之為知之，不知為不知」的本質？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/news/claude-opus-4-8" rel="nofollow noopener" target="_blank">Claude Opus 4.8</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-0939-fea26a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
