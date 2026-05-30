@@ -3605,10 +3605,10 @@ a { color: inherit; text-decoration: none; }
       + '<button class="back-btn" onclick="window.BT.goHome()">回首頁</button>'
       + '<header class="cat-header">'
       +   '<h2>Fowlplay</h2>'
-      +   '<div class="desc">雞鴨鵝大起義・讀者票選</div>'
+      +   '<div class="desc">讀者票選</div>'
       + '</header>'
       + tickerHtml
-      + '<div class="fp-section-label">讀者票選・目前進行中</div>'
+      + '<div class="fp-section-label">目前進行中</div>'
       + '<div class="fp-cards">' + voteCardsHtml + '</div>'
       + champHtml;
   }
