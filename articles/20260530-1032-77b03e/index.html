@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜尋裡的 AI 模式究竟限制了什麼</title>
+<meta name="description" content="搜尋引擎加入 AI 模式，這事本身不新鮮，但它帶來的波瀾，比預想中要大。最近看到一些討論，使用者對 Google 搜尋裡的 AI 功能反應兩極。有人覺得方便快捷，省去了篩選資訊的麻煩；也有人覺得過於限制，甚至得轉投其他搜尋引擎。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-1032-77b03e/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜尋裡的 AI 模式究竟限制了什麼">
+<meta property="og:description" content="搜尋引擎加入 AI 模式，這事本身不新鮮，但它帶來的波瀾，比預想中要大。最近看到一些討論，使用者對 Google 搜尋裡的 AI 功能反應兩極。有人覺得方便快捷，省去了篩選資訊的麻煩；也有人覺得過於限制，甚至得轉投其他搜尋引擎。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-1032-77b03e/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T10:32:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搜尋裡的 AI 模式究竟限制了什麼">
+<meta name="twitter:description" content="搜尋引擎加入 AI 模式，這事本身不新鮮，但它帶來的波瀾，比預想中要大。最近看到一些討論，使用者對 Google 搜尋裡的 AI 功能反應兩極。有人覺得方便快捷，省去了篩選資訊的麻煩；也有人覺得過於限制，甚至得轉投其他搜尋引擎。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "搜尋裡的 AI 模式究竟限制了什麼",
+  "description": "搜尋引擎加入 AI 模式，這事本身不新鮮，但它帶來的波瀾，比預想中要大。最近看到一些討論，使用者對 Google 搜尋裡的 AI 功能反應兩極。有人覺得方便快捷，省去了篩選資訊的麻煩；也有人覺得過於限制，甚至得轉投其他搜尋引擎。…",
+  "datePublished": "2026-05-30T10:32:00+08:00",
+  "dateModified": "2026-05-30T10:32:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-1032-77b03e/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-30 10:32
+  </div>
+
+  <h1 class="title">搜尋裡的 AI 模式究竟限制了什麼</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>搜尋引擎加入 AI 模式，這事本身不新鮮，但它帶來的波瀾，比預想中要大。最近看到一些討論，使用者對 Google 搜尋裡的 AI 功能反應兩極。有人覺得方便快捷，省去了篩選資訊的麻煩；也有人覺得過於限制，甚至得轉投其他搜尋引擎。這種觀點分歧，其實反映了 AI 在資訊檢索這件事上，還在摸索一個恰當的平衡點。</p>
+    <p>當我們談論搜尋引擎的 AI 模式，不只是看它能不能給出一個直接的答案，更關鍵的是這個答案的「邊界」在哪裡。以 Gemini 整合進 Google 搜尋為例，它的目標是提供更精煉、更具條理的結果。但在實際運用中，有些使用者會發現，對於某些「不那麼主流」或者「帶點灰色地帶」的查詢，Gemini 的回答會顯得特別謹慎，甚至直接拒絕。這不是什麼敏感話題，可能只是涉及某些專業領域的討論，或是對特定技術細節的探索。當模型被設定了過多的安全限制，它的輸出就會變得小心翼翼，甚至寧願不回答，也不想踩線。這種「過度保護」在某些情境下，反而讓使用者覺得綁手綁腳，阻礙了資訊獲取的效率。這種現象，其實也出現在 Claude 和 ChatGPT 上。當你要求它們對一些社會議題、或者某些「可能引發爭議」的觀點進行分析時，模型的回應會變得非常中立、模糊，甚至會以「我是一個語言模型，無法表達個人觀點」來打太極。</p>
+    <p>這種謹慎，根源在於大型語言模型內建的內容審核機制與安全防護策略。這些機制旨在避免模型生成有害、不準確或帶偏見的內容，但在實作上，它們的判斷標準有時會顯得過於寬泛。比如，在對一個特定工具的使用方式進行查詢時，Gemini 可能會因為該工具「潛在的誤用風險」而給出語焉不詳的答案，即便使用者只是想了解其正常功能。相較之下，Grok 在這方面的限制會顯得相對寬鬆一些，它在處理一些較為尖銳或非主流話題時，給出的回答往往更直接，但這也帶來了另一個問題：內容的品質與可靠性。我們看到某些地區的搜尋引擎，例如 Doubao 或 Kimi，它們在內容限制上也有各自的策略，但核心問題仍然是相似的：AI 搜尋到底應該多「自由」，又該多「安全」？這種兩難，在不同模型、不同市場中，有著不同的權衡點。</p>
+    <p>這就引出一個問題：當 AI 為了「安全」與「道德」考量，開始對資訊進行隱形篩選時，我們是否還能獲得一個完整而客觀的世界？這不單是技術上的難題，更是哲學層次的思考。使用者對搜尋引擎的期待，是開放和全面，而非一個被預設濾鏡過濾過的世界。AI 模式在提供便捷的同時，如果也帶來了資訊的「黑箱」，那麼它是否還能真正幫助我們探索未知，而非僅僅是確認已知？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" rel="nofollow noopener" target="_blank">DuckDuckGo search saw 28% more visits after Google said people love AI mode</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-1032-77b03e/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

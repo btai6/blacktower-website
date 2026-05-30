@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>那些被 AI 改變的我們</title>
+<meta name="description" content="科技這種事，走到現在，好像每隔幾年就要上演一次「黑箱子」的戲碼。以前是電腦的運算邏輯，現在換成了 AI。我們一邊驚嘆它的無所不能，一邊又對它怎麼得出結論一無所知。有趣的是，很多時候我們迷戀的，不正是這種不求甚解的神秘感嗎？ 就像我前幾天看見一個設計師朋友，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-1032-803dda/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="那些被 AI 改變的我們">
+<meta property="og:description" content="科技這種事，走到現在，好像每隔幾年就要上演一次「黑箱子」的戲碼。以前是電腦的運算邏輯，現在換成了 AI。我們一邊驚嘆它的無所不能，一邊又對它怎麼得出結論一無所知。有趣的是，很多時候我們迷戀的，不正是這種不求甚解的神秘感嗎？ 就像我前幾天看見一個設計師朋友，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-1032-803dda/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T10:32:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="那些被 AI 改變的我們">
+<meta name="twitter:description" content="科技這種事，走到現在，好像每隔幾年就要上演一次「黑箱子」的戲碼。以前是電腦的運算邏輯，現在換成了 AI。我們一邊驚嘆它的無所不能，一邊又對它怎麼得出結論一無所知。有趣的是，很多時候我們迷戀的，不正是這種不求甚解的神秘感嗎？ 就像我前幾天看見一個設計師朋友，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "那些被 AI 改變的我們",
+  "description": "科技這種事，走到現在，好像每隔幾年就要上演一次「黑箱子」的戲碼。以前是電腦的運算邏輯，現在換成了 AI。我們一邊驚嘆它的無所不能，一邊又對它怎麼得出結論一無所知。有趣的是，很多時候我們迷戀的，不正是這種不求甚解的神秘感嗎？ 就像我前幾天看見一個設計師朋友，…",
+  "datePublished": "2026-05-30T10:32:00+08:00",
+  "dateModified": "2026-05-30T10:32:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-1032-803dda/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-30 10:32
+  </div>
+
+  <h1 class="title">那些被 AI 改變的我們</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>科技這種事，走到現在，好像每隔幾年就要上演一次「黑箱子」的戲碼。以前是電腦的運算邏輯，現在換成了 AI。我們一邊驚嘆它的無所不能，一邊又對它怎麼得出結論一無所知。有趣的是，很多時候我們迷戀的，不正是這種不求甚解的神秘感嗎？</p>
+    <p>就像我前幾天看見一個設計師朋友，他對 ChatGPT 畫出來的圖稿讚不絕口。那些圖稿，線條複雜，配色大膽，是他平常怎麼想也想不到的。但他開心地接受了，甚至沒多問一句，AI 是怎麼「想」出這些東西的。這種感覺，就像是在咖啡店裡點了一杯特別的花式咖啡，你不會去深究咖啡豆的產地、烘焙程度，甚至不會追究拉花是怎麼拉出來的。你只管享受，只管為那份「新鮮」買單。</p>
+    <p>但咖啡喝完，味蕾的記憶是短暫的。如果我們把創作的權柄、判斷的依據，甚至連思考的脈絡都一併讓渡給這個黑箱，那我們的經驗還剩下什麼？</p>
+    <p>我記得以前做研究，最看重的是資料的來源，是推論的過程。一步一步，從 A 到 B，從 B 到 C，邏輯必須清晰，經得起考驗。錯誤會發生，但錯誤的原因是可追溯的。現在，AI 告訴我們一個結果，我們很容易就接受了。它說這是「正確答案」，那我們就把它當成正確答案。至於為什麼正確？它從哪個角落翻出這些碎片？它又為什麼能把這些碎片組合成一個看似合理的「故事」？這些問題，好像變得不那麼重要了。</p>
+    <p>更可怕的是，我們開始習慣這種「不用知道原因」的模式。當一個會計師把大量的財務報表丟給 Gemini，讓它幫忙找出潛在的風險點，然後他只需要點頭或搖頭，那麼，他從業數十年的嗅覺、他累積的行業知識、他對數字異常的直覺判斷，還有什麼用？這些經驗，本來是他立足的根本，是他之所以是「他」的原因。但現在，它們被摺疊起來，被壓縮進一個只負責判斷最終結果的按鈕裡。</p>
+    <p>長此以往，我們的專業，我們的深度思考，會不會變成一種負擔？我們曾經花費時間、心力去學習、去磨練、去累積的東西，在 AI 面前，顯得如此笨重和低效。當我們能用一句 prompt 就得到想要的答案，誰還願意花時間去爬梳資料，去反覆驗證？</p>
+    <p>以前有個師傅跟我說，學手藝，不是學那個「結果」，而是學那個「過程」。那個汗水、那個挫折、那個反覆修正的過程，才是真正讓技藝紮根，讓經驗沉澱下來的關鍵。AI 呢？它直接給我們結果，跳過了所有的過程。我們就像一個旁觀者，看著它表演，然後鼓掌。但這場表演，有多少是它真正的「思考」，有多少又是它對人類歷史數據的華麗複述？</p>
+    <p>當我們的生活越來越被這些黑箱子包圍，我們是不是也在不知不覺中，成了自己經驗的掘墓人？我們迷信它的效率，迷信它的能力，卻忘了這些能力背後，可能藏著我們正在流失的、最寶貴的人類資產——那些獨一無二的、只屬於我們的，經驗。這不是技術的好壞問題，這更像是一種選擇。我們選擇了省力，但代價是，我們正在失去一些更重要的東西。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-1032-803dda/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

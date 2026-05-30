@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新版 Claude Opus：誠實，還是傲慢？</title>
+<meta name="description" content="當 Anthropic 聲稱 Claude Opus 的新版本在「誠實性」上有了顯著提升時，我腦中浮現的，不是古希臘哲人對真理的叩問，而是那個諷刺劇碼：皇帝的新衣。他們談論自家模型，彷彿真是在亞馬遜雨林深處發現了什麼前所未聞的新物種，其「誠實」特性，與其說是一項技術突破，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-1029-1d2868/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="新版 Claude Opus：誠實，還是傲慢？">
+<meta property="og:description" content="當 Anthropic 聲稱 Claude Opus 的新版本在「誠實性」上有了顯著提升時，我腦中浮現的，不是古希臘哲人對真理的叩問，而是那個諷刺劇碼：皇帝的新衣。他們談論自家模型，彷彿真是在亞馬遜雨林深處發現了什麼前所未聞的新物種，其「誠實」特性，與其說是一項技術突破，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-1029-1d2868/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T10:29:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新版 Claude Opus：誠實，還是傲慢？">
+<meta name="twitter:description" content="當 Anthropic 聲稱 Claude Opus 的新版本在「誠實性」上有了顯著提升時，我腦中浮現的，不是古希臘哲人對真理的叩問，而是那個諷刺劇碼：皇帝的新衣。他們談論自家模型，彷彿真是在亞馬遜雨林深處發現了什麼前所未聞的新物種，其「誠實」特性，與其說是一項技術突破，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "新版 Claude Opus：誠實，還是傲慢？",
+  "description": "當 Anthropic 聲稱 Claude Opus 的新版本在「誠實性」上有了顯著提升時，我腦中浮現的，不是古希臘哲人對真理的叩問，而是那個諷刺劇碼：皇帝的新衣。他們談論自家模型，彷彿真是在亞馬遜雨林深處發現了什麼前所未聞的新物種，其「誠實」特性，與其說是一項技術突破，…",
+  "datePublished": "2026-05-30T10:29:00+08:00",
+  "dateModified": "2026-05-30T10:29:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-1029-1d2868/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-30 10:29
+  </div>
+
+  <h1 class="title">新版 Claude Opus：誠實，還是傲慢？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 聲稱 Claude Opus 的新版本在「誠實性」上有了顯著提升時，我腦中浮現的，不是古希臘哲人對真理的叩問，而是那個諷刺劇碼：皇帝的新衣。他們談論自家模型，彷彿真是在亞馬遜雨林深處發現了什麼前所未聞的新物種，其「誠實」特性，與其說是一項技術突破，不如說是一種自我加冕的修辭。這番論調，不僅讓資深開發者們聞到一絲熟悉的傲慢氣味，更隱約揭示了當前大模型迭代的某種困境——當性能增長趨於平緩，廠商開始在語義層面尋找新的賣點，而非直擊痛點。</p>
+    <p>我們不妨從實際應用場景來檢視這種「誠實」的價值。在處理複雜的邏輯推理任務時，例如金融數據分析、法律條文解讀，或是多輪程式碼除錯，使用者真正需要的是模型的精確度、一致性，以及它在面對不確定資訊時，能否明確指出其局限性，而非含糊其辭。Claude 在處理長文本方面的優勢，一度讓它在需要大量上下文理解的任務中表現亮眼，例如摘要數十萬字的技術文檔，或是從海量郵件中提取關鍵資訊。然而，當任務複雜度進一步提升，例如要求模型根據多個相互矛盾的資訊源進行判斷，並給出風險評估時，所謂的「誠實」若不能轉化為更嚴謹的自省能力（self-correction）和更清晰的錯誤歸因（error attribution），那麼它與「我知道我不知道」之間，恐怕還隔著一道難以逾越的鴻溝。有開發者就抱怨，在某些需要模型判斷「是或否」的模糊邊界問題上，Claude 偶爾會陷入一種「模棱兩可的誠實」，即它會承認自己無法給出確切答案，但這種承認本身，對於追求明確指引的下游應用來說，往往不具備操作價值。反觀一些在特定領域經過精調的專用模型，它們或許不自稱「誠實」，但在其訓練數據範圍內，給出的答案往往更為堅定且可靠。</p>
+    <p>與 Claude 這種「內省式」的提升路徑不同，ChatGPT 在 GPT-4o 的發布中，更側重於多模態能力的融合與響應速度的飛躍，將模型的實用邊界拓展到更廣泛的人機互動場景。它在語音理解與生成上的進步，以及對視覺輸入的即時反應，明顯是為了提升使用者體驗與拓展應用廣度。而 Gemini 則在大型多模態模型的架構上持續深耕，試圖在不同模態間建立更深層次的理解與連結，其在科學研究和跨領域知識融合上的潛力不容小覷。至於 Grok，則以其獨特的幽默感和對實時資訊的整合能力，在特定社群中找到了立足之地，儘管其穩定性與普適性仍有待觀察。放眼整個市場，零一萬物的 Yi 系列模型在開源社區中憑藉其高效能架構與靈活的微調能力，吸引了部分開發者的目光，而 Kimi 則在長文本處理上展現出不俗實力，試圖在特定賽道上與巨頭們一較高下。</p>
+    <p>問題的癥結在於，當我們不再單純追求參數規模的擴張，而是轉向更精微的「品質」提升時，「誠實性」這樣的抽象概念，究竟應該如何被量化、被驗證？它是否僅僅是一種更精巧的拒絕回答策略，而非真正的認知進化？如果模型只是更「誠實」地告訴我它不知道，那我的時間與算力，又該如何被更有效率地利用呢？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/news/claude-opus-4-8" rel="nofollow noopener" target="_blank">Claude Opus 4.8</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-1029-1d2868/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
