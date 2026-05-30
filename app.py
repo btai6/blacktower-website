@@ -2304,7 +2304,7 @@ a { color: inherit; text-decoration: none; }
 .section-label::before { left: 0; }
 .section-label::after  { right: 0; }
 
-# /* ============= 8 分類卡片 4+4 layout ============= */
+/* ============= 8 分類卡片 4+4 layout ============= */
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2377,6 +2377,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.1em;
   font-size: 0.72rem;
 }
+
 
 
 /* ============= 文章列表 ============= */
