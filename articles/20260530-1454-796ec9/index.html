@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模型更新的「誠實」：我們究竟在買什麼？</title>
+<meta name="description" content="Anthropic 官方宣稱 Claude Opus 在 4.8 版本中，將「誠實度」作為一大改進重點，這說法頗有意思。誠實，本是人類社會道德判斷的範疇，如今卻成了機器能力提升的指標，甚至能被「改進」。這與其說是技術突破，不如說是行銷策略上的巧妙轉向。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260530-1454-796ec9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型更新的「誠實」：我們究竟在買什麼？">
+<meta property="og:description" content="Anthropic 官方宣稱 Claude Opus 在 4.8 版本中，將「誠實度」作為一大改進重點，這說法頗有意思。誠實，本是人類社會道德判斷的範疇，如今卻成了機器能力提升的指標，甚至能被「改進」。這與其說是技術突破，不如說是行銷策略上的巧妙轉向。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260530-1454-796ec9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-30T14:54:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模型更新的「誠實」：我們究竟在買什麼？">
+<meta name="twitter:description" content="Anthropic 官方宣稱 Claude Opus 在 4.8 版本中，將「誠實度」作為一大改進重點，這說法頗有意思。誠實，本是人類社會道德判斷的範疇，如今卻成了機器能力提升的指標，甚至能被「改進」。這與其說是技術突破，不如說是行銷策略上的巧妙轉向。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "模型更新的「誠實」：我們究竟在買什麼？",
+  "description": "Anthropic 官方宣稱 Claude Opus 在 4.8 版本中，將「誠實度」作為一大改進重點，這說法頗有意思。誠實，本是人類社會道德判斷的範疇，如今卻成了機器能力提升的指標，甚至能被「改進」。這與其說是技術突破，不如說是行銷策略上的巧妙轉向。…",
+  "datePublished": "2026-05-30T14:54:00+08:00",
+  "dateModified": "2026-05-30T14:54:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260530-1454-796ec9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-30 14:54
+  </div>
+
+  <h1 class="title">模型更新的「誠實」：我們究竟在買什麼？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 官方宣稱 Claude Opus 在 4.8 版本中，將「誠實度」作為一大改進重點，這說法頗有意思。誠實，本是人類社會道德判斷的範疇，如今卻成了機器能力提升的指標，甚至能被「改進」。這與其說是技術突破，不如說是行銷策略上的巧妙轉向。畢竟，模型若能學會「不說謊」，那過往的幻覺問題，是否就能從技術缺陷搖身一變，成為「不夠誠實」的人格瑕疵了呢？</p>
+    <p>細究這份「誠實」，在實際應用場景中，它究竟意味著什麼？Claude 在長文本處理上，向來有其獨到之處，尤其在處理超過 8 萬 token 的複雜文檔時，其上下文理解能力優於 ChatGPT 許多版本。但在我過去的測試中，即便輸入了冗長的、包含矛盾資訊的文本，Claude 偶爾也會「一本正經」地將這些矛盾點合理化，或者在提煉總結時，選擇性地忽略某些衝突訊息，以呈現一個看似連貫的結論。這類行為，若非直接產生錯誤答案，便會被歸類為「幻覺」；而現在，Anthropic 似乎試圖用「誠實」這詞，來重新定義模型的行為邊界。這或許暗示著，新版 Opus 在面對不確定性或無法完全理解的資訊時，會更傾向於承認自身的局限，而非強行編造一個解釋。例如，在數據分析任務中，若數據集存在明顯缺失或異常點，新模型或許會直接指出這些問題，而非基於不完整的資訊給出一個誤導性的趨勢判斷。這種「不確定性表達」能力的提升，對於依賴模型進行嚴謹內容生成或決策輔助的用戶來說，顯然比單純的「準確度」來得更為重要。</p>
+    <p>當我們將目光投向其他巨頭，這份「誠實」的定義便顯得更為微妙。ChatGPT 家族，尤其是 GPT-4o，在多模態交互與實時響應上的表現，常給人一種「無所不知」的印象。然而，在某些需要深度專業知識的問答中，GPT-4o 偶爾也會以流暢且自信的語氣，給出似是而非的答案，尤其在一些小眾的歷史事件或學術理論上，其「一本正經地胡說八道」的能力，有時甚至令人拍案叫絕。而 Gemini 在處理複雜的程式碼生成或數據分析時，其推斷邏輯有時會出現跳躍，導致結果看似正確，但中間步驟卻經不起推敲。至於 Grok，其獨特的「幽默感」與「時事洞察」能力，本身就帶有強烈的主觀判斷色彩，對它要求「絕對誠實」，或許一開始就與其設計初衷相悖。近期，DeepSeek 的長文本處理能力、Qwen 在特定中文語境下的語義理解，以及 Kimi 在超長上下文上的探索，也都在各自的領域展現出獨特優勢。然而，無論是哪家模型，當其在生成內容時，能否清晰地標示出信息的來源、判斷的依據，以及潛在的不確定性，這才是真正的「誠實」。這不僅僅是技術問題，更是倫理與信任的考量。</p>
+    <p>因此，當廠商們將「誠實」這樣一個帶有濃厚人文色彩的詞彙，加諸於機器之上時，我們是否應該更進一步地追問：這份「誠實」的評估標準是什麼？是模型不再撒謊，還是它能主動承認自己的不足？當一個模型學會了「誠實」，它是否也學會了不帶偏見地呈現所有可能性，而非僅僅給出一個看似完美的答案？這樣的「誠實」究竟是為了讓我們對模型更信任，還是為了讓它的局限性變得更容易被接受？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/news/claude-opus-4-8" rel="nofollow noopener" target="_blank">Claude Opus 4.8</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260530-1454-796ec9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
