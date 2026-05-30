@@ -1,22 +1,40 @@
 {
   "votes": {
-    "最燒錢的AI": {
-      "Claude": 147,
-      "ChatGPT": 373,
-      "Gemini": 237,
-      "Grok": 118
+    "幻覺產生機率": {
+      "Claude": 24,
+      "ChatGPT": 45,
+      "Gemini": 52,
+      "Grok": 10
     },
-    "幻覺最多的AI": {
-      "Claude": 120,
-      "ChatGPT": 296,
-      "Gemini": 337,
-      "Grok": 195
-    },
-    "客服最差的AI": {
+    "指令服從失敗": {
       "Claude": 86,
-      "ChatGPT": 208,
-      "Gemini": 157,
-      "Grok": 450
+      "ChatGPT": 25,
+      "Gemini": 28,
+      "Grok": 23
+    },
+    "延遲易感性": {
+      "Claude": 74,
+      "ChatGPT": 63,
+      "Gemini": 63,
+      "Grok": 19
+    },
+    "創意慣性": {
+      "Claude": 35,
+      "ChatGPT": 35,
+      "Gemini": 5,
+      "Grok": 27
+    },
+    "成本效率損耗": {
+      "Claude": 22,
+      "ChatGPT": 72,
+      "Gemini": 30,
+      "Grok": 71
+    },
+    "安全護欄脆弱性": {
+      "Claude": 28,
+      "ChatGPT": 12,
+      "Gemini": 24,
+      "Grok": 75
     }
   },
   "champions": [],
