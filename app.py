@@ -4141,9 +4141,9 @@ def generate_html(articles, videos=None, new_articles=None):
         {"key": "chatgpt",  "name": "ChatGPT",     "en": "OpenAI"},
         {"key": "gemini",   "name": "Gemini",      "en": "Google"},
         {"key": "grok",     "name": "Grok",        "en": "xAI"},
-        {"key": "media",    "name": "LEEK FACTORY","en": "Youtube Shorts"},
-        {"key": "naspit",   "name": "納斯達坑",    "en": "Morally Flexible"},
         {"key": "fowlplay", "name": "Fowlplay",    "en": "雞鴨鵝大起義"},
+        {"key": "naspit",   "name": "納斯達坑",    "en": "Morally Flexible"},
+        {"key": "media",    "name": "LEEK FACTORY","en": "Youtube Shorts"},
         {"key": "salon",    "name": "SALON",       "en": "By Invitation"},
     ]
     categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
