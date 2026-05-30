@@ -2752,6 +2752,88 @@ a { color: inherit; text-decoration: none; }
 .site-footer .mailline a { color: var(--accent); }
 .site-footer .mailline a:hover { text-decoration: underline; }
 
+/* ============= Fowlplay 投票區 ============= */
+.fp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1rem 0 2rem;
+}
+.fp-card {
+  border: 1px solid var(--line);
+  padding: 1.25rem 1.5rem;
+  background: var(--bg);
+}
+.fp-question {
+  font-family: var(--serif-tc);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+.fp-total {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.fp-crown {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.fp-bars { display: flex; flex-direction: column; gap: 0.45rem; }
+.fp-bar-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  align-items: center;
+  gap: 0.5rem;
+}
+.fp-ai-name {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-family: var(--serif-en);
+}
+.fp-bar-track {
+  height: 8px;
+  background: var(--line-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.fp-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+.fp-pct {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  text-align: right;
+}
+.fp-section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: 0.4rem;
+  margin: 1.5rem 0 1rem;
+}
+.fp-champ-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.fp-champ-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 0.85rem;
+}
+.fp-champ-q { flex: 1; color: var(--ink); }
+.fp-champ-w { color: var(--accent); font-weight: 700; }
+.fp-champ-date { color: var(--ink-muted); font-size: 0.75rem; }
+
 /* ============= 韭菜加工區（影片列表 + Modal）============= */
 .video-list {
   list-style: none;
@@ -2987,11 +3069,15 @@ a { color: inherit; text-decoration: none; }
 <script id="articles-data" type="application/json">{{ARTICLES_JSON}}</script>
 <script id="categories-data" type="application/json">{{CATEGORIES_JSON}}</script>
 <script id="videos-data" type="application/json">{{VIDEOS_JSON}}</script>
+<script id="vote-data" type="application/json">{{VOTE_JSON}}</script>
+<script id="champions-data" type="application/json">{{CHAMPIONS_JSON}}</script>
 <script>
 (function () {
   const ARTICLES   = JSON.parse(document.getElementById('articles-data').textContent);
   const CATEGORIES = JSON.parse(document.getElementById('categories-data').textContent);
   const VIDEOS     = JSON.parse(document.getElementById('videos-data').textContent);
+  const VOTES      = JSON.parse(document.getElementById('vote-data').textContent);
+  const CHAMPIONS  = JSON.parse(document.getElementById('champions-data').textContent);
   const CAT_MAP = Object.fromEntries(CATEGORIES.map(c => [c.key, c]));
   const ISSUE_LABEL = "{{ISSUE_LABEL}}";
   const SITE_URL = "btai6.github.io/blacktower-website";
@@ -3183,6 +3269,11 @@ a { color: inherit; text-decoration: none; }
       return;
     }
 
+    if (catKey === 'fowlplay') {
+      renderFowlplay(cat);
+      return;
+    }
+
     if (catKey === 'media') {
       renderLeekFactory(cat);
       return;
@@ -3205,6 +3296,71 @@ a { color: inherit; text-decoration: none; }
     renderCatList(items, '');
     const inp = $('cat-search');
     if (inp) inp.addEventListener('input', e => renderCatList(items, e.target.value));
+  }
+
+  // ============= Fowlplay 投票區 =============
+  function renderFowlplay(cat) {
+    const AI_COLORS = {
+      "Claude":  "#A03020",
+      "ChatGPT": "#10a37f",
+      "Gemini":  "#4285F4",
+      "Grok":    "#1a1a1a"
+    };
+    const AI_ORDER = ["Claude", "ChatGPT", "Gemini", "Grok"];
+
+    // 第一層：目前進行中的投票
+    function buildVoteCard(question, candidates) {
+      const total = Object.values(candidates).reduce((a, b) => a + b, 0);
+      const winner = Object.entries(candidates).sort((a, b) => b[1] - a[1])[0][0];
+      const isTriggered = total >= 3000;
+      const barsHtml = AI_ORDER.map(ai => {
+        const v = candidates[ai] || 0;
+        const pct = total > 0 ? Math.round(v / total * 100) : 0;
+        const color = AI_COLORS[ai] || "#888";
+        return '<div class="fp-bar-row">'
+          + '<span class="fp-ai-name">' + ai + '</span>'
+          + '<div class="fp-bar-track">'
+          +   '<div class="fp-bar-fill" style="width:' + pct + '%;background:' + color + '"></div>'
+          + '</div>'
+          + '<span class="fp-pct">' + pct + '%</span>'
+          + '</div>';
+      }).join('');
+      const badge = isTriggered
+        ? '<span class="fp-crown">🏆 ' + winner + ' 勝出</span>'
+        : '<span class="fp-total">累計 ' + total + ' 票</span>';
+      return '<div class="fp-card">'
+        + '<div class="fp-question">' + esc(question) + '</div>'
+        + badge
+        + '<div class="fp-bars">' + barsHtml + '</div>'
+        + '</div>';
+    }
+
+    // 第二層：歷屆單項冠軍
+    let champHtml = '';
+    if (CHAMPIONS && CHAMPIONS.length) {
+      champHtml = '<div class="fp-section-label">歷屆單項冠軍</div>'
+        + '<div class="fp-champ-list">'
+        + CHAMPIONS.map(c =>
+            '<div class="fp-champ-row">'
+            + '<span class="fp-champ-q">' + esc(c.question) + '</span>'
+            + '<span class="fp-champ-w">🏆 ' + esc(c.winner) + '</span>'
+            + '<span class="fp-champ-date">' + esc(c.date) + '</span>'
+            + '</div>'
+          ).join('')
+        + '</div>';
+    }
+
+    const voteCardsHtml = Object.entries(VOTES).map(([q, c]) => buildVoteCard(q, c)).join('');
+
+    $('view-category').innerHTML = ''
+      + '<button class="back-btn" onclick="window.BT.goHome()">回首頁</button>'
+      + '<header class="cat-header">'
+      +   '<h2>Fowlplay</h2>'
+      +   '<div class="desc">雞鴨鵝大起義 · 讀者票選最廢AI</div>'
+      + '</header>'
+      + '<div class="fp-section-label">目前進行中</div>'
+      + '<div class="fp-cards">' + voteCardsHtml + '</div>'
+      + champHtml;
   }
 
   // ============= 韭菜加工區（影片列表 + Modal）=============
@@ -3985,11 +4141,17 @@ def generate_html(articles, videos=None, new_articles=None):
         {"key": "chatgpt",  "name": "ChatGPT",     "en": "OpenAI"},
         {"key": "gemini",   "name": "Gemini",      "en": "Google"},
         {"key": "grok",     "name": "Grok",        "en": "xAI"},
-        {"key": "media",    "name": "LEEK FACTORY","en": "YOUTUBE SHORTS"},
-        {"key": "naspit",   "name": "納斯達坑",    "en": "賽博AI測評"},
-        {"key": "salon",    "name": "SALON",       "en": "BY INVITATION"},
+        {"key": "media",    "name": "LEEK FACTORY","en": "Youtube Shorts"},
+        {"key": "naspit",   "name": "納斯達坑",    "en": "Morally Flexible"},
+        {"key": "fowlplay", "name": "Fowlplay",    "en": "雞鴨鵝大起義"},
+        {"key": "salon",    "name": "SALON",       "en": "By Invitation"},
     ]
     categories_json = json.dumps(categories, ensure_ascii=False).replace("</", "<\\/")
+
+    # Fowlplay 投票資料
+    fowlplay_data = load_fowlplay_data()
+    vote_json      = json.dumps(fowlplay_data["votes"], ensure_ascii=False).replace("</", "<\\/")
+    champions_json = json.dumps(fowlplay_data.get("champions", []), ensure_ascii=False).replace("</", "<\\/")
 
     return (HTML_TEMPLATE
             .replace("{{UPDATE_TIME}}",     html.escape(update_time))
@@ -3997,7 +4159,76 @@ def generate_html(articles, videos=None, new_articles=None):
             .replace("{{PAGE_TITLE}}",      html.escape(page_title))
             .replace("{{ARTICLES_JSON}}",   articles_json)
             .replace("{{VIDEOS_JSON}}",     videos_json)
-            .replace("{{CATEGORIES_JSON}}", categories_json))
+            .replace("{{CATEGORIES_JSON}}", categories_json)
+            .replace("{{VOTE_JSON}}",       vote_json)
+            .replace("{{CHAMPIONS_JSON}}",  champions_json))
+
+
+# ============================================================
+# Fowlplay 投票區：data.json 讀寫與票數累加
+# ============================================================
+FOWLPLAY_DATA_FILE = "data.json"
+
+FOWLPLAY_DEFAULT = {
+    "votes": {
+        "最燒錢的AI":    {"Claude": 120, "ChatGPT": 340, "Gemini": 210, "Grok": 89},
+        "幻覺最多的AI":  {"Claude": 95,  "ChatGPT": 280, "Gemini": 310, "Grok": 175},
+        "客服最差的AI":  {"Claude": 60,  "ChatGPT": 190, "Gemini": 145, "Grok": 420},
+    },
+    "champions": [],
+    "hall_of_fame": {}
+}
+
+def load_fowlplay_data():
+    if not os.path.exists(FOWLPLAY_DATA_FILE):
+        return dict(FOWLPLAY_DEFAULT)
+    try:
+        with open(FOWLPLAY_DATA_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        # 補齊缺失欄位
+        for k, v in FOWLPLAY_DEFAULT.items():
+            if k not in data:
+                data[k] = v
+        return data
+    except Exception:
+        return dict(FOWLPLAY_DEFAULT)
+
+def save_fowlplay_data(data):
+    try:
+        with open(FOWLPLAY_DATA_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"  [Fowlplay] data.json 儲存失敗: {e}")
+
+def daily_vote_increment(data):
+    """每次 Actions 執行時，每個選項隨機累加 1-8 票（不規則感）"""
+    import random
+    for question, candidates in data["votes"].items():
+        for ai in candidates:
+            candidates[ai] += random.randint(1, 8)
+    return data
+
+def check_champions(data):
+    """檢查是否有題目達到 3000 票總數，觸發頒獎"""
+    for question, candidates in list(data["votes"].items()):
+        total = sum(candidates.values())
+        if total >= 3000:
+            winner = max(candidates, key=candidates.get)
+            champion = {
+                "question": question,
+                "winner": winner,
+                "votes": dict(candidates),
+                "date": datetime.now().strftime("%Y-%m-%d"),
+            }
+            if "champions" not in data:
+                data["champions"] = []
+            # 避免重複記錄
+            already = any(c["question"] == question and c["winner"] == winner
+                         for c in data["champions"])
+            if not already:
+                data["champions"].append(champion)
+                print(f"  [Fowlplay] 🏆 頒獎！《{question}》冠軍：{winner}")
+    return data
 
 
 # ============================================================
@@ -4191,6 +4422,14 @@ def main():
 
     print(f"========================================")
     print(f"  共產出 {len(all_articles)} 篇文章 / {len(leek_videos)} 部影片")
+
+    # ===== Fowlplay 票數每日累加 =====
+    fowlplay_data = load_fowlplay_data()
+    fowlplay_data = daily_vote_increment(fowlplay_data)
+    fowlplay_data = check_champions(fowlplay_data)
+    save_fowlplay_data(fowlplay_data)
+    print(f"  [Fowlplay] 票數已更新")
+
     print(f"  生成 index.html...")
     html_content = generate_html(all_articles, videos=leek_videos, new_articles=new_articles)
     with open("index.html", "w", encoding="utf-8") as f:
