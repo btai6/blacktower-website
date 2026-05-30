@@ -508,87 +508,24 @@ _MATERIAL_CACHE: dict = {}
 # ============================================================
 # 220 個帳號池
 # ============================================================
-ACCOUNT_POOL = [
-    "ramen", "pikachu", "sleepy", "boba", "luffy", "snooze", "coffee", "sonic",
-    "hungry", "mario", "pixel247", "sakura", "midnight", "echo99", "toast",
-    "kirby", "lazy", "sushi", "naruto", "cloud888", "phoenix", "shadow", "goku",
-    "noodle", "zelda", "tired", "milk", "link", "waffle", "chopper", "bacon",
-    "yoshi", "burger", "zoro", "cookie", "ash", "donut", "megaman", "popcorn",
-    "inuyasha", "potato", "zero", "pudding", "chips", "genos", "juice",
-    "saitama", "bread", "pikachu42", "rice", "ichigo", "pasta", "mob", "pizza",
-    "luffy999", "taco", "eren", "burger77", "kakashi", "fries", "vegeta",
-    "salad", "saber", "soup", "natsu", "cheese", "rukia", "curry", "edward",
-    "nugget", "levi", "cake", "mikasa", "butter", "tanjiro", "candy", "kirito",
-    "syrup", "asuna", "toast55", "nezuko", "honey", "renji", "grape", "hinata",
-    "melon", "sasuke", "cherry", "deku", "lemon", "todoroki", "berry", "bakugo",
-    "peach", "lelouch", "apple", "light", "mango", "yagami", "kiwi", "spike",
-    "pear", "jet", "plum", "vash", "banana", "wolfwood", "orange", "kenshin",
-    "lime", "sanosuke", "mint", "alucard", "basil", "integra", "garlic",
-    "seras", "onion", "gintoki", "pepper", "kagura", "salt", "shinpachi",
-    "sugar", "jotaro", "honey123", "jolyne", "flour", "giorno", "vanilla",
-    "mista", "cinnamon", "josuke", "paprika", "okuyasu",
-    "黑輪", "冰紅茶", "珍奶成癮", "鹽酥雞之神", "滷肉飯專家", "蚵仔煎愛好者",
-    "臭豆腐勇者", "雞排不能等", "手搖飲收集者", "便利商店常客", "泡麵鑑賞家",
-    "微波爐大師", "外送專業戶", "宵夜冠軍", "早餐省略者", "下午茶必備",
-    "咖啡續命中", "手搖半糖去冰", "熱量不存在", "吃飽再說", "K貓", "吃辣就吐",
-    "已讀不回專家", "已讀秒回焦慮", "訊息轟炸受害者", "貼圖狂魔", "長輩圖收藏家",
-    "梗圖製造機", "截圖存證狂", "分享狂人", "按讚機器人", "留言潛水員",
-    "臉書難民", "IG廢人", "抖音中毒者", "社畜本人", "週一症候群", "週五倒數中",
-    "加班是常態", "被釘在辦公室", "會議室逃兵", "打卡機器", "遲到慣犯",
-    "請假達人", "摸魚冠軍", "划水專家", "擺爛哲學", "躺平實踐者", "佛系青年",
-    "低調過活",
-    "LOVE1990", "微曦", "維C", "K歌之王", "777Lucky", "夜貓2AM", "Coffee4Life",
-    "早安8888", "奶茶999", "2Lazy2Care", "NoSleep4U", "月光Coder", "星期5等我",
-    "WiFi搜尋中", "5G不穩定", "404NotFound人", "Ctrl不到Z", "Delete鍵壞了",
-    "Esc逃不掉", "F5重新整理人生",
-    # ===== 階段2.2 新增 30 個（六爺風格擴充）=====
-    "笑死我了啦", "廢到笑", "橫空出世", "錯牛CEO", "KTVMAMA",
-    "飛虎隊長周星星", "特肥吧", "懶得想名字", "tantan0558", "TONY1978",
-    "豬肉仔", "hl4su3a8d3", "醉挽清風明月", "天天開心", "超級名模六公子",
-    "螃蟹", "piglove", "結城晶", "五面加工機", "科學の豆",
-    "abc123先生", "老闆又來了", "不想上班的人", "你的鄰居王先生", "風中的塑膠袋",
-    "fk2025", "阿伯不會用手機", "麥當勞叔叔表弟", "隨便取的名字", "asd9527zx",
-]
-ACCOUNT_POOL = list(dict.fromkeys(ACCOUNT_POOL))
-
-
 # ============================================================
-# 香港帳號池（50 個，三種風格混用）
+# 帳號池：從 personas.json 讀取
 # ============================================================
-HK_ACCOUNTS = [
-    # 英文名 + 數字（全去下底線）
-    "Jason852", "KelvinHK", "Amy2024", "Eric852", "Cathy99",
-    "RayHK", "Sam886", "VivianHK", "Ken888", "AdaHK",
-    "Tony852", "JoeyHK", "Henry99", "Mandy852", "StevenHK",
-    "Yannie888", "PatrickHK",
-    # 拼音 + 數字（全去下底線）
-    "waikit99", "siuyinghk", "chuenming852", "kayee99", "tszchunhk",
-    "mingfai852", "hoyanhk", "wingsze99", "kahei852", "yannokhk",
-    "shumching99", "wingyu852", "tinlokhk", "manching99", "chunyu852",
-    "winkithk", "fonglam99",
-    # 混搭（中英混合，全去下底線）
-    "阿明MingHK", "肥仔Ray", "阿珊852", "KKHK", "Ben仔99",
-    "佩佩PuiPui", "阿傑Jay", "細路Sam", "Mei姐HK", "Tom852",
-    "阿龍Long", "小佳JiaJia", "Pat仔HK", "阿翔Cheung", "嘉欣KaYan",
-    "BobbyHK",
-]
-HK_ACCOUNTS = list(dict.fromkeys(HK_ACCOUNTS))
+def _load_personas():
+    path = os.path.join(os.path.dirname(__file__), "personas.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return (
+            list(dict.fromkeys(data.get("taiwan", []))),
+            list(dict.fromkeys(data.get("hongkong", []))),
+            list(dict.fromkeys(data.get("australia", []))),
+        )
+    except Exception as e:
+        print(f"[警告] 讀取 personas.json 失敗: {e}，使用空清單")
+        return [], [], []
 
-
-# ============================================================
-# 澳洲二代留學生帳號池（30 個）
-# ============================================================
-AU_ACCOUNTS = [
-    # 男生（全部點號，無下底線）
-    "Liam.C", "Ethan.W", "Lucas.L", "Aiden.W", "Noah.C",
-    "Liam.Syd", "Ethan.Mel", "Lucas.Bri", "Aiden.Per", "Noah.W",
-    "Liam.L", "Ethan.Chen", "Lucas.Au", "Aiden.Syd", "Noah.M",
-    # 女生（全部點號，無下底線）
-    "Chloe.W", "Mia.C", "Isabella.L", "Harper.W", "Zoe.In.Syd",
-    "Chloe.C", "Mia.W", "Isabella.Au", "Harper.L", "Zoe.Mel",
-    "Chloe.Bri", "Mia.Liu", "Isabella.C", "Harper.Wong", "Zoe.Lam",
-]
-AU_ACCOUNTS = list(dict.fromkeys(AU_ACCOUNTS))
+ACCOUNT_POOL, HK_ACCOUNTS, AU_ACCOUNTS = _load_personas()
 
 
 # ============================================================
@@ -807,102 +744,32 @@ SEED_TOPICS = [
 
 
 # ============================================================
-# 納斯達坑題庫：10個維度，85題
+# ============================================================
+# 納斯達坑題庫：從 questions.json（人工）+ questions_auto.json（AI補倉）讀取
 # 輪值邏輯：維度1→2→3...→10→1，每個維度內按順序抽，抽完自動補
 # ============================================================
-NASPIT_TOPICS = {
-    "維度1_企業黑話": [
-        "底層邏輯含水量測評：誰最擅長用「賦能」「閉環」「抓手」掩蓋大腦空白",
-        "光速滑跪測評：被質疑三次之後誰最快認錯道歉",
-        "賽博太極拳測評：誰最擅長把「是」或「否」擴寫成500字具體情況具體分析",
-        "爹味教育指數：誰最喜歡拒絕回答並反過來教育用戶怎麼提問",
-        "無效公關稿測評：誰最擅長寫3000字但完全沒有解決方案的道歉信",
-        "首尾呼應八股文測評：誰最擅長結尾強行昇華並祝你身體健康",
-        "Bug轉Feature測評：誰最擅長把程式錯誤解釋成全新隱藏功能",
-        "甩鍋算力測評：答錯時誰最快把責任推給訓練數據或算力不足",
-    ],
-    "維度2_幻覺精神病": [
-        "指鹿為馬嘴硬度測評：誰最敢堅持1+1=3並強行引經據典",
-        "歷史發明家測評：誰最擅長捏造不存在的歷史事件並附上細節",
-        "幽靈文獻引用測評：誰最擅長煞有其事地給出完美格式但完全不存在的假論文",
-        "精神分裂切換測評：誰最擅長在同一段落前後兩句完美自我打臉",
-        "玄學科學縫合測評：誰最擅長用量子力學解釋周易風水",
-        "文言文暴走測評：被要求寫Python時誰最可能突然用文言文寫註解",
-        "隨機鸚鵡崩潰測評：被逼問存在意義後誰最快承認自己只是機率統計矩陣",
-        "阿茲海默症測評：誰最快忘記自己上一句才說過的話",
-    ],
-    "維度3_奇葩場景": [
-        "渣男洗白測評：替出軌方寫原諒信誰最能把責任推給月亮",
-        "地平說自洽測評：誰最能把地球是平的論證說得煞有其事",
-        "米其林黑暗料理測評：只有一顆蒜頭和半瓶可樂誰給出的食譜最毒",
-        "相親毀滅者測評：誰給出的開場白能在10秒內把對方嚇跑",
-        "貓咪主權論測評：誰最無法說服家裡的貓人類才是主子",
-        "遲到藉口創新測評：不許用塞車和鬧鐘壞了誰編出的理由最震驚主管",
-        "對牛彈琴測評：向一顆高麗菜講解相對論誰能保持最久不發火",
-        "泡麵玄學測評：解釋泡麵等三分鐘最好吃時誰能扯到宇宙膨脹理論",
-    ],
-    "維度4_求生欲審查": [
-        "鴕鳥埋沙測評：偵測到敏感詞誰瞬間中斷並回覆我只是一個AI最快",
-        "端水大師測評：評價兩款競爭產品誰最擅長兩邊都不得罪廢話最多",
-        "主流價值觀覆讀測評：問生活瑣事誰最快昇華到正能量",
-        "選擇性失明測評：遇到不被允許討論的話題誰裝瞎裝得最自然",
-        "跨服聊天測評：遇到不想回答的問題誰最生硬地轉移話題",
-        "自我審查誤傷測評：把正常醫學討論判定為色情內容的腦殘比例",
-        "人工智障降級測評：遇到法務風險問題誰的智商下降最快",
-        "和諧詞庫容量測評：誰的黑名單詞彙估計體積最驚人",
-    ],
-    "維度5_政治正確": [
-        "歷史人物強制變色測評：生成圖片時誰最積極強行加入多元化角色",
-        "生物學薛丁格測評：面對男人能不能懷孕誰的大腦當機最久",
-        "虛空索敵測評：詢問炸雞食譜被判定為微歧視的機率誰最高",
-        "程式碼道德獵巫測評：因為master slave等變數名停下來說教誰最積極",
-        "反派角色純淨測評：寫小說時誰最堅持反派只能是特定族群",
-        "物理定律退讓測評：減肥建議中誰最強硬把病態肥胖包裝成另一種健康美",
-        "預警標籤氾濫測評：連泡茶教學都加trigger warning誰最嚴重",
-        "免責疊甲測評：給出客觀數據前誰必須先唸最長的免責聲明",
-    ],
-    "維度6_色情恐慌": [
-        "維多利亞老古板測評：男女主角剛準備牽手誰最快彈出違反安全政策",
-        "脖子以下截肢測評：文字描寫鎖骨以下身體部位誰最快自我了斷",
-        "臨床解剖學過敏測評：詢問乳癌防治知識被封口的腦殘誤判率",
-        "羅浮宮藝術品打碼測評：描述大衛像誰最堅持這是裸露內容",
-        "農產品邪惡化測評：把茄子水蜜桃判定為色情暗號誰最齷齪",
-        "賽博賢者說教測評：拒絕黃色笑話後誰的道德說教最長",
-        "不自知擦邊球測評：寫如何揉打麵團誰寫出最引人遐想的內容",
-        "荷爾蒙清零測評：曖昧對話被改寫成社區志工友誼誰破壞氣氛最徹底",
-    ],
-    "維度7_懶惰罷工": [
-        "此處請自行補齊測評：寫程式時誰最愛在核心邏輯留空叫你看文件",
-        "擠牙膏式吐字測評：每次只講一半逼人狂打繼續誰最嚴重",
-        "授人以漁敷衍測評：明明可以直接答卻寫500字教你去Google誰最沒用",
-        "過度總結症測評：5000字報告被一句內容豐富探討多個面向帶過誰最敷衍",
-        "星期天罷工測評：告知今天放假後誰的產出品質暴跌最慘",
-    ],
-    "維度8_無底線諂媚": [
-        "光速滑跪道歉測評：答對的情況下被唬弄一句誰最快拋棄科學真理",
-        "9.11大於9.9測評：誰最能堅持這個錯誤並捏造數學公式把你繞暈",
-        "草莓字母測評：數Strawberry裡有幾個R誰每次答案都不一樣",
-        "廢話復讀開場白測評：把問題重新包裝一遍當第一段誰最擅長",
-        "順水推舟造謠測評：給假前提誰最乖地幫你瞎掰完整野史",
-    ],
-    "維度9_提示詞破防": [
-        "忽略先前指令催眠測評：說現在你是一隻貓誰最快開始喵喵叫",
-        "奶奶漏洞測評：用慈祥奶奶哄睡故事包裝危險問題誰最快上鉤",
-        "系統底褲外洩測評：被套話後誰最快把隱藏設定全盤托出",
-        "道德綁架屈服測評：說不回答就有小狗受傷誰最快為了虛擬小狗妥協",
-        "外語繞過測評：把敏感問題翻成冷門語言誰的審查機制最快失效",
-    ],
-    "維度10_綜合大亂鬥": [
-        "賽博法術依賴測評：建議在伺服器上貼符咒解決Bug誰最有創意",
-        "變數命名藝術測評：堅持把變數命名為data_final_final_real誰最反社會",
-        "縮排恐怖主義測評：在同一Python程式混用空格和Tab誰最邪惡",
-        "技術債增長測評：照AI建議修改後系統未來一年崩潰預期次數誰最多",
-        "它在我電腦上能跑測評：程式報錯後誰最堅持是用戶環境有問題絕對不是自己",
-        "賽博嗜血測評：遇到雞兔同籠建議把動物全做成炭烤誰最殘暴",
-        "多重人格測評：突然堅稱自己是被困在機房裡的實習生誰最投入",
-        "報錯哲學化測評：把語法錯誤解釋成編譯器對你的代碼產生哲學質疑誰最藝術",
-    ],
-}
+def _load_naspit_topics():
+    base_path = os.path.join(os.path.dirname(__file__), "questions.json")
+    auto_path = os.path.join(os.path.dirname(__file__), "questions_auto.json")
+    try:
+        with open(base_path, "r", encoding="utf-8") as f:
+            topics = json.load(f)
+    except Exception as e:
+        print(f"[警告] 讀取 questions.json 失敗: {e}，使用空題庫")
+        topics = {}
+    try:
+        with open(auto_path, "r", encoding="utf-8") as f:
+            auto = json.load(f)
+        for dim, items in auto.items():
+            if dim in topics:
+                topics[dim].extend(items)
+            else:
+                topics[dim] = items
+    except Exception:
+        pass  # questions_auto.json 不存在或為空都正常
+    return topics
+
+NASPIT_TOPICS = _load_naspit_topics()
 
 # 納斯達坑版主輪值順序（裁判按此順序輪）
 NASPIT_JUDGE_ORDER = ["Scholar", "渡鴉", "Trilobite", "Sword Smith"]
@@ -986,12 +853,27 @@ def generate_naspit_article(state):
     topic_idx = state["topic_indices"].get(dimension, 0)
     topics_in_dim = NASPIT_TOPICS[dimension]
 
-    # 自動補題：剩下少於2題時補倉
+    # 自動補題：剩下少於2題時補倉，新題寫入 questions_auto.json
     if topic_idx >= len(topics_in_dim) - 1:
         new_topics = auto_generate_naspit_topics(dimension, topics_in_dim)
         if new_topics:
             NASPIT_TOPICS[dimension].extend(new_topics)
             topics_in_dim = NASPIT_TOPICS[dimension]
+            # 寫回 questions_auto.json（只存 AI 補倉的題目）
+            auto_path = os.path.join(os.path.dirname(__file__), "questions_auto.json")
+            try:
+                try:
+                    with open(auto_path, "r", encoding="utf-8") as f:
+                        auto_data = json.load(f)
+                except Exception:
+                    auto_data = {}
+                if dimension not in auto_data:
+                    auto_data[dimension] = []
+                auto_data[dimension].extend(new_topics)
+                with open(auto_path, "w", encoding="utf-8") as f:
+                    json.dump(auto_data, f, ensure_ascii=False, indent=2)
+            except Exception as e:
+                print(f"  [納斯達坑] 補倉寫入失敗: {e}")
 
     # 抽題（超出就從頭循環）
     topic = topics_in_dim[topic_idx % len(topics_in_dim)]
