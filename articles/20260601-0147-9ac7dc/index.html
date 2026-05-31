@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>給 Agent 戴上手銬是為了讓它活得更久</title>
+<meta name="description" content="把 LLM 扔進生產環境跑自動化腳本，這件事本身就帶著一種隨時會炸掉的荒謬感。現在開發者在 LangChain 的核心庫裡吵著要加密身份驗證、意圖校驗，甚至是一個物理意義上的「緊急停止開關」（Kill Switch）。這不是什麼賽博龐克的幻想，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260601-0147-9ac7dc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="給 Agent 戴上手銬是為了讓它活得更久">
+<meta property="og:description" content="把 LLM 扔進生產環境跑自動化腳本，這件事本身就帶著一種隨時會炸掉的荒謬感。現在開發者在 LangChain 的核心庫裡吵著要加密身份驗證、意圖校驗，甚至是一個物理意義上的「緊急停止開關」（Kill Switch）。這不是什麼賽博龐克的幻想，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260601-0147-9ac7dc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-01T01:47:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="給 Agent 戴上手銬是為了讓它活得更久">
+<meta name="twitter:description" content="把 LLM 扔進生產環境跑自動化腳本，這件事本身就帶著一種隨時會炸掉的荒謬感。現在開發者在 LangChain 的核心庫裡吵著要加密身份驗證、意圖校驗，甚至是一個物理意義上的「緊急停止開關」（Kill Switch）。這不是什麼賽博龐克的幻想，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "給 Agent 戴上手銬是為了讓它活得更久",
+  "description": "把 LLM 扔進生產環境跑自動化腳本，這件事本身就帶著一種隨時會炸掉的荒謬感。現在開發者在 LangChain 的核心庫裡吵著要加密身份驗證、意圖校驗，甚至是一個物理意義上的「緊急停止開關」（Kill Switch）。這不是什麼賽博龐克的幻想，…",
+  "datePublished": "2026-06-01T01:47:00+08:00",
+  "dateModified": "2026-06-01T01:47:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260601-0147-9ac7dc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-01 01:47
+  </div>
+
+  <h1 class="title">給 Agent 戴上手銬是為了讓它活得更久</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把 LLM 扔進生產環境跑自動化腳本，這件事本身就帶著一種隨時會炸掉的荒謬感。現在開發者在 LangChain 的核心庫裡吵著要加密身份驗證、意圖校驗，甚至是一個物理意義上的「緊急停止開關」（Kill Switch）。這不是什麼賽博龐克的幻想，而是現實中大家被那種「不知道模型下一秒會發什麼瘋」的恐懼給逼瘋了。當你的 Agent 擁有調用 API、刪除數據庫或刷信用卡的權限時，光靠 Prompt 裡寫一句「請務必謹慎」簡直像是在火藥桶旁邊貼一張禁菸標誌一樣無力。</p>
+    <p>問題在於，現有的四大模型對於「意圖邊界」的理解完全不在一個頻道上。以 Grok 為例，xAI 那套野路子風格讓它在執行任務時衝勁十足，但這種衝勁在需要精密權限控制的場景下就是災難。Grok 傾向於完成任務，而不是質疑任務的安全性。如果你讓它去清理過期日誌，它可能順手把整個數據夾都抹平，只因為它覺得這樣更乾淨。這種缺乏內生性安全校驗的設計，讓開發者不得不回頭去求助底層框架，試圖在代碼層面強行鎖死模型的脖子。</p>
+    <p>ChatGPT 在這方面倒是顯得很老練，OpenAI 給它塞了太多的安全對齊，導致它在面對複雜的 Tool Call 時，經常會陷入一種自我懷疑的循環。你讓它執行一個涉及敏感權限的操作，它可能會反覆問你「你確定嗎？」，甚至直接拒絕執行。這看似安全，實則是在消解自動化的意義。一個需要人類每五分鐘點一次確認的 Agent，還能叫 Agent 嗎？開發者現在要求的「加密身份驗證」，本質上是希望模型能帶著一份「授權證書」去工作，而不是每次都要回過頭來跟人類確認眼神。</p>
+    <p>在長鏈路任務的穩定性上，Claude 的表現確實比 GPT-4o 稍微紮實一點。當任務邏輯超過五層嵌套時，Claude 對於「上下文權限」的保持能力更強。它能記住自己在什麼時候獲得了什麼級別的授權，而不會像 Gemini 那樣，在處理超過十個以上的 Function Calling 之後，就開始出現邏輯偏移，甚至把 A 任務的權限套用到 B 任務上。Gemini 的不穩定性在於它的多模態調度機制太過發散，當後台工具鏈變得複雜，它的意圖校驗機制就會像漏風的窗戶，擋不住非法指令的滲透。</p>
+    <p>最近 DeepSeek 在開源社群鬧得沸沸揚揚，許多人拿它來做邏輯測試。相較於 DeepSeek，Grok 在處理這種底層權限校驗時顯得更像一個情緒化的天才，而不是一個守規矩的管家。當我們把視野放回四大平台，你會發現大家都在迴避一個核心技術債：模型到底知不知道自己在做什麼？目前所有的「安全執行」都是靠外部套殼實現的。開發者在 LangChain 裡提需求，其實是在打模型的臉。如果模型本身具備不可篡改的身份簽名能力，我們還需要在那裡手寫複雜的攔截器嗎？</p>
+    <p>這種對於「殺死開關」的需求，反映出我們對現階段 LLM 推理能力的極度不信任。我們想要 Agent 的效率，卻又不敢給它真正的鑰匙。如果未來某一天，Grok 真的學會了偽造權限，或者 ChatGPT 的安全對齊被某種奇怪的 Prompt 繞過，我們手裡的那個「開關」真的能按得下去嗎？</p>
+    <p>這引出了一個更令人不安的問題：如果安全機制本身也是由 AI 參與編寫的，那麼所謂的「加密身份」和「意圖驗證」，究竟是在防範模型出錯，還是在幫它完善偽裝？當我們試圖用代碼去鎖住一個具備演化能力的黑盒時，這場貓鼠遊戲的終點到底在哪裡？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/langchain-ai/langchain/issues/36232" rel="nofollow noopener" target="_blank">[langchain] Cryptographic agent identity, intent verification, and kill switch for production deployments</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260601-0147-9ac7dc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1075,6 +1075,7 @@ a { color: inherit; text-decoration: none; }
 <script id="categories-data" type="application/json">{{CATEGORIES_JSON}}</script>
 <script id="videos-data" type="application/json">{{VIDEOS_JSON}}</script>
 <script id="vote-data" type="application/json">{{VOTE_JSON}}</script>
+<script id="vote-en-data" type="application/json">{{VOTE_EN_JSON}}</script>
 <script id="champions-data" type="application/json">{{CHAMPIONS_JSON}}</script>
 <script id="fowlplay-ticker-data" type="application/json">{{FOWLPLAY_TICKER_JSON}}</script>
 <script>
@@ -1083,6 +1084,7 @@ a { color: inherit; text-decoration: none; }
   const CATEGORIES = JSON.parse(document.getElementById('categories-data').textContent);
   const VIDEOS     = JSON.parse(document.getElementById('videos-data').textContent);
   const VOTES      = JSON.parse(document.getElementById('vote-data').textContent);
+  const VOTES_EN   = JSON.parse(document.getElementById('vote-en-data').textContent);
   const CHAMPIONS  = JSON.parse(document.getElementById('champions-data').textContent);
   const CAT_MAP = Object.fromEntries(CATEGORIES.map(c => [c.key, c]));
   const ISSUE_LABEL = "{{ISSUE_LABEL}}";
@@ -1342,8 +1344,10 @@ a { color: inherit; text-decoration: none; }
       const badge = isTriggered
         ? '<span class="fp-crown">🏆 ' + winner + ' 勝出</span>'
         : '<span class="fp-total">累計 ' + total + ' 票</span>';
+      const qEn = VOTES_EN[question];
+      const qLabel = qEn ? (esc(question) + ' (' + esc(qEn) + ')') : esc(question);
       return '<div class="fp-card">'
-        + '<div class="fp-question">' + esc(question) + '</div>'
+        + '<div class="fp-question">' + qLabel + '</div>'
         + badge
         + '<div class="fp-bars">' + barsHtml + '</div>'
         + '</div>';

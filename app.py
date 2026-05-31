@@ -60,10 +60,10 @@ def _random_comment_time(article_timestamp=None):
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 GOOGLE_GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
-# 主要模型：穩定版 Flash
-GEMINI_MODEL = "gemini-2.5-flash"
-# 備援模型：實驗版（不穩定，只在主力掛掉時才用）
-GEMINI_FALLBACK_MODEL = "gemini-3-flash-preview"
+# 主要模型：Gemini 3 Flash（免費，最聰明，寫文章主力）
+GEMINI_MODEL = "gemini-3-flash-preview"
+# 備援模型：Gemini 3.1 Flash-Lite（免費，較省，實力追上 2.5 Flash，主力掛掉時頂替）
+GEMINI_FALLBACK_MODEL = "gemini-3.1-flash-lite"
 
 # 多 API key 輪替池（429 時先換 key，不立刻換模型）
 # 讀取所有可用 key：GEMINI_API_KEY + GOOGLE_API_KEY ~ GOOGLE_API_KEY_8
@@ -2530,6 +2530,7 @@ def generate_html(articles, videos=None, new_articles=None):
     # Fowlplay 投票資料
     fowlplay_data = load_fowlplay_data()
     vote_json      = json.dumps(fowlplay_data["votes"], ensure_ascii=False).replace("</", "<\\/")
+    vote_en_json   = json.dumps(FOWLPLAY_QUESTION_EN, ensure_ascii=False).replace("</", "<\\/")
     champions_json = json.dumps(fowlplay_data.get("champions", []), ensure_ascii=False).replace("</", "<\\/")
 
     # Fowlplay 跑馬燈：Python 端配好「網名：廢話」寫死注入（避免穿幫）
@@ -2544,6 +2545,7 @@ def generate_html(articles, videos=None, new_articles=None):
             .replace("{{VIDEOS_JSON}}",     videos_json)
             .replace("{{CATEGORIES_JSON}}", categories_json)
             .replace("{{VOTE_JSON}}",       vote_json)
+            .replace("{{VOTE_EN_JSON}}",    vote_en_json)
             .replace("{{CHAMPIONS_JSON}}",  champions_json)
             .replace("{{FOWLPLAY_TICKER_JSON}}", fowlplay_ticker_json))
 
@@ -2574,8 +2576,8 @@ FOWLPLAY_QUESTION_EN = {
 
 
 def _random_initial_votes():
-    """每道題每個 AI 各自獨立 0-80 隨機初始票"""
-    return {ai: random.randint(0, 80) for ai in ["Claude", "ChatGPT", "Gemini", "Grok"]}
+    """每道題每個 AI 各自獨立 0-100 隨機初始票"""
+    return {ai: random.randint(0, 100) for ai in ["Claude", "ChatGPT", "Gemini", "Grok"]}
 
 
 def _make_default_fowlplay():
