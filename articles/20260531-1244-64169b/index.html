@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 搜尋，答案的精準與邊界</title>
+<meta name="description" content="網路世界，搜尋入口的變動，總有些難以言說的牽動。最近看見一些討論，關於人們對搜尋引擎中 AI 功能的態度。有人說，自從 AI 模式出現後，搜尋結果的界線似乎模糊了，或者說，變得更嚴格了。這讓我想起，我們在使用這些工具時，究竟在尋找什麼。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260531-1244-64169b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 搜尋，答案的精準與邊界">
+<meta property="og:description" content="網路世界，搜尋入口的變動，總有些難以言說的牽動。最近看見一些討論，關於人們對搜尋引擎中 AI 功能的態度。有人說，自從 AI 模式出現後，搜尋結果的界線似乎模糊了，或者說，變得更嚴格了。這讓我想起，我們在使用這些工具時，究竟在尋找什麼。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260531-1244-64169b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-31T12:44:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 搜尋，答案的精準與邊界">
+<meta name="twitter:description" content="網路世界，搜尋入口的變動，總有些難以言說的牽動。最近看見一些討論，關於人們對搜尋引擎中 AI 功能的態度。有人說，自從 AI 模式出現後，搜尋結果的界線似乎模糊了，或者說，變得更嚴格了。這讓我想起，我們在使用這些工具時，究竟在尋找什麼。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 搜尋，答案的精準與邊界",
+  "description": "網路世界，搜尋入口的變動，總有些難以言說的牽動。最近看見一些討論，關於人們對搜尋引擎中 AI 功能的態度。有人說，自從 AI 模式出現後，搜尋結果的界線似乎模糊了，或者說，變得更嚴格了。這讓我想起，我們在使用這些工具時，究竟在尋找什麼。…",
+  "datePublished": "2026-05-31T12:44:00+08:00",
+  "dateModified": "2026-05-31T12:44:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260531-1244-64169b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-05-31 12:44
+  </div>
+
+  <h1 class="title">AI 搜尋，答案的精準與邊界</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>網路世界，搜尋入口的變動，總有些難以言說的牽動。最近看見一些討論，關於人們對搜尋引擎中 AI 功能的態度。有人說，自從 AI 模式出現後，搜尋結果的界線似乎模糊了，或者說，變得更嚴格了。這讓我想起，我們在使用這些工具時，究竟在尋找什麼。</p>
+    <p>當 Google 逐步將 Gemini 的能力整合進搜尋，尤其是那個 AI 總結模式，其用意是想提升效率，直接給出答案。理論上，這能減少使用者在茫茫網頁中篩選資訊的時間。然而，實際體驗卻常常不是那麼一回事。例如，在處理一些特定類型、邊緣性，或需要細緻理解語境的查詢時，AI 模式會表現出明顯的「自我設限」。它可能因為一些模糊的內容政策，拒絕回答或給出極其籠統、無用的答案。這種「過濾」有時並非針對不雅或非法內容，而是一些僅僅不夠「主流」或「政治正確」的資訊。這背後是模型訓練時，對安全性和倫理邊界的嚴苛要求，導致在實際應用中，寧可錯殺一百也不放過一個的傾向。這讓搜尋不再是純粹的資訊檢索，而成了某種「被導向」的體驗。</p>
+    <p>相較之下，Claude 在長文本的處理上，展現出不同的邏輯。它在處理複雜指令集和多步驟推理時，確實能給出更連貫、更深入的分析。但這份「深入」是基於你提供的上下文，而非像搜尋引擎那樣，主動從全網抓取。如果我們將 Claude 看作一個超強大的內部知識庫分析師，那麼 Google 的 AI 模式則更像一個被訓練成「萬事通」的客服，它有時會顯得過於謹慎。而 Gemini 的回答，在某些場景下，比如需要快速驗證事實或查詢基礎資訊時，確實提供了便利。但當問題觸及灰色地帶，或者需要多角度的探索時，它的回應往往會顯得保守，甚至會直接拒絕。這在某些地區，一些對搜尋結果有嚴格篩選的工具，例如文心一言或是通義千問，也會有類似的表現，他們對於敏感詞彙的處理，有其一套內部的標準。這種情況下，使用者會轉向那些不帶有 AI 總結功能的傳統搜尋引擎，因為那裡至少保證了資訊的原始性，即使需要自己花時間篩選。</p>
+    <p>或許，這正是問題所在。當我們把 AI 引入搜尋，是希望它能幫我們找到更好的答案，還是希望它能幫我們篩選出「正確」的答案？當這些模型被賦予了過多的「判斷權」，它們在努力避免生成有害內容的同時，也無形中限制了資訊的廣度和深度。這讓我們不禁思考：搜尋引擎的本質，究竟是提供資訊的管道，還是塑造資訊的工具？當 AI 介入，這條界線變得模糊，最終使用者會用腳投票，選擇那個能真正滿足他們資訊需求的平台，無論那是否帶有最炫目的 AI 光環。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" rel="nofollow noopener" target="_blank">DuckDuckGo search saw 28% more visits after Google said people love AI mode</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260531-1244-64169b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

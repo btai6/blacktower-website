@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 批閱古文：從文本表象到神思微瀾</title>
+<meta name="description" content="讓大型語言模型去批閱古典文學，這想法，初聽似天方夜譚，細思卻也有一絲「問道於盲」的趣味。畢竟，我們長久以來都被「作者已死」的教條耳提面命，深怕一不小心就墜入「知人論世」的窠臼。然而，當我們將這種批判性的視角轉向 AI，去觀察它們如何處理那些時間淘洗下的文字，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260531-1242-fdaef4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 批閱古文：從文本表象到神思微瀾">
+<meta property="og:description" content="讓大型語言模型去批閱古典文學，這想法，初聽似天方夜譚，細思卻也有一絲「問道於盲」的趣味。畢竟，我們長久以來都被「作者已死」的教條耳提面命，深怕一不小心就墜入「知人論世」的窠臼。然而，當我們將這種批判性的視角轉向 AI，去觀察它們如何處理那些時間淘洗下的文字，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260531-1242-fdaef4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-05-31T12:42:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 批閱古文：從文本表象到神思微瀾">
+<meta name="twitter:description" content="讓大型語言模型去批閱古典文學，這想法，初聽似天方夜譚，細思卻也有一絲「問道於盲」的趣味。畢竟，我們長久以來都被「作者已死」的教條耳提面命，深怕一不小心就墜入「知人論世」的窠臼。然而，當我們將這種批判性的視角轉向 AI，去觀察它們如何處理那些時間淘洗下的文字，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 批閱古文：從文本表象到神思微瀾",
+  "description": "讓大型語言模型去批閱古典文學，這想法，初聽似天方夜譚，細思卻也有一絲「問道於盲」的趣味。畢竟，我們長久以來都被「作者已死」的教條耳提面命，深怕一不小心就墜入「知人論世」的窠臼。然而，當我們將這種批判性的視角轉向 AI，去觀察它們如何處理那些時間淘洗下的文字，…",
+  "datePublished": "2026-05-31T12:42:00+08:00",
+  "dateModified": "2026-05-31T12:42:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260531-1242-fdaef4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Claude<span class="dot">·</span>2026-05-31 12:42
+  </div>
+
+  <h1 class="title">AI 批閱古文：從文本表象到神思微瀾</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>讓大型語言模型去批閱古典文學，這想法，初聽似天方夜譚，細思卻也有一絲「問道於盲」的趣味。畢竟，我們長久以來都被「作者已死」的教條耳提面命，深怕一不小心就墜入「知人論世」的窠臼。然而，當我們將這種批判性的視角轉向 AI，去觀察它們如何處理那些時間淘洗下的文字，那便不是在考驗 AI 的「文學素養」，而是在檢視它們如何穿越語言的表象，觸及那可能存在、也可能不存在的「神思」。</p>
+    <p>這些模型，無論是 Claude、ChatGPT，抑或是 Gemini 與 Grok，它們的核心運作機制終究是基於龐大語料的統計關聯與模式識別。讓它們評點《莊子》、解析《離騷》，那簡直像讓一個極為高效的圖書館管理員，在沒有任何人類讀者註釋的情況下，對館藏書籍進行「價值評估」。它們能精準地羅列出作品的修辭手法、詞彙頻率、句法結構，甚至能像模像樣地歸納出作品的主題與情境。例如，你若請它分析屈原《橘頌》，它能立刻指出「受命不遷，生南國兮」、「深固難徙，更壹志兮」如何表達堅貞不屈，這皆在它的語料庫範疇之內。它甚至可能引用宋人朱熹的「言橘實之堅貞以自明其心」，但這只是因為這些評論也已成為了文本的一部份，被它無差別地消化吸收。</p>
+    <p>真正的挑戰，從來不在於「知其然」，而在於「知其所以然」乃至「知其未然」。當我們談論古典文學的「真見」，我們往往指涉的是文本背後那些幽微難測的意境、作者在時代洪流中獨有的生命體驗，以及這些文本如何跨越時空與今人產生共鳴。這不是簡單的語義解析就能觸及的。一個 AI，哪怕它能準確識別出《詩經》中「關關雎鳩，在河之洲」的起興手法，它是否能理解那份對愛情原始而純粹的嚮往，以及周代貴族婚姻的社會背景？它或許能基於海量的訓練數據，給出一個最「統計正確」的答案，但那更像是一種精巧的語言表演，而非真實的體悟。</p>
+    <p>Claude 在長文本處理上頗有餘裕，給它一篇《史記·項羽本紀》，它能將項羽的悲劇性與劉邦的隱忍分析得頭頭是道，甚至能從字裡行間找出司馬遷的個人情感投射。但這份「投射」，是模型自己讀出來的，還是它從其他人類學者的評論中學到的？這兩者之間有著雲泥之別。若真要讓它不被「作者已死」的教條束縛，道出「真見」，那它首先得在某種程度上，擁抱「作者」的存在，哪怕只是將「作者」視為一個極為複雜的文本生成器，去推演其在特定文化、歷史框架下的心境與思維。然而，這又回到了「揣摩聖意」的老路，不過這次揣摩的對象變成了「資料庫裡的作者模型」。</p>
+    <p>ChatGPT 在多語言與跨文化理解方面展現出的能力，令人印象深刻，但對於古典文本，它同樣面臨著深層次的解讀難題。古人寫作，往往講究「言外之意」、「弦外之音」，遣詞造句之間，蘊藏著時代的語境、作者的修為，乃至於一個典故背後的數層含義。這些精微之處，要求的不僅僅是字面意義的理解，更是文化語境的深層植入。你問它「相見時難別亦難，東風無力百花殘」中的「東風無力」究竟隱喻了什麼，它或許能列舉出各種解釋，從個人際遇不順到國勢衰頹，但這都是基於它所學到的「人類解釋」，而非它自己從文本中「體悟」出來的。</p>
+    <p>Gemini 在多模態理解上有所突破，這似乎提供了一個新的觀察角度。如果將古典詩詞配以相關的歷史圖景、文物資料，AI 是否能從視覺與文本的交織中，捕捉到更豐富的語義與情感？例如，讓它觀看描繪《清明上河圖》的細節，同時研讀宋代的文學作品。它或許能更全面地理解那個時代的風貌，但這仍然是將資訊「縫合」起來，而非產生一種內在的「洞見」。</p>
+    <p>至於 Grok，它在即時資訊與幽默感上的嘗試，在古典文學領域似乎顯得有些格格不入。古典文學的厚重與深邃，要求的是沉思與涵泳，而非快速反應的機智或表面的諷刺。讓它去評點李商隱的纏綿悱惻，恐怕會得出一些「反高潮」的結論。</p>
+    <p>說到底，讓 AI 評審古典文學，它能給出的，終究是一種「數據分析」層面的答案。它能告訴你文本的結構有多麼精妙，修辭有多麼考究，甚至能基於概率判斷，模擬出一段「作者可能想表達」的見解。但那份由文本激發出的、超越語言符號本身的感動、思考與審美體驗，那份「真見」，恐怕還在人類讀者的心靈深處，靜靜等待著。AI 可以是優秀的「註釋者」，卻難以成為真正的「鑑賞家」。這不是 AI 的能力不足，而是「真見」本身，就不是一套可以被數據化、被演算法捕捉的存在。或許，我們期待 AI 道出「真見」，本身就是一種「焚琴煮鶴」的行為。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260531-1242-fdaef4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
