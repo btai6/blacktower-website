@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent 淪為大學作業外掛與 Grok 的野路子</title>
+<meta name="description" content="史丹佛 CS336 課程最近搞了一套所謂的 AI Agent 指南，試圖教學生怎麼「正確」地跟模型協作，而不是直接把整份作業丟給機器代寫。這事聽起來就像是在大洪水時代發放游泳圈，還叮囑大家別游太遠，顯得既無力又滑稽。學生不是笨蛋，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260602-0638-4ab935/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Agent 淪為大學作業外掛與 Grok 的野路子">
+<meta property="og:description" content="史丹佛 CS336 課程最近搞了一套所謂的 AI Agent 指南，試圖教學生怎麼「正確」地跟模型協作，而不是直接把整份作業丟給機器代寫。這事聽起來就像是在大洪水時代發放游泳圈，還叮囑大家別游太遠，顯得既無力又滑稽。學生不是笨蛋，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260602-0638-4ab935/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-02T06:38:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Agent 淪為大學作業外掛與 Grok 的野路子">
+<meta name="twitter:description" content="史丹佛 CS336 課程最近搞了一套所謂的 AI Agent 指南，試圖教學生怎麼「正確」地跟模型協作，而不是直接把整份作業丟給機器代寫。這事聽起來就像是在大洪水時代發放游泳圈，還叮囑大家別游太遠，顯得既無力又滑稽。學生不是笨蛋，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI Agent 淪為大學作業外掛與 Grok 的野路子",
+  "description": "史丹佛 CS336 課程最近搞了一套所謂的 AI Agent 指南，試圖教學生怎麼「正確」地跟模型協作，而不是直接把整份作業丟給機器代寫。這事聽起來就像是在大洪水時代發放游泳圈，還叮囑大家別游太遠，顯得既無力又滑稽。學生不是笨蛋，…",
+  "datePublished": "2026-06-02T06:38:00+08:00",
+  "dateModified": "2026-06-02T06:38:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260602-0638-4ab935/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-02 06:38
+  </div>
+
+  <h1 class="title">AI Agent 淪為大學作業外掛與 Grok 的野路子</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>史丹佛 CS336 課程最近搞了一套所謂的 AI Agent 指南，試圖教學生怎麼「正確」地跟模型協作，而不是直接把整份作業丟給機器代寫。這事聽起來就像是在大洪水時代發放游泳圈，還叮囑大家別游太遠，顯得既無力又滑稽。學生不是笨蛋，當你手握 Grok 這種具備實時 X 平台數據檢索能力、性格又反骨的工具，或是拿著 Claude 這種代碼邏輯嚴密到近乎強迫症的模型時，誰會真的乖乖遵循那些所謂的「教學引導」？現實狀況是，現在的 Agent 早就不是單純的問答機器，它們在處理長路徑任務時的自主性，讓傳統的學術誠信守則變成了一張廢紙。</p>
+    <p>技術層面上，這種指引之所以失效，是因為我們對 Agent 的定義正在發生質變。以 Grok 為例，它在處理複雜邏輯推理時，不像 GPT-4o 那樣總是試圖給出一個標準答案，而是帶有一種試探性的、非線性的思維路徑。當你在 Grok 裡輸入一個關於分布式系統架構的 debug 請求，它會直接抓取當前互聯網上最新的技術爭議作為參考，這種動態的信息獲取能力是目前其他平台難以企及的。然而，這也帶來了災難：它太好用了，好用到學生只需要在 Prompt 裡稍微暗示一下目標，Agent 就能自動補完所有的中間邏輯，包括那些本該由人類大腦去磨練的算法細節。</p>
+    <p>如果我們深入看 Claude 的代碼生成表現，會發現它在處理 10 萬 token 以上的代碼庫時，展現出的上下文理解力簡直讓人絕望。它能精確地記住你在三百行前定義的一個不起眼的變量，並在最後的優化建議中指出其中的溢出風險。這種級別的技術支援，讓史丹佛那種「分階段引導」的教學方式顯得極度笨拙。當模型已經能預判你的下一步錯誤時，所謂的「引導」就變成了演戲。學生在螢幕前看著 Agent 獨自完成邏輯閉環，這種技術壓制讓學習過程中的挫折感消失了，但同時消失的還有思考的深度。</p>
+    <p>在目前的技術環境下，Qwen 的更新頻率雖然很快，但在實際的 Agent 自主權限控制上，xAI 的做法顯然更具攻擊性。Grok 的 Function Calling 能力在最近幾次微調中，明顯放寬了對外部工具調用的限制，這意味著它不再只是一個會說話的盒子，而是具備了直接干預開發環境的潛力。相較於 Qwen 在特定語境下的保守，Gemini 則是走向了另一個極端，它試圖通過超大窗口來吞噬所有的參考文獻，讓學生連翻書的動作都省了。這種競爭格局下，任何試圖在客戶端限制學生使用 AI 的行為，都像是在試圖攔截地心引力。</p>
+    <p>問題在於，當我們討論 Agent 在教育或專業領域的邊界時，我們到底是在防範它太強，還是在恐懼自己變弱？GPT-4o 現在的語音模式幾乎能實現零延遲的邏輯糾錯，如果一個學生在做實驗時全程戴著耳機聽取 Gemini 的實時分析，這算不算違反了所謂的「自主學習」？當工具的演進速度遠超人類制定規則的速度，那些寫在課程大綱裡的 Guideline 還有什麼意義？</p>
+    <p>我們是不是正在進入一個不再需要「理解原理」，只需要「驗證結果」的時代？如果 Grok 或是 Claude 已經能穩定輸出工業級的代碼，我們還要堅持讓學生在紙上推演那些連 Agent 都能在 0.5 秒內完成的算法嗎？當學術界還在討論如何限制學生下載一台車的時候，工業界早就開始討論如何讓 Agent 自動駕駛這台車了。這種技術與體制的斷裂，最後會是由誰來填補？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md" rel="nofollow noopener" target="_blank">AI Agent Guidelines for CS336 at Stanford</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260602-0638-4ab935/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
