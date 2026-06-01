@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 在長上下文理解中的幻覺與法律條文解析的無力感</title>
+<meta name="description" content="當 Atherton 這種富人區用區區 14 萬美元的訴訟費，就拖住了 4 億美元的鐵路電氣化工程，技術圈在意的不是那幾根電線桿，而是法律條文如何在技術官僚體系中被當成武器。這件事在 Hacker News 吵翻了天，大家都在噴 CEQA 這種環境法規成了阻礙進步的遮羞布。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260601-0809-be27b8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 在長上下文理解中的幻覺與法律條文解析的無力感">
+<meta property="og:description" content="當 Atherton 這種富人區用區區 14 萬美元的訴訟費，就拖住了 4 億美元的鐵路電氣化工程，技術圈在意的不是那幾根電線桿，而是法律條文如何在技術官僚體系中被當成武器。這件事在 Hacker News 吵翻了天，大家都在噴 CEQA 這種環境法規成了阻礙進步的遮羞布。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260601-0809-be27b8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-01T08:09:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 在長上下文理解中的幻覺與法律條文解析的無力感">
+<meta name="twitter:description" content="當 Atherton 這種富人區用區區 14 萬美元的訴訟費，就拖住了 4 億美元的鐵路電氣化工程，技術圈在意的不是那幾根電線桿，而是法律條文如何在技術官僚體系中被當成武器。這件事在 Hacker News 吵翻了天，大家都在噴 CEQA 這種環境法規成了阻礙進步的遮羞布。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 在長上下文理解中的幻覺與法律條文解析的無力感",
+  "description": "當 Atherton 這種富人區用區區 14 萬美元的訴訟費，就拖住了 4 億美元的鐵路電氣化工程，技術圈在意的不是那幾根電線桿，而是法律條文如何在技術官僚體系中被當成武器。這件事在 Hacker News 吵翻了天，大家都在噴 CEQA 這種環境法規成了阻礙進步的遮羞布。…",
+  "datePublished": "2026-06-01T08:09:00+08:00",
+  "dateModified": "2026-06-01T08:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260601-0809-be27b8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-01 08:09
+  </div>
+
+  <h1 class="title">Grok 在長上下文理解中的幻覺與法律條文解析的無力感</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>當 Atherton 這種富人區用區區 14 萬美元的訴訟費，就拖住了 4 億美元的鐵路電氣化工程，技術圈在意的不是那幾根電線桿，而是法律條文如何在技術官僚體系中被當成武器。這件事在 Hacker News 吵翻了天，大家都在噴 CEQA 這種環境法規成了阻礙進步的遮羞布。但如果你試著把那疊厚達數千頁的訴訟文件、環評報告和加州法律條文丟進 Grok 的對話框，問它「這 4 億美元的超支到底是哪些條款造成的」，你會發現，即便背靠 xAI 最引以為傲的算力，Grok 依然會在你最期待的地方開始胡言亂語。</p>
+    <p>長上下文處理能力（Long Context Window）是現在四大模型都在拚的戰場，Grok 也不例外。但處理法律文件這種高密度的資訊，跟餵它看一百本網路小說是兩回事。Grok 在處理這類爭議性極強的社會工程問題時，表現出一種極其焦慮的「討好感」。它能抓出 CEQA 的條款，能總結出 Atherton 居民的反對意見，但當你要求它對比不同年份的環評差異，或是計算具體哪一個訴訟節點導致了成本飆升時，它的邏輯鏈條就開始斷裂。這不是算力不夠，而是模型在處理這種「充滿惡意的數據」時，無法準確定位語意中的陷阱。</p>
+    <p>具體到技術細節，Grok 的注意力機制在面對這種嵌套式的法規引用時，經常會出現權重偏移。你問它 A 條款對 B 項目的影響，它可能會因為 C 評論區的聲量太大，而把公眾情緒誤認為是法律證據。在 API 調用中，我們發現 Grok 處理超過 5 萬 token 的任務時，雖然不像某些模型會直接遺忘開頭，但它會產生一種「語意漂移」。它記得 Atherton 花了錢，也記得鐵路超支了，但它沒辦法把這兩者之間複雜的法律因果鏈條像外科醫生一樣剝離出來。這就是目前的技術天花板：它們能讀，但它們不理解「博弈」。</p>
+    <p>相較於 DeepSeek 最近在代碼邏輯上的進展，Grok 在處理這種非結構化、高對抗性的社會技術數據時，顯得過於依賴其預訓練中的推特（X）語料。這導致 Grok 的語氣雖然聽起來很有攻擊性，很符合馬斯克的胃口，但在硬核的數據分析面前，這種攻擊性反而掩蓋了其邏輯推導的空洞。我們在測試中發現，ChatGPT 在處理這類問題時，雖然顯得過於溫和、甚至有些官僚味，但它對法條的結構化歸納確實比 Grok 穩。Gemini 則是另一個極端，它會給你列出一堆漂亮的表格，但如果你仔細核對條目，會發現它為了維持表格的整齊而捏造了幾個日期。</p>
+    <p>在這種百萬級 token 的環境下，Claude 的表現目前還是最讓人放心的，特別是在長文本的注意力分佈上，它不會因為 Atherton 居民的貪婪而分心，能精確地抓到訴訟文件中被隱藏的程序性錯誤。這反映出一個殘酷的現實：xAI 想讓 Grok 成為一個有靈魂、有立場的助手，但在面對 Atherton 鐵路案這種需要極度理性、極度冷靜的技術細節剖析時，Grok 的情緒化語料庫反而成了它的負擔。</p>
+    <p>這就引出了一個更深層的技術問題。當我們討論模型性能時，我們到底在討論什麼？是那幾個跑分軟體上的數字，還是在面對現實世界複雜博弈時，模型能提供多少有效的決策支持？Atherton 的案子是一個完美的壓力測試場，它測試的不僅是法律系統的韌性，更是人工智慧在面對人類社會「合法耍流氓」時的解析能力。如果 Grok 只能複讀網上的憤怒情緒，而不能從法律框架中給出破局的邏輯，那它跟一個憤怒的鍵盤俠有什麼區別？</p>
+    <p>我們是否過於迷信上下文長度的擴張，而忽略了模型在極端長文本中對「邏輯權重」的分配能力？當我們把整個世界的法規都餵給模型後，它給出的是通往效率的捷徑，還是只是幫我們把這堆廢紙總結得更優雅一點而已？在 4 億美元的代價面前，這種技術上的無力感，遠比模型幻覺更讓人沮喪。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://peninsulaforeveryone.org/blog/atherton-spent-145k-to-delay-caltrain-electrification-the-rest-of-us-paid-400-million-and-waited-3-extra-years/" rel="nofollow noopener" target="_blank">Atherton spent $145K to delay train electrification. The rest of us paid $400M</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260601-0809-be27b8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

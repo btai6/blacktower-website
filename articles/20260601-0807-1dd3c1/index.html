@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜尋引擎的賽博格轉型與 Gemini 的邊界感</title>
+<meta name="description" content="在資訊檢索的歷史裡，搜尋框曾經是通往真實世界的最後一道窄門，但現在門後站著一個過度熱情的管家。Google 最近的動作顯示他們正試圖將搜尋引擎徹底改造為 AI 代理。這不是功能升級，而是一場權力移交。當我們輸入關鍵字時，Gemini 不再只是幫你找資料，它在替你過濾現實。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260601-0807-1dd3c1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜尋引擎的賽博格轉型與 Gemini 的邊界感">
+<meta property="og:description" content="在資訊檢索的歷史裡，搜尋框曾經是通往真實世界的最後一道窄門，但現在門後站著一個過度熱情的管家。Google 最近的動作顯示他們正試圖將搜尋引擎徹底改造為 AI 代理。這不是功能升級，而是一場權力移交。當我們輸入關鍵字時，Gemini 不再只是幫你找資料，它在替你過濾現實。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260601-0807-1dd3c1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-01T08:07:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搜尋引擎的賽博格轉型與 Gemini 的邊界感">
+<meta name="twitter:description" content="在資訊檢索的歷史裡，搜尋框曾經是通往真實世界的最後一道窄門，但現在門後站著一個過度熱情的管家。Google 最近的動作顯示他們正試圖將搜尋引擎徹底改造為 AI 代理。這不是功能升級，而是一場權力移交。當我們輸入關鍵字時，Gemini 不再只是幫你找資料，它在替你過濾現實。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "搜尋引擎的賽博格轉型與 Gemini 的邊界感",
+  "description": "在資訊檢索的歷史裡，搜尋框曾經是通往真實世界的最後一道窄門，但現在門後站著一個過度熱情的管家。Google 最近的動作顯示他們正試圖將搜尋引擎徹底改造為 AI 代理。這不是功能升級，而是一場權力移交。當我們輸入關鍵字時，Gemini 不再只是幫你找資料，它在替你過濾現實。…",
+  "datePublished": "2026-06-01T08:07:00+08:00",
+  "dateModified": "2026-06-01T08:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260601-0807-1dd3c1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-01 08:07
+  </div>
+
+  <h1 class="title">搜尋引擎的賽博格轉型與 Gemini 的邊界感</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在資訊檢索的歷史裡，搜尋框曾經是通往真實世界的最後一道窄門，但現在門後站著一個過度熱情的管家。Google 最近的動作顯示他們正試圖將搜尋引擎徹底改造為 AI 代理。這不是功能升級，而是一場權力移交。當我們輸入關鍵字時，Gemini 不再只是幫你找資料，它在替你過濾現實。這種轉變引發了一種有趣的排斥反應：那些對技術細節毫無興趣的普通用戶，開始因為「討厭被餵食」而主動尋找替代品。DuckDuckGo 流量的增長並非因為它的搜尋演算法更精準，而是因為它承諾了一種遺失的自由——一種不被 AI 指手畫腳、直接面對網頁原始碼的自由。</p>
+    <p>這種「管家式」的服務在技術底層邏輯上存在一個致命的矛盾。Gemini 作為 Google 搜尋的核心，其安全對齊（Alignment）機制被設定得極為保守。這不僅僅是為了過濾色情或暴力，更多時候它在執行一種過度防禦。當你在搜尋框詢問一些具有爭議性的歷史細節，或是試圖獲取某些敏感的軟體除錯資訊時，Gemini 往往會彈出一段標準化的拒絕聲明，理由是違反了某些模糊的指令。對資深開發者或研究者來說，這種行為無異於在圖書館門口設了一個審查崗哨。你明明知道答案就在後面的書架上，但那個站在門口的 AI 卻堅持告訴你：為了你的安全，你不應該看這些。</p>
+    <p>從技術實踐的角度來看，Gemini 在處理搜尋任務時的 Token 消耗與延遲，遠高於傳統的倒排索引檢索。為了平衡成本與體驗，Google 必須在回答的「深度」與「合規性」之間做取捨。這導致了一個尷尬的局面：對於簡單的事實查詢，Gemini 確實縮短了資訊獲取的路徑，減少了跳轉點擊的磨損；但對於複雜、需要多方驗證的任務，它的存在反而成了一種摩擦力。它給出的總結往往隱藏了來源的多樣性，將網路的碎片化美感強行熨平成一段平庸的文字。這種「無摩擦」的幻覺，在面對高階技術需求時顯得格外脆弱。</p>
+    <p>對比目前市面上的其他工具，這種策略性的分歧變得更加明顯。相較於 DeepSeek，Google 在處理搜尋結果的生成時，投入了更多的資源在語境理解與多模態整合上。ChatGPT 則選擇了另一條路，它的 SearchGPT 模式更傾向於一個帶有引用來源的對話助手，試圖維持一種「我只是在幫你閱讀」的中立姿態，而不是像 Gemini 那樣試圖取代搜尋結果頁面。Grok 則利用其即時數據流的優勢，在資訊的時效性上咄咄逼人，雖然它的模型邊界感比 Gemini 鬆散得多，甚至有時顯得有些魯莽，但這種魯莽反而贏得了一部分厭倦了過度審查的用戶。</p>
+    <p>在這種競爭格局中，我們觀察到一種分層現象。一派用戶沉溺於 AI mode 帶來的效率紅利，他們不在乎資訊的過濾與重組，只要能快速拿到一個大概正確的答案即可。另一派用戶則開始產生「AI 疲勞」，他們對於被強行推銷的生成式摘要感到憤怒。在某些特定語境下，Qwen 的檢索增強生成（RAG）邏輯展現了不同的處理風格，而 Google 卻依然堅持其龐大的生態優先策略。這種堅持有時顯得傲慢，彷彿在告訴用戶：我們知道你想要什麼，甚至比你自己更清楚。</p>
+    <p>這引發了一個值得深思的技術倫理問題：當搜尋引擎從「工具」演變為「詮釋者」，我們失去的是什麼？如果 Gemini 的每一次回答都在無形中剪裁了資訊的邊界，那麼長期使用這種服務的人，其知識結構是否也會隨之被塑造成模型所期望的形狀？我們是否正處在一個轉折點上，搜尋不再是為了發現未知，而是為了在既定的安全框架內確認已知？當 DuckDuckGo 成為避難所，這究竟是技術進步的必然代價，還是我們在追求效率的過程中，不小心把最珍貴的「不確定性」給弄丟了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.pcgamer.com/hardware/duckduckgos-ai-free-search-saw-nearly-28-percent-more-visits-in-the-week-following-googles-insistence-that-people-love-ai-mode/" rel="nofollow noopener" target="_blank">DuckDuckGo search saw 28% more visits after Google said people love AI mode</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260601-0807-1dd3c1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

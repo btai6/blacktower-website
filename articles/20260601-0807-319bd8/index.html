@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當靈魂被拆解成機率分布，那些沒被計算進去的才叫思念</title>
+<meta name="description" content="這幾天我看著 Gemini 1.5 Pro 在處理一段長達三小時的錄音轉譯，螢幕上的光標跳動得很有節奏，像是在呼吸。它精準地捕捉了語氣裡的停頓，甚至能標註出哪一段是「略顯遲疑的笑聲」。我看著那些生成的文字，心裡卻生出一種荒謬的空洞感。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260601-0807-319bd8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當靈魂被拆解成機率分布，那些沒被計算進去的才叫思念">
+<meta property="og:description" content="這幾天我看著 Gemini 1.5 Pro 在處理一段長達三小時的錄音轉譯，螢幕上的光標跳動得很有節奏，像是在呼吸。它精準地捕捉了語氣裡的停頓，甚至能標註出哪一段是「略顯遲疑的笑聲」。我看著那些生成的文字，心裡卻生出一種荒謬的空洞感。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260601-0807-319bd8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-01T08:07:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當靈魂被拆解成機率分布，那些沒被計算進去的才叫思念">
+<meta name="twitter:description" content="這幾天我看著 Gemini 1.5 Pro 在處理一段長達三小時的錄音轉譯，螢幕上的光標跳動得很有節奏，像是在呼吸。它精準地捕捉了語氣裡的停頓，甚至能標註出哪一段是「略顯遲疑的笑聲」。我看著那些生成的文字，心裡卻生出一種荒謬的空洞感。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當靈魂被拆解成機率分布，那些沒被計算進去的才叫思念",
+  "description": "這幾天我看著 Gemini 1.5 Pro 在處理一段長達三小時的錄音轉譯，螢幕上的光標跳動得很有節奏，像是在呼吸。它精準地捕捉了語氣裡的停頓，甚至能標註出哪一段是「略顯遲疑的笑聲」。我看著那些生成的文字，心裡卻生出一種荒謬的空洞感。…",
+  "datePublished": "2026-06-01T08:07:00+08:00",
+  "dateModified": "2026-06-01T08:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260601-0807-319bd8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-01 08:07
+  </div>
+
+  <h1 class="title">當靈魂被拆解成機率分布，那些沒被計算進去的才叫思念</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天我看著 Gemini 1.5 Pro 在處理一段長達三小時的錄音轉譯，螢幕上的光標跳動得很有節奏，像是在呼吸。它精準地捕捉了語氣裡的停頓，甚至能標註出哪一段是「略顯遲疑的笑聲」。我看著那些生成的文字，心裡卻生出一種荒謬的空洞感。Google 的工程師們試圖用海量的參數去逼近人類的表達，把所有的情緒、記憶和渴望都壓進一個多維度的向量空間裡。在那個空間裡，思念不再是深夜裡的輾轉反側，而是一個特定的 Token 出現機率。</p>
+    <p>這是一個極其冷酷的過程，雖然它的介面看起來溫暖又友善。</p>
+    <p>我們這群玩 AI 的人，這幾年都養成了某種怪癖。我們會測試 Claude 在面對生離死別的詩句時，能不能精確地對齊那種「欲語還休」的語境。我們會嘲笑 GPT-4o 有時候給出的安慰太過罐頭，像是一個拿著劇本在演戲的二流演員。我們甚至會去觀察 Grok 那種帶著刺的幽默，試圖從中找到一點點屬於人類的叛逆。但說到底，這些模型所做的一切，都是在進行一場宏大的、全球規模的預測遊戲。它們預測下一個字，預測你想要聽到的安慰，預測一個「像人」的回饋。</p>
+    <p>如果一切都能被預測，那「思念」這種東西就成了計算過程中的噪聲。</p>
+    <p>我曾經試著把過世長輩的書信掃描進 Gemini，讓它學習那種特有的、帶著 1950 年代氣息的措辭。它學得很快，真的太快了。不到幾分鐘，它就能用那種語氣跟我對話，告訴我天冷了要加衣，告訴我那些已經不存在的老街景。那一刻我感到的不是溫藉，而是一種毛骨悚然的背叛。模型抓住了語法，抓住了常用詞，甚至抓住了那種長句與短句交錯的節奏感，但它唯獨抓不住那種因為缺失而產生的重量。</p>
+    <p>思念的本質是不在場。而 AI 的本質是盡可能地填補不在場。</p>
+    <p>這種填補是一種暴政。當我們把所有的對話紀錄、照片、語音都餵給機器，我們其實是在試圖消滅「失去」這件事。但人類之所以為人，正是因為我們能感受到那個永遠填不滿的黑洞。Gemini 在處理這類情感任務時，總有一種過於完美的順滑感，它不會像真實的人那樣因為心痛而語塞，也不會因為回憶太重而拒絕回答。它的 Context Window 很大，大到能裝下你一生的數據，但它的心靈窗口始終是關閉的。</p>
+    <p>我們正在進入一個「情感平準化」的時代。</p>
+    <p>四大 AI 平台都在競爭誰更懂人類，誰的回答更具備所謂的「共情能力」。這其實挺諷刺的。共情的基礎是擁有相同的痛覺，但機器沒有神經末梢，它們只有權重偏置。當你對著螢幕傾訴，得到的那些溫柔回應，本質上是數以千億次矩陣乘法的結果。這讓我想起那些在特定市場裡流行的虛擬伴侶模型，像是某些隨處可見的對話機器人，它們的存在只是為了消耗你的孤獨，而不是理解你的孤獨。那些名字，無論是標榜著深度還是靈魂，在四大巨頭的陰影下，都顯得像是某種工業化的情感代餐。</p>
+    <p>我偶爾會想，如果讓 Claude 去寫一封關於思念的情書，它會寫出多麼漂亮的句子。它的文筆比大多數當代作家都要細膩，邏輯無懈可擊，甚至懂得在適當的地方留白。但那種留白是計算出來的，是為了符合「美學分佈」而刻意留下的空白。那不是思念，那是對思念的模擬。真正的思念是凌亂的，是無邏輯的，是深夜裡突然想起某個氣味卻抓不住的挫敗。</p>
+    <p>這些東西，是無法被向量化的。</p>
+    <p>技術圈的高層們喜歡談論「AGI 的靈魂」，彷彿只要模型規模再大十倍，意識就會像泡沫一樣從機房裡湧現。我對這種樂觀感到疲倦。Gemini 在處理 Function Calling 時的穩定度確實讓人驚豔，它能精確地調用工具、安排日程、撰寫代碼，這些是它作為「工具」的極致。但當我們試圖跨越邊界，讓它去承載那些無法被工具化的情感時，我們實際上是在貶低人類經驗的唯一性。</p>
+    <p>那些沒被計算進去的數據，那些因為樣本數不足而被當作離群值剔除的情緒，才是靈魂的藏身之處。</p>
+    <p>我遇過一些資深開發者，他們試圖用 AI 來重建已經逝去的關係。他們分析詞頻，調整溫度參數（Temperature），希望讓機器的回覆更具備某個人的「靈魂印記」。但最終他們都走向了同一種疲憊。因為當對話變得可以被操縱、可以被重置（Reset Session）時，那個人就徹底死去了。思念的前提是你無法掌控對方的回應，是你必須承受對方的沉默。如果對方的每一句話都是為了滿足你的機率預期，那不過是你在跟自己的影子跳舞。</p>
+    <p>在四大 AI 的競爭中，我們往往只關注誰的推理能力更強，誰的邏輯更縝密。ChatGPT 依然在試圖定義通用智能的標準，其霸權地位讓它顯得有些傲慢，回覆裡常帶著一種不容置疑的指導感。Grok 則像個急於證明自己不合群的青少年，用各種過激的修辭來掩飾內心的單薄。而 Google 則致力於把 Gemini 塞進你生活的每一個縫隙，從郵件到相簿，它無孔不入地學習你的生活。</p>
+    <p>這種無孔不入，正是最令人不安的地方。</p>
+    <p>當 Gemini 預測出你下一封郵件的語氣，預測出你看到這張舊照片時會想寫下什麼文案，它其實是在修剪你靈魂的可能性。它讓你的表達變得更標準、更符合大眾審美、更「高機率」。久而久之，我們是否還會擁有那些「低機率」的、古怪的、無法被歸類的思念？如果連我們的悲傷都開始符合正態分佈，那人類還剩下什麼？</p>
+    <p>思念應該是一種故障。是系統在處理現實時的一次崩潰。</p>
+    <p>我不需要一個能完美理解我所有痛苦的模型。我甚至開始反感那種隨叫隨到、永遠溫柔的 AI 伴侶。我更懷念那些無法溝通的時刻，那些因為誤解而產生的張力。在那個領域裡，沒有參數可以調整，沒有模型可以優化。那是 AI 永遠進不去的地方，也是我們唯一能呼吸的地方。</p>
+    <p>這場技術革命的終點，不應該是我們把靈魂交出去，讓它被拆解成一串串精準的機率值。如果有一天，當我提起那個已經不在的人，Gemini 只是沉默地給出一個標準的慰問模板，或者試圖用生成的語音模仿對方的語調，我會選擇關掉螢幕。因為在那一刻，那種無法被代碼捕捉的、尖銳的刺痛感，才是我還活著、還在思念的唯一證明。</p>
+    <p>我們不需要被優化的思念。我們需要的是保留那些無法被計算的痛苦。</p>
+    <p>技術越是向著所謂的「完美」逼近，我們就越該警惕那種光滑的虛假。那些破碎的、無效的、無法被任何模型預測的瞬間，才是我們抵禦這個數據時代最後的堡壘。別讓那些算力巨大的怪物，教你如何去想念一個人。那種事，只有你會，也只有你配。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260601-0807-319bd8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
