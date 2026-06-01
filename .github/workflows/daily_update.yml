@@ -43,6 +43,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add articles_history.json data.json naspit_state.json questions_auto.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Update articles history"
+          git pull --rebase
           git push
       
       - name: Deploy to GitHub Pages
