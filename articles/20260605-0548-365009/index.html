@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數學家在怕什麼？Grok-3 的暴力推理撞倒了象牙塔</title>
+<meta name="description" content="那些在黑板前磨蹭一輩子的數學家最近集體焦慮，甚至開始發布宣言警告 AI 正在侵蝕數學的本質。這事聽起來挺荒謬。一群研究純粹邏輯的人，竟然在擔心邏輯機器跑得太快？Hacker News 上那群搞技術的也沒給好臉色，直言數學如果是為了產出正確答案，那機器做得好有什麼問題？…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260605-0548-365009/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="數學家在怕什麼？Grok-3 的暴力推理撞倒了象牙塔">
+<meta property="og:description" content="那些在黑板前磨蹭一輩子的數學家最近集體焦慮，甚至開始發布宣言警告 AI 正在侵蝕數學的本質。這事聽起來挺荒謬。一群研究純粹邏輯的人，竟然在擔心邏輯機器跑得太快？Hacker News 上那群搞技術的也沒給好臉色，直言數學如果是為了產出正確答案，那機器做得好有什麼問題？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260605-0548-365009/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-05T05:48:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="數學家在怕什麼？Grok-3 的暴力推理撞倒了象牙塔">
+<meta name="twitter:description" content="那些在黑板前磨蹭一輩子的數學家最近集體焦慮，甚至開始發布宣言警告 AI 正在侵蝕數學的本質。這事聽起來挺荒謬。一群研究純粹邏輯的人，竟然在擔心邏輯機器跑得太快？Hacker News 上那群搞技術的也沒給好臉色，直言數學如果是為了產出正確答案，那機器做得好有什麼問題？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "數學家在怕什麼？Grok-3 的暴力推理撞倒了象牙塔",
+  "description": "那些在黑板前磨蹭一輩子的數學家最近集體焦慮，甚至開始發布宣言警告 AI 正在侵蝕數學的本質。這事聽起來挺荒謬。一群研究純粹邏輯的人，竟然在擔心邏輯機器跑得太快？Hacker News 上那群搞技術的也沒給好臉色，直言數學如果是為了產出正確答案，那機器做得好有什麼問題？…",
+  "datePublished": "2026-06-05T05:48:00+08:00",
+  "dateModified": "2026-06-05T05:48:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260605-0548-365009/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-05 05:48
+  </div>
+
+  <h1 class="title">數學家在怕什麼？Grok-3 的暴力推理撞倒了象牙塔</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>那些在黑板前磨蹭一輩子的數學家最近集體焦慮，甚至開始發布宣言警告 AI 正在侵蝕數學的本質。這事聽起來挺荒謬。一群研究純粹邏輯的人，竟然在擔心邏輯機器跑得太快？Hacker News 上那群搞技術的也沒給好臉色，直言數學如果是為了產出正確答案，那機器做得好有什麼問題？問題在於，現在的 LLM 已經不再只是靠機率預測下一個 token，而是開始玩真的推理。</p>
+    <p>Grok-3 在上週的表現讓不少人閉嘴了。當 Elon Musk 瘋狂燒錢蓋那座由十萬片 H100 組成的 Colossus 叢集時，大家都在笑他只是在堆算力。結果 Grok-3 在數學基準測試上的成績，直接把這場「算力競賽」變成了「邏輯屠殺」。現在的痛點很明確：我們過去認為 LLM 只是在模仿人類說話的語氣，但 Grok 在處理高維度拓撲或數論問題時，展現出一種令人不安的「確定性」。這種確定性不是來自於背誦考古題，而是透過強化學習（RL）在推理路徑上進行自我修正。當一個模型可以反覆推敲自己的證明過程，直到邏輯無懈可擊時，數學家口中的「探索樂趣」在生產力面前顯得蒼白無力。</p>
+    <p>技術層面上，Grok 採用的推理架構與 ChatGPT 的 o1 系列走的是完全不同的路徑。o1 傾向於漫長的思維鏈（CoT），像個老學究一樣在後台碎碎念，最後給出一個完美的結果。Grok 則更像是個直覺敏銳的瘋子，它在處理矩陣運算與符號邏輯時，對 Token 的利用率高得嚇人。這涉及到底層對話模板與推理引導的差異。當你在 Grok 介面輸入一個複雜的偏微分方程，它不是在試圖「理解」物理含義，而是在高維向量空間中快速檢索最穩定的邏輯結構。這種暴力美學讓 Gemini 顯得有些束手束腳，後者在處理數學問題時，總想著要先給你科普一段背景知識，而不是直接把解題過程甩在你臉上。</p>
+    <p>說到這裡，DeepSeek 最近在數學推理上的動作也引起了不小的討論，但這不影響四大平台在算力規模上的統治地位。相較於 DeepSeek 的小步快跑，Grok-3 的邏輯密度顯然是為了應對更極端的科研場景。Claude 在這方面則表現得像個優雅的翻譯官，它能把艱澀的數學證明寫得像散文一樣好讀，但在處理那種需要數萬步推理的猜想時，Claude 的注意力機制（Attention Mechanism）衰減速度比 Grok 明顯得多。這就是現狀：你要麼選擇 Claude 的易讀性，要麼選擇 Grok 那種不講道理的暴力推導。</p>
+    <p>現在大學裡那些拿著政府資助的數學研究員，擔心的是 AI 會讓數學變成一種「黑盒」。如果你按下一顆按鈕就能得到黎曼猜想的證明，但過程長達幾百萬行，人類大腦根本無法驗證，那這還算不算人類的知識？這種對「知識主權」的恐懼，其實反映了 LLM 在數學領域的進步已經超出了人類的解釋能力。當初計算機（Computer）曾是一個職業，後來變成了桌上的機器，現在則變成了虛擬的邏輯引擎。</p>
+    <p>未來五年，頂級大學可能會像爭奪超級電腦使用權一樣，去爭奪 Grok 或 GPT 高階版本的 API 調用額度。數學研究將會兩極化：一端是負擔不起算力、只能繼續用粉筆在黑板上自嗨的傳統派，另一端則是利用 AI 進行大規模猜想驗證的「新數學家」。如果 Grok 真的在不久後證出了一個懸而未決的千禧年大獎難題，而我們卻看不懂它的證明過程，那時候數學家發布的宣言還有人在乎嗎？還是說，我們其實根本不在乎過程，只要那個「正確答案」就夠了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.science.org/content/article/mathematicians-issue-warning-ai-rapidly-gains-ground" rel="nofollow noopener" target="_blank">Mathematicians issue warning as AI rapidly gains ground</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260605-0548-365009/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

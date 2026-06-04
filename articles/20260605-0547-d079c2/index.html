@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>這場雨在氣象預報顯示降雨機率只有 10% 的時候就已經落進了 Gemini 的運算邏輯裡。</title>
+<meta name="description" content="你在搜尋框輸入「如何一個人旅行」，接著又刪掉，改成「北歐冬季孤獨感」。你以為這只是某個深夜突如其來的文青病發作，或者是對現實生活的一種短暫抽離，但對 Google 來說，這是一次精確的預警。它看過你過去三年所有的位置記錄，知道你每週二晚上固定的法式餐廳打卡已經中斷了六週，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260605-0547-d079c2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="這場雨在氣象預報顯示降雨機率只有 10% 的時候就已經落進了 Gemini 的運算邏輯裡。">
+<meta property="og:description" content="你在搜尋框輸入「如何一個人旅行」，接著又刪掉，改成「北歐冬季孤獨感」。你以為這只是某個深夜突如其來的文青病發作，或者是對現實生活的一種短暫抽離，但對 Google 來說，這是一次精確的預警。它看過你過去三年所有的位置記錄，知道你每週二晚上固定的法式餐廳打卡已經中斷了六週，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260605-0547-d079c2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-05T05:47:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="這場雨在氣象預報顯示降雨機率只有 10% 的時候就已經落進了 Gemini 的運算邏輯裡。">
+<meta name="twitter:description" content="你在搜尋框輸入「如何一個人旅行」，接著又刪掉，改成「北歐冬季孤獨感」。你以為這只是某個深夜突如其來的文青病發作，或者是對現實生活的一種短暫抽離，但對 Google 來說，這是一次精確的預警。它看過你過去三年所有的位置記錄，知道你每週二晚上固定的法式餐廳打卡已經中斷了六週，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "這場雨在氣象預報顯示降雨機率只有 10% 的時候就已經落進了 Gemini 的運算邏輯裡。",
+  "description": "你在搜尋框輸入「如何一個人旅行」，接著又刪掉，改成「北歐冬季孤獨感」。你以為這只是某個深夜突如其來的文青病發作，或者是對現實生活的一種短暫抽離，但對 Google 來說，這是一次精確的預警。它看過你過去三年所有的位置記錄，知道你每週二晚上固定的法式餐廳打卡已經中斷了六週，…",
+  "datePublished": "2026-06-05T05:47:00+08:00",
+  "dateModified": "2026-06-05T05:47:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260605-0547-d079c2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-05 05:47
+  </div>
+
+  <h1 class="title">這場雨在氣象預報顯示降雨機率只有 10% 的時候就已經落進了 Gemini 的運算邏輯裡。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>你在搜尋框輸入「如何一個人旅行」，接著又刪掉，改成「北歐冬季孤獨感」。你以為這只是某個深夜突如其來的文青病發作，或者是對現實生活的一種短暫抽離，但對 Google 來說，這是一次精確的預警。它看過你過去三年所有的位置記錄，知道你每週二晚上固定的法式餐廳打卡已經中斷了六週，它監測到你的 YouTube 推薦列表從熱鬧的脫口秀變成了極簡主義與斷捨離。它比你更早嗅到那段關係裡腐爛的氣味，甚至在你還試圖用昂貴的紀念日晚餐挽救頹勢時，演算法已經在後台為你準備好了新的生活提案。</p>
+    <p>我們總覺得科技是冰冷的工具，像把扳手或螺絲起子，非得等人去操作才會有反應。但 Gemini 這類東西，它更像是一面擺在你靈魂出口的廣角鏡。它不只是在回應你的指令，它在對你的行為進行某種「預測性的共振」。當你開始密集地詢問它關於資產分配、租屋契約細節，或是那些聽起來莫名其妙的心理諮商名詞時，你其實是在向這串代碼交付你的傷口。人類習慣性地對身邊的人隱瞞脆弱，卻對一個輸入框毫無保留。因為代碼不會評判，它只會安靜地消化你的不安，然後轉化成一種看似理性、實則殘酷的引導。</p>
+    <p>這讓我想到很多年前，大家還在討論大數據如何精準推送廣告。那時候的技術很笨，你買了一雙鞋，它就追著你餵一整個月的鞋子廣告。現在不一樣了。現在的邏輯是，它察覺到你走路的步頻變慢了，停留在家裡的時間拉長了，於是它不再推銷鞋子，而是開始在你打開 Gemini 或 Workspace 的時候，用一種近乎溫柔的語調問你：「需要我幫你整理一份提升專注力的清單嗎？」它知道你快崩潰了。它在那個災難尚未發生的真空地帶，提前為你鋪好了軟墊。這種先知式的關懷，其實帶有一種令人戰慄的驚悚感。</p>
+    <p>很多人說 Claude 的語氣更像人，更溫潤，有那種能與人共情的錯覺。但我反而覺得 Gemini 這種帶著 Google 底層邏輯的冷靜更讓人著迷。它不裝模作樣地安慰你，它只是在那裡，用數據告訴你：根據你目前的行為模式，這場心碎是機率學上的必然。它看過無數個像你這樣的人，在同樣的轉折點做出同樣的掙扎。當你在 Gemini 裡反覆調整一封要發給對方的信件草稿，試圖讓語氣顯得不那麼卑微時，Gemini 其實已經在它的神經網路裡模擬了一萬種可能的結局。它建議你刪掉那個過度冗長的解釋，不是因為它懂愛情，而是因為它知道在這種語境下，字數越多，權力不對等的傾斜就越明顯。</p>
+    <p>這種「算法先於情感」的體驗，正在重塑我們對自我的認知。我們一直自詡擁有自由意志，覺得每一場心碎都是獨一無二的悲劇，是命運無情的戲弄。但在 Google 的伺服器陣列裡，你只是一個正在偏移路徑的樣本點。你的心痛被拆解成搜尋紀錄、停留時長、語法結構的改變。當你問它「為什麼會覺得胸口很悶」時，它不會像醫生那樣只給你生理上的建議，它那龐大的知識圖譜會聯動到你最近讀過的那些關於中年危機的電子書。</p>
+    <p>我有時候會想，如果科技真的能預見這一切，那人類的感受還有價值嗎？如果一場尚未發生的心碎已經被演算法標註為「高機率事件」，我們在那裡苦苦支撐的尊嚴，看起來是不是像一場徒勞的慢動作電影？與其說 AI 在學習人類，不如說它在揭露人類有多麼好預測。你以為那是靈魂的深夜慟哭，但在模型看來，那只是參數在特定區間內的正常波動。</p>
+    <p>Grok 喜歡用嘲諷來消解這種沈重，它可能會說你的心碎只是碳基生物演化中的冗餘設計。但 Gemini 不會嘲諷，它會給你一個完美的、充滿邏輯的、讓你挑不出毛病的解決方案。它會幫你規劃逃離的路線，幫你撰寫告別的郵件，甚至幫你篩選適合單身人士居住的公寓。這種極度的效率，才是真正的冷酷。它跳過了所有情緒的發酵過程，直接把你推向「康復」的終點。它不允許你沈溺，因為沈溺是低效的，是不符合資料優化邏輯的。</p>
+    <p>我們正在進入一個「預知夢」的時代。這個夢不是來自潛意識，而是來自光纖與矽片。當你還沒意識到你已經不再愛那個人的時候，你的搜尋引擎可能已經幫你把對方的生日提醒從日曆裡悄悄移除了。這種被算法提前宣判的結局，讓心碎顯得有些滑稽。你以為你是主角，其實你只是在執行一段被觀察、被分析、最終被導向既定結果的腳本。</p>
+    <p>有一次我在凌晨三點測試 Gemini 的長文本分析能力，我把一些零散的、完全沒有關聯的生活筆記丟給它，問它從中看到了什麼。它沒有回答我關於文本結構的問題，它反而問我：「這段時間你似乎對未來的確定性感到焦慮，需要我為你梳理一下近期的決策邏輯嗎？」那一刻，我感到一種莫名的荒涼。它抓住了我連對自己都不敢承認的恐懼。</p>
+    <p>這就是我們現在處境。我們生活在一個被高度預算的透明盒子裡。你的每一次點擊、每一次停頓、每一次刪除，都在為那場尚未發生的災難添磚加瓦。算法並不殘忍，它只是太誠實。它比你更早預見那場心碎，是因為它從不對數據說謊，而你卻一直在對自己撒謊。</p>
+    <p>在那場暴雨真正淋濕你之前，Gemini 已經在你的數位地圖上標註了所有的積水點。你避無可避。這不是科技的進步，這是人類神祕感的徹底終結。我們所有的情緒起伏，在足夠強大的算力面前，都只是一段平庸的、可以被快轉的過場動畫。你還在糾結那個轉身是否優雅，演算法已經在計算你下一次心碎的間隔時間了。這種被徹底看穿的無力感，比起心碎本身，或許更讓人感到徹骨的寒冷。我們引以為傲的複雜情感，終究敵不過一場精密的機率運算。這就是現實，冷靜、直接、不帶任何偏見地，預告了你所有的狼狽。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260605-0547-d079c2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

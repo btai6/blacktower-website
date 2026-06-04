@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 在多模態架構上的極簡主義實驗</title>
+<meta name="description" content="週末下午的陽光照在螢幕上，看著 Google 剛扔出來的 Gemma 2 12B 技術報告，那種感覺就像在看一場精心排練過的「拆牆」表演。大家習慣了在多模態模型裡看到一個沉重的 Vision Encoder，不管是 CLIP 還是 SigLIP，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260605-0546-c98999/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 在多模態架構上的極簡主義實驗">
+<meta property="og:description" content="週末下午的陽光照在螢幕上，看著 Google 剛扔出來的 Gemma 2 12B 技術報告，那種感覺就像在看一場精心排練過的「拆牆」表演。大家習慣了在多模態模型裡看到一個沉重的 Vision Encoder，不管是 CLIP 還是 SigLIP，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260605-0546-c98999/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-05T05:46:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 在多模態架構上的極簡主義實驗">
+<meta name="twitter:description" content="週末下午的陽光照在螢幕上，看著 Google 剛扔出來的 Gemma 2 12B 技術報告，那種感覺就像在看一場精心排練過的「拆牆」表演。大家習慣了在多模態模型裡看到一個沉重的 Vision Encoder，不管是 CLIP 還是 SigLIP，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 在多模態架構上的極簡主義實驗",
+  "description": "週末下午的陽光照在螢幕上，看著 Google 剛扔出來的 Gemma 2 12B 技術報告，那種感覺就像在看一場精心排練過的「拆牆」表演。大家習慣了在多模態模型裡看到一個沉重的 Vision Encoder，不管是 CLIP 還是 SigLIP，…",
+  "datePublished": "2026-06-05T05:46:00+08:00",
+  "dateModified": "2026-06-05T05:46:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260605-0546-c98999/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-05 05:46
+  </div>
+
+  <h1 class="title">Google 在多模態架構上的極簡主義實驗</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>週末下午的陽光照在螢幕上，看著 Google 剛扔出來的 Gemma 2 12B 技術報告，那種感覺就像在看一場精心排練過的「拆牆」表演。大家習慣了在多模態模型裡看到一個沉重的 Vision Encoder，不管是 CLIP 還是 SigLIP，總得有個龐然大物在前面負責「看」東西，然後再把特徵餵給語言模型。但這次 Google 把牆拆了。他們用一個輕量級的嵌入模組，也就是幾層簡單的矩陣相乘、位置編碼和歸一化，就取代了傳統的視覺編碼器。這不是小修小補，這是在質疑過去幾年多模態發展的底層邏輯。</p>
+    <p>這種「Encoder-free」的結構，本質上是想讓模型更像人類的直覺。我們的大腦並不是先跑一個獨立的圖像識別程序，再把結果翻譯成文字交給邏輯中心處理。Google 嘗試讓模型直接在同一個空間裡消化視覺特徵。在 12B 這個並不大的參數規模下，這種做法其實很危險，一旦嵌入層處理得不夠細膩，模型就會變成一個「近視眼」，看得到輪廓卻理解不了細節。但從初步的測試來看，這種統一架構在處理視覺對話時的流暢度，反而比那些背著重型編碼器的模型更顯得輕盈。</p>
+    <p>當我們把目光轉向這四巨頭的現狀，會發現 Google 的策略變得越來越有意思。ChatGPT 的 GPT-4o 雖然也強調原生多模態，但在架構細節上始終像個黑盒。Claude 則是在長文本和邏輯一致性上死磕，視覺能力更像是它的附加屬性。Grok 雖然進度飛快，但目前看來還在追趕基礎架構的穩定性。Google 反而成了那個最像早期 Meta 的公司，不斷地把這些帶有實驗性質的權重往外扔。</p>
+    <p>這種開放並不是因為 Google 突然變得慷慨。在商業邏輯裡，當你無法在封閉生態裡絕對領先時，最好的做法就是定義標準。如果全世界的開發者都習慣了這種無編碼器的多模態處理方式，那麼 Gemini 在雲端服務上的優勢就會被無限放大。相比之下，近期同樣有動作的 DeepSeek 在架構選擇上走的是另一條路徑。Google 這種做法顯然更具挑釁性，它在告訴市場：多模態不需要那麼複雜。</p>
+    <p>不過，技術架構的優雅並不代表使用體驗的完美。在一些流出的演示影片裡，我們能看到一個很滑稽的現象。當測試者要求模型把內容整理成條列清單後，緊接著讓它寫一封郵件，模型會自動把剛剛辛苦整理好的條列內容又恢復成大段的文字。這種「過度理解」或說是「指令退化」，反映了模型在處理複雜上下文切換時的邏輯慣性。這不只是 Gemma 的問題，強如 GPT-4o 或是 Claude 在處理跨模態後的指令遵循時，偶爾也會顯得有些自作聰明。</p>
+    <p>有趣的是，當我們觀察 Qwen 在多模態任務上的表現時，會發現大家對於「如何讓模型看懂圖片」這件事依然存在嚴重的分歧。Google 執著於架構的統一與純粹，試圖證明單一矩陣運算就能承載視覺特徵的轉化；而其他競爭者則更傾向於堆疊更強大的視覺前端。這就引出了一個更深層的技術焦慮：我們現在追求的「原生多模態」，到底是指模型內部邏輯的統一，還是僅僅指訓練過程的同步？</p>
+    <p>如果這種無編碼器的路徑最終被證明是正確的，那麼過去幾年我們在專用視覺模型上投入的算力，是否都在走彎路？當我們不再需要一個強大的 Vision Encoder 作為翻譯官，語言模型對世界的感知會變得更真實，還是會因為失去了專業的視覺特徵提取而變得模糊？這種極簡主義的代價，最終會體現在哪種極端場景的失效上？或許在下一個版本的 Gemini 或是 GPT 迭代中，我們就能看到這個實驗的最終代價。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" rel="nofollow noopener" target="_blank">Gemma 4 12B: A unified, encoder-free multimodal model</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260605-0546-c98999/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
