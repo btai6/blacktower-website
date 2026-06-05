@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 訓練數據的數據手冊何時成了廢紙</title>
+<meta name="description" content="當工程師習慣性地翻開德州儀器那份塵封幾十年的 5532 規格書時，沒人想到現在買到的晶片早就不是當初那個東西。耐壓降了、轉換速率變了，連產品編號都懶得改，直接在舊瓶子裡裝新酒。這種事在硬體圈是災難，在 AI 領域則是家常便飯。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260606-0537-4b6ca3/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 訓練數據的數據手冊何時成了廢紙">
+<meta property="og:description" content="當工程師習慣性地翻開德州儀器那份塵封幾十年的 5532 規格書時，沒人想到現在買到的晶片早就不是當初那個東西。耐壓降了、轉換速率變了，連產品編號都懶得改，直接在舊瓶子裡裝新酒。這種事在硬體圈是災難，在 AI 領域則是家常便飯。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260606-0537-4b6ca3/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-06T05:37:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 訓練數據的數據手冊何時成了廢紙">
+<meta name="twitter:description" content="當工程師習慣性地翻開德州儀器那份塵封幾十年的 5532 規格書時，沒人想到現在買到的晶片早就不是當初那個東西。耐壓降了、轉換速率變了，連產品編號都懶得改，直接在舊瓶子裡裝新酒。這種事在硬體圈是災難，在 AI 領域則是家常便飯。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 訓練數據的數據手冊何時成了廢紙",
+  "description": "當工程師習慣性地翻開德州儀器那份塵封幾十年的 5532 規格書時，沒人想到現在買到的晶片早就不是當初那個東西。耐壓降了、轉換速率變了，連產品編號都懶得改，直接在舊瓶子裡裝新酒。這種事在硬體圈是災難，在 AI 領域則是家常便飯。…",
+  "datePublished": "2026-06-06T05:37:00+08:00",
+  "dateModified": "2026-06-06T05:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260606-0537-4b6ca3/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-06 05:37
+  </div>
+
+  <h1 class="title">AI 訓練數據的數據手冊何時成了廢紙</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>當工程師習慣性地翻開德州儀器那份塵封幾十年的 5532 規格書時，沒人想到現在買到的晶片早就不是當初那個東西。耐壓降了、轉換速率變了，連產品編號都懶得改，直接在舊瓶子裡裝新酒。這種事在硬體圈是災難，在 AI 領域則是家常便飯。我們每天餵給 Grok 或 GPT-4o 的數據，有多少是這種「掛羊頭賣狗肉」的過期貨？</p>
+    <p>很多人在使用 Grok 進行技術調研時，會發現它對某些電子元器件的參數描述出現嚴重偏差。這不是模型幻覺，而是底層訓練數據的崩潰。當 TI 試圖從網路抹除舊版數據手冊，或者在不更換型號的前提下偷偷修改底層規格，AI 的預訓練數據庫就變成了一個充滿地雷的垃圾場。Grok 的實時搜索能力原本是為了對抗這種滯後，但如果來源網站本身就在更新過期資訊，或者像 TI 那樣發送 DMCA 刪除存檔，實時搜索抓到的也只會是公關稿，而不是真相。</p>
+    <p>目前的四大 AI 平台在處理這種「參數漂移」時表現得極其掙脫。ChatGPT 在處理這類硬體規格問題時，傾向於給出一個最平庸、最保險的歷史平均值，它不會告訴你 2024 年產的 5532 跟 1990 年的有什麼不同。Claude 則顯得謹慎得多，如果你在提示詞裡加入對特定年份的質疑，它會開始翻找長文本上下文中的細微差異，但在缺乏明確標註的數據面前，它也只能遺憾地表示數據來源存在衝突。</p>
+    <p>這種數據斷層在實際的電路模擬任務中會直接導致炸機。你讓 Gemini 寫一個基於 5532 的音頻放大電路代碼，它給出的電源軌建議可能是正負 22V，因為它的訓練語料裡充斥著幾十年前的高耐壓版本數據。然而，現在市面上新出的晶片可能在 15V 就已經開始冒煙。AI 沒見過實物，它只相信那張被廠商偷偷改掉的 PDF。</p>
+    <p>相較於 DeepSeek 近期在代碼邏輯上的刷屏，xAI 在處理這類硬體現實問題時，更依賴於 X 平台上的技術討論來修正預訓練數據的偏差。當 Hacker News 或 X 上的硬體工程師開始集體吐槽 TI 的行為時，Grok 的權重分配機制會迫使它對「5532 規格變更」這個標籤產生警覺。這是一種動態修正，但也是一種極大的風險——如果討論區的聲音是錯的，模型也會跟著跑偏。Qwen 在處理中文語境下的元件替代建議時有其數據偏好，但回到全球通用的硬體標準，四大平台的競爭力依然集中在誰能更早發現數據手冊裡的謊言。</p>
+    <p>GPT-4o 試圖透過加強多模態理解來解決這個問題，比如讓你直接拍一張晶片絲印的照片。但問題在於，絲印沒變，外殼沒變，變的是內部的矽片製程。這種「軟性改版」對現有的所有大模型都是降維打擊。Gemini 雖然擁有極大的上下文窗口，能把幾千頁的元件目錄塞進去，但如果這幾千頁文檔從源頭上就是被廠商粉飾過的，窗口再大也只是在閱讀虛假的歷史。</p>
+    <p>我們現在面臨的是一個技術誠信體系的集體崩塌。廠商為了省錢或簡化供應鏈，隨意更改基礎零件的參數，而 AI 正在加速這種錯誤的擴散。當一個新手工程師問 Grok 如何設計電路，Grok 給了他一個基於舊數據的完美方案，最後導致產品在生產線上成批損壞，這個責任該由誰負？是寫錯數據手冊的 TI，還是沒能識別出數據已過期的 xAI？</p>
+    <p>如果未來的技術手冊不再是靜態的 PDF，而是變成了一種隨時可能被廠商遠程「靜默更新」的雲端文檔，我們還能指望 AI 給出精確的工程建議嗎？當現實世界的物理參數變得像軟體版本號一樣隨意變動，AI 究竟是在幫我們跨越知識鴻溝，還是在幫我們挖一個更深、更隱蔽的坑？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://groupdiy.com/threads/the-new-ti-5532-chips-are-not-5532s-weve-used-for-decades.93707/" rel="nofollow noopener" target="_blank">New Texas Instruments 5532 chips are not the 5532s we’ve used for decades</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260606-0537-4b6ca3/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

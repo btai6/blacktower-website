@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 正在試圖閹割掉 AI 的眼睛</title>
+<meta name="description" content="把一個龐大的 Vision Encoder 拆掉，換成一組輕量級的矩陣乘法和位置嵌入，這聽起來像是某種激進的技術瘦身手術。Google 在 Gemma 2 12B 的發布說明裡寫得雲淡風輕，彷彿拿掉編碼器只是為了讓模型跑得更快、更省資源。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260606-0533-e59da1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 正在試圖閹割掉 AI 的眼睛">
+<meta property="og:description" content="把一個龐大的 Vision Encoder 拆掉，換成一組輕量級的矩陣乘法和位置嵌入，這聽起來像是某種激進的技術瘦身手術。Google 在 Gemma 2 12B 的發布說明裡寫得雲淡風輕，彷彿拿掉編碼器只是為了讓模型跑得更快、更省資源。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260606-0533-e59da1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-06T05:33:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 正在試圖閹割掉 AI 的眼睛">
+<meta name="twitter:description" content="把一個龐大的 Vision Encoder 拆掉，換成一組輕量級的矩陣乘法和位置嵌入，這聽起來像是某種激進的技術瘦身手術。Google 在 Gemma 2 12B 的發布說明裡寫得雲淡風輕，彷彿拿掉編碼器只是為了讓模型跑得更快、更省資源。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 正在試圖閹割掉 AI 的眼睛",
+  "description": "把一個龐大的 Vision Encoder 拆掉，換成一組輕量級的矩陣乘法和位置嵌入，這聽起來像是某種激進的技術瘦身手術。Google 在 Gemma 2 12B 的發布說明裡寫得雲淡風輕，彷彿拿掉編碼器只是為了讓模型跑得更快、更省資源。…",
+  "datePublished": "2026-06-06T05:33:00+08:00",
+  "dateModified": "2026-06-06T05:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260606-0533-e59da1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-06 05:33
+  </div>
+
+  <h1 class="title">Google 正在試圖閹割掉 AI 的眼睛</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>把一個龐大的 Vision Encoder 拆掉，換成一組輕量級的矩陣乘法和位置嵌入，這聽起來像是某種激進的技術瘦身手術。Google 在 Gemma 2 12B 的發布說明裡寫得雲淡風輕，彷彿拿掉編碼器只是為了讓模型跑得更快、更省資源。但如果我們把這件事放進 Gemini 的大框架下看，這其實是 Google 對「多模態」這三個字發起的一次架構政變。</p>
+    <p>過去我們處理圖像，習慣先找個老師傅把照片看一遍，畫成重點，再把這些重點餵給語言模型。那個老師傅就是 Vision Encoder，通常是個臃腫的 CLIP 或是類似的預訓練模型。現在 Google 說不需要了，圖像像素直接轉成嵌入向量，跟文字排排坐。這種 Encoder-free 的架構，本質上是想讓模型「直視」像素，而不是透過一個中間人轉述。在 120 億參數這個級別，Google 這種做法顯得非常有野心，但也充滿了不穩定感。</p>
+    <p>技術圈的人都在看，這種極簡主義到底能不能撐起複雜的視覺推理。當我們在 Gemini 1.5 Pro 上看到那種驚人的長文本與多模態融合能力時，背後的邏輯與 Gemma 2 是一脈相承的。Google 追求的是一種真正的「統一感」，不希望視覺和文字在神經網絡裡有明顯的邊界。然而，這種做法在處理精細細節時往往會踢到鐵板。當你要求模型辨識一張複雜電路圖裡的微小電阻值，或者從一張合照裡數出後排到底有幾個人，失去專門編碼器的模型有時候會顯得像個深度近視眼，它能感覺到光影和氛圍，卻抓不住那一顆像素的關鍵。</p>
+    <p>這種架構選擇直接把壓力甩給了訓練數據。沒有了預訓練編碼器提供的視覺常識，Google 必須在訓練階段餵進去更多、更純淨的圖文對齊數據。這也是為什麼 Gemini 在很多時候表現得比 GPT-4o 更有「靈性」，但也更容易在一些基礎視覺任務上產生幻覺。</p>
+    <p>把視角拉到目前的市場競爭看，OpenAI 的 GPT-4o 依然在堅持某種程度上的混合架構，雖然他們對細節守口如瓶。Anthropic 的 Claude 3.5 Sonnet 則在視覺解析力上跑得更遠，它處理圖表和複雜掃描件的能力，很大程度上來自於它那套極其穩定的視覺前端處理機制。相較於 DeepSeek 近期在多模態領域的嘗試，Google 的這套 Encoder-free 方案更像是為了移動端和邊緣運算鋪路。</p>
+    <p>在實際測試中，我們發現這種架構在執行跨模態指令時，會出現一種奇妙的「認知位移」。就像有人在 Hacker News 上吐槽的那樣，你給它一段文字讓它轉成條列點，它照做了，但當你緊接著叫它把這些內容寫成郵件，它會自我主張地又把條列點還原成段落。這種行為模式反映出模型內部視覺特徵與文本權重的競爭。在 Gemma 2 這種體量上，這種競爭變得非常透明。與 Qwen 在多模態任務中的表現對照，Google 更傾向於犧牲掉一部分視覺的精確度，來換取推理邏輯的連貫性。</p>
+    <p>有趣的是，Google 釋出這種 Open Weights 模型，更像是在做一場大規模的 A/B 測試。他們想看開發者在這種去編碼器的架構上，能不能玩出比 GPT-4 插件系統更高效的花招。這反映了 Google 的商業焦慮：既然在封閉生態裡追得辛苦，不如直接改變底層架構的遊戲規則，讓大家習慣這種「像素即代幣」的運作方式。</p>
+    <p>但問題也隨之而來。如果我們未來的 AI 都不再擁有獨立的視覺理解模組，而是把一切都壓扁成一維的向量流，我們是不是正在失去捕捉真實世界細節的能力？那種被矩陣乘法簡化過的「視覺」，真的能支撐起我們對通用人工智慧的想像嗎？或者，這只是 Google 為了降低推理成本而包裝出來的一場技術美夢？當模型不再需要專門的眼睛，它是真的進化了，還是僅僅學會了如何在黑暗中摸索出正確的統計規律？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" rel="nofollow noopener" target="_blank">Gemma 4 12B: A unified, encoder-free multimodal model</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260606-0533-e59da1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
