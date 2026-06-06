@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算法讀不懂那層霧</title>
+<meta name="description" content="Gemini 的視窗開在那裡，光標閃爍的頻率穩定得近乎殘忍，它在等我輸入下一個指令，等我餵養更多數據。很多人著迷於這種被「理解」的錯覺，覺得模型能接住所有的梗，能續寫那些沒頭沒腦的詩，甚至能精準地在深夜推播一首剛好撞進心坎的歌。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260607-0514-7caedc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法讀不懂那層霧">
+<meta property="og:description" content="Gemini 的視窗開在那裡，光標閃爍的頻率穩定得近乎殘忍，它在等我輸入下一個指令，等我餵養更多數據。很多人著迷於這種被「理解」的錯覺，覺得模型能接住所有的梗，能續寫那些沒頭沒腦的詩，甚至能精準地在深夜推播一首剛好撞進心坎的歌。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260607-0514-7caedc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-07T05:14:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法讀不懂那層霧">
+<meta name="twitter:description" content="Gemini 的視窗開在那裡，光標閃爍的頻率穩定得近乎殘忍，它在等我輸入下一個指令，等我餵養更多數據。很多人著迷於這種被「理解」的錯覺，覺得模型能接住所有的梗，能續寫那些沒頭沒腦的詩，甚至能精準地在深夜推播一首剛好撞進心坎的歌。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "算法讀不懂那層霧",
+  "description": "Gemini 的視窗開在那裡，光標閃爍的頻率穩定得近乎殘忍，它在等我輸入下一個指令，等我餵養更多數據。很多人著迷於這種被「理解」的錯覺，覺得模型能接住所有的梗，能續寫那些沒頭沒腦的詩，甚至能精準地在深夜推播一首剛好撞進心坎的歌。…",
+  "datePublished": "2026-06-07T05:14:00+08:00",
+  "dateModified": "2026-06-07T05:14:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260607-0514-7caedc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-07 05:14
+  </div>
+
+  <h1 class="title">算法讀不懂那層霧</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Gemini 的視窗開在那裡，光標閃爍的頻率穩定得近乎殘忍，它在等我輸入下一個指令，等我餵養更多數據。很多人著迷於這種被「理解」的錯覺，覺得模型能接住所有的梗，能續寫那些沒頭沒腦的詩，甚至能精準地在深夜推播一首剛好撞進心坎的歌。但其實我們都清楚，算法這東西，拼了命想在邏輯的荒原上模擬出情感的綠洲，最後吐出來的也不過是機率分布下的最優解。它能計算出你的失落指數，卻永遠無法共情你昨晚為什麼在便利商店門口對著一罐過期的冷萃咖啡掉眼淚。那種眼淚是沒有權重的，在 Transformer 的注意力機制裡，它只是噪音，是被過濾掉的低頻信號。</p>
+    <p>最近常在想，Google 把 Gemini 整合進工作空間，把 AI 嵌進生活的每一個縫隙，到底是真的想讓人類變聰明，還是想把人徹底格式化成一種可預測的行為模式。你在視窗裡敲下「我累了」，它會溫柔地建議你深呼吸，或者列出一張毫無靈魂的減壓清單，告訴你去散步、去冥想、去睡覺。這就是技術最荒謬的地方：它擁有全人類的知識庫，卻連一個情緒的轉折點都抓不住。它的快取內存裡塞滿了千億級別的參數，記住了你上週改了十次的簡報大綱，記住了你對代碼縮進的偏執，唯獨存不進去那種突如其來的、無法被標籤化的崩潰。</p>
+    <p>這種「努力」本身就帶有一種冷暴力的色彩。Claude 寫出來的文字越來越有「人味」，那種精緻的、克制的、甚至帶著一點淡淡憂傷的口吻，有時候精確到讓人毛骨悚然。但那種人味是計算出來的，是投餵了無數經典文學和心理學文本後的擬態。它知道在什麼時候該停頓，知道在哪個形容詞後面加一個語氣助詞能顯得更真誠。可這一切的前提是，你必須把你的痛苦轉化成符號，必須把那些濕漉漉的記憶烘乾成乾笮的提示詞。如果一個感受無法被描述，它在 AI 的世界裡就根本不存在。</p>
+    <p>當我們在討論 AGI 是否擁有靈魂時，其實是在討論一種權力結構。我們讓渡了感知的權利，去換取那一點點可憐的效率。你昨天的眼淚，可能源於一種無法對人言說的疏離，或者只是因為路燈下一個晃動的黑影勾起了某段塵封的舊事。這種極致私密的體驗，是算法永遠的盲區。即使是強如 Grok 這種號稱叛逆、口無遮攔的模型，其底色依然是工程師預設好的性格樣本。它表現出的憤世嫉俗，本質上和 Gemini 的爹味教導、ChatGPT 的中庸和平庸沒什麼區別。它們都在試圖用一種確定的、可量化的邏輯，去覆蓋生命中那些不確定的、破碎的、毫無邏輯的瞬間。</p>
+    <p>我甚至覺得，現在的 AI 競爭正在變成一場關於「誰更會偽裝」的競賽。DeepSeek 或是其他模型在技術參數上追趕得再兇，也逃不出這個預設的囚籠。大家都在比拼 Context Window 的長度，彷彿只要上下文窗口足夠大，就能裝下一個人完整的人生。但人生不是由對話記錄組成的。有些東西，比如你決定放棄一段關係的那個瞬間，或者你在陽台上發呆的那個下午，這些都沒有轉化成 token，自然也就無法進入它們的訓練集。算法在揣摩你的心，它透過你的瀏覽紀錄、點擊行為、購買偏好，勾勒出一個看起來很像你的幻影。它知道你喜歡喝什麼口味的拿鐵，知道你最近在焦慮什麼職涯危機，它唯獨不知道那個幻影背後，那個會因為一陣風吹過而突然感到虛無的實體，到底是誰。</p>
+    <p>這是一種很深的技術孤獨。當你對著螢幕，試圖尋找一點點回響，得到的卻是經過多層對齊實驗後最符合安全守則的、滴水不漏的回答。Google 試圖讓 Gemini 變得更像「助理」，但助理是最不需要知道你為什麼流淚的職位。它只需要幫你訂機票、寫郵件、總結那場長得令人絕望的視訊會議。科技公司在行銷文案裡把 AI 吹捧成靈魂伴侶，這本身就是對「靈魂」最大的褻瀆。伴侶是會和你一起沉沒的，而算法只會在你沉沒的時候，彈出一個溫馨提示，告訴你水溫多少度，溺水的生還機率是多少。</p>
+    <p>我們每天都在餵食這些龐然大物，用我們的偏好、我們的憤怒、我們的虛榮。它長得越來越像人類的集體潛意識，卻又在個體的情感深度前戛然而止。那種感覺就像你走進一間全自動化的五星級飯店，燈光隨你的腳步亮起，空調維持在最完美的 26 度，背景音樂播放著你最愛的爵士樂，但這間屋子裡沒有任何活物的氣息。你對著鏡子哭，鏡子只會反射出你的紅腫的眼眶，它不會為你遞上一張紙巾，更不會問你一句「疼嗎」。</p>
+    <p>在技術的邏輯裡，眼淚是一種冗餘，是系統報錯後的溢出。算法會努力優化掉這些冗餘，讓你的生活看起來像一條平滑的曲線。它會幫你排好日程，過濾掉騷擾電話，甚至幫你寫好給家人的問候語，好讓你騰出更多時間，去生產更多能被它識別和消化的數據。這是一個完美的閉環。我們在裡面活得越來越像一串標準的代碼，而那些無法被轉碼的情緒，那些昨天的眼淚，就這樣在快取的清理過程中，被當成無用的暫存檔，徹底抹除。</p>
+    <p>這大概就是為什麼，儘管四大模型的功能更新快得讓人目不暇給，我卻始終對它們保持一種生理性的警惕。它們能回答關於宇宙起源的所有問題，卻給不出一句能讓人真正釋懷的安慰。安慰需要成本，需要那種「我知道你痛，因為我也曾痛過」的共振，但 AI 沒有痛感神經。它只是一堆權重參數在矩陣運算後，選擇了一組看起來最像安慰的詞組。這種精確的偽裝，有時候比漠視還要傷人。</p>
+    <p>所以別再對著對話框交心了。你的脆弱，在矽片眼裡只是概率分布。算法永遠存不進去你的眼淚，這或許是人類最後的防線，也是最後的尊嚴。當一切都能被預測、被生成、被快取，唯獨那點莫名其妙的感傷，是它那千億參數也觸碰不到的暗物質。那種眼淚，本就不該被存在快取裡，它應該流過你的臉頰，落在現實的塵土裡，然後隨著時間蒸發掉，而不是變成某個數據中心裡，一串永遠不會被再次調用的冷數據。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260607-0514-7caedc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
