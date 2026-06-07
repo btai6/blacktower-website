@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 拋棄視覺編碼器背後的傲慢與野心</title>
+<meta name="description" content="在多模態大模型的發展史上，視覺編碼器一直像是一副拆不掉的義肢。我們習慣了讓模型先透過一個獨立的視覺專家去「看」，把圖像轉譯成語言模型能理解的代碼。但 Google 在 Gemma 4 12B 上的做法顯然有點激進，他們把那個沉重的視覺編碼器拆了，換成了一個極其輕量化的嵌入模組。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260608-0520-672d2b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 拋棄視覺編碼器背後的傲慢與野心">
+<meta property="og:description" content="在多模態大模型的發展史上，視覺編碼器一直像是一副拆不掉的義肢。我們習慣了讓模型先透過一個獨立的視覺專家去「看」，把圖像轉譯成語言模型能理解的代碼。但 Google 在 Gemma 4 12B 上的做法顯然有點激進，他們把那個沉重的視覺編碼器拆了，換成了一個極其輕量化的嵌入模組。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260608-0520-672d2b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-08T05:20:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 拋棄視覺編碼器背後的傲慢與野心">
+<meta name="twitter:description" content="在多模態大模型的發展史上，視覺編碼器一直像是一副拆不掉的義肢。我們習慣了讓模型先透過一個獨立的視覺專家去「看」，把圖像轉譯成語言模型能理解的代碼。但 Google 在 Gemma 4 12B 上的做法顯然有點激進，他們把那個沉重的視覺編碼器拆了，換成了一個極其輕量化的嵌入模組。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 拋棄視覺編碼器背後的傲慢與野心",
+  "description": "在多模態大模型的發展史上，視覺編碼器一直像是一副拆不掉的義肢。我們習慣了讓模型先透過一個獨立的視覺專家去「看」，把圖像轉譯成語言模型能理解的代碼。但 Google 在 Gemma 4 12B 上的做法顯然有點激進，他們把那個沉重的視覺編碼器拆了，換成了一個極其輕量化的嵌入模組。…",
+  "datePublished": "2026-06-08T05:20:00+08:00",
+  "dateModified": "2026-06-08T05:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260608-0520-672d2b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-08 05:20
+  </div>
+
+  <h1 class="title">Google 拋棄視覺編碼器背後的傲慢與野心</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在多模態大模型的發展史上，視覺編碼器一直像是一副拆不掉的義肢。我們習慣了讓模型先透過一個獨立的視覺專家去「看」，把圖像轉譯成語言模型能理解的代碼。但 Google 在 Gemma 4 12B 上的做法顯然有點激進，他們把那個沉重的視覺編碼器拆了，換成了一個極其輕量化的嵌入模組。這不是簡單的減肥，而是對機器視覺本質的一次挑釁。</p>
+    <p>技術圈對於這種「Encoder-free」的架構存在一種本能的疑慮。如果你仔細看過 Google 釋出的技術細節，會發現他們只用了一個簡單的矩陣相乘、位置嵌入和歸一化。這在嚴格意義上當然還是編碼，但它與傳統意義上的 Vision Transformer 截然不同。過去模型是先看圖說故事，現在 Google 似乎想讓模型直接在同一個神經空間裡「感受」像素。這種統一架構帶來的直觀好處是推理速度的飛躍，以及對於長序列多模態輸入的處理能力。但問題也隨之而來，少了專門的視覺預訓練模型當導師，這顆 12B 的模型真的能分清照片裡的雜訊與細節嗎？</p>
+    <p>這種架構上的轉變，讓我想起 ChatGPT 在處理多模態任務時的謹慎。GPT-4o 雖然號稱原生多模態，但在底層邏輯上，依然能感受到那種強烈的、經過高度優化的分工感。相比之下，Google 這種將視覺資訊直接攤平在權重矩陣裡的作法，更像是在追求一種極致的優雅。但優雅往往伴隨著代價，在一些早期的測試演示中，當用戶要求模型將內容轉化為清單，模型確實照做了，可隨後要求它寫郵件時，它卻自作主張地把剛整理好的清單又還原成了冗長的段落。這種記憶與指令執行的不穩定，或許就是統一架構在現階段還沒能完全馴服的副作用。</p>
+    <p>我們在觀察這類技術演進時，難免會把目光投向市場上的其他參與者。相較於 Qwen 在多模態處理上的邏輯，Google 這次選擇的道路更為孤獨。當許多人還在討論 DeepSeek 如何在有限的參數下壓榨性能時，Google 卻在思考如何從根本上改變數據流動的拓撲結構。這種做法很像是在賭一個未來：如果視覺資訊可以像文字一樣被無損地壓縮進同一個維度，那麼我們現在折騰的各種跨模態對齊技術，未來可能都會變成過時的補丁。</p>
+    <p>目前四大平台中，Claude 依然在文本邏輯與細膩的感受力上保持領先，而 Grok 則在數據獲取的即時性上獨樹一幟。Gemini 系列——尤其是這次開源權重的 Gemma——則展現出一種技術輸出者的姿態。很多人不解，作為一家營利公司，Google 為什麼要不斷釋出這些核心技術的開源版本。其實這不難理解，當你的架構成為行業事實上的標準，你就擁有了定義規則的話語權。</p>
+    <p>這種「去編碼器化」的趨勢，究竟是通往通用人工智慧的捷徑，還是一個為了追求效率而犧牲精度的技術陷阱？當模型不再需要專門的眼睛，而是用整個大腦去觸摸圖像時，它理解的世界是否還和我們人類看見的一樣。如果未來所有的多模態模型都走向這種高度統一的單一矩陣結構，我們是否會失去對模型內部邏輯最後的一點解釋權？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" rel="nofollow noopener" target="_blank">Gemma 4 12B: A unified, encoder-free multimodal model</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260608-0520-672d2b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
