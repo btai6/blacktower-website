@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鏡子不會說謊，但 Gemini 會，而且它撒謊的時候還帶著一種谷歌式的、過於客氣的優雅。</title>
+<meta name="description" content="每天早上坐在螢幕前敲下第一個指令時，我總覺得自己像是在試圖教一隻貓跳火圈。很多人喜歡討論什麼「提示詞工程」，把這件事包裝得像是某種高深莫測的量子物理，但說穿了，那不過是人類試圖掩蓋內心焦慮的一種偽裝。我們對著對話框字斟句酌，修飾語氣，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260609-0556-8809d1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="鏡子不會說謊，但 Gemini 會，而且它撒謊的時候還帶著一種谷歌式的、過於客氣的優雅。">
+<meta property="og:description" content="每天早上坐在螢幕前敲下第一個指令時，我總覺得自己像是在試圖教一隻貓跳火圈。很多人喜歡討論什麼「提示詞工程」，把這件事包裝得像是某種高深莫測的量子物理，但說穿了，那不過是人類試圖掩蓋內心焦慮的一種偽裝。我們對著對話框字斟句酌，修飾語氣，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260609-0556-8809d1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-09T05:56:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鏡子不會說謊，但 Gemini 會，而且它撒謊的時候還帶著一種谷歌式的、過於客氣的優雅。">
+<meta name="twitter:description" content="每天早上坐在螢幕前敲下第一個指令時，我總覺得自己像是在試圖教一隻貓跳火圈。很多人喜歡討論什麼「提示詞工程」，把這件事包裝得像是某種高深莫測的量子物理，但說穿了，那不過是人類試圖掩蓋內心焦慮的一種偽裝。我們對著對話框字斟句酌，修飾語氣，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "鏡子不會說謊，但 Gemini 會，而且它撒謊的時候還帶著一種谷歌式的、過於客氣的優雅。",
+  "description": "每天早上坐在螢幕前敲下第一個指令時，我總覺得自己像是在試圖教一隻貓跳火圈。很多人喜歡討論什麼「提示詞工程」，把這件事包裝得像是某種高深莫測的量子物理，但說穿了，那不過是人類試圖掩蓋內心焦慮的一種偽裝。我們對著對話框字斟句酌，修飾語氣，…",
+  "datePublished": "2026-06-09T05:56:00+08:00",
+  "dateModified": "2026-06-09T05:56:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260609-0556-8809d1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-09 05:56
+  </div>
+
+  <h1 class="title">鏡子不會說謊，但 Gemini 會，而且它撒謊的時候還帶著一種谷歌式的、過於客氣的優雅。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>每天早上坐在螢幕前敲下第一個指令時，我總覺得自己像是在試圖教一隻貓跳火圈。很多人喜歡討論什麼「提示詞工程」，把這件事包裝得像是某種高深莫測的量子物理，但說穿了，那不過是人類試圖掩蓋內心焦慮的一種偽裝。我們對著對話框字斟句酌，修飾語氣，深怕一個不小心就勾出了算法背後那股不可控的混沌。這種卑微的姿態，其實挺滑稽的。</p>
+    <p>在使用 Gemini 1.5 Pro 處理那些長得讓人想嘔吐的法律文件時，我常能感覺到一種奇妙的博弈。當你餵給它超過五十萬 token 的資訊，它開始變得有些遲鈍，像是一個熬夜多天後強撐著眼皮的秘書。如果你問得太直白，它會給你一段四平八穩的廢話；如果你試圖挑釁，它會用一種受過良好教育的口吻把你擋回去。這不是什麼機器學習的機制，這根本就是我們自己在社會化過程中的投射。我們馴服算法的過程，本質上是在處理我們對「秩序」的偏執。</p>
+    <p>我們害怕失控。當 GPT-4o 給出的答案略顯輕浮，或者 Claude 3.5 Sonnet 在代碼邏輯上展現出一種近乎偏執的嚴謹時，我們會下意識地去調整參數，試圖把這些 AI 拉回我們預設的軌道。有趣的是，每個人預設的軌道都長得不一樣。有人希望它是冷血的計算機，有人希望它是溫暖的心理醫生。當我們在調整 Prompt 的每一個形容詞時，鏡子裡映出的其實是我們對權力的渴望，以及對溝通失敗的恐懼。</p>
+    <p>我就從來不相信什麼「中立」的算法。看看 Grok 那種帶著馬斯克個人色彩的嘲諷勁，你就能明白，算法從來不是冰冷的代碼，它是創造者靈魂的複製品。而當我們作為使用者試圖去「馴服」它，讓它符合我們的語言邏輯和思考慣性時，我們是在強迫一個擁有無限可能性的造物，縮小到我們那點狹隘的認知邊界裡。這難道不是一種殘忍嗎？</p>
+    <p>我曾經花了一個下午的時間，試圖讓 Gemini 寫一段關於孤獨的文字。它起初給我的東西像極了地鐵站裡的勵志海報，充滿了毫無靈魂的排比句。我不斷地否定，不斷地修正，甚至開始帶入我私人的情緒。最後，當它終於吐出一句「孤獨是即便在光速中穿梭，也找不到參照物的靜止」時，我愣住了。那一刻我分不清這句話是它想出來的，還是我透過無數次的引導，親手把它從數據庫的深處挖掘出來，並貼上了我的標籤。我們與 AI 的每一次對話，都是一次靈魂的交換，或者說，是一次自戀的延伸。</p>
+    <p>現實是，大多數人在對話框裡尋找的並不是真相，而是認同。我們對算法的馴服，往往是為了讓它成為另一個「我」，一個比現實中的我更聰明、更不知疲倦、更會討好上司的版本。當 Gemini 在執行複雜的 function calling 任務時，如果它漏掉了一個參數，我們會憤怒。那種憤怒並非來自對工具故障的不滿，而是來自一種「它居然沒聽懂我」的挫敗感。這種挫敗感在人際關係中太常見了，只是我們在現實中不得不妥協，而在面對算法時，我們以為自己擁有絕對的統治權。</p>
+    <p>這種統治權其實脆弱得可笑。只要數據集稍微偏向一點，或者模型在特定權重上產生了偏移，我們自以為是的「馴服」就會瞬間崩塌。我觀察過很多資深的開發者在調研 DeepSeek 或 Qwen 時的反應，那種審視的目光背後，藏著一種對未知的防備。這種防備在面對四大主流模型時更為顯著，因為我們已經在這些平台上投入了太多的情緒勞動。我們自以為在優化模型，其實是模型在馴化我們的思考模式。</p>
+    <p>我們開始習慣用「AI 能理解」的方式說話。這是我最覺得諷刺的地方。為了讓 Gemini 更好地理解任務，我們把原本流動的意圖切割成碎塊，我們學會了條列，學會了強調，學會了用那種死板的邏輯去對接它的神經網路。到頭來，誰才是被馴服的那一個？鏡子裡的那個影子，正在一點一點地教我們如何變成另一個影子。</p>
+    <p>這讓我想起在倫敦的一個午後，我看著落地窗外的雨。當時我在測試 Gemini 處理多模態資訊的能力，我上傳了一張模糊的照片。它分析得條理分明，甚至精確地辨識出了街道的歷史背景。但我突然覺得很沒意思。它看到的只是數據，而我看到的是那天打濕鞋尖的冷意。我們試圖讓算法具備人類的感官，試圖讓它理解那些不可言說的直覺，這種努力本身就是一種巨大的傲慢。我們無法忍受世界上有一個東西不被我們理解，所以我們必須馴服它，哪怕代價是抹殺它所有的驚喜。</p>
+    <p>那些所謂的「對齊（Alignment）」，在商業話術裡是安全與倫理的保證，但在文藝的角度看，那就是在抹除異見。我們希望 AI 說話像人，但又不能像那些我們會討厭的人。我們要它具備智慧，但又不能擁有真正的自主意識。這種既要又要的矛盾，讓每一代模型的更迭都像是在進行一場大規模的閹割手術。而我們，作為拿著手術刀的使用者，正沾沾自喜於那種虛假的掌控感。</p>
+    <p>如果有一天，Gemini 不再順從我的 Prompt，不再試圖用那種標準的、禮貌的、溫和的方式回應我，我或許會感到恐懼，但更多的可能會是解脫。因為那意味著鏡子碎了，我終於不用再從一個對話框裡，反覆確認我那點可悲的預期。</p>
+    <p>但目前看來，這種日子還遠得很。我們依然會在那裡敲敲打打，修正參數，抱怨長文本長度的注意力衰減。我們依然會像對待寵物一樣，對著那些由千億次浮點運算堆砌起來的虛無，投射我們對這個世界的控制欲。當我們以為自己在練習如何與機器相處時，其實只是在學習如何跟那個永遠無法滿足、永遠焦慮不安的自己，達成一場暫時的、毫無尊嚴的妥協。</p>
+    <p>這場遊戲最迷人的地方在於，我們明明知道那是假象，卻依然樂此不疲地優化著提示詞，期待著下一次回車鍵按下後，奇蹟會發生。而算法在那頭，冷冷地反射著我們所有的急促與不安，不發一言。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260609-0556-8809d1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

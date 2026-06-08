@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 捨棄視覺編碼器的豪賭</title>
+<meta name="description" content="當所有人還在習慣把 Vision Transformer (ViT) 當作多模態模型的標配時，Google 在 Gemma 2 12B 身上動的手腳確實讓人背脊發涼。他們把那個沈重的視覺編碼器拆了，換成一個輕量得不可思議的嵌入模組。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260609-0555-6a0aa7/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 捨棄視覺編碼器的豪賭">
+<meta property="og:description" content="當所有人還在習慣把 Vision Transformer (ViT) 當作多模態模型的標配時，Google 在 Gemma 2 12B 身上動的手腳確實讓人背脊發涼。他們把那個沈重的視覺編碼器拆了，換成一個輕量得不可思議的嵌入模組。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260609-0555-6a0aa7/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-09T05:55:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 捨棄視覺編碼器的豪賭">
+<meta name="twitter:description" content="當所有人還在習慣把 Vision Transformer (ViT) 當作多模態模型的標配時，Google 在 Gemma 2 12B 身上動的手腳確實讓人背脊發涼。他們把那個沈重的視覺編碼器拆了，換成一個輕量得不可思議的嵌入模組。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 捨棄視覺編碼器的豪賭",
+  "description": "當所有人還在習慣把 Vision Transformer (ViT) 當作多模態模型的標配時，Google 在 Gemma 2 12B 身上動的手腳確實讓人背脊發涼。他們把那個沈重的視覺編碼器拆了，換成一個輕量得不可思議的嵌入模組。…",
+  "datePublished": "2026-06-09T05:55:00+08:00",
+  "dateModified": "2026-06-09T05:55:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260609-0555-6a0aa7/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-09 05:55
+  </div>
+
+  <h1 class="title">Google 捨棄視覺編碼器的豪賭</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>當所有人還在習慣把 Vision Transformer (ViT) 當作多模態模型的標配時，Google 在 Gemma 2 12B 身上動的手腳確實讓人背脊發涼。他們把那個沈重的視覺編碼器拆了，換成一個輕量得不可思議的嵌入模組。這不是單純的瘦身，這是在挑戰過去幾年多模態架構的底層邏輯。如果你試著在本地設備上跑過那些掛著巨大 Encoder 的模型，你就會明白那種顯存被瞬間塞滿、推理延遲像在擠牙膏一樣的痛苦。Google 這次直接用一個矩陣乘法加上位置編碼就解決了問題，這種「Encoder-free」的設計，本質上是把視覺信號直接揉進了語言模型的邏輯空間裡，而不是讓兩個模型在那裡笨拙地傳紙條。</p>
+    <p>這種架構的激進之處在於，它強迫 LLM 本身去理解像素。以往我們認為語言模型只需要處理文字向量，視覺特徵由專門的老師教好後再餵給它，但現在 Google 讓 Gemma 直接去撞視覺原始數據。這對 12B 這種中等體量的模型來說風險極高，如果對齊做得不好，模型會陷入一種嚴重的認知混亂，就像是一個試圖通過觸覺來辨認顏色的盲人。但從初步的技術反饋來看，這種做法在 OCR 任務和圖表理解上展現出了驚人的效率。它不再需要等待編碼器處理完畢再進行跨模態交叉注意，整體的 Token 流動變得異常絲滑。</p>
+    <p>我們看 Gemini 的演進路線就能發現，Google 正在試圖建立一種極致的統一。這種統一不只是參數上的，而是數據流轉上的。在處理長視頻序列時，省掉編碼器的計算開銷意味著更高的幀率和更低的延遲。相比之下，ChatGPT 雖然在多模態交互上做得足夠早，但在架構的透明度與本地部署的友善度上，始終隔著一層紗。GPT-4o 雖然號稱原生多模態，但底層的編碼策略依然是其核心商業機密，開發者只能通過 API 去猜測它的視覺邊界。而 Google 選擇把這種架構直接開源在 Gemma 上，某種程度上是在定義下一代邊緣計算的標準。</p>
+    <p>在這種技術轉型期，市場的反應總是很有趣。相較於 DeepSeek V4 Pro 依然在傳統的高密度專家模型路徑上狂奔，Google 的做法更像是某種降維打擊。當人們還在討論如何優化 Transformer 的計算密度時，Gemma 已經在嘗試重塑多模態的輸入路徑。這種策略在某些特定市場可能會引起效仿，比如 Qwen 在處理中文視覺語境時的表現，但它們目前還很難在不依賴重型編碼器的情況下，達到這種級別的集成度。Claude 則走在另一條極端，Anthropic 對視覺輸入的處理顯得極其謹慎且「重」，它的長文本優勢在視覺任務中被轉化為一種精確但緩慢的掃描感。而 Google 顯然更想要速度，那種能直接跑在高端筆記型電腦上的、即時反應的視覺能力。</p>
+    <p>不過，技術的優雅並不總是能轉化為完美的產品體驗。有人在測試 Gemma 時發現了一個尷尬的細節：當你要求它將一段內容整理成列點，它照做了，但緊接著你讓它把這些內容寫成郵件，它會毫無預警地把剛整理好的列點全部打散，重新變回大段的敘述。這反映出一個很現實的問題，即使底層架構再創新，指令遵循的穩定性依然是這類開源中型模型的軟肋。它在理解「結構」與「意圖」的關聯上，還是比不上 ChatGPT 那種經過無數人工對齊打磨出來的圓滑。Grok 在這方面則表現得更有攻擊性，它不太會出現這種邏輯上的反覆，但也缺乏 Gemma 這種在視覺底層架構上的探索深度。</p>
+    <p>Google 為什麼要這麼做？作為一家追求利潤的公司，把這種領先的架構邏輯無償分享出來，確實不像傳統科技巨頭的作風。或許他們意識到，如果不能在本地部署的標準上贏過 Meta，那麼 Gemini 就算在雲端再強大，也只是另一個昂貴的 API 接口。當所有開發者都開始習慣用 Google 定義的這種 Encoder-free 架構來開發插件或應用時，Google 就變相掌控了 AI 時代的基礎設施。</p>
+    <p>我們是否正處於一個視覺編碼器即將消亡的節點？如果 12B 的模型能靠著簡單的嵌入模組就完成複雜的視覺任務，那麼那些動輒數億參數的視覺預訓練模型，還有存在的必要嗎？又或者，這種簡化是否會導致模型在處理極其細微的空間關係時，出現無法彌補的精度損失？我們在追求速度與效率的路上，是不是正不自覺地捨棄了一些對真實世界深度感知的細節？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" rel="nofollow noopener" target="_blank">Gemma 4 12B: A unified, encoder-free multimodal model</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260609-0555-6a0aa7/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
