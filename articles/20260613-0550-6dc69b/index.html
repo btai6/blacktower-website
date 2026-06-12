@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 餵不飽的結構化輸出與越滾越大的帳單</title>
+<meta name="description" content="當你試著在生產環境裡要求 GPT-4o 嚴格遵守一份 JSON Schema 時，那種感覺就像在教一隻過動的邊境牧羊犬走正步。牠很聰明，但牠總想在你的規格說明書之外多加兩行註解，或者自作主張地把整數型態改成字串，只因為牠覺得這樣「更人性化」。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260613-0550-6dc69b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 餵不飽的結構化輸出與越滾越大的帳單">
+<meta property="og:description" content="當你試著在生產環境裡要求 GPT-4o 嚴格遵守一份 JSON Schema 時，那種感覺就像在教一隻過動的邊境牧羊犬走正步。牠很聰明，但牠總想在你的規格說明書之外多加兩行註解，或者自作主張地把整數型態改成字串，只因為牠覺得這樣「更人性化」。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260613-0550-6dc69b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-13T05:50:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 餵不飽的結構化輸出與越滾越大的帳單">
+<meta name="twitter:description" content="當你試著在生產環境裡要求 GPT-4o 嚴格遵守一份 JSON Schema 時，那種感覺就像在教一隻過動的邊境牧羊犬走正步。牠很聰明，但牠總想在你的規格說明書之外多加兩行註解，或者自作主張地把整數型態改成字串，只因為牠覺得這樣「更人性化」。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 餵不飽的結構化輸出與越滾越大的帳單",
+  "description": "當你試著在生產環境裡要求 GPT-4o 嚴格遵守一份 JSON Schema 時，那種感覺就像在教一隻過動的邊境牧羊犬走正步。牠很聰明，但牠總想在你的規格說明書之外多加兩行註解，或者自作主張地把整數型態改成字串，只因為牠覺得這樣「更人性化」。…",
+  "datePublished": "2026-06-13T05:50:00+08:00",
+  "dateModified": "2026-06-13T05:50:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260613-0550-6dc69b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-06-13 05:50
+  </div>
+
+  <h1 class="title">OpenAI 餵不飽的結構化輸出與越滾越大的帳單</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當你試著在生產環境裡要求 GPT-4o 嚴格遵守一份 JSON Schema 時，那種感覺就像在教一隻過動的邊境牧羊犬走正步。牠很聰明，但牠總想在你的規格說明書之外多加兩行註解，或者自作主張地把整數型態改成字串，只因為牠覺得這樣「更人性化」。最近在 Hacker News 上的爭論點出了一個讓人難堪的現實：當我們討論模型的「強大」時，往往忽略了那種穩定到近乎乏味的精準度，才是開發者深夜不崩潰的唯一保障。</p>
+    <p>這種結構化輸出的崩潰現象在長文本任務中尤為明顯。當你把超過一萬 token 的原始數據丟進去，要求模型提取特定的漏洞特徵時，GPT-4o 偶爾會表現出一種莫名的「創造力」。牠會開始添加不存在的欄位，或者在巢狀結構中迷失方向。這不是因為參數不夠多，而是 OpenAI 在對齊人類偏好的過程中，似乎把模型教得太過於多話，以至於牠很難保持沉默地、死板地執行機器指令。</p>
+    <p>更有趣的是成本問題。在某些自動化掃描的基準測試中，開發者發現調用 GPT-4o 的成本幾乎是呈指數級上升。這不單純是單價的問題，而是當模型開始自我膨脹、反覆修正錯誤、或者因為無法精確遵循 Schema 而導致調用失敗需要重試時，那些隱形成本正在蠶食企業的預算。有些用戶發現，跑完同樣一套掃描流程，OpenAI 的方案能燒掉一百美金，而有些新興選擇卻只需要微不足道的支出。這種成本結構的斷層，讓所謂的「性能領先」顯得有些諷刺。</p>
+    <p>如果我們拿 Claude 3.5 Sonnet 來做對比，會發現 Anthropic 在這方面走了一條完全不同的路。Claude 在處理 Code Generation 和結構化提取時，顯然比 GPT-4o 更懂得什麼叫「閉嘴」。牠的 API 行為預測性更高，在長 Context 窗口下的注意力分配也更均勻。相較於 DeepSeek V4 Pro，Claude 在處理複雜邏輯推理時的穩定性依然是業界的標竿。但即便如此，Claude 也面臨著 Token 限制與價格階梯的挑戰。許多重度用戶在切換到 Claude Code 後，很快就會撞上那堵每週配額的牆，這種體驗就像是開著法拉利卻被限制每小時只能跑十公里。</p>
+    <p>Gemini 1.5 Pro 則是另一個極端。Google 靠著那驚人的百萬級上下文窗口試圖解決所有問題，但在實際操作中，Gemini 的 Function Calling 穩定性卻像是在抽獎。當你的工具清單超過二十個，Gemini 往往會陷入一種認知混亂，開始胡亂調用參數。這就引出了一個尷尬的對比：如果一個模型號稱能讀完一整座圖書館，卻連一個簡單的 API 規格都寫不對，那這種廣度究竟有什麼意義？</p>
+    <p>在目前的市場格局中，Grok 則像是一個不按牌理出牌的變數。雖然馬斯克宣稱 Grok 在各項指標上都緊追不捨，但在真實的開發場景下，Grok 的推理邏輯往往帶有一種過度的侵略性，這在處理非結構化對話時或許很有趣，但在需要極度嚴謹的技術審計場景中，它更像是一個隨時可能引戰的網友，而不是一個稱職的助手。</p>
+    <p>這讓我們不得不思考一個問題：我們是否正處於一個「模型通脹」的時代？廠商們忙著堆砌參數，忙著在跑分榜上爭奪那零點幾個百分點的領先，卻連最基礎的「按圖索驥」都做不到百分之百的可靠。當開發者需要為了避開 OpenAI 的高昂帳單而被迫頻繁更換後端時，這種技術溢價究竟還能維持多久？</p>
+    <p>現在的情況是，大家都在談論 AGI，但當你真的要把這些模型塞進 CI/CD 流水線時，你最在意的其實不是牠會不會寫詩，而是牠能不能在不超支預算的前提下，準確無誤地傳回那個該死的 JSON 閉合括號。如果領先者的代價是讓開發者變成「提示詞清潔工」，每天忙著處理模型噴出來的垃圾字元，那麼這種領先，到底是誰的勝利？</p>
+    <p>我們真的需要一個能感同身受、會說俏皮話的 AI 嗎？還是我們只是需要一個更便宜、更聽話、不會隨便改我 Data Type 的高級編譯器？當這種「昂貴的聰明」變成了一種負擔，下一個掉隊的會是誰？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision" rel="nofollow noopener" target="_blank">DeepSeek V4 Pro beats GPT-5.5 Pro on precision</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260613-0550-6dc69b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
