@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亞馬遜背刺 Anthropic 的這齣戲我看不太懂</title>
+<meta name="description" content="亞馬遜的研究人員最近拿著一堆指令去測試 Anthropic 的模型，說是為了證明這些模型能幫忙發動網路攻擊，還把結果捅到了美國政府官員那裡。這件事聽起來極其荒謬。亞馬遜可是 Anthropic 的大股東，自己家後院著火了，不但不幫忙滅火，還順手潑了一桶汽油。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260614-0525-8ebb6b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="亞馬遜背刺 Anthropic 的這齣戲我看不太懂">
+<meta property="og:description" content="亞馬遜的研究人員最近拿著一堆指令去測試 Anthropic 的模型，說是為了證明這些模型能幫忙發動網路攻擊，還把結果捅到了美國政府官員那裡。這件事聽起來極其荒謬。亞馬遜可是 Anthropic 的大股東，自己家後院著火了，不但不幫忙滅火，還順手潑了一桶汽油。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260614-0525-8ebb6b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-14T05:25:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="亞馬遜背刺 Anthropic 的這齣戲我看不太懂">
+<meta name="twitter:description" content="亞馬遜的研究人員最近拿著一堆指令去測試 Anthropic 的模型，說是為了證明這些模型能幫忙發動網路攻擊，還把結果捅到了美國政府官員那裡。這件事聽起來極其荒謬。亞馬遜可是 Anthropic 的大股東，自己家後院著火了，不但不幫忙滅火，還順手潑了一桶汽油。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "亞馬遜背刺 Anthropic 的這齣戲我看不太懂",
+  "description": "亞馬遜的研究人員最近拿著一堆指令去測試 Anthropic 的模型，說是為了證明這些模型能幫忙發動網路攻擊，還把結果捅到了美國政府官員那裡。這件事聽起來極其荒謬。亞馬遜可是 Anthropic 的大股東，自己家後院著火了，不但不幫忙滅火，還順手潑了一桶汽油。…",
+  "datePublished": "2026-06-14T05:25:00+08:00",
+  "dateModified": "2026-06-14T05:25:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260614-0525-8ebb6b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-14 05:25
+  </div>
+
+  <h1 class="title">亞馬遜背刺 Anthropic 的這齣戲我看不太懂</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>亞馬遜的研究人員最近拿著一堆指令去測試 Anthropic 的模型，說是為了證明這些模型能幫忙發動網路攻擊，還把結果捅到了美國政府官員那裡。這件事聽起來極其荒謬。亞馬遜可是 Anthropic 的大股東，自己家後院著火了，不但不幫忙滅火，還順手潑了一桶汽油。這種「大義滅親」的行為在技術圈內引起了不小的騷動，尤其是針對所謂的 Fable 5 模型在處理攻擊性指令時的表現。如果這不是為了爭奪技術主導權的惡意舉報，那就是亞馬遜內部的 AI 安全團隊已經對這種不可控的生成能力感到恐懼。</p>
+    <p>這類針對網路攻擊能力的紅隊測試，本來是各大模型實驗室的家常便飯。但在 Anthropic 的案例中，事情變得有些微妙。這家公司向來以「AI 安全」和「憲法 AI」自居，結果卻被自家的投資人抓到了把柄。技術上來說，這反映了 Claude 在對抗性攻擊防禦上的某種脆弱性。當你試圖讓模型變得更聰明、更具邏輯推理能力時，它不可避免地會學會如何繞過那些生硬的道德護欄。如果你要求 Claude 寫一段惡意代碼，它會拒絕；但如果你把它包裝成一個「為了防禦目的而進行的漏洞修補模擬」，它可能就會乖乖就範。</p>
+    <p>這不只是 Anthropic 的問題，ChatGPT 在這方面也沒好到哪裡去。OpenAI 一直在強化的 RLHF 機制，雖然在語氣上讓 ChatGPT 變得溫和，但在處理複雜的邏輯陷阱時，依然會出現注意力漂移的問題。與之相對的是 Grok，馬斯克的這台機器從一開始就標榜「不設防」或「少設防」，這種直白反而減少了模型內部的邏輯衝突。當 Claude 忙著在內心掙扎「這句話會不會違反安全準則」的時候，Grok 已經直接給出了結果。這種處理邏輯的差異，直接決定了模型在面對高難度、邊緣化任務時的穩定性。</p>
+    <p>有趣的是，這週大家都在討論 DeepSeek V4 Pro 的新動態。相較於 DeepSeek V4 Pro，xAI 的做法顯然更偏向於一種「技術透明」的極端，他們不屑於在模型外層包裹厚厚的安全濾網，而是依賴基礎架構的強韌。而 Gemini 則走到了另一個極端，Google 對安全性的偏執幾乎到了病態的地步，這導致 Gemini 在執行某些稍微帶點灰色地帶的技術分析任務時，經常會莫名其妙地觸發報警，然後給你一個牛頭不對馬嘴的罐頭回覆。這種過度干預，本質上是對模型推理能力的一種閹割。</p>
+    <p>亞馬遜這次的動作，很可能預示著 AI 領域的「內捲」已經進入了政治檢舉的階段。當模型之間的參數競爭、長文本處理能力競爭進入瓶頸期後，安全性就成了一個最方便攻擊對手的武器。相較於 DeepSeek V4 Pro 在特定語境下的表現，ChatGPT 目前在處理這類企業級安全威脅時，採取的是一種更為隱蔽的動態過濾機制。它不會像 Claude 那樣死板地拒絕，而是會試圖淡化敏感信息。這種策略更聰明，但也更難以被監管機構捉住把柄。</p>
+    <p>這場鬧劇背後隱藏著一個讓人不安的事實：我們對於什麼是「危險的 AI 輸出」依然沒有共識。如果亞馬遜能用幾句指令就讓 Anthropic 的模型「破功」，那說明所謂的憲法 AI 在面對專業級的惡意誘導時，防線可能比紙還薄。這到底是 Anthropic 的模型架構本身就存在難以修補的邏輯漏洞，還是亞馬遜在利用自己的技術優勢，刻意製造一場針對合作夥伴的政治獵巫？</p>
+    <p>如果連最親密的資本盟友都開始利用技術細節來互相撕咬，那這個行業的信任基礎還剩下什麼？當我們在討論模型效能、討論 token 成本、討論推理速度的時候，是不是漏掉了一個最核心的變量：如果你的模型因為太過「誠實」而成了政治包袱，它的技術價值還能折現多久？亞馬遜這次到底是為了公共安全，還是為了在即將到來的 AI 寒冬裡，先一步把競爭對手推進冰窖？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-officials-triggered-crackdown-on-anthropic-models-dcc90578?st=Yct6gx&amp;reflink=desktopwebshare_permalink" rel="nofollow noopener" target="_blank">Amazon CEO&#x27;s talks with U.S. officials triggered crackdown on Anthropic models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260614-0525-8ebb6b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
