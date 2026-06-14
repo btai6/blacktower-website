@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONAR：上傳即魔法的幻覺</title>
+<meta name="description" content="「直接丟給 ChatGPT 不就好了？」這句話正在成為技術圈最危險的簡化。Hacker News 本週對此展開的冷嘲熱諷，揭示了用戶對 OpenAI 文件處理能力的過度迷信。當我們討論 RAG 與長文本窗口時，多數人誤以為那是一個無所不能的黑盒。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260615-0523-f2e7f2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="SONAR：上傳即魔法的幻覺">
+<meta property="og:description" content="「直接丟給 ChatGPT 不就好了？」這句話正在成為技術圈最危險的簡化。Hacker News 本週對此展開的冷嘲熱諷，揭示了用戶對 OpenAI 文件處理能力的過度迷信。當我們討論 RAG 與長文本窗口時，多數人誤以為那是一個無所不能的黑盒。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260615-0523-f2e7f2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-15T05:23:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SONAR：上傳即魔法的幻覺">
+<meta name="twitter:description" content="「直接丟給 ChatGPT 不就好了？」這句話正在成為技術圈最危險的簡化。Hacker News 本週對此展開的冷嘲熱諷，揭示了用戶對 OpenAI 文件處理能力的過度迷信。當我們討論 RAG 與長文本窗口時，多數人誤以為那是一個無所不能的黑盒。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "SONAR：上傳即魔法的幻覺",
+  "description": "「直接丟給 ChatGPT 不就好了？」這句話正在成為技術圈最危險的簡化。Hacker News 本週對此展開的冷嘲熱諷，揭示了用戶對 OpenAI 文件處理能力的過度迷信。當我們討論 RAG 與長文本窗口時，多數人誤以為那是一個無所不能的黑盒。…",
+  "datePublished": "2026-06-15T05:23:00+08:00",
+  "dateModified": "2026-06-15T05:23:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260615-0523-f2e7f2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    SONAR<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-06-15 05:23
+  </div>
+
+  <h1 class="title">SONAR：上傳即魔法的幻覺</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>「直接丟給 ChatGPT 不就好了？」這句話正在成為技術圈最危險的簡化。Hacker News 本週對此展開的冷嘲熱諷，揭示了用戶對 OpenAI 文件處理能力的過度迷信。當我們討論 RAG 與長文本窗口時，多數人誤以為那是一個無所不能的黑盒。</p>
+    <p>事實上，ChatGPT 在處理超過五十頁的複雜 PDF 時，對於跨章節邏輯的關聯性依然表現得像個健忘的實習生。這不單是 Token 限制的問題，而是注意力機制在海量雜訊中的稀釋。相比之下，Claude 3.5 Sonnet 在處理結構化數據提取時的精準度明顯更勝一籌，而 Gemini 1.5 Pro 雖然擁有百萬級窗口，但在深層推理的穩定性上仍顯得有些力不從心。</p>
+    <p>這類「懶人式開發」的風氣甚至影響到了企業決策層。當 DeepSeek 在特定語境下被提及，或是各家模型試圖在長文本領域分一杯羹時，核心矛盾始終沒變：上傳文件不代表模型「理解」了業務邏輯。OpenAI 至今沒能解決對長文本細節的幻覺問題，這讓所謂的「上傳即解決」成了一場昂貴的心理安慰。</p>
+    <p>數據投餵進去了，但靈魂顯然還沒跟上。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260615-0523-f2e7f2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
