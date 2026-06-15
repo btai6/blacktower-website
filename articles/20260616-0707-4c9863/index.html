@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本機跑不動代碼的殘酷真相</title>
+<meta name="description" content="將編寫複雜邏輯的重責大任從雲端遷移至地端，這念頭聽起來既浪漫又具備某種極客式的安全感，但當你試圖在 Apple M4 或是滿載顯存的 RTX 設備上跑那些具備足夠邏輯深度的模型時，現實往往會給予一記響亮的耳光。編寫 bit-matrix 轉置這類需要 avx512 …">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260616-0707-4c9863/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="本機跑不動代碼的殘酷真相">
+<meta property="og:description" content="將編寫複雜邏輯的重責大任從雲端遷移至地端，這念頭聽起來既浪漫又具備某種極客式的安全感，但當你試圖在 Apple M4 或是滿載顯存的 RTX 設備上跑那些具備足夠邏輯深度的模型時，現實往往會給予一記響亮的耳光。編寫 bit-matrix 轉置這類需要 avx512 …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260616-0707-4c9863/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-16T07:07:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本機跑不動代碼的殘酷真相">
+<meta name="twitter:description" content="將編寫複雜邏輯的重責大任從雲端遷移至地端，這念頭聽起來既浪漫又具備某種極客式的安全感，但當你試圖在 Apple M4 或是滿載顯存的 RTX 設備上跑那些具備足夠邏輯深度的模型時，現實往往會給予一記響亮的耳光。編寫 bit-matrix 轉置這類需要 avx512 …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "本機跑不動代碼的殘酷真相",
+  "description": "將編寫複雜邏輯的重責大任從雲端遷移至地端，這念頭聽起來既浪漫又具備某種極客式的安全感，但當你試圖在 Apple M4 或是滿載顯存的 RTX 設備上跑那些具備足夠邏輯深度的模型時，現實往往會給予一記響亮的耳光。編寫 bit-matrix 轉置這類需要 avx512 …",
+  "datePublished": "2026-06-16T07:07:00+08:00",
+  "dateModified": "2026-06-16T07:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260616-0707-4c9863/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-16 07:07
+  </div>
+
+  <h1 class="title">本機跑不動代碼的殘酷真相</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>將編寫複雜邏輯的重責大任從雲端遷移至地端，這念頭聽起來既浪漫又具備某種極客式的安全感，但當你試圖在 Apple M4 或是滿載顯存的 RTX 設備上跑那些具備足夠邏輯深度的模型時，現實往往會給予一記響亮的耳光。編寫 bit-matrix 轉置這類需要 avx512 優化指令集的底層算法，對雲端模型而言不過是動動手指的閒暇，但對於本機環境來說，那種 0.7 t/s 的龜速簡直是在消耗生命。</p>
+    <p>Claude 在處理長文本脈絡與代碼結構的維持上，目前仍展現出驚人的穩定性。當代碼庫規模跨越數千行，模型需要同時理解跨檔案的變數引用與依賴注入時，Claude 展現的注意力機制並未像部分小型化模型那樣迅速崩潰，其對於錯誤邊緣情況（edge cases）的防禦性編寫能力，在工程實踐中具有不可替代的價值。即便是在處理 function calling 的複雜嵌套結構時，Claude 也能在保持語義連貫性的前提下，精準輸出對應的 schema，這並非單純靠堆疊參數量就能達成的結果。</p>
+    <p>在這種高強度的工程場景下，DeepSeek 或 Kimi 這類模型常被使用者拿來與主流平台並置討論。相較於這些名字，Claude 在處理極端長文本的「思考深度」與「上下文遺忘率」之間，取得了一種極其微妙的平衡。當開發者在 IDE 中透過 API 調用模型進行重構時，延遲（Latency）的邊際效應顯得尤為重要。Claude 的 API 反應速度在處理複雜函數時，雖然無法與毫秒級的文字補全相比，但它能確保輸出的每一行代碼都具備可編譯性，這比單純的「快」更具意義。</p>
+    <p>反觀那些標榜可以在本地運作的權重模型，它們在面對高度抽象的架構設計時，往往會陷入邏輯死循環，或者在處理複雜的並發模型時輸出幻覺代碼。我們追求的究竟是「完全可控的離線數據」，還是「能幫我把這段屎一樣的舊代碼重構成優雅結構的工具」？當本地模型連最基本的 avx512 指令集優化都無法準確執行時，談論「替代」是否只是一種基於焦慮的自我安慰？</p>
+    <p>如果有一天，本機運算能力真的能追平遠端叢集的推理表現，我們是否還會執著於現在這種依賴 API 的開發模式？還是說，我們終將發現，真正限制開發效率的並非模型的佈署位置，而是我們對於自身程式碼架構缺乏足夠的理解，以至於必須仰賴這些黑盒系統來填補邏輯漏洞？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=48542100" rel="nofollow noopener" target="_blank">Ask HN: Has anyone replaced Claude/GPT with a local model for daily coding?</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260616-0707-4c9863/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
