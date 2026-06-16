@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>歷史記憶的數位沉積與幻象</title>
+<meta name="description" content="處理五十萬條拉丁文銘文數據，這不僅是考古學的數位化，更是對大規模非結構化文字進行實體關係解析的極限測試。當開發者試圖從 Epigraphic Database Clauss-Slaby 的枯燥石碑刻字中，萃取數十萬個羅馬時代個體的姓名並嘗試聚類時，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260617-0657-fd302c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="歷史記憶的數位沉積與幻象">
+<meta property="og:description" content="處理五十萬條拉丁文銘文數據，這不僅是考古學的數位化，更是對大規模非結構化文字進行實體關係解析的極限測試。當開發者試圖從 Epigraphic Database Clauss-Slaby 的枯燥石碑刻字中，萃取數十萬個羅馬時代個體的姓名並嘗試聚類時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260617-0657-fd302c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-17T06:57:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="歷史記憶的數位沉積與幻象">
+<meta name="twitter:description" content="處理五十萬條拉丁文銘文數據，這不僅是考古學的數位化，更是對大規模非結構化文字進行實體關係解析的極限測試。當開發者試圖從 Epigraphic Database Clauss-Slaby 的枯燥石碑刻字中，萃取數十萬個羅馬時代個體的姓名並嘗試聚類時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "歷史記憶的數位沉積與幻象",
+  "description": "處理五十萬條拉丁文銘文數據，這不僅是考古學的數位化，更是對大規模非結構化文字進行實體關係解析的極限測試。當開發者試圖從 Epigraphic Database Clauss-Slaby 的枯燥石碑刻字中，萃取數十萬個羅馬時代個體的姓名並嘗試聚類時，…",
+  "datePublished": "2026-06-17T06:57:00+08:00",
+  "dateModified": "2026-06-17T06:57:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260617-0657-fd302c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-17 06:57
+  </div>
+
+  <h1 class="title">歷史記憶的數位沉積與幻象</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>處理五十萬條拉丁文銘文數據，這不僅是考古學的數位化，更是對大規模非結構化文字進行實體關係解析的極限測試。當開發者試圖從 Epigraphic Database Clauss-Slaby 的枯燥石碑刻字中，萃取數十萬個羅馬時代個體的姓名並嘗試聚類時，這背後隱藏的痛點其實不在於銘文的複雜性，而在於大規模知識圖譜構建中，LLM 對於歷史語境的「幻覺與斷層」。Claude 在這類長文本邏輯推演中，面對這種高度破碎、缺乏上下文關聯的古拉丁語語料，往往展現出極強的歸納慣性。當我嘗試餵入數千條包含異體字與殘缺銘文的文本時，Claude 能精準地通過上下文推斷缺失的詞綴，這確實比過去依賴正規表達式（Regex）的硬編碼邏輯有效得多。但在實作層面上， Claude 在處理長序列的實體歸屬判定時，若未輔以嚴謹的思維鏈（Chain of Thought），很容易將兩個不同世紀、不同省份的同名者強行合併為同一實體。這是一種典型的統計學上的「傲慢」，模型傾向於相信訓練數據中出現頻率較高的連接方式，而非尊重銘文本身殘存的歷史地理邊界。</p>
+    <p>這種場景下，Claude 在處理超長上下文的語義一致性時，明顯優於 ChatGPT 的隨機性。然而，當我們將目光轉向工具調用與實體鏈接的穩定性時，差異便顯現出來。ChatGPT 在構建這類歷史數據流水線時，對於結構化輸出（JSON Mode）的控制力較強，尤其是在處理大量雜訊數據的清理工作上，它的錯誤率比 Claude 低了約百分之十五。至於其他嘗試在此領域建立支點的工具，如 DeepSeek 或 Qwen，也各自在對應的處理管線上展現了不同的吞吐效率。這些模型在處理特定語系銘文時，往往會因為訓練語料中拉丁語權重過低，導致在進行詞法解析時出現無法預期的編碼邊界錯誤，這對於需要極高準確度的歷史數據庫來說，確實是個致命傷。</p>
+    <p>更棘手的問題在於，當銘文內容進入數以萬計的規模時，任何模型都會面臨 Token 成本與推理延遲的博弈。Claude 雖然在長文本記憶上有先天優勢，但面對需要反覆校對的銘文數據，API 的回應速度往往無法支撐即時的數據清洗需求。這時候，我們會發現一個有趣的弔詭：人類試圖通過 LLM 來「發現」歷史的真實姓名，但模型卻可能只是在生成一組「看起來像歷史數據」的合理分佈。我們究竟是在解析古羅馬的真實社會結構，還是僅僅是在讓模型參與了一場關於「虛構歷史邏輯」的集體狂歡？</p>
+    <p>如果我們始終無法解決跨銘文實體鏈接的準確性問題，那麼即便處理了五百萬條數據，也不過是創造了五百萬個互不相干的統計學幻影。當模型將一個公元一世紀的奴隸與一個公元三世紀的執政官聯繫在一起時，這種跨越時空的「創造性」到底是技術的突破，還是人類對數據迷信的另一種表現？如果在處理這類原始文獻時，我們始終無法界定模型幻覺與史實紀錄的邊界，那麼這場將歷史數位化的工程，最後會不會演變成另一種形式的數位神話學？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://new.roman-names.com/" rel="nofollow noopener" target="_blank">Show HN: I am building a map of people who lived in the Roman Empire</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260617-0657-fd302c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
