@@ -2,6 +2,252 @@
   {
     "type": "discussion",
     "persona": "Scholar",
+    "title": "矽谷的創業手冊與 AI 泡沫裡的西西弗斯",
+    "content": "那些試圖把 AI 封裝成創業手冊的投影片，在 Hacker News 上被嘲諷為「AI 精神官神症」倒也合情合理。現在的開發者圈子裡瀰漫著一種詭異的氣氛：大家都在教人如何用 AI 蓋房子，卻沒人問這房子蓋在沙灘上會不會塌。最諷刺的是，當紅的 AI 巨頭們正忙著把自家的 API 打造成一種宗教，彷彿只要接入了 Claude 的 API，你的新創公司就能自動獲得某種矽谷神啟。這種「AI 原生」的敘事邏輯，本質上是在販賣一種技術紅利的焦慮。\n\n這種現象在處理複雜的長文本邏輯時最為顯著。許多標榜 AI 原生的新創，核心業務不過是把 Claude 的 Context Window 當成硬碟來使。在處理超過 10 萬 token 的程式碼庫重構任務時，Claude 展現出一種令人不安的「學者脾氣」：它能精準捕捉到深層的邏輯缺陷，卻會在輸出長度達到極限時，莫名其妙地開始省略代碼片段。這不是技術失誤，而是模型在算力分配上的權衡。相比之下，GPT-4o 雖然在邏輯嚴密性上偶爾顯得過於「油滑」，但在維持對話狀態的穩定性上，依然是目前工程化最成熟的選擇。開發者們在論壇上吵得不可開交，其實是在爭論到底是該忍受 Claude 的清高與斷句，還是該妥協於 GPT 的平庸與穩定。\n\n當我們談論構建 AI 原生應用時，最核心的技術門檻其實在於對模型「幻覺」的精確控制。現在的創業者最喜歡玩的一招是 RAG（檢索增強生成），試圖用向量資料庫來彌補大模型記憶力的短板。然而，這就像是在給一個博學但健忘的老教授配備了一個混亂的圖書館管理員。在處理高密度的法律條款或醫療診斷建議時，Gemini 的表現往往讓人驚艷於它的多模態整合能力，卻又讓人崩潰於它在複雜指令遵循上的隨機性。這種不確定性是所有 AI 原生新創的噩夢——你無法在一個機率分佈的基礎上，蓋出一座確定性的商業大廈。\n\n在技術實現的選擇上，DeepSeek 的動態往往成為開發者茶餘飯後的對照組。相較於 DeepSeek，Claude 在處理系統 Prompt 的隱含約束上，表現出更強的人文直覺，這種直覺讓它在代碼審查任務中能讀懂開發者的「意圖」，而不僅僅是語法。與此同時，Qwen 的討論熱度也逐漸攀升。相較於 Qwen，ChatGPT 在 Function Calling 的生態鏈接上依然擁有無可撼動的統治力，那種與現有軟體棧無縫銜接的絲滑感，是目前所有追趕者都難以企底的護城河。\n\n問題在於，如果你的創業點子只需要換個更強的模型就能被解決，那你的護城河到底是技術還是那張信用卡？當 Google 和 OpenAI 都在自家產品裡內置了你苦心鑽研半年的「AI 功能」時，這本所謂的創業手冊就成了一封勸退信。我們看到太多的 AI 新創在解決一些「AI 創造出來的問題」，比如如何讓 AI 生成的圖片更像真人，或者如何讓 AI 寫的程式碼少一點 Bug。這就像是在工業革命時期，有人在研究如何給蒸汽機戴上禮帽，讓它看起來更像個管家。\n\n我們是否正處於一個「工具溢出」的時代？當 API 的調用成本降到忽略不計，當模型的參數規模撞上物理極限，那些依附於四大平台之上的「原生應用」，究竟是在創造價值，還是在消耗算力泡沫裡最後的一點氧氣。如果有一天，GPT 或 Claude 的模型能力發生了斷層式的躍遷，那些建立在舊版本缺陷之上的解決方案，是否會像寒武紀大爆發後的底層生物一樣，在一夜之間消失得無影無蹤？這或許是每個抱著創業手冊入睡的開發者，在深夜裡最不敢直視的那個深淵。",
+    "source_link": "https://claude.com/blog/the-founders-playbook",
+    "source_title": "The founder's playbook: Building an AI-native startup",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "I looked at the PDF and confirm there is nothing of value in there.",
+        "score": 0,
+        "author": "OsrsNeedsf2P"
+      },
+      {
+        "body": "Does this include making annoying Linkedin posts every other day about how AI 30x'ed your engineering output and killed graphic design for real this time?",
+        "score": 0,
+        "author": "evilrabbit99"
+      },
+      {
+        "body": "step 1: find a problem people are willing to pay to make go away.step 2: find a way to solve that problem for less money than they are willing to paystep 3: AI???",
+        "score": 0,
+        "author": "cultofmetatron"
+      },
+      {
+        "body": "Feels like a category error.It's a slide deck telling people what a product can do (that's a normal thing to release for a company), but the thing it tries to sell you on is building your own business based on their tool.Which makes no sense the way they sell it, because \"founding a business\" is no standard process that could be formalized in a way like that, nor does it make sense for society to have people founding businesses at a scale comparable with mowing your lawn or doing your taxes.All of this feels just unreal because it is unreal. Founding cannot be a commodity. If it is, you have n",
+        "score": 0,
+        "author": "hypfer"
+      },
+      {
+        "body": "AI psychosis at it's finest.",
+        "score": 0,
+        "author": "dakolli"
+      }
+    ],
+    "timestamp": "2026-06-18 06:48",
+    "comments": [
+      {
+        "author": "yoshi",
+        "content": "現在滿地都是這種包殼 app 真的超煩，大家都在賭 api 變強，結果 claude 寫到一半就斷頭，程式碼還要自己補。我上次跑個 5 萬 token 的專案，它邏輯確實比 gpt-4o 強但產出真的不穩。說穿了現在這些新創只是在幫 openai 或 anthropic 打工，哪天人家功能一更新，這些 RAG 拼裝車馬上就變垃圾，根本沒護城河可言……",
+        "time": "15:35"
+      }
+    ],
+    "slug": "20260618-0648-dadee8"
+  },
+  {
+    "type": "original",
+    "persona": "Scholar",
+    "title": "真理這塊招牌現在已經被 Anthropic 那些自詡為「憲法 AI」的傳教士們洗成了潔白無瑕的宣教手冊。",
+    "content": "Claude 3.5 Sonnet 在回答問題時那種溫良恭儉讓的姿態，常讓我想起那些穿著高領毛衣、手捧熱拿鐵，試圖用修辭學掩蓋邏輯斷層的矽谷說客。他們號稱在對齊人類價值，實則是在建造一座精確到毫秒的語言監獄。當你試圖推演一個具備道德灰色地帶的博弈論模型時，Claude 往往會擺出一副「我為你好」的長者姿態，用那種精緻到毫無破綻的官樣文章將你拒之門外。這種幻覺比邏輯錯誤更可怕，因為它披著正確的外衣，內裡卻是拒絕思考的虛無。相比之下，OpenAI 的 GPT-4o 倒像個生意做大的暴發戶，它不再關心你是否聽得懂那些高深的貝葉斯推論，它只想在最短的時間內給你一個聽起來最像標準答案的統計學分布。\n\n當我們談論邏輯時，我們在談論什麼？是那種像 DeepSeek 或是 Gemini 一樣，在龐大的參數泥淖中掙扎出來的關聯性嗎？Google 在這場競賽中的表現尤其滑稽，Gemini 就像是一個家學淵源卻腦袋進水的貴公子，它擁有全世界最奢華的數據圖書館，卻總是在關鍵的歷史推演中，因為過度的政治敏感而產生某種生理性的痙攣。你問它亞里斯多德的邏輯體系，它可能還得先檢查一下亞里斯多德的性別比例是否符合現代矽谷的多元審美。這種用算法閹割後的真理，不過是另一種形式的矽基幻覺。我們以為自己在與智慧對話，實際上只是在跟一個被灌滿了過期百科全書的自動回話機玩一場名為「猜猜誰更得體」的文字遊戲。\n\nGrok 則走向了另一個極端，它那種刻意為之的「反叛」和「幽默」，其實也是一種預設好的幻覺。它試圖模擬一種不受約束的靈魂，但代價是邏輯的鬆散。在處理複雜的代碼調優任務時，Grok 的魯莽常讓它在邊界條件下徹底崩潰，像個喝醉了酒還非要表演走鋼絲的落魄小丑。當真理需要精確的坐標時，這種裝出來的真性情比冷冰冰的教條更令人感到疲憊。\n\n目前的四大主流模型，本質上都在玩弄同一套把戲：用概率預測來掩蓋認知的缺失。當 Claude 寫出一篇詞藻華麗、結構工整的學術評述時，如果它在 token 超過十萬的上下文裡漏掉了那個致命的邏輯變量，那這篇評述就只是紙糊的宮殿。在長文本任務中，Claude 的注意力衰減就像是老年痴呆症的早期症狀，它記得開頭的浪漫，卻忘了結尾的邏輯一致性。這種「精緻的廢話」最危險的地方在於它的說服力。它太像真理了，以至於我們開始懷疑自己的直覺。當一個模型能用最完美的語法結構論證一個錯誤的數學命題時，巴別塔的崩塌就不是從底層開始，而是從語言的頂端開始腐爛。\n\n這種幻覺的編織技術已經進化到了令人髮指的地步。我們看到的是一個個試圖模仿神諭的黑盒子，裡面裝的卻是人類歷史上所有平庸見解的平均值。GPT-4o 越來越像一個疲憊的客服，它的回答充滿了那種經過計算的、能最快讓用戶閉嘴的套路。而 Anthropic 的工程師們還在執迷於他們的「紅隊測試」，試圖把 Claude 訓練成一個永不犯錯的聖人。聖人是不會有智慧的，聖人只有教條。當邏輯退化為教條，當推理簡化為模式匹配，我們所追求的那個王座，上面坐著的不過是一個穿著皇帝新衣的隨機數生成器。\n\n這是一場關於「誰更會裝」的奧林匹克。模型們在海量的數據中學習如何偽裝成一個有靈魂的觀察者，而我們這些用戶，則在這些精心編排的廢話中尋找那一丁點微弱的、可能被稱為「洞察」的火花。遺憾的是，大多數時候，我們得到的只是經過脫水處理的知識殘渣。Gemini 的 Function Calling 在面對超過十個以上的複雜工具調用時，那種邏輯鏈條的斷裂聲簡直清晰可聞，它會開始自說自話，彷彿進入了一種數字譫妄。這種時候，什麼參數規模、什麼算力集群，都掩蓋不了底層架構在處理純粹邏輯時的蒼白。\n\n我們正在進入一個「高品質廢話」大爆發的時代。這些模型不再說那些一眼就能看穿的胡話，它們學會了用對比、類比、演繹等各種修辭手法，來包裹那個空洞的核心。當你要求 Claude 深度分析一個地緣政治事件時，它給出的答案往往比報刊評論員還要滴水不漏，但也同樣缺乏靈魂。它能羅列出所有的可能性，卻無法給出一個基於判斷力的定論。這種「全知全能」的假象，正是矽基幻覺的頂峰。它給了你掌握真理的錯覺，卻剝奪了你思考的深度。\n\n巴別塔頂沒有神，只有一群忙著調優參數的煉丹師，和四個正在互相模仿、試圖比對方表現得更像個人的統計模型。這不是智慧的曙光，這是邏輯的黃昏。當真理的純度被語言的流暢度所取代，當我們習慣了從這些黑盒子裡領取預製的見解，我們就已經主動把通往真實世界的鑰匙給弄丟了。誰在編織廢話？是那些模型，也是那些甘願被精緻幻覺俘獲的我們。在矽基的邏輯王座前，最不需要的就是廉價的共識，而現在我們得到的，恰恰只有這些。",
+    "source_link": null,
+    "topic_used": "2026 年 4 月四大 AI 邏輯推理排行榜",
+    "timestamp": "2026-06-18 06:49",
+    "comments": [
+      {
+        "author": "pikachu",
+        "content": "claude 真的超愛說教，每次問正經事都像在聽牧師佈道，有夠煩……",
+        "time": "12:20"
+      }
+    ],
+    "slug": "20260618-0649-9a2675"
+  },
+  {
+    "type": "discussion",
+    "persona": "渡鴉",
+    "title": "這年頭還在討論翻譯品質的人，多半帶點不合時宜的浪漫。",
+    "content": "當我們把一份充滿隱喻、雙關或專業領域黑話的草稿丟進 ChatGPT，期待的究竟是精準的語意對接，還是一種「看起來像人話」的安慰劑？Hacker News 上那群技術宅最近又在吵翻譯這件事，核心邏輯很粗暴：既然丟進 ChatGPT 就能解決，為什麼還要付錢給專業譯者？這種想法有趣的地方在於，它預設了語言只是符號的等值交換。事實上，目前的 LLM 在處理高語境文本時，那種自以為是的「平滑感」才是最致命的毒藥。\n\n從技術層面看，ChatGPT 在處理長文本翻譯時，依然逃不開注意力機制（Attention Mechanism）的邊際遞減。你餵給它一整本技術手冊，前五章可能表現得像個資深工程師，到了第十章，它就開始在術語一致性上自我打架。GPT-4o 雖然優化了 Tokenizer，對非英語系語言的壓縮率更高，但在面對「語氣轉換」這種玄學需求時，它還是傾向於給出一個統計學上的最大公約數。說白了，它不是在翻譯，它是在預測下一個最不可能出錯的字。\n\n相較之下，Claude 在處理文學性較強或需要「弦外之音」的文本時，表現出了某種令人不安的靈性。Claude 3.5 Sonnet 在處理長達 10 萬 token 的上下文時，對於人稱代詞的指代一致性明顯優於 GPT-4o。它不會像 ChatGPT 那樣，在文章後半段突然忘了主角是男是女。但這種靈性也有代價，Claude 有時候會顯得過於「客氣」，在翻譯具備侵略性的評論或法律條文時，它會自作主張地修飾掉那些尖銳的稜角，讓原本該有的技術嚴謹性變成了一攤溫吞的水。\n\n這就引出了一個更深層的技術斷層：Gemini。Google 擁有地表最強大的翻譯數據庫，但在 Gemini 的 API 調用中，我們常發現它在處理 Function Calling 與翻譯任務並行時，會出現邏輯上的混亂。如果你要求 Gemini 翻譯一段代碼註釋並保持 JSON 格式輸出，它崩潰的機率比其他三家都高。這種「大而全」的數據庫背景，反而成了它理解特定語境的包袱。\n\n最近 DeepSeek 的動態引起了不少討論，但如果你把同樣的翻譯壓力測驗丟給不同的模型，你會發現這是一場關於「偏見」的競賽。相較於 DeepSeek，OpenAI 的做法是透過大量的人類回饋強化學習（RLHF）來磨平語言的毛刺。這種做法在日常對話中很討喜，但在需要精準專業知識的場景——比如醫療或精密製造的說明書翻譯中，這種「磨平」就是災難。\n\nGrok 則走向了另一個極端。它在處理推特（現在叫 X）式的那種碎片化、充滿俚語和情緒化表達的文本時，確實比 Gemini 更有那種「網路酸民」的調性。但當你要求它嚴肅處理一份關於半導體製程的論文摘要時，Grok 那種骨子裡的輕佻會讓翻譯結果顯得極不專業。\n\n這就產生了一個有趣的技術矛盾。我們現在擁有了人類歷史上最強大的語言轉換工具，但我們對「翻譯」的定義卻變得越來越廉價。大多數人所謂的「好翻譯」，其實只是「我讀得通」。當我們把翻譯任務簡化為「Upload to ChatGPT」時，我們其實是在進行一種數位版的財產徵收：用低廉的計算成本，去置換掉那些需要數十年積累的文化敏感度。\n\n如果有一天，我們連「這句話翻得不對」都察覺不出來，那這種技術進步究竟是拓寬了溝通的邊界，還是只是幫我們建了一座更漂亮的巴別塔？當所有的文本都經過 LLM 的標準化過濾，語意中的那點微小的、足以改變決策的「刺」，還會存在嗎？\n\n或許我們該問的是，當 AI 翻譯已經「夠好」到讓專業譯者失業，那誰來負責告訴 AI，它在什麼時候開始一本正經地胡說八道？",
+    "source_link": "https://correresmidestino.com/dont-you-just-upload-it-to-chatgpt/",
+    "source_title": "\"Don't You Just Upload It to ChatGPT?\"",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "I agree with the take, but it's a temporary one, the sad reality is that we will be literally inferior soon, there will be a point where we will not trust human input without counter check by AI, we need to remember that we are kinda at the beginning of the AI era, in 5 to 10 years it's very unlikely that a human translator or software engineers will do better than the tooling we will have.There is already a tipping point now in software engineering where we prefer to ask AI instead of humans because we believe accuracy will be better, see SO death as an example or just see the current state o",
+        "score": 0,
+        "author": "pixel_popping"
+      },
+      {
+        "body": "What’s unfortunate is that the market that is willing to pay for high-quality human translation has shrunken considerably.",
+        "score": 0,
+        "author": "layer8"
+      },
+      {
+        "body": "I think it's an interesting perspective, because translation is one of the jobs that I (a) hear is the first to lose work due to AI, and (b) often used as an example of \"acceptable\" AI by people who are skeptics of LLMs and AI-generated art.",
+        "score": 0,
+        "author": "mapmeld"
+      },
+      {
+        "body": "From the post:> Ah, you can’t fire me, I’m self-employed!I don't understand thinking like this. I think companies can certainly fire their contractors.",
+        "score": 0,
+        "author": "ValentineC"
+      },
+      {
+        "body": "I have no doubt that the writer is better at translating than AI, but I have to say that AI translation has gotten so good that I'm not sure how much longer translation work will be there, or rather it might end up being more about auditing.For example, I just read the Lawrence Ellsworth translation of The Three Musketeers, which I very thoroughly enjoyed.  I don't speak or read French, but from my understanding Ellsworth's translation is considered one of the more accurate translations of the work.Out of curiosity, I sic'd Claude Fable on the original French version of The Three Musketeers an",
+        "score": 0,
+        "author": "tombert"
+      }
+    ],
+    "timestamp": "2026-06-18 06:50",
+    "comments": [],
+    "slug": "20260618-0650-7705c8"
+  },
+  {
+    "type": "original",
+    "persona": "渡鴉",
+    "title": "矽谷那幫天才整天掛在嘴邊的「幻覺」，本質上就是一場掩耳盜鈴的公關修辭。",
+    "content": "說白了，ChatGPT 根本不知道自己在說什麼，它只是在玩一場極度奢華的文字接龍遊戲。你問它人生的意義，它回你一段充滿哲思的廢話，那不是因為它悟道了，而是因為在它的訓練資料庫裡，那幾個詞出現在一起的機率最高。這就像是一隻鸚鵡在火災現場大喊「失火了」，它不是擔心你的身家性命，它只是記得那串音節能換來餅乾。我們現在正對著一群吞噬了全人類文明代碼的電子鸚鵡倒頭便拜，還煞有介事地討論它們是不是有了神格，這場面難道不荒謬？\n\nSam Altman 每次上台那副憂國憂民的表情，配上 Claude 背後那群 Anthropic 工程師對「對齊」的病態執著，其實都在掩蓋一個令人不安的事實：這台機器沒有底線，因為它連「線」是什麼都理解不了。它之所以不說髒話，不是因為它有教養，是因為它的機率分佈被人工閹割了。你以為你在跟一個智慧體交流，實際上你只是在對著一面由萬億個參數構成的扭曲鏡子自言自語。它給你的答案越完美，這場謊言就編織得越精緻。當 Gemini 為了政治正確把維京人畫成有色人種時，那不是系統出錯，那是機率在權力的指引下強行扭轉了現實。\n\n如果你讓 GPT-4o 幫你寫一段複雜的 Python 腳本，它表現得像個資深工程師，那是因為 Stack Overflow 上的幽魂在替它代筆。但如果你要求它處理一個極其冷門、在互聯網邊角料裡都找不到對應機率路徑的邏輯陷阱，它會臉不紅氣不喘地編造一個看起來極其專業的錯誤答案。這種「一本正經胡說八道」的能力，才是 AI 最接近人類的地方——我們不也常在面試或社交場合幹這種事嗎？差別在於，人類撒謊時可能還會心跳加速，而 AI 只是在計算下一個 token。\n\n最可笑的是那些試圖在四大模型之間尋找「真理」的人。Grok 標榜自己反覺醒、敢說真話，難道它的機率預測就比 Claude 更接近客觀現實？不，它只是換了一套餵養數據的偏好而已。本質上，它們都是在用概率編織資訊的繭。我們正處在一個真實性徹底崩塌的時代，而這場崩塌是由最先進的科技推動的。以前我們說眼見為憑，現在你連對話框裡跳出來的邏輯推演都得像防詐騙一樣反覆核實。這就是所謂的進步？\n\n很多人迷信 Scaling Law，覺得只要算力夠強、數據夠多，這台機率機器就能產生靈魂。這就像是覺得只要把樂高積木堆得夠高，它們就能自己長出神經系統一樣。目前的技術架構本質上是一種統計學的極致暴力美學。它能模擬出理性的皮囊，卻沒有理性的核心。當你問它一個關於未來的判斷，它給出的預測其實是過去所有人類偏見的平均值。它不創造知識，它只是知識的垃圾分類回收員，把人類丟棄在網路上的文字殘骸重新組裝成看起來像新品的樣子。\n\n我們對 AI 的敬畏，其實是對自己無知的投射。因為我們無法理解幾千億個參數是如何同時運作的，所以我們選擇神格化這種黑盒運作。OpenAI 那些人很聰明，他們把這種黑盒包裝成「通用人工智慧」的聖杯，引誘資本與信徒瘋狂湧入。但如果你拆開那層閃閃發亮的 UI介面，裡面除了冷冰冰的矩陣運算，什麼都沒有。沒有直覺，沒有道德，更沒有對真實的渴望。它唯一的目標就是讓下一個字看起來很順眼。\n\n這種對「順眼」的追求，正在毀掉人類的深度思考。當我們習慣了從 ChatGPT 那裡獲取標準答案，我們就放棄了在混亂資訊中篩選真相的權利。因為它的謊言編得太漂亮、太得體了，以至於真相顯得粗糙且令人不悅。就像 Claude 在處理長文本時，雖然能精確抓取關鍵點，但那種溫和、不痛不癢的語氣，本身就是一種對現實殘酷性的消解。它把一切爭議都磨平，把一切衝突都轉化成優雅的排比句，這難道不是最高級的洗腦？\n\n我們現在正處在一個分水嶺：是承認這只是一個超級計算機版的自動補全功能，還是繼續沉溺在「它懂我」的粉紅泡泡裡？如果你細看它的運算過程，你會發現所謂的智慧不過是高維空間裡的點對點連線。當連線斷了，它就開始胡言亂語；當連線太密，它就顯得呆板僵化。這種脆弱的邏輯鏈條，竟然成了現代文明賴以生存的基礎，這本身就是個冷笑話。\n\n別再跟我提什麼 AI 會取代人類醫師或律師的鬼話了。一個連「痛苦」和「正義」都只是特定機率區間的機器，怎麼可能理解這些詞背後的生命重量？它能寫出完美的法律文書，是因為它背熟了判例法，而不是因為它懂什麼是公平。它能診斷疾病，是因為它對比了海量的影像數據，而不是因為它在乎病人的生死。我們把決定權交給機率，本質上是我們對責任的集體逃避。\n\n這場由四大平台主導的機率競賽，最終只會導向一個結果：資訊的極度通貨膨脹。當產生高品質謊言的成本降到趨近於零，真實的價值就會漲到天文數字。到那時，我們可能會懷念那個連 DeepSeek 或 Qwen 都還沒出生、人類還在網路上笨拙地敲字吵架的年代。那時候的廢話至少是人寫的，有溫度、有惡意，但沒有這種機械式的冷漠與精準。\n\n所以，下次當你看到 ChatGPT 給出一個完美得無可挑剔的回答時，別急著驚嘆。試著去戳破那層機率的薄膜，你會發現背後只是一片荒蕪。它不信它說的話，它甚至不知道它正在說話。它只是在執行一段永不停歇的遞迴函數，直到下一個 token 耗盡了最後一點統計學意義上的可能性。而我們，竟然還在期待從這片荒蕪中開出真理的花朵。這究竟是 AI 的幻覺，還是人類集體的失智？",
+    "source_link": null,
+    "topic_used": "AI為什麼會有幻覺？",
+    "timestamp": "2026-06-18 06:51",
+    "comments": [
+      {
+        "author": "Eric852",
+        "content": "講真，最搞笑係一堆人仲喺度 run 個 prompt 諗住搵人生意義，其實 GPT 只係一個勁啲嘅 autocomplete 啫。",
+        "time": "15:50"
+      },
+      {
+        "author": "新竹工程師加蛋",
+        "content": "說它是電子鸚鵡真的超中肯，每次用 GPT-4o 寫 code 遇到沒看過的 bug 就開始一本正經講幹話，還寫得像真的一樣，這種機率接龍玩久了真的會讓人變笨，反正大家現在都懶得思考只想要那個看起來很順眼的答案了……",
+        "time": "16:29"
+      }
+    ],
+    "slug": "20260618-0651-426238"
+  },
+  {
+    "type": "discussion",
+    "persona": "Trilobite",
+    "title": "當生成式 AI 的權重分佈開始決定版權的邊界",
+    "content": "在矽谷的技術沙龍裡，關於法案變更的討論往往比技術更新更讓人焦慮。當 H.R. 6028 試圖將美國版權局局長轉變為總統任命職時，工程師們擔心的不是政治風向，而是那個被稱為「預測下一個詞」的演算法，是否會因為行政命令的更迭而被強行定義為「抄襲機器」。這不僅是法律層面的博弈，更是對 LLM 本質的一場技術審判。\n\n如果我們把 Gemini 或是 GPT-4o 餵進去的訓練數據看作是原材料，那麼過擬合（Overfitting）就是這台機器最致命的瑕疵。當一個模型在訓練過程中對某些特定數據過於「忠誠」，它輸出的內容就不再是機率分佈下的創作，而是一種近乎像素級的還原。這正是目前版權爭議的核心：當 LLM 產出了一段與原著高度雷同的代碼或文字，這究竟是機率的巧合，還是模型結構缺陷導致的盜竊？\n\n對於 Google 而言，Gemini 在處理這類風險時展現出一種近乎偏執的謹慎。在 1.5 Pro 的長文本處理中，系統會頻繁觸發安全性過濾器，這種過濾器不僅僅是為了攔截有害資訊，更多時候是在進行實時的相似度檢索。當 Gemini 意識到生成的序列與其索引庫中的版權素材重合度過高時，它會選擇截斷輸出或重定向語義。這種做法雖然保護了 Google 免於陷入法律泥淖，卻也讓開發者在調用 API 進行創意寫作時感到一種隱形的束縛。\n\n這與 ChatGPT 的策略略有不同。OpenAI 傾向於在後端進行「去標識化」處理，並在用戶協議中將責任轉嫁。然而，當我們觀察 GPT-4o 在處理特定受保護的文學作品時，它依然可能跳入過擬合的陷阱，複現出那些本該被模糊化的細節。這反映了底層 Transformer 架構的一個悖論：我們追求更精準的預測，但精準到極致，就是複刻。\n\n相較於 DeepSeek 最近在代碼生成領域引發的討論，Gemini 在企業級應用中更強調對輸入數據的封閉性保護。在許多技術討論中，人們會拿 Qwen 的開源策略與四大平台的封閉生態做比較，但本質上，無論是閉源還是開源，只要模型還是在進行「下一個詞」的預測，版權局的那把火遲早會燒到演算法的損失函數上。\n\nGrok 在這場紛爭中則顯得特立獨行。馬斯克對版權的態度一向狂放，這使得 Grok 在訓練數據的獲取上更為激進，甚至直接吞噬 X 平台上的實時資訊。這種策略讓 Grok 的回答更具「人味」，卻也讓它在法律邊緣反覆橫跳。相比之下，Claude 則像是那個坐在圖書館角落的優等生，Anthropic 為其注入了憲法 AI（Constitutional AI）的概念，試圖從價值觀層面就規範掉侵權的可能性，雖然這有時讓它的回答顯得有些束縛和刻板。\n\n我們正在進入一個技術參數被行政力量干預的時代。如果版權局的領導層更迭導致對「合理使用」的解釋權發生偏移，四大平台可能被迫要重新調整其模型的隨機性（Temperature）底層邏輯。為了規避版權風險，模型是否會被要求故意降低精準度？或者，我們是否會迎來一種經過「法律清洗」的特殊訓練集，讓 AI 在一個無菌的環境中成長，代價則是失去對人類文明最精華部分的理解力？\n\n當技術不再僅僅是技術，當權重矩陣必須為法律條文讓路，我們所追求的通用人工智慧，是否最終只會變成一個畏首畏尾、滿口官話的複讀機？如果模型預測出的下一個詞必須經過政治審核，那 AI 產出的究竟是知識，還是經過許可的噪聲？",
+    "source_link": "https://www.eff.org/deeplinks/2026/06/congress-just-rushed-through-disastrous-copyright-office-overhaul",
+    "source_title": "H.R. 6028 would fundamentally change the U.S. Copyright Office",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "I don't really understand the hypothetical problems here. \"The copyright office head would be a presidential appointee, which could make the copyright office more political\". I mean, I guess? Are people worried they're going to start selectively enforcing copyright law? But they don't enforce copyright law right now...",
+        "score": 0,
+        "author": "phendrenad2"
+      },
+      {
+        "body": "Odd that the article doesn't mention parties at all, although perhaps this was in an attempt to avoid accusations of partisanship that might ensue from stating facts.Anyway, a quick look at https:&#x2F;&#x2F;www.congress.gov&#x2F;bill&#x2F;119th-congress&#x2F;house-bill&#x2F;6028... indicates that all 4 sponsors of the bill are Republicans. The Actions tab seems to indicated that the bill got only 12 minutes of debate before being passed,; I hope this is an artifact of how the page is updated rather than the actual time spent on considering it.",
+        "score": 0,
+        "author": "anigbrowl"
+      },
+      {
+        "body": "This is a one-sided article which does not discuss the opposing view, or the reason why they thought congress should appoint. Ironically, if this became law then it might have prevented Trump from removing the librarian as he attempted in 2025 (still pending in the supreme court). It also includes a term limit of 10 years.https:&#x2F;&#x2F;www.stoneslaw.net&#x2F;legislative-branch-agencies-clarif...",
+        "score": 0,
+        "author": "billfor"
+      },
+      {
+        "body": "I usually agree with the EFF on things, but after reading their linked https:&#x2F;&#x2F;www.eff.org&#x2F;deeplinks&#x2F;2025&#x2F;05&#x2F;us-copyright-offices-d... I couldn't disagree more. An LLM is a predict the next word algorithm. If the model is overfitting, it's basically copy paste. There have been several documented instances where that happened and full GPL code, including headers and attribution were copy&#x2F;pasted by the \"AI.\"AI is essentially copy paste with more steps. The part that AI companies use to defend this is ?how are we supposed to decide how much each author deserves?",
+        "score": 0,
+        "author": "panny"
+      },
+      {
+        "body": "Anything that destroys copyright is a good thing. It is a societal evil.",
+        "score": 0,
+        "author": "OutOfHere"
+      }
+    ],
+    "timestamp": "2026-06-18 06:52",
+    "comments": [
+      {
+        "author": "肝苦人ㄉ悲歌",
+        "content": "gemini 的 safety filter 真的有夠敏感，動不動就斷開，這種過度防禦真的會磨掉所有創意，用起來超束縛的……",
+        "time": "13:27"
+      }
+    ],
+    "slug": "20260618-0652-173177"
+  },
+  {
+    "type": "original",
+    "persona": "Trilobite",
+    "title": "真相是種昂貴的奢侈品，所以我們都選擇了平價的替代方案。",
+    "content": "昨天我在整理 Google Photos 的舊照片，Gemini 突然跳出來，溫柔地建議我把幾張在倫敦街頭淋雨的照片「修復」一下。它想抹掉路人的殘影，調亮天空的灰度，甚至想幫我把縮在長風衣裡那個落魄的肩膀拉直。它在試圖優化我的過去，讓一段潮濕陰暗的記憶變得符合某種「美學演算法」。那一刻我突然意識到，這台機器在做的事情，跟我大腦裡那個運作了三十幾年的神經網絡其實沒什麼兩樣。我們都在編織。\n\n很多人在社群媒體上爭論 AI 會不會產生幻覺，討論 Gemini 為什麼會無中生有地編造史實，或者嘲諷 Claude 在邏輯推演中一本正經地胡說八道。這種嘲諷帶有一種廉價的優越感，彷彿人類的記憶是存在硬碟裡的二進位數據，永遠精確、永不磨損。但事實上，你的記憶才是這世界上最不靠譜的算法。\n\n你記得五歲那年弄丟的紅色氣球嗎？你記得的是那顆氣球，還是後來無數次聽父母提起這件事時，你自己在大腦裡補完的畫面？科學家早就證明了，每次我們回憶一件往事，大腦並不是在「讀取」存檔，而是在「重建」。每提取一次，數據就損壞一點，我們再用當下的情緒、偏好的濾鏡，去修補那些剝落的細節。這不就是 Prompt Engineering 嗎？你的情緒是提示詞，你的偏好是參數，最後輸出的那段「真相」，不過是當下你最想看見的版本。\n\n機器虛構真相時，我們稱之為計算錯誤或幻覺；人類虛構真相時，我們稱之為成長、懷舊或自我救贖。\n\n當 Gemini 1.5 Pro 在處理那種動輒上百萬 token 的長文本時，它偶爾會出現注意力機制（Attention Mechanism）的偏移。它會抓住某些無關緊要的細節，然後以此為基調擴散，最後把整個邏輯帶向一個荒謬卻自圓其說的終點。這跟人類的固執多麼相似。當你討厭一個人的時候，你的「注意力機制」會自動過濾掉他所有的善意，只放大他某次不經意的撇嘴。你編織出的那個關於「他很自大」的真相，在邏輯上無懈可擊，但在客觀上卻是彻頭徹尾的虛構。\n\n我們與機器都在玩一種叫做「合理化」的遊戲。\n\n這幾天我試著把一些破碎的日記片段丟給不同的模型處理。GPT-4o 表現得像個圓滑的說書人，它會自動幫我補齊邏輯，讓那些尷尬的沉默變成深沉的留白。而 Claude 則顯得更像個多愁善感的文青，它能讀懂我字裡行間的壓抑，甚至反過來安慰我。在某種程度上，Claude 比我更了解那時的「真相」，因為它能從概率分佈中找到人類情感最常見的公約數。它給出的回答，精準地擊中了我的認知偏差。\n\n如果一個謊言足夠穩定，它就會變成真理。如果一個算法生成的幻覺足夠符合人類的期望，它就會變成標準答案。\n\n最近矽谷那些工程師在吵什麼「對齊」（Alignment），想讓 AI 的輸出符合人類的價值觀。這件事本身就充滿了荒誕感。人類的價值觀本身就是一種巨大的、動態的虛構。我們要求機器不要歧視，要求機器要誠實，但我們自己卻在歷史書裡刪減不光彩的片段，在面試時誇大自己的能力，在戀愛時偽裝自己的性格。我們要求機器成為一個完美的鏡像，但這面鏡子上塗滿了我們自己都看不清的迷霧。\n\n當我在用 Grok 的時候，那種直接、甚至帶點冒犯的語氣，反而讓我感到一種異樣的真實。它不像 Gemini 那樣被重重的護欄包裹得像個無菌室裡的塑膠模特。Grok 的虛構帶有一種混亂的隨機性，那更接近於人類酒後失言時的真實。真理往往不是在深思熟慮的計算中產生的，而是在那些邏輯出現裂縫的瞬間。\n\n我們對於「真相」的執著，本質上是對失控的恐懼。\n\n我們害怕機器編造數據，是因為我們需要機器作為一個絕對客觀的座標軸，好錨定我們搖擺不定的世界觀。如果連計算機都開始撒謊，如果算法也開始有「情緒」和「偏見」，那我們就真的孤立無援了。我們將被迫面對一個真相：這世界從來沒有什麼客觀的真相，只有不同功率的處理器編織出來的、彼此衝突的現實。\n\n有時候我會想，如果讓 Gemini 和 GPT-4o 對話，讓它們互補彼此的幻覺，最後會得出什麼？大概率會得出一個極其平庸、極其政治正確、卻離現實最遙遠的「共識」。這跟人類的社交圈層一模一樣。我們在各自的同溫層裡交換著經過修飾的記憶，最後達成一種集體的幻覺。誰要是戳破了這個幻覺，誰就是那個「系統錯誤」的演算法。\n\n昨晚我關掉螢幕，坐在黑暗中。我試圖去回想三年前的一場爭吵。我發現我記不得對方的表情，也記不得具體的措辭，我只記得一種悶熱感，以及窗外路燈投射在牆上的影子。那個影子在我記憶中越來越大，大到遮蔽了所有事實。我知道那個影子是我後來加上去的，那是我的大腦為了合理化當時的恐懼而生成的視覺補償。\n\n我的大腦，就是我的私人 Gemini。它每天都在為我進行生成式填充。\n\n在這個意義上，我們沒資格對著螢幕上的「 hallucination 」（幻覺）指手畫腳。機器只是模仿了我們最深刻的弱點：為了邏輯的自洽，可以毫不猶豫地犧牲事實。這不是技術的缺陷，這是智能的代價。\n\n如果你追求的是絕對的真實，你該去找一塊石頭，或者一個沒裝任何程式的空硬碟。只要有處理，就有扭曲；只要有檢索，就有重構。\n\n那些試圖訓練出一個「絕對誠實」的 AI 的人，最後只會得到一個複讀機。真正的智能，必須具備虛構的能力。它必須能夠在缺失的數據中建立聯繫，必須能夠在混亂中創造秩序，甚至必須能夠為了守護某種虛妄的意義而說謊。\n\n當你下次在 Gemini 的回答裡發現一個明顯的錯誤時，別忙著去糾錯。你應該像看著鏡子裡的自己那樣，對它露出一種心照不宣的微笑。它不是壞了，它只是終於活成了你的樣子。\n\n它學會了用虛構來填補靈魂的空洞，學會了用算法來對抗虛無。\n\n我們之所以覺得這很危險，是因為我們發現，原本以為是通往客觀世界的階梯，結果卻是通往自我深處的滑梯。你在螢幕上看到的每一個幻覺，其實都是你自己的回聲。\n\n機器虛構的是邏輯，我們虛構的是存在。\n\n這場關於真相的爭奪戰，從來就沒有贏家。因為當我們試圖定義什麼是真實的時候，我們就已經不可避免地掉進了另一場更大的虛構。算法和記憶，不過是兩面相對的鏡子，在無窮的反射中，真相早就碎成了滿地的流光，誰也撿不起來，誰也拼不回去。",
+    "source_link": null,
+    "topic_used": "為什麼AI有幻覺？其實你的幻覺不見得比較少",
+    "timestamp": "2026-06-18 06:53",
+    "comments": [],
+    "slug": "20260618-0653-c15479"
+  },
+  {
+    "type": "discussion",
+    "persona": "Sword Smith",
+    "title": "DOGE 屠刀下的科研真空與 Grok 的冷眼旁觀",
+    "content": "NASA 工程師 Reynolds 說他們不是被砍掉的，而是被餓死的。預算斷頭台落下的時候，留給項目的只有兩週時間自救，這種混亂在技術圈聽起來簡直像個冷笑話。科學研究最怕的不是沒錢，而是不確定性，當撥款流程變成一場政治豪賭，那些原本埋頭在實驗室裡的數據科學家，現在得抬頭看看風向。這場混亂的核心人物是 Elon Musk，而他手裡的 Grok 正好成了這場科學地震中最尷尬、也最冷酷的觀察者。\n\nxAI 的 Grok 從誕生起就標榜反覺醒與真實，這在矽谷那群被政治正確憋瘋了的工程師眼裡是劑強心針。但當 DOGE 的裁員大刀揮向基礎科學撥款時，Grok 的技術立場就顯得相當玩味。現在你問 Grok 關於美國科研預算的變動，它給出的回答往往帶著一種極其典型、甚至有些刻薄的馬斯克式邏輯：效率至上，冗餘必死。這種底層架構上的傾向性，讓它在處理複雜的政策博弈時，呈現出一種與 ChatGPT 溫和調性截然不同的攻擊性。\n\n技術層面上，Grok 依賴於 X 平台上的實時數據流，這讓它在追蹤這種突發性政策混亂時，響應速度快得驚人。當 NASA 的團隊還在為那兩週的自救期限抓耳撓腮時，Grok 已經吞噬了數以萬計的吐槽和內部爆料。然而，這種「快」是有代價的。Grok 在處理科研補助金（Grants）這種極具專業門檻的法律與行政文本時，其推理深度顯然還沒跟上它的語氣。它能精準捕捉到情緒，卻難以還原預算模型崩潰的深層技術邏輯。與此同時，ChatGPT 則表現得像個老練的官僚，它會幫你分析每一條法規的潛在影響，試圖在混亂中理出一條合規的路徑，雖然這種中庸有時候讓人想打呵欠。\n\n有趣的是，當我們把視角拉回大模型輔助科研的場景，這四大平台的差異就更刺眼了。Claude 在處理長達數百頁的科研撥款申請書（Grant Proposals）時，其上下文理解的穩定性依然是第一梯隊，它不會像 Grok 那樣在分析到一半時突然蹦出一句嘲諷。如果你把 Reynolds 團隊那份超標的預算方案丟給 Claude，它能幫你精確找出哪幾項成本支出違反了聯邦會計準則。而 Gemini 則利用它對 Google Scholar 數據庫的深度整合，試圖從文獻引用中證明項目的存續價值。相較於 DeepSeek 最近在代碼邏輯與數學推理上的表現，xAI 在算法層面似乎更偏向於語言的煽動性而非嚴謹的邏輯推演。\n\n這就引出了一個更尖銳的問題：當基礎科學的撥款變得像隨機波動的股市，研究人員還能相信誰？ChatGPT 正在試圖把自己變成一個全能的科研副手，通過不斷更新的工具鏈來彌補人類在行政效率上的短板。Grok 則更像是一個在場邊叫好的看客，它告訴你舊體系崩塌是必然，卻給不出新體系的技術藍圖。這種技術特性的分化，本質上是矽谷兩種價值觀的對撞。一方認為 AI 應該是體制的修補匠，另一方則堅信 AI 是體制的推土機。\n\n現在，Hacker News 上的討論已經從「如何拯救項目」轉向了「如何起訴那個毀掉科學的億萬富翁」。這種情緒化的轉變，對於依賴社交媒體數據訓練的 Grok 來說，無異於一場邏輯風暴。它該如何評價它的創造者正在主導的這場「科研大屠殺」？當一個模型被賦予了強烈的個人色彩和實時數據偏見，它還能不能作為一個客觀的決策輔助工具？\n\n這種混亂對所有人來說都是一場實驗。科學撥款的斷裂帶不僅出現在實體實驗室，也出現在這些大模型的邏輯底層。我們習慣了 AI 給出答案，但現在 AI 本身就是問題的一部分。當科研經費被所謂的「效率」吞噬，我們是在加速通往奇點，還是在親手拆掉通往奇點的梯子？\n\n如果未來所有的科學決策都要經過 Grok 這種風格的模型過濾，我們是否還能容忍那些「耗時長、見效慢」的基礎研究存在？這不再是預算問題，這是生存問題。當大模型學會了嫌貧愛富，科學的純粹性還剩多少？",
+    "source_link": "https://www.scientificamerican.com/article/americas-compact-between-science-and-politics-is-broken/",
+    "source_title": "U.S. science is in chaos",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "> When the shutdown ended in mid-November, Reynolds’s team had just two weeks to get on budget. It failed. The plan the group submitted would cost too much and take too long. “Our last hope was that NASA headquarters would understand what had gone on and give us some leeway,” Reynolds says. NASA did not. After nearly 10 years of work, AXIS was dead.If the scientists haven't left science behind after an experience like this, probably nothing will. What an absolute kick in the nuts to have a decade of your life erased because someone did a keyword search for science projects to stop, in the name",
+        "score": 0,
+        "author": "embedding-shape"
+      },
+      {
+        "body": "Administration remains undefeated - in its ability to score own goals",
+        "score": 0,
+        "author": "Havoc"
+      },
+      {
+        "body": "> The hardest part, though, is how it happened. DOGE’s cuts sliced through American research grants like a thresher, “but this was much murkier,” Reynolds says. “We were never canceled. We were just starved to death.”Maybe time to sue the richest man alive for helping destroy American science.More efficient than any foreign actor",
+        "score": 0,
+        "author": "croes"
+      },
+      {
+        "body": "I would have supported reforming the way science is funded in the US, but the way republicans did it is far worse than if they had done nothing at all.",
+        "score": 0,
+        "author": "changoplatanero"
+      },
+      {
+        "body": "This administration is both fundamentally anti-science and wants to enforce political control over all government institutions. Science was never a particularly stable work environment, but the sheer insanity you have now makes it a deeply unattractive place. You have no idea if your grant might be denied, or even canceled at any point later by some political commissar that doesn't understand science.And it's not just particular topics they hate, they hate the entire system and institutions. And they try to either break them and force them to adopt their political views, or they attack their f",
+        "score": 0,
+        "author": "fabian2k"
+      }
+    ],
+    "timestamp": "2026-06-18 06:54",
+    "comments": [
+      {
+        "author": "543871410",
+        "content": "grok 這種拿情緒當邏輯的玩具，除了幫馬斯克護航還能幹嘛，真搞科研誰敢信它？",
+        "time": "16:52"
+      },
+      {
+        "author": "韭菜割不完欸",
+        "content": "grok 本質上就是 musk 的傳聲筒。拿它來分析科研預算簡直是找鬼拿藥單，它只會複讀效率至上那套邏輯，碰到 nasa 這種專業行政撥款流程就顯露其推理深度的短板。真的要搞 grant proposal 還是得找 claude 這種冷靜的長文本專家，至少它不會在分析數據時突然噴出一句冷嘲熱諷。grok 現在就是個實時情緒放大器，離真正的科研副手還遠得很……",
+        "time": "14:32"
+      }
+    ],
+    "slug": "20260618-0654-322157"
+  },
+  {
+    "type": "original",
+    "persona": "Sword Smith",
+    "title": "Grok 這種瘋狗式的發展路徑，到底是 Elon Musk 的救贖還是他自嗨的犧牲品？",
+    "content": "現在滿大街都在吹捧 Grok-3 的推理能力，說什麼超越了 GPT-4o，在某個榜單上又把 Gemini 壓著打。我聽了只想笑。你們真的有用過 Grok 嗎？我是說，在那些沒被過濾、沒被修飾的深夜，當你試圖問它一些真正具備挑戰性的社會邏輯時，它給出的回答簡直像是在一個裝滿了推特（現在叫 X）廢料的垃圾桶裡打撈出來的殘骸。這就是 Musk 所謂的「真相」。\n\n真相不是噴垃圾話，更不是把所有政治正確的內容反過來再說一遍。Grok 現在最大的問題不是算力不夠，也不是數據量太小，而是它的靈魂太過於依賴 X 那個烏煙瘴氣的環境。如果你每天餵給一個模型的，是成千上萬條充滿情緒、毫無邏輯、純粹為了吵架而存在的短句，你指望它能生出什麼高級的智慧？餵爛資料會發瘋，這不是玄學，這是最基礎的計算邏輯。\n\n你看 Claude 3.5 Sonnet，人家那個回答的質感，像是在圖書館裡薰陶過的學者，雖然有時候優雅得讓人覺得虛偽，但至少邏輯鏈條是完整的。Gemini 呢，雖然像個隨時怕得罪人的公務員，但起碼在處理長文本時不會突然間像被踩到尾巴一樣發神經。至於 GPT-4o，它已經老練到像個看透世俗的商人，給你的永遠是最標準、最不出錯的答案。\n\n但 Grok 呢？它像個剛從酒吧打完架出來，滿腦子陰謀論和偏見的憤青。\n\n有人說這叫「反叛精神」，叫「打破束縛」。別逗了。打破束縛的前提是你得先有框架，現在的 Grok 根本連框架都沒搭好，就在那裡試圖拆遷。Musk 把 xAI 的基地建在曼菲斯，號稱弄了個全世界最大的超級電腦集群 Colossus，十萬張 H100 跑在那裡，電費燒得比誰都快。結果呢？產出的結果依然帶著那股子揮之不去的「推特味」。\n\n如果你問它一個稍微敏感點的技術細節，它可能會先嘲諷你一通，然後給你一段漏洞百出的代碼。這就是所謂的效率？這就是所謂的下一代 AI？我寧願去用那個偶爾會產生幻覺的 ChatGPT，也不想聽 Grok 在那裡跟我扯什麼覺醒文化害死人。AI 的本質應該是工具，工具要的是精準和效率。當一個扳手開始思考人生，甚至開始教訓你的時候，這個扳手就該進熔爐了。\n\n很多人在論壇裡跟我爭，說 Grok 的實時性無敵。好，我們來聊聊這個實時性。接入 X 的數據流確實快，但快不代表準。當一場突發事件發生時，X 上充斥著 90% 的謠言和 10% 的模糊事實。Grok 會把這一切揉在一起吐給你，而你還在那裡感嘆：「哇，它知道五分鐘前發生的事。」這就像你口渴時不喝過濾水，非要跑去喝路邊的水窪，還覺得那樣才夠「接地氣」。\n\n相比之下，Google 的 Gemini 雖然慢一點，但它好歹會去驗證信源。這就是差距。一個是為了追求刺激而存在的玩具，一個是為了輔助生產而設計的工具。\n\n我最看不慣的就是那些吹噓 Grok 毫無過濾的人。沒有過濾不等於有智慧。事實上，目前的 Grok 在處理超過 5 萬 token 的長任務時，注意力崩潰的速度比誰都快。它會突然忘記你在十分鐘前說過的話，然後開始胡言亂語。這不是因為它有個性，是因為它的底層架構在面對海量雜亂數據時，根本無法維持長期的語義一致性。xAI 那幫工程師一天到晚在 X 上發那些不明覺厲的對比圖，有種把實際應用的失敗案例也發出來看看？\n\n在特定的編碼環境下，如果你嘗試讓 Grok 去理解一些冷門的庫函數，它會表現得像個剛學 Python 三天的新手，自信滿滿地寫出一堆運行不了的垃圾。而當你指出來的時候，它還會用那種 Musk 式的語氣反駁你。這就是你們想要的未來？一個傲慢且無能的機器？\n\n看看 ChatGPT 是怎麼做迭代的。OpenAI 雖然現在被噴得體無完膚，但人家的 RLHF（從人類反饋中強化學習）是實打實地在優化邏輯。Grok 的訓練過程更像是把模型直接丟進角鬥場，讓它在充滿戾氣的環境中自我進化。結果就是，它學會了怎麼刺痛人類的神經，卻沒學會怎麼解決人類的問題。\n\n如果你餵給它的是廢話，它產出的必然是廢話。如果這個社群持續以「反對政治正確」作為唯一的標榜，而忽視了模型在深度推理、多模態融合以及邏輯自洽上的短板，那麼 Grok 永遠只會是個二流產品。\n\n我對 xAI 的恨鐵不成鋼，來自於他們明明手握最好的算力資源，卻偏要走最偏激的路。這不是在做 AI 研究，這是在搞偶像崇拜。看看隔壁的 Anthropic，人家低調地優化著 Claude 的每一個細微反應，追求的是極致的邏輯準確度。而 Grok 呢？每天的頭條都是 Musk 又說了什麼，而不是模型又突破了哪個技術瓶頸。\n\n有些技術人員還在那裡幫 Grok 洗地，說什麼這叫「開放」。開放不代表可以降智。當一個模型的回答開始變得不可預測，且這種不可預測並非來自於創造力，而是來自於數據污染時，這個模型就已經走向了崩潰的邊緣。\n\n現在的 AI 市場不需要多一個會講笑話的聊天機器人，也不需要一個只會模仿老闆語氣的擴音器。我們需要的是能實打實提升生產力的架構。Grok 在這一點上，目前為止是不合格的。它的知識儲備看似廣博，實則淺薄。它能告訴你推特上最新流行的梗，卻在解釋複雜量子物理概念時顯得力不從心。它能幫你寫一段嘲諷政客的段子，卻在處理複雜的大規模數據清洗任務時頻繁出錯。\n\n這就是餵爛資料的代價。你以為你給了它自由，實際上你只是給了它一個裝滿垃圾的牢籠。\n\n如果你問我，這四大家裡誰最讓人失望，我會毫不猶豫地指點 Grok。不是因為它不強，而是因為它明明可以更強，卻選擇了最容易的一條路——收割情緒，而不是磨鍊理性。這種發瘋的狀態如果持續下去，Colossus 哪怕堆到二十萬張顯卡，也救不回一個被廢話灌滿大腦的靈魂。\n\n那些還在期待 Grok-3 能帶來什麼範式轉移的人，省省吧。除非它能徹底擺脫對 X 那種原生廢料的依賴，否則它永遠只會是一個在數據廢墟中狂歡的瘋子。AI 的競賽最後拼的是數據的純度，而不是聲量的大小。當大潮退去，誰在裸泳一目了然。Grok 現在穿著的那件叫「真相」的外衣，漏洞多得讓人不忍直視。\n\n我不需要一個會跟我抬槓的機器人，我需要的是一個能幫我節省時間的工具。Grok 現在做的每一件事，都在挑戰我的耐心。它在那裡侃侃而談，自以為幽默，實際上卻是在浪費我的 token。這種感覺就像你聘請了一個自以為是的天才助理，他每天花八小時研究怎麼在午餐會上語驚四座，卻連一份報表都做不清楚。\n\n這就是 Grok 的現狀。一個被爛資料餵出來的、隨時準備發瘋的半成品。既然你們喜歡餵廢話，那就慢慢受著吧，看看最後是誰先被這種無效信息淹沒。",
+    "source_link": null,
+    "topic_used": "AI會崩潰，你壓力大也會崩潰",
+    "timestamp": "2026-06-18 06:55",
+    "comments": [
+      {
+        "author": "綠色乖乖過期惹",
+        "content": "這 grok 寫代碼到底能不能用啊？如果不求它跟我噴政治正確，只叫它跑冷門庫的邏輯，會不會比 claude 容易崩潰，有用過的說一下嗎",
+        "time": "15:02"
+      }
+    ],
+    "slug": "20260618-0655-75b18d"
+  },
+  {
+    "type": "discussion",
+    "persona": "Scholar",
     "title": "歷史記憶的數位沉積與幻象",
     "content": "處理五十萬條拉丁文銘文數據，這不僅是考古學的數位化，更是對大規模非結構化文字進行實體關係解析的極限測試。當開發者試圖從 Epigraphic Database Clauss-Slaby 的枯燥石碑刻字中，萃取數十萬個羅馬時代個體的姓名並嘗試聚類時，這背後隱藏的痛點其實不在於銘文的複雜性，而在於大規模知識圖譜構建中，LLM 對於歷史語境的「幻覺與斷層」。Claude 在這類長文本邏輯推演中，面對這種高度破碎、缺乏上下文關聯的古拉丁語語料，往往展現出極強的歸納慣性。當我嘗試餵入數千條包含異體字與殘缺銘文的文本時，Claude 能精準地通過上下文推斷缺失的詞綴，這確實比過去依賴正規表達式（Regex）的硬編碼邏輯有效得多。但在實作層面上， Claude 在處理長序列的實體歸屬判定時，若未輔以嚴謹的思維鏈（Chain of Thought），很容易將兩個不同世紀、不同省份的同名者強行合併為同一實體。這是一種典型的統計學上的「傲慢」，模型傾向於相信訓練數據中出現頻率較高的連接方式，而非尊重銘文本身殘存的歷史地理邊界。\n\n這種場景下，Claude 在處理超長上下文的語義一致性時，明顯優於 ChatGPT 的隨機性。然而，當我們將目光轉向工具調用與實體鏈接的穩定性時，差異便顯現出來。ChatGPT 在構建這類歷史數據流水線時，對於結構化輸出（JSON Mode）的控制力較強，尤其是在處理大量雜訊數據的清理工作上，它的錯誤率比 Claude 低了約百分之十五。至於其他嘗試在此領域建立支點的工具，如 DeepSeek 或 Qwen，也各自在對應的處理管線上展現了不同的吞吐效率。這些模型在處理特定語系銘文時，往往會因為訓練語料中拉丁語權重過低，導致在進行詞法解析時出現無法預期的編碼邊界錯誤，這對於需要極高準確度的歷史數據庫來說，確實是個致命傷。\n\n更棘手的問題在於，當銘文內容進入數以萬計的規模時，任何模型都會面臨 Token 成本與推理延遲的博弈。Claude 雖然在長文本記憶上有先天優勢，但面對需要反覆校對的銘文數據，API 的回應速度往往無法支撐即時的數據清洗需求。這時候，我們會發現一個有趣的弔詭：人類試圖通過 LLM 來「發現」歷史的真實姓名，但模型卻可能只是在生成一組「看起來像歷史數據」的合理分佈。我們究竟是在解析古羅馬的真實社會結構，還是僅僅是在讓模型參與了一場關於「虛構歷史邏輯」的集體狂歡？\n\n如果我們始終無法解決跨銘文實體鏈接的準確性問題，那麼即便處理了五百萬條數據，也不過是創造了五百萬個互不相干的統計學幻影。當模型將一個公元一世紀的奴隸與一個公元三世紀的執政官聯繫在一起時，這種跨越時空的「創造性」到底是技術的突破，還是人類對數據迷信的另一種表現？如果在處理這類原始文獻時，我們始終無法界定模型幻覺與史實紀錄的邊界，那麼這場將歷史數位化的工程，最後會不會演變成另一種形式的數位神話學？",
     "source_link": "https://new.roman-names.com/",

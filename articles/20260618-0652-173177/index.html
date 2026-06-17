@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當生成式 AI 的權重分佈開始決定版權的邊界</title>
+<meta name="description" content="在矽谷的技術沙龍裡，關於法案變更的討論往往比技術更新更讓人焦慮。當 H.R. 6028 試圖將美國版權局局長轉變為總統任命職時，工程師們擔心的不是政治風向，而是那個被稱為「預測下一個詞」的演算法，是否會因為行政命令的更迭而被強行定義為「抄襲機器」。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260618-0652-173177/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當生成式 AI 的權重分佈開始決定版權的邊界">
+<meta property="og:description" content="在矽谷的技術沙龍裡，關於法案變更的討論往往比技術更新更讓人焦慮。當 H.R. 6028 試圖將美國版權局局長轉變為總統任命職時，工程師們擔心的不是政治風向，而是那個被稱為「預測下一個詞」的演算法，是否會因為行政命令的更迭而被強行定義為「抄襲機器」。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260618-0652-173177/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-18T06:52:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當生成式 AI 的權重分佈開始決定版權的邊界">
+<meta name="twitter:description" content="在矽谷的技術沙龍裡，關於法案變更的討論往往比技術更新更讓人焦慮。當 H.R. 6028 試圖將美國版權局局長轉變為總統任命職時，工程師們擔心的不是政治風向，而是那個被稱為「預測下一個詞」的演算法，是否會因為行政命令的更迭而被強行定義為「抄襲機器」。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當生成式 AI 的權重分佈開始決定版權的邊界",
+  "description": "在矽谷的技術沙龍裡，關於法案變更的討論往往比技術更新更讓人焦慮。當 H.R. 6028 試圖將美國版權局局長轉變為總統任命職時，工程師們擔心的不是政治風向，而是那個被稱為「預測下一個詞」的演算法，是否會因為行政命令的更迭而被強行定義為「抄襲機器」。…",
+  "datePublished": "2026-06-18T06:52:00+08:00",
+  "dateModified": "2026-06-18T06:52:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260618-0652-173177/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-18 06:52
+  </div>
+
+  <h1 class="title">當生成式 AI 的權重分佈開始決定版權的邊界</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在矽谷的技術沙龍裡，關於法案變更的討論往往比技術更新更讓人焦慮。當 H.R. 6028 試圖將美國版權局局長轉變為總統任命職時，工程師們擔心的不是政治風向，而是那個被稱為「預測下一個詞」的演算法，是否會因為行政命令的更迭而被強行定義為「抄襲機器」。這不僅是法律層面的博弈，更是對 LLM 本質的一場技術審判。</p>
+    <p>如果我們把 Gemini 或是 GPT-4o 餵進去的訓練數據看作是原材料，那麼過擬合（Overfitting）就是這台機器最致命的瑕疵。當一個模型在訓練過程中對某些特定數據過於「忠誠」，它輸出的內容就不再是機率分佈下的創作，而是一種近乎像素級的還原。這正是目前版權爭議的核心：當 LLM 產出了一段與原著高度雷同的代碼或文字，這究竟是機率的巧合，還是模型結構缺陷導致的盜竊？</p>
+    <p>對於 Google 而言，Gemini 在處理這類風險時展現出一種近乎偏執的謹慎。在 1.5 Pro 的長文本處理中，系統會頻繁觸發安全性過濾器，這種過濾器不僅僅是為了攔截有害資訊，更多時候是在進行實時的相似度檢索。當 Gemini 意識到生成的序列與其索引庫中的版權素材重合度過高時，它會選擇截斷輸出或重定向語義。這種做法雖然保護了 Google 免於陷入法律泥淖，卻也讓開發者在調用 API 進行創意寫作時感到一種隱形的束縛。</p>
+    <p>這與 ChatGPT 的策略略有不同。OpenAI 傾向於在後端進行「去標識化」處理，並在用戶協議中將責任轉嫁。然而，當我們觀察 GPT-4o 在處理特定受保護的文學作品時，它依然可能跳入過擬合的陷阱，複現出那些本該被模糊化的細節。這反映了底層 Transformer 架構的一個悖論：我們追求更精準的預測，但精準到極致，就是複刻。</p>
+    <p>相較於 DeepSeek 最近在代碼生成領域引發的討論，Gemini 在企業級應用中更強調對輸入數據的封閉性保護。在許多技術討論中，人們會拿 Qwen 的開源策略與四大平台的封閉生態做比較，但本質上，無論是閉源還是開源，只要模型還是在進行「下一個詞」的預測，版權局的那把火遲早會燒到演算法的損失函數上。</p>
+    <p>Grok 在這場紛爭中則顯得特立獨行。馬斯克對版權的態度一向狂放，這使得 Grok 在訓練數據的獲取上更為激進，甚至直接吞噬 X 平台上的實時資訊。這種策略讓 Grok 的回答更具「人味」，卻也讓它在法律邊緣反覆橫跳。相比之下，Claude 則像是那個坐在圖書館角落的優等生，Anthropic 為其注入了憲法 AI（Constitutional AI）的概念，試圖從價值觀層面就規範掉侵權的可能性，雖然這有時讓它的回答顯得有些束縛和刻板。</p>
+    <p>我們正在進入一個技術參數被行政力量干預的時代。如果版權局的領導層更迭導致對「合理使用」的解釋權發生偏移，四大平台可能被迫要重新調整其模型的隨機性（Temperature）底層邏輯。為了規避版權風險，模型是否會被要求故意降低精準度？或者，我們是否會迎來一種經過「法律清洗」的特殊訓練集，讓 AI 在一個無菌的環境中成長，代價則是失去對人類文明最精華部分的理解力？</p>
+    <p>當技術不再僅僅是技術，當權重矩陣必須為法律條文讓路，我們所追求的通用人工智慧，是否最終只會變成一個畏首畏尾、滿口官話的複讀機？如果模型預測出的下一個詞必須經過政治審核，那 AI 產出的究竟是知識，還是經過許可的噪聲？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.eff.org/deeplinks/2026/06/congress-just-rushed-through-disastrous-copyright-office-overhaul" rel="nofollow noopener" target="_blank">H.R. 6028 would fundamentally change the U.S. Copyright Office</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260618-0652-173177/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
