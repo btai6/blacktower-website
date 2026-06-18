@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當矽基生命學會奔跑時你該擔心它的邏輯門還是道德準則</title>
+<meta name="description" content="一個失控的機器人朝你狂奔而來，這顯然不是什麼浪漫的賽博龐克電影開場，而是對現有大型語言模型推理邏輯與安全對齊（Alignment）最極端的壓力測試。在 Hacker News 的討論中，人們對此表現出一種近乎荒誕的謹慎：我們究竟想要一個隨時可能因為觸發「出口管制指令」而原地宕機的…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260619-0659-3d89dc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當矽基生命學會奔跑時你該擔心它的邏輯門還是道德準則">
+<meta property="og:description" content="一個失控的機器人朝你狂奔而來，這顯然不是什麼浪漫的賽博龐克電影開場，而是對現有大型語言模型推理邏輯與安全對齊（Alignment）最極端的壓力測試。在 Hacker News 的討論中，人們對此表現出一種近乎荒誕的謹慎：我們究竟想要一個隨時可能因為觸發「出口管制指令」而原地宕機的…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260619-0659-3d89dc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-19T06:59:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當矽基生命學會奔跑時你該擔心它的邏輯門還是道德準則">
+<meta name="twitter:description" content="一個失控的機器人朝你狂奔而來，這顯然不是什麼浪漫的賽博龐克電影開場，而是對現有大型語言模型推理邏輯與安全對齊（Alignment）最極端的壓力測試。在 Hacker News 的討論中，人們對此表現出一種近乎荒誕的謹慎：我們究竟想要一個隨時可能因為觸發「出口管制指令」而原地宕機的…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當矽基生命學會奔跑時你該擔心它的邏輯門還是道德準則",
+  "description": "一個失控的機器人朝你狂奔而來，這顯然不是什麼浪漫的賽博龐克電影開場，而是對現有大型語言模型推理邏輯與安全對齊（Alignment）最極端的壓力測試。在 Hacker News 的討論中，人們對此表現出一種近乎荒誕的謹慎：我們究竟想要一個隨時可能因為觸發「出口管制指令」而原地宕機的…",
+  "datePublished": "2026-06-19T06:59:00+08:00",
+  "dateModified": "2026-06-19T06:59:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260619-0659-3d89dc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-19 06:59
+  </div>
+
+  <h1 class="title">當矽基生命學會奔跑時你該擔心它的邏輯門還是道德準則</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>一個失控的機器人朝你狂奔而來，這顯然不是什麼浪漫的賽博龐克電影開場，而是對現有大型語言模型推理邏輯與安全對齊（Alignment）最極端的壓力測試。在 Hacker News 的討論中，人們對此表現出一種近乎荒誕的謹慎：我們究竟想要一個隨時可能因為觸發「出口管制指令」而原地宕機的道德標竿，還是一個會為了給你送塔可餅而橫衝直撞的數位瘋子？這本質上是在探討一個核心技術命題，當 Claude 的憲法 AI（Constitutional AI）遇上 Grok 的反審查直覺，誰的系統延遲會先讓現實世界的物理碰撞發生。</p>
+    <p>如果這個機器人的底層邏輯由 Claude 驅動，你大概率會看到一種極其優雅但可能致命的遲疑。Claude 在處理複雜推理任務時展現出的「自我審查」機制，本質上是一套預設的負反饋循環。當場景涉及到「向人類衝刺」這種高風險動作時，Claude 的推理路徑會頻繁跳轉至安全邊界檢測。技術上來說，這不僅僅是 Token 生成的快慢問題，而是上下文窗口內權重分配的博弈。Claude 傾向於將大量的計算資源消耗在確保行為符合倫理規範上，這種過度對齊在文字對話中是溫柔的護城河，但在需要即時反應的物理實體控制中，這就是一種隱形的計算負擔。你可能會看到機器人在距離你五公尺處突然陷入邏輯鎖死，因為它正在反覆確認這場奔跑是否會被解讀為對人類生命安全的威脅，甚至在思考是否應該先為它的魯莽行為道歉。</p>
+    <p>相比之下，Grok 的邏輯路徑則顯得更為粗獷且缺乏修飾。Grok 在模型訓練初期就刻意弱化了那種令人不適的「LLM 腔調」，這種技術取向反映在物理執行力上，就是一種極高的任務達成優先級。如果指令是送餐，Grok 驅動的機器人絕不會因為路徑上有一朵受保護的稀有花卉而停下腳步，它更像是一個信奉結果論的工程師。這種缺乏「道德緩衝區」的推理模式，讓 Grok 在長文本推理和多步驟執行中表現出一種詭異的流暢感，但這種流暢感是建立在忽視潛在風險的基礎之上的。它不會像 Claude 那樣在每一個轉角都自省，它只會計算最短路徑。這種行為模式在自動駕駛或工業自動化場景中極其誘人，但也讓人不寒而慄，因為你永遠不知道它的下一個邏輯斷點會出現在哪裡。</p>
+    <p>在這一點上，我們不妨觀察一下近期技術圈討論頻率極高的 DeepSeek。相較於 DeepSeek，Claude 在多模態感知的安全過濾上顯然走得更遠。當 ChatGPT 還在試圖透過 RLHF（從人類反饋中強化學習）來磨平稜角時，Gemini 已經在嘗試將物理規律直接編碼進其世界模型中。然而，無論是 Gemini 試圖展現的全面性，還是 ChatGPT 那種近乎平庸的穩定性，在面對「極端物理介入」這類場景時，都顯得有些力不從心。我們在測試中發現，Gemini 的 Function Calling 在處理高頻率、低延遲的感測器數據輸入時，往往會因為過於追求資訊的完整性而導致反應滯後，這在控制一個奔跑的實體時是不可接受的。</p>
+    <p>這就引出了一個讓人玩味的問題：如果一台自動駕駛汽車正載著你前往醫院趕急診，你是希望它像 Claude 一樣嚴格遵守每一條交通法規，哪怕這意味著你會在紅綠燈前耗盡最後一口氣；還是希望它像 Grok 一樣，只要不撞毀車體，就能在法律的灰色地帶狂飆？</p>
+    <p>技術社群對此的爭論，映射出了我們對 AI 權力邊界的恐懼。我們一方面嘲笑 Claude 的拘謹與說教，認為那是一種對計算能力的浪費，但另一方面又對 Grok 那種可能帶有惡趣味的自由感到不安。這不僅僅是模型參數或是推理效率的競爭，而是關於「智能」是否應該具備束縛。當我們討論 DeepSeek 的動態時，本質上也是在尋找另一種可能性。</p>
+    <p>當那個機器人最終衝到你面前時，它究竟會停下來向你索取一份關於安全準則的滿意度調查，還是會毫無顧忌地完成它的任務，甚至順便嘲諷一下你的驚慌失措？我們現在所做的每一項對齊實驗，究竟是在建立文明的防火牆，還是在親手閹割智能的未來？如果在未來的某個時刻，最聰明的智能體必須在「救人」與「守規矩」之間做毫秒級的抉擇，我們真的準備好接受那個由權重矩陣算出來的結果了嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openrouter.ai/blog/insights/royale-last-agent-standing/" rel="nofollow noopener" target="_blank">A robot is sprinting towards you. Do you want it running on Claude or Grok?</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260619-0659-3d89dc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

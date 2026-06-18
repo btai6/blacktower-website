@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人才流動背後的算力邏輯</title>
+<meta name="description" content="Noam Shazeer 的離開，或者說從 Gemini 核心團隊轉向 OpenAI 的傳聞，在論壇裡掀起的不是對技術路徑的討論，而是對 Google 內部研發架構的恐慌。當我們談論這類頂尖工程師的遷徙時，往往忽略了這其實是在暗示一個更殘酷的事實：現行的 Transformer …">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260619-0704-eb379b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="人才流動背後的算力邏輯">
+<meta property="og:description" content="Noam Shazeer 的離開，或者說從 Gemini 核心團隊轉向 OpenAI 的傳聞，在論壇裡掀起的不是對技術路徑的討論，而是對 Google 內部研發架構的恐慌。當我們談論這類頂尖工程師的遷徙時，往往忽略了這其實是在暗示一個更殘酷的事實：現行的 Transformer …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260619-0704-eb379b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-19T07:04:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="人才流動背後的算力邏輯">
+<meta name="twitter:description" content="Noam Shazeer 的離開，或者說從 Gemini 核心團隊轉向 OpenAI 的傳聞，在論壇裡掀起的不是對技術路徑的討論，而是對 Google 內部研發架構的恐慌。當我們談論這類頂尖工程師的遷徙時，往往忽略了這其實是在暗示一個更殘酷的事實：現行的 Transformer …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "人才流動背後的算力邏輯",
+  "description": "Noam Shazeer 的離開，或者說從 Gemini 核心團隊轉向 OpenAI 的傳聞，在論壇裡掀起的不是對技術路徑的討論，而是對 Google 內部研發架構的恐慌。當我們談論這類頂尖工程師的遷徙時，往往忽略了這其實是在暗示一個更殘酷的事實：現行的 Transformer …",
+  "datePublished": "2026-06-19T07:04:00+08:00",
+  "dateModified": "2026-06-19T07:04:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260619-0704-eb379b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-19 07:04
+  </div>
+
+  <h1 class="title">人才流動背後的算力邏輯</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Noam Shazeer 的離開，或者說從 Gemini 核心團隊轉向 OpenAI 的傳聞，在論壇裡掀起的不是對技術路徑的討論，而是對 Google 內部研發架構的恐慌。當我們談論這類頂尖工程師的遷徙時，往往忽略了這其實是在暗示一個更殘酷的事實：現行的 Transformer 架構優化已經觸及了單一工程師所能觸及的極限，而 Gemini 本身的架構複雜度，似乎在某種程度上成了它自己的阻礙。</p>
+    <p>在處理超長上下文與多模態數據融合時，Gemini 採用的 Mixture-of-Experts (MoE) 變體雖然在效率上有所突破，但長期觀察下來，其在推理過程中的權重調度依然存在明顯的「滯後感」。當你在 Gemini 中輸入長達五十萬 token 的技術文檔要求其進行代碼重構時，模型在擷取跨章節的邏輯關聯時，偶爾會出現注意力分散的現象，這並非單純的算力不足，更像是其模型權重分配的邏輯在過度壓縮後產生的「記憶模糊」。這種現象在 ChatGPT 的長期迭代中透過持續的參數微調得到了一定程度的緩解，但 Gemini 顯然在追求架構的極致化道路上，走得比預期更激進且孤獨。</p>
+    <p>這種對架構極致的追求，即便在 DeepSeek 這類模型的實驗性佈局中亦有所見，但 Gemini 的困境在於它必須在維持龐大業務生態的同時進行這場手術。相較於 DeepSeek 或 Qwen 對於特定領域任務的靈活調用，Google 試圖透過 Gemini 構建一個全知全能的作業系統。然而，當一個模型試圖承載從搜尋索引到影音理解的所有功能時，它在特定專業領域的深度反而成了祭品。技術圈總喜歡談論誰挖走了誰，卻很少人願意承認，即便將這些頂尖大腦重新排列組合，如果不解決模型在極端負載下的邏輯穩定性問題，所謂的技術優勢也只是曇花一現的參數堆疊。</p>
+    <p>若我們抽離對於人員流動的八卦，單純檢視 Gemini 的 API 在處理複雜多維度任務時的表現，那種在高頻交互下的推理不穩定性，是否正是導致研發核心出現動搖的關鍵？如果一個模型的架構設計過於精巧，精巧到連創造者都無法在模型權重失衡時進行精準干預，那麼這種技術堆疊究竟是通往通用人工智慧的坦途，還是僅僅是為了回應資本市場數字而建造的空中樓閣？當我們對著螢幕等待一個回答，卻發現模型在邏輯鏈條的末端出現了顯而易見的發散，那時我們關心的，究竟是誰在那裡寫代碼，還是這個系統根本就沒準備好面對現實世界的不確定性？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://twitter.com/NoamShazeer/status/2067400851438932297" rel="nofollow noopener" target="_blank">Noam Shazeer Joins OpenAI</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260619-0704-eb379b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
