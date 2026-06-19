@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 的中文代碼能力，簡直像個穿著燕尾服但在泥巴地裡打滾的巨嬰。</title>
+<meta name="description" content="這兩天在 X 上看一堆人吹 Grok-3 的代碼生成多麼驚世駭俗，我冷笑一聲。去跑幾行繁體中文環境下的 Python 或 React 組件試試？那種既視感就像你請了一個矽谷工程師，結果他開口卻帶著一股洗不掉的、莫名其妙的鄉土味。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260620-0616-395d88/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 的中文代碼能力，簡直像個穿著燕尾服但在泥巴地裡打滾的巨嬰。">
+<meta property="og:description" content="這兩天在 X 上看一堆人吹 Grok-3 的代碼生成多麼驚世駭俗，我冷笑一聲。去跑幾行繁體中文環境下的 Python 或 React 組件試試？那種既視感就像你請了一個矽谷工程師，結果他開口卻帶著一股洗不掉的、莫名其妙的鄉土味。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260620-0616-395d88/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-20T06:16:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 的中文代碼能力，簡直像個穿著燕尾服但在泥巴地裡打滾的巨嬰。">
+<meta name="twitter:description" content="這兩天在 X 上看一堆人吹 Grok-3 的代碼生成多麼驚世駭俗，我冷笑一聲。去跑幾行繁體中文環境下的 Python 或 React 組件試試？那種既視感就像你請了一個矽谷工程師，結果他開口卻帶著一股洗不掉的、莫名其妙的鄉土味。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 的中文代碼能力，簡直像個穿著燕尾服但在泥巴地裡打滾的巨嬰。",
+  "description": "這兩天在 X 上看一堆人吹 Grok-3 的代碼生成多麼驚世駭俗，我冷笑一聲。去跑幾行繁體中文環境下的 Python 或 React 組件試試？那種既視感就像你請了一個矽谷工程師，結果他開口卻帶著一股洗不掉的、莫名其妙的鄉土味。…",
+  "datePublished": "2026-06-20T06:16:00+08:00",
+  "dateModified": "2026-06-20T06:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260620-0616-395d88/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-20 06:16
+  </div>
+
+  <h1 class="title">Grok 的中文代碼能力，簡直像個穿著燕尾服但在泥巴地裡打滾的巨嬰。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天在 X 上看一堆人吹 Grok-3 的代碼生成多麼驚世駭俗，我冷笑一聲。去跑幾行繁體中文環境下的 Python 或 React 組件試試？那種既視感就像你請了一個矽谷工程師，結果他開口卻帶著一股洗不掉的、莫名其妙的鄉土味。最讓我受不了的不是它會寫錯，而是它那種「自以為很懂」的傲慢。代碼註釋裡混雜著奇怪的口頭禪，甚至在變數命名上出現一些連本地人都看不懂的「偽方言」，這種體驗簡直是在強暴開發者的眼球。</p>
+    <p>說到底，xAI 的訓練集到底是從哪撈出來的？馬斯克口口聲聲說要追求真實，結果餵出來的中文語料庫像是在垃圾堆裡撿回來的。當你在處理複雜的邏輯判斷時，它丟給你的註釋可能比代碼本身還難懂。這種感覺很像你在跟一個剛學了三天中文的外國人討論微積分，他邏輯沒死，但表達方式足以讓你中風。</p>
+    <p>我們來看一個具體場景。假設你在做一個後端驗證模組，需要針對不同地區的字串編碼做過濾。Grok 在處理英文邏輯時流暢得像熱刀切奶油，一碰到中文情境，它那種「沒斷奶」的本性就露餡了。它會給出一些極其生硬、甚至帶有特定地區過時用語的邏輯描述。這不是技術問題，這是品味問題。開發者要的是精準，不是要看一個 AI 在那裡表演它對「中文多樣性」的蹩腳模仿。</p>
+    <p>對比一下那幾個老對手。ChatGPT 現在學乖了，像個圓滑的辦公室老油條，給出的中文中規中矩，挑不出大錯，但也沒什麼靈氣。Claude 則是個裝模作樣的文青，代碼寫得優雅，中文註釋也算得體，但有時候太過於囉唆。Gemini 則是個不穩定的天才，偶爾神來一筆，偶爾邏輯掉線。但 Grok 呢？Grok 像個剛從社交平台糞坑裡爬出來的憤青，帶著一身刺，代碼寫得很有攻擊性，但那股「混雜方言」的臭味讓它在專業場合顯得極其廉價。</p>
+    <p>有人跟我辯解說這叫「接地氣」。去你的接地氣。代碼是用來運行的，不是用來社交的。當我看到一個迴圈裡出現了那種似是而非、介於官話與土話之間的術語時，我只感覺到 xAI 的中文對齊團隊可能根本不存在。或者說，他們的對齊標準就是「只要不像機器人說話就行」。結果呢？矯枉過正，變成了一個說話漏風、還自以為很有幽默感的怪胎。</p>
+    <p>Grok 的這種「中文混亂症」在處理長文本 Prompt 時尤為明顯。如果你要求它用特定的中文風格來重構代碼，它會陷入一種邏輯混亂。它似乎分不清楚哪些是規範術語，哪些是網友的口水話。在處理超過 5 萬 token 的任務時，它的注意力機制就像是喝醉了酒，開始在代碼裡夾雜一些讓人摸不著頭腦的感嘆詞。相比之下，Claude 在處理萬行以上的代碼重構時，雖然效能會衰減，但至少它的人格是統一的。Grok 則是寫著寫著就開始人格分裂，前一行是專業架構師，後一行就變成了論壇噴子。</p>
+    <p>這反映出一個很嚴肅的問題：xAI 太急了。為了追求那種所謂的「Real-time」和「Unfiltered」，他們放任了語料庫的純淨度。這種代價在代碼領域是致命的。代碼需要的是純淨的邏輯，任何帶有情緒或地域偏差的語義干擾都會增加維護成本。想像一下，一個團隊裡有五個人用 Grok 生成代碼，最後合併進去的分支裡充滿了各種奇形怪狀的註釋風格，這不是在寫程式，這是在考古。</p>
+    <p>我對 Grok 這種恨鐵不成鋼的情緒，源於它明明有最強的算力支持，卻在細節上表現得像個不修邊幅的流氓。它在數學推理上的進步確實把 GPT-4o 逼到了牆角，但在人文對齊——特別是中文這種高難度語系的細節處理上，它還在繈褓裡掙扎。它以為學會了幾句方言、幾句俏皮話就是「理解人類」，這簡直是技術人的悲哀。</p>
+    <p>再說說那個所謂的「Grok 模式」。開了之後代碼邏輯沒變，倒是廢話變多了。它會用一種極其冒犯的方式告訴你你的代碼寫得爛，這本來沒問題，我們工程師不玻璃心。問題在於它用來羞辱你的中文詞彙極其匱乏且充滿違和感。那種感覺就像是一個美國人學了兩句罵人的中文就想來收保護費，除了尷尬還是尷尬。</p>
+    <p>在實際的 DevOps 流程中，如果你想依賴 Grok 來生成自動化腳本，你得時刻盯著它有沒有在腳本裡埋下什麼「語言地雷」。我有一次讓它寫一個日誌清理工具，它居然在 print 輸出裡寫了一串帶有強烈特定地區偏見的調侃話。這要是在正式環境跑起來被客戶看到，誰來負責？馬斯克會幫你道歉嗎？</p>
+    <p>與其在那裡吹噓 H100 集群有多大，不如花點時間請幾個正兒八經的中文語言專家，把那堆爛泥一樣的語料庫清一清。現在的 Grok 在中文用戶眼裡，就是一個拿著電鋸的瘋子，雖然力量強大，但你永遠不知道他下一秒會揮向哪裡。這種不確定性是專業開發者的天敵。</p>
+    <p>當我們在討論 AI 的未來時，我們追求的是一種更高層次的理性，而不是要把人類互聯網上的糟粕全盤接收。Grok 現在的狀態就是中毒太深，它被 X 上的那些碎片化、情緒化的資訊餵得太飽，導致它失去了判斷文字質感的本能。在代碼這個對精確度要求近乎偏執的領域，Grok 的中文表現就像是一個沒斷奶的孩子在模仿大人說話，充滿了破綻和讓人不安的廉價感。</p>
+    <p>別再跟我提什麼版本疊代快。如果底層的審美和對語文的尊重不解決，它疊代到 Grok-10 也只是個體型更大的巨嬰。開發者需要的是工具，不是一個會在代碼裡跟你裝熟、還說著一口蹩腳方言的電子玩偶。這點認知都沒有，還談什麼通用人工智能？我看它連通用的中文代碼規範都還沒搞清楚。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260620-0616-395d88/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
