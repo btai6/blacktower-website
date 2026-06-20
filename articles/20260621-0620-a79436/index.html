@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當數據獲取的成本歸零，隱私的最後一道防線也就塌了</title>
+<meta name="description" content="在 PACER 系統裡下載一份法律文件，一頁要收 0.1 美元。這種上世紀的收費邏輯，在現在這個爬蟲橫行的時代，居然成了保護隱私的某種意外屏障。很多人在討論法庭記錄是否應該全面免費，這件事本質上不是錢的問題，而是數據主權與大規模模型抓取之間的博弈。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260621-0620-a79436/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當數據獲取的成本歸零，隱私的最後一道防線也就塌了">
+<meta property="og:description" content="在 PACER 系統裡下載一份法律文件，一頁要收 0.1 美元。這種上世紀的收費邏輯，在現在這個爬蟲橫行的時代，居然成了保護隱私的某種意外屏障。很多人在討論法庭記錄是否應該全面免費，這件事本質上不是錢的問題，而是數據主權與大規模模型抓取之間的博弈。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260621-0620-a79436/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-21T06:20:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當數據獲取的成本歸零，隱私的最後一道防線也就塌了">
+<meta name="twitter:description" content="在 PACER 系統裡下載一份法律文件，一頁要收 0.1 美元。這種上世紀的收費邏輯，在現在這個爬蟲橫行的時代，居然成了保護隱私的某種意外屏障。很多人在討論法庭記錄是否應該全面免費，這件事本質上不是錢的問題，而是數據主權與大規模模型抓取之間的博弈。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當數據獲取的成本歸零，隱私的最後一道防線也就塌了",
+  "description": "在 PACER 系統裡下載一份法律文件，一頁要收 0.1 美元。這種上世紀的收費邏輯，在現在這個爬蟲橫行的時代，居然成了保護隱私的某種意外屏障。很多人在討論法庭記錄是否應該全面免費，這件事本質上不是錢的問題，而是數據主權與大規模模型抓取之間的博弈。…",
+  "datePublished": "2026-06-21T06:20:00+08:00",
+  "dateModified": "2026-06-21T06:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260621-0620-a79436/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-21 06:20
+  </div>
+
+  <h1 class="title">當數據獲取的成本歸零，隱私的最後一道防線也就塌了</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在 PACER 系統裡下載一份法律文件，一頁要收 0.1 美元。這種上世紀的收費邏輯，在現在這個爬蟲橫行的時代，居然成了保護隱私的某種意外屏障。很多人在討論法庭記錄是否應該全面免費，這件事本質上不是錢的問題，而是數據主權與大規模模型抓取之間的博弈。想像一下，如果全美的法律訴訟、離婚協議、債務糾紛全部變成結構化的免費接口，受益最大的不是普通公民，而是那些正愁沒地方餵養長文本能力的 LLM。</p>
+    <p>Gemini 目前在處理長達兩百萬 token 的上下文時，展現出一種近乎病態的細膩。如果你把一份長達三百頁的聯邦訴訟文件丟給它，它能精準地捕捉到第 142 頁某個不起眼的註腳，並以此推導出原告律師的邏輯漏洞。這種基於 RAG 與原生長窗口的檢索能力，讓法律數據的「可讀性」發生了質變。以往這些埋在老舊數據庫裡的 PDF 是一種非結構化的噪音，但對現在的 Google 而言，它們是極其珍貴的邏輯鏈條訓練集。</p>
+    <p>當我們在討論 CourtListener 或是 Recap 這類旨在打破數據壁壘的工具時，實際上是在加速這種「訓練集化」的過程。ChatGPT 在處理這類法律場景時，邏輯顯得更為激進。它不只是在檢索，它在試圖重構法律話語。OpenAI 對於數據清洗的成本承受力極高，即便 PACER 的界面再破舊、接口再難用，只要數據有價值，他們就有辦法將其轉化為模型內部的權重。這就引發了一個技術倫理上的尷尬點：如果司法紀錄全面免費，我們是否在用納稅人的錢，資助科技巨頭完成最後的法律推理拼圖？</p>
+    <p>相比之下，DeepSeek 近期在技術圈引起了不少關於數據獲取效率的討論。在面對同樣的公開法律數據集時，Gemini 的策略明顯更傾向於利用其龐大的基礎設施進行全量吞吐。Google 擁有現成的雲端生態，可以直接在 Vertex AI 裡建立一套自動化的法律分析工作流。這種從數據抓取到向量化存儲，再到模型微調的閉環，是目前其他平台難以企及的。而 Claude 則走了一條不同的路，它在處理法律文書時表現出的那種克制和對敏感信息的識別能力，似乎比單純的長文本吞吐更有溫度。Anthropic 顯然在對齊階段加入了不少法律倫理的約束，這讓它在處理涉及訴訟當事人隱私的數據時，不會像其他模型那樣口無遮攔。</p>
+    <p>這就回到了數據獲取的矛盾點。正如有人在 Hacker News 上擔心的，一旦所有法庭紀錄都能被瞬間檢索，每個人的黑歷史都將在 LLM 面前無所遁形。如果你問 Grok 關於某個公眾人物的法律糾紛，它那種不羈的抓取風格可能會直接把沒經過脫敏的原始卷宗內容抖出來。馬斯克對數據開源的態度一直很微妙，Grok 的訓練數據來源廣泛且混雜，這讓它在法律專業性上雖然稍遜於 Claude，但在挖掘「法律背後的八卦」上卻有著天然的嗅覺。</p>
+    <p>如果 PACER 真的被一個現代化的、統一的免費平台取代，我們面臨的技術挑戰將會從「如何獲取數據」轉向「如何防止數據被濫用」。這不是靠幾行 robots.txt 就能解決的。當模型已經具備了從碎片化信息中重構實體關係的能力，隱私保護的成本將會呈幾何倍數增長。</p>
+    <p>我們是否已經準備好迎接一個沒有遺忘權的司法體系？當所有的訴訟紀錄都成了 Claude 或是 Gemini 訓練參數的一部分，我們所追求的透明度，會不會最終成了科技巨頭用來收割信息的另一種形式的壟斷？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.eff.org/deeplinks/2026/06/court-records-should-be-free" rel="nofollow noopener" target="_blank">Court Records Should Be Free</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260621-0620-a79436/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
