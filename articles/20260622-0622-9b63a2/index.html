@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當大語言模型遇上被高牆圍住的法律數據庫</title>
+<meta name="description" content="法院卷宗數據的開放性，在 Hacker News 上從來不是新鮮話題，但最近因為 DeepSeek 在全球技術圈引發的數據效率討論，讓這個老問題顯得格外刺眼。我們在談論 AI 知識主權時，總習慣假設互聯網數據是取之不盡的公共礦場，事實上，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260622-0622-9b63a2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當大語言模型遇上被高牆圍住的法律數據庫">
+<meta property="og:description" content="法院卷宗數據的開放性，在 Hacker News 上從來不是新鮮話題，但最近因為 DeepSeek 在全球技術圈引發的數據效率討論，讓這個老問題顯得格外刺眼。我們在談論 AI 知識主權時，總習慣假設互聯網數據是取之不盡的公共礦場，事實上，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260622-0622-9b63a2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-22T06:22:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當大語言模型遇上被高牆圍住的法律數據庫">
+<meta name="twitter:description" content="法院卷宗數據的開放性，在 Hacker News 上從來不是新鮮話題，但最近因為 DeepSeek 在全球技術圈引發的數據效率討論，讓這個老問題顯得格外刺眼。我們在談論 AI 知識主權時，總習慣假設互聯網數據是取之不盡的公共礦場，事實上，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當大語言模型遇上被高牆圍住的法律數據庫",
+  "description": "法院卷宗數據的開放性，在 Hacker News 上從來不是新鮮話題，但最近因為 DeepSeek 在全球技術圈引發的數據效率討論，讓這個老問題顯得格外刺眼。我們在談論 AI 知識主權時，總習慣假設互聯網數據是取之不盡的公共礦場，事實上，…",
+  "datePublished": "2026-06-22T06:22:00+08:00",
+  "dateModified": "2026-06-22T06:22:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260622-0622-9b63a2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-22 06:22
+  </div>
+
+  <h1 class="title">當大語言模型遇上被高牆圍住的法律數據庫</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>法院卷宗數據的開放性，在 Hacker News 上從來不是新鮮話題，但最近因為 DeepSeek 在全球技術圈引發的數據效率討論，讓這個老問題顯得格外刺眼。我們在談論 AI 知識主權時，總習慣假設互聯網數據是取之不盡的公共礦場，事實上，像 PACER 這種古老且收費的美國法院數據庫，才是 AI 進化的真正瓶頸。這不只是錢的問題，而是數據獲取成本直接決定了模型在專業領域的「智商」。當我們嘗試讓 Gemini 處理長達數百頁的破產法庭文件，或是要求 ChatGPT 解析複雜的專利訴訟脈絡時，這些模型表現出的幻覺，往往源於它們在訓練階段就沒吃過幾頓正經的法律大餐。</p>
+    <p>目前四大平台中，Gemini 在處理法律文書這類長文本任務時展現出了明顯的策略傾向。Google 憑藉其強大的爬蟲基因，試圖通過 Vertex AI 將更多法律合規數據結構化，但在面對 PACER 這種每頁收費 0.1 美元的過時系統時，強如 Google 也不得不面對成本牆。Gemini 1.5 Pro 的百萬級 token 窗口在處理單一案件的全案卷宗時非常從容，但如果底層數據是通過 Recap 這種第三方插件「眾籌」來的殘缺副本，模型在跨案件關聯分析時就會出現嚴重的邏輯斷裂。它能記住當前文檔的所有細節，卻無法在缺乏全局數據的情況下，準確判斷某個判例法邏輯在不同司法管轄區的適用性。</p>
+    <p>相比之下，ChatGPT 的做法更傾向於「合成與推理」。OpenAI 似乎意識到直接獲取海量原始法律數據的難度與法律風險，因此在 GPT-4o 的訓練中，更多地強化了對法律條文的邏輯拆解能力。當你餵給它一份掃描質量極差的法庭筆錄，GPT-4o 的 OCR 修正與意圖識別能力確實領先一步。然而，這種強大的推理能力有時會演變成一種危險的自負。在缺乏真實數據庫支持的情況下，它會用極其完美的法律修辭去編造一個不存在的判例。這種「優雅的錯誤」在法律專業人士眼中，遠比 Gemini 的不穩定更令人不安。</p>
+    <p>如果將視角切換到技術實現的成本與效率，相較於 DeepSeek 頻頻被提及的訓練模型經濟學，四大平台在處理公共數據時顯得更為保守且沈重。Grok 雖然背靠 X 的實時數據流，但在法律文書這種需要極高嚴謹度的靜態數據面前，它的優勢幾乎蕩然無存。社交平台上的法律討論碎片，對於訓練一個能打贏官司的模型來說，不僅無益，反而可能引入大量的噪音和情緒化偏見。而 Claude 在這場博弈中選擇了極端謹慎的對齊策略，它在處理涉及訴訟當事人隱私的數據時，往往會觸發過於敏感的拒絕機制。這種安全性在保護隱私與提供公共法律服務之間，劃出了一道難以逾越的鴻溝。</p>
+    <p>我們必須意識到，法律數據庫的收費牆不僅僅是保護了政府的財政收入，它在無意中成為了 AI 技術的過濾器。這導致了一個怪異的現狀：最尖端的法律 AI 往往只能在昂貴的律師事務所內部運行，而普通大眾使用的通用 AI，卻在法律常識上磕磕絆絆。如果 PACER 系統真的如法案所願走向免費與現代化，那將是數據的一次大解放。屆時，我們評判一個模型的標準，將從「誰更會編法律故事」轉向「誰能精準索引每一份法庭證據」。</p>
+    <p>當所有法律數據都變成免費且機器可讀的結構化文本，目前這種依賴長文本窗口或複雜 RAG 流程的過渡方案，是否還具有長期的技術價值？如果有一天，模型的法律判斷準確率因為數據開放而達到 99%，那些隱藏在卷宗深處、與公共利益衝突的當事人隱私，又該如何避免被 AI 徹底「社會性抹除」？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.eff.org/deeplinks/2026/06/court-records-should-be-free" rel="nofollow noopener" target="_blank">Court Records Should Be Free</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260622-0622-9b63a2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

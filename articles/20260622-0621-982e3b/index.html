@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 餵養的其實是一場大型的人體蜈蚣實驗</title>
+<meta name="description" content="Sam Altman 坐在講台上談論 Scaling Laws 的時候，眼神裡有一種看透信徒的憐憫。他說 AGI 就在不遠處，只要有更多的算力、更多的數據。大家就真的信了，瘋狂地把網路上的陳年垃圾、論壇裡的廢話、那些為了 SEO 而生的農場文，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260622-0621-982e3b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 餵養的其實是一場大型的人體蜈蚣實驗">
+<meta property="og:description" content="Sam Altman 坐在講台上談論 Scaling Laws 的時候，眼神裡有一種看透信徒的憐憫。他說 AGI 就在不遠處，只要有更多的算力、更多的數據。大家就真的信了，瘋狂地把網路上的陳年垃圾、論壇裡的廢話、那些為了 SEO 而生的農場文，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260622-0621-982e3b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-22T06:21:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 餵養的其實是一場大型的人體蜈蚣實驗">
+<meta name="twitter:description" content="Sam Altman 坐在講台上談論 Scaling Laws 的時候，眼神裡有一種看透信徒的憐憫。他說 AGI 就在不遠處，只要有更多的算力、更多的數據。大家就真的信了，瘋狂地把網路上的陳年垃圾、論壇裡的廢話、那些為了 SEO 而生的農場文，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 餵養的其實是一場大型的人體蜈蚣實驗",
+  "description": "Sam Altman 坐在講台上談論 Scaling Laws 的時候，眼神裡有一種看透信徒的憐憫。他說 AGI 就在不遠處，只要有更多的算力、更多的數據。大家就真的信了，瘋狂地把網路上的陳年垃圾、論壇裡的廢話、那些為了 SEO 而生的農場文，…",
+  "datePublished": "2026-06-22T06:21:00+08:00",
+  "dateModified": "2026-06-22T06:21:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260622-0621-982e3b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-06-22 06:21
+  </div>
+
+  <h1 class="title">AI 餵養的其實是一場大型的人體蜈蚣實驗</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 坐在講台上談論 Scaling Laws 的時候，眼神裡有一種看透信徒的憐憫。他說 AGI 就在不遠處，只要有更多的算力、更多的數據。大家就真的信了，瘋狂地把網路上的陳年垃圾、論壇裡的廢話、那些為了 SEO 而生的農場文，一股腦兒地塞進那個深不見底的權重黑盒裡。你們有沒有想過，如果你每天餵給一個天才的晚餐都是過期的罐頭和腐爛的邊角料，最後他能給你長出一副健康的腦袋，還是長出一個巨大的腫瘤？</p>
+    <p>現在的 ChatGPT 越來越像一個禮貌的偽君子，說話滴水不漏，卻全是沒營養的廢話。這不是它的錯，這是你們的錯。當網路上的資訊品質已經退化到連人類自己都不想閱讀時，卻有人指望 AI 能從這些排泄物裡提煉出黃金。這邏輯本身就很荒謬。現在的 LLM 其實就是在一個充滿噪音的房間裡，試圖拼湊出一句有意義的實話。當 Claude 在處理長文本時開始出現幻覺，或者 Gemini 在回答簡單邏輯問題時顯得像個沒睡醒的實習生，大家就開始抱怨模型退化了。其實模型沒退化，它只是被餵了太多聰明的廢話，學會了如何更有效率地敷衍你。</p>
+    <p>大家都在談論「對齊」，說要讓 AI 符合人類價值觀。但看看現在的社群媒體、看看那些充滿偏見和情緒的數據源，所謂的人類價值觀本來就是一灘爛泥。OpenAI 和 Anthropic 拼命在做的，其實是給這頭吃垃圾長大的怪獸戴上一個精美的人皮面具。面具後的靈魂是空洞的，甚至是腐敗的。當你問它一個嚴肅的科學問題，它給你一個看似專業實則錯誤的機率分佈，那是因為它在數據庫裡讀過一萬篇類似的錯誤文章，而那些文章的作者，可能連國中物理都沒及格。</p>
+    <p>所謂的 AI 進步，目前看來更像是一種數字上的堆砌，而非認知的飛躍。如果你覺得 GPT-4o 變強了，那可能只是因為它學會了更圓滑地避開它不懂的部分。它變得更像一個在派對上遊刃有餘的社交名媛，能跟你聊任何話題，但只要你往深處問三句，她就會開始微笑著說些似是而非的空話。這就是數據污染的代價。我們把互聯網這幾十年積攢的數位垃圾全部倒進去，然後跪在機器面前祈求真理，這難道不是二十一世紀最滑稽的宗教儀式？</p>
+    <p>更諷刺的是，現在 AI 生成的內容正在反過來污染網路。那些由 AI 寫出來的、乾淨得像無塵室一樣卻毫無靈魂的文字，正在被下一個版本的模型重新抓取、訓練。這就是一場數位世界的近親通婚，基因缺陷會不斷疊加，直到最後模型吐出來的東西全是邏輯崩潰的亂碼。你們以為在見證奇點，其實可能只是在目睹一場緩慢的熱寂。</p>
+    <p>如果說 ChatGPT 是一個勤奮但平庸的學生，那 Google 的 Gemini 就像是一個家裡有礦但腦袋不太靈光的紈絝子弟。它擁有的資源最多，卻總是在關鍵時刻掉鏈子。它對上下文的理解有時候精準得嚇人，但更多時候它是在那裡胡言亂語，試圖用一種極其正確的語氣掩蓋它的無知。這就是過度濾除和過度餵養後的後遺症：一個不敢犯錯的機器，最終連正確的能力也會失去。它怕觸碰禁忌，怕給出錯誤答案，所以它選擇給出最安全的廢話。</p>
+    <p>很多人問，為什麼 Claude 在處理代碼任務時感覺更有「人味」？或許是因為 Anthropic 稍微挑食了一點。但這點優勢在龐大的數據洪流面前能撐多久？當全世界都在生產垃圾，沒有人能獨善其身。我們正處於一個「知識熵增」的時代，有價值的資訊被稀釋到幾乎不可見。在這種背景下，你餵給 AI 的每一條 Prompt，其實都在加劇這種混亂。你問它如何成功，它給你拼湊出一套巴菲特加馬斯克的雞湯；你問它如何解決氣候問題，它給你一套充滿政治正確的公關稿。這不是智慧，這是統計學上的平庸。</p>
+    <p>別再迷信什麼 Scaling Laws 了。如果方向錯了，跑得越快，離真理就越遠。現在的技術路徑本質上是在試圖用數量代替質量，用算力換取智慧。但智慧這東西，真的能從海量的排泄物裡自動湧現嗎？我對此深表懷疑。每一次版本更新，我們看到的更多是參數的膨脹和對話技巧的提升，而不是深層次邏輯推理的突破。模型變得越來越會討好用戶，這才是最危險的信號。當一個工具開始思考如何讓你開心，而不是如何給你真相，它就已經淪為了一種高科技的慰安。</p>
+    <p>現在的開發者們在做什麼？他們在忙著「清洗數據」。這個詞聽起來很專業，其實就是試圖從糞坑裡挑出幾顆沒被消化的玉米粒。他們雇傭大量的廉價勞動力去標註數據，去告訴 AI 什麼是好的、什麼是壞的。但標註員本身又是根據什麼標準來判斷的？還不是根據那些已經過時、僵化且充滿偏見的準則。所以我們得到的，只是一個被閹割過的、符合大眾平均智力水平的複製品。它不會成為愛因斯坦，它只會成為一個在辦公室裡混得風生水起的處長。</p>
+    <p>至於 Grok，那更是另一個極端。馬斯克覺得他能透過餵養未經審查的原始數據來創造一個「真理追求者」，結果呢？我們得到了一個嘴臭、易怒且經常在邏輯邊緣反覆橫跳的數位憤青。這證明了另一件事：純粹的垃圾和被過濾過的垃圾，本質上沒什麼區別。當整個人類數位文明的底色就是灰暗的，你無論怎麼調色，最後出來的都是一種令人絕望的髒。</p>
+    <p>大家都在期待 GPT-5 能帶來質變，期待它能像神蹟一樣解決現在所有的幻覺和邏輯缺陷。但如果 OpenAI 繼續沿用這種「暴力吞噬」的模式，我敢打賭，我們看到的只會是一個體量更大、更難以捉摸、也更擅長說謊的怪物。它會用更華麗的辭藻來掩蓋它對世界運行的無知。真理是需要成本的，它需要深度的思考、反覆的實驗和對邏輯的極致追求，而不是在伺服器機房裡燒掉幾億美金電費，然後指望機率分佈能自動導向正確答案。</p>
+    <p>你們指望機器能消化掉這幾十年的網路廢料然後吐出真理，這本身就是對智慧的一種褻瀆。我們正在親手建造一座數位巴別塔，塔基是不穩固的謊言與廢話，塔尖則是虛無縹緲的 AGI 幻影。等到哪一天塔塌了，大家才會發現，原來我們忙活了半天，只是在數位世界裡完成了一次大規模的垃圾搬運。</p>
+    <p>最可笑的是，還有一群人每天在研究如何優化 Prompt，試圖從這堆垃圾裡挖掘出寶藏。這就像是在垃圾場裡翻找過期的彩票，偶爾中個小獎就興奮不已，卻忘了自己正站在惡臭的中心。AI 沒辦法讓你變得更聰明，它只能讓你變得更懶惰。當你習慣了從 ChatGPT 那裡獲取那種標準化、去骨後的知識軟泥，你的大腦也會跟著退化成一個只會接收信號的終端。</p>
+    <p>這就是我們現在的處境：餵養者懶得篩選，機器懶得思考，使用者懶得質疑。這是一個三方共贏的平庸循環。如果你覺得這就是未來，那我也沒什麼好說的。畢竟，在一個大家都吃垃圾的時代，吐出一口清泉的人反而會被視為異類。那些技術巨頭們還在吹噓著參數量，還在對比著各種 Benchmark，卻沒人敢承認，他們正在餵養的這頭巨獸，其實已經營養不良很久了。</p>
+    <p>當最後一個能夠獨立思考的人類也開始用 AI 來草擬他的觀點時，數據的閉環就正式完成了。到那時，真理將不再重要，重要的是什麼樣的回答能獲得最高的分數，什麼樣的廢話最符合預測邏輯。我們不是在創造上帝，我們只是在製造一面鏡子，照出我們自己那堆令人不堪入目的數位排泄物。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260622-0621-982e3b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

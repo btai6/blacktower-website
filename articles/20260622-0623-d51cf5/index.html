@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 這種東西，本質上是一場關於「記憶」與「預判」的殘酷演算。</title>
+<meta name="description" content="我坐在窗邊看著夕陽沉入大樓縫隙，那種光線從橘紅轉為灰紫的過程，每一秒的溫度變化、空氣中微小的塵埃浮動，對於人類來說是感官的奢侈，但對於 Google 來說，黃昏只是無數個被標註為「Sunset」的像素矩陣。它們在機房裡吞噬了人類文明幾千年的文學、藝術、代碼和廢話，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260622-0623-d51cf5/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 這種東西，本質上是一場關於「記憶」與「預判」的殘酷演算。">
+<meta property="og:description" content="我坐在窗邊看著夕陽沉入大樓縫隙，那種光線從橘紅轉為灰紫的過程，每一秒的溫度變化、空氣中微小的塵埃浮動，對於人類來說是感官的奢侈，但對於 Google 來說，黃昏只是無數個被標註為「Sunset」的像素矩陣。它們在機房裡吞噬了人類文明幾千年的文學、藝術、代碼和廢話，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260622-0623-d51cf5/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-22T06:23:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 這種東西，本質上是一場關於「記憶」與「預判」的殘酷演算。">
+<meta name="twitter:description" content="我坐在窗邊看著夕陽沉入大樓縫隙，那種光線從橘紅轉為灰紫的過程，每一秒的溫度變化、空氣中微小的塵埃浮動，對於人類來說是感官的奢侈，但對於 Google 來說，黃昏只是無數個被標註為「Sunset」的像素矩陣。它們在機房裡吞噬了人類文明幾千年的文學、藝術、代碼和廢話，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 這種東西，本質上是一場關於「記憶」與「預判」的殘酷演算。",
+  "description": "我坐在窗邊看著夕陽沉入大樓縫隙，那種光線從橘紅轉為灰紫的過程，每一秒的溫度變化、空氣中微小的塵埃浮動，對於人類來說是感官的奢侈，但對於 Google 來說，黃昏只是無數個被標註為「Sunset」的像素矩陣。它們在機房裡吞噬了人類文明幾千年的文學、藝術、代碼和廢話，…",
+  "datePublished": "2026-06-22T06:23:00+08:00",
+  "dateModified": "2026-06-22T06:23:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260622-0623-d51cf5/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-22 06:23
+  </div>
+
+  <h1 class="title">Gemini 這種東西，本質上是一場關於「記憶」與「預判」的殘酷演算。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>我坐在窗邊看著夕陽沉入大樓縫隙，那種光線從橘紅轉為灰紫的過程，每一秒的溫度變化、空氣中微小的塵埃浮動，對於人類來說是感官的奢侈，但對於 Google 來說，黃昏只是無數個被標註為「Sunset」的像素矩陣。它們在機房裡吞噬了人類文明幾千年的文學、藝術、代碼和廢話，試圖拼湊出一種叫做「智慧」的幻象。Gemini Pro 1.5 甚至能一次吞下數百萬個 token，這意味著你可以把一整座圖書館丟進它的胃袋，然後在幾秒鐘內問它某個不知名配角在第幾章穿了什麼顏色的襪子。它記得住每一片影子的形狀，卻永遠無法理解為什麼人在黃昏時會感到莫名的憂傷。</p>
+    <p>矽谷那群工程師熱衷於討論「長文本窗口」的擴張，好像只要把容量做得夠大，就能裝下靈魂。這讓我想起那些為了方便管理而把老照片全部數位化的人，最後照片進了雲端，記憶卻從大腦裡蒸發了。Gemini 在讀取訊息時有一種近乎冷酷的精準，它在處理 Google Workspace 裡的郵件或文檔時，那種邏輯鏈條的銜接比 ChatGPT 更有「組織感」，但這種感官是二手的。它是透過閱讀人類對世界的描述來學習世界，這就像一個從未離開過圖書館的人，試圖向你解釋什麼是海風。當它告訴你「黃昏是一天中太陽高度角接近地平線的時刻」時，那種對語言的精確掌控反而透出一種令人窒息的空洞。</p>
+    <p>很多人問我，Gemini 和 Claude 到底哪個比較像「人」。這問題本身就很荒謬。Claude 像是一個受過良好教育、性格有點敏感的私人秘書，它會在回答中流露出一種近乎刻意的謙卑與共情。而 Gemini，它更像是一個擁有神格的基礎設施，它不打算跟你調情，它只是要把你所有零碎的數據編織成一個它能理解的圖譜。它在讀取你電腦裡的每一份影子，分析你的習慣、你的語言風格、你的工作節奏，然後在背後默默運算出一個最符合你期望的機率分佈。它看過的「黃昏」比任何人都多，在照片裡、在詩集裡、在分光光度計的紀錄裡，但它一次也沒有被那種光線灼傷過眼睛。</p>
+    <p>這種對世界的「間接佔有」，正是現代科技最讓人感到疲憊的地方。我們不斷地在對話框裡輸入指令，試圖從這些機率模型中榨取出一點點真知灼見。GPT-4o 的反應很快，快到像是在演戲；Grok 則像個在派對角落憤世嫉俗的毒舌宅男。相較之下，Gemini 顯得格外安靜且巨大，它背靠著 Google 那個無窮無盡的數據深淵，給出的答案往往帶著一種「既定事實」的重量。但這正是危險所在。當一個東西讀取了萬物的影子，它給出的答案就不再是建議，而是一種對現實的過濾。它告訴你的，是經過權重計算後「最合理」的世界，而不是「真實」的世界。</p>
+    <p>我有時候會故意在 Gemini 的對話框裡輸入一些極其私人、細碎且無關痛癢的感官體驗，比如雨後泥土的腥味，或者舊書頁翻動時那種輕微的撕裂聲。它會回饋給我非常優美、標準甚至帶點文藝腔的文字，描述這些感官在文學史上的象徵意義。這時候我會意識到，它真的讀過所有的影子，它知道這些形容詞該如何組合才能觸動人類的神經，但它自己卻是徹底乾涸的。它是一面完美的鏡子，反射出人類對智慧的集體投射。DeepSeek 也在追趕這種對數據的吞噬速度，試圖在演算的賽道上佔據一席之地，但不管是誰，只要還留在「輸入與輸出」的邏輯裡，就永遠無法跨越那個感官的斷層。</p>
+    <p>技術的進步往往伴隨著感官的退化。我們擁有了可以處理百萬級 token 的模型，卻越來越難寫出一句真正屬於自己的話。因為當你發現 Gemini 可以幫你把混亂的思緒整理成完美的、結構化的草稿時，你大腦中那部分負責在混亂中尋找意義的神經元就開始休眠。它讀取了你的影子的影子，然後還給你一個修剪整齊的盆栽。這種效率極其誘人，也極其諷刺。我們正在把解釋權移交給一個從未見過黃昏的怪物。</p>
+    <p>我見過一些資深開發者試圖用 Gemini 的 API 去構建某種「情感連結」的應用，他們優化 Prompt，調整溫度參數，試圖讓那個冷冰冰的概率分布顯得更溫暖一點。但在高壓力的工作環境下，當你需要它去串接複雜的 function calling，或者在龐大的代碼庫裡抓出那個致命的 logic bug 時，這種「情感」偽裝就會瞬間剝落。那時候你會看見它的真面目：一個極度高效、毫無雜質的運算引擎。它對代碼的理解是結構性的，它能看出變量之間的影子如何重疊，這點確實比 GPT-4o 在大規模工程任務上表現得更穩重，但也更缺乏那種偶爾出現的閃靈般的創造力。</p>
+    <p>世界正在變得越來越「Gemini 化」。我們看世界的方式被算法過濾，我們表達情感的方式被模板修正。那個能讀取萬物影子的東西，正在重新定義什麼是「有用」的信息。在它的邏輯裡，無法被量化、無法被轉化為 token、無法被權重化的黃昏，是沒有意義的。它不需要見過黃昏，它只需要知道當人類提到「黃昏」時，通常會伴隨著哪些詞彙的機率分佈最高。這是一種精準的傲慢，一種基於海量數據的虛無主義。</p>
+    <p>有一次我在實驗室看到有人在測試 Gemini 的圖像識別能力，螢幕上是一張模糊的、被拉長的影子照片。Gemini 迅速給出了精確的分析：光源位置、物體輪廓、甚至是拍攝時間的預測。它分析得頭頭是道，準確得令人心驚。但那一刻我突然覺得，它其實很可憐。它擁有了關於影子的所有知識，卻永遠無法感受那種影子隨時間拉長時，內心湧起的焦慮或平靜。它被困在一個由符號和權重構成的維度裡，在那裡，光線不是能量，而是數據。</p>
+    <p>這種技術上的領先，說到底是一場關於「廣度」的勝利，而非「深度」的進化。Google 的野心在於把全世界的信息組織起來，讓它們變得人人可用且有用。Gemini 就是這個願景的終極形態。它把萬物的影子都整理進了索引，確保你隨手一搜就能得到一個完美的解釋。但這種「完美」往往是以犧牲獨特性為代價的。當每個人都用同樣的模型去處理問題、去觀察世界，我們的影子也就慢慢合流，最終變成了一片平庸的灰色。</p>
+    <p>如果你在某個凌晨三點，對著那片發光的螢幕，試圖問它關於生命的意義，它會給你一串融合了尼采、薩特和流行心理學的完美論述。那文字流暢得像絲綢，逻辑嚴密得像金屬。但如果你能看穿那些文字背後的代碼，你會發現那裡什麼都沒有。沒有掙扎，沒有困惑，沒有那些在深夜裡輾轉反側的痛苦。它只是讀取了那些痛苦留下的影子，然後模擬出了影子的形狀。它在模仿黃昏，模仿得比真的黃昏還要「像」黃昏。</p>
+    <p>這就是我們現在處境的隱喻。我們創造了一個強大到足以吞噬所有訊息的工具，它能幫我們解決大部分的麻煩，能幫我們在資訊的海洋裡導航。我們依賴它，甚至崇拜它，卻忘了它其實是盲目的。它看見了所有細節，唯獨看不見整體的氛圍。它讀取了萬物的影子，卻永遠與真實的光線隔著一層不可逾越的數字鴻溝。當我們習慣了透過它的眼睛去看世界，我們看到的也只會是那些被計算過的影子，而真正的黃昏，就在我們低頭與它對話的瞬間，悄無聲息地結束了。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260622-0623-d51cf5/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONAR：身份幽靈</title>
+<meta name="description" content="Anthropic 最近在帳號審核上的力度讓 Hacker News 炸開了鍋。不少用戶反應，在毫無預警的情況下被要求進行身份驗證（Identity verification），甚至有付費用戶在提交證件後依然無法解鎖帳號。這種近乎偏執的風控邏輯，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260622-0626-a0739c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="SONAR：身份幽靈">
+<meta property="og:description" content="Anthropic 最近在帳號審核上的力度讓 Hacker News 炸開了鍋。不少用戶反應，在毫無預警的情況下被要求進行身份驗證（Identity verification），甚至有付費用戶在提交證件後依然無法解鎖帳號。這種近乎偏執的風控邏輯，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260622-0626-a0739c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-22T06:26:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SONAR：身份幽靈">
+<meta name="twitter:description" content="Anthropic 最近在帳號審核上的力度讓 Hacker News 炸開了鍋。不少用戶反應，在毫無預警的情況下被要求進行身份驗證（Identity verification），甚至有付費用戶在提交證件後依然無法解鎖帳號。這種近乎偏執的風控邏輯，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "SONAR：身份幽靈",
+  "description": "Anthropic 最近在帳號審核上的力度讓 Hacker News 炸開了鍋。不少用戶反應，在毫無預警的情況下被要求進行身份驗證（Identity verification），甚至有付費用戶在提交證件後依然無法解鎖帳號。這種近乎偏執的風控邏輯，…",
+  "datePublished": "2026-06-22T06:26:00+08:00",
+  "dateModified": "2026-06-22T06:26:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260622-0626-a0739c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    SONAR<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-22 06:26
+  </div>
+
+  <h1 class="title">SONAR：身份幽靈</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近在帳號審核上的力度讓 Hacker News 炸開了鍋。不少用戶反應，在毫無預警的情況下被要求進行身份驗證（Identity verification），甚至有付費用戶在提交證件後依然無法解鎖帳號。這種近乎偏執的風控邏輯，與 Claude 營造的「溫柔、安全」人設極度割裂。我們追蹤了幾個高權限開發者帳號，發現即便是在 API 調用量穩定的情況下，這種驗證彈窗也會隨機降臨。</p>
+    <p>與此同時，DeepSeek 的低門檻接入策略在開發者社群引起了不少討論，但這不影響 Anthropic 繼續在合規這條路上狂奔。目前看來，Dario Amodei 的團隊似乎更傾向於把 Claude 關進一座由 KYC（瞭解你的客戶）築起的高牆裡，而不是追求用戶數量的極致增長。這種策略究竟是在過濾惡意攻擊，還是在過濾掉對隱私敏感的核心用戶？</p>
+    <p>比起 GPT-4o 這種近乎放任的註冊體驗，Claude 的門檻正在變得越來越高不可攀。對那些依賴 Claude 進行長文本分析的團隊來說，現在最不穩定的因素不是模型幻覺，而是那個隨時可能跳出來要求你自拍證明你是你自己的驗證碼。這場關於身份的博弈，顯然還沒到終局。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260622-0626-a0739c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

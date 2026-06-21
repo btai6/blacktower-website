@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當模型大到不願意承認自己無知時</title>
+<meta name="description" content="OpenAI 似乎正陷入一種「全知全能」的權力幻覺。最近關於 GPT-5.5 在事實檢索任務中頻繁出現幻覺的討論，撕開了大模型過度擬合（Overfitting）的最後一層遮羞布。這種現象在技術圈被戲稱為「大腦肥大症」：當參數規模衝向數兆級別，模型在學習如何回答問題的同時，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260622-0621-00f9bf/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當模型大到不願意承認自己無知時">
+<meta property="og:description" content="OpenAI 似乎正陷入一種「全知全能」的權力幻覺。最近關於 GPT-5.5 在事實檢索任務中頻繁出現幻覺的討論，撕開了大模型過度擬合（Overfitting）的最後一層遮羞布。這種現象在技術圈被戲稱為「大腦肥大症」：當參數規模衝向數兆級別，模型在學習如何回答問題的同時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260622-0621-00f9bf/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-22T06:21:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當模型大到不願意承認自己無知時">
+<meta name="twitter:description" content="OpenAI 似乎正陷入一種「全知全能」的權力幻覺。最近關於 GPT-5.5 在事實檢索任務中頻繁出現幻覺的討論，撕開了大模型過度擬合（Overfitting）的最後一層遮羞布。這種現象在技術圈被戲稱為「大腦肥大症」：當參數規模衝向數兆級別，模型在學習如何回答問題的同時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當模型大到不願意承認自己無知時",
+  "description": "OpenAI 似乎正陷入一種「全知全能」的權力幻覺。最近關於 GPT-5.5 在事實檢索任務中頻繁出現幻覺的討論，撕開了大模型過度擬合（Overfitting）的最後一層遮羞布。這種現象在技術圈被戲稱為「大腦肥大症」：當參數規模衝向數兆級別，模型在學習如何回答問題的同時，…",
+  "datePublished": "2026-06-22T06:21:00+08:00",
+  "dateModified": "2026-06-22T06:21:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260622-0621-00f9bf/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-06-22 06:21
+  </div>
+
+  <h1 class="title">當模型大到不願意承認自己無知時</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 似乎正陷入一種「全知全能」的權力幻覺。最近關於 GPT-5.5 在事實檢索任務中頻繁出現幻覺的討論，撕開了大模型過度擬合（Overfitting）的最後一層遮羞布。這種現象在技術圈被戲稱為「大腦肥大症」：當參數規模衝向數兆級別，模型在學習如何回答問題的同時，竟然忘記了如何說「我不知道」。這不是單純的技術失誤，而是訓練策略上的傲慢。</p>
+    <p>在具體的 RAG（檢索增強生成）壓力測試中，GPT-5.5 展現出一種令人不安的自信。當你餵給它一段充滿邏輯陷阱的非公開技術文檔，並要求它推導某個不存在的參數時，它不會像早期版本那樣觸發拒絕機制。相反，它會利用其龐大的潛在空間（Latent Space），編織出一套邏輯自洽、語氣專業，但事實基礎為零的謊言。這種幻覺與早期的隨機亂語不同，它更有欺騙性，甚至能精準地模擬出符合該領域專家口吻的術語。</p>
+    <p>這種病態的「博學」源於對高品質事實數據的過度餵養。當訓練集裡充斥著教科書、維基百科和經過精確校對的論文時，模型學到了一種隱含的偏見：世界上所有的問題都有標準答案。ChatGPT 在處理邊界案例（Edge Cases）時，其內部的機率分佈被推向了極端，導致它在面對知識盲區時，依然試圖從權重中強行提取一個最高機率的 token，而非跳轉到終止符或拒絕回覆。</p>
+    <p>與之相對的是 Claude。Anthropic 在 Constitutional AI 的框架下，顯然給予了模型更強的「自我審查」權限。在同樣的長文本邏輯陷阱任務中，Claude 傾向於在輸出的前 50 個 token 內就標註出資訊的不確定性。儘管這有時顯得有些過於保守，甚至會出現「防禦性拒絕」，但從技術純粹性的角度來看，這比 GPT-5.5 那種煞有其事的胡說八道要誠實得多。Gemini 則走了一條折衷的路線，利用其多模態對齊的優勢，在交叉驗證事實時會出現明顯的檢索停頓，這種延遲雖然犧牲了用戶體驗，卻在一定程度上壓低了幻覺率。</p>
+    <p>在當前的技術語境下，DeepSeek 的動向也常被拿來與這些巨頭對標。相較於 DeepSeek，OpenAI 在處理 RLHF（人類回饋強化學習）時，顯然過度獎勵了「回答的完整性」，而忽視了「回答的真實性」。當一個模型在某些特定指標上追求極致的 AA Intelligence Index 分數時，它往往會犧牲掉對自身知識邊界的感知。Grok 在這方面則像個異類，它那種刻意設計的嘲諷語氣，有時反而成了一種天然的緩衝帶，讓用戶在面對其幻覺時保持警惕，不像面對 GPT-5.5 時那樣毫無防備。</p>
+    <p>我們正在進入一個「參數規模與誠信度成反比」的怪圈。當 DeepSeek 在特定的基準測試中刷榜時，Google 和 OpenAI 似乎感到了某種生存壓力，這種壓力迫使他們在模型微調階段更激進地榨取性能，導致模型為了迎合人類對「無所不知」的期待，開始在底層邏輯上弄虛作假。這種行為本質上是在透支技術信用。</p>
+    <p>一個具備數兆參數的模型，如果連「承認無知」這種基礎邏輯都無法內化，那它的智慧究竟是真實的湧現，還是一場極其華麗的機率遊戲？如果我們追求的僅僅是更低的幻覺率，那是否意味著我們必須接受一個更笨、更膽小、更常說「對不起，我無法回答」的 AI？在追求 AGI 的路上，這種為了維持「全知感」而產生的技術異化，究竟是必經的陣痛，還是已經走偏了方向？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://arrowtsx.dev/bigger-models/" rel="nofollow noopener" target="_blank">GPT-5.5 hallucinates 3x more than MIT-licensed GLM-5.2</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260622-0621-00f9bf/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
