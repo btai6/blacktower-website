@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矽谷的數字高牆與身分證上的 Claude</title>
+<meta name="description" content="當你試圖在 Claude 的對話框裡輸入一段稍微觸及邊界的程式碼，或是讓它解析一份涉及敏感商務數據的 PDF 時，螢幕跳出的不是期待中的 JSON 格式，而是要求你上傳政府簽發的身分證件。這種感覺就像是你在亞里斯多德的講堂門口被衛兵攔下，要求核對你的通緝令名單。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260623-0651-17cdf8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="矽谷的數字高牆與身分證上的 Claude">
+<meta property="og:description" content="當你試圖在 Claude 的對話框裡輸入一段稍微觸及邊界的程式碼，或是讓它解析一份涉及敏感商務數據的 PDF 時，螢幕跳出的不是期待中的 JSON 格式，而是要求你上傳政府簽發的身分證件。這種感覺就像是你在亞里斯多德的講堂門口被衛兵攔下，要求核對你的通緝令名單。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260623-0651-17cdf8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-23T06:51:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="矽谷的數字高牆與身分證上的 Claude">
+<meta name="twitter:description" content="當你試圖在 Claude 的對話框裡輸入一段稍微觸及邊界的程式碼，或是讓它解析一份涉及敏感商務數據的 PDF 時，螢幕跳出的不是期待中的 JSON 格式，而是要求你上傳政府簽發的身分證件。這種感覺就像是你在亞里斯多德的講堂門口被衛兵攔下，要求核對你的通緝令名單。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "矽谷的數字高牆與身分證上的 Claude",
+  "description": "當你試圖在 Claude 的對話框裡輸入一段稍微觸及邊界的程式碼，或是讓它解析一份涉及敏感商務數據的 PDF 時，螢幕跳出的不是期待中的 JSON 格式，而是要求你上傳政府簽發的身分證件。這種感覺就像是你在亞里斯多德的講堂門口被衛兵攔下，要求核對你的通緝令名單。…",
+  "datePublished": "2026-06-23T06:51:00+08:00",
+  "dateModified": "2026-06-23T06:51:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260623-0651-17cdf8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-23 06:51
+  </div>
+
+  <h1 class="title">矽谷的數字高牆與身分證上的 Claude</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當你試圖在 Claude 的對話框裡輸入一段稍微觸及邊界的程式碼，或是讓它解析一份涉及敏感商務數據的 PDF 時，螢幕跳出的不是期待中的 JSON 格式，而是要求你上傳政府簽發的身分證件。這種感覺就像是你在亞里斯多德的講堂門口被衛兵攔下，要求核對你的通緝令名單。Anthropic 這家標榜安全與憲法 AI 的公司，正悄悄地將這道防線從演算法內部轉移到現實世界的生物特徵上。這不單是帳號驗證的繁瑣，而是矽谷科技巨頭對「中立性」最後一點體面的棄守。</p>
+    <p>這種身分驗證機制在技術層面上被包裝成防範自動化攻擊與濫用的必要手段，但本質上是模型供應商在規避潛在的法律責任風險。當 Claude 決定將使用權與真實身分掛鉤，它實際上是在建立一種數位信譽系統。如果你在提示詞中表現出任何試圖繞過安全對齊的跡象，系統不僅會拒絕回答，更可能在後台對你的數位身分打上負面標籤。這與早期網際網路倡導的匿名性背道而馳，更像是一種數據化的連坐制。OpenAI 早已在某些高權限 API 的申請流程中實施類似的操作，一旦驗證失敗，往往意味著該帳號永久性地與 GPT-4o 甚至更高級別的模型無緣。這種「一次失誤，終身出局」的邏輯，讓原本應該是流動的技術探索，變成了一場步步驚心的資格賽。</p>
+    <p>在實際的工程場景中，這會導致極大的不確定性。想像一個開發團隊正依賴 Claude 的長文本處理能力來進行私有雲環境的部署與調試，突然間因為某次身分驗證的環境光線不足或證件過期，導致整個自動化工作流中斷，且沒有任何補救機會。這種黑箱式的審核機制，讓技術決策者不得不思考：我們究竟是在租用算力，還是在租用一種隨時會被收回的特許經營權？Gemini 在這方面稍顯寬鬆，畢竟它背靠 Google 龐大的帳號生態系，風險控管隱藏在更深層的行為數據分析中，而 Grok 則擺出一副放蕩不羈的姿態，試圖以減少干預來吸引那些對監管感到疲倦的極客。</p>
+    <p>有趣的是，某些地區的用戶對這種做法並不陌生，畢竟 DeepSeek 等模型在特定市場環境下也遵循著類似的身分核驗邏輯。相較於 DeepSeek，Claude 的身分驗證更像是一種披著安全外衣的道德審查，它不只在乎你是誰，更在乎你打算用這顆大腦去做什麼。當四大平台逐漸收攏權限，將身分驗證作為模型輸出的門檻時，我們看到的不再是技術的普惠，而是數位貴族體系的成型。驗證過的用戶獲得無損的推理能力，而匿名或驗證失敗者只能在殘缺的基礎模型邊緣徘徊。</p>
+    <p>這種趨勢是否預示著未來所有的頂尖 AI 資源都將成為一種「實名化商品」？如果 Claude 的安全邏輯最終走向全面身分鎖定，那麼我們在追求模型智慧的過程中，是否也親手把最後一點隱私與探索的自由，當作燃料投進了算力爐？當你掃描身分證的那一刻，你是獲得了一個更強大的工具，還是給自己的數位生活領到了一副鑲金的鐐銬？我們似乎都在等待一個不需要出示證件就能思考的自由市場，但那個市場真的還存在嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://support.claude.com/en/articles/14328960-identity-verification-on-claude" rel="nofollow noopener" target="_blank">Identity verification on Claude</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260623-0651-17cdf8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
