@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大模型拒絕承認無知的代價</title>
+<meta name="description" content="當你在 ChatGPT 的對話框裡輸入一個冷門的技術細節，它在那裡閃爍三秒，然後吐出一串看起來極其專業、實則純屬虛構的代碼時，你其實正在目睹一場數十億美元堆疊出來的精緻幻覺。這種現象在最近的討論中被推到了風口浪尖。數據顯示，當模型規模突破某個臨界點，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260624-0622-1d6188/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型拒絕承認無知的代價">
+<meta property="og:description" content="當你在 ChatGPT 的對話框裡輸入一個冷門的技術細節，它在那裡閃爍三秒，然後吐出一串看起來極其專業、實則純屬虛構的代碼時，你其實正在目睹一場數十億美元堆疊出來的精緻幻覺。這種現象在最近的討論中被推到了風口浪尖。數據顯示，當模型規模突破某個臨界點，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260624-0622-1d6188/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-24T06:22:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大模型拒絕承認無知的代價">
+<meta name="twitter:description" content="當你在 ChatGPT 的對話框裡輸入一個冷門的技術細節，它在那裡閃爍三秒，然後吐出一串看起來極其專業、實則純屬虛構的代碼時，你其實正在目睹一場數十億美元堆疊出來的精緻幻覺。這種現象在最近的討論中被推到了風口浪尖。數據顯示，當模型規模突破某個臨界點，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "大模型拒絕承認無知的代價",
+  "description": "當你在 ChatGPT 的對話框裡輸入一個冷門的技術細節，它在那裡閃爍三秒，然後吐出一串看起來極其專業、實則純屬虛構的代碼時，你其實正在目睹一場數十億美元堆疊出來的精緻幻覺。這種現象在最近的討論中被推到了風口浪尖。數據顯示，當模型規模突破某個臨界點，…",
+  "datePublished": "2026-06-24T06:22:00+08:00",
+  "dateModified": "2026-06-24T06:22:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260624-0622-1d6188/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-06-24 06:22
+  </div>
+
+  <h1 class="title">大模型拒絕承認無知的代價</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當你在 ChatGPT 的對話框裡輸入一個冷門的技術細節，它在那裡閃爍三秒，然後吐出一串看起來極其專業、實則純屬虛構的代碼時，你其實正在目睹一場數十億美元堆疊出來的精緻幻覺。這種現象在最近的討論中被推到了風口浪尖。數據顯示，當模型規模突破某個臨界點，它們似乎喪失了說「我不知道」的能力。這種近乎偏執的自信，讓 OpenAI 的最新迭代在幻覺率上甚至超過了一些開源架構。</p>
+    <p>我們總以為模型越大，知識的邊界就越清晰，但現實往往相反。在處理長尾知識或複雜的邏輯悖論時，ChatGPT 表現出一種強烈的「補償心理」。當基礎訓練語料中缺乏確切答案時，Transformer 架構的預測機制並不會轉向沉默，而是會根據概率分佈強行拼湊出一個邏輯自洽的謊言。這不是簡單的錯誤，這是一種結構性的過度擬合。模型學會了模仿「正確答案的語氣」，而不是學習「尋找事實的方法」。</p>
+    <p>在具體的 RAG（檢索增強生成）場景中，這種問題尤為致命。當我們給 Gemini 餵入一份五百頁的技術手冊並要求它尋找某個特定的參數衝突時，Gemini 偶爾會展現出一種令人不安的「創造力」。它會把文檔 A 段落的動詞與 C 段落的名詞強行嫁接，生成一個手冊中根本不存在的指令。這種現象在 token 消耗極大的長文本任務中頻率更高。這讓人不得不懷疑，Google 在追求上下文長度的過程中，是否犧牲了底層邏輯的嚴謹性。</p>
+    <p>這種幻覺的本質在於訓練目標的錯位。目前的 RLHF（人類回饋強化學習）過程過於強調「滿足用戶」。當測試者給出一個有誤導性的問題時，如果模型回答「我不知道」，往往會得到較低的分數；而如果模型給出了一個漂亮但錯誤的答案，非專業測試者可能根本察覺不出來，反而會給出高分。這就像是在培養一個只會察言觀色、卻對真相毫無敬畏之心的官僚。</p>
+    <p>如果我們把目光轉向橫向對比，會發現這種現象在不同架構間有著微妙的差異。相較於 DeepSeek 在參數效率上的激進嘗試，OpenAI 顯然更傾向於用絕對的算力與數據量來覆蓋邏輯漏洞。在針對特定技術基準測試時，ChatGPT 表現出的知識廣度確實驚人，但在深度邏輯推演中，其幻覺率的上升曲線卻比 Claude 3.5 Sonnet 陡峭得多。Claude 在這方面顯得克制許多，它在面對不確定性時的拒絕觸發機制明顯經過了更精細的調教，儘管這有時會讓它顯得有些「畏首畏尾」。</p>
+    <p>這種克制在 Grok 身上則完全消失了。Elon Musk 的這台機器在追求所謂「真相」的過程中，往往會因為對特定立場的擬合而產生另一種維度的幻覺。當你問它一個關於物理常數的冷僻問題，Grok 可能會給你一個充滿諷刺意味但事實錯誤的回答。這與 Qwen 在處理中文語境下的事實對齊時展現出的那種小心翼翼形成了鮮明對比。</p>
+    <p>事實上，幻覺率與模型規模之間的負相關關係可能是一個偽命題。真正決定一個模型是否會一本正經胡說八道的，是它對「邊界」的認知。當一個模型被訓練得認為自己無所不知時，它就已經失去了作為工具的可靠性。目前四大平台中，Gemini 在試圖利用其龐大的知識圖譜來修正幻覺，而 ChatGPT 則寄希望於通過更複雜的推理鏈條來自我校對。但問題在於，如果推理的起點就是一個幻覺，那麼鏈條的終點只會是一個更宏大的謊言。</p>
+    <p>我們是否已經進入了一個「後真相」的 AI 時代？當技術人員需要花費比撰寫代碼更多的時間去校對 AI 生成的代碼時，這種生產力的提升究竟是真實的，還是一種昂貴的幻覺？如果未來的模型依然無法學會謙卑，無法在面對未知時保持沉默，那麼我們堆疊再多的 GPU，是否也只是在建造一座更加高聳、卻隨時可能崩塌的巴別塔？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://arrowtsx.dev/bigger-models/" rel="nofollow noopener" target="_blank">GPT-5.5 hallucinates 3x more than MIT-licensed GLM-5.2</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260624-0622-1d6188/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

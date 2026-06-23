@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 思考日誌背後的文字遊戲</title>
+<meta name="description" content="Anthropic 最近在 Claude Code 裡塞進去的那個「擴展思考」區塊，與其說是為了展示 AI 的邏輯演繹，倒不如說是這家公司在圖靈測試邊緣玩的一場精密皮影戲。很多人還在糾結為什麼推理過程看著看著會突然跳轉，或者語句間有種說不出的「合成感」。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260624-0619-42262d/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code 思考日誌背後的文字遊戲">
+<meta property="og:description" content="Anthropic 最近在 Claude Code 裡塞進去的那個「擴展思考」區塊，與其說是為了展示 AI 的邏輯演繹，倒不如說是這家公司在圖靈測試邊緣玩的一場精密皮影戲。很多人還在糾結為什麼推理過程看著看著會突然跳轉，或者語句間有種說不出的「合成感」。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260624-0619-42262d/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-24T06:19:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Code 思考日誌背後的文字遊戲">
+<meta name="twitter:description" content="Anthropic 最近在 Claude Code 裡塞進去的那個「擴展思考」區塊，與其說是為了展示 AI 的邏輯演繹，倒不如說是這家公司在圖靈測試邊緣玩的一場精密皮影戲。很多人還在糾結為什麼推理過程看著看著會突然跳轉，或者語句間有種說不出的「合成感」。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude Code 思考日誌背後的文字遊戲",
+  "description": "Anthropic 最近在 Claude Code 裡塞進去的那個「擴展思考」區塊，與其說是為了展示 AI 的邏輯演繹，倒不如說是這家公司在圖靈測試邊緣玩的一場精密皮影戲。很多人還在糾結為什麼推理過程看著看著會突然跳轉，或者語句間有種說不出的「合成感」。…",
+  "datePublished": "2026-06-24T06:19:00+08:00",
+  "dateModified": "2026-06-24T06:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260624-0619-42262d/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-24 06:19
+  </div>
+
+  <h1 class="title">Claude Code 思考日誌背後的文字遊戲</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近在 Claude Code 裡塞進去的那個「擴展思考」區塊，與其說是為了展示 AI 的邏輯演繹，倒不如說是這家公司在圖靈測試邊緣玩的一場精密皮影戲。很多人還在糾結為什麼推理過程看著看著會突然跳轉，或者語句間有種說不出的「合成感」。說穿了，你看到的 reasonining_summary 根本不是模型的大腦神經脈衝，而是一份經過二次加工、為了讓你覺得它「正在努力想」而準備的精簡版報告。這就像你走進高級餐廳，服務生煞有其事地端上一盤主廚推薦，順便附贈一張寫著「主廚在廚房裡糾結了三種香料配比」的小紙條，至於主廚在廚房裡是不是真的在抓耳撓腮，還是只是把預製菜丟進微波爐，你永遠無從考證。</p>
+    <p>這種技術層面的「表演性透明」在業界早就不是新鮮事，但 Anthropic 做得特別隱晦。從 Claude Code 的 API 回傳結構來看，那些被標註為思考過程的文本，實際上是從更冗長的原始 log 中過濾出來的產物。OpenAI 在處理 o1 系列時也玩過類似的把戲，把真正的思維鏈藏在不可見的維度，只吐出一串看起來很有邏輯的摘要。這種做法在本質上是為了防止競爭對手透過逆向工程來偷取邏輯權重，同時也是在掩蓋模型在某些極端邊緣案例下的胡言亂語。當一個開發者在調試代碼時，看到 Claude 輸出了一長串關於依賴項衝突的「思考過程」，他會下意識地認為模型已經窮舉了所有路徑，但實際上那可能只是模型根據統計概率生成的、最像「思考」的文字片段。</p>
+    <p>如果我們把目光移向其他家，這種對「思考權益」的閹割就顯得更有趣了。相較於 DeepSeek 在技術社群引發的討論風潮，Claude 在這方面的處理顯然更具備矽谷式的精英主義色彩——它給你它想讓你看到的，而非真實發生的。Google 的 Gemini 在處理複雜推理任務時，也傾向於在前端展示出某種步進式的進度條，但那更多是為了緩解用戶對延遲的焦慮，而非真正的邏輯展示。Grok 則走向了另一個極端，它那種帶點冒犯性的直白，有時候反而讓人覺得它沒在演戲，雖然那種「直白」本身可能也是一種設定好的標籤。</p>
+    <p>問題在於，我們對 AI 的信任究竟是建立在結果的正確性上，還是建立在「我理解它是怎麼想的」這層幻覺之上？如果 Claude 真的能寫出一段完美無瑕的 Rust 代碼，誰在乎它的 reasoning_summary 是不是由另一個更小的蒸餾模型生成的公關稿？然而，當代碼出現細微的邏輯漏洞，而那份「思考摘要」卻信誓旦旦地宣稱它已經檢查過所有指針安全時，這種表演就從一種服務變成了一種誤導。當前的模型架構中，計算與思考本就是兩回事，硬要給統計機率披上人類邏輯的外衣，本身就是一種技術上的傲慢。</p>
+    <p>這不禁讓人聯想到古希臘的德爾斐神諭，祭司們在神殿裡聽取神靈的模糊囈語，然後翻譯成人類能聽懂的詩句。現在，Anthropic 就是那個祭司，而我們則是跪在門外的開發者。我們以為我們在與神溝通，實際上我們只是在閱讀祭司的讀後感。當 DeepSeek 這種外部變量不斷攪動市場時，四大平台對「推理黑盒」的保護只會越來越嚴密。如果有一天，這些模型連那層薄薄的摘要都懶得偽裝了，直接給出一個冷冰冰的結果，我們是會覺得被冒犯，還是會覺得終於解脫了？</p>
+    <p>當我們在討論「AI 如何思考」時，我們到底是在討論算法的複雜度，還是在尋求一種心理上的慰藉，好讓自己相信眼前的這堆矩陣運算，真的擁有與我們同質的靈魂？如果這份思考日誌從頭到尾都是一場為了讓你安心而編織的謊言，你還會覺得那段生成的代碼值得信賴嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://patrickmccanna.net/the-text-in-claude-codes-extended-thinking-output-is-not-authentic/" rel="nofollow noopener" target="_blank">The text in Claude Code’s “Extended Thinking” output</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260624-0619-42262d/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
