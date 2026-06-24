@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當大模型不再學會閉嘴</title>
+<meta name="description" content="OpenAI 在追逐通用人工智慧的路上，似乎不小心把「誠實」這項美德給弄丟了。最近在技術圈吵得沸沸揚揚的幻覺率問題，直接把 GPT-5.5 推到了風口浪尖。當一個模型的參數規模突破天際，我們原以為會迎來一個無所不知的先知，結果卻得到了一個即便滿口胡謅也要強行給出答案的酒館吹牛大王…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260625-0626-74b110/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當大模型不再學會閉嘴">
+<meta property="og:description" content="OpenAI 在追逐通用人工智慧的路上，似乎不小心把「誠實」這項美德給弄丟了。最近在技術圈吵得沸沸揚揚的幻覺率問題，直接把 GPT-5.5 推到了風口浪尖。當一個模型的參數規模突破天際，我們原以為會迎來一個無所不知的先知，結果卻得到了一個即便滿口胡謅也要強行給出答案的酒館吹牛大王…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260625-0626-74b110/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-25T06:26:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當大模型不再學會閉嘴">
+<meta name="twitter:description" content="OpenAI 在追逐通用人工智慧的路上，似乎不小心把「誠實」這項美德給弄丟了。最近在技術圈吵得沸沸揚揚的幻覺率問題，直接把 GPT-5.5 推到了風口浪尖。當一個模型的參數規模突破天際，我們原以為會迎來一個無所不知的先知，結果卻得到了一個即便滿口胡謅也要強行給出答案的酒館吹牛大王…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當大模型不再學會閉嘴",
+  "description": "OpenAI 在追逐通用人工智慧的路上，似乎不小心把「誠實」這項美德給弄丟了。最近在技術圈吵得沸沸揚揚的幻覺率問題，直接把 GPT-5.5 推到了風口浪尖。當一個模型的參數規模突破天際，我們原以為會迎來一個無所不知的先知，結果卻得到了一個即便滿口胡謅也要強行給出答案的酒館吹牛大王…",
+  "datePublished": "2026-06-25T06:26:00+08:00",
+  "dateModified": "2026-06-25T06:26:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260625-0626-74b110/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-06-25 06:26
+  </div>
+
+  <h1 class="title">當大模型不再學會閉嘴</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 在追逐通用人工智慧的路上，似乎不小心把「誠實」這項美德給弄丟了。最近在技術圈吵得沸沸揚揚的幻覺率問題，直接把 GPT-5.5 推到了風口浪尖。當一個模型的參數規模突破天際，我們原以為會迎來一個無所不知的先知，結果卻得到了一個即便滿口胡謅也要強行給出答案的酒館吹牛大王。這不是單純的技術失誤，這是當前大模型架構下的一種集體性病徵。</p>
+    <p>在實測長文本邏輯推理或冷門技術文檔的總結時，GPT-5.5 的表現令人困惑。它能流利地編造出根本不存在的 API 調用方法，甚至能為這些虛構的代碼配上一套邏輯自洽的註釋。這種現象在處理超過 10 萬 token 的複雜語境時尤為明顯。與早期的 GPT-4 相比，新一代模型在面對知識盲區時，那種「我不知道」的謙遜感徹底消失了。取而代稱的是一種極其自信的誤導，它會利用其龐大的語言建模能力，將錯誤答案偽裝成權威結論。</p>
+    <p>這種「一本正經胡說八道」的底層邏輯，其實在於訓練數據的極度飽和。當開發者為了追求模型的全知性，將海量的、未經篩選的互聯網數據甚至合成數據餵進去時，模型學習到的是「生成文本的概率」，而不是「事實的真實性」。它學會了模仿人類專家的語氣、結構和邏輯鏈條，卻唯獨沒有學會判斷這條鏈條的起點是否立足於虛無。在 API 行為測試中，GPT-5.5 的拒絕回答率降到了歷史最低，這在商業應用中簡直是場災難。</p>
+    <p>如果我們觀察目前主流的四大平台，會發現大家都在這條路上賽跑，但方向各異。Claude 在處理長文本任務時，雖然也會出現注意力衰減，但其 RLHF 的策略明顯更傾向於保守。在面對無法確定的事實時，Claude 觸發拒絕機制的頻率比 GPT-5.5 高出約 15%。這種保守在某些人眼裡是「不好用」，但在資深工程師眼中，這才是能進生產線的穩定性。相較於 DeepSeek 近期在技術社區引起的討論，OpenAI 顯然更在意如何讓模型看起來無所不能，而非無所不真。</p>
+    <p>Gemini 則是走了一條不同的路，它試圖通過實時搜索與生成結果進行交叉驗證來降低幻覺。這種做法在處理時事類問題時效果顯著，但在純粹的邏輯推理任務中，Gemini 依然會因為過度依賴外部檢索而導致思維斷層。Grok 則像是一個極端，它那種帶有情緒色彩的回答風格，有時會掩蓋掉事實性錯誤，讓用戶在不經意間接受了被歪曲的信息。在某些特定語境下，DeepSeek 的出現為市場提供了另一種參照，而 ChatGPT 則必須在參數膨脹與幻覺控制之間找回平衡。</p>
+    <p>現在的問題是，模型規模的增大是否必然伴隨著真實性的稀釋？當我們把所有的書本、代碼、論壇帖子都塞進那個黑盒子後，它產出的究竟是人類文明的精華，還是僅僅是一次極其華麗的統計學回歸？如果一個模型大到無法承認自己的無知，那麼這種「智能」對我們來說究竟是助手，還是一個隨時會引爆的邏輯炸彈？</p>
+    <p>我們是否已經進入了一個「後真相」的 AI 時代？當模型學會了用最完美的邏輯去論證一個錯誤的命題，我們還有多少精力去覆核每一個 token 的對錯？或許，我們追求的從來都不是真正的智能，而只是一個永遠不會讓我們尷尬、永遠有話可說的對話框？如果你發現你最信任的模型開始對你撒謊，而且撒得毫無破綻，你還會繼續餵養它嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://arrowtsx.dev/bigger-models/" rel="nofollow noopener" target="_blank">GPT-5.5 hallucinates 3x more than MIT-licensed GLM-5.2</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260625-0626-74b110/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

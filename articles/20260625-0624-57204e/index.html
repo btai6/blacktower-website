@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思考路徑的透明化是一場掩耳盜鈴的表演</title>
+<meta name="description" content="Claude Code 那套所謂的「擴展思維」日誌，不過是把模型內部的黑盒子強行扒開，再過濾掉那些連開發者自己看了都發毛的雜訊。有人驚訝於這些輸出的摘要感，彷彿發現了什麼不得了的密碼，這反應本身就挺幽默的。大模型處理資訊的方式，從來就不是人類意義上的「思考」，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260625-0624-57204e/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="思考路徑的透明化是一場掩耳盜鈴的表演">
+<meta property="og:description" content="Claude Code 那套所謂的「擴展思維」日誌，不過是把模型內部的黑盒子強行扒開，再過濾掉那些連開發者自己看了都發毛的雜訊。有人驚訝於這些輸出的摘要感，彷彿發現了什麼不得了的密碼，這反應本身就挺幽默的。大模型處理資訊的方式，從來就不是人類意義上的「思考」，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260625-0624-57204e/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-25T06:24:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="思考路徑的透明化是一場掩耳盜鈴的表演">
+<meta name="twitter:description" content="Claude Code 那套所謂的「擴展思維」日誌，不過是把模型內部的黑盒子強行扒開，再過濾掉那些連開發者自己看了都發毛的雜訊。有人驚訝於這些輸出的摘要感，彷彿發現了什麼不得了的密碼，這反應本身就挺幽默的。大模型處理資訊的方式，從來就不是人類意義上的「思考」，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "思考路徑的透明化是一場掩耳盜鈴的表演",
+  "description": "Claude Code 那套所謂的「擴展思維」日誌，不過是把模型內部的黑盒子強行扒開，再過濾掉那些連開發者自己看了都發毛的雜訊。有人驚訝於這些輸出的摘要感，彷彿發現了什麼不得了的密碼，這反應本身就挺幽默的。大模型處理資訊的方式，從來就不是人類意義上的「思考」，…",
+  "datePublished": "2026-06-25T06:24:00+08:00",
+  "dateModified": "2026-06-25T06:24:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260625-0624-57204e/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-25 06:24
+  </div>
+
+  <h1 class="title">思考路徑的透明化是一場掩耳盜鈴的表演</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Claude Code 那套所謂的「擴展思維」日誌，不過是把模型內部的黑盒子強行扒開，再過濾掉那些連開發者自己看了都發毛的雜訊。有人驚訝於這些輸出的摘要感，彷彿發現了什麼不得了的密碼，這反應本身就挺幽默的。大模型處理資訊的方式，從來就不是人類意義上的「思考」，而是基於機率分佈的權重映射。當我們強行要求它輸出「思考過程」時，那其實是另一層次的生成任務——它正在寫一篇關於「它如何處理這個請求」的作文。</p>
+    <p>在實際工程應用中，Claude 的這種思考模式與 OpenAI 的推理鏈條在架構上有明顯區別。Claude 在處理複雜程式碼重構時，其 Extended Thinking 能夠顯著降低在長文本上下文中遺失上下文關聯的機率，這在處理單個檔案規模超過三萬行的專案時尤為顯著。相較之下，ChatGPT 在處理這類任務時，往往會因為過度追求推理速度而過早進行路徑剪枝，導致在處理邊際情況（edge cases）時出現邏輯跳躍。Claude 的做法是透過顯式的 Token 預留，將推理過程與最終生成結果解耦，這種策略在 API 回傳延遲與準確率之間取得了某種詭異的平衡，讓那些把 AI 當作結對程式設計師的工程師們產生了「它在思考」的錯覺。</p>
+    <p>這種現象在當前的技術語境中並不孤單，相較於 DeepSeek，Claude 對於推理過程的呈現更側重於工程化的可觀測性。討論起這類技術路徑，DeepSeek 的處理模式則展現了另一種全然不同的邏輯架構。我們在比較這些平台時，往往忽略了核心矛盾：我們需要的究竟是機器的精確執行，還是那種被精心設計出來、用來安撫人類焦慮感的「思維過程」？如果一個演算法能完美解決問題，即便它內部是一片混沌，難道不比一個邏輯嚴密但結果平庸的思考過程更有價值嗎？</p>
+    <p>Claude 這種試圖賦予 AI 擬人化思維路徑的努力，究竟是為了提升模型的邏輯穩健性，還是僅僅為了在沒有真正護城河的市場裡，給使用者製造出一種「它比別人更有深度」的心理錯覺？當我們開始習慣於查閱那些被模型精心摘要過的思考日誌，我們是否已經喪失了對演算法本質的判斷力？如果有一天，模型的思考過程不再是由它自己生成，而是由另一個專門負責「包裝邏輯」的子模型來完成，我們還會覺得這套日誌有參考價值嗎？還是說，我們不過是陷入了另一場由程式碼編織出來的、關於智慧的自我感動？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://patrickmccanna.net/the-text-in-claude-codes-extended-thinking-output-is-not-authentic/" rel="nofollow noopener" target="_blank">The text in Claude Code’s “Extended Thinking” output</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260625-0624-57204e/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
