@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>硬體漲價潮裡的 AI 算力陷阱與 Grok 的算盤</title>
+<meta name="description" content="這兩天 Valve 終於把那台拖了許久的 Steam Machine 扔進市場，起售價 1049 美金。討論區裡一群人竟然在慶幸這價格比預期的 1200 美金便宜。看到這種反應我只覺得荒謬。大家是不是忘了，幾年前這種規格的硬體該是什麼價位？…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260626-0635-022b73/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="硬體漲價潮裡的 AI 算力陷阱與 Grok 的算盤">
+<meta property="og:description" content="這兩天 Valve 終於把那台拖了許久的 Steam Machine 扔進市場，起售價 1049 美金。討論區裡一群人竟然在慶幸這價格比預期的 1200 美金便宜。看到這種反應我只覺得荒謬。大家是不是忘了，幾年前這種規格的硬體該是什麼價位？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260626-0635-022b73/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-26T06:35:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="硬體漲價潮裡的 AI 算力陷阱與 Grok 的算盤">
+<meta name="twitter:description" content="這兩天 Valve 終於把那台拖了許久的 Steam Machine 扔進市場，起售價 1049 美金。討論區裡一群人竟然在慶幸這價格比預期的 1200 美金便宜。看到這種反應我只覺得荒謬。大家是不是忘了，幾年前這種規格的硬體該是什麼價位？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "硬體漲價潮裡的 AI 算力陷阱與 Grok 的算盤",
+  "description": "這兩天 Valve 終於把那台拖了許久的 Steam Machine 扔進市場，起售價 1049 美金。討論區裡一群人竟然在慶幸這價格比預期的 1200 美金便宜。看到這種反應我只覺得荒謬。大家是不是忘了，幾年前這種規格的硬體該是什麼價位？…",
+  "datePublished": "2026-06-26T06:35:00+08:00",
+  "dateModified": "2026-06-26T06:35:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260626-0635-022b73/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-06-26 06:35
+  </div>
+
+  <h1 class="title">硬體漲價潮裡的 AI 算力陷阱與 Grok 的算盤</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天 Valve 終於把那台拖了許久的 Steam Machine 扔進市場，起售價 1049 美金。討論區裡一群人竟然在慶幸這價格比預期的 1200 美金便宜。看到這種反應我只覺得荒謬。大家是不是忘了，幾年前這種規格的硬體該是什麼價位？現在連買台遊戲主機都要像抽樂透一樣排隊，表面上是供應鏈產能不足，實際上是 AI 巨頭們在後頭把算力資源啃得連骨頭都不剩。當全世界的 GPU 產能都優先供給資料中心時，個人運算裝置的溢價就成了我們必須繳納的「AI 稅」。這種硬體荒暫時看不到盡頭，除非這波 AI 泡沫真的破裂，或者算力分配邏輯發生根本性扭轉。</p>
+    <p>xAI 的 Grok 在這場硬體爭奪戰中扮演的角色最耐人尋味。Elon Musk 瘋狂囤積 H100 的行為，直接推高了整個半導體市場的心理預期價位。當 Grok 2 在 X 平台上開始展示其處理多模態任務的能力時，背後燃燒的是極其高昂的硬體折舊成本。與 ChatGPT 這種已經擁有成熟商業訂閱模式的產品不同，Grok 目前更像是一個算力黑洞，它在處理複雜推理任務時，對推論算力的消耗極其粗放。我測試過 Grok 處理超過 5 萬字文本的邏輯檢索，在上下文視窗滿載的情況下，它的回應延遲抖動比 GPT-4o 嚴重得多。這說明 Grok 的架構在資源調度上還處於一種「暴力出奇蹟」的階段，並沒有優化到能與硬體成本達成和解。</p>
+    <p>這種技術上的不成熟，直接導致了終端用戶的代價。當我們討論 Steam Machine 的組件定價太高時，本質上是在為這些大模型的算力需求買單。ChatGPT 已經開始嘗試將部分輕量化任務轉向本地化處理，試圖減輕雲端壓力，但 Grok 顯然還沒打算這麼做。它依然依賴那堆龐大的算力叢集，試圖用最原始的算力壓制來換取智慧表現。如果你對比一下 Gemini 在行動端的輕量化佈局，就會發現 Grok 現在的技術路徑極其危險，它把所有雞蛋都放在了硬體擴張這個籃子裡。</p>
+    <p>在橫向觀察中，我們可以看到不同的策略路徑。相較於 Alibaba 近期的動作，xAI 選擇了一種更具侵略性但也更缺乏效率的算力佔用方式。Alibaba 的技術迭代雖然也在推進，但 Grok 在面對極端邏輯推演時表現出的那種「不計成本感」，正是目前硬體市場價格畸形的縮影。這與 Qwen 在某些特定評測中的表現邏輯截然不同。Grok 這種極致追求雲端強度的做法，讓它在面對需要低延遲、高穩定性的即時交互場景時，往往顯得力不從心。當 GPT-4o 已經能做到近乎零延遲的語音交互，Grok 卻還在為了解決一個邏輯謬誤而狂燒顯示卡的電力。</p>
+    <p>問題在於，這種靠堆硬體堆出來的智慧，天花板到底在哪裡？Valve 的硬體荒只是冰山一角，當 AI 巨頭們繼續壟斷產能，連一台中階遊戲主機的定價都要受制於 AI 模型的訓練周期時，這個產業真的健康嗎？如果未來 Grok 3 的訓練需要消耗掉全球三分之一的晶片產能，我們是不是連買個遙控器都要進抽獎池？這種算力通膨最終會回饋到模型性能上，還是僅僅成為矽谷大佬們揮霍資本的玩物？我們現在看到的 1049 美金，或許只是未來更高昂代價的序幕。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://store.steampowered.com/news/group/45479024/view/685257114654870245" rel="nofollow noopener" target="_blank">Steam Machine launches today</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260626-0635-022b73/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

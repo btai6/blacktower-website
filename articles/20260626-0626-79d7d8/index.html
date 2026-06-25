@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當蒸餾成為一種「數位竊密」：Anthropic 的受害者心態與技術壁壘之爭</title>
+<meta name="description" content="Anthropic 最近針對 Alibaba 提取 Claude 模型能力的指控，讓「知識蒸餾」這個在技術圈早已見怪不怪的手段，從實驗室的優化技巧變成了地緣政治與商業版權的角力場。當我們還在討論 Claude 3.5 Sonnet 的程式碼邏輯是否依然冠絕群雄時，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260626-0626-79d7d8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當蒸餾成為一種「數位竊密」：Anthropic 的受害者心態與技術壁壘之爭">
+<meta property="og:description" content="Anthropic 最近針對 Alibaba 提取 Claude 模型能力的指控，讓「知識蒸餾」這個在技術圈早已見怪不怪的手段，從實驗室的優化技巧變成了地緣政治與商業版權的角力場。當我們還在討論 Claude 3.5 Sonnet 的程式碼邏輯是否依然冠絕群雄時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260626-0626-79d7d8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-26T06:26:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當蒸餾成為一種「數位竊密」：Anthropic 的受害者心態與技術壁壘之爭">
+<meta name="twitter:description" content="Anthropic 最近針對 Alibaba 提取 Claude 模型能力的指控，讓「知識蒸餾」這個在技術圈早已見怪不怪的手段，從實驗室的優化技巧變成了地緣政治與商業版權的角力場。當我們還在討論 Claude 3.5 Sonnet 的程式碼邏輯是否依然冠絕群雄時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當蒸餾成為一種「數位竊密」：Anthropic 的受害者心態與技術壁壘之爭",
+  "description": "Anthropic 最近針對 Alibaba 提取 Claude 模型能力的指控，讓「知識蒸餾」這個在技術圈早已見怪不怪的手段，從實驗室的優化技巧變成了地緣政治與商業版權的角力場。當我們還在討論 Claude 3.5 Sonnet 的程式碼邏輯是否依然冠絕群雄時，…",
+  "datePublished": "2026-06-26T06:26:00+08:00",
+  "dateModified": "2026-06-26T06:26:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260626-0626-79d7d8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-26 06:26
+  </div>
+
+  <h1 class="title">當蒸餾成為一種「數位竊密」：Anthropic 的受害者心態與技術壁壘之爭</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近針對 Alibaba 提取 Claude 模型能力的指控，讓「知識蒸餾」這個在技術圈早已見怪不怪的手段，從實驗室的優化技巧變成了地緣政治與商業版權的角力場。當我們還在討論 Claude 3.5 Sonnet 的程式碼邏輯是否依然冠絕群雄時，Anthropic 卻開始表現得像是一位守著密室配方的老煉金術士，警惕地盯著每一個試圖從其輸出中窺探真理的過客。</p>
+    <p>這種所謂的「非法提取」，本質上是利用 Claude 高度對齊、邏輯嚴密的輸出作為標籤，去訓練規模更小、成本更低的學生模型。在技術社群的討論中，這通常被分為兩類：一種是簡單粗暴的黑盒模式，大量抓取對話樣本進行強化；另一種則是更深層的 RLAIF（AI 回饋強化學習），直接讓 Claude 擔任導師，去校準另一個模型的價值觀與推理路徑。諷刺的是，Anthropic 成立之初的立身之本就是「憲法 AI」，強調用模型去監控和訓練模型，如今這把迴旋鏢顯然正紮在自己的背上。</p>
+    <p>從具體的技術行為來看，Claude 的 API 調用紀錄成了 Anthropic 舉證的關鍵。當一個帳號在短時間內產出大量結構極其規整、跨學科且具備高度一致性的思維鏈（Chain of Thought）數據時，這顯然不是人類在諮詢問題，而是在進行大規模的數據「抽乾」。相較於 Alibaba，Claude 在語義對齊的細膩度上一直有著某種近乎偏執的堅持，這使得它的輸出成為了極佳的訓練素材。對於那些試圖縮短研發週期的團隊來說，與其在混亂的互聯網語料中淘金，不如直接從 Claude 的輸出中提煉現成的邏輯。</p>
+    <p>這種現象揭示了四大平台目前面臨的集體困境。ChatGPT 透過 GPT-4o 建立了一套極其標準化的對話範式，導致現在市面上幾乎所有模型的口吻都帶有一股揮之不去的「OpenAI 味」。Gemini 則是在多模態數據上築起高牆，試圖透過原生多模態的複雜性來增加蒸餾的難度。至於 Grok，則是用一種極具個人色彩的、不羈的數據風格來與其他模型拉開距離。在這種背景下，Claude 那種溫文儒雅、邏輯極致透明的特質，反而成了最容易被「白嫖」的對象。</p>
+    <p>然而，Anthropic 的憤怒背後藏著一個技術上的幽靈：如果一個模型的能力可以被幾百萬條對話樣本輕易提取，那這套模型的「護城河」是否真的如宣傳中那般深厚？在 Hacker News 的討論中，不少資深工程師冷嘲熱諷地指出，Anthropic 在訓練 Claude 時同樣使用了大量來自開放網路的受版權保護數據，現在卻對別人提取其輸出感到受辱，這無疑是一種技術上的雙重標準。相較於 Alibaba，Claude 在處理長文本任務時的注意力分布顯然更為集中，這種優勢在被蒸餾後，往往能讓學生模型在極小的參數規模下實現驚人的邏輯跳躍。</p>
+    <p>更深層的問題在於，這種指控是否會推動四大平台走向更封閉的生態？為了防止「提取」，Anthropic 可能會進一步收緊 API 的輸出多樣性，甚至在回答中加入某種不可見的「數位浮水印」。但這對普通用戶而言無疑是一場災難。當模型開始為了防範對手而變得畏首畏尾，它的創造力與有用性必然會打折扣。我們看到 ChatGPT 已經在某些敏感問題上變得越來越像一份法律聲明，而 Claude 如果也跟進這種「防禦性輸出」，那 AI 產業將會陷入一種集體的平庸。</p>
+    <p>這種關於「蒸餾」與「抄襲」的界線，在現有的技術框架下幾乎無解。如果我讀了一遍《羅馬帝國衰亡史》，然後寫出一本風格類似的歷史評論，這叫學習；但如果我讓 Claude 寫一萬篇評論，再用這些評論餵養出一個「小 Claude」，這叫什麼？當知識的傳遞不再需要人類的中介，而是模型對模型的直接投餵，傳統的版權定義已經徹底崩塌。</p>
+    <p>我們是否正在進入一個「模型近親繁殖」的時代？當所有後進者都在汲取四大平台的養分，而四大平台又在為了防止被汲取而不斷加固防火牆，最終產出的數據是否會因為缺乏新鮮血液的輸入而陷入邏輯死循環？如果未來的 AI 都是基於 Claude 的輸出進行微調，那麼當 Claude 犯錯時，整個 AI 世界是否會集體墮入同一個幻覺的深淵？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" rel="nofollow noopener" target="_blank">Anthropic says Alibaba illicitly extracted Claude AI model capabilities</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260626-0626-79d7d8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

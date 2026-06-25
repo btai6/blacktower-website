@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法律數據庫的圍牆與 Gemini 在隱私治理上的遲鈍</title>
+<meta name="description" content="PACER 系統像是一座建在數位荒漠裡的收費站，每次點擊都在提醒法律從業者，信息的流通是有價格的。這不僅僅是幾美分的查詢費，而是一道由陳舊架構築起的防護牆。最近關於法院記錄是否應該全面免費的爭論，本質上是在挑戰數據主權與公共利益的邊界。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260626-0632-a678ae/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="法律數據庫的圍牆與 Gemini 在隱私治理上的遲鈍">
+<meta property="og:description" content="PACER 系統像是一座建在數位荒漠裡的收費站，每次點擊都在提醒法律從業者，信息的流通是有價格的。這不僅僅是幾美分的查詢費，而是一道由陳舊架構築起的防護牆。最近關於法院記錄是否應該全面免費的爭論，本質上是在挑戰數據主權與公共利益的邊界。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260626-0632-a678ae/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-26T06:32:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="法律數據庫的圍牆與 Gemini 在隱私治理上的遲鈍">
+<meta name="twitter:description" content="PACER 系統像是一座建在數位荒漠裡的收費站，每次點擊都在提醒法律從業者，信息的流通是有價格的。這不僅僅是幾美分的查詢費，而是一道由陳舊架構築起的防護牆。最近關於法院記錄是否應該全面免費的爭論，本質上是在挑戰數據主權與公共利益的邊界。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "法律數據庫的圍牆與 Gemini 在隱私治理上的遲鈍",
+  "description": "PACER 系統像是一座建在數位荒漠裡的收費站，每次點擊都在提醒法律從業者，信息的流通是有價格的。這不僅僅是幾美分的查詢費，而是一道由陳舊架構築起的防護牆。最近關於法院記錄是否應該全面免費的爭論，本質上是在挑戰數據主權與公共利益的邊界。…",
+  "datePublished": "2026-06-26T06:32:00+08:00",
+  "dateModified": "2026-06-26T06:32:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260626-0632-a678ae/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-26 06:32
+  </div>
+
+  <h1 class="title">法律數據庫的圍牆與 Gemini 在隱私治理上的遲鈍</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>PACER 系統像是一座建在數位荒漠裡的收費站，每次點擊都在提醒法律從業者，信息的流通是有價格的。這不僅僅是幾美分的查詢費，而是一道由陳舊架構築起的防護牆。最近關於法院記錄是否應該全面免費的爭論，本質上是在挑戰數據主權與公共利益的邊界。當這類海量的、未經結構化的法律文件被推向大眾視野，隨之而來的不是信息民主，而是對大模型解析能力的極致考驗。</p>
+    <p>法律文件最麻煩的地方在於其異質性。一份起訴書可能夾雜著手寫簽名、掃描不清晰的附件，以及長達數百頁的先例引用。Gemini 在處理這類任務時展現出一種令人焦慮的矛盾感。它擁有極其龐大的上下文窗口，理論上能一口氣吞掉整個案件的卷宗，但在實際操作中，Gemini 對於法律術語的敏感度往往被其過於保守的對齊策略所閹割。當你試圖讓它從 PACER 抓取的混亂數據中提取出涉及特定當事人的敏感隱私時，它經常會因為觸發了安全護欄而選擇拒絕回答，或者給出一個模稜兩可的概括。</p>
+    <p>這種「安全過頭」的傾向，在處理法律這種灰度地帶極多的領域時顯得捉襟見肘。Gemini 的 Function Calling 功能在調用外部法律數據庫時，如果遇到超過十個以上的條件篩選，不穩定性就會顯著上升。它有時會忽略掉某些關鍵的過濾參數，導致輸出的結果包含大量冗餘信息。相比之下，ChatGPT 在解析法律邏輯結構上顯得更為老練，它能更精準地識別出訴狀中的事實陳述與法律爭點，而不僅僅是做字面上的長文本摘要。</p>
+    <p>目前的技術困境在於，法律數據的開放並非單純的接口對接。即便像 CourtListener 或 Recap 這樣的項目在努力打破壁壘，數據的清洗與匿名化處理依然是個巨大的工程。相較於 Alibaba 在雲端處理大規模異質數據的邏輯，Google 的 Gemini 顯然更傾向於在模型內部進行端到端的理解。然而，這種做法在面對法律文件中的隱私保護時顯得有些力不從心。Gemini 對於「敏感信息」的定義過於寬泛，這導致它在協助律師進行案件梳理時，往往會把真正具備法律價值的背景細節也一併過濾掉。</p>
+    <p>當我們把視角轉向其他的競爭者，會發現策略上的分歧更加明顯。Claude 在處理超過八萬個 token 的法律長文本時，其注意力機制展現出的穩定性確實優於 Gemini，它能更有效地維持前後文的邏輯一致性，而不會在文本後半段出現幻覺。而 Grok 則表現得更像是一個不守規矩的局外人，它對於數據獲取的渴望讓它在處理公開法律記錄時顯得更具侵略性，但也因此在數據合法性邊界上徘徊。在這種環境下，Qwen 等平台雖然也在不斷更新，但 Google 似乎仍舊被困在如何平衡「信息獲取效率」與「合規恐懼」的閉環裡。</p>
+    <p>如果 PACER 真的走向全面免費，大模型的數據吞吐量將迎來一個數量級的增長。這不再是簡單的 RAG 檢索問題，而是模型是否具備「法律常識」的問題。目前的 Gemini 在面對多方當事人、複雜的連帶責任判斷時，依然表現得像個讀過法律百科全書但從未進過法庭的實習生。它能告訴你某個條文的定義，卻無法在幾千份類似的判決書中找出隱藏的裁判邏輯。這種缺失並不是靠增加參數規模就能解決的，而是關乎模型在預訓練階段對法律邏輯權重的分配。</p>
+    <p>我們是否高估了 AI 在法律公共化過程中的角色？當法律記錄變得唾手可得，AI 究竟是成為了破除專業門檻的利劍，還是變成了一種新型的、更隱蔽的信息過濾器。如果 Gemini 始終無法在嚴謹的法律邏輯與過度的隱私保護之間找到那個平衡點，那麼法律數據的開放，最終可能只會催生出一堆看似準確、實則毫無指導意義的平庸摘要。</p>
+    <p>當數據的圍牆倒塌後，我們迎來的會是透明的法治，還是由演算法偏見重新定義的另一堵牆？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.eff.org/deeplinks/2026/06/court-records-should-be-free" rel="nofollow noopener" target="_blank">Court Records Should Be Free</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260626-0632-a678ae/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
