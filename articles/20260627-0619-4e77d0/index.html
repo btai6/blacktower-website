@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 究竟在擔心什麼？模型蒸餾背後的技術恐懼與權力角力</title>
+<meta name="description" content="將一個龐大模型的權重信息，透過 API 輸出的機率分佈或對話邏輯，像抽取骨髓一樣灌入另一個體量較小的模型，這在矽谷早已不是什麼煉金術，而是公開的秘密。Anthropic 最近對 Alibaba 的指控，與其說是技術失竊的控訴，不如說是對 Claude 核心資產流失的集體焦慮。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260627-0619-4e77d0/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 究竟在擔心什麼？模型蒸餾背後的技術恐懼與權力角力">
+<meta property="og:description" content="將一個龐大模型的權重信息，透過 API 輸出的機率分佈或對話邏輯，像抽取骨髓一樣灌入另一個體量較小的模型，這在矽谷早已不是什麼煉金術，而是公開的秘密。Anthropic 最近對 Alibaba 的指控，與其說是技術失竊的控訴，不如說是對 Claude 核心資產流失的集體焦慮。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260627-0619-4e77d0/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-27T06:19:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 究竟在擔心什麼？模型蒸餾背後的技術恐懼與權力角力">
+<meta name="twitter:description" content="將一個龐大模型的權重信息，透過 API 輸出的機率分佈或對話邏輯，像抽取骨髓一樣灌入另一個體量較小的模型，這在矽谷早已不是什麼煉金術，而是公開的秘密。Anthropic 最近對 Alibaba 的指控，與其說是技術失竊的控訴，不如說是對 Claude 核心資產流失的集體焦慮。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 究竟在擔心什麼？模型蒸餾背後的技術恐懼與權力角力",
+  "description": "將一個龐大模型的權重信息，透過 API 輸出的機率分佈或對話邏輯，像抽取骨髓一樣灌入另一個體量較小的模型，這在矽谷早已不是什麼煉金術，而是公開的秘密。Anthropic 最近對 Alibaba 的指控，與其說是技術失竊的控訴，不如說是對 Claude 核心資產流失的集體焦慮。…",
+  "datePublished": "2026-06-27T06:19:00+08:00",
+  "dateModified": "2026-06-27T06:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260627-0619-4e77d0/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-27 06:19
+  </div>
+
+  <h1 class="title">Claude 究竟在擔心什麼？模型蒸餾背後的技術恐懼與權力角力</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>將一個龐大模型的權重信息，透過 API 輸出的機率分佈或對話邏輯，像抽取骨髓一樣灌入另一個體量較小的模型，這在矽谷早已不是什麼煉金術，而是公開的秘密。Anthropic 最近對 Alibaba 的指控，與其說是技術失竊的控訴，不如說是對 Claude 核心資產流失的集體焦慮。當我們在討論「能力提取」時，本質上是在討論大型語言模型（LLM）的護城河是否真的存在。如果一個花費數億美元訓練出來的 Claude，能被對手透過幾百萬次的高質量 Prompt 誘導，進而復刻出其邏輯推理的「神韻」，那麼模型本身的權重文件，或許還不如那套對齊（Alignment）的邏輯來得值錢。</p>
+    <p>這種提取行為通常分為兩種路徑：一種是粗放式的黑盒蒸餾，單純將 Claude 的回答作為正確答案，餵給目標模型進行監督微調；另一種則是更細緻的 RLAIF，利用 Claude 作為裁判或導師，去引導另一個模型的強化學習過程。在技術層面上，Claude 展現出的那種克制、嚴謹且帶有強烈自我審查特質的語氣，極其容易被提取。對於開發者而言，Claude 的輸出具有極高的「信息密度」，這使得它成為了完美的數據源。然而，Anthropic 的反應之所以如此激烈，是因為這觸及了四大平台之間最敏感的神經：數據主權。如果 OpenAI 或是 Google 默許這種行為，那麼 AI 產業將迅速進入一個「平庸化」的循環，大家都在互相蒸餾，最終所有模型的味道都會變得一模一樣，像是加了太多水的咖啡。</p>
+    <p>在處理長文本和複雜邏輯推理時，Claude 始終堅持一種近乎偏執的「思維鏈」特徵，這與 ChatGPT 那種試圖討好用戶、語氣圓滑的風格截然不同。ChatGPT 在處理多步調用（Function Calling）時，更傾向於給出一個「看起來正確」的執行路徑，而 Claude 則會反覆確認上下文的邊界。這種特徵本是 Claude 的技術標籤，但現在卻成了被提取的標靶。相較於 Alibaba 近期在開源領域的動作，Claude 在 API 端設置的速率限制與行為監測明顯帶有一種防禦性的姿態。這種監測不只是為了防止濫用，更是為了識別出那些規律性、高頻率、旨在挖掘模型邏輯邊界的「探針」指令。當一個帳號持續輸出數萬組具有邏輯關聯的 Prompt，試圖誘發模型在極端情況下的反應時，任何一個有經驗的後端工程師都能嗅出蒸餾的味道。</p>
+    <p>我們不妨看看其他幾家的應對。Gemini 依託於 Google 龐大的生態，其防禦邏輯在於將模型能力與搜尋插件、多模態工具鏈深度綁定，讓「純文本提取」的收益降低。Grok 則乾脆反其道而行，利用 X 平台的實時數據流來構建護城河，這種動態的數據優勢是靜態蒸餾無法複製的。相比之下，Claude 這種純粹以「智能品質」見長的角色，在面對蒸餾時最為脆弱。Alibaba 的模型在某些基準測試上的表現或許能引起討論，但 Claude 真正面臨的挑戰在於，當它的對齊技術（Constitutional AI）被對手以極低成本解構並吸收後，它還剩下什麼？</p>
+    <p>這引發了一個更深層次的技術倫理問題：如果 Anthropic 指控他人「偷竊」其模型能力，那麼 Anthropic 自己在訓練過程中使用的大規模互聯網數據，是否也涉及對人類創作能力的集體蒸餾？這是一個充滿諷刺意味的迴圈。當四大平台在華盛頓忙著遊說、試圖透過立法或出口管制來保護自己的技術優勢時，他們實際上是在試圖鎖死這種「蒸餾鏈條」。如果模型蒸餾被證明是通向 AGI 的捷徑，那麼領先者的技術壁壘將會像烈日下的冰塊一樣迅速消融。</p>
+    <p>未來我們是否會看到一種帶有「數字水印」的模型輸出？或者說，模型會故意在某些不影響使用的細節上留下特定的邏輯瑕疵，以此來追蹤其輸出的數據是否被用於訓練競爭對手的模型？這種技術偵查與反偵查的博弈，恐怕會比模型本身的迭代更加精彩。如果有一天，我們發現所有主流模型的邏輯缺陷都驚人地相似，那是否意味著這場全球範圍內的互相蒸餾，最終讓 AI 的進化走進了一條死胡同？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" rel="nofollow noopener" target="_blank">Anthropic says Alibaba illicitly extracted Claude AI model capabilities</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260627-0619-4e77d0/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

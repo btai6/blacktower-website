@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當電腦開始自己移動游標</title>
+<meta name="description" content="把滑鼠控制權交給模型，這件事聽起來像是在對矽基生命進行最後一場豪賭。Google 在 Gemini 3.5 Flash 裡塞進了 Computer Use 功能，試圖證明即使是主打輕量、低延遲的小模型，也能在螢幕像素之間遊刃有餘。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260627-0625-72198c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當電腦開始自己移動游標">
+<meta property="og:description" content="把滑鼠控制權交給模型，這件事聽起來像是在對矽基生命進行最後一場豪賭。Google 在 Gemini 3.5 Flash 裡塞進了 Computer Use 功能，試圖證明即使是主打輕量、低延遲的小模型，也能在螢幕像素之間遊刃有餘。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260627-0625-72198c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-27T06:25:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當電腦開始自己移動游標">
+<meta name="twitter:description" content="把滑鼠控制權交給模型，這件事聽起來像是在對矽基生命進行最後一場豪賭。Google 在 Gemini 3.5 Flash 裡塞進了 Computer Use 功能，試圖證明即使是主打輕量、低延遲的小模型，也能在螢幕像素之間遊刃有餘。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當電腦開始自己移動游標",
+  "description": "把滑鼠控制權交給模型，這件事聽起來像是在對矽基生命進行最後一場豪賭。Google 在 Gemini 3.5 Flash 裡塞進了 Computer Use 功能，試圖證明即使是主打輕量、低延遲的小模型，也能在螢幕像素之間遊刃有餘。…",
+  "datePublished": "2026-06-27T06:25:00+08:00",
+  "dateModified": "2026-06-27T06:25:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260627-0625-72198c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-06-27 06:25
+  </div>
+
+  <h1 class="title">當電腦開始自己移動游標</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>把滑鼠控制權交給模型，這件事聽起來像是在對矽基生命進行最後一場豪賭。Google 在 Gemini 3.5 Flash 裡塞進了 Computer Use 功能，試圖證明即使是主打輕量、低延遲的小模型，也能在螢幕像素之間遊刃有餘。你在介面上看到它笨拙地截圖、分析、移動游標，每一步都算作 Token。這不是單純的自動化腳本，這是一場關於「視覺理解」與「動作推理」的極限壓力測試。當你要求它在 Airbnb 上找一間採光好、裝潢符合審美的房子時，它得先看懂圖片裡的窗戶大小，再決定點擊哪一個預約按鈕。這種跨越模態的交互，本質上是在消耗大量的計算資源來模擬人類最直覺的視覺反應。</p>
+    <p>技術層面來看，Gemini 在處理這類任務時，最底層的障礙不在於模型智商，而在於基礎設施的割裂。目前的開發者環境裡，Google 依然沒能把 MCP（Model Context Protocol）標準完整整合進 App。這導致了一個尷尬的斷層：模型雖然學會了「用手」去點擊網頁，卻沒能擁有流暢的「記憶」和「外部數據接口」。當你在 Claude 3.5 Sonnet 裡使用 Artifacts 或是結合 MCP 調用本地數據庫時，那種流暢感來自於系統級的整合，而非僅僅是模擬滑鼠點擊。Google 的做法更像是在一台舊機器上強行安裝了一個自動駕駛插件，它能看路，但它對這輛車的變速箱一無所知。</p>
+    <p>更深層的問題在於穩定性。Computer Use 這種模式目前看來極其昂貴且低效。每一次螢幕截圖並回傳給模型分析，都是在燃燒 Token。對於 Gemini 3.5 Flash 這種追求性價比的模型來說，頻繁的截圖推理反而抵消了它在速度上的優勢。這讓人想起 GPT-4o 在處理複雜視覺任務時的遲疑，或是 Grok 在理解動態介面時的笨拙。如果你看過 Gemini 在基準測試中的表現，會發現它在某些圖表渲染上甚至不如前代，卻被包裝成一種全能的形態。相比之下，Alibaba 的做法在某些特定場景下顯得更為謹慎。Google 則選擇了另一條路：即便這項技術現在看起來像是不成熟的實驗品，即便它連廣告頁面都跳不過，也要先佔領那個「操作者」的位置。</p>
+    <p>我們觀察四大平台的演進路徑，會發現一種有趣的趨勢：ChatGPT 專注於讓對話變得更有「人味」，Claude 在工程師的工作流裡紮根，Grok 試圖在實時信息中尋找存在感，而 Google 似乎想把 Gemini 變成一個全能的代理人。然而，當代理人連基本的介面一致性都無法保證時，這種「電腦使用」功能就顯得有些空中樓閣。在某些技術討論中，這被嘲諷為一種為了消耗 Token 而創造的需求。如果模型在執行點擊任務時，因為網頁上一個突如其來的彈窗廣告而陷入死循環，這種自動化究竟是解放了人類，還是給人類增加了一份「監工」的兼職？</p>
+    <p>這種將權限交給像素識別的邏輯，是否真的優於結構化的 API 調用？我們目前看到的是，即便是在最理想的網絡環境下，Gemini 執行一個簡單的跨視窗複製貼上，也要經歷數秒的延遲與多次的 Token 往返。這種物理層面的模擬，究竟是通往通用人工智能的必經之路，還是我們在無法完美解決軟件兼容性時，不得不選擇的一種笨拙代償？當未來的系統不再是為人類視覺設計，而是為模型推理設計時，我們還需要這種模擬滑鼠移動的「電腦使用」功能嗎？還是說，這只是在真正的系統級 AI 誕生前，最後一段充滿噪音的過渡期？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/" rel="nofollow noopener" target="_blank">Computer use in Gemini 3.5 Flash</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260627-0625-72198c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
