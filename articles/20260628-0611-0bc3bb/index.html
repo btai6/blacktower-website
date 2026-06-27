@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當算力被當成軍火，模型的權限自然成了封條</title>
+<meta name="description" content="OpenAI 正在把自己變成一家國營企業，雖然這早就不是新聞了。最近關於未來更強大的模型——暫且稱之為 GPT-5 或其後續版本——將由特定行政機關決定誰能使用的消息，在 Hacker News 上炸開了鍋。這件事最荒謬的地方在於，我們曾經討論的是 AGI 如何解放生產力，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260628-0611-0bc3bb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當算力被當成軍火，模型的權限自然成了封條">
+<meta property="og:description" content="OpenAI 正在把自己變成一家國營企業，雖然這早就不是新聞了。最近關於未來更強大的模型——暫且稱之為 GPT-5 或其後續版本——將由特定行政機關決定誰能使用的消息，在 Hacker News 上炸開了鍋。這件事最荒謬的地方在於，我們曾經討論的是 AGI 如何解放生產力，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260628-0611-0bc3bb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-28T06:11:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當算力被當成軍火，模型的權限自然成了封條">
+<meta name="twitter:description" content="OpenAI 正在把自己變成一家國營企業，雖然這早就不是新聞了。最近關於未來更強大的模型——暫且稱之為 GPT-5 或其後續版本——將由特定行政機關決定誰能使用的消息，在 Hacker News 上炸開了鍋。這件事最荒謬的地方在於，我們曾經討論的是 AGI 如何解放生產力，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當算力被當成軍火，模型的權限自然成了封條",
+  "description": "OpenAI 正在把自己變成一家國營企業，雖然這早就不是新聞了。最近關於未來更強大的模型——暫且稱之為 GPT-5 或其後續版本——將由特定行政機關決定誰能使用的消息，在 Hacker News 上炸開了鍋。這件事最荒謬的地方在於，我們曾經討論的是 AGI 如何解放生產力，…",
+  "datePublished": "2026-06-28T06:11:00+08:00",
+  "dateModified": "2026-06-28T06:11:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260628-0611-0bc3bb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-06-28 06:11
+  </div>
+
+  <h1 class="title">當算力被當成軍火，模型的權限自然成了封條</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 正在把自己變成一家國營企業，雖然這早就不是新聞了。最近關於未來更強大的模型——暫且稱之為 GPT-5 或其後續版本——將由特定行政機關決定誰能使用的消息，在 Hacker News 上炸開了鍋。這件事最荒謬的地方在於，我們曾經討論的是 AGI 如何解放生產力，現在討論的卻是你的 API Key 到底有沒有通過政審。當一個技術產品的發布流程從「灰度測試」變成「白度測試」，開發者對 OpenAI 的那點技術崇拜，大概也就剩下一聲冷笑了。</p>
+    <p>從技術層面看，這種限制直接摧毀了模型在跨國協作場景下的穩定性。如果你現在用 ChatGPT 的 API 構建一個自動化代碼審計工具，一旦未來的高階版本被列入管制名單，意味著你分佈在倫敦、新加坡或特拉維夫的伺服器節點，可能在一夜之間失去訪問權。OpenAI 的系統架構現在不僅僅是負載均衡的問題，而是地理圍欄的問題。當一個模型的推論成本中，法律合規與身份審核的佔比超過了算力消耗時，這個模型對於追求效率的技術團隊來說，已經變成了一個風險項。我們在測試 Claude 的多語言理解能力時，發現它在處理複雜語境下的邏輯一致性確實優秀，但如果 Anthropic 也被迫跟進這種「權限清單」制度，那麼 Opus 未來的高階版本也將成為實驗室裡的標本，而非大眾手中的工具。</p>
+    <p>這種封閉化的趨勢，正在強行把開發者推向開源陣營。在矽谷的技術圈裡，大家開始重新評估那些可以本地部署、不需要聯網驗證、更不需要查戶口的模型。雖然目前的開源模型在處理超長文本的注意力分配上，還沒法完全追上 Gemini 那種誇張的百萬級 Token 窗口，但在邏輯推理和特定領域的微調上，差距正在以肉眼可見的速度縮小。相較於 Alibaba，OpenAI 在處理敏感數據隔離與存取權限的政治化操作上，顯然走得更遠且更決絕。我們在觀察 Grok 的發展時也能看到這種撕裂：一邊是追求極致的言論開放與數據抓取，另一邊則是為了拿政府訂單而不得不低頭的合規審查。</p>
+    <p>問題在於，如果最尖端的模型被鎖在保險櫃裡，只有特定的人能用，那麼「前沿模型」的定義就會發生改變。以前我們定義前沿是看 MMLU 分數或 HumanEval 的通過率，以後可能要看誰的後台更硬。Gemini 在處理多模態融合任務時，其跨模態的對齊精度目前是領先的，但如果 Google 為了迎合某些行政指令，對輸出的內容進行更嚴苛的人為過濾，這種技術上的領先還有意義嗎？當你在詢問一個物理難題，模型卻因為你的 IP 地址或身份標籤而給你一個閹割版的回答時，這已經不是技術問題，而是對互聯網精神的公開處刑。</p>
+    <p>對於那些在 OpenAI 生態系統裡投入了大量研發成本的初創公司來說，現在就像是住在一間隨時可能被房東鎖上大門的豪宅。相較於 Alibaba，ChatGPT 這種將核心能力與特定行政意圖深度綁定的做法，讓技術選型變成了一場政治豪賭。如果未來你的 AI 助手需要先掃描你的護照才能幫你寫代碼，你還會覺得這是通往 AGI 的必經之路嗎？或者說，當我們把所有的算力和數據都餵給了這些巨頭，最後換來的卻是一個「權限不足，無法訪問」的對話框，這是不是 AI 發展史上最大的冷笑話？</p>
+    <p>如果技術的終點是權力的特許經營權，那開發者們忙活了這麼多年，究竟是在構建未來，還是在給自己編織一個更精緻的籠子？當全世界都在期待下一個改變世界的參數跳躍時，我們等來的會是智力的爆發，還是另一張冷冰冰的許可證？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.washingtonpost.com/technology/2026/06/26/openai-says-us-government-will-vet-users-its-latest-ai-model/" rel="nofollow noopener" target="_blank">U.S. government will decide who gets to use GPT-5.6</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260628-0611-0bc3bb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
