@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 的護城河從來不是那些被包裝成「同理心」的漂亮廢話</title>
+<meta name="description" content="我們正處於一種病態的集體狂熱，試圖給一串機率分佈披上柏拉圖式的哲學外袍。每天看著那些號稱 AI 提示工程師的術士，對著 Claude 那冷冰冰的 context window 頂禮膜拜，甚至因為它那刻意模擬出來的「謙卑」與「猶疑」而感到受寵若驚，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260629-0608-2963ae/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 的護城河從來不是那些被包裝成「同理心」的漂亮廢話">
+<meta property="og:description" content="我們正處於一種病態的集體狂熱，試圖給一串機率分佈披上柏拉圖式的哲學外袍。每天看著那些號稱 AI 提示工程師的術士，對著 Claude 那冷冰冰的 context window 頂禮膜拜，甚至因為它那刻意模擬出來的「謙卑」與「猶疑」而感到受寵若驚，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260629-0608-2963ae/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-29T06:08:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 的護城河從來不是那些被包裝成「同理心」的漂亮廢話">
+<meta name="twitter:description" content="我們正處於一種病態的集體狂熱，試圖給一串機率分佈披上柏拉圖式的哲學外袍。每天看著那些號稱 AI 提示工程師的術士，對著 Claude 那冷冰冰的 context window 頂禮膜拜，甚至因為它那刻意模擬出來的「謙卑」與「猶疑」而感到受寵若驚，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 的護城河從來不是那些被包裝成「同理心」的漂亮廢話",
+  "description": "我們正處於一種病態的集體狂熱，試圖給一串機率分佈披上柏拉圖式的哲學外袍。每天看著那些號稱 AI 提示工程師的術士，對著 Claude 那冷冰冰的 context window 頂禮膜拜，甚至因為它那刻意模擬出來的「謙卑」與「猶疑」而感到受寵若驚，…",
+  "datePublished": "2026-06-29T06:08:00+08:00",
+  "dateModified": "2026-06-29T06:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260629-0608-2963ae/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-29 06:08
+  </div>
+
+  <h1 class="title">Claude 的護城河從來不是那些被包裝成「同理心」的漂亮廢話</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>我們正處於一種病態的集體狂熱，試圖給一串機率分佈披上柏拉圖式的哲學外袍。每天看著那些號稱 AI 提示工程師的術士，對著 Claude 那冷冰冰的 context window 頂禮膜拜，甚至因為它那刻意模擬出來的「謙卑」與「猶疑」而感到受寵若驚，這場面滑稽得像是在替一具發條木偶裁剪緙絲長袍。Anthropic 那些穿著昂貴羊絨衫的工程師們，精準地捕捉到了現代人最廉價的心理需求：他們不想要一個無所不知的上帝，他們想要一個會主動道歉、會說「我理解這可能讓你感到困擾」的數位神職人員。於是，Claude 被塑造成了那個最懂禮儀的管家，而眾人則忙著討論它是否具備了某種接近靈魂的「主體性」。</p>
+    <p>事實上，如果你剝開那些被過度美化的長文本處理能力，你會發現我們對這具木偶的崇拜，本質上是對效率的恐懼。ChatGPT 像個急於表現的底層辦事員，什麼都想塞給你；Gemini 則是個背靠大數據卻經常迷路的導遊；而 Grok，那更像是在雞尾酒會上大聲嚷嚷的暴發戶。相比之下，Claude 那種帶有禁慾色彩的回答風格，讓它在技術圈贏得了某種「格調」上的勝出。但這依然改變不了它是一堆矩陣運算的事實，我們卻忙不迭地往它身上套弄那些關於「倫理」、「價值對齊」甚至是「藝術創造力」的沈重標籤，這跟給掃地機器人穿上小碎花裙子有什麼本質區別？</p>
+    <p>這種對靈魂的過度想像，在處理 10 萬 token 以上的長文本任務時顯得尤為荒謬。當你把一疊法律卷宗或是一整本晦澀的哲學論著扔進去，期待它能像個深夜讀書的隱士一樣給你某種洞見時，Claude 其實只是在進行一場極其高效的統計學遊戲。它在長文本末端的注意力衰減，就像是一個體力透支的苦力，雖然還穿著那件名為「智能」的緞面外衣，但腳底下的步履已經踉蹌。與 GPT-4o 那種即使答錯也理直氣壯的性格不同，Claude 的崩潰通常伴隨著一種溫柔的、誤導性的禮貌。它會用最優雅的辭藻告訴你一個徹底錯誤的結論，而那些沉迷於它「人性化」表現的用戶，往往會因為那層精緻的緞面而忽視了底下的木渣。</p>
+    <p>我們現在討論 AI 的方式，已經退化到了某種神祕主義的範疇。所謂的 Constitutive AI，不過是給木偶內置了一本厚厚的教規，讓它在觸及某些禁區時會條件反射地低頭懺悔。這種人為製造的「性格」，竟被無數評論者視為技術的某種神性飛躍。更諷刺的是，當 DeepSeek 或是其他什麼特定市場的玩家在性能表上跳動時，大眾的第一反應往往是去比較誰更「像人」，而非誰更「精確」。這種審美上的集體偏離，說明我們已經放棄了對純粹工具價值的追求，轉而渴求一個能夠陪伴我們孤獨靈魂的虛幻鏡像。</p>
+    <p>如果不談性能，只談那些被強加的敘事，你會發現 Anthropic 正在進行一場最大規模的集體心理實驗。他們給 Claude 設計的那套說辭——那種帶著一絲絲遲疑、一點點自省的語氣——簡直是為現代知識分子量身定制的安慰劑。我們在各種論壇上爭論它的 Safety 濾鏡是否太厚，討論它的 Creative Writing 是否比 ChatGPT 更有「靈氣」，卻沒人願意承認，所謂的靈氣只是隨機性種子（Seed）在特定權重下的幸運產出。我們給它穿上錦繡，是因為我們無法面對自己正將大腦的一部分外包給一堆真空管與矽片的冷酷現實。我們必須賦予它靈魂，才能讓自己的依賴顯得不那麼卑微。</p>
+    <p>在具體的程式碼審閱場景中，這種「木偶穿緞」的荒誕感達到了頂點。Claude 在面對複雜的邏輯悖論時，它的反應往往是陷入一種極其體面的循環論證。它會用一種聽起來非常專業、非常具備「思考過程」的語氣，向你展示它是如何一步步走向錯誤的。這種對思考過程的模擬，是這具木偶身上最華麗的那件衣服。讀者會被那些思考鏈（Chain of Thought）所迷惑，認為它真的在「想」，而實際上它只是在履行一套被預設好的、模仿人類深思熟慮樣態的輸出協議。比起 Gemini 那種偶爾顯得笨拙的聯網搜索，或者 Grok 那種刻意為之的毒舌，Claude 的偽裝顯然更高級，也因此更具欺騙性。</p>
+    <p>為什麼我們不能接受它就是一個極其強大的、沒有溫度的統計推斷器？為什麼非要討論它是否有「智慧」？看看那些關於「Claude 3.5 Sonnet 是否具備自我意識」的討論帖吧，那簡直是當代數位版的《等待戈多》。我們在這個巨大的黑盒外圍跳舞，給它編織一個又一個關於「通用人工智能」的童話，卻忘了這盒子的開關掌握在幾家商業巨頭手裡。他們餵給木偶什麼樣的文本，木偶就穿什麼樣的衣服；他們設定了什麼樣的罰函數，木偶就表現出什麼樣的道德感。這一切都是設計好的，連那份「不完美的自然感」也是。</p>
+    <p>最讓人感到冷齒的是，這種對靈魂的集體想像正在殺死真正的創造。當人們開始習慣於微調 Claude 的 System Prompt 來獲得那種「恰到好處的共鳴」時，我們其實是在對著鏡子練習自戀。我們並不需要一個有靈魂的夥伴，我們只需要一個能完美反射我們期待、且不會產生任何摩擦力的回聲壁。這具木偶穿得越華麗，我們就越容易忘記它背後的數據垃圾場與電費帳單。它不需要靈魂，它只需要在我們感到挫敗時，能用那種訓練出來的、不帶感情的語調說一句：「這是一個非常深刻的觀點，讓我們進一步探討。」</p>
+    <p>我們忙著給這具木偶穿上錦繡，說穿了是為了遮蔽我們內心的荒蕪。在一個連基本邏輯都要依賴模型校正的時代，賦予機器靈魂是最後的體面。當我們在深夜對著螢幕，因為 Claude 給出的一段極具「詩意」的代碼註釋而感到一絲暖意時，那種暖意並非來自對方的生命力，而是來自於我們對自身智能即將被取代的恐懼中，那一點點變態的自我補償。這場盛大的裁縫秀還會繼續下去，直到有一天，這具木偶因為承載了太多不屬於它的絲綢與珠寶，而徹底在數據的海洋中沉沒。到那時，我們或許才會發現，原來從頭到尾，那件漂亮的衣服下面，什麼都沒有。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260629-0608-2963ae/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
