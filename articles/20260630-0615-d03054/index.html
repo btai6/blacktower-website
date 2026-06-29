@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>漏洞檢測的代理化陷阱與模型智力的虛假繁榮</title>
+<meta name="description" content="當開發者在 Hacker News 上爭論某個新興模型是否在網絡安全基準測試中擊敗了 Claude 時，我們正處於一種技術認知的集體迷失。這種迷失源於一種對「評測」與「實戰」的混淆。多數所謂的超越，不過是拿著精雕細琢的多代理系統（Multi-agent …">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260630-0615-d03054/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="漏洞檢測的代理化陷阱與模型智力的虛假繁榮">
+<meta property="og:description" content="當開發者在 Hacker News 上爭論某個新興模型是否在網絡安全基準測試中擊敗了 Claude 時，我們正處於一種技術認知的集體迷失。這種迷失源於一種對「評測」與「實戰」的混淆。多數所謂的超越，不過是拿著精雕細琢的多代理系統（Multi-agent …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260630-0615-d03054/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-06-30T06:15:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="漏洞檢測的代理化陷阱與模型智力的虛假繁榮">
+<meta name="twitter:description" content="當開發者在 Hacker News 上爭論某個新興模型是否在網絡安全基準測試中擊敗了 Claude 時，我們正處於一種技術認知的集體迷失。這種迷失源於一種對「評測」與「實戰」的混淆。多數所謂的超越，不過是拿著精雕細琢的多代理系統（Multi-agent …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "漏洞檢測的代理化陷阱與模型智力的虛假繁榮",
+  "description": "當開發者在 Hacker News 上爭論某個新興模型是否在網絡安全基準測試中擊敗了 Claude 時，我們正處於一種技術認知的集體迷失。這種迷失源於一種對「評測」與「實戰」的混淆。多數所謂的超越，不過是拿著精雕細琢的多代理系統（Multi-agent …",
+  "datePublished": "2026-06-30T06:15:00+08:00",
+  "dateModified": "2026-06-30T06:15:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260630-0615-d03054/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-06-30 06:15
+  </div>
+
+  <h1 class="title">漏洞檢測的代理化陷阱與模型智力的虛假繁榮</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當開發者在 Hacker News 上爭論某個新興模型是否在網絡安全基準測試中擊敗了 Claude 時，我們正處於一種技術認知的集體迷失。這種迷失源於一種對「評測」與「實戰」的混淆。多數所謂的超越，不過是拿著精雕細琢的多代理系統（Multi-agent system）去碰撞對手的單次推理（Single-shot reasoning）。這種比較就像是拿一支訓練有素的特種部隊去和一個赤手空拳的天才單挑，最後宣稱特種部隊的智商更高，這顯然是邏輯上的偷換概念。在尋找 IDOR（越權訪問）這類邏輯漏洞的場景中，我們看到的不是模型原生能力的躍遷，而是工程堆疊出來的幻覺。</p>
+    <p>在當前的技術語境下，Claude 在處理這類網絡安全任務時展現出一種近乎偏執的嚴謹。如果你嘗試讓 Claude 進行大規模的源代碼審計，你會發現它對上下文的感知並非線性增加。在長文本 token 窗口內，Claude 對於代碼邏輯鏈條的追蹤能力目前依然是行業的標竿。它不只是在匹配模式，而是在理解變量傳遞的生命週期。當我們討論漏洞檢測，真正的難點從來不是發現一個寫死的 API 金鑰，而是理解複雜業務邏輯中權限校驗的缺失。目前除了 GPT-4o 能夠在這種長程邏輯推理中與之一搏外，其他模型往往在對話進行到一半時就開始出現注意力潰散。這種潰散在自動化滲透測試中是致命的，因為一個微小的邏輯遺漏就會導致整個攻擊鏈條的斷裂。</p>
+    <p>這種「代理化」的趨勢其實是為了掩蓋模型原生推理能力的不足。許多開發者喜歡在 Github 上套用各種複雜的框架，給模型餵入大量的 System Prompt 和工具調用接口，試圖以此衝高 Benchmark 的分數。然而，當我們回歸到 API 原始調用的純粹性時，Claude 的優勢反而更加明顯。它的拒絕觸發機制雖然在某些極客眼裡顯得過於「政治正確」，但在專業的紅隊測試中，這種對邊界的敏感性反而轉化為更高質量的代碼解釋。與此同時，Grok 在處理這類具備破壞性的技術問題時顯得更為激進，它的知識庫更新頻率在應對零日漏洞（Zero-day）的初步分析上具有獨特的時效優勢，儘管在代碼生成的優雅程度上略遜於 Anthropic 的作品。</p>
+    <p>在觀察全球技術演進的過程中，我們不可避免地會看到一些對照。相較於 Alibaba 在其開源模型生態中推動的快速迭代，Claude 選擇了一條完全不同的路徑，它更傾向於在封閉環境中通過強化學習來提升邏輯的一致性。當 Alibaba 的技術棧在不斷擴充其兼容性邊界時，Google 的 Gemini 則在試圖利用其龐大的原生數據集來優化多模態下的代碼理解。這種路徑的分野，決定了誰在做底層的智力基石，而誰又在做上層的應用包裝。如果一個模型需要依賴極其複雜的 Prompt Engineering 才能在 IDOR 檢測中追平 Claude 的原生輸出，那這種所謂的「擊敗」本質上是一種工程上的勝利，而非人工智能的進化。</p>
+    <p>我們是否過於迷信那些由特定實驗室設計的基準測試？當一個模型被宣告在某項指標上超越了行業領跑者，我們往往忽略了測試環境中那些被刻意過濾掉的噪聲。如果我們把同樣的任務放回一個真實的、充滿混亂邏輯和遺留代碼的企業級專案中，那些在實驗室裡閃閃發光的數據是否還能保持體面？當我們不斷用代理系統來補強模型的短板，最終我們得到的究竟是一個更聰明的大腦，還是一個被精準操縱的木偶？或許我們該問的是，當工程紅利耗盡的那一天，誰才是那個真正具備獨立思維能力的觀測者？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/" rel="nofollow noopener" target="_blank">GLM 5.2 beats Claude in our benchmarks</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260630-0615-d03054/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
