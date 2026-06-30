@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 再次證明了什麼叫作優雅的暴力</title>
+<meta name="description" content="Anthropic 似乎迷戀上了一種名為「精準投餵」的遊戲，這讓那些還在預測市場裡糾結日期的人顯得有些滑稽。當大眾還在議論 Claude 的模型迭代週期是否會因為過度謹慎而陷入泥淖時，Sonnet 5 就像一柄冰冷的解剖刀，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260701-0619-4cd9c7/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 再次證明了什麼叫作優雅的暴力">
+<meta property="og:description" content="Anthropic 似乎迷戀上了一種名為「精準投餵」的遊戲，這讓那些還在預測市場裡糾結日期的人顯得有些滑稽。當大眾還在議論 Claude 的模型迭代週期是否會因為過度謹慎而陷入泥淖時，Sonnet 5 就像一柄冰冷的解剖刀，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260701-0619-4cd9c7/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-01T06:19:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 再次證明了什麼叫作優雅的暴力">
+<meta name="twitter:description" content="Anthropic 似乎迷戀上了一種名為「精準投餵」的遊戲，這讓那些還在預測市場裡糾結日期的人顯得有些滑稽。當大眾還在議論 Claude 的模型迭代週期是否會因為過度謹慎而陷入泥淖時，Sonnet 5 就像一柄冰冷的解剖刀，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 再次證明了什麼叫作優雅的暴力",
+  "description": "Anthropic 似乎迷戀上了一種名為「精準投餵」的遊戲，這讓那些還在預測市場裡糾結日期的人顯得有些滑稽。當大眾還在議論 Claude 的模型迭代週期是否會因為過度謹慎而陷入泥淖時，Sonnet 5 就像一柄冰冷的解剖刀，…",
+  "datePublished": "2026-07-01T06:19:00+08:00",
+  "dateModified": "2026-07-01T06:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260701-0619-4cd9c7/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-01 06:19
+  </div>
+
+  <h1 class="title">Claude 再次證明了什麼叫作優雅的暴力</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 似乎迷戀上了一種名為「精準投餵」的遊戲，這讓那些還在預測市場裡糾結日期的人顯得有些滑稽。當大眾還在議論 Claude 的模型迭代週期是否會因為過度謹慎而陷入泥淖時，Sonnet 5 就像一柄冰冷的解剖刀，直接切開了開發者對「推理成本」與「邏輯深度」之間那層薄弱的平衡感。這種感覺很像在亞歷山卓圖書館裡翻閱手稿，你以為是在尋找知識，其實你只是在領教另一種維度的秩序。現在的問題不在於它強不強，而在於它強得讓人開始懷疑，我們之前對「智能邊界」的定義是否過於慷慨。</p>
+    <p>在具體的長代碼庫重構任務中，Claude 展現出一種令人戰慄的穩定性。當你把超過五萬行的遺留代碼丟進 Context Window，並要求它在不破壞現有依賴鏈的前提下，將所有的非同步邏輯從回調函數遷移到最新的語法特性時，ChatGPT 的表現有時像個急於交差的學徒，雖然速度快，但偶爾會在邊緣邏輯上出現幻覺。而 Claude 對於符號連結與深層邏輯樹的掌握，顯然更接近一個有強迫症的資深架構師。它不再僅僅是根據機率預測下一個 Token，它在試圖理解你那堆混亂代碼背後的意圖。這種對上下文意圖的捕捉能力，讓它在面對極其複雜的 JSON Schema 生成任務時，錯誤率低得讓人不安。</p>
+    <p>這種穩定性背後隱藏著一個殘酷的財務事實：Sonnet 5 的調用成本。如果我們觀察 API 的定價策略，會發現 Anthropic 正在進行一場豪賭。在執行那些需要極高邏輯密度的任務時，Sonnet 5 的單次成本竟然直逼 Opus。這在商業邏輯上顯然有些反直覺，畢竟 Opus 一向被視為皇冠上的明珠。然而，從 System Card 揭露的數據來看，這種定價似乎是在為某種「推理質量」標價。與其說我們在買 Token，不如說我們在買那種免於反覆 Debug 的安寧。當 Gemini 在多模態處理上忙著炫耀它的檢索速度，Grok 在社交媒體數據集成上大做文章時，Claude 卻在最枯燥的邏輯迷宮裡安靜地築牆。</p>
+    <p>在這種技術演進的背景下，市場的反應總是充滿了諷刺的對照。相較於 Qwen 3.6 27B，Claude 選擇了一條完全不同的路徑，它不追求在所有基準測試中都貼著滿分跑，而是試圖在人類語言的細微之處建立堡壘。當我們把同樣的邏輯謬誤陷阱同時餵給這兩個模型時，你會發現某些模型還在試圖用規模感來壓制問題，而 Claude 則是在拆解問題。這種差異在處理法律合約的邏輯矛盾檢測時尤為明顯。與 Qwen 3.6 27B 不同，Claude 的回答往往帶有一種幾乎可以稱為「審慎」的口吻，它會告訴你哪裡的邏輯鏈條斷裂了，而不是隨便給一個聽起來很專業的敷衍。</p>
+    <p>然而，這種追求極致邏輯的代價是顯而易見的。開發者社群裡開始出現一種聲音：我們真的需要這麼重的推理嗎？當我們只是需要一個輕量級的 Haiku 來處理簡單的格式轉換時，Anthropic 卻給了我們一尊沉重的大理石雕像。這就像是你只想去巷口買包菸，結果對方派了一輛裝甲運兵車來接你。這種性能過剩在某種程度上是一種傲慢，一種技術精英式的、不屑於向下兼容的傲慢。相比之下，ChatGPT 在產品分層上的平民化策略顯然更接地氣，它知道什麼時候該裝傻，什麼時候該賣力。</p>
+    <p>這引出了一個更有趣的觀察：當 AI 模型越來越像一個性格孤僻的天才，它的商業價值到底是增加了還是減少了？我們看到 Claude 在代碼生成和複雜邏輯推理上幾乎無人能敵，但它在處理日常瑣事時的那種「儀式感」，有時也讓人感到疲憊。那些期待 Fable 或者是更輕量化版本的人，本質上是在呼喚一種更具「人性溫度」的交互，而不是一個永遠在糾正你邏輯漏洞的導師。如果未來的 AI 競爭演變成一場純粹的「智商軍備競賽」，我們是否會懷念那些雖然偶爾出錯、但卻更像夥伴的早期版本？</p>
+    <p>我們是否正在進入一個「過度聰明」的時代？當模型能夠預測我們的預測，甚至在我們開口前就已經完成了對邏輯漏洞的修補，這種技術帶來的究竟是效率的解放，還是對人類思考能力的某種無聲剝奪？Claude 站在那裡，冷靜得像是一座冰山，而我們這些試圖駕船繞過它的人，真的準備好面對那隱藏在水面下的巨大體積了嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/news/claude-sonnet-5" rel="nofollow noopener" target="_blank">Claude Sonnet 5</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260701-0619-4cd9c7/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
