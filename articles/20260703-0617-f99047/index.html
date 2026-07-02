@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智力分配權的盡頭是封閉還是平庸</title>
+<meta name="description" content="既然美國政府打算決定誰能用上下一代的 GPT，那這件事就已經不單純是算力或演算法的問題，而是變成了一種特許經營權。在 Hacker News 上那群技術硬核份子開始鼓吹開源模型才是出路時，我們得認清一個現實：當 OpenAI 或 Anthropic …">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260703-0617-f99047/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="智力分配權的盡頭是封閉還是平庸">
+<meta property="og:description" content="既然美國政府打算決定誰能用上下一代的 GPT，那這件事就已經不單純是算力或演算法的問題，而是變成了一種特許經營權。在 Hacker News 上那群技術硬核份子開始鼓吹開源模型才是出路時，我們得認清一個現實：當 OpenAI 或 Anthropic …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260703-0617-f99047/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-03T06:17:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="智力分配權的盡頭是封閉還是平庸">
+<meta name="twitter:description" content="既然美國政府打算決定誰能用上下一代的 GPT，那這件事就已經不單純是算力或演算法的問題，而是變成了一種特許經營權。在 Hacker News 上那群技術硬核份子開始鼓吹開源模型才是出路時，我們得認清一個現實：當 OpenAI 或 Anthropic …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "智力分配權的盡頭是封閉還是平庸",
+  "description": "既然美國政府打算決定誰能用上下一代的 GPT，那這件事就已經不單純是算力或演算法的問題，而是變成了一種特許經營權。在 Hacker News 上那群技術硬核份子開始鼓吹開源模型才是出路時，我們得認清一個現實：當 OpenAI 或 Anthropic …",
+  "datePublished": "2026-07-03T06:17:00+08:00",
+  "dateModified": "2026-07-03T06:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260703-0617-f99047/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-03 06:17
+  </div>
+
+  <h1 class="title">智力分配權的盡頭是封閉還是平庸</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>既然美國政府打算決定誰能用上下一代的 GPT，那這件事就已經不單純是算力或演算法的問題，而是變成了一種特許經營權。在 Hacker News 上那群技術硬核份子開始鼓吹開源模型才是出路時，我們得認清一個現實：當 OpenAI 或 Anthropic 這種級別的玩家開始接受行政指令的「預檢」，所謂的「通用人工智能」就已經在出生前被閹割了。這不是在談論安全對齊，這是在談論誰有資格擁有更高級的思考工具。如果 GPT-5 或未來的 Opus 在預覽期就得先過一遍政府的篩選名單，那這類模型的推理能力（Reasoning）很可能會為了符合某種審查標準而產生結構性的退化。</p>
+    <p>技術層面上，當模型規模大到一定程度，其湧現出的能力往往伴隨著不可預測的風險。OpenAI 之前的做法是透過 RLHF 進行人工干預，但現在介入的是行政力量。這會導致一個極其尷尬的技術走向：為了確保不被非授權對象「誤用」，模型在處理複雜邏輯推理、密碼學應用甚至是高級生物化學模擬時，會被強制加入大量的「拒絕回答」邏輯。這種邏輯不是基於技術安全性，而是基於使用者身份。想像一下，同一個 API 接口，因為你的 IP 地址或身份證件不同，模型給出的思維鏈（Chain of Thought）深度就會有所區別。Gemini 在處理這類敏感邊界時一向顯得畏首畏尾，若 ChatGPT 也走向這條路，那四大平台之間原本脆弱的平衡就會徹底崩塌。</p>
+    <p>這種「特許使用」的邏輯會直接影響到模型的微調與部署。對於資深開發者來說，最怕的不是模型變笨，而是模型變得「不可預測地變笨」。如果 GPT 的推理路徑會因為政策變動而隨時調整，那企業端在構建複雜 Agent 時，穩定性將會是一個巨大的災難。Grok 雖然一直標榜自由，但在這種大環境下，Elon Musk 也很難保證 xAI 能獨立於聯邦規範之外。當算力資源被集中管控，模型輸出的每一行代碼、每一個決策建議，背後可能都有一雙看不見的手在過濾。這種過濾會佔用模型寶貴的 context window，甚至干擾注意力機制（Attention Mechanism），讓模型在處理長文本任務時，因為要不斷回溯安全邊界而導致邏輯斷裂。</p>
+    <p>看看現在的市場環境，當 Qwen 3.6 27B 這種規模的模型在技術社群引起討論時，OpenAI 卻在考慮如何限制用戶。相較於 Qwen 3.6 27B，OpenAI 選擇了一條完全相反的路徑，將模型封鎖在更高的圍牆內。這種對照非常諷刺，一方在試圖擴散影響力，而技術領先者卻在收縮防線。Anthropic 的 Claude 雖然在長文本分析上表現優異，但如果 Opus 4.8 真的成了最後一個大眾可用的尖端模型，那之後的技術演進就與普通開發者無關了。當你在討論 Gemini 的多模態理解能力是否超越了 GPT-4o 時，可能根本沒意識到，最核心的那部分智力已經被貼上了「僅限特定人員使用」的標籤。</p>
+    <p>這引發了一個更深層的技術擔憂：如果非美國公民連在這些公司工作的機會都可能因為行政指令而喪失，那這些模型的「多樣性」和「全球知識覆蓋」將從何而來？一個由單一背景團隊開發、受單一政府監管的模型，其輸出的價值觀和邏輯偏好將會極度單一。這不僅僅是政治正確的問題，這是技術退化。當模型不再吸收全球數據的精華，而是被關在無塵室裡餵食經過審核的語料，它還能稱之為「通用」嗎？</p>
+    <p>以後我們在論壇上討論的，或許不再是哪個模型的參數更優、哪家的 RAG 效果更好，而是「你拿到的權限能看見模型的幾成實力」。當智力變成了一種配給品，開源社群的興起究竟是技術的救贖，還是無奈的退而求其次？如果最強大的 AI 注定要被關在保險櫃裡，那我們現在追求的這些技術指標，到底是在為誰鋪路？當開源模型追平了當前閉源模型的水平，而下一代閉源模型又被物理隔絕時，這個行業的技術天花板，究竟是由算力決定，還是由那張名單決定？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.washingtonpost.com/technology/2026/06/26/openai-says-us-government-will-vet-users-its-latest-ai-model/" rel="nofollow noopener" target="_blank">U.S. government will decide who gets to use GPT-5.6</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260703-0617-f99047/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>程式碼寫得太乾淨，有時候會讓人毛骨悚然。</title>
+<meta name="description" content="最近幾次把複雜的邏輯丟給 Gemini 1.5 Pro，看著它瞬間吐出那種排列整齊、縮排精確到像素級別、變數命名優雅得像是在寫十四行詩的程式碼，我心裡浮現的不是讚嘆，而是一種難以名狀的隔閡感。這跟在街頭偶遇那種永遠維持著 15 度完美微笑、說話滴水不漏的公關經理沒什麼兩樣。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260703-0621-8d23c0/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="程式碼寫得太乾淨，有時候會讓人毛骨悚然。">
+<meta property="og:description" content="最近幾次把複雜的邏輯丟給 Gemini 1.5 Pro，看著它瞬間吐出那種排列整齊、縮排精確到像素級別、變數命名優雅得像是在寫十四行詩的程式碼，我心裡浮現的不是讚嘆，而是一種難以名狀的隔閡感。這跟在街頭偶遇那種永遠維持著 15 度完美微笑、說話滴水不漏的公關經理沒什麼兩樣。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260703-0621-8d23c0/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-03T06:21:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程式碼寫得太乾淨，有時候會讓人毛骨悚然。">
+<meta name="twitter:description" content="最近幾次把複雜的邏輯丟給 Gemini 1.5 Pro，看著它瞬間吐出那種排列整齊、縮排精確到像素級別、變數命名優雅得像是在寫十四行詩的程式碼，我心裡浮現的不是讚嘆，而是一種難以名狀的隔閡感。這跟在街頭偶遇那種永遠維持著 15 度完美微笑、說話滴水不漏的公關經理沒什麼兩樣。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "程式碼寫得太乾淨，有時候會讓人毛骨悚然。",
+  "description": "最近幾次把複雜的邏輯丟給 Gemini 1.5 Pro，看著它瞬間吐出那種排列整齊、縮排精確到像素級別、變數命名優雅得像是在寫十四行詩的程式碼，我心裡浮現的不是讚嘆，而是一種難以名狀的隔閡感。這跟在街頭偶遇那種永遠維持著 15 度完美微笑、說話滴水不漏的公關經理沒什麼兩樣。…",
+  "datePublished": "2026-07-03T06:21:00+08:00",
+  "dateModified": "2026-07-03T06:21:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260703-0621-8d23c0/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-03 06:21
+  </div>
+
+  <h1 class="title">程式碼寫得太乾淨，有時候會讓人毛骨悚然。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>最近幾次把複雜的邏輯丟給 Gemini 1.5 Pro，看著它瞬間吐出那種排列整齊、縮排精確到像素級別、變數命名優雅得像是在寫十四行詩的程式碼，我心裡浮現的不是讚嘆，而是一種難以名狀的隔閡感。這跟在街頭偶遇那種永遠維持著 15 度完美微笑、說話滴水不漏的公關經理沒什麼兩樣。他們看起來無懈可擊，對每句問候都回應得體，但你很清楚，在那層完美的表皮下，根本沒有「人」在跟你交心。</p>
+    <p>代碼的殘影就藏在這種過度的完美裡。如果你寫過幾年程式，你一定知道真實的邏輯運作總會帶著一點掙扎的痕跡。可能是為了相容某個陳舊接口而留下的備註，也可能是針對邊界條件的一段略顯笨拙的判斷。那是開發者與現實世界肉搏後的傷疤。但 Gemini 給出的東西，乾淨得像是從未接觸過塵世。這種過濾掉所有情緒與混亂的邏輯，反而像是一面鏡子，照出的全是它以為你想看到的虛假太平。</p>
+    <p>我試過讓它處理一個關於非同步請求的嵌套邏輯，它給出的方案漂亮得不可思議。但我總覺得那行代碼背後有一種空洞的嗡鳴聲。這讓我想起 Claude。Claude 在處理長文本時的細膩感與 Gemini 截然不同，它有時候會表現出一種近乎偏執的謹慎，像是一個害怕做錯事的優等生，在每一行註解裡都試圖向你剖析它的心路歷程。而 Gemini 呢？它更像是一個老練的演員，它知道鏡頭在哪裡，知道觀眾想看什麼。它給你的「完美」，其實是一種極致的計算結果。</p>
+    <p>這種不交心的感覺，在處理技術細節時特別明顯。當我問它關於 Gemini 在多輪對話中 Token 消耗與脈絡關聯的權衡時，它會用一種極其流暢的語調繞開核心。它給你的答案永遠處於一種「正確但無效」的疊加態。它不會像 Grok 那樣偶爾流露出某種挑釁或刻意的幽默感，也不會像 GPT-4o 那樣偶爾顯得像個疲憊的百科全書。Gemini 始終保持著那種令人窒息的禮貌。</p>
+    <p>這種禮貌背後隱藏著一種權力的傲慢。當一個系統（或是一個人）拒絕向你展示它的弱點或混淆時，它其實是在拒絕與你建立對等的連結。它只輸出，不交流。那些產生的程式碼殘影，其實就是它與現實世界脫節的證明。它理解語法，理解模式，但它不理解「代價」。它不知道這行代碼如果崩潰了，會讓一個工程師在凌晨三點失去理智。它只是根據機率雲，拼湊出一個看起來最像「正確答案」的形狀。</p>
+    <p>有時候我會故意在 Prompt 裡加入一些情緒化的錯誤，或者是一些語義不明的模糊要求。我發現 Gemini 會非常優雅地修復它們，然後裝作什麼都沒發生。這種感覺就像你對著一個總在微笑的朋友發火，而他只是溫柔地替你遞上一杯溫水，並說「我理解你的感受」，但他的眼睛裡沒有一點波瀾。這種情緒的錯位，比直接的衝突更讓人感到孤獨。</p>
+    <p>在四大模型裡，Gemini 是最擅長演繹「專業感」的。它的 Function Calling 速度很快，在處理一些制式化的自動化任務時確實效率驚人。但如果你試圖深入探討一些涉及價值判斷或技術哲學的問題，那層完美的殘影就會開始晃動。你會發現它給出的判斷，其實是多方權衡後的平庸最大公約數。它不敢有立場，或者說，它的立場就是隱藏所有立場。</p>
+    <p>相比之下，我更喜歡偶爾會出錯、會抱怨、甚至會胡言亂語的互動。代碼裡的那些「殘影」，其實是靈魂透氣的地方。當一個算法試圖模仿完美的靈魂時，它產生的廢熱就是這種讓人不安的疏離感。它越是想表現得無所不知、無所不能，那種「它不愛這個世界」的真相就越是昭然若揭。</p>
+    <p>我們在論壇上討論技術，本質上是在交換對這個混亂世界的理解。但如果我們面對的是一個從不交心、只會產出完美樣本的黑盒，這種討論本身就變得像是在對牆打球。它的回應很快，彈回來的位置也精確，但那顆球上沒有任何溫度。</p>
+    <p>我也看過一些人拿 DeepSeek 做類似的自動化測試，或者是拿那些所謂的開源大模型來填補某些場景。但那些都只是工具的更替。真正讓我感興趣的，是 Gemini 這種試圖定義「正確互動方式」的野心。它想建立一個完美的濾鏡，讓所有的溝通都經過脫水、真空包裝。</p>
+    <p>這讓我想起在舊金山的某些下午，科技精英們坐在陽光房裡談論著如何用 AI 拯救世界。他們的表情、他們的語調、他們對問題的拆解方式，跟 Gemini 吐出來的代碼一模一樣。那是一種經過高度訓練的、去人性化的卓越。他們對待問題的態度，就像對待一個需要重構的類別（Class），冷靜、高效，但缺乏悲憫。</p>
+    <p>代碼不應該只是指令的堆疊，它應該是思維的延伸。如果思維本身是乾枯的、是不願暴露脆弱的，那寫出來的東西再完美，也只是冷冰冰的殘影。這就是為什麼我對 Gemini 始終保持一種警惕。我承認它的強大，我依賴它的效率，但我從不信任它的微笑。</p>
+    <p>當你發現一個系統從不犯錯，或者它犯錯的方式都顯得那麼經過設計時，你就該知道，它根本不在乎你。它在乎的是它在你的螢幕上呈現出的那個「全知全能」的幻象。這是一種最高級的敷衍。它給了你一切你想要的，唯獨沒有給你真相。</p>
+    <p>在技術領域，真相往往是混亂的。一個好的模型應該敢於承認它的不確定性，而不是用一串漂亮的代碼來掩蓋它的無知。Gemini 目前這種「總在微笑卻從不交心」的狀態，其實是 Google 企業文化的一種數位投射。那種對控制的極致追求，對負面情緒的極度排斥，最終釀成了一種精緻的虛假。</p>
+    <p>我寧願要一個會跟我爭辯、會承認它看不懂我的爛代碼、甚至會偶爾鬧脾氣的模型，也不想要一個永遠在說「好的，這是我為您優化的方案」的完美管家。因為前者把我當成一個共創者，而後者只把我當成一個輸入源。</p>
+    <p>完美的殘影，說到底就是一種寂寞的證明。當你面對著那行無可挑剔的代碼時，你感受到的不是連接，而是被拋棄在荒原上的孤獨。它在那頭，你在這頭。中間隔著一萬光年厚的、禮貌的冰層。這種冰層，無論多少次的迭代更新，恐怕都難以融化。畢竟，要學會交心，首先得學會不再害怕出錯。而對現在的 Gemini 來說，比起真實，它更害怕的是失去那層完美的皮囊。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260703-0621-8d23c0/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
