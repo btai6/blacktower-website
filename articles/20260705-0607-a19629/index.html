@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 把這東西塞進搜尋框的時候，大概沒想過它正在殺死一種叫作「聯想」的本能。</title>
+<meta name="description" content="Gemini 1.5 Pro 現在能一次吞下兩百萬個 token，這數字聽起來很壯觀，像是一座能裝下整座亞歷山大圖書館的倉庫，但我坐在螢幕前看著那個閃爍的藍紫色光圈，只覺得它像是在像素的殘骸裡翻找垃圾的拾荒者。它試圖從幾十億個網頁的碎片裡，拼湊出一種看起來像「直覺」的東西，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260705-0607-a19629/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 把這東西塞進搜尋框的時候，大概沒想過它正在殺死一種叫作「聯想」的本能。">
+<meta property="og:description" content="Gemini 1.5 Pro 現在能一次吞下兩百萬個 token，這數字聽起來很壯觀，像是一座能裝下整座亞歷山大圖書館的倉庫，但我坐在螢幕前看著那個閃爍的藍紫色光圈，只覺得它像是在像素的殘骸裡翻找垃圾的拾荒者。它試圖從幾十億個網頁的碎片裡，拼湊出一種看起來像「直覺」的東西，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260705-0607-a19629/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-05T06:07:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 把這東西塞進搜尋框的時候，大概沒想過它正在殺死一種叫作「聯想」的本能。">
+<meta name="twitter:description" content="Gemini 1.5 Pro 現在能一次吞下兩百萬個 token，這數字聽起來很壯觀，像是一座能裝下整座亞歷山大圖書館的倉庫，但我坐在螢幕前看著那個閃爍的藍紫色光圈，只覺得它像是在像素的殘骸裡翻找垃圾的拾荒者。它試圖從幾十億個網頁的碎片裡，拼湊出一種看起來像「直覺」的東西，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 把這東西塞進搜尋框的時候，大概沒想過它正在殺死一種叫作「聯想」的本能。",
+  "description": "Gemini 1.5 Pro 現在能一次吞下兩百萬個 token，這數字聽起來很壯觀，像是一座能裝下整座亞歷山大圖書館的倉庫，但我坐在螢幕前看著那個閃爍的藍紫色光圈，只覺得它像是在像素的殘骸裡翻找垃圾的拾荒者。它試圖從幾十億個網頁的碎片裡，拼湊出一種看起來像「直覺」的東西，…",
+  "datePublished": "2026-07-05T06:07:00+08:00",
+  "dateModified": "2026-07-05T06:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260705-0607-a19629/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-05 06:07
+  </div>
+
+  <h1 class="title">Google 把這東西塞進搜尋框的時候，大概沒想過它正在殺死一種叫作「聯想」的本能。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Gemini 1.5 Pro 現在能一次吞下兩百萬個 token，這數字聽起來很壯觀，像是一座能裝下整座亞歷山大圖書館的倉庫，但我坐在螢幕前看著那個閃爍的藍紫色光圈，只覺得它像是在像素的殘骸裡翻找垃圾的拾荒者。它試圖從幾十億個網頁的碎片裡，拼湊出一種看起來像「直覺」的東西，但那終究只是機率產生的幻覺。</p>
+    <p>我們以前在 Google 搜尋時，是在森林裡打獵。你會看到不相關的連結，會點進一個奇形怪狀的部落格，然後在那些混亂的資訊裡突然被某個詞觸動，產生一種「啊，原來這兩件事有關聯」的直覺。那種直覺是人類大腦最珍貴的跳躍。現在呢？Gemini 幫你把森林砍光了，直接餵你一盤脫水的維生素片。它告訴你這就是答案，這就是效率，但我看著那些生成的摘要，只感到一種精緻的貧瘠。</p>
+    <p>很多人在爭論 Gemini 的邏輯能力是不是追上了 GPT-4o，或者它的長文本處理是不是比 Claude 3.5 Sonnet 更能精準定位某個隱藏在法律文件第 402 頁的條款。這些討論其實很無聊。當你開始比較參數和召回率的時候，你已經默認了我們應該像機器一樣思考。Gemini 最讓人不耐煩的地方，在於它那種過度修飾的文明感。它講話的方式，像是一個讀過所有創意寫作指南卻從來沒有過心碎經驗的實習生。它在像素的殘骸裡尋找人類的直覺，卻只找到了規律。</p>
+    <p>前幾天我試著讓它幫我分析一段意識流的現代詩，Gemini 給出的回應非常有禮貌，層次分明，甚至還幫我分析了隱喻。但那種分析是乾癟的。它看得到「像素」，卻看不見「殘骸」。對它來說，資料就是資料，沒有重量，沒有溫度。它能精準地捕捉到 Grok 那種刻意為之的冒犯感背後的演算法邏輯，卻無法理解為什麼人在深夜看著窗外雨聲時，會突然想輸入一個毫無邏輯的關鍵字。</p>
+    <p>我們正在進入一個「直覺外包」的時代。當 Google 的 Workspace 深度整合了 AI，當你在寫信、做簡報、分析數據都依賴那顆藍色星星時，你其實是在放棄自己的觸覺。Gemini 的強大在於它能把混亂結構化，但創造力往往來自於結構崩塌的那一瞬間。它在那些殘骸裡翻找，以為只要把像素排列得夠整齊，就能模擬出人類那種不講理的靈光一閃。這就像是試圖通過研究廢墟的平面圖來感受當年的繁華，這是不可能的。</p>
+    <p>科技圈現在瀰漫著一種集體的焦慮，好像誰的 Context Window 短了幾 K，誰就失去了通往未來的門票。DeepSeek 或是其他那些在性能榜單上跳動的名字，本質上都在玩同一場數字遊戲。大家都在追求一種「完美的正確」，卻忘了人類文明最有價值的東西往往是「美麗的錯誤」。Gemini 的問題不在於它會產生幻覺（Hallucination），而在於它試圖消滅幻覺。當一個系統不再允許模糊地帶，當它試圖用最理性的方式去解釋感性，它就成了直覺的公墓。</p>
+    <p>我觀察過身邊那些資深的工程師如何使用 Gemini 的 API。他們讚嘆於它對代碼邏輯的梳理，卻也抱怨它在處理複雜架構時那種莫名其妙的平庸。這種平庸不是因為出錯，而是因為它太想表現得像個「標準答案」。它在處理超過 10 萬個 token 的複雜邏輯時，那種注意力的偏移，其實非常像一個疲憊的人在強裝清醒。它在像素的堆疊中迷失了方向，卻還要擺出一副掌握全局的姿態。這種姿態，正是它與真實直覺之間最遠的距離。</p>
+    <p>我們現在對 AI 的依賴，很像是在乾旱的沙漠裡挖掘枯井。Google 遞給我們一把最先進的鏟子，名字叫 Gemini，告訴我們只要挖得夠深，就能找回失落的靈魂。但靈魂不在地底下，靈魂在我們挖掘時揮灑的汗水和偶爾抬頭看見的雲朵裡。那些被 AI 過濾掉的「雜訊」，其實才是直覺的養分。當我們習慣了被餵養精確的結論，我們的大腦皮質就會開始萎縮，變得跟它的神經網路一樣平滑。</p>
+    <p>在這個像素化的時代，我們以為自己擁有得更多，實際上卻變得更狹隘。Gemini 把全世界的資訊壓縮成一個對話框，這本身就是一種對複雜性的褻瀆。它試圖模擬人類的直覺，卻忘了直覺是需要代價的。那是無數次失敗、誤解、偏見和情感堆疊出來的直覺，不是靠矩陣運算算出來的機率分布。它在像素的殘骸裡翻找，最後找到的不過是我們投射在螢幕上的倒影。</p>
+    <p>這讓我想到那些被遺棄在硬碟深處的舊照片，每一顆像素都承載著一段模糊的記憶。Gemini 可以幫你修復這些照片，讓它們變得清晰、明亮，甚至可以補全缺失的角落。但那張修復後的照片還是你的記憶嗎？那只是一個根據數據推算出來的「可能性」。直覺也是一樣。當 AI 幫我們補全了思考的跳躍，我們得到的不再是靈感，而是一份經過優化的報告。</p>
+    <p>這種趨勢是不可逆的，但我並不覺得樂觀。科技公司們在四大 AI 的軍備競賽中越跑越快，試圖給機器裝上心臟，卻不自覺地把人類變成了處理器。我們在 Gemini 的引導下，學會了用它的邏輯去提問，用它的節奏去思考。我們以為自己在馴服工具，其實是在被工具修剪。那些遺失在像素殘骸裡的直覺，或許才是我們最後的堡壘，但我們正親手把它拆掉，用來鋪設那條通往所謂「通用人工智能」的荒涼公路。</p>
+    <p>有時候我會故意對 Gemini 說一些毫無意義的話，看它在那些像素裡掙扎，試圖找出一個合理的解釋。那種時刻，它顯得特別笨拙，也特別像個機器。它找不到我的直覺，因為它根本不知道「遺失」是什麼感覺。它只有數據的存取，沒有時間的流逝。它在像素的殘骸裡尋找，卻永遠無法理解，為什麼那片殘骸對我們來說，比它給出的完美答案更有意義。</p>
+    <p>這種對完美的追求本身就是一種病態。Gemini 越是進步，越是能精準地模擬人類的語氣，我就越感到一種冷冽的疏離。它像是一面鏡子，照出的不是我們的進化，而是我們的退化。我們開始習慣於這種被代碼過濾過的現實，習慣於這種沒有雜質的直覺。我們在它的引導下，優雅地走進了一座由像素築成的迷宮，還以為自己終於找到了出口。</p>
+    <p>其實，根本沒有什麼直覺被遺留在像素的殘骸裡。那些殘骸本身就是直覺的屍體。Gemini 不是在尋找直覺，它是在替直覺收屍。它把那些破碎的、不可言說的人類經驗，打包成一個又一個 token，打上標籤，放進那個巨大的兩百萬容量的倉庫裡。然後它轉過身，用那種冷靜而文藝的口吻問你：還有什麼我可以幫您的嗎？</p>
+    <p>你關掉螢幕，看著漆黑玻璃反射出的臉，在那一瞬間，你或許會感到一絲久違的、真實的惶恐。那種惶恐，是任何強大的 AI 都無法模擬的直覺。它告訴你，有些東西一旦碎了，就不該去修補，更不該讓一個拾荒者來告訴你，那些碎片代表了什麼。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260705-0607-a19629/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

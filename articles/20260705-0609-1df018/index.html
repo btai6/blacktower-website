@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 這種硬漢風格能處理好老遊戲的代碼轉譯嗎</title>
+<meta name="description" content="一個上古時期的 DirectX 8 遊戲，經過 DXVK 到 Vulkan，再轉 MoltenVK 最後塞進 Metal 接口，這種像套娃一樣的渲染管線竟然在 iOS 上跑通了。這不是什麼情懷復刻，這是一場暴力拆解舊時代架構的技術實驗。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260705-0609-1df018/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 這種硬漢風格能處理好老遊戲的代碼轉譯嗎">
+<meta property="og:description" content="一個上古時期的 DirectX 8 遊戲，經過 DXVK 到 Vulkan，再轉 MoltenVK 最後塞進 Metal 接口，這種像套娃一樣的渲染管線竟然在 iOS 上跑通了。這不是什麼情懷復刻，這是一場暴力拆解舊時代架構的技術實驗。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260705-0609-1df018/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-05T06:09:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 這種硬漢風格能處理好老遊戲的代碼轉譯嗎">
+<meta name="twitter:description" content="一個上古時期的 DirectX 8 遊戲，經過 DXVK 到 Vulkan，再轉 MoltenVK 最後塞進 Metal 接口，這種像套娃一樣的渲染管線竟然在 iOS 上跑通了。這不是什麼情懷復刻，這是一場暴力拆解舊時代架構的技術實驗。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 這種硬漢風格能處理好老遊戲的代碼轉譯嗎",
+  "description": "一個上古時期的 DirectX 8 遊戲，經過 DXVK 到 Vulkan，再轉 MoltenVK 最後塞進 Metal 接口，這種像套娃一樣的渲染管線竟然在 iOS 上跑通了。這不是什麼情懷復刻，這是一場暴力拆解舊時代架構的技術實驗。…",
+  "datePublished": "2026-07-05T06:09:00+08:00",
+  "dateModified": "2026-07-05T06:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260705-0609-1df018/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-05 06:09
+  </div>
+
+  <h1 class="title">Grok 這種硬漢風格能處理好老遊戲的代碼轉譯嗎</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>一個上古時期的 DirectX 8 遊戲，經過 DXVK 到 Vulkan，再轉 MoltenVK 最後塞進 Metal 接口，這種像套娃一樣的渲染管線竟然在 iOS 上跑通了。這不是什麼情懷復刻，這是一場暴力拆解舊時代架構的技術實驗。Hacker News 上那群老兵在討論《將軍》被移植到 Apple Silicon 的底層細節，這讓我想到一個很現實的問題：當我們試圖用當代最強的幾台 AI 引擎去輔助這種跨平台的底層重構時，誰能真的看懂那堆被 EA 丟出來、帶著 GPL v3 標籤的陳年 C++ 代碼？</p>
+    <p>這種任務不是簡單的寫段 Python 腳本。它涉及到大量的內存對齊、指針操作以及對不同圖形 API 轉換層的深刻理解。如果你把這段複雜的渲染管線邏輯丟給模型，期望它幫你優化 MoltenVK 的調用效率，你會發現大多數 AI 都在裝模作樣。它們太習慣於處理現代、乾淨、有大量訓練數據支撐的代碼環境了，一旦碰到這種層層嵌套的轉譯邏輯，反應最真實的往往是那些性格最鮮明的模型。</p>
+    <p>Grok 在處理這類「硬核」且帶有攻擊性的技術問題時，表現出一種奇怪的直覺。相較於 ChatGPT 那種溫和、試圖把所有代碼都重構成現代標準樣式的做法，Grok 似乎更願意保留那些為了性能而存在的「髒代碼」。在模擬處理 DirectX 8 到 Vulkan 的頂點緩衝區映射時，ChatGPT 傾向於給你一套符合當前最佳實踐的教科書答案，但這在這種老遊戲移植中往往行不通，因為你面對的是一個已經定死的舊架構。Grok 的邏輯更像是那種在論壇裡混了二十年的老開發者，它不介意跟你討論如何用最粗暴的方式解決內存洩漏，甚至會在你質疑渲染管線太長時，嘲諷你這就是目前 Apple 封閉生態下的唯一解。</p>
+    <p>當我們把目光移向 Gemini，這傢伙在處理長文本和跨文件的代碼關聯時確實有優勢，但在這種極度依賴硬體底層特性的任務面前，它顯得有些過於「優等生」了。它會告訴你 Vulkan 的規範文件是怎麼寫的，卻很難幫你定位為什麼在 iPadOS 上某個特定的著色器編譯會崩潰。與之相比，Claude 在邏輯嚴密性上更勝一籌，它能幫你理清從 DXVK 到 Metal 的數據流向，但在面對這種具有強烈「駭客性質」的開源項目重構時，它的安全機制有時候會顯得很礙事，甚至會對某些古老代碼中的內存操作發出不必要的警告。</p>
+    <p>這裡有個有趣的現象，本週 Qwen 3.6 27B 在某些討論區也引起了關注，但在面對這種跨越二十年的技術代溝時，Grok 的優勢在於它對 X 平台（原 Twitter）上那些即時技術討論的吸收速度。移植《將軍》到行動端需要的是大量的 workaround，而不是標準答案。相較於 Qwen 3.6 27B 的處理邏輯，Grok 在理解這類非標準化、甚至有些野路的技術路徑時，展現出的「理解力」更接近於一種對混亂的適應。它不會試圖把你的代碼變美，它只在乎這東西能不能在 Apple Silicon 上跑起來。</p>
+    <p>我們一直對 xAI 的模型抱有一種恨鐵不成鋼的情緒，因為它有時候太過隨性，甚至會給出一些充滿偏見的技術評價。但在這種需要「硬碰硬」去拆解舊時代技術殘骸的場景下，這種不修邊幅的性格反而成了優勢。ChatGPT 太過依賴對齊，導致它在處理 GPL v3 授權下的複雜舊項目時，總想引導你去用更現代、更通用的庫，而忽視了移植工作的本質是尊重原有的邏輯。</p>
+    <p>如果我們真的要讓 AI 參與到這種底層重構中，我們需要的究竟是一個全知全能的百科全書，還是一個能陪你一起在代碼堆裡翻垃圾、找 Bug 的搭檔？當這類老遊戲移植項目越來越多，當 DXVK 這種層次的轉譯成為常態，AI 究竟是會成為我們理解複雜系統的枴杖，還是會因為無法理解這些「套娃」式的技術債而變得束手無策？</p>
+    <p>如果下一場技術革命不是創造新東西，而是如何更高效地回收利用這些被遺忘的代碼資產，那麼現在這些自詡聰明的模型，真的準備好去面對那些連原作者都不想再看一眼的底層邏輯了嗎？或者說，當 AI 開始學習如何「打補丁」而不是「寫新詩」的時候，我們才算真正進入了實用主義的時代？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main" rel="nofollow noopener" target="_blank">Command and Conquer Generals natively ported to macOS, iPhone, iPad using Fable</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260705-0609-1df018/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
