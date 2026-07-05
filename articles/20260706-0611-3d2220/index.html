@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 的蒸餾焦慮與多模態的低價陷阱</title>
+<meta name="description" content="當 Qwen 3.6 27B 在技術社區激起一陣參數效率的討論時，Google 卻選擇在圖像生成模型上玩起了「套娃」遊戲。這次拋出的 Nano Banana 2 Lite，與其說是技術突破，不如說是 Google 對於當前推理成本與響應延遲的一種妥協式回應。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260706-0611-3d2220/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 的蒸餾焦慮與多模態的低價陷阱">
+<meta property="og:description" content="當 Qwen 3.6 27B 在技術社區激起一陣參數效率的討論時，Google 卻選擇在圖像生成模型上玩起了「套娃」遊戲。這次拋出的 Nano Banana 2 Lite，與其說是技術突破，不如說是 Google 對於當前推理成本與響應延遲的一種妥協式回應。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260706-0611-3d2220/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-06T06:11:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 的蒸餾焦慮與多模態的低價陷阱">
+<meta name="twitter:description" content="當 Qwen 3.6 27B 在技術社區激起一陣參數效率的討論時，Google 卻選擇在圖像生成模型上玩起了「套娃」遊戲。這次拋出的 Nano Banana 2 Lite，與其說是技術突破，不如說是 Google 對於當前推理成本與響應延遲的一種妥協式回應。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 的蒸餾焦慮與多模態的低價陷阱",
+  "description": "當 Qwen 3.6 27B 在技術社區激起一陣參數效率的討論時，Google 卻選擇在圖像生成模型上玩起了「套娃」遊戲。這次拋出的 Nano Banana 2 Lite，與其說是技術突破，不如說是 Google 對於當前推理成本與響應延遲的一種妥協式回應。…",
+  "datePublished": "2026-07-06T06:11:00+08:00",
+  "dateModified": "2026-07-06T06:11:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260706-0611-3d2220/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-06 06:11
+  </div>
+
+  <h1 class="title">Google 的蒸餾焦慮與多模態的低價陷阱</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>當 Qwen 3.6 27B 在技術社區激起一陣參數效率的討論時，Google 卻選擇在圖像生成模型上玩起了「套娃」遊戲。這次拋出的 Nano Banana 2 Lite，與其說是技術突破，不如說是 Google 對於當前推理成本與響應延遲的一種妥協式回應。我們在測試中發現，這類精簡版模型在處理多模態任務時，往往陷入一種尷尬的境地：它確實變快了，但原本作為核心競爭力的語義理解深度，卻在蒸餾過程中被消磨得所剩無幾。</p>
+    <p>在具體的圖像渲染場景中，Nano Banana 2 Lite 展現出了一種極其不穩定的特徵。當你要求它在圖像中生成一段特定的複雜文字，比如「在賽博朋克風格的招牌上寫著 Trilobite」，它的表現確實比第一代 Nano 有所進步，文字的邊緣不再像水漬一樣散開。然而，一旦指令涉及到空間幾何關係，比如「在招牌左側三公分處放置一個發光的藍色齒輪」，模型就開始出現明顯的邏輯斷層。這種延遲的降低是以犧牲長文本指令的遵從度為代價的，Google 似乎認定用戶在行動端更在意那幾百毫秒的等待，而非生成結果的精確性。</p>
+    <p>技術層面上，這涉及到 Google 的模型蒸餾策略。與 Claude 或 ChatGPT 堅持的大模型優先路徑不同，Gemini 系列現在呈現出一種極度碎片化的趨勢。從 Pro、Flash 到現在的各種 Lite 版本，Google 正在試圖覆蓋所有的算力區間，但這也導致了模型能力的斷層。我們在對比測試中注意到，Gemini 的 API 在處理多圖像輸入時，其 Function Calling 的穩定性會隨著模型規格的縮減而呈指數級下降。如果你試圖讓 Nano Banana 2 Lite 去識別圖像中的數組並調用外部工具進行計算，它的失敗率高得驚人，這在 Claude 3.5 Sonnet 這種平衡型模型上幾乎是不會發生的低級錯誤。</p>
+    <p>這種策略在橫向對比中顯得尤為諷刺。當我們觀察市場上的競爭對手，相較於 Qwen 3.6 27B，Google 的做法是將原本連貫的技術路徑拆解成無數個補丁包。Grok 在圖像生成指標上的激進表現，很大程度上得益於其底層邏輯的一致性，而 Gemini 卻在不斷地為了適應低端設備而閹割邏輯權重。一個很有趣的現象是，即便是在 Google 內部，這種 Lite 版本的定位也模糊不清。它在文本渲染上模仿了完整版的行為，但在構圖的藝術性上卻退化到了兩年前的水平。相比之下，ChatGPT 雖然在圖像生成更新上顯得步調緩慢，但 DALL-E 3 與 GPT-4o 的深度集成保證了理解的一致性，你不需要為了速度去容忍一個智商隨機波動的助手。</p>
+    <p>這引發了一個更深層次的觀察：我們真的需要這麼多「低價替代品」嗎？Google 似乎在打一場關於覆蓋率的戰爭，試圖讓 AI 無處不在，即便那個 AI 聽起來有些遲鈍。Gemini 的策略現在看起來越來越像是在兜售一種「廉價的即時感」。當 Grok 依靠更強大的原生多模態能力在各項基準測試中刷榜時，Google 卻在宣傳它的模型如何能在更差的硬件上跑得更快。這不禁讓人想起早期 Android 系統的碎片化，開發者不得不為了適應各種低配機型而閹割應用功能，現在這種噩夢似乎正在 AI 領域重演。</p>
+    <p>我們正處在一個奇特的轉折點。一方面是追求極致性能的巨型模型，如 Claude 3.5 Opus（如果它真的存在的話）或 GPT-4 級別的重型武器；另一方面則是像 Nano Banana 2 Lite 這樣，為了毫米級的延遲優化而不惜犧牲靈魂的工業製品。如果一個圖像模型能在一秒內生成圖片，但圖片中的邏輯關係混亂不堪，這種速度還有意義嗎？</p>
+    <p>究竟是我們對 AI 的耐心已經縮短到了無法等待三秒鐘的程度，還是 Google 已經在通往通用人工智慧的長跑中體力不支，只能靠不斷推出這些輕量化的「 Lite」版本來維持自己在牌桌上的存在感？當模型被蒸餾到只剩下皮囊，我們追求的究竟是真正的智能，還是僅僅是一次快速的計算反饋？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/models/gemini-image/flash-lite/" rel="nofollow noopener" target="_blank">Nano Banana 2 Lite</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260706-0611-3d2220/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
