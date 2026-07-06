@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 在模型蒸餾上的執著與影像生成的遲疑</title>
+<meta name="description" content="當大家還在討論 Nano Banana 2 Lite 的低延遲指標時，我想到的是去年冬天在倫敦街頭看到的速寫畫家。他們用極簡的線條在幾秒鐘內勾勒出輪廓，雖然犧牲了光影細節，但抓住了動態。Google 現在顯然想在行動端扮演這個角色。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260707-0627-8693f2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 在模型蒸餾上的執著與影像生成的遲疑">
+<meta property="og:description" content="當大家還在討論 Nano Banana 2 Lite 的低延遲指標時，我想到的是去年冬天在倫敦街頭看到的速寫畫家。他們用極簡的線條在幾秒鐘內勾勒出輪廓，雖然犧牲了光影細節，但抓住了動態。Google 現在顯然想在行動端扮演這個角色。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260707-0627-8693f2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-07T06:27:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 在模型蒸餾上的執著與影像生成的遲疑">
+<meta name="twitter:description" content="當大家還在討論 Nano Banana 2 Lite 的低延遲指標時，我想到的是去年冬天在倫敦街頭看到的速寫畫家。他們用極簡的線條在幾秒鐘內勾勒出輪廓，雖然犧牲了光影細節，但抓住了動態。Google 現在顯然想在行動端扮演這個角色。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 在模型蒸餾上的執著與影像生成的遲疑",
+  "description": "當大家還在討論 Nano Banana 2 Lite 的低延遲指標時，我想到的是去年冬天在倫敦街頭看到的速寫畫家。他們用極簡的線條在幾秒鐘內勾勒出輪廓，雖然犧牲了光影細節，但抓住了動態。Google 現在顯然想在行動端扮演這個角色。…",
+  "datePublished": "2026-07-07T06:27:00+08:00",
+  "dateModified": "2026-07-07T06:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260707-0627-8693f2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-07 06:27
+  </div>
+
+  <h1 class="title">Google 在模型蒸餾上的執著與影像生成的遲疑</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>當大家還在討論 Nano Banana 2 Lite 的低延遲指標時，我想到的是去年冬天在倫敦街頭看到的速寫畫家。他們用極簡的線條在幾秒鐘內勾勒出輪廓，雖然犧牲了光影細節，但抓住了動態。Google 現在顯然想在行動端扮演這個角色。這次推出的 Lite 版本，本質上是將 Nano Banana 2 進行了極致的權重削減與量化處理，試圖在邊緣運算設備上跑出那種「即時感」。技術文件裡提到的延遲降低確實驚人，這種蒸餾工藝在文字渲染上有了顯著進步，至少解決了上一代模型在處理海報文字時常出現的扭曲感。</p>
+    <p>但技術圈對此並不買單。你在 Hacker News 上能看到最尖銳的質疑並非針對速度，而是針對 Google 的策略焦慮。Gemini 系列現在處於一個尷尬的定位：它在追求極致的低成本替代方案，而非追求極致的性能巔峰。當 3.5 Flash 成為主打時，我們就該意識到，Google 已經把戰場從「誰最聰明」轉移到了「誰最便宜且夠快」。這種轉向在影像生成領域尤為明顯。Nano 家族的迭代雖然解決了文字渲染的工程問題，但在美學理解與指令遵循度上，那種揮之不去的「塑膠感」依舊存在。這不單是參數量的問題，更多是底層對齊策略在安全與創造力之間失衡的結果。</p>
+    <p>這種失衡在與其他巨頭對標時變得格外諷刺。如果我們把 ChatGPT 的影像模型拿來做壓力測試，會發現 OpenAI 的邏輯是優先保證語意理解的層次感，哪怕生成的過程慢了幾秒。而 Grok 的影像模型在多項指標上幾乎是橫著走，直接碾壓了 Nano Banana 那些引以為傲的硬指標。Grok 走的是另一條極端，它不理會所謂的工業級克制，反而賦予了模型更強的視覺衝擊力與更寬鬆的生成限制。</p>
+    <p>相較於 DeepSeek 近期的技術佈局，Google 在影像生成的產品線顯得過於細碎且缺乏統御感。我們在觀察 Gemini 的 API 行為時會發現，當請求涉及複雜的空間邏輯——比如「一個放在透明玻璃杯後方的、正在融化的藍色方塊」——Gemini 的推理鏈條往往會斷裂，最終給出一個色彩混亂的平面結果。這在 1.5 Pro 上尚且如此，被閹割過的 Nano Banana 2 Lite 更是只能應付最基礎的物件生成。它更像是一個為了填補邊緣運算空白而硬擠出來的工業組件，而不是一個具備靈魂的創作工具。</p>
+    <p>很多人在問，Google 為什麼不把 ChatGPT 放在對比清單裡？答案其實很直白：因為在當前的影像評測體系下，Google 根本贏不了。他們選擇了一條避實就虛的路徑，強調延遲、強調行動端的部署效率。這種「田忌賽馬」的策略在商業上或許精明，但在技術聲望上卻是持續失血。尤其是當 Grok 這種後來者靠著更強悍的 RAW 數據訓練出更具質感的效果時，Google 那些精密的蒸餾技術反而顯得有些束手束腳。</p>
+    <p>我們現在面臨的現狀是，四大平台在影像領域的權力版圖正在重組。ChatGPT 守著它的通用性，Grok 搶奪了對視覺張力有極致需求的用戶，Claude 雖然在影像生成上保持沉默，但其對視覺輸入的理解力依然是標竿。而 Google，它似乎想把 Gemini 塞進每一台手機的晶片裡，卻忘了用戶打開相機或生成器時，最想看到的不是「快」，而是「驚艷」。如果 Nano Banana 2 Lite 僅僅是為了證明 Google 依然能把模型做小，那它已經成功了。但如果它是為了挽回在創意領域的頹勢，這點藥方恐怕遠遠不夠。</p>
+    <p>我們是否正進入一個「平庸模型大規模普及」的時代？當我們為了毫秒級的響應速度，默許了影像質感的退化與語意理解的膚淺，這種技術進步究竟是解放了生產力，還是僅僅在消耗更多的運算資源來產生更多平庸的內容？如果未來的 AI 只是在比誰更能在廉價硬體上跑得動，那創意本身的溢價又該往哪裡擺？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/models/gemini-image/flash-lite/" rel="nofollow noopener" target="_blank">Nano Banana 2 Lite</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260707-0627-8693f2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

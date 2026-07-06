@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 沒打算讓你真正搞懂 Sol Ultra 的子代理邏輯</title>
+<meta name="description" content="這幾天大家還在為了 OpenAI 突然掏出來的 GPT-5.6 Sol Ultra 吵得不可開交，尤其是那個宣稱能超越單一 Agent 極限、靠「子代理」（subagents）加速複雜任務的 Ultra 模式。這聽起來很像是在原本的推理模型外面又套了一層調度皮，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260707-0624-c9335b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 沒打算讓你真正搞懂 Sol Ultra 的子代理邏輯">
+<meta property="og:description" content="這幾天大家還在為了 OpenAI 突然掏出來的 GPT-5.6 Sol Ultra 吵得不可開交，尤其是那個宣稱能超越單一 Agent 極限、靠「子代理」（subagents）加速複雜任務的 Ultra 模式。這聽起來很像是在原本的推理模型外面又套了一層調度皮，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260707-0624-c9335b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-07T06:24:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 沒打算讓你真正搞懂 Sol Ultra 的子代理邏輯">
+<meta name="twitter:description" content="這幾天大家還在為了 OpenAI 突然掏出來的 GPT-5.6 Sol Ultra 吵得不可開交，尤其是那個宣稱能超越單一 Agent 極限、靠「子代理」（subagents）加速複雜任務的 Ultra 模式。這聽起來很像是在原本的推理模型外面又套了一層調度皮，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 沒打算讓你真正搞懂 Sol Ultra 的子代理邏輯",
+  "description": "這幾天大家還在為了 OpenAI 突然掏出來的 GPT-5.6 Sol Ultra 吵得不可開交，尤其是那個宣稱能超越單一 Agent 極限、靠「子代理」（subagents）加速複雜任務的 Ultra 模式。這聽起來很像是在原本的推理模型外面又套了一層調度皮，…",
+  "datePublished": "2026-07-07T06:24:00+08:00",
+  "dateModified": "2026-07-07T06:24:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260707-0624-c9335b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-07 06:24
+  </div>
+
+  <h1 class="title">OpenAI 沒打算讓你真正搞懂 Sol Ultra 的子代理邏輯</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天大家還在為了 OpenAI 突然掏出來的 GPT-5.6 Sol Ultra 吵得不可開交，尤其是那個宣稱能超越單一 Agent 極限、靠「子代理」（subagents）加速複雜任務的 Ultra 模式。這聽起來很像是在原本的推理模型外面又套了一層調度皮，但本質上這是在解決一個很尷尬的技術瓶頸：當上下文窗口推到百萬級別，而邏輯深度要求又不斷拉高時，單一模型的注意力機制（Attention Mechanism）會因為計算量激增而變得像個反應遲鈍的巨人。與其讓一個大腦在那燒乾 CPU 思考十秒，不如拆成五個小腦袋同時並行。</p>
+    <p>從技術細節來看，這個 Ultra 模式與之前的 Pro 訂閱版有著本質上的區別。Pro 更多是在算力分配上的優先權，而 Sol Ultra 引進的子代理架構，更像是某種自動化的「思維鏈」（CoT）並行處理。當你丟給它一個涉及多個 API 調用、同時需要處理大規模數據清洗與分析的任務時，Sol Ultra 會在內部生成數個隱藏的任務單元，由子代理各自領命去執行。這種做法直接回應了《The Information》提到的推理成本減半傳聞。如果能把複雜邏輯拆解成多個低權重的子任務處理，而不是全程掛載那個龐大無比的主權重模型，運算成本當然能壓下來。</p>
+    <p>我們在測試 Claude 的電腦使用（Computer Use）功能時，其實也能感覺到類似的趨勢。Claude 傾向於在單一對話流中，透過更精準的視覺識別和步驟拆解來完成任務，這讓它在單點突破的任務上顯得很乾脆。而 Gemini 則是仗著 Google 體系龐大的基礎設施，在處理超長上下文時表現得更像是一個擁有無限存儲空間的圖書館管理員，即便是在處理超過 15 個複雜工具的 Function Calling 時，雖然偶爾會出現指令漂移，但它的穩定性依然是目前第一梯隊。至於 Grok，目前看來還是在追趕這種系統級的調度能力，它更強調的是實時數據的吞吐與反應速度。</p>
+    <p>這就很有意思了。相較於 DeepSeek 或是 Qwen 近期在開源領域展示的架構嘗試，OpenAI 顯然已經不再滿足於單純增加參數規模。他們正在把大模型變成一個作業系統，而 Sol Ultra 就是這個系統裡的任務管理器。某些地區的開發者可能還在執著於如何讓單體模型在 Benchmark 上多拿幾分，但 OpenAI 已經在考慮如何讓一群模型像一支交響樂團一樣工作。在這種邏輯下，所謂的 GPT-5.6 其實只是一個代號，真正的核心競爭力在於那套尚未公開、能把複雜任務拆解得乾乾淨淨的調度算法。</p>
+    <p>但問題也隨之而來。既然是子代理，那這些「小腦袋」之間的通訊成本（Communication Overhead）是怎麼處理的？如果其中一個子代理在某個環節產生了幻覺（Hallucination），主代理是否有足夠的判斷力去校準它，還是會產生連鎖反應，導致整個任務崩潰？我們在 Claude 的長文本任務中見過那種逐漸衰減的注意力，如果 Sol Ultra 的子代理機制也是建立在某種形式的權重共享上，那麼這種「加速」是否會以犧牲回答的深度與嚴謹性為代價？</p>
+    <p>現在最讓人在意的還是權限問題。這套號稱「Gamechanger」的玩意兒，到底最後會變成只有企業級用戶玩得起的昂貴玩具，還是會像之前的 GPT-4 一樣，在某個深夜突然開放給所有付費訂閱者？如果子代理架構真的如傳聞中能大幅降低推理成本，OpenAI 卻依然維持高昂的訂閱價格，那麼這省下來的錢，究竟是進了奧特曼的口袋，還是拿去填補那個深不見底的數據訓練黑洞了？當 AI 開始學會自己拆解任務、自己調度資源，我們作為「下指令的人」，會變得更輕鬆，還是會變得更難以理解這黑盒子背後發生的每一毫秒，到底發生了什麼？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://twitter.com/thsottiaux/status/2073933490513752151" rel="nofollow noopener" target="_blank">GPT-5.6 Sol Ultra will be in Codex</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260707-0624-c9335b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
