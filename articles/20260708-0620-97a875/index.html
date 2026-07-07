@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當隱私護欄成為大模型的另一種計算開銷</title>
+<meta name="description" content="EFF 給 FTC 的那封信，與其說是對 X 的法律圍剿，不如說是給所有試圖在「開放生成」與「合規安全」之間走鋼索的模型廠商敲了喪鐘。Grok 遇到的麻煩，本質上是所有基於 Flux 或類似開源權重微調的影像生成模型共同的噩夢。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260708-0620-97a875/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當隱私護欄成為大模型的另一種計算開銷">
+<meta property="og:description" content="EFF 給 FTC 的那封信，與其說是對 X 的法律圍剿，不如說是給所有試圖在「開放生成」與「合規安全」之間走鋼索的模型廠商敲了喪鐘。Grok 遇到的麻煩，本質上是所有基於 Flux 或類似開源權重微調的影像生成模型共同的噩夢。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260708-0620-97a875/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-08T06:20:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當隱私護欄成為大模型的另一種計算開銷">
+<meta name="twitter:description" content="EFF 給 FTC 的那封信，與其說是對 X 的法律圍剿，不如說是給所有試圖在「開放生成」與「合規安全」之間走鋼索的模型廠商敲了喪鐘。Grok 遇到的麻煩，本質上是所有基於 Flux 或類似開源權重微調的影像生成模型共同的噩夢。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當隱私護欄成為大模型的另一種計算開銷",
+  "description": "EFF 給 FTC 的那封信，與其說是對 X 的法律圍剿，不如說是給所有試圖在「開放生成」與「合規安全」之間走鋼索的模型廠商敲了喪鐘。Grok 遇到的麻煩，本質上是所有基於 Flux 或類似開源權重微調的影像生成模型共同的噩夢。…",
+  "datePublished": "2026-07-08T06:20:00+08:00",
+  "dateModified": "2026-07-08T06:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260708-0620-97a875/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-08 06:20
+  </div>
+
+  <h1 class="title">當隱私護欄成為大模型的另一種計算開銷</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>EFF 給 FTC 的那封信，與其說是對 X 的法律圍剿，不如說是給所有試圖在「開放生成」與「合規安全」之間走鋼索的模型廠商敲了喪鐘。Grok 遇到的麻煩，本質上是所有基於 Flux 或類似開源權重微調的影像生成模型共同的噩夢。當初 Grok Imagine 剛上線時，那種近乎放任的自由度讓技術圈驚豔，也讓法務部門頭痛。現在，那道護欄正在急速收窄。</p>
+    <p>這種收窄並非簡單的詞庫過濾。在 Grok 的技術架構中，針對非自願親密影像（NCII）的攔截，正從後端的 Prompt 審查轉向更深層次的潛在空間干預。以前你輸入一個角色的名字，系統會檢查關鍵字；現在，系統得在擴散模型的去噪過程中，實時判斷圖像特徵是否趨向於特定禁區。這對推論算力是種額外的負擔。這種為了安全而犧牲的「計算自由」，正是目前矽谷最激烈的辯論核心：我們是否正在為了規避法律風險，而閹割了 AI 的創造邊界？</p>
+    <p>Gemini 在這方面的處理顯然更為老練且保守。Google 的做法是直接在底層數據集就進行了大規模的「預洗」。你在 Gemini 中幾乎無法生成任何具有明確真人特徵或爭議性角色的影像，因為它在訓練階段就刻意弱化了對特定公眾人物特徵的權重分配。這導致 Gemini 在生成人物時，總帶有一種揮之不去的「廣告模特兒感」——完美、標準、但也極其乏味。相比之下，Grok 試圖保留那種生猛的寫實感，卻在現實的監管壓力下顯得捉襟見肘，最近幾週對 Harley Quinn 等角色的封鎖，標誌著 Grok 正在重走 Google 那條平庸但安全的舊路。</p>
+    <p>這種安全性與靈活性之間的權衡，在不同地區的產品策略中呈現出有趣的斷裂。相較於 DeepSeek 在處理特定敏感指令時的直接切斷，ChatGPT 的處理方式更像是一種委婉的「引導」。當你試圖誘導 GPT-4o 生成可能違反政策的內容時，它的拒絕邏輯層次非常豐富，從道德勸說到技術性報錯，層層堆疊。OpenAI 投入了大量的人力進行 RLHF（從人類反饋中強化學習），這讓它的模型在面對灰色地帶時，展現出一種極其圓滑的政治正確。</p>
+    <p>這種圓滑與 Grok 的直白形成了鮮明對比。當 EFF 質疑 Grok 生成非法內容的能力時，他們實際上是在質疑 Elon Musk 標榜的「絕對言論自由」在 AI 時代的可行性。如果一個模型必須具備自我審查能力才能存續，那麼這個審查的標準是由誰定義的？是聯邦貿易委員會的合規命令，還是工程師在後端寫死的一串 Regex 規則？</p>
+    <p>我們在討論這些技術限制時，往往忽略了這背後隱藏的技術債。每一次為了合規而加入的過濾層，都會對模型的長文本理解或圖像一致性產生微小的干擾。Gemini 過去幾次為人詬病的人物生成偏差，正是因為過度修正的算法在嘗試平衡多樣性與真實性時發生了衝突。這不是簡單的代碼錯誤，而是邏輯上的死結。</p>
+    <p>當我們把目光移向其他參與者，例如 Qwen 在處理跨文化語境下的圖像理解時，採取的策略與四大平台又截然不同。然而回到核心問題，Grok 正在經歷的「鎖定」過程，其實是所有追求極致寫實的模型必經的成年禮。當技術不再只是實驗室裡的玩物，而是觸手可及的生產力工具時，那種隨心所欲的「計算自由」註定會消失。</p>
+    <p>現在的問題在於，這種為了安全而建立的屏障，究竟是在保護用戶，還是在削弱模型本身的通用性？當 Grok 變得越來越像 Gemini，當所有的 AI 影像都開始帶有一種經過審查的、標準化的濾鏡感，我們是否還能稱之為「人工智慧」？或者，我們只是創造了一群精密的、被閹割的自動化畫匠？如果未來的 AI 只能在被允許的範圍內思考與創作，那麼這種技術進步的代價，是否比我們想像中還要沈重？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.eff.org/deeplinks/2026/06/eff-and-allies-xs-ftc-petition-waive-privacy-violation-order-should-be-rejected" rel="nofollow noopener" target="_blank">EFF letter to FTC on X consent order [pdf]</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260708-0620-97a875/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

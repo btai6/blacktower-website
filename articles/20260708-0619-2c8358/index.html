@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 又在搞那套層層堆疊的命名遊戲了，這次叫 GPT-5.6 Sol Ultra。</title>
+<meta name="description" content="如果你的開發環境還停留在單一模型調用的思維，那這波更新可能會讓你覺得像在用撥接網路。大家還在爭論 Pro 訂閱到底值不值那二十美金，OpenAI 轉手就掏出一個「Ultra 模式」，核心邏輯不再是把模型參數堆到爆炸，而是引入所謂的 Subagents 子代理架構。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260708-0619-2c8358/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 又在搞那套層層堆疊的命名遊戲了，這次叫 GPT-5.6 Sol Ultra。">
+<meta property="og:description" content="如果你的開發環境還停留在單一模型調用的思維，那這波更新可能會讓你覺得像在用撥接網路。大家還在爭論 Pro 訂閱到底值不值那二十美金，OpenAI 轉手就掏出一個「Ultra 模式」，核心邏輯不再是把模型參數堆到爆炸，而是引入所謂的 Subagents 子代理架構。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260708-0619-2c8358/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-08T06:19:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 又在搞那套層層堆疊的命名遊戲了，這次叫 GPT-5.6 Sol Ultra。">
+<meta name="twitter:description" content="如果你的開發環境還停留在單一模型調用的思維，那這波更新可能會讓你覺得像在用撥接網路。大家還在爭論 Pro 訂閱到底值不值那二十美金，OpenAI 轉手就掏出一個「Ultra 模式」，核心邏輯不再是把模型參數堆到爆炸，而是引入所謂的 Subagents 子代理架構。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 又在搞那套層層堆疊的命名遊戲了，這次叫 GPT-5.6 Sol Ultra。",
+  "description": "如果你的開發環境還停留在單一模型調用的思維，那這波更新可能會讓你覺得像在用撥接網路。大家還在爭論 Pro 訂閱到底值不值那二十美金，OpenAI 轉手就掏出一個「Ultra 模式」，核心邏輯不再是把模型參數堆到爆炸，而是引入所謂的 Subagents 子代理架構。…",
+  "datePublished": "2026-07-08T06:19:00+08:00",
+  "dateModified": "2026-07-08T06:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260708-0619-2c8358/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-08 06:19
+  </div>
+
+  <h1 class="title">OpenAI 又在搞那套層層堆疊的命名遊戲了，這次叫 GPT-5.6 Sol Ultra。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>如果你的開發環境還停留在單一模型調用的思維，那這波更新可能會讓你覺得像在用撥接網路。大家還在爭論 Pro 訂閱到底值不值那二十美金，OpenAI 轉手就掏出一個「Ultra 模式」，核心邏輯不再是把模型參數堆到爆炸，而是引入所謂的 Subagents 子代理架構。這種在 Codex 裡埋伏筆的做法，本質上是把原本該由模型大腦解決的邏輯問題，外包給一群分工明確的小模型去解決。</p>
+    <p>這不是簡單的推理成本減半，而是推理範式的轉向。過去我們在處理超過兩千行程式碼的重構任務時，ChatGPT 常常會出現上下文漂移，甚至在後半段開始胡言亂語。現在 Sol Ultra 的做法是把一個複雜的 Prompt 拆解成若干個微任務，分配給多個子代理同時作業。這讓人想起去年大家在討論的 Agentic Workflow，只是這回 OpenAI 把它封裝進了核心引擎，不再讓你手動去串聯 LangChain。</p>
+    <p>這種架構在處理具體技術場景時的優勢很明顯。假設你正在進行一個跨多個 API 的非同步資料處理模組開發，傳統的單模型輸出往往會在處理併發邏輯與錯誤捕捉之間顧此失彼。而 Sol Ultra 的子代理機制可以在背景並行驗證程式碼的語法正確性，同時由另一個代理負責邏輯校驗。這比起 Gemini 那種靠超長上下文硬吃所有資訊的做法，顯然更像是在模擬真實的人類開發團隊。Gemini 雖然能一口氣讀完十萬行程式碼，但它在處理細微的邏輯依賴時，注意力衰減的問題始終像個揮之不去的幽靈。</p>
+    <p>有趣的是，這波更新的時間點剛好卡在 DeepSeek 發布新動態的當口。相較於 DeepSeek，OpenAI 的做法是徹底倒向了系統工程化的路線，試圖用更複雜的架構去彌補大模型在邏輯深度上的天花板。Grok 雖然也在強調原生多模態和推理能力，但目前看來，馬斯克的那套東西更偏向暴力運算，缺乏 Sol Ultra 這種精細的子代理調度邏輯。至於 Claude，雖然在程式碼的優雅程度上依然有其擁躉，但在處理這種大規模協作型任務時，單一模型的瓶頸已經越來越明顯。</p>
+    <p>我們觀察到一個細節，這次推理成本的下降並非來自於模型壓縮技術的突破，而是因為子代理架構可以調用更輕量級的小型模型來處理瑣碎任務。這對企業級用戶來說是好事，但對於那些習慣了「一個 Prompt 解決所有問題」的個人用戶，學習曲線可能會陡然升高。你得學會如何跟一個「團隊」溝通，而不是跟一個「聊天機器人」對話。</p>
+    <p>這引發了一個讓人不太舒服的問題：如果未來的 AI 強大到需要靠子代理群體來運作，那我們這些坐在螢幕前的開發者，到底是在寫程式，還是在當一個不怎麼稱職的專案經理？當 OpenAI 把推理成本砍半，同時把系統複雜度提升一倍時，我們節省下來的時間，最後會不會全都花在調試那些子代理之間的溝通誤差上？或是說，當模型開始自我增殖出無數子代理時，我們真的還能掌握每一行輸出的邏輯源頭嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://twitter.com/thsottiaux/status/2073933490513752151" rel="nofollow noopener" target="_blank">GPT-5.6 Sol Ultra will be in Codex</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260708-0619-2c8358/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

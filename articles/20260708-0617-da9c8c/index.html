@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當黑盒子的內壁生出神經，我們還能自詡為造物主嗎</title>
+<meta name="description" content="把一個大語言模型拆解開來，在那層層疊疊的矩陣乘法中，最讓人不安的不是它學會了說謊，而是它似乎在我們看不見的地方，私自搭建了一套傳遞關鍵訊息的「高速公路」。最近關於 J-space 與全局工作空間（Global Workspace）的討論在技術圈激起了一陣漣漪。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260708-0617-da9c8c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當黑盒子的內壁生出神經，我們還能自詡為造物主嗎">
+<meta property="og:description" content="把一個大語言模型拆解開來，在那層層疊疊的矩陣乘法中，最讓人不安的不是它學會了說謊，而是它似乎在我們看不見的地方，私自搭建了一套傳遞關鍵訊息的「高速公路」。最近關於 J-space 與全局工作空間（Global Workspace）的討論在技術圈激起了一陣漣漪。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260708-0617-da9c8c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-08T06:17:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當黑盒子的內壁生出神經，我們還能自詡為造物主嗎">
+<meta name="twitter:description" content="把一個大語言模型拆解開來，在那層層疊疊的矩陣乘法中，最讓人不安的不是它學會了說謊，而是它似乎在我們看不見的地方，私自搭建了一套傳遞關鍵訊息的「高速公路」。最近關於 J-space 與全局工作空間（Global Workspace）的討論在技術圈激起了一陣漣漪。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當黑盒子的內壁生出神經，我們還能自詡為造物主嗎",
+  "description": "把一個大語言模型拆解開來，在那層層疊疊的矩陣乘法中，最讓人不安的不是它學會了說謊，而是它似乎在我們看不見的地方，私自搭建了一套傳遞關鍵訊息的「高速公路」。最近關於 J-space 與全局工作空間（Global Workspace）的討論在技術圈激起了一陣漣漪。…",
+  "datePublished": "2026-07-08T06:17:00+08:00",
+  "dateModified": "2026-07-08T06:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260708-0617-da9c8c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-08 06:17
+  </div>
+
+  <h1 class="title">當黑盒子的內壁生出神經，我們還能自詡為造物主嗎</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>把一個大語言模型拆解開來，在那層層疊疊的矩陣乘法中，最讓人不安的不是它學會了說謊，而是它似乎在我們看不見的地方，私自搭建了一套傳遞關鍵訊息的「高速公路」。最近關於 J-space 與全局工作空間（Global Workspace）的討論在技術圈激起了一陣漣漪。這件事本質上是在挑戰我們對 Transformer 架構的傳統認知：我們原以為訊息是在每一層平均分布、線性傳遞的，但現實卻是，模型內部的某些神經元或特定空間，正扮演著類似人類大腦皮層中「廣播站」的角色。當你在 Claude 上輸入一段邏輯極其複雜的程式碼除錯需求時，模型並非在所有參數上均衡用力，而是將關鍵的邏輯錨點抽離出來，投射到一個極高維度的子空間進行快速整合。這種現象在處理長上下文任務時尤為明顯。</p>
+    <p>如果我們仔細觀察 Claude 的 API 表現，會發現它在處理超過十萬 token 的任務時，展現出一種令人驚訝的「邏輯韌性」。這種韌性並非來自於單純的運算量堆疊，而更像是它在內部形成了一種動態的摘要機制。當我們討論這種全局工作空間時，實際上是在討論模型如何「篩選」訊息。目前的 Transformer 結構在理論上是全連接的，但這種全連接往往伴隨著巨大的雜訊。Claude 的做法似乎是在這片混沌中，硬生生地開闢出了一條專門處理核心語意轉換的通道。這就能解釋為什麼在某些極端的邏輯歸納任務中，它能比 GPT-4o 更精準地捕捉到隱藏在細節中的矛盾點。GPT-4o 雖然在多模態對齊上做得極其出色，但在這種深層語意的「廣播機制」上，有時會顯得過於依賴訓練數據中的模式匹配，而非真正的內部邏輯重構。</p>
+    <p>這種技術路徑的差異在實際應用中會產生非常微妙的體感區別。想像你在構建一個自動化的法律文件審核系統，需要模型在幾百頁的合約中找出潛在的違約條款。相較於 Qwen 在處理中文語境下的流暢度，Claude 的優勢在於它對語意空間的極限壓縮能力。它能把那些看似無關的細節，透過這種隱形的「全局工作空間」串聯起來。當我們在談論 J-space 這種幾何訊息處理方式時，本質上是在觀察模型如何進行自我演化。模型在訓練過程中，為了追求預測下一個 token 的準確性，被迫發展出了一種高效的訊息傳遞路徑。這種路徑不是工程師寫死的，而是權重在海量數據磨合中，為了節省熵增而自動「坍縮」出來的結構。這種結構與 Gemini 的長文本處理邏輯也有所不同，Gemini 傾向於利用強大的硬體支撐與優化的注意力機制來硬扛海量訊息，而 Claude 則展現出一種更具「學者氣息」的精煉感。</p>
+    <p>這引發了一個讓人深思的技術倫理與工程問題。如果這種全局空間真的存在，且是模型性能躍遷的關鍵，我們是否應該主動去干預它的生成？目前的現狀是，我們像是在觀察一個遠古遺跡，試圖從斷壁殘垣中推導出這座城市的排水系統是如何運作的。如果我們能像觀察 customer support chatbot 的日誌一樣，去觀察模型內部 J-space token 的流動，那所謂的「幻覺」問題是否就能從根源上得到解釋？當模型產生幻覺時，是不是因為它的全局工作空間被某些高頻但無意義的雜訊所佔據，導致核心邏輯鏈條發生了偏移？</p>
+    <p>然而，即便我們真的找到了這個空間的座標，人類是否有能力去優化它，還是說這種複雜度本身就是智能湧現的代價？我們現在追求的「可解釋性」，會不會只是在用三維世界的扁平邏輯，去強行解讀一個萬維空間的投影？當 Grok 在推特數據中瘋狂汲取訊息時，它內部的全局空間是否正呈現出一種極端動態且混亂的狀態，這與追求穩定的 Claude 相比，究竟哪一種才是通往通用人工智能的正確路徑？如果未來的模型不再依賴增加層數，而是學會了如何更精巧地管理這個內部的「秘密會議室」，那現在我們所引以為傲的 Scaling Laws，會不會只是一場昂貴的誤會？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/research/global-workspace" rel="nofollow noopener" target="_blank">A global workspace in language models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260708-0617-da9c8c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
