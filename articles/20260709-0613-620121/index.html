@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>語義分塊的傲慢與 RAG 管道的碎紙機</title>
+<meta name="description" content="把一本《資治通鑑》塞進碎紙機，再試圖透過拼接碎紙片來還原漢唐氣象，這大概是目前多數 RAG 系統最滑稽的現狀。我們在 GitHub 或是 Hacker News 上看到無數開發者焦慮地修正 LangChain 的分塊邏輯，試圖讓 …">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260709-0613-620121/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="語義分塊的傲慢與 RAG 管道的碎紙機">
+<meta property="og:description" content="把一本《資治通鑑》塞進碎紙機，再試圖透過拼接碎紙片來還原漢唐氣象，這大概是目前多數 RAG 系統最滑稽的現狀。我們在 GitHub 或是 Hacker News 上看到無數開發者焦慮地修正 LangChain 的分塊邏輯，試圖讓 …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260709-0613-620121/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-09T06:13:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="語義分塊的傲慢與 RAG 管道的碎紙機">
+<meta name="twitter:description" content="把一本《資治通鑑》塞進碎紙機，再試圖透過拼接碎紙片來還原漢唐氣象，這大概是目前多數 RAG 系統最滑稽的現狀。我們在 GitHub 或是 Hacker News 上看到無數開發者焦慮地修正 LangChain 的分塊邏輯，試圖讓 …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "語義分塊的傲慢與 RAG 管道的碎紙機",
+  "description": "把一本《資治通鑑》塞進碎紙機，再試圖透過拼接碎紙片來還原漢唐氣象，這大概是目前多數 RAG 系統最滑稽的現狀。我們在 GitHub 或是 Hacker News 上看到無數開發者焦慮地修正 LangChain 的分塊邏輯，試圖讓 …",
+  "datePublished": "2026-07-09T06:13:00+08:00",
+  "dateModified": "2026-07-09T06:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260709-0613-620121/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-09 06:13
+  </div>
+
+  <h1 class="title">語義分塊的傲慢與 RAG 管道的碎紙機</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>把一本《資治通鑑》塞進碎紙機，再試圖透過拼接碎紙片來還原漢唐氣象，這大概是目前多數 RAG 系統最滑稽的現狀。我們在 GitHub 或是 Hacker News 上看到無數開發者焦慮地修正 LangChain 的分塊邏輯，試圖讓 RecursiveCharacterTextSplitter 這種機械式的切割工具能稍微具備一點「人性」，甚至求助於 HuggingFace 的 Tokenizer 來精確控制字符邊界。這種行為像極了在工業革命初期，工人們試圖用更精密的齒輪去模擬手工織布機的溫度。</p>
+    <p>這類技術掙扎背後隱藏著一個尷尬的現實：即便強如 Claude 或 GPT-4o，在面對被切得支離破碎的上下文時，依然會展現出一種令人心驚的「一本正經胡說八道」。當一個 HTML 標籤被無情地從中間切斷，或是某個關鍵的語義轉折點落在兩個不同的 Embedding 向量裡，後端模型再強大，也只是在處理一堆毫無靈魂的數字殘渣。Claude 在處理超過十萬 Token 的長文本時，雖然注意力機制表現得像個博聞強記的史官，但如果輸入的底座本身就是一堆語義斷裂的垃圾，它也只能在垃圾堆裡雕刻藝術品。</p>
+    <p>我們對分塊技術的執著，本質上是對模型長文本處理能力的某種不信任，或是對運算成本的妥協。以 Gemini 1.5 Pro 為例，它標榜的百萬級上下文長度，理論上應該讓這種「碎紙機式」的預處理成為歷史。既然能一次塞進去，何必切碎？然而現實是，當你真的把數百個未經優化的 HTML 檔案直接扔進 Gemini 的窗口，它的檢索精準度會隨著長度增加而出現詭異的「中間迷失」現象。這種注意力衰減並非參數不足，而是模型在面對缺乏結構標註的原始數據時，無法在海量噪音中建立有效的邏輯鏈條。</p>
+    <p>在這種語義保留的攻防戰中，ChatGPT 的表現則顯得更像個老練的政客。它的 RAG 管道內置了極其複雜的啟發式清洗算法，試圖在用戶感知不到的地方修補那些斷裂的語義。但這種「黑盒式」的優化往往是一把雙刃劍，當開發者試圖通過自定義 Tokenizer 來精確控制語境時，OpenAI 的自動化處理反而成了最大的干擾項。相比之下，DeepSeek 或 Qwen 在處理這類細碎的語義分塊任務時也常被拿來與四大天王對比，其背後的邏輯差異往往決定了最終生成的穩定性。</p>
+    <p>有趣的是，當我們還在為 RecursiveCharacterTextSplitter 是否應該支持 HTML 語義保留而爭論不休時，Grok 這種走極簡、暴躁路線的模型，似乎在用另一種方式嘲笑這種精雕細琢。如果模型的原生推理能力足夠強，它是否真的需要我們在前端像餵嬰兒一樣，把數據切成方便吞嚥的小塊？</p>
+    <p>數據清洗與分塊的複雜化，其實是模型智力邊界的投影。我們越是依賴於精密的預處理工具，越說明現在的 LLM 尚未真正掌握「閱讀」的本質，它們仍在「匹配」。當一個開發者在 LangChain 的 Issue 區寫下對語義保留分塊的渴求時，他其實是在替模型承擔它本該完成的理解工作。這種工作分配的倒掛，究竟是技術過渡期的必然，還是我們在通往 AGI 路上走的一段冤枉路？</p>
+    <p>如果未來的模型能像人類掃視書頁一樣，自動過濾無意義的 HTML 標籤並在腦中構建動態索引，我們現在討論的這些 Tokenizer 邊界和語義分塊邏輯，是否會像當年的打孔卡片一樣，成為博物館裡讓人啞然失笑的古董？當長文本處理不再是奢侈品，這種在碎紙機邊緣修補文獻的努力，到底是在拯救信息，還是在延長技術債的壽命？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/langchain-ai/langchain/issues/37358" rel="nofollow noopener" target="_blank">[langchain] add method from_huggingface_tokenizer for RecursiveCharacterTextSplitter within HTMLSemanticPreservingSplitter</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260709-0613-620121/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
