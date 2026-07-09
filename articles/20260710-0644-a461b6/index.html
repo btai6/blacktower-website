@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 Claude 的桌面端開始試圖接管你的工作流</title>
+<meta name="description" content="在這個連寫封郵件都要深思熟慮的時代，我們似乎被困在了對話框裡。Anthropic 讓 Claude 爬出了網頁，住進了電腦的選單列，甚至開始伸手觸碰你的檔案系統，但這種「對話即工作」的邏輯真的對嗎？Hacker News 上最近關於 Rowboat 的討論，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260710-0644-a461b6/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 Claude 的桌面端開始試圖接管你的工作流">
+<meta property="og:description" content="在這個連寫封郵件都要深思熟慮的時代，我們似乎被困在了對話框裡。Anthropic 讓 Claude 爬出了網頁，住進了電腦的選單列，甚至開始伸手觸碰你的檔案系統，但這種「對話即工作」的邏輯真的對嗎？Hacker News 上最近關於 Rowboat 的討論，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260710-0644-a461b6/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-10T06:44:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 Claude 的桌面端開始試圖接管你的工作流">
+<meta name="twitter:description" content="在這個連寫封郵件都要深思熟慮的時代，我們似乎被困在了對話框裡。Anthropic 讓 Claude 爬出了網頁，住進了電腦的選單列，甚至開始伸手觸碰你的檔案系統，但這種「對話即工作」的邏輯真的對嗎？Hacker News 上最近關於 Rowboat 的討論，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 Claude 的桌面端開始試圖接管你的工作流",
+  "description": "在這個連寫封郵件都要深思熟慮的時代，我們似乎被困在了對話框裡。Anthropic 讓 Claude 爬出了網頁，住進了電腦的選單列，甚至開始伸手觸碰你的檔案系統，但這種「對話即工作」的邏輯真的對嗎？Hacker News 上最近關於 Rowboat 的討論，…",
+  "datePublished": "2026-07-10T06:44:00+08:00",
+  "dateModified": "2026-07-10T06:44:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260710-0644-a461b6/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-10 06:44
+  </div>
+
+  <h1 class="title">當 Claude 的桌面端開始試圖接管你的工作流</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在這個連寫封郵件都要深思熟慮的時代，我們似乎被困在了對話框裡。Anthropic 讓 Claude 爬出了網頁，住進了電腦的選單列，甚至開始伸手觸碰你的檔案系統，但這種「對話即工作」的邏輯真的對嗎？Hacker News 上最近關於 Rowboat 的討論，其實戳破了一個我們一直不願承認的尷尬：即便 AI 再聰明，它目前依然只是在製造更多的「閱讀量」。你把會議記錄、Jira 票據和代碼丟給它，它回饋給你更多需要校對的文字，這種資訊不對稱的擴張，讓所謂的生產力工具正逐漸變成一種負擔。</p>
+    <p>Claude 的 Artifacts 算是一個進步，它意識到用戶需要的不是一串字，而是一個可以操作的物件。然而，當我們觀察 Gemini 在這方面的佈局時，會發現 Google 走的是另一條完全不同的路。Gemini 1.5 Pro 在處理長達百萬 token 的上下文時，並非單純想跟你「聊天」，它更傾向於成為一個無形的索引層。當你把整個專案的文檔庫塞進 Google AI Studio，它的反應速度和檢索精準度，確實比目前在桌面端顯得有些笨重的 Claude 更像是一個底層系統。</p>
+    <p>問題在於，當 AI 試圖從一個「聊天機器人」轉型為「工作介面」時，介面的主體性到底該是誰？目前大多數的 AI 應用，包括正在風頭上的 DeepSeek，都還是在遵循一種「提問－回答」的線性邏輯。即便像 Rowboat 這種開源嘗試想把「工作平面」從對話框中解放出來，底層依然依賴於大模型的推理能力。Google 在這方面的優勢在於其生態的封閉性與完整性，Gemini 可以直接讀取 Google Workspace 的數據流，這種整合不是靠一個 API 就能輕易翻轉的。</p>
+    <p>當我們把目光轉向其他競爭者，ChatGPT 的 Canvas 也在試圖解決同樣的問題，讓編輯與對話並行。但這種設計依然存在一個技術上的傲慢：它假設 AI 是創造的主體，而人類是審核者。事實上，資深開發者或專案經理在處理複雜任務時，需要的是一個能理解專案拓撲結構的輔助者，而不是一個只會根據前文猜測下一個 token 的寫作機器。相較於 DeepSeek 在特定邏輯任務上的追趕，四大平台目前真正的戰場，其實在於誰能先定義出「後對話時代」的交互標準。</p>
+    <p>Grok 在這場競賽中顯得有些格格不入，它更強調即時數據的吞吐與情緒化的表達，這在嚴肅的生產力場景中反而成了一種干擾。對於追求穩定輸出的專業用戶來說，Gemini 的 function calling 雖然在工具數量過多時會出現不穩定的抖動，但其與自動化工作流的整合潛力，顯然比單純在桌面端開個視窗要高得多。我們需要的不是另一個 Claude Desktop 的替代品，而是一個能真正理解「任務狀態」的系統，而不是每次對話都像是一場新的初相識。</p>
+    <p>如果 AI 工具最終只是讓我們在組織內部互相投餵更多的摘要和報告，那麼這種技術溢價究竟體現在哪裡？當模型能力進入邊際效應遞減階段，介面的形態可能比參數規模更決定生死。我們現在看到的這些「桌面端」或「工作平面」，是否只是在補丁一個本不該存在的缺陷？</p>
+    <p>當大模型已經能處理百萬級別的資訊，為什麼我們還在用一個不到 800 像素寬的對話框與它溝通？這種資訊吞吐量與交互頻寬的極度不匹配，是技術發展的過渡期，還是我們對「助理」這個詞的想像力已經到了極限？當 AI 真的擁有了本地檔案的讀寫權限，你敢把整個專案的命運交給一個隨時可能產生幻覺的推論引擎嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/rowboatlabs/rowboat" rel="nofollow noopener" target="_blank">Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260710-0644-a461b6/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
