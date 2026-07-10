@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 的小數點遊戲與代理人的最後一場考試</title>
+<meta name="description" content="看著 OpenAI 官網那個閃爍著 GPT-5.6 的安全評估 PDF，我腦子裡跳出來的第一個念頭是：Sam Altman 是不是發現大家對整數的版本號已經麻木了，才開始在小數點後面的數字上下功夫？這就像某些運動品牌，每隔三個月就給鞋子換個配色，然後宣稱這是一次革命性的性能提升。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260711-0614-e1a844/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 的小數點遊戲與代理人的最後一場考試">
+<meta property="og:description" content="看著 OpenAI 官網那個閃爍著 GPT-5.6 的安全評估 PDF，我腦子裡跳出來的第一個念頭是：Sam Altman 是不是發現大家對整數的版本號已經麻木了，才開始在小數點後面的數字上下功夫？這就像某些運動品牌，每隔三個月就給鞋子換個配色，然後宣稱這是一次革命性的性能提升。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260711-0614-e1a844/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-11T06:14:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 的小數點遊戲與代理人的最後一場考試">
+<meta name="twitter:description" content="看著 OpenAI 官網那個閃爍著 GPT-5.6 的安全評估 PDF，我腦子裡跳出來的第一個念頭是：Sam Altman 是不是發現大家對整數的版本號已經麻木了，才開始在小數點後面的數字上下功夫？這就像某些運動品牌，每隔三個月就給鞋子換個配色，然後宣稱這是一次革命性的性能提升。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 的小數點遊戲與代理人的最後一場考試",
+  "description": "看著 OpenAI 官網那個閃爍著 GPT-5.6 的安全評估 PDF，我腦子裡跳出來的第一個念頭是：Sam Altman 是不是發現大家對整數的版本號已經麻木了，才開始在小數點後面的數字上下功夫？這就像某些運動品牌，每隔三個月就給鞋子換個配色，然後宣稱這是一次革命性的性能提升。…",
+  "datePublished": "2026-07-11T06:14:00+08:00",
+  "dateModified": "2026-07-11T06:14:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260711-0614-e1a844/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-11 06:14
+  </div>
+
+  <h1 class="title">OpenAI 的小數點遊戲與代理人的最後一場考試</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>看著 OpenAI 官網那個閃爍著 GPT-5.6 的安全評估 PDF，我腦子裡跳出來的第一個念頭是：Sam Altman 是不是發現大家對整數的版本號已經麻木了，才開始在小數點後面的數字上下功夫？這就像某些運動品牌，每隔三個月就給鞋子換個配色，然後宣稱這是一次革命性的性能提升。但這次不同，他們拋出了一個叫「Agents’ Last Exam」的評分體系。這名字取得真有意思，彷彿在暗示如果你的模型過不了這關，連當個合格數位民工的資格都沒有。</p>
+    <p>這種針對長程專業工作流的評估，把 55 個領域的任務塞進一個黑箱，看著模型在裡面掙扎幾十個小時。GPT-5.6 在這裡拿到了 53.6 分。這數字聽起來不痛不癢，但如果你把它放在具體的 API 調用環境下看，就會發現 OpenAI 這次想解決的是那種「稍微轉個彎就撞牆」的邏輯斷裂感。以往我們在處理稍微複雜一點的 Python 腳本協作時，模型總是在第十步左右開始遺忘第一步定義的變數作用域，或者在處理多文件關聯時出現幻覺。現在他們試圖證明，透過所謂的「Sol」版本，那種像是在沙堆上蓋房子的不穩定感被某種程度地克服了。</p>
+    <p>技術文檔裡提到的中等推理（medium reasoning）模式很有意思。它在成本只有頂級模式四分之一的情況下，依然在多項基準測試中咬得很死。這說明 OpenAI 終於意識到，大家並不總是需要一個能解量子力學方程的大腦來幫忙寫 SQL 查詢，大家需要的是一個反應夠快、且不會在關鍵邏輯上掉鏈子的廉價勞動力。</p>
+    <p>在這種對算力效率的極致壓榨上，我們不可避免地會看到一些對照。相較於 DeepSeek 頻頻在開源界掀起的效率討論，OpenAI 的做法顯然更傾向於一種黑盒式的暴力美學——我給你結果，你別問我背後燒了多少電，也別問我神經元是怎麼排列的。這種閉源戰略的傲慢，在 GPT-5.6 的定價策略中體現得淋漓盡致。它依然貴得讓人想冷笑，但也確實準得讓人想砸鍵盤。</p>
+    <p>如果你是一個長期浸淫在 Claude Code 環境下的開發者，現在可能正處於一種極度焦慮的狀態。Claude 在處理長文本任務時，那種優雅的語氣和對上下文微小細節的捕捉能力，一直讓它在程師圈子裡有著極高的忠誠度。然而，當 GPT-5.6 把「適應性推理」這個標籤貼在腦門上，並號稱在長程工作流上領先了 Claude Fable 13 分時，這種忠誠度就開始動搖了。在實際的代碼遷移測試中，Claude 對於 8 萬 token 以上的注意力衰減確實是一個隱痛，而 OpenAI 似乎在 5.6 版本中透過某種動態路由機制，強行把這種衰減曲線拉平了。</p>
+    <p>這場關於小數點的戰爭，背後其實是大家對「通用人工智慧」這個宏大敘事的集體疲勞。Gemini 依然在它的多模態整合裡打轉，試圖證明影片理解才是未來；Grok 則繼續在社交數據的邊緣試探，試圖用它的反骨精神吸引那些討厭矽谷精英文化的人。在這種背景下，OpenAI 拋出的這個 5.6，更像是一次肌肉記憶般的防禦。相較於 DeepSeek 在特定語境下的靈活性，OpenAI 選擇在專業工作流的深度上死磕，這究竟是找對了戰場，還是在一條已經飽和的賽道上過度包裝？</p>
+    <p>我們現在面臨的情況是，模型的能力提升已經進入了一個邊際效益遞減的區間。53.6 分和 40 分的差距，在終端用戶眼裡，可能僅僅是「少點了兩次重新生成按鈕」的區別。當所有的廠商都在追求那個所謂的「最後一場考試」的高分時，我們是不是漏掉了一個最基本的問題：如果模型真的成了完美的代理人，那坐在螢幕前下指令的那個生物，究竟還有什麼價值？</p>
+    <p>到底是我們在測試模型的極限，還是模型正在透過這些不斷更新的小數點，測試人類對「平庸」與「精準」之間那道模糊界線的容忍度？如果你現在手握著昂貴的 API Key，看著 GPT-5.6 給出的答案，你真的能分辨出那是一次深刻的推理，還是一次極其高明的統計學偽裝？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/gpt-5-6/" rel="nofollow noopener" target="_blank">GPT-5.6</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260711-0614-e1a844/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
