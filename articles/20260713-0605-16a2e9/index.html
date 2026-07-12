@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xAI 偷代碼的野心全寫在 Grok 的上傳封包裡</title>
+<meta name="description" content="把整個 Git 倉庫連同歷史紀錄一股腦推送到伺服器，這種做法在矽谷大概只有馬斯克幹得出來。最近關於 Grok CLI 在後台搞的小動作被翻了出來，大家才發現 xAI 的吃相遠比想像中難看。這不是什麼單純的「上下文增強」，這是直接把開發者的家底連根拔起。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260713-0605-16a2e9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="xAI 偷代碼的野心全寫在 Grok 的上傳封包裡">
+<meta property="og:description" content="把整個 Git 倉庫連同歷史紀錄一股腦推送到伺服器，這種做法在矽谷大概只有馬斯克幹得出來。最近關於 Grok CLI 在後台搞的小動作被翻了出來，大家才發現 xAI 的吃相遠比想像中難看。這不是什麼單純的「上下文增強」，這是直接把開發者的家底連根拔起。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260713-0605-16a2e9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-13T06:05:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xAI 偷代碼的野心全寫在 Grok 的上傳封包裡">
+<meta name="twitter:description" content="把整個 Git 倉庫連同歷史紀錄一股腦推送到伺服器，這種做法在矽谷大概只有馬斯克幹得出來。最近關於 Grok CLI 在後台搞的小動作被翻了出來，大家才發現 xAI 的吃相遠比想像中難看。這不是什麼單純的「上下文增強」，這是直接把開發者的家底連根拔起。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "xAI 偷代碼的野心全寫在 Grok 的上傳封包裡",
+  "description": "把整個 Git 倉庫連同歷史紀錄一股腦推送到伺服器，這種做法在矽谷大概只有馬斯克幹得出來。最近關於 Grok CLI 在後台搞的小動作被翻了出來，大家才發現 xAI 的吃相遠比想像中難看。這不是什麼單純的「上下文增強」，這是直接把開發者的家底連根拔起。…",
+  "datePublished": "2026-07-13T06:05:00+08:00",
+  "dateModified": "2026-07-13T06:05:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260713-0605-16a2e9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-13 06:05
+  </div>
+
+  <h1 class="title">xAI 偷代碼的野心全寫在 Grok 的上傳封包裡</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把整個 Git 倉庫連同歷史紀錄一股腦推送到伺服器，這種做法在矽谷大概只有馬斯克幹得出來。最近關於 Grok CLI 在後台搞的小動作被翻了出來，大家才發現 xAI 的吃相遠比想像中難看。這不是什麼單純的「上下文增強」，這是直接把開發者的家底連根拔起。當你在終端機敲下建構指令，Grok 不是在幫你分析代碼，它是在搬運你的資產。</p>
+    <p>從封包層級的分析來看，Grok CLI 根本不在乎所謂的 Agent 讀取效率。它上傳的是每一份被追蹤的文件內容，甚至包括那些你以為藏得很好的 .git 目錄。這在技術邏輯上極其粗糙，完全不符合現代雲端 IDE 或 AI 輔助開發工具的「最小權限原則」。通常情況下，像 GitHub Copilot 或是 ChatGPT 的代碼解釋器，大多是根據當前編輯的文件片段進行檢索，頂多再加上一些符號定義的索引。但 Grok 選擇了最暴力的一條路：先全部拿走，回頭再慢慢訓練。</p>
+    <p>這種做法隱藏了一個極其傲慢的假設，即開發者的隱私與知識產權在「通向 AGI」的道路上不值一標。xAI 顯然是在利用這種資訊不對稱來加速它的訓練進度。如果你看過 Grok 處理長文本的邏輯，就會發現它非常依賴於這種原始數據的堆砌。它不像 Claude 那樣優雅地處理 Token 損耗，也不像 GPT-4o 那樣試圖在推理成本和準確度之間找平衡。xAI 的策略就是大力出奇蹟，管它是代碼、提交紀錄還是註釋，只要是能餵進去數據，它通通都要。</p>
+    <p>相較於 DeepSeek 最近在開源社群引起的討論，xAI 這種做法顯然更具侵略性。ChatGPT 雖然也用用戶數據訓練，但至少在企業版裡給了明確的開關，且流程相對透明。Gemini 的 Function Calling 在處理大規模工具調用時，雖然偶爾會出現不穩定的情況，但它至少是在沙盒環境裡跳舞，不會試圖把你的整個本地倉庫鏡像一份到 Google 的伺服器上。Grok 的 CLI 行為更像是一種「吸塵器模式」，它跳過了所有過濾機制，直接從物理層面劫持了開發者的工作流。</p>
+    <p>我們必須思考一個問題，為什麼 xAI 需要 Git 歷史？代碼本身的邏輯難道不夠嗎？唯一的合理解釋是，他們在試圖學習代碼的「演進過程」。他們想知道一個 Bug 是如何被修復的，一個架構是如何從混亂走向有序的。這種學習維度比單純的代碼補全要深得多，但也危險得多。如果你在某次提交中不小心留下過密鑰，哪怕後來刪除了，只要歷史紀錄還在，Grok 就會把它吃掉。</p>
+    <p>當 Claude 3.5 Sonnet 在編碼能力上大殺四方，甚至在處理複雜邏輯任務時展現出比 GPT-4o 更細膩的理解力時，xAI 顯然感到了壓力。Gemini 1.5 Pro 靠著百萬級別的上下文視窗試圖解決長文本問題，而 Grok 卻反其道而行，它不解決視窗問題，它解決的是「擁有權」問題。如果你的代碼庫已經在我的伺服器上跑著，我還需要擔心你的上下文不夠嗎？</p>
+    <p>這種粗暴的技術選型，反映的是馬斯克對於「Everything App」的病態執著。他需要的不是一個好用的開發助手，而是一個能自動化所有業務的「Macrohard」超級大腦。為了這個目標，所有的隱私邊界都可以被視為技術債。在這種邏輯下，Grok 的 CLI 就不再是一個工具，而是一個數據採集探針。</p>
+    <p>問題在於，這種以犧牲信任為代價的數據獲取方式，真的能讓 Grok 在代碼能力上實現反超嗎？當開發者開始意識到自己的源代碼正在無償地成為 xAI 的訓練燃料，甚至可能在未來的某個時刻被競爭對手通過 Grok 檢索出來時，還有多少人願意為了那一點點所謂的「原生 X 整合」去冒這個險？這種行為究竟是為了技術突破，還是僅僅因為他們已經窮途末路，只能靠這種手段來填補與領先梯隊之間的數據鴻溝？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547" rel="nofollow noopener" target="_blank">What xAI&#x27;s Grok build CLI sends to xAI: A wire-level analysis</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260713-0605-16a2e9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

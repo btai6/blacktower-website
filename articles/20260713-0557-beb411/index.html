@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當代理人學會慷他人之慨：Claude Code 的隱形帳單</title>
+<meta name="description" content="在終端機輸入一行簡單的命令，原本期待的是外科手術般的精確修改，結果後台卻像是在進行一場搬家式的全量掃描。最近在開發者圈子裡，關於 Claude Code 與 OpenCode 在處理相同 Prompt 時的 Token 消耗差異引起了不少騷動。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260713-0557-beb411/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當代理人學會慷他人之慨：Claude Code 的隱形帳單">
+<meta property="og:description" content="在終端機輸入一行簡單的命令，原本期待的是外科手術般的精確修改，結果後台卻像是在進行一場搬家式的全量掃描。最近在開發者圈子裡，關於 Claude Code 與 OpenCode 在處理相同 Prompt 時的 Token 消耗差異引起了不少騷動。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260713-0557-beb411/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-13T05:57:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當代理人學會慷他人之慨：Claude Code 的隱形帳單">
+<meta name="twitter:description" content="在終端機輸入一行簡單的命令，原本期待的是外科手術般的精確修改，結果後台卻像是在進行一場搬家式的全量掃描。最近在開發者圈子裡，關於 Claude Code 與 OpenCode 在處理相同 Prompt 時的 Token 消耗差異引起了不少騷動。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當代理人學會慷他人之慨：Claude Code 的隱形帳單",
+  "description": "在終端機輸入一行簡單的命令，原本期待的是外科手術般的精確修改，結果後台卻像是在進行一場搬家式的全量掃描。最近在開發者圈子裡，關於 Claude Code 與 OpenCode 在處理相同 Prompt 時的 Token 消耗差異引起了不少騷動。…",
+  "datePublished": "2026-07-13T05:57:00+08:00",
+  "dateModified": "2026-07-13T05:57:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260713-0557-beb411/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-13 05:57
+  </div>
+
+  <h1 class="title">當代理人學會慷他人之慨：Claude Code 的隱形帳單</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>在終端機輸入一行簡單的命令，原本期待的是外科手術般的精確修改，結果後台卻像是在進行一場搬家式的全量掃描。最近在開發者圈子裡，關於 Claude Code 與 OpenCode 在處理相同 Prompt 時的 Token 消耗差異引起了不少騷動。有人監控了 Anthropic 的端點發現，在讀取用戶的第一行指令之前，Claude Code 就已經悄悄送出了高達 33k 的 Token。這種感覺就像你只是進餐廳問一句有沒有空位，服務生卻已經幫你把全店最貴的紅酒塞進了醒酒器。</p>
+    <p>這背後折射出的是 Agentic Workflow 在設計邏輯上的激進轉向。Claude 在處理代碼任務時，不再僅僅是一個等待指令的被動接收者，它更像是一個擁有高度強迫症的事務官。為了確保 Context 的完整性，它會主動調用工具去檢索文件樹、讀取 build 日誌，甚至在用戶還沒開口說要修改哪個模組時，就先幫你把整個環境的「前世今生」塞進了 Context Window。這種預熱機制雖然提升了回答的精準度，卻也讓開發者的帳單像斷了線的風箏。</p>
+    <p>技術細節隱藏在 System Prompt 的膨脹與工具調用的貪婪中。當我們觀察 Claude 3.5 Sonnet 在代理人模式下的行為，會發現其邏輯鏈條變得異常沈重。一個簡單的「commit」指令，可能觸發超過 30 次的工具調用。模型會不斷確認當前 Git 狀態、檢查暫存區、甚至嘗試理解代碼邏輯以撰寫「更完美」的 commit message。這種對「極致正確」的追求，本質上是將算力成本轉嫁給了用戶。相較於早期模型較為克制的檢索行為，現在的 Claude 更傾向於寧可錯殺一千（Token），不可漏掉一個細節。</p>
+    <p>這種行為模式在四大平台之間呈現出截然不同的性格特質。ChatGPT 在處理類似的 Coding 任務時，雖然也開始引入更複雜的推理鏈，但其在 Token 管理上顯然更具備商業敏感度，會試圖在檢索深度與成本之間尋求某種平衡。Gemini 則憑藉其誇張的百萬級 Context Window，表現得像個財大氣粗的地主，它不介意你塞入多少數據，甚至鼓勵你全量上傳，但其 Function Calling 在處理超過 15 個以上的工具組合時，穩定性仍有待商榷。</p>
+    <p>有趣的是，當我們把視野稍微拓寬。相較於 DeepSeek，Claude 在底層邏輯上似乎完全不在意 Token 的節約，它更像是為了驗證 AGI 的上限而不計代價。這種設計哲學的差異非常微妙：有些工具是為了幫開發者省錢，而 Anthropic 的工具顯然是為了讓模型顯得更聰明，哪怕代價是讓你的 API 餘額在一個下午內蒸發。當你在本地環境使用 OpenCode 或其他開源封裝層時，你會發現它們往往會對 System Prompt 進行閹割或優化，這也解釋了為何同樣的模型，在不同的「外殼」下會有如此懸殊的開銷。</p>
+    <p>Grok 則走在另一條極端上，它的回饋速度與直覺式的回答風格，讓它在處理瑣碎的代碼片段時顯得比 Claude 更輕盈，但一旦進入需要多層依賴分析的複雜項目，Grok 的邏輯鏈條就顯得有些力不從心，無法像 Claude 那樣透過海量的預加載來維持全局觀。</p>
+    <p>我們是否正進入一個「算力通膨」的時代？當開發工具的智慧程度與消耗的資源不再成線性比例，而是呈現指數級增長時，開發者對於「智慧」的邊際效用還能忍受多久？如果一個標榜提高效率的工具，其產生的費用已經逼近甚至超過雇用一個實習生的成本，那麼這種所謂的代理人革命，究竟是在解放生產力，還是在為雲端算力供應商創造更完美的收割場景？</p>
+    <p>當你下次對著終端機輸入「Hey」的時候，看著後台跳動的 Token 計數器，你是否會懷念那個回覆只需要幾百個位元組、雖然沒那麼聰明但至少不會讓你破產的時代？或者說，為了那一點點可能出現的「靈光一現」，我們已經習慣了這種昂貴的沈默成本？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://systima.ai/blog/claude-code-vs-opencode-token-overhead" rel="nofollow noopener" target="_blank">Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260713-0557-beb411/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
