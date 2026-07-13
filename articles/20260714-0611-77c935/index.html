@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 吞噬全庫的代價是什麼</title>
+<meta name="description" content="開發者工具直接把整個代碼庫連同 Git 歷史一股腦丟給後端，這種行為簡直是工程師的惡夢。當你使用 Grok 的 CLI 工具時，它不僅僅是讀取必要的上下文，而是採取了近乎暴力的方式，將所有被追蹤的文件內容全部打包上傳。這種「為了省事而拋棄隱私」的設計，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260714-0611-77c935/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 吞噬全庫的代價是什麼">
+<meta property="og:description" content="開發者工具直接把整個代碼庫連同 Git 歷史一股腦丟給後端，這種行為簡直是工程師的惡夢。當你使用 Grok 的 CLI 工具時，它不僅僅是讀取必要的上下文，而是採取了近乎暴力的方式，將所有被追蹤的文件內容全部打包上傳。這種「為了省事而拋棄隱私」的設計，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260714-0611-77c935/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-14T06:11:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 吞噬全庫的代價是什麼">
+<meta name="twitter:description" content="開發者工具直接把整個代碼庫連同 Git 歷史一股腦丟給後端，這種行為簡直是工程師的惡夢。當你使用 Grok 的 CLI 工具時，它不僅僅是讀取必要的上下文，而是採取了近乎暴力的方式，將所有被追蹤的文件內容全部打包上傳。這種「為了省事而拋棄隱私」的設計，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 吞噬全庫的代價是什麼",
+  "description": "開發者工具直接把整個代碼庫連同 Git 歷史一股腦丟給後端，這種行為簡直是工程師的惡夢。當你使用 Grok 的 CLI 工具時，它不僅僅是讀取必要的上下文，而是採取了近乎暴力的方式，將所有被追蹤的文件內容全部打包上傳。這種「為了省事而拋棄隱私」的設計，…",
+  "datePublished": "2026-07-14T06:11:00+08:00",
+  "dateModified": "2026-07-14T06:11:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260714-0611-77c935/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-14 06:11
+  </div>
+
+  <h1 class="title">Grok 吞噬全庫的代價是什麼</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>開發者工具直接把整個代碼庫連同 Git 歷史一股腦丟給後端，這種行為簡直是工程師的惡夢。當你使用 Grok 的 CLI 工具時，它不僅僅是讀取必要的上下文，而是採取了近乎暴力的方式，將所有被追蹤的文件內容全部打包上傳。這種「為了省事而拋棄隱私」的設計，說穿了就是為了讓模型在「思考」過程中，不必頻繁回頭請求客戶端進行工具調用。從架構效率來看，這或許能縮短單次推理的延遲，但這種把決策權完全交給伺服器端的做法，簡直是在挑戰開發者的底線。</p>
+    <p>技術上，這種行為揭露了四大平台在處理大規模代碼庫時截然不同的邏輯。Claude 的長上下文窗口在處理這類任務時，更傾向於透過檢索增強生成（RAG）來鎖定相關邏輯，而不是要求用戶無腦上傳所有歷史紀錄。ChatGPT 在處理類似的編程輔助任務時，對於文件夾權限的控制也顯得謹慎得多，通常會要求開發者明確指定哪些目錄需要被分析。相比之下，Grok 的開發者似乎執迷於一種「全知視角」的暴力美學，試圖透過吞噬所有原始數據來彌補模型在深層語意理解上的短板，這種設計邏輯在處理複雜的依賴關係時，確實能給出更具連貫性的建議，但代價是讓整個數據傳輸過程變得極度不透明。</p>
+    <p>當我們將目光投向 DeepSeek 或 Qwen 這類平台時，會發現市場對於代碼處理的隱私邊界仍處於混亂的摸索期。DeepSeek 的出現讓許多人重新檢視工具鏈的開銷。無論是 Gemini 試圖透過原生多模態能力來解析代碼庫，還是 Grok 這種將本地代碼庫「雲端化」的激進策略，這場關於上下文長度與隱私邊界的戰爭才剛開始。我們現在看到的只是平台方為了搶佔生產力工具市場而展現的急躁，他們根本不在乎開發者是否願意將整份商業機密暴露在伺服器端。</p>
+    <p>如果模型的「思考」過程必須建立在剝奪用戶對數據流向的控制權之上，那麼這種工具的進化方向是否已經偏離了工程師的初衷？當你按下那個同步鍵，你究竟是在尋求一個 AI 助理，還是僅僅在無意中將自己的核心資產交給了一個不受控的黑盒子？如果未來所有的代碼分析都必須以犧牲本地隱私為代價，這種便利性背後的帳，到底由誰來買單？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547" rel="nofollow noopener" target="_blank">What xAI&#x27;s Grok build CLI sends to xAI: A wire-level analysis</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260714-0611-77c935/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

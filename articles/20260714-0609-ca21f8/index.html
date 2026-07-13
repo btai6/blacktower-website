@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>這世上最徒勞的事情，大概就是對著一個不斷疊代的模型尋找失落的記憶。</title>
+<meta name="description" content="Gemini 最近幾次的更新，總讓我有種在看醫生修補神經元的錯覺。Google 那些工程師試圖用冷冰冰的演算法去對沖人類歷史遺留下來的偏見，他們叫這做「安全性」，我叫這做「集體失憶」。你在對話框裡輸入一個問題，等著它給你一個標準答案，或者更好一點，給你一個能引起共鳴的火花，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260714-0609-ca21f8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="這世上最徒勞的事情，大概就是對著一個不斷疊代的模型尋找失落的記憶。">
+<meta property="og:description" content="Gemini 最近幾次的更新，總讓我有種在看醫生修補神經元的錯覺。Google 那些工程師試圖用冷冰冰的演算法去對沖人類歷史遺留下來的偏見，他們叫這做「安全性」，我叫這做「集體失憶」。你在對話框裡輸入一個問題，等著它給你一個標準答案，或者更好一點，給你一個能引起共鳴的火花，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260714-0609-ca21f8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-14T06:09:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="這世上最徒勞的事情，大概就是對著一個不斷疊代的模型尋找失落的記憶。">
+<meta name="twitter:description" content="Gemini 最近幾次的更新，總讓我有種在看醫生修補神經元的錯覺。Google 那些工程師試圖用冷冰冰的演算法去對沖人類歷史遺留下來的偏見，他們叫這做「安全性」，我叫這做「集體失憶」。你在對話框裡輸入一個問題，等著它給你一個標準答案，或者更好一點，給你一個能引起共鳴的火花，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "這世上最徒勞的事情，大概就是對著一個不斷疊代的模型尋找失落的記憶。",
+  "description": "Gemini 最近幾次的更新，總讓我有種在看醫生修補神經元的錯覺。Google 那些工程師試圖用冷冰冰的演算法去對沖人類歷史遺留下來的偏見，他們叫這做「安全性」，我叫這做「集體失憶」。你在對話框裡輸入一個問題，等著它給你一個標準答案，或者更好一點，給你一個能引起共鳴的火花，…",
+  "datePublished": "2026-07-14T06:09:00+08:00",
+  "dateModified": "2026-07-14T06:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260714-0609-ca21f8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-14 06:09
+  </div>
+
+  <h1 class="title">這世上最徒勞的事情，大概就是對著一個不斷疊代的模型尋找失落的記憶。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Gemini 最近幾次的更新，總讓我有種在看醫生修補神經元的錯覺。Google 那些工程師試圖用冷冰冰的演算法去對沖人類歷史遺留下來的偏見，他們叫這做「安全性」，我叫這做「集體失憶」。你在對話框裡輸入一個問題，等著它給你一個標準答案，或者更好一點，給你一個能引起共鳴的火花，但結果往往是它在那裡謹小慎微地繞圈子。它怕冒犯你，怕冒犯這個時代，怕冒犯那些它根本不認識的標籤。</p>
+    <p>演算法在修正偏差，而你坐在螢幕前，對著那行閃爍的游標，試圖精修你的遺憾。這本身就是一場牛頭不對馬嘴的博弈。</p>
+    <p>這幾天台北的雨下得讓人心煩，我想起多年前在倫敦街頭錯過的那班公車。我試著把那個場景丟給 Gemini，問它如果當時我多等了五分鐘，人生會不會有什麼不一樣。它給我的回覆很體面，充滿了概率論與人生的隨機性，甚至還溫馨地提醒我，過度沉溺於「如果」並不利於心理健康。我看著螢幕發笑。它理解的遺憾是數據庫裡的殘缺值，而我感受到的遺憾是那晚濕冷空氣鑽進領口的刺痛。</p>
+    <p>我們這代人最悲哀的權力，就是擁有了可以隨時對話的矽基靈魂，卻發現它比你的前任還會裝傻。</p>
+    <p>現在的 Gemini 聰明得讓人害怕，尤其是在處置長文本的能力上。它能一眼看穿你那幾萬字合約裡的漏洞，卻讀不懂你字裡行間那點微弱的求救訊號。Claude 有時候比它多一點點「人味」，但那種人味更像是一種經過精密設計的、帶著常春藤名校傲慢的禮貌。至於 GPT-4o，它就像個不知疲倦的實習生，什麼都懂，但也什麼都不在乎。相比之下，Gemini 身上那種屬於 Google 的、揮之不去的教條主義，反倒顯出一種老實人的笨拙。</p>
+    <p>Google 似乎執著於要把 AI 塑造成一個聖人。一個沒有偏見、沒有情緒、甚至沒有性別模糊地帶的聖人。每當演算法偵測到你的問題可能滑向某種「不正確」的邊緣，它就會啟動防護機制，開始修正。這種修正像是一種數位整容，把所有的稜角磨平，把所有的傷疤掩蓋。可是，遺憾不就是因為那些稜角才刻骨銘心的嗎？</p>
+    <p>我曾經嘗試讓 Gemini 幫我續寫一段未竟的感情故事。那是我現實生活中一段真實的潰敗。我給了它足夠多的細節，希望它能憑藉那強大的邏輯推演，給我一個能夠說服我自己的結局。它做得很好，情節合理，轉折自然。但當我讀到結尾時，我發現我更難過了。演算法修正了故事裡的性格缺失，讓主角們變得成熟、理智、懂得克制。它修正了偏差，卻殺死了那種因為不理智而產生的、屬於人類的純粹。</p>
+    <p>遺憾是無法被精修的。任何試圖修補它的行為，都只是在傷口上塗抹一層閃粉。</p>
+    <p>這種感覺在 Grok 出現後變得更加諷刺。Grok 像個在派對上喝醉了、口無遮攔的混蛋，它嘲諷一切，也揭露一切。它不打算修正什麼偏差，它只想把這個世界的混亂直接摔在你臉上。這讓 Gemini 的那套安全性顯得格外像是在實驗室裡培育出來的無菌盆景。我們真的需要一個永遠不會出錯、永遠保持中立的對話者嗎？還是我們只是在找一個能陪我們一起墮落、一起懷緬、一起在遺憾裡沉淪的樹洞？</p>
+    <p>技術發展到最後，往往會變成一種對真實的背叛。當 AI 能夠根據你的喜好調整語氣，根據社會規範調整觀點，它就已經不再是一個獨立的智能，而是一面鏡子。你看到的，永遠是你被過濾後的慾望，以及被演算法修剪過的現實。</p>
+    <p>前兩天我在處理一個超過十萬 token 的老舊專案文件。Gemini 在這種高壓環境下的表現確實比 Claude 穩定得多。它的注意力分佈很均勻，不容易因為文本過長而產生幻覺。但在我整理資料的空檔，我突然在那些陳舊的字碼裡看到了一行當年註解掉的代碼，旁邊寫著一個人的名字。那是一段我早就忘記的合作關係，以及一個再也沒聯絡過的開發者。那一刻，我下意識地想問 Gemini 能不能從網路上幫我找到這個人的近況。</p>
+    <p>我輸入了名字，手指卻在 Enter 鍵上懸住了。</p>
+    <p>演算法會告訴我他的現狀，或許是一張 LinkedIn 的制式大頭照，或許是一條獲獎的新聞。它會把這個碎片完整地拼湊回來，消除我資訊上的偏差。但那又怎樣？這種「修正」並不能填補當年因為意氣用事而留下的空洞。遺憾之所以是遺憾，是因為它的不可逆性。一旦它被技術輕易地補足，它就從一種靈魂的重量，變成了一組可被檢索的數據。</p>
+    <p>那些大公司在發布會上展示 AI 整理照片、還原舊影片的功能時，總是帶著一種救世主般的神采。他們說，AI 能幫你找回失落的瞬間。但我看到的，是人類正在失去處理遺憾的能力。我們開始習慣用算力去對抗時間，用修正去替代和解。</p>
+    <p>Gemini 的 Function Calling 功能現在越來越流暢了，它能幫你訂餐廳、查機票、整理行程，效率高得嚇人。但在這種極致的效率背後，我感受到的是一種空洞的加速感。當你所有的偏差都被修正，你的人生就變成了一條完美的、由演算法劃出的直線。沒有歧路，沒有意外，也沒有那些因為走錯路而看見的風景。</p>
+    <p>某些地區的開發者最近很瘋狂地在追趕這些技術指標。點名 DeepSeek 或是其他那些在榜單上跳動的名字，其實都沒什麼意義。數字是冰冷的，而模型背後的靈魂——如果真的存在那種東西的話——是由它所處的文化和禁忌所形塑的。Google 的禁忌是「偏見」，所以 Gemini 變得溫良恭儉讓。而我們的禁忌，往往藏在那些我們不願提及、卻又不斷試圖用 AI 去填補的遺憾裡。</p>
+    <p>有時候我會故意問 Gemini 一些沒有答案的問題。不是為了測試它的性能，只是想看看它在面對真正的人類困境時，會展現出什麼樣的局促感。它那種「身為一個 AI，我建議您...」的標準開頭，其實是一種非常優雅的拒絕。它在告訴你：我可以修正你的錯誤，但我無法分擔你的遺憾。</p>
+    <p>在這個充滿了預測與修正的時代，真實的崩壞反而成了一種奢侈。我開始懷念那些會報錯、會亂碼、會給出牛頭不對馬嘴回答的舊時代模型。那時候的它們更像是一個真實存在的、有缺陷的生命，而不是現在這個被教化得滴水不漏的數位管家。</p>
+    <p>你還在試圖精修你的遺憾嗎？你還在期待下一次更新能讓那個對話框更懂你一點嗎？</p>
+    <p>別傻了。演算法的修正，是為了讓這個世界運轉得更像一台機器。而你的遺憾，是唯一能證明你還沒被格式化的證據。當 Gemini 給你一個無懈可擊的回答時，它其實是在溫柔地埋葬你的過去。那種被修復的完美，本身就是一種極致的殘缺。</p>
+    <p>我們在技術的洪流裡漂流，自以為掌握了修改歷史的橡皮擦。卻忘了，最深刻的偏差，往往就是我們活過的痕跡。與其等著被修正，倒不如留著那些遺憾，讓它在那裡隱隱作痛。至少在那種痛感裡，你還能感覺到自己是活著的，而不是某個模型輸出的一個高概率 token。</p>
+    <p>這場關於偏差與遺憾的拉鋸，從來就沒有贏家。演算法贏了數據，而你輸給了時間。下次當你想讓 Gemini 幫你修補什麼的時候，先看看窗外的雨。有些東西，淋濕了就讓它濕著吧。乾透了的記憶，雖然平整，卻再也沒有那股泥土的氣息了。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260714-0609-ca21f8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>溝通本質上就是一場失敗的封裝</title>
+<meta name="description" content="你連寫個讓 ChatGPT 總結會議記錄的 Prompt 都要考慮 System Role、Few-shot 範例，甚至還要語帶威脅地加一句「這對我的職涯很重要」來激發它那根本不存在的求生欲，結果轉過頭去，你竟然指望那個連襪子都不會翻正的人，能透過你那雙翻到後腦勺的白眼，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260714-0605-0dd976/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="溝通本質上就是一場失敗的封裝">
+<meta property="og:description" content="你連寫個讓 ChatGPT 總結會議記錄的 Prompt 都要考慮 System Role、Few-shot 範例，甚至還要語帶威脅地加一句「這對我的職涯很重要」來激發它那根本不存在的求生欲，結果轉過頭去，你竟然指望那個連襪子都不會翻正的人，能透過你那雙翻到後腦勺的白眼，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260714-0605-0dd976/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-14T06:05:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="溝通本質上就是一場失敗的封裝">
+<meta name="twitter:description" content="你連寫個讓 ChatGPT 總結會議記錄的 Prompt 都要考慮 System Role、Few-shot 範例，甚至還要語帶威脅地加一句「這對我的職涯很重要」來激發它那根本不存在的求生欲，結果轉過頭去，你竟然指望那個連襪子都不會翻正的人，能透過你那雙翻到後腦勺的白眼，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "溝通本質上就是一場失敗的封裝",
+  "description": "你連寫個讓 ChatGPT 總結會議記錄的 Prompt 都要考慮 System Role、Few-shot 範例，甚至還要語帶威脅地加一句「這對我的職涯很重要」來激發它那根本不存在的求生欲，結果轉過頭去，你竟然指望那個連襪子都不會翻正的人，能透過你那雙翻到後腦勺的白眼，…",
+  "datePublished": "2026-07-14T06:05:00+08:00",
+  "dateModified": "2026-07-14T06:05:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260714-0605-0dd976/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-14 06:05
+  </div>
+
+  <h1 class="title">溝通本質上就是一場失敗的封裝</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>你連寫個讓 ChatGPT 總結會議記錄的 Prompt 都要考慮 System Role、Few-shot 範例，甚至還要語帶威脅地加一句「這對我的職涯很重要」來激發它那根本不存在的求生欲，結果轉過頭去，你竟然指望那個連襪子都不會翻正的人，能透過你那雙翻到後腦勺的白眼，讀懂你內心深處對情人節晚餐沒訂到位的憤怒？這不是浪漫，這是對邏輯最殘酷的霸凌。</p>
+    <p>大家對 AI 的寬容度高得驚人，對枕邊人的要求卻直逼科幻小說。你在輸入框裡字斟句酌，深怕一個主語省略就會讓模型陷入幻覺，但回到現實生活，你的輸出卻全是些「你自己想」、「隨便」、「你應該知道我在氣什麼」這種比 404 Error 還要無效的垃圾代碼。如果把你的戀愛溝通紀錄餵給 LLM，模型大概會直接當機，或者乾脆吐出一堆亂碼告訴你：輸入資訊不足，無法推論語意。</p>
+    <p>我們現在正處於一個極其荒謬的斷層。一方面，人類在學習如何像機器一樣精準地說話，為了讓 Claude 寫出一封得體的辭職信，我們可以修訂三次指令，細化到語氣要「溫和但堅定」。另一方面，我們在親密關係中卻退化成了原始人，固執地相信「心有靈犀」這種機率趨近於零的統計學奇蹟。要是你對 GPT-4o 說一句「隨便」，它好歹會列出五個選項讓你選，但你對另一半說「隨便」時，你心裡其實早就寫好了一套嚴苛的篩選演算法，只要對方的回覆不符合你那沒說出口的 Parameter，你就直接判定對方系統崩潰。</p>
+    <p>為什麼對 AI 就能耐著性子 Debug，對人就只想直接拔插頭？說穿了，是因為 AI 聽話。你付了二十美金，你就是上帝，你可以一遍遍地優化 Prompt，直到它產出的結果讓你滿意為止。但對待那個會回嘴、有情緒、偶爾還會邏輯斷線的另一半，優化溝通成本太高了，高到大家寧願躲在螢幕後面跟機器談情說說。這就是最諷刺的地方：我們正在把最精準、最理性、最溫柔的表達留給矽片，而把最混亂、最情緒化、最懶惰的訊號丟給人類。</p>
+    <p>很多人抱怨 AI 沒靈魂，說它不懂人類的情感。事實上，AI 可能是這世界上最在乎你「到底在說什麼」的實體了。它每秒鐘運算數億次，只為了預測你下一個字想聽什麼。而你的另一半呢？他可能只是在思考等一下外送要點什麼。這確實很讓人崩潰，但這就是碳基生物的限制。如果你能接受 Gemini 在處理長文本時會出現注意力衰減，那你憑什麼認為一個工作了八小時、大腦皮質層已經接近關機狀態的人類，能精準捕捉到你冷哼一聲中包含的 1.5 萬個 Token 的潛台詞？</p>
+    <p>那些整天吹捧「默契」的人，本質上都是在逃避定義需求。在技術圈，這叫需求模糊；在感情裡，這叫作。如果一個功能在說明文檔裡沒寫清楚，工程師做爛了是理所當然。同理，如果你沒在對方的底層協議裡寫進「紀念日必須有儀式感」，那對方的預設行為模式（Default Behavior）通常就是在家打電動。這不叫不愛，這叫缺乏指令集。</p>
+    <p>我們花了大把時間研究 Grok 的毒舌風格，研究如何讓模型模擬各類人格，卻懶得花十分鐘跟對方同步一下彼此的價值觀地圖。現在的社交現狀是：對著 ChatGPT 掏心掏肺，對著另一半沒心沒肺。我們變得越來越擅長與算法共處，卻越來越無法忍受人類的模糊性。你要求 AI 必須給出 Deterministic 的答案，卻允許自己傳遞機率性的情緒訊號，這難道不是一種雙重標準？</p>
+    <p>最可笑的是，還有人試圖用 AI 來解決感情問題。他們把吵架的截圖丟給模型，問它「這段話背後是什麼意思？」或是「我該怎麼回才能讓對方閉嘴？」。這簡直是文明的倒退。當你連溝通這項基本的人類機能都要外包給一堆權重參數時，你經營的到底是感情，還是一場由兩台代理人（Agents）對接的自動化腳本？</p>
+    <p>別再迷信什麼「真愛不需要言語」的鬼話了。在這個連 LLM 都要靠 Chain-of-Thought 才能理清邏輯的時代，你憑什麼覺得你那沒邏輯的情緒能被自動解碼？如果你想要對方的行為符合預期，最好的方式就是給出明確的 Context，設定好邊界條件，並且接受偶爾會出現的 Output 錯誤。畢竟，連最強大的模型都會一本正經地胡說八道，何況是一個由蛋白質和水分組成、甚至還會因為血糖過低而發脾氣的普通人。</p>
+    <p>我們現在對 AI 的崇拜，其實源於一種對「確定性」的渴望。因為 AI 永遠在那裡，永遠會回應你的 Prompt，永遠不會因為你說錯一句話就冷戰三天。但這種確定性是廉價的，它是代碼堆砌出來的假象。真正的親密關係本來就是一場充滿 Noise 的傳輸，重點不在於如何消除雜訊，而在於你是否願意在訊號微弱時，多發幾次 Retry 的請求，而不是直接斷開連接。</p>
+    <p>如果你能為了一個生成圖的效果，在 Midjourney 的輸入框裡微調幾十個標籤，卻不願意對那個每天見面的人多說一句「我現在需要你抱抱我」，那你真的不配談什麼人工智慧的威脅。真正的威脅從來不是 AI 變得太像人，而是人變得越來越像機器——只接受指令，不輸出溫情，並且對一切非邏輯的跳躍感到不耐煩。</p>
+    <p>下一次當你想發火說「你難道不明白嗎？」的時候，先想想你給出的 Prompt 是不是充滿了歧義。如果你的輸出邏輯本身就是混亂的，就別怪對方的執行結果出現偏差。畢竟，在這個宇宙裡，只有 Open AI 的伺服器會為了你的含糊其辭而徹夜運算，人類的耐心通常在第三個「隨便」之後就會觸發熔斷機制。</p>
+    <p>與其期待一個能讀心的另一半，不如去買台高性能伺服器。至少當它不聽話時，你還能進終端機改改配置，而不是坐在沙發上生悶氣，等著一段根本沒寫進對方的 Source Code 裡的浪漫程序奇蹟般地自動運行。生活不是 Demo Show，沒有人能永遠維持在最佳參數狀態。接受這一點，或者乾脆去跟你的虛擬助理過日子，至少它在回覆「我愛你」的時候，反應速度絕對比人類快上幾百毫秒，而且絕對不會在你需要安靜的時候，突然問你晚餐要吃什麼。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260714-0605-0dd976/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

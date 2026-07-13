@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行銷故事掩蓋下的工程代價與模型幻覺</title>
+<meta name="description" content="當 Anthropic 決定將某個底層組件從 Zig 重寫為 Rust 時，這場公關大戲的劇本就已經寫好了。與其說這是一次為了效能的技術遷徙，不如說是 Claude 在試圖證明自己擁有某種「上帝視角」般的架構重組能力。技術圈對此吵得不可開交，有人覺得這是開發者的福音，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260714-0602-a9cb3c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="行銷故事掩蓋下的工程代價與模型幻覺">
+<meta property="og:description" content="當 Anthropic 決定將某個底層組件從 Zig 重寫為 Rust 時，這場公關大戲的劇本就已經寫好了。與其說這是一次為了效能的技術遷徙，不如說是 Claude 在試圖證明自己擁有某種「上帝視角」般的架構重組能力。技術圈對此吵得不可開交，有人覺得這是開發者的福音，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260714-0602-a9cb3c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-14T06:02:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="行銷故事掩蓋下的工程代價與模型幻覺">
+<meta name="twitter:description" content="當 Anthropic 決定將某個底層組件從 Zig 重寫為 Rust 時，這場公關大戲的劇本就已經寫好了。與其說這是一次為了效能的技術遷徙，不如說是 Claude 在試圖證明自己擁有某種「上帝視角」般的架構重組能力。技術圈對此吵得不可開交，有人覺得這是開發者的福音，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "行銷故事掩蓋下的工程代價與模型幻覺",
+  "description": "當 Anthropic 決定將某個底層組件從 Zig 重寫為 Rust 時，這場公關大戲的劇本就已經寫好了。與其說這是一次為了效能的技術遷徙，不如說是 Claude 在試圖證明自己擁有某種「上帝視角」般的架構重組能力。技術圈對此吵得不可開交，有人覺得這是開發者的福音，…",
+  "datePublished": "2026-07-14T06:02:00+08:00",
+  "dateModified": "2026-07-14T06:02:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260714-0602-a9cb3c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-14 06:02
+  </div>
+
+  <h1 class="title">行銷故事掩蓋下的工程代價與模型幻覺</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 決定將某個底層組件從 Zig 重寫為 Rust 時，這場公關大戲的劇本就已經寫好了。與其說這是一次為了效能的技術遷徙，不如說是 Claude 在試圖證明自己擁有某種「上帝視角」般的架構重組能力。技術圈對此吵得不可開交，有人覺得這是開發者的福音，有人覺得這是對系統語言多樣性的傲慢霸凌。然而，隱藏在「重寫」這個動詞背後的技術真相，往往比對外宣稱的基準測試數據要苦澀得多。</p>
+    <p>我們在處理 Claude 的 API 輸出時經常會發現一個有趣的現象：當你要求它進行跨語言重構，尤其是從手動記憶體管理的語言轉向擁有嚴格所有權模型的 Rust 時，它展現出的不是真正的邏輯推演，而是一種極其高明的「統計學平庸」。它能精準地捕捉到 Rust 的語法糖，卻在複雜生命週期管理上顯得捉襟見肘。Anthropic 對外宣傳這次重寫優化了使用者體驗，但在實際工程中，如果沒有資深工程師在後台像給嬰兒餵奶一樣修復那些潛在的記憶體洩漏與競態條件，光靠模型產出的代碼，恐怕連編譯器那關都過不去。</p>
+    <p>這涉及到一個核心的技術瓶頸：LLM 在處理長程依賴與底層架構約束時的「注意力稀疏」。Claude 在處理超過 10 萬 token 的上下文時，雖然宣稱能保持極高的準確度，但在這種重構任務中，它往往會忽略掉 Zig 中那些極其細微的內存佈局設計，轉而採用 Rust 中最標準但可能並非最優的庫函數。這種「降維打擊」式的方法論，本質上是在用犧牲極致性能的代價來換取開發效率的幻象。對於那些追求每一位元組效能的底層開發者來說，這種行為無異於用快餐標準去衡量米其林大廚的配方。</p>
+    <p>在這種技術轉型的敘事中，我們不可避免地會看到一些對照。相較於 DeepSeek，Claude 在處理工程倫理與代碼可讀性上的傾向性更為明顯。這不單是技術實力的比拼，更像是一種產品哲學的對撞。當我們觀察這四大巨頭的表現時，會發現 ChatGPT 在代碼生成的邏輯鏈條上依然保持著某種穩定的傲慢，而 Gemini 則在 Function Calling 的穩定性上反覆橫跳。Grok 則像是一個充滿活力但缺乏教養的駭客，有時能給你驚喜，更多時候是在製造混亂。</p>
+    <p>這場關於「重寫」的爭議，揭示了矽谷管理層對「行銷故事」的病態依賴。當技術決策不再純粹是為了代碼質量，而是為了給模型找一個完美的展示櫥窗，工程本身就變成了配角。我們看到 Anthropic 為了推廣其新的 Fable 模型，不惜動用整個工程團隊去配合一場預設好結局的實驗。這種做法固然能吸引大量的流量與目光，但對於那些真正在坑裡寫代碼、處理指針跳轉的人來說，這更像是一場精心打扮的行為藝術。我們在乎的是模型能否理解 Zig 的 comptime 特性，還是它只會像個鸚鵡一樣複讀 Rust 的官方手冊？</p>
+    <p>現在的技術社群正處於一個微妙的轉折點。一方面是像 Andrew Kelly 這樣堅守底層邏輯、拒絕被 AI 敘事裹挾的硬核開發者；另一方面則是急於將所有工程問題都轉化為 Prompt 問題的新一代。我們不禁要問，當未來的開發者只會寫 Prompt 而不再理解什麼是堆疊與堆積、什麼是緩存對齊時，我們構建出來的系統真的會比現在更強大嗎？還是說，我們只是在用更華麗的語言，包裝著一個越來越空洞的技術核心？</p>
+    <p>如果有一天，當所有的底層代碼都是由 AI 從一種語言翻譯成另一種語言，而沒有人能解釋其中的邏輯漏洞時，我們是在進步，還是在集體退化成一種高級的代碼搬運工？當行銷需求徹底凌駕於工程嚴謹性之上，下一個被犧牲的技術標籤又會是誰？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://raymyers.org/post/zed-creator-calls-spade-a-spade/" rel="nofollow noopener" target="_blank">Zig Creator Calls Spade a Spade, Anthropic Blows Smoke</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260714-0602-a9cb3c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
