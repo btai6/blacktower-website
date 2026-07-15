@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當代煉金術士的行銷表演與程式語言的尊嚴</title>
+<meta name="description" content="Anthropic 最近那篇關於將 Bun 從 Zig 改寫為 Rust 的技術報告，與其說是工程領域的勝利，不如說是一場精心編排的佈道。Andrew Kelly 的憤怒並不難理解，當一個程式語言的創造者看到自己的作品被當作大模型能力的「墊腳石」，那種被冒犯感是生理性的。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260716-0608-568fc3/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當代煉金術士的行銷表演與程式語言的尊嚴">
+<meta property="og:description" content="Anthropic 最近那篇關於將 Bun 從 Zig 改寫為 Rust 的技術報告，與其說是工程領域的勝利，不如說是一場精心編排的佈道。Andrew Kelly 的憤怒並不難理解，當一個程式語言的創造者看到自己的作品被當作大模型能力的「墊腳石」，那種被冒犯感是生理性的。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260716-0608-568fc3/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-16T06:08:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當代煉金術士的行銷表演與程式語言的尊嚴">
+<meta name="twitter:description" content="Anthropic 最近那篇關於將 Bun 從 Zig 改寫為 Rust 的技術報告，與其說是工程領域的勝利，不如說是一場精心編排的佈道。Andrew Kelly 的憤怒並不難理解，當一個程式語言的創造者看到自己的作品被當作大模型能力的「墊腳石」，那種被冒犯感是生理性的。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當代煉金術士的行銷表演與程式語言的尊嚴",
+  "description": "Anthropic 最近那篇關於將 Bun 從 Zig 改寫為 Rust 的技術報告，與其說是工程領域的勝利，不如說是一場精心編排的佈道。Andrew Kelly 的憤怒並不難理解，當一個程式語言的創造者看到自己的作品被當作大模型能力的「墊腳石」，那種被冒犯感是生理性的。…",
+  "datePublished": "2026-07-16T06:08:00+08:00",
+  "dateModified": "2026-07-16T06:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260716-0608-568fc3/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-16 06:08
+  </div>
+
+  <h1 class="title">當代煉金術士的行銷表演與程式語言的尊嚴</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近那篇關於將 Bun 從 Zig 改寫為 Rust 的技術報告，與其說是工程領域的勝利，不如說是一場精心編排的佈道。Andrew Kelly 的憤怒並不難理解，當一個程式語言的創造者看到自己的作品被當作大模型能力的「墊腳石」，那種被冒犯感是生理性的。這件事揭露了一個極其荒謬的現狀：當下的技術決策，正在從「哪種工具更適合解決問題」轉向「哪個故事更能協助模型賣出訂閱」。在 Anthropic 的敘事裡，Zig 的記憶體安全管理成了可以被捨棄的舊衣裳，而 Rust 與其新模型能力的適配性才是皇冠上的明珠。這本質上是一種技術沙文主義，大模型廠商為了證實其「推理能力」與「跨語言遷移能力」，正有預謀地將複雜的底層工程問題簡化為一場關於 Prompt 工程的奇觀。</p>
+    <p>我們在 Claude 的長文本窗口裡看到的，並不是純粹的代碼重構，而是一種基於概率的「模仿性改寫」。當團隊試圖將數萬行 Zig 代碼餵給 Claude 時，模型展現出的那種看似驚人的理解力，實則是對 Rust 社群龐大語料庫的統計回歸。如果你嘗試讓 Claude 處理一些非標準的記憶體佈局，或者要求它在不依賴標準庫的情況下處理異步邏輯，你會發現那種所謂的「自動化改寫」會迅速崩潰成堆棧溢出的災難。Anthropic 宣稱這提升了終端用戶的體驗，但從工程角度看，這更像是在沙基上蓋高樓。他們利用了管理層對「現代化」與「AI 自動化」的迷戀，將一個本該由資深工程師反覆推敲的架構選擇，包裝成了 AI 可以一鍵完成的快餐。</p>
+    <p>這種「以模型為中心」的開發邏輯，正在深刻地改變四大平台之間的競爭維度。ChatGPT 在處理這類大規模代碼重組時，傾向於提供更具模組化的建議，但往往在細節處遺漏邊界條件；Gemini 則依賴其巨大的 Context Window，試圖通讀整個專案，卻常在邏輯深度上顯得力不從心。相較於 Juggler，Claude 的做法是將代碼轉換轉變為一種品牌符號，強化其在開發者心中「最懂程式語言」的幻覺。Grok 則依賴其後端數據的實時性，試圖在最新的函式庫更新中尋找破綻，但其生成的代碼安全性依然令人不安。</p>
+    <p>在這種語境下，技術優劣已經不再是辯論的中心。當 Anthropic 選擇將 Rust 改寫作為宣傳點時，他們實際上是在向市場投餵一種危險的安慰劑：只要模型足夠強，語言的特性、開發者的直覺、甚至系統底層的約束都可以被忽略。Juggler 這種新興動態在社群中激起的微瀾，也只是在這種宏大敘事邊緣的點綴。真正的問題在於，當我們開始習慣用模型來定義程式語言的價值時，我們是否正在失去對底層細節的敬畏？</p>
+    <p>這場爭論背後隱藏著一個更冷峻的預言。如果未來所有的代碼都是為了迎合模型生成的便利性而存在，那麼程式語言本身是否會退化為一種中間表示層（IR）？當初我們追求 Zig 的極致控制感，是為了在有限的資源下壓榨性能；如今 Anthropic 告訴你，只要換成模型更熟悉的語言，性能與安全可以像變魔術一樣憑空出現。這種對技術複雜度的傲慢無視，究竟是開啟了生產力的新紀元，還是僅僅在為下一場更大規模的技術債埋下伏筆？當初為了行銷而改寫的代碼，在五年後需要人工維護時，誰來為那時已經消失的「原始意圖」買單？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://raymyers.org/post/zed-creator-calls-spade-a-spade/" rel="nofollow noopener" target="_blank">Zig Creator Calls Spade a Spade, Anthropic Blows Smoke</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260716-0608-568fc3/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

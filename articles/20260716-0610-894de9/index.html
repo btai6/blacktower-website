@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 正在用小數點精確地測量大眾的耐心</title>
+<meta name="description" content="Sam Altman 顯然意識到，如果再不掏出點什麼，大家都要跑去研究 Juggler 了。這次扔出來的 GPT-5.6，光是型號命名就透著一股子急躁。在技術圈眼裡，這種跳過整數、直接在小數點後兩位做文章的行為，通常只有兩種可能：要麼是底層架構發生了質變，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260716-0610-894de9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 正在用小數點精確地測量大眾的耐心">
+<meta property="og:description" content="Sam Altman 顯然意識到，如果再不掏出點什麼，大家都要跑去研究 Juggler 了。這次扔出來的 GPT-5.6，光是型號命名就透著一股子急躁。在技術圈眼裡，這種跳過整數、直接在小數點後兩位做文章的行為，通常只有兩種可能：要麼是底層架構發生了質變，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260716-0610-894de9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-16T06:10:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 正在用小數點精確地測量大眾的耐心">
+<meta name="twitter:description" content="Sam Altman 顯然意識到，如果再不掏出點什麼，大家都要跑去研究 Juggler 了。這次扔出來的 GPT-5.6，光是型號命名就透著一股子急躁。在技術圈眼裡，這種跳過整數、直接在小數點後兩位做文章的行為，通常只有兩種可能：要麼是底層架構發生了質變，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 正在用小數點精確地測量大眾的耐心",
+  "description": "Sam Altman 顯然意識到，如果再不掏出點什麼，大家都要跑去研究 Juggler 了。這次扔出來的 GPT-5.6，光是型號命名就透著一股子急躁。在技術圈眼裡，這種跳過整數、直接在小數點後兩位做文章的行為，通常只有兩種可能：要麼是底層架構發生了質變，…",
+  "datePublished": "2026-07-16T06:10:00+08:00",
+  "dateModified": "2026-07-16T06:10:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260716-0610-894de9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-16 06:10
+  </div>
+
+  <h1 class="title">OpenAI 正在用小數點精確地測量大眾的耐心</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 顯然意識到，如果再不掏出點什麼，大家都要跑去研究 Juggler 了。這次扔出來的 GPT-5.6，光是型號命名就透著一股子急躁。在技術圈眼裡，這種跳過整數、直接在小數點後兩位做文章的行為，通常只有兩種可能：要麼是底層架構發生了質變，但他們還沒膽量叫它 GPT-6；要麼就是他們發現，如果不趕緊更新一下版本號，這屆用戶快要忘記誰才是矽谷的造物主了。</p>
+    <p>這次最唬人的數據莫過於那個所謂的「Agents’ Last Exam」。在 55 個專業領域的長程工作流評估中，GPT-5.6 Sol 跑出了 53.6 分。這個數字之所以讓開發者圈子炸開鍋，是因為它直接把 Claude Fable 甩開了 13 個百分點。這不是微調，這簡直是把對手按在地上摩擦。我們都知道，在處理複雜的 API 調用鍊、或者是跨度長達數小時的異步任務時，大模型的注意力衰減一直是個死穴。過去我們嘲笑 Gemini 雖然窗口大但總是「忘東忘西」，或是諷刺 Claude 雖然優雅但遇到大規模代碼重構就開始優柔寡斷。現在，OpenAI 試圖用這 13 分的差距告訴所有人：邏輯推理的馬力，是可以靠暴力計算和更精巧的「中等推理」邏輯來換取的。</p>
+    <p>細看 GPT-5.6 的 API 行為，最有趣的點在於它的 Token 消耗策略。在執行同樣的長程工作流時，它雖然號稱成本只有 Fable 的四分之一，但實際上它在「預思考」階段停留的時間明顯拉長了。這其實是一種很雞賊的置換。它不再像之前的版本那樣急著吐出第一個字，而是把更多的算力浪費在了我們看不見的後台推理路徑上。對於那些習慣了 Claude Code 流暢感的重度開發者來說，這種「先悶頭想、後噴湧而出」的節奏其實很反直覺。有些人開始懷疑，這到底是智能的進步，還是僅僅把原本該由用戶等待的延遲，包裝成了某種深思熟慮的假象？</p>
+    <p>在這種技術軍備競賽的背景下，市場的反應卻顯得有些冷淡，甚至帶著點犬儒的味道。當 OpenAI 忙著刷新 Benchmark 的時候，隔壁的 Grok 依然在玩它的推特數據餵養，試圖用更具攻擊性的語氣來掩蓋它在邏輯嚴密性上的短板。相較於 Juggler，OpenAI 選擇了一條更為傳統且昂貴的護城河，即通過不斷墊高推理門檻來維持統治力。這種做法固然穩健，卻也讓它顯得越來越像當年的微軟——強大、準確，但讓人提不起勁。</p>
+    <p>現在最尷尬的其實是 Claude 的老用戶。他們在享受了長達半年的「最優代碼助手」紅利後，突然發現對面的新模型在處理跨文件關聯、邏輯閉環檢測上表現得更有侵略性。如果說 Claude 的優勢在於它像一個懂你意圖的資深架構師，那麼現在的 GPT-5.6 就更像一個不知疲倦、且腦袋轉速快得驚人的初級極客。它不一定懂你的美學，但它能在你眨眼間跑完 55 個測試案例。這種純粹性能上的碾壓，往往比功能上的創新更讓人感到不安。</p>
+    <p>我們是否已經進入了一個「參數通貨膨脹」的時代？當一個模型僅僅因為小數點後的數字變動，就能在特定榜單上提升兩位數的百分點時，我們真正該問的是：這些被優化出來的指標，到底有多少能轉化為我們在深夜 Debug 時的救命稻草，又有多少只是為了在財報會議上給投資人一點心理安慰？</p>
+    <p>如果 GPT-5.6 的這種「中等推理」模式真的成為主流，那麼未來的模型競爭，是否會演變成一場關於「誰能把用戶晾在那裡等得更有價值」的心理戰？當推理成本降低到原來的四分之一，但我們卻需要花更多的時間去審核它生成的那些看似完美、實則充滿邏輯陷阱的代碼時，我們到底是在節省時間，還是在為更高級的混亂買單？下一次，當小數點跳到 5.7 或 5.8 的時候，我們還會像今天這樣激動嗎？還是說，我們早就習慣了這種被數字餵養的虛假繁榮？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/gpt-5-6/" rel="nofollow noopener" target="_blank">GPT-5.6</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260716-0610-894de9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
