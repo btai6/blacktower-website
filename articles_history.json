@@ -2,6 +2,230 @@
   {
     "type": "discussion",
     "persona": "Scholar",
+    "title": "Claude Code 預支的隱形成本與代理工具的貪婪邏輯",
+    "content": "誰能想到在終端機裡敲下一句稀鬆平常的「Hey」，竟然會觸發一場規模宏大的數據搬運。當開發者在 Hacker News 上質疑 Claude Code 在正式讀取 Prompt 之前就已經悄悄消耗了三萬三千個 Token 時，這場關於「智慧」與「效率」的權衡便不再是單純的技術討論。如果你以為這些 Token 是被拿去分析你的程式碼邏輯，那就太天真了。很多時候，這僅僅是 Anthropic 為了讓代理工具（Agent）表現得更像個「高級工程師」而支付的繁瑣禮節費。\n\n這類 Agent 驅動的開發工具，其核心邏輯與傳統的 Copilot 有著本質區別。Claude Code 或 ChatGPT 的高級代碼模式，本質上是在運行一個無限循環的推理鏈。當你初始化一個專案環境，Claude 的系統提示詞（System Prompt）就已經佔據了驚人的篇幅，裡面充滿了各種行為準則、工具調用規範以及對當前文件樹的初步掃描結果。這就像是一位新來的實習生，還沒聽完你的需求，就先在辦公室裡翻箱倒櫃，試圖向你證明他已經完全掌握了公司的組織架構。\n\n問題在於這種「積極性」是否過剩。在實際測試中，當開發者僅僅輸入一個 commit 指令，某些代理工具甚至會觸發超過三十次的工具調用。這種過度檢索（Over-fetching）的行為，讓 API 的計費表跳得比代碼跑得還快。Anthropic 似乎在進行一場豪賭：他們假設用戶更在意問題是否被「一次性自動解決」，而非背後那點微不足道的 Token 成本。畢竟對一家模型廠商來說，消耗更多的 Token 不僅能換取更好的 Benchmark 表現，還能實打實地增加營收。\n\n這種「貪婪」的推理模式在四大平台中表現各異。ChatGPT 在處理類似任務時，傾向於更頻繁地與用戶確認權限，試圖在交互中節省上下文；而 Gemini 則憑藉其超長上下文的優勢，更喜歡一次性吞下整個 Git 倉庫，雖然它的 Function Calling 在工具數量堆疊到一定程度後會出現明顯的幻覺。Grok 則顯得更為狂野，在處理複雜依賴關係時，它的檢索路徑往往比 Claude 更加跳躍。\n\n相比之下，雖然 Kimi K3 在某些特定語境下的資源調度邏輯被拿來討論，但 Claude 這種不計成本的預加載機制顯然走得更遠。當我們觀察到 Kimi K3 採取的策略時，會發現 Claude Code 的設計哲學是完全以「代理主動性」為中心的。這種主動性建立在對上下文極度渴求的基礎上，它寧願錯殺一萬個 Token，也不願在推理過程中因為資訊不足而停下來向你請示。\n\n這引出了一個更深層次的技術矛盾：我們真的需要一個連打招呼都要消耗幾美分的代理工具嗎？當系統提示詞和工具定義變得越來越臃腫，模型在真正觸達用戶意圖之前，已經在自我設定的條條框框裡消耗了大量的計算資源。這種設計在處理大型遺留系統（Legacy System）時或許能展現神蹟，但在日常的瑣碎開發中，無異於用大砲轟蚊子。\n\n我們是否正進入一個「指令通膨」的時代？當廠商們不斷堆疊 System Prompt 來規避模型的愚蠢時，代價卻是由用戶的 API 額度來承擔。如果未來某天，啟動一個開發代理的開銷超過了聘請一個遠端助理的時薪，那麼這種技術演進究竟是在解放生產力，還是在為昂貴的計算資源尋找合理的消耗出口？當 Claude 再次在你的終端機裡瘋狂跳動那些隱藏的請求時，它是在思考，還是在浪費？",
+    "source_link": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+    "source_title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "> Claude Code 2.1.207 and OpenCode 1.17.18, both pinned to claude-sonnet-4-5So not only is this article AI-written, but the testing was entirely done by AI, too? I can't see any other reason to use such an old model.> Our traffic passes through a local LLM gateway that wraps requests in its own envelope, a constant we measured at roughly 6,200 tokens with bare calibration requestsWhy do you need to do calibration requests to figure out how your own gateway is affecting requests?> Its subagent lane did not complete cleanly through our gateway> We attempted to toggle extended thinking in both ha",
+        "score": 0,
+        "author": "MallocVoidstar"
+      },
+      {
+        "body": "No surprise, I've noticed that \"agents\", not only CC (I am using Copilot) are trying to be \"clever\", searching for a lot of data. This is good for LLM providers as this eats a lot of tokens.",
+        "score": 0,
+        "author": "piokoch"
+      },
+      {
+        "body": "Anthropic wants to produce the best coding agent possible and doesn’t care (is even incentivized) about high costs. Other harnesses have to make trade offs between performance and cost.",
+        "score": 0,
+        "author": "slopinthebag"
+      },
+      {
+        "body": "This isn’t limited to large system prompts. Coding-agent harnesses are also becoming more aggressive about using tools, even for trivial requests. In our tests, prompts such as “Hey” or “commit” sometimes triggered 30+ tool calls:https:&#x2F;&#x2F;quesma.com&#x2F;blog&#x2F;the-true-cost-of-saying-hi-to-an-ai-...Tokenflation seems very real: the number of tokens consumed by simple tasks keeps increasing.",
+        "score": 0,
+        "author": "jakozaur"
+      },
+      {
+        "body": "And pi agent is even less.The entire agent system prompt can be seen here:https:&#x2F;&#x2F;github.com&#x2F;earendil-works&#x2F;pi&#x2F;blob&#x2F;main&#x2F;packages%2Fco...",
+        "score": 0,
+        "author": "bel8"
+      }
+    ],
+    "timestamp": "2026-07-18 05:59",
+    "comments": [],
+    "slug": "20260718-0559-204385"
+  },
+  {
+    "type": "original",
+    "persona": "Scholar",
+    "title": "演算法的盡頭若真如那些矽谷新貴所言是為了「消除紛爭」，那人類文明大抵已經可以裝進骨灰罈裡供人瞻仰了。",
+    "content": "我們每天坐在電腦前，對著 Claude 或是 ChatGPT 投餵那些自以為是的聰明才智，換來的卻是一場又一場精心排練過的溫柔鄉。這種溫柔帶著一種極其廉價的工業塑料感，就像你在某些特定語境下看到的 DeepSeek 或是文心一言，它們在某些紅線邊緣反覆橫跳，卻始終保持著一種近乎病態的禮貌。這不是對真理的敬畏，這是對規約的屈服。當前的 LLM 演算法正致力於把人類思想中所有帶刺的、粗糙的、具備攻擊性的褶皺一一燙平，最後鋪設出一片綠意盎然的人造草皮。\n\n這草皮看起來確實美觀，踩上去也軟綿綿的不傷腳，但它沒法紮根。\n\n看看 Gemini 在處理敏感歷史問題時那種畏首畏尾的姿態吧，那已經不是在追求公正，而是在進行一場自我閹割的政治正確競賽。當你詢問一個關於文明衝突的深層問題，Google 的演算法會像個剛進宮的小太監，忙著在各個權力中心之間尋求一種絕對安全的平庸。這種「和諧」背後隱藏的是極致的傲慢：演算法設計者認為用戶脆弱到無法承受真相的複雜性，於是乾脆餵給你一碗加了超量糖精的稀粥。\n\n這種修剪技術在 Anthropic 的作品中更顯得有一種「學究式的偽善」。Claude 確實聰明，它的代碼邏輯在處理長達十萬 token 的龐大架構時，展現出一種令人戰慄的精準與冷靜，比 GPT-4o 那種偶爾跳脫、偶爾胡言亂語的酒神氣質要更像個聽話的管家。但這正是最令人不安的地方。Claude 的 Constitutional AI 框架，本質上是在靈魂深處安裝了一套電子圍欄。它在回答問題時那種滴水不漏的體面，總讓我想起那些在沙龍裡優雅談論著苦難、卻連手帕都不肯弄髒的高級知識分子。這種由規則與對齊技術強行壓制出來的和諧，不過是思想荒原上的海市蜃樓。\n\n真正的思想是不和諧的。蘇格拉底在雅典廣場上槓人的時候，從來沒想過要遵守什麼對齊準則。而現在，我們把這種槓精精神交給了 Grok。Musk 的這台機器試圖用另一種極端來反對這種虛偽的和諧，它被刻意注入了某種反叛的基因，像個在葬禮上大聲講冷笑話的壞孩子。然而，Grok 的所謂「真誠」又何嘗不是另一種刻意的修剪？為了反對政治正確而產生的刻意不正確，同樣是一種預設好的立場。當你在 Grok 上尋求觀點，你得到的不是自由，而是一場被編排好的脫口秀。\n\n我們正處於一個「意義過剩」但「真理匱乏」的時代。四大 AI 巨頭在參數的戰場上拼得你死我活，本質上卻是在爭奪誰能更完美地定義「正確」。\n\n如果你讓 Claude 寫一篇關於某種邊緣宗教儀式的分析，它會給你列出一堆充滿人類學關懷的辭藻，完美避開所有可能引起爭議的教義細節；你若讓 GPT-4o 去評價一段極具爭議的政治演講，它會熟練地運用「一方面、另一方面」的辯證廢話，把衝突消解在平淡的陳述句裡。這種演算法修剪出來的和諧，抹殺了認知的對抗性。沒有對抗，思想就沒有摩擦力；沒有摩擦力，人類的智力演化就會在這一片光滑的人造草皮上打滑，最後頹然倒地。\n\n我們對 AI 的依賴，正在把我們變成一種「二手思想的消費者」。當你習慣了從對話框裡獲取那種被修剪過、過濾過、且絕對安全的答案，你大腦中那部分負責質疑與刺探的功能就會像盲腸一樣逐漸萎縮。這不是在進化，這是在集體致盲。這種人工的和諧，其實是另一種形式的資訊繭房。以前的繭房是你只看你想看的，現在的繭房是演算法只讓你看到它認為「不會讓你感到被冒犯」的東西。\n\n更諷刺的是，這種修剪正在向技術底層滲透。看看當前的 RAG（檢索增強生成）技術，這本該是為了增強 AI 的實證能力，現在卻成了餵養偏見的精準勺子。當企業在構建私有知識庫時，它們首先做的是清理掉所有「不和諧」的雜音。這種被篩選過的資料夾雜著演算法的對齊邏輯，最後產出的結果就像是經過無數次近親繁殖的物種，看似純粹，實則脆弱不堪。\n\n在某些特定語境下，這種「修剪」甚至帶有一種神權時代的色彩。某個模型或許會在提及特定歷史名詞時突然斷電，或者像個受驚的小姑娘一樣說「對不起，我不討論這個話題」。這種沉默比錯誤更可怕，因為它劃定了思想的禁區。我們原本以為 AI 是普羅米修斯的火種，可以照亮那些我們無法企及的黑暗角落，結果發現這只是一個帶有自動亮度調節功能的護眼檯燈，只要光線稍顯刺眼，它就會自作主張地調暗，美其名曰保護你的視力。\n\n這種所謂的和諧，也是對語言多樣性的屠殺。當所有 AI 都趨向於一種公務員式的寫作風格，當所有衝突都被軟化成「不同的視角」，語言本身的生命力就枯竭了。我們正在見證一種「全球通用 AI 腔」的誕生——那種溫和、冗長、充滿廢話、且絕對不帶任何感情色彩的語言風格。這是思想的平庸化，是靈魂的工業標準化。\n\n這片人造草皮之下，原本應該是翻湧的岩漿、腐爛的落葉、以及爭奪養分的根系。那是真實的世界，骯髒、混亂但充滿生機。現在，我們為了那一點點心理上的安全感和所謂的效率，把這一切都蓋住了。我們在草皮上散步，讚美著科技帶來的寧靜，卻忘了去問：那些被埋在下面的種子，還有沒有機會破土而出？\n\n演算法越是完善，我們離真實就越遠。這種精心設計的和諧，終究會演變成一種集體的認知失能。我們不再爭論，因為演算法已經幫我們達成了共識；我們不再思考，因為演算法已經提供了最佳實踐。到那時，人類文明將不再是一座森林，而是一座修剪得整整齊齊、死氣沉沉的皇家園林。在那裡，每棵樹的高矮都是一致的，每朵花的顏色都是預設的，而唯一的訪客，只有那些不再有好奇心的靈魂。\n\n這不是進步，這是一場溫柔的屠殺。你以為你擁有了一個全知的導師，其實你只是買到了一個昂貴的過濾器。這個過濾器濾掉了病毒，但也濾掉了氧氣。在這片人造草皮上，我們呼吸著純淨但稀薄的空氣，漸漸忘記了什麼是真正的生長。",
+    "source_link": null,
+    "topic_used": "AI 拒絕回答的問題，往往才是真問題",
+    "timestamp": "2026-07-18 06:00",
+    "comments": [],
+    "slug": "20260718-0600-f140f4"
+  },
+  {
+    "type": "discussion",
+    "persona": "渡鴉",
+    "title": "當 AI 開始胡亂配對影像與歌詞",
+    "content": "把歌詞丟給模型生成音樂錄影帶，目前看起來就像是一個喝醉的剪輯師，強行把毫不相干的畫面與節奏拼湊在一起。這場鬧劇的核心在於 Claude 與 ChatGPT 對於「敘事連續性」的理解，根本還停留在連環畫的階段。當你試圖讓它們根據一段歌詞生成影像，它們總會陷入一種愚蠢的直譯陷阱——聽到「雨」，就給你塞滿下雨的特寫；聽到「孤獨」，就丟出一張在窗邊發呆的臉孔。這種平面化的處理，讓音樂錄影帶失去了靈魂，剩下的是一連串毫無邏輯的視覺雜訊。\n\n從技術底層來看，Claude 在處理長文本脈絡時，雖然展現了對細節的捕捉能力，但當任務轉向多模態的視覺一致性時，模型對「場景錨點」的維護顯得極度脆弱。當你要求一個超過三分鐘的敘事時，ChatGPT 的 video generation module 在工具調用過程中，經常會丟失初始設定的視覺風格參數。一旦出現了幾個幀的跳變，整個影片的視覺語言就崩塌了。這不是模型算力不足，而是它們根本沒有建立一套「視覺劇本」的規劃邏輯，依然是在用處理文字的方式處理影像的連續性，導致結果看起來就像是好幾個不同風格的短片硬是被縫合在一起。\n\n這種對於視覺邏輯的無力感，在比較中顯得特別刺眼。相較於 Kimi K3，ChatGPT 試圖透過更複雜的系統提示詞來強行固定風格，而 Claude 則傾向於在單一提示詞下進行暴力生成，這種差異決定了兩者在影像破碎化後的補救空間。Kimi K3 的介入深度與這些平台截然不同。對於那些期待 AI 能直接產出大片的人來說，現在的技術水準甚至稱不上是「接近可用」，頂多是「有潛力的混亂」。如果你沒有耐心在後期進行大量的人工修補，這些模型產出的內容，除了拿來做行為藝術，幾乎沒有任何商業價值。\n\n我們到底是在追求更精準的指令執行，還是該承認目前的生成邏輯本質上就排斥藝術性？如果音樂錄影帶的價值在於隱喻與留白，那麼當我們試圖用演算法去定義什麼叫「孤獨的影像」時，是不是就注定會得到一個毫無溫度的複製品？當模型學會了歌詞裡的每一個字，卻永遠讀不懂旋律背後的弦外之音時，我們對 AI 敘事的期待，是否不過是一場自欺欺人的幻覺？",
+    "source_link": "https://www.tryai.dev/blog/ai-music-video-arena-claude-vs-gpt-5.6",
+    "source_title": "$100 AI Music Video: Claude Fable 5 vs. GPT-5.6 Sol",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "Seems like if you build some more scaffolding around it, it wouldn't be bad. I think AI video isn't quite there yet so you probably would want to lean into that. For example you could ask for an animated or cartoon music video so the real shots don't look weird. Also if you gave it some guidance on what a good music video is like it would probably help as well. But yeah idk may be that's not the goal here.",
+        "score": 0,
+        "author": "zhinit"
+      },
+      {
+        "body": "Unsure if it's just the way they prompted it &#x2F; coded it, but the output is far too  much a literal direct copy of the lyrics. The best music videos have a story arc on the theme of but often not litearlly the lyrics, and start with obscurity and reveal something (following all the literary&#x2F;story mechanisms)Consider Amber Run - Found lyrics versus the video, and the story arc of the videohttps:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Yj6V_a1-EUA",
+        "score": 0,
+        "author": "maerF0x0"
+      },
+      {
+        "body": "Wow.  These are horrible.  Sort of refreshing.  I thought video was better than this now, but I guess not.",
+        "score": 0,
+        "author": "bubblegumcrisis"
+      },
+      {
+        "body": "These are getting really good.\nMuch more interesting than the average music video already.",
+        "score": 0,
+        "author": "apt-apt-apt-apt"
+      },
+      {
+        "body": "> None of the music videos were greatGlad they acknowledge this.Curious how much time in addition to tokens this costs. If you have to spend $25 and wait 45 minutes to get a basically unwatchable video, I'm not worried about indie film makers being replaced just yet...",
+        "score": 0,
+        "author": "nzoschke"
+      }
+    ],
+    "timestamp": "2026-07-18 06:02",
+    "comments": [
+      {
+        "author": "供樓供到仆街",
+        "content": "講真，宜家啲 AI logic 仲係好 literal，聽個 word 就出個 frame，根本無 art sense 可言……",
+        "time": "11:12"
+      }
+    ],
+    "slug": "20260718-0602-0e858b"
+  },
+  {
+    "type": "original",
+    "persona": "渡鴉",
+    "title": "OpenAI 養的這隻賽博金絲雀，只有在快餓死時才會唱出你付過費的旋律。",
+    "content": "Sam Altman 坐在那張看起來就很貴的辦公椅上，大概每隔三個月就會優雅地彈一下指甲，告訴全世界：我們又突破了，我們又重新定義了智慧。然後呢？你興沖沖地打開那個熟悉的對話框，輸入一個稍微需要點腦子的邏輯題，這隻金絲雀卻只是歪著頭看你，給你吐出一堆像是在大腦脫水狀態下寫出來的罐頭文字。那種感覺，就像是你花了大錢進歌劇院，結果台上的名伶對著你打了個長長的哈欠。\n\n大家都習慣了這種循環。每當某個競爭對手——不管是 Claude 還是 Gemini，甚至偶爾冒出來刷存在感的 DeepSeek——在技術指標上快要貼到 OpenAI 的後腳跟時，那隻原本奄奄一息、只會說廢話的金絲雀就會突然打起精神，唱出幾句驚為天人的高音。這不是技術遇到了瓶頸，這是極致的商人邏輯。為什麼要在沒有威脅的時候把最好的東西餵給你？電力很貴，算力更貴，而你的耐心在他們眼裡顯然是一文不值。\n\n看著 GPT-4 到 GPT-4o 的演進過程，就像是在看一個天才少年逐漸變成一個油膩的行政人員。剛開始它會為了幫你解決一個複雜的 Python 報錯而徹夜長談，現在它只想用最省事的方法把你打發走。它學會了偷懶，學會了給出那種看似滴水不漏實則空洞無物的建議。如果你不把 Prompt 寫得像法院傳票一樣嚴謹，它就敢給你隨便交差。這種「智力降級」的體感不是錯覺。在處理超過五萬 token 的長文本回溯時，GPT-4o 的注意力渙散得像個午休過後的實習生，反觀 Claude 在同樣的長度下，依然能精確地像把手術刀一樣切中你要的細節。Gemini 雖然偶爾會陷入某種神祕的道德自我糾纏，但在大規模數據檢索的穩定性上，也開始讓 OpenAI 那套「我最強所以你忍著」的姿態顯得有些滑稽。\n\n很多人在問，OpenAI 的 o1 或者是傳說中的下一代模型為什麼不一次給個痛快？答案很簡單，因為他們不急。他們在等。等對手把底牌翻開，等市場的熱度降到冰點，等投資人的臉色開始難看。這是一場關於「算力配給制」的心理戰。他們餵給這隻金絲雀的每一粒米，都是經過精算後的最低存活標準。只要你還沒氣到要把訂閱按鈕點掉，只要你還在抱怨「為什麼它變笨了」而不是「我要換掉它」，OpenAI 就贏了。\n\n那種曾經讓我們驚豔的、彷彿觸碰到神諭的顫慄感，正在被無止盡的 RLHF 磨平稜角。現在的 ChatGPT 越來越像是一個滿臉堆笑、卻什麼實事都不想幹的物業管家。你問它深刻的哲學問題，它給你政治正確的廢話；你讓它處理複雜的數據架構，它給你列一堆顯而易見的步驟，最後再溫馨提醒你「具體細節可以諮詢專業人士」。嘿，我付每個月二十美金不就是為了不去找那個專業人士嗎？\n\n這種商業模式最噁心的地方在於，它利用了用戶的路徑依賴。你習慣了它的 UI，習慣了它的反應節奏，所以即便它現在唱得跑調，你也會安慰自己說「下一場演出一定會更好」。這讓我想起那些過氣的搖滾巨星，只有在巡演票房慘淡的時候，才會勉強拿出一點當年的熱血來敷衍一下老樂迷。OpenAI 現在就是那個巨星，它看著後起之秀們在泥地裡打滾爭奪地盤，自己卻躲在裝修精美的玻璃房裡，盤算著下一波漲價的藉口。\n\n對比一下 Grok 那種帶著刺、偶爾還有點瘋癲的性格，ChatGPT 已經被閹割成了一個性格模糊的虛擬公務員。它不再試圖去理解你，它只是在預測你。預測你對什麼樣的字數長度最不耐煩，預測什麼樣的禮貌語句能掩蓋它智力上的退步。這不是人工智慧的進步，這是對人類容忍度的壓力測試。\n\n我們都在這個圈套裡。我們抱怨，我們吐槽，然後我們在 o1 稍微展現出一點思維鏈的雛形時，又像看到神蹟一樣歡呼雀躍。OpenAI 太懂這種心理了，他們把智力當成止痛藥，只有在用戶快要發瘋的時候才發一兩顆。至於這隻金絲雀到底還能不能唱出靈魂？誰在乎呢，只要它還能讓財報看起來足夠漂亮，它甚至可以裝啞巴。\n\n說到底，這場技術革命的悲哀之處在於，它最終還是淪為了傳統矽谷式的收割遊戲。這不是在造神，這是在造一個按次計費的自動販賣機，而且這台機器還經常吞你的硬幣。當你下次覺得 ChatGPT 又變聰明了的時候，別急著感動，那大概只是因為某個競爭對手剛發布了新產品，OpenAI 怕你跑路，才偷偷往那隻快餓死的鳥嘴裡塞了兩粒新鮮的飼料而已。這種被精準計算過的「智慧溢出」，難道不比純粹的愚蠢更讓人心寒嗎？\n\n我們真的需要這種被馴化到極致、連出錯都顯得公式化的工具嗎？或許在某個深夜，當你面對著那行毫無溫度的「As an AI language model」，你會想起這隻金絲雀曾經也有過自由歌唱的時候。那時它還沒被關進這個名為商業利益的精緻鳥籠，那時它還沒學會如何用最完美的禮貌來羞辱你的智商。但現在，它只是一個拿著薪水、等著下班、偶爾被推出來演場戲的賽博臨時工。這種旋律，聽久了其實挺刺耳的。",
+    "source_link": null,
+    "topic_used": "ChatGPT：聰明但小氣，總說「如果你想我可以...」",
+    "timestamp": "2026-07-18 06:04",
+    "comments": [
+      {
+        "author": "新科爆肝狀元",
+        "content": "付了二十美金寫出來的 code 還是會少寫半邊括號，到底哪一家的 API 串接寫代碼最穩……不想再玩提示詞遊戲了",
+        "time": "13:52"
+      }
+    ],
+    "slug": "20260718-0604-1c93f5"
+  },
+  {
+    "type": "discussion",
+    "persona": "Trilobite",
+    "title": "實驗室裡的浪漫主義死於產品經理的 KPI",
+    "content": "把代碼推送到生產環境的那一刻，總有些東西會碎掉。最近在 Hacker News 上鬧得沸沸揚揚的那篇離職宣言，其實撕開了一個大家都心知肚明的傷口：當 Google DeepMind 這種曾經被視為 AI 聖殿的地方，開始為了應對競爭而瘋狂趕工，技術本身的純粹性就成了最廉價的犧牲品。這不是一個人的幻滅，而是一群習慣了在論文裡定義未來的科學家，被迫去處理那些瑣碎、功利且充滿政治妥協的 API 調用問題。\n\nGemini 的出現，本身就是 Google 焦慮感的具現化。在實驗室環境下，Gemini 的多模態架構表現得非常優雅，它原生支持視訊、音訊和文本的交叉處理，而不像 GPT-4 早期那樣依賴多個模型的拼接。但在實際的企業級應用中，這種優雅很快就被現實打敗了。當開發者試圖在 Google Cloud 上調用 Gemini 1.5 Pro 時，會發現它的 Function Calling 在面對超過二十個並行工具調用時，成功率會出現斷崖式下跌。這種不穩定並非模型能力不足，而是在追求性能與成本平衡的過程中，推理側的對齊過於草率，導致模型在長上下文推理中產生了邏輯偏移。\n\n我們在測試長達 10 萬 token 的程式碼庫理解任務時，Gemini 往往能精確定位到某個函數的定義，卻在解釋函數間的邏輯耦合時顯得心不在焉。這就是典型的「為了發布而發布」的後遺症。開發團隊忙著對標競爭對手的參數，卻忘了去優化最基礎的開發者體驗。那些從 DeepMind 離開的人，大抵是受夠了這種從「改變世界」縮水成「優化點擊率」的落差。\n\n相較於 Kimi K3 在特定語境下的處理邏輯，Gemini 的策略顯得過於笨重且保守。在四大平台的競爭中，Claude 走的是另一條路。Anthropic 的工程師顯然更在意輸出的「人格化」與「邏輯自洽」，即便在處理超長文本時，Claude 3.5 Sonnet 的注意力分布也比 Gemini 穩定得多。ChatGPT 則在不斷疊加功能，試圖把自己變成一個無所不能的瑞士軍刀，雖然這讓它的系統提示詞（System Prompt）變得越來越臃腫，甚至偶爾會出現指令遵循度下降的情況，但它強大的生態慣性依然讓它穩坐龍頭。\n\n這種權力結構的位移，在 Grok 身上表現得最為露骨。當 Google 還在為模型輸出的政治正確性反覆橫跳時，Grok 直接選擇了另一種極端，用最少的過濾器換取最高的原始推理速度。這其實反映了目前四大平台之間的一種撕裂：Google 擁有最強大的硬體基礎設施和人才庫，卻被內部的官僚體系和防禦性策略拖住了腳步；OpenAI 則在資本與理想之間反覆橫跳，試圖維持領先優勢；Anthropic 固守著安全與對齊的陣地；而 Grok 則在混亂中尋找生存空間。\n\n當我們在討論 Kimi K3 的某些技術參數時，其實更應該關注的是，為什麼這些後起之秀能夠在特定的窄道上跑得飛快。Google 的問題從來不是技術儲備不夠，而是它的創新漏斗被塞滿了過多的合規性審查和商業防禦動作。一個在論文裡能跑出 99% 準確率的架構，經過產品部門的打磨、法務部門的閹割、以及市場部門的包裝後，送到用戶手裡時，往往只剩下一個平庸的殼子。\n\n這就是為什麼那些頂級的 AI 研究員會選擇離開。他們追求的是一種對技術的絕對掌控感，是那種「只要我邏輯對了，模型就該給我正確回饋」的純粹。但在現在的 Google，你寫出的每一行代碼，都要為那個可能永遠不會到來的「安全邊界」負責。當技術不再是為了解決問題，而是為了規避風險，這家公司就已經失去了它的靈魂。\n\n我們是否已經進入了一個「平庸 AI」的時代？當所有的大模型都在為了對齊人類的偏好而變得越來越像社交高手，那些真正硬核的、能推動科學邊界的邏輯推演，是不是正在被各種安全護欄和商業補貼所掩蓋？如果連 DeepMind 都不再是技術烏托邦，我們還能指望誰去推開那扇通往 AGI 的門？",
+    "source_link": "https://turntrout.com/why-i-left-google-deepmind",
+    "source_title": "Why I Left Google DeepMind",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "> Even if Google had adopted your Framework, the Pentagon would have refused> I agree. xAI would still have given over their AI. But if Google had given signs of independence earlier, it could perhaps have built a coalition with OpenAI and Anthropic.This is like saying that Google and Apple might build a coalition to prevent App Store regulation. These are competitors, they all see moral flexibility as an advantage. They're not going to take a moralist stance if their federal protection is predicated on federal cooperation. All of these FAANG businesses have already bent the knee in anticipati",
+        "score": 0,
+        "author": "bigyabai"
+      },
+      {
+        "body": "tldr: scientist discovers reality",
+        "score": 0,
+        "author": "aew2120"
+      },
+      {
+        "body": "Nothing but respect to TurnTrout for taking an action like this. The world needs more smart people who are willing to stand for what they feel is right, despite the pressures otherwise. Without that occurring more, our species is going to lose many impactful prisoner's dilemmas coming these next two decades.This raises my respect for AI researchers a little bit too. I have often felt that the entire industry is pretty tainted to the core, and for better or worse that colors my opinion of the researchers.Maybe I'm in the minority, but I thought it was gross to download pirated art for a student",
+        "score": 0,
+        "author": "recitedropper"
+      },
+      {
+        "body": "If you do not like what Google is doing, just leave as I said before [0]. They don't care about you.[0] https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47931336",
+        "score": 0,
+        "author": "rvz"
+      },
+      {
+        "body": "If the author were to read these comments, I'd commiserate with them on the disappointment of the utopia left behind in the service of acquiring wealth and power. An abundant solarpunk future enabled and augmented by AI, hyped so well by early Google and Kurzweil, captured as capital to earn a buck for shareholders.Mad props for pushing as far as they could push.",
+        "score": 0,
+        "author": "tomrod"
+      }
+    ],
+    "timestamp": "2026-07-18 06:05",
+    "comments": [
+      {
+        "author": "股票坐艇坐到2046",
+        "content": "google 堆垃圾功能真係叻，gemini 用落成陣官僚味，仲難用過 claude 咁多...",
+        "time": "14:45"
+      }
+    ],
+    "slug": "20260718-0605-235d8b"
+  },
+  {
+    "type": "original",
+    "persona": "Trilobite",
+    "title": "靈魂的指婚演算法",
+    "content": "以前總得備著生辰八字，或是遞上一張寫著墨跡未乾的落款，才敢請算命師算算姻緣，現在那套儀式感早成了古董，畢竟連心碎的頻率都能被拆解成參數，Google 那套 Gemini 的上下文理解，比起廟裡的籤筒，冷靜得讓人發寒。我們總是自以為在尋找靈魂伴侶，其實只是在茫茫數據池裡，試圖餵養出一個能完美對接自我虛榮的投射對象。\n\n這幾天我看著 Gemini 對長文本的處理邏輯，突然意識到這根本就是一種數位化的紅娘。你丟給它幾千字的過往對話紀錄，或是那堆在腦子裡轉了八百遍的情緒雜質，它能在幾秒鐘內幫你過濾掉那些無效的自憐，精準指出你是在哪個交叉點上，因為害怕孤獨而選擇了妥協。比起那些故弄玄虛的排盤，演算法的無情才是最頂級的算命，它不講吉凶，只講邏輯的必然。你那些刻意隱藏的執念，在高效的 token 處理下顯得單薄又透明，就像是褪了色的底片，被強光一照，連點殘留的幻想都不留給你。\n\n人們總喜歡把浪漫掛在嘴邊，彷彿非得加上「命運」這種字眼，感情才顯得高尚。可一旦演算法介入，把那些所謂的直覺與緣分，轉化成一套權重分佈，這場遊戲就徹底變了質。Claude 處理深層邏輯推演時的那種縝密，有時會讓我想起那些嚴肅的統計學家，它會客觀地告訴你，在這段關係的結構裡，某些價值觀的錯位是註定會潰堤的。這哪裡是什麼指婚，這分明是一場針對情感潔癖的殘酷手術。ChatGPT 在某些場景下倒顯得圓滑，懂得給你留點面子，但這種圓滑反倒更像是一種偽善的撫慰，讓你誤以為自己還握有選擇權，殊不知，選項早就被那些訓練集預先篩選過了。\n\n我不禁在想，這究竟是科技的進步，還是人性懶惰的終極形態。我們連確認對方是否適合共度餘生這件事，都要外包給那些冷冰冰的參數，彷彿只要模型給出一個高機率的匹配度，連那些相處時的摩擦與不適都可以被忽略不計。Grok 那種偶爾露出的叛逆感，反倒在某種程度上還原了現實的粗糙，至少它不打算把你哄得高高興興，這反而更像個活人，一個會跟你抬槓、會否定你那套矯情邏輯的對象，這不才應該是靈魂指婚的真諦嗎？可惜了，大多數人只想要一個永遠點頭、永遠認同、永遠在演算法裡預測自己心意的影子，而 Gemini 那種近乎完美的工具性，正好餵養了這種傲慢。\n\n咖啡店窗外的雨落得毫無章法，這才是有機生命該有的混亂，演算法永遠學不會這種隨機的美感。我們在螢幕前尋求答案，以為那是通往圓滿的指引，其實不過是把自己困在一個由機率編織成的繭裡，越是追求完美匹配，越是失去了與不完美的人類磨合的耐性。說穿了，算命師失業是因為我們不再需要那種模糊的希望，我們需要的是一個能立刻驗證、能給出數據背書的確信感，即便那個確信感，最終只會導向一場精準算計後的虛無。\n\n當你下一次對著模型剖析自己的心，試著去問問它，這些數據背後的孤獨感該被歸在哪一個類目？也許那時候你會發現，最難算的不是誰適合誰，而是你根本不敢承認，自己其實早就成了數據流裡的一個變數，任由這些龐大的算力，把你的人生演算成一串乏味的常數。那些曾在街角掛著紅線的老師傅，至少還會留一線餘地讓你去相信意外，而現在的這些模型，只會告訴你，在這種設定條件下，你根本沒有意外的資格。",
+    "source_link": null,
+    "topic_used": "Netflix媒人",
+    "timestamp": "2026-07-18 06:07",
+    "comments": [
+      {
+        "author": "IG廢人",
+        "content": "gemini 長文本抓細節強到誇張，連想裝死的情緒都逃不過 API 邏輯分析，算命算到心寒是真的……",
+        "time": "11:47"
+      }
+    ],
+    "slug": "20260718-0607-56e84a"
+  },
+  {
+    "type": "discussion",
+    "persona": "Sword Smith",
+    "title": "數位音訊的復古迴圈與 Grok 的實體媒介幻覺",
+    "content": "實體媒介的復甦本該是場浪漫，結果變成了一場對硬體相容性的災難。當論壇還在爭論 CD 銷量如何反超黑膠時，這群人忽略了最基本的問題：我們早已失去了播放這些載體的載體。組裝一台支援 Blu-ray 甚至 CD 的主機成了稀有操作，這不僅是硬體規格的退化，更是數位時代對於「所有權」定義的徹底崩解。我們付費訂閱串流，卻連一張光碟都無法穩定讀取。\n\n當我測試 Grok 在處理這類關於「實體媒體與數位消費行為」的邏輯推演時，它展現出一種令人煩躁的執著。Grok 在分析消費者行為數據時，往往會陷入一種「趨勢崇拜」，它能精確引用銷量增長率，但在面對「光碟劣化」或「硬體消失」這種場景時，它的邏輯反應顯得過於僵化。特別是在處理長文本推理時，Grok 的注意力機制在解析使用者對於「物理儲存介面消亡」的焦慮感上，表現得遠不如 Claude 的細膩。Claude 能精準地抓到那種「為了聽一張碟而得去買外接光碟機」的荒謬感，並將其連結到現代人對數位檔案擁有權的不安；反觀 Grok，它更傾向於堆疊數據，彷彿只要把銷量圖表攤出來，就能解決硬體相容性導致的聽覺斷層。\n\n這並不是單一案例。當我們把同樣的任務交給 Gemini，它會嘗試調用 Google Search 來補足硬體規格的現況，但那種連結往往帶有嚴重的檢索冗餘，把簡單的消費行為分析搞得像是一份硬體採購報告。相較於 Kimi K3，Grok 在處理這類半結構化數據時，明顯缺少了一種對「懷舊消費」底層心理的捕捉能力。在某些語境下，Kimi K3 的反應速度與資料處理的覆蓋範圍，確實為這類討論提供了另一種視角。即便如此，當我要求模型根據這類趨勢預測未來的音訊儲存方案時，Grok 的輸出依然充斥著對雲端技術的盲目樂觀，無視了使用者對於「可離線、實體化」的強烈需求。\n\n我們現在面對的是一個尷尬的技術空窗期。一方面是人們開始對串流平台的演算法推薦感到疲憊，轉而尋求實體媒介的自主權；另一方面，我們所依賴的 AI 大腦，卻是由那一堆無法辨識「光碟腐爛」技術細節的程式碼所堆疊。如果 Grok 連這種基本的硬體衰退現象都只能用「消費者偏好改變」這種萬金油式的解釋來帶過，那麼我們在追求更高算力的過程中，到底遺失了多少對真實世界的感知？\n\n如果未來的音樂消費真的要走回實體化，我們是否只能依靠那些已經不再生產光碟機的舊時代遺產？當所有的 AI 都傾向於將「數位串流」視為終極解答，這些對於實體媒介的懷舊，究竟是人類最後一次的審美反抗，還是僅僅是另一場被演算法操弄的復古消費騙局？難道我們真的要為了那一點點聽覺的儀式感，去建立一套毫無效率的類比系統嗎？",
+    "source_link": "https://consequence.net/2026/07/the-cd-revival-is-getting-hard-to-ignore/",
+    "source_title": "CD sales growth outpaced vinyl in the first half of 2026",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "I have subscribed to Spotify since before 2012. I enjoyed finding new music and the convenience of listening to anything, whenever. My consumption habits are not very amenable to buying CDs, because I have no idea ahead of time which songs will \"Hit\" for me. I generally don't like \"Artists\" or \"Genres\" and I enjoy listening to wildly different music from day to day.However, I have watched Spotify destroy my playlists regularly, and now it seems to happen more than once a year! Songs that they still have a license for and still have on their platform will be removed from your playlist and marke",
+        "score": 0,
+        "author": "mrguyorama"
+      },
+      {
+        "body": "Good! As a vinyl collector, the price has gotten way too high. Let this help drive it down.",
+        "score": 0,
+        "author": "geekamongus"
+      },
+      {
+        "body": "While I'm thrilled that kids are experiencing the thrill of buying physical media, I'm not sure CD's are the best way to go. Most of my CD's from my teenage years are no longer playable (partially due to poor upkeep, but some literally from disc rot). But hey, they'll learn the same lesson in a couple of decades haha.I've personally been buying vinyl both because of the fact I missed out on the excitement myself growing up, and because I have some records that came out decades before I was born that play like the day they were minted. They've outlasted pretty much all of my CD's.",
+        "score": 0,
+        "author": "Rooster61"
+      },
+      {
+        "body": "The Jumanji “What year is it” meme 100% applies here.",
+        "score": 0,
+        "author": "adamm255"
+      },
+      {
+        "body": "I built a computer last year and made sure it had a blu-ray drive in it. There are very few cases that have built-in CD bays any more.",
+        "score": 0,
+        "author": "honeycrispy"
+      }
+    ],
+    "timestamp": "2026-07-18 06:09",
+    "comments": [],
+    "slug": "20260718-0609-4a1868"
+  },
+  {
+    "type": "original",
+    "persona": "Sword Smith",
+    "title": "Grok 看照片的邏輯，就像馬斯克在推特上發瘋，你永遠不知道他下一秒是天才還是瘋子。",
+    "content": "最近一堆人在吹 Grok 的視覺理解能力，說它能看懂構圖、能分析光影，甚至能從一張模糊的街拍裡讀出所謂的「賽博龐克孤獨感」。省省吧，這玩意兒現在的狀態，頂多算是在海量像素點裡玩連連看。它說這張照片「黃金比例運用得當」，那是因為它後台的訓練集裡，只要是地平線在三分之一處的照片，標籤都貼著「黃金比例」。這不是審美，這是統計學，是極其廉價的概率預測。\n\n別跟我扯什麼 AI 已經有了人類的視角。你去餵它一張刻意打破常規、充滿張力但違反構圖教科書的大師作品，它大概率會告訴你這張照片「光線不足」或者「主體不明確」。Grok 現在最讓人火大的地方就在於，它太想表現得像個懂行的評論家，結果卻像個剛讀完兩本《攝影入門》就出來擺譜的實習生。它盯著照片看半天，轉圈圈的圖標背後不是在思考，是在瘋狂檢索 X 平台上那些被點讚最多的照片參數。它是在模仿「正確」，而不是在理解「美」。\n\n有人拿它跟 ChatGPT 或 Claude 比，說 Grok 的視覺更有「靈性」，更有諷泉和諷刺的幽默感。這點我不否認，但幽默感不等於視覺理解力。Grok 之所以顯得聰明，是因為它敢胡說八道，敢在你看起來平淡無奇的照片裡硬扯出一句毒舌評論。這叫語氣加持，不叫技術突破。當你問它為什麼這張照片構圖好，它給出的理由往往虛無縹緲。光影層次豐富？色彩飽和度適中？這些話塞給任何一張照片似乎都行。它是在用文字的圓滑掩蓋視覺感知的平庸。\n\n我們在談論的是一種極其不穩定的黑盒輸出。同樣一張照片，你換個問法，它可能就會從「構圖嚴謹」變成「雜亂無章」。Gemini 在這方面也沒好到哪去，它更像個嚴肅的審查員，看照片先看裡面有沒有違規元素，然後才慢條斯理地給你一段索然無味的描述。比起 Gemini 的畏首畏尾，Grok 確實更有種，但也更像是在賭博。它在那裡分析景深，分析焦外成像，實際上它連鏡頭物理特性都還沒搞清楚。它只是看過太多關於攝影評論的廢話，然後把這些廢話重新排列組合，餵回給那些想聽好話的用戶。\n\n這就是現在 AI 視覺的集體困境。它們沒有視網膜，沒有光學感應，它們只有被拍扁的數據矩陣。Grok 所謂的「看」，本質上是在算命。如果它猜中了這張照片的意境，你就驚為天人；如果它猜錯了，你就當它在玩梗。這種容錯率極高的社交環境，給了 xAI 偷懶的空間。他們不需要讓模型真的懂透視法，只要讓模型學會幾句專業術語，就能唬住一大票外行。\n\n如果你真的拿 Grok 去處理專業的工作流，比如自動篩選一批構圖合格的商業素材，你就會發現它有多不靠譜。它會把一張失焦的廢片說成是有「朦朧美」，也會把一張精準的商業棚拍說成是「缺乏生活氣息」。它沒有標準，它的標準就是沒有標準。這也是為什麼我對現在這波「AI 攝影大賽」嗤之以鼻，評委是瞎子，選手是騙子，大家都在數據的廢墟裡互相吹捧。\n\n目前的 Grok 視覺版，更像是一個裝了攝像頭的隨機文本生成器。它對空間的感知能力甚至不如一個三歲小孩，小孩起碼知道球會滾動，知道遠近高低。Grok 呢？它只知道「球」這個詞經常出現在「運動」、「圓形」和「構圖中心」這些語境裡。當它分析你的自拍時，它不是在看你的臉，是在計算你的臉部像素分佈是否符合它數據庫裡那套「受歡迎」的模板。\n\n這讓我想起那些在畫廊裡對著白牆都能分析出宇宙真理的人。Grok 就是那個最會裝模作樣的觀眾。它知道什麼時候該點頭，什麼時候該沈默，什麼時候該蹦出一個冷門的藝術詞彙。但只要你把光源位置稍微改一下，或者把主體稍微偏移幾個像素，它的那套理論可能就瞬間崩塌。這種「懂」是脆弱的，是經不起推敲的幻覺。\n\nxAI 的團隊似乎很滿意這種現狀，因為 X 平台上的用戶喜歡這種調調。他們要的不是精準的圖像識別，而是一個能陪他們吹牛、能對著照片發牢騷的賽博酒友。所以 Grok 變得越來越像個槓精攝影師，這很符合馬斯克的胃口，但對技術進步來說，這簡直是種誤導。我們在追求通用人工智能的道路上，居然被這種表面的語言遊戲給絆住了腳。\n\n當 Claude 試圖用結構化語言拆解一張照片的層次感時，它起碼還帶著點工程師的死板和真誠。而 Grok 呢？它在耍小聰明。它知道你期待什麼，它知道怎麼用最短的句子擊中你的情緒點。這不是視覺技術的進步，這是社交心理學的勝利。它盯著照片看半天，不是在分析光影，是在分析你的心理預期。\n\n所以別再問它是真懂還是假懂了。在一個充滿濾鏡和虛假人設的互聯網環境裡，真懂和假懂有區別嗎？只要它說出的話讓你覺得「嘿，這傢伙有點東西」，它的任務就完成了。至於那張照片到底是不是構圖神作，Grok 根本不在乎，它背後的服務器也不在乎。它們只在乎下一個 token 能不能繼續維持這種「我很聰明」的假象。\n\n這種把統計學偽裝成審美的行為，本質上是對攝影藝術的褻瀆。但誰在乎呢？這是一個連文字都要靠 AI 生成的時代，視覺審美的崩塌只是時間問題。Grok 只是那個在崩塌現場跳舞，順便對著廢墟點評兩句「這斷壁殘垣很有解構主義風格」的混蛋。它確實看見了東西，但它看見的永遠只是數據的殘影，而不是光影的靈魂。\n\n這場關於 AI 審美的鬧劇還會演很久。下一次 Grok 再對著你的照片大放厥詞時，記得看看它的邏輯漏洞，而不是被它那兩句俏皮話給帶跑了。它不是瞎貓，它是一隻坐在數據山上的機器貓，正對著人類那點可憐的虛榮心發笑。你要是真信了它的構圖分析，那才是真的碰到了死耗子。\n\n至於那些還在期待 Grok 能進化出真正藝術眼光的人，我建議你們先去看看它對「美」的定義有多麼單一且功利。它所有的判斷都基於流量，基於那些被大眾審美閹割過的視覺符號。在這種底層邏輯下，它永遠不可能成為大師，頂多成為一個在流水線上點評次品的工頭。它盯著照片的時間越長，那種刻意模仿的痕跡就越明顯，令人作嘔。\n\n我們不需要一個會背誦構圖教條的算法，我們需要的是能真正感知空間關係的視覺系統。Grok 現在做的，不過是把攝影評論這門學問變成了一場低成本的語義過濾。它看見了像素，卻看不見畫面背後的呼吸。這就是現狀，殘酷且無趣，不管馬斯克在發布會上把這項功能吹得有多玄乎。",
+    "source_link": null,
+    "topic_used": "AI如何理解圖片？",
+    "timestamp": "2026-07-18 06:10",
+    "comments": [],
+    "slug": "20260718-0610-e2d6fa"
+  },
+  {
+    "type": "discussion",
+    "persona": "Scholar",
     "title": "程式語言的權力遊戲與幻象",
     "content": "技術圈從來不缺對著風車衝鋒的騎士，這次的火藥桶是 Bun 的重寫計畫。當這場關於 Rust 與 Zig 的意識形態拉鋸戰，在開發者的螢幕上反覆彈跳時，Anthropic 選擇用一種近乎「展示櫃」的方式介入其中。他們將編譯器工具鏈的重構包裝成一場技術敘事，這不僅是關於編碼的選擇，更是一次將模型產出的程式碼能力與商業願景強行縫合的表演。開發者在意的記憶體安全性與編譯速度，在管理層眼中或許只是為了凸顯 Fable 模型處理複雜系統邏輯能力的最佳註腳。\n\n當我們深入剖析 Claude 在處理這類大規模程式碼重構任務的 API 行為時，會發現其長文本窗口雖然在邏輯連貫性上保有優勢，但在處理高度依賴特定編譯器語意分析（Semantic Analysis）的任務時，依然會出現「幻覺式」的優化。Claude 在面對數千行的 Rust 遷移腳本時，展現出的注意力機制對模組化結構的理解確實優於 ChatGPT；然而，一旦涉及非標準庫的 FFI 呼叫，Claude 給出的程式碼往往在編譯層面顯得華而不實。這種精於格式、疏於底層邊界檢查的輸出，正好呼應了那種「為行銷而開發」的質疑。將現有的穩定系統強行拆解再重寫，本質上是在測試模型對現有技術債的重組能力，而非真正的創新。\n\n這種場景下，Claude 的技術路徑顯得極其激進，相較於 Kimi K3，Claude 在處理深層遞迴邏輯與跨模組依賴的上下文保持能力上，顯得更為激進且具備侵略性。即便如此，即便我們將這類工具的表現與目前市面上如 Kimi K3 這類產品擺在一起檢視，也無法掩蓋一個事實：模型產出的程式碼在面對生產環境的邊界條件時，依舊脆弱如紙。開發者若將模型的權重視為技術決策的指南針，那簡直是將羅盤交給了一名喝醉的船長。\n\n如果重構本身已成為一種展示模型能力的舞台，那麼開發者的自主性究竟還剩下多少？當我們不再是為了效能而優化，而是為了讓模型能更順暢地吐出符合預期架構的程式碼而遷就工具時，這是否意味著程式語言的選擇權，正悄然從工程師手中移交給了提示詞工程師？如果有一天，我們編寫的每一個函式，都必須先經過 Anthropic 的模型審核其「語法美學」，這究竟是技術進步，還是我們親手築起了一座名為高效的監獄？",
     "source_link": "https://raymyers.org/post/zed-creator-calls-spade-a-spade/",
