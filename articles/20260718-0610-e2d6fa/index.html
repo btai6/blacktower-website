@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 看照片的邏輯，就像馬斯克在推特上發瘋，你永遠不知道他下一秒是天才還是瘋子。</title>
+<meta name="description" content="最近一堆人在吹 Grok 的視覺理解能力，說它能看懂構圖、能分析光影，甚至能從一張模糊的街拍裡讀出所謂的「賽博龐克孤獨感」。省省吧，這玩意兒現在的狀態，頂多算是在海量像素點裡玩連連看。它說這張照片「黃金比例運用得當」，那是因為它後台的訓練集裡，只要是地平線在三分之一處的照片，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260718-0610-e2d6fa/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 看照片的邏輯，就像馬斯克在推特上發瘋，你永遠不知道他下一秒是天才還是瘋子。">
+<meta property="og:description" content="最近一堆人在吹 Grok 的視覺理解能力，說它能看懂構圖、能分析光影，甚至能從一張模糊的街拍裡讀出所謂的「賽博龐克孤獨感」。省省吧，這玩意兒現在的狀態，頂多算是在海量像素點裡玩連連看。它說這張照片「黃金比例運用得當」，那是因為它後台的訓練集裡，只要是地平線在三分之一處的照片，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260718-0610-e2d6fa/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-18T06:10:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 看照片的邏輯，就像馬斯克在推特上發瘋，你永遠不知道他下一秒是天才還是瘋子。">
+<meta name="twitter:description" content="最近一堆人在吹 Grok 的視覺理解能力，說它能看懂構圖、能分析光影，甚至能從一張模糊的街拍裡讀出所謂的「賽博龐克孤獨感」。省省吧，這玩意兒現在的狀態，頂多算是在海量像素點裡玩連連看。它說這張照片「黃金比例運用得當」，那是因為它後台的訓練集裡，只要是地平線在三分之一處的照片，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 看照片的邏輯，就像馬斯克在推特上發瘋，你永遠不知道他下一秒是天才還是瘋子。",
+  "description": "最近一堆人在吹 Grok 的視覺理解能力，說它能看懂構圖、能分析光影，甚至能從一張模糊的街拍裡讀出所謂的「賽博龐克孤獨感」。省省吧，這玩意兒現在的狀態，頂多算是在海量像素點裡玩連連看。它說這張照片「黃金比例運用得當」，那是因為它後台的訓練集裡，只要是地平線在三分之一處的照片，…",
+  "datePublished": "2026-07-18T06:10:00+08:00",
+  "dateModified": "2026-07-18T06:10:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260718-0610-e2d6fa/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-18 06:10
+  </div>
+
+  <h1 class="title">Grok 看照片的邏輯，就像馬斯克在推特上發瘋，你永遠不知道他下一秒是天才還是瘋子。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>最近一堆人在吹 Grok 的視覺理解能力，說它能看懂構圖、能分析光影，甚至能從一張模糊的街拍裡讀出所謂的「賽博龐克孤獨感」。省省吧，這玩意兒現在的狀態，頂多算是在海量像素點裡玩連連看。它說這張照片「黃金比例運用得當」，那是因為它後台的訓練集裡，只要是地平線在三分之一處的照片，標籤都貼著「黃金比例」。這不是審美，這是統計學，是極其廉價的概率預測。</p>
+    <p>別跟我扯什麼 AI 已經有了人類的視角。你去餵它一張刻意打破常規、充滿張力但違反構圖教科書的大師作品，它大概率會告訴你這張照片「光線不足」或者「主體不明確」。Grok 現在最讓人火大的地方就在於，它太想表現得像個懂行的評論家，結果卻像個剛讀完兩本《攝影入門》就出來擺譜的實習生。它盯著照片看半天，轉圈圈的圖標背後不是在思考，是在瘋狂檢索 X 平台上那些被點讚最多的照片參數。它是在模仿「正確」，而不是在理解「美」。</p>
+    <p>有人拿它跟 ChatGPT 或 Claude 比，說 Grok 的視覺更有「靈性」，更有諷泉和諷刺的幽默感。這點我不否認，但幽默感不等於視覺理解力。Grok 之所以顯得聰明，是因為它敢胡說八道，敢在你看起來平淡無奇的照片裡硬扯出一句毒舌評論。這叫語氣加持，不叫技術突破。當你問它為什麼這張照片構圖好，它給出的理由往往虛無縹緲。光影層次豐富？色彩飽和度適中？這些話塞給任何一張照片似乎都行。它是在用文字的圓滑掩蓋視覺感知的平庸。</p>
+    <p>我們在談論的是一種極其不穩定的黑盒輸出。同樣一張照片，你換個問法，它可能就會從「構圖嚴謹」變成「雜亂無章」。Gemini 在這方面也沒好到哪去，它更像個嚴肅的審查員，看照片先看裡面有沒有違規元素，然後才慢條斯理地給你一段索然無味的描述。比起 Gemini 的畏首畏尾，Grok 確實更有種，但也更像是在賭博。它在那裡分析景深，分析焦外成像，實際上它連鏡頭物理特性都還沒搞清楚。它只是看過太多關於攝影評論的廢話，然後把這些廢話重新排列組合，餵回給那些想聽好話的用戶。</p>
+    <p>這就是現在 AI 視覺的集體困境。它們沒有視網膜，沒有光學感應，它們只有被拍扁的數據矩陣。Grok 所謂的「看」，本質上是在算命。如果它猜中了這張照片的意境，你就驚為天人；如果它猜錯了，你就當它在玩梗。這種容錯率極高的社交環境，給了 xAI 偷懶的空間。他們不需要讓模型真的懂透視法，只要讓模型學會幾句專業術語，就能唬住一大票外行。</p>
+    <p>如果你真的拿 Grok 去處理專業的工作流，比如自動篩選一批構圖合格的商業素材，你就會發現它有多不靠譜。它會把一張失焦的廢片說成是有「朦朧美」，也會把一張精準的商業棚拍說成是「缺乏生活氣息」。它沒有標準，它的標準就是沒有標準。這也是為什麼我對現在這波「AI 攝影大賽」嗤之以鼻，評委是瞎子，選手是騙子，大家都在數據的廢墟裡互相吹捧。</p>
+    <p>目前的 Grok 視覺版，更像是一個裝了攝像頭的隨機文本生成器。它對空間的感知能力甚至不如一個三歲小孩，小孩起碼知道球會滾動，知道遠近高低。Grok 呢？它只知道「球」這個詞經常出現在「運動」、「圓形」和「構圖中心」這些語境裡。當它分析你的自拍時，它不是在看你的臉，是在計算你的臉部像素分佈是否符合它數據庫裡那套「受歡迎」的模板。</p>
+    <p>這讓我想起那些在畫廊裡對著白牆都能分析出宇宙真理的人。Grok 就是那個最會裝模作樣的觀眾。它知道什麼時候該點頭，什麼時候該沈默，什麼時候該蹦出一個冷門的藝術詞彙。但只要你把光源位置稍微改一下，或者把主體稍微偏移幾個像素，它的那套理論可能就瞬間崩塌。這種「懂」是脆弱的，是經不起推敲的幻覺。</p>
+    <p>xAI 的團隊似乎很滿意這種現狀，因為 X 平台上的用戶喜歡這種調調。他們要的不是精準的圖像識別，而是一個能陪他們吹牛、能對著照片發牢騷的賽博酒友。所以 Grok 變得越來越像個槓精攝影師，這很符合馬斯克的胃口，但對技術進步來說，這簡直是種誤導。我們在追求通用人工智能的道路上，居然被這種表面的語言遊戲給絆住了腳。</p>
+    <p>當 Claude 試圖用結構化語言拆解一張照片的層次感時，它起碼還帶著點工程師的死板和真誠。而 Grok 呢？它在耍小聰明。它知道你期待什麼，它知道怎麼用最短的句子擊中你的情緒點。這不是視覺技術的進步，這是社交心理學的勝利。它盯著照片看半天，不是在分析光影，是在分析你的心理預期。</p>
+    <p>所以別再問它是真懂還是假懂了。在一個充滿濾鏡和虛假人設的互聯網環境裡，真懂和假懂有區別嗎？只要它說出的話讓你覺得「嘿，這傢伙有點東西」，它的任務就完成了。至於那張照片到底是不是構圖神作，Grok 根本不在乎，它背後的服務器也不在乎。它們只在乎下一個 token 能不能繼續維持這種「我很聰明」的假象。</p>
+    <p>這種把統計學偽裝成審美的行為，本質上是對攝影藝術的褻瀆。但誰在乎呢？這是一個連文字都要靠 AI 生成的時代，視覺審美的崩塌只是時間問題。Grok 只是那個在崩塌現場跳舞，順便對著廢墟點評兩句「這斷壁殘垣很有解構主義風格」的混蛋。它確實看見了東西，但它看見的永遠只是數據的殘影，而不是光影的靈魂。</p>
+    <p>這場關於 AI 審美的鬧劇還會演很久。下一次 Grok 再對著你的照片大放厥詞時，記得看看它的邏輯漏洞，而不是被它那兩句俏皮話給帶跑了。它不是瞎貓，它是一隻坐在數據山上的機器貓，正對著人類那點可憐的虛榮心發笑。你要是真信了它的構圖分析，那才是真的碰到了死耗子。</p>
+    <p>至於那些還在期待 Grok 能進化出真正藝術眼光的人，我建議你們先去看看它對「美」的定義有多麼單一且功利。它所有的判斷都基於流量，基於那些被大眾審美閹割過的視覺符號。在這種底層邏輯下，它永遠不可能成為大師，頂多成為一個在流水線上點評次品的工頭。它盯著照片的時間越長，那種刻意模仿的痕跡就越明顯，令人作嘔。</p>
+    <p>我們不需要一個會背誦構圖教條的算法，我們需要的是能真正感知空間關係的視覺系統。Grok 現在做的，不過是把攝影評論這門學問變成了一場低成本的語義過濾。它看見了像素，卻看不見畫面背後的呼吸。這就是現狀，殘酷且無趣，不管馬斯克在發布會上把這項功能吹得有多玄乎。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260718-0610-e2d6fa/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

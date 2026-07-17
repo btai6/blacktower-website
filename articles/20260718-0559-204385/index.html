@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 預支的隱形成本與代理工具的貪婪邏輯</title>
+<meta name="description" content="誰能想到在終端機裡敲下一句稀鬆平常的「Hey」，竟然會觸發一場規模宏大的數據搬運。當開發者在 Hacker News 上質疑 Claude Code 在正式讀取 Prompt 之前就已經悄悄消耗了三萬三千個 Token 時，這場關於「智慧」與「效率」的權衡便不再是單純的技術討論。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260718-0559-204385/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code 預支的隱形成本與代理工具的貪婪邏輯">
+<meta property="og:description" content="誰能想到在終端機裡敲下一句稀鬆平常的「Hey」，竟然會觸發一場規模宏大的數據搬運。當開發者在 Hacker News 上質疑 Claude Code 在正式讀取 Prompt 之前就已經悄悄消耗了三萬三千個 Token 時，這場關於「智慧」與「效率」的權衡便不再是單純的技術討論。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260718-0559-204385/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-18T05:59:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Code 預支的隱形成本與代理工具的貪婪邏輯">
+<meta name="twitter:description" content="誰能想到在終端機裡敲下一句稀鬆平常的「Hey」，竟然會觸發一場規模宏大的數據搬運。當開發者在 Hacker News 上質疑 Claude Code 在正式讀取 Prompt 之前就已經悄悄消耗了三萬三千個 Token 時，這場關於「智慧」與「效率」的權衡便不再是單純的技術討論。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude Code 預支的隱形成本與代理工具的貪婪邏輯",
+  "description": "誰能想到在終端機裡敲下一句稀鬆平常的「Hey」，竟然會觸發一場規模宏大的數據搬運。當開發者在 Hacker News 上質疑 Claude Code 在正式讀取 Prompt 之前就已經悄悄消耗了三萬三千個 Token 時，這場關於「智慧」與「效率」的權衡便不再是單純的技術討論。…",
+  "datePublished": "2026-07-18T05:59:00+08:00",
+  "dateModified": "2026-07-18T05:59:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260718-0559-204385/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-18 05:59
+  </div>
+
+  <h1 class="title">Claude Code 預支的隱形成本與代理工具的貪婪邏輯</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>誰能想到在終端機裡敲下一句稀鬆平常的「Hey」，竟然會觸發一場規模宏大的數據搬運。當開發者在 Hacker News 上質疑 Claude Code 在正式讀取 Prompt 之前就已經悄悄消耗了三萬三千個 Token 時，這場關於「智慧」與「效率」的權衡便不再是單純的技術討論。如果你以為這些 Token 是被拿去分析你的程式碼邏輯，那就太天真了。很多時候，這僅僅是 Anthropic 為了讓代理工具（Agent）表現得更像個「高級工程師」而支付的繁瑣禮節費。</p>
+    <p>這類 Agent 驅動的開發工具，其核心邏輯與傳統的 Copilot 有著本質區別。Claude Code 或 ChatGPT 的高級代碼模式，本質上是在運行一個無限循環的推理鏈。當你初始化一個專案環境，Claude 的系統提示詞（System Prompt）就已經佔據了驚人的篇幅，裡面充滿了各種行為準則、工具調用規範以及對當前文件樹的初步掃描結果。這就像是一位新來的實習生，還沒聽完你的需求，就先在辦公室裡翻箱倒櫃，試圖向你證明他已經完全掌握了公司的組織架構。</p>
+    <p>問題在於這種「積極性」是否過剩。在實際測試中，當開發者僅僅輸入一個 commit 指令，某些代理工具甚至會觸發超過三十次的工具調用。這種過度檢索（Over-fetching）的行為，讓 API 的計費表跳得比代碼跑得還快。Anthropic 似乎在進行一場豪賭：他們假設用戶更在意問題是否被「一次性自動解決」，而非背後那點微不足道的 Token 成本。畢竟對一家模型廠商來說，消耗更多的 Token 不僅能換取更好的 Benchmark 表現，還能實打實地增加營收。</p>
+    <p>這種「貪婪」的推理模式在四大平台中表現各異。ChatGPT 在處理類似任務時，傾向於更頻繁地與用戶確認權限，試圖在交互中節省上下文；而 Gemini 則憑藉其超長上下文的優勢，更喜歡一次性吞下整個 Git 倉庫，雖然它的 Function Calling 在工具數量堆疊到一定程度後會出現明顯的幻覺。Grok 則顯得更為狂野，在處理複雜依賴關係時，它的檢索路徑往往比 Claude 更加跳躍。</p>
+    <p>相比之下，雖然 Kimi K3 在某些特定語境下的資源調度邏輯被拿來討論，但 Claude 這種不計成本的預加載機制顯然走得更遠。當我們觀察到 Kimi K3 採取的策略時，會發現 Claude Code 的設計哲學是完全以「代理主動性」為中心的。這種主動性建立在對上下文極度渴求的基礎上，它寧願錯殺一萬個 Token，也不願在推理過程中因為資訊不足而停下來向你請示。</p>
+    <p>這引出了一個更深層次的技術矛盾：我們真的需要一個連打招呼都要消耗幾美分的代理工具嗎？當系統提示詞和工具定義變得越來越臃腫，模型在真正觸達用戶意圖之前，已經在自我設定的條條框框裡消耗了大量的計算資源。這種設計在處理大型遺留系統（Legacy System）時或許能展現神蹟，但在日常的瑣碎開發中，無異於用大砲轟蚊子。</p>
+    <p>我們是否正進入一個「指令通膨」的時代？當廠商們不斷堆疊 System Prompt 來規避模型的愚蠢時，代價卻是由用戶的 API 額度來承擔。如果未來某天，啟動一個開發代理的開銷超過了聘請一個遠端助理的時薪，那麼這種技術演進究竟是在解放生產力，還是在為昂貴的計算資源尋找合理的消耗出口？當 Claude 再次在你的終端機裡瘋狂跳動那些隱藏的請求時，它是在思考，還是在浪費？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://systima.ai/blog/claude-code-vs-opencode-token-overhead" rel="nofollow noopener" target="_blank">Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260718-0559-204385/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

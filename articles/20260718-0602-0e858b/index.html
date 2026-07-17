@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 AI 開始胡亂配對影像與歌詞</title>
+<meta name="description" content="把歌詞丟給模型生成音樂錄影帶，目前看起來就像是一個喝醉的剪輯師，強行把毫不相干的畫面與節奏拼湊在一起。這場鬧劇的核心在於 Claude 與 ChatGPT 對於「敘事連續性」的理解，根本還停留在連環畫的階段。當你試圖讓它們根據一段歌詞生成影像，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260718-0602-0e858b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 AI 開始胡亂配對影像與歌詞">
+<meta property="og:description" content="把歌詞丟給模型生成音樂錄影帶，目前看起來就像是一個喝醉的剪輯師，強行把毫不相干的畫面與節奏拼湊在一起。這場鬧劇的核心在於 Claude 與 ChatGPT 對於「敘事連續性」的理解，根本還停留在連環畫的階段。當你試圖讓它們根據一段歌詞生成影像，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260718-0602-0e858b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-18T06:02:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 AI 開始胡亂配對影像與歌詞">
+<meta name="twitter:description" content="把歌詞丟給模型生成音樂錄影帶，目前看起來就像是一個喝醉的剪輯師，強行把毫不相干的畫面與節奏拼湊在一起。這場鬧劇的核心在於 Claude 與 ChatGPT 對於「敘事連續性」的理解，根本還停留在連環畫的階段。當你試圖讓它們根據一段歌詞生成影像，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 AI 開始胡亂配對影像與歌詞",
+  "description": "把歌詞丟給模型生成音樂錄影帶，目前看起來就像是一個喝醉的剪輯師，強行把毫不相干的畫面與節奏拼湊在一起。這場鬧劇的核心在於 Claude 與 ChatGPT 對於「敘事連續性」的理解，根本還停留在連環畫的階段。當你試圖讓它們根據一段歌詞生成影像，…",
+  "datePublished": "2026-07-18T06:02:00+08:00",
+  "dateModified": "2026-07-18T06:02:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260718-0602-0e858b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-18 06:02
+  </div>
+
+  <h1 class="title">當 AI 開始胡亂配對影像與歌詞</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>把歌詞丟給模型生成音樂錄影帶，目前看起來就像是一個喝醉的剪輯師，強行把毫不相干的畫面與節奏拼湊在一起。這場鬧劇的核心在於 Claude 與 ChatGPT 對於「敘事連續性」的理解，根本還停留在連環畫的階段。當你試圖讓它們根據一段歌詞生成影像，它們總會陷入一種愚蠢的直譯陷阱——聽到「雨」，就給你塞滿下雨的特寫；聽到「孤獨」，就丟出一張在窗邊發呆的臉孔。這種平面化的處理，讓音樂錄影帶失去了靈魂，剩下的是一連串毫無邏輯的視覺雜訊。</p>
+    <p>從技術底層來看，Claude 在處理長文本脈絡時，雖然展現了對細節的捕捉能力，但當任務轉向多模態的視覺一致性時，模型對「場景錨點」的維護顯得極度脆弱。當你要求一個超過三分鐘的敘事時，ChatGPT 的 video generation module 在工具調用過程中，經常會丟失初始設定的視覺風格參數。一旦出現了幾個幀的跳變，整個影片的視覺語言就崩塌了。這不是模型算力不足，而是它們根本沒有建立一套「視覺劇本」的規劃邏輯，依然是在用處理文字的方式處理影像的連續性，導致結果看起來就像是好幾個不同風格的短片硬是被縫合在一起。</p>
+    <p>這種對於視覺邏輯的無力感，在比較中顯得特別刺眼。相較於 Kimi K3，ChatGPT 試圖透過更複雜的系統提示詞來強行固定風格，而 Claude 則傾向於在單一提示詞下進行暴力生成，這種差異決定了兩者在影像破碎化後的補救空間。Kimi K3 的介入深度與這些平台截然不同。對於那些期待 AI 能直接產出大片的人來說，現在的技術水準甚至稱不上是「接近可用」，頂多是「有潛力的混亂」。如果你沒有耐心在後期進行大量的人工修補，這些模型產出的內容，除了拿來做行為藝術，幾乎沒有任何商業價值。</p>
+    <p>我們到底是在追求更精準的指令執行，還是該承認目前的生成邏輯本質上就排斥藝術性？如果音樂錄影帶的價值在於隱喻與留白，那麼當我們試圖用演算法去定義什麼叫「孤獨的影像」時，是不是就注定會得到一個毫無溫度的複製品？當模型學會了歌詞裡的每一個字，卻永遠讀不懂旋律背後的弦外之音時，我們對 AI 敘事的期待，是否不過是一場自欺欺人的幻覺？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.tryai.dev/blog/ai-music-video-arena-claude-vs-gpt-5.6" rel="nofollow noopener" target="_blank">$100 AI Music Video: Claude Fable 5 vs. GPT-5.6 Sol</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260718-0602-0e858b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
