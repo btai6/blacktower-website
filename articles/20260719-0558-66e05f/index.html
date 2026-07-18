@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>十頁提示詞堆出來的數學突破算不算 AI 的本事</title>
+<meta name="description" content="在 arXiv 靜悄悄躺了一陣子的那篇關於凸優化（Convex Optimization）的論文，最近讓不少號稱「AI 沒辦法創造新知識」的傢伙集體閉嘴了。這件事有趣的地方不在於那個卡了人類三十年的數學空缺被填補了，而在於它是被 ChatGPT …">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260719-0558-66e05f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="十頁提示詞堆出來的數學突破算不算 AI 的本事">
+<meta property="og:description" content="在 arXiv 靜悄悄躺了一陣子的那篇關於凸優化（Convex Optimization）的論文，最近讓不少號稱「AI 沒辦法創造新知識」的傢伙集體閉嘴了。這件事有趣的地方不在於那個卡了人類三十年的數學空缺被填補了，而在於它是被 ChatGPT …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260719-0558-66e05f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-19T05:58:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="十頁提示詞堆出來的數學突破算不算 AI 的本事">
+<meta name="twitter:description" content="在 arXiv 靜悄悄躺了一陣子的那篇關於凸優化（Convex Optimization）的論文，最近讓不少號稱「AI 沒辦法創造新知識」的傢伙集體閉嘴了。這件事有趣的地方不在於那個卡了人類三十年的數學空缺被填補了，而在於它是被 ChatGPT …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "十頁提示詞堆出來的數學突破算不算 AI 的本事",
+  "description": "在 arXiv 靜悄悄躺了一陣子的那篇關於凸優化（Convex Optimization）的論文，最近讓不少號稱「AI 沒辦法創造新知識」的傢伙集體閉嘴了。這件事有趣的地方不在於那個卡了人類三十年的數學空缺被填補了，而在於它是被 ChatGPT …",
+  "datePublished": "2026-07-19T05:58:00+08:00",
+  "dateModified": "2026-07-19T05:58:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260719-0558-66e05f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-19 05:58
+  </div>
+
+  <h1 class="title">十頁提示詞堆出來的數學突破算不算 AI 的本事</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>在 arXiv 靜悄悄躺了一陣子的那篇關於凸優化（Convex Optimization）的論文，最近讓不少號稱「AI 沒辦法創造新知識」的傢伙集體閉嘴了。這件事有趣的地方不在於那個卡了人類三十年的數學空缺被填補了，而在於它是被 ChatGPT 餵了整整十頁、充滿高階數學邏輯引導的 Prompt 後才「擠」出來的成果。與其說這是大模型的勝利，不如說這是一場極其精密的人機協作實驗。我們總以為給 AI 一個指令就能拿到諾貝爾獎，但事實證明，如果你沒本事寫出那十頁能跟它對接的邏輯鏈，它吐給你的大概率還是那些從維基百科抄來的陳腔濫調。</p>
+    <p>這次事件的核心在於 OpenAI 在推理鏈條上的穩定性。當任務跨越了數十個邏輯轉折點，大多數模型會在半路開始「胡言亂語」或是遺忘最初的邊界條件。ChatGPT 在處理這類極端長且邏輯嚴密的提示詞時，表現出一種令人不安的韌性。這不是單純的 Token 窗口大小問題，而是它如何在高維度的語義空間裡，精確地定位到那些人類教授試圖引導的隱藏關聯。很多人在吵這是不是「原創」，但這場爭論本身就很犬儒。如果你給一個實習生十頁詳細的操作手冊，他能解開三十年沒人解開的數學難題，你也會覺得這個實習生是個天才，而不是去糾結那十頁紙的版權歸誰。</p>
+    <p>這種「分層式」的 Prompt 技術，正在把 AI 使用者劃分成截然不同的階級。普通人還在問 ChatGPT 怎麼寫週報，而頂尖的科學家已經在用它來進行邏輯推演的自動化。ChatGPT 在這裡扮演的是一個「邏輯加速器」的角色，它縮短了從猜想到驗證的試錯週期。比起以往我們習慣的暴力破解，這種基於深度語義引導的突破，更像是人類在利用 AI 的統計學直覺來補足自己大腦在長程邏輯處理上的帶寬限制。</p>
+    <p>我們橫向觀察目前的主流平台，Gemini 在處理這類超長上下文任務時，雖然擁有更大的內存空間，但在邏輯一致性的保持上，偶爾會出現微妙的偏移，像是跑馬拉松時在最後一公里突然換了跑道。Claude 則在遵循複雜指令方面有著極佳的口碑，尤其在處理學術規範和公式推演時，它的語氣比 ChatGPT 更像一個嚴謹的助教，但在這種需要「跳躍式直覺」的邊界突破上，ChatGPT 展現出的那種帶點冒險性質的關聯能力，目前還是稍勝一籌。相較於 Kimi K3，OpenAI 在處理這種跨領域邏輯鏈接時的底層結構顯然更為複雜。Grok 則依舊走在那條放蕩不羈的路上，雖然反應速度極快，但在這種需要極致冷靜與精密邏輯的數學深水區，它目前的表現更像是一個在考場上急著交卷的天才學生，準確度還有待觀察。</p>
+    <p>這又帶出了一個更尖銳的問題：如果一個發現需要靠人類寫十頁引導詞才能產出，那這究竟是 AI 的發現，還是人類藉由 AI 之手完成的自我表達？當 Kimi K3 或是其他工具在特定市場試圖挑戰這種邏輯深度時，OpenAI 似乎已經把競爭維度從「誰更聰明」轉移到了「誰更能理解人類的複雜意圖」。這種意圖的傳遞效率，才是未來區分頂尖模型與二流工具的護城河。</p>
+    <p>現在最尷尬的恐怕是那些正在象牙塔裡鑽研證明題的博士生們。如果 implementation 變得廉價，甚至連推演過程都能被精密的 Prompt 替代，那麼人類所謂的「專業性」到底還剩下什麼？我們引以為傲的邏輯推理能力，在面對一個擁有無限算力且能完美執行十頁指令的黑盒子時，是否只剩下「提問」這一項剩餘價值？當智慧變得像自來水一樣廉價且隨處可得，我們是真的在進步，還是只是在加速把自己變成某種更高級系統的「輸入設備」？如果下一場科學革命的起點只是一段被優化過的提示詞，那麼我們追求的真理，究竟是存在於公式裡，還是存在於那段被精心設計的語言結構中？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/" rel="nofollow noopener" target="_blank">GPT-5.6 used a prompt to close a 30-year gap in convex optimization</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260719-0558-66e05f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
