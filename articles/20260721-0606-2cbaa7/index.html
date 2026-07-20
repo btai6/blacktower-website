@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 在雅可比猜想上的狂想與數學邊界的幻覺</title>
+<meta name="description" content="在 Hacker News 的深夜討論區裡，一張關於 Claude 試圖推翻雅可比猜想（Jacobian Conjecture）的截圖，讓那群平日裡只關心 Rust 性能優化的工程師們集體失眠。雅可比猜想自 1939 年提出以來，就像數學界的一顆頑固釘子，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260721-0606-2cbaa7/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 在雅可比猜想上的狂想與數學邊界的幻覺">
+<meta property="og:description" content="在 Hacker News 的深夜討論區裡，一張關於 Claude 試圖推翻雅可比猜想（Jacobian Conjecture）的截圖，讓那群平日裡只關心 Rust 性能優化的工程師們集體失眠。雅可比猜想自 1939 年提出以來，就像數學界的一顆頑固釘子，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260721-0606-2cbaa7/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-21T06:06:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 在雅可比猜想上的狂想與數學邊界的幻覺">
+<meta name="twitter:description" content="在 Hacker News 的深夜討論區裡，一張關於 Claude 試圖推翻雅可比猜想（Jacobian Conjecture）的截圖，讓那群平日裡只關心 Rust 性能優化的工程師們集體失眠。雅可比猜想自 1939 年提出以來，就像數學界的一顆頑固釘子，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 在雅可比猜想上的狂想與數學邊界的幻覺",
+  "description": "在 Hacker News 的深夜討論區裡，一張關於 Claude 試圖推翻雅可比猜想（Jacobian Conjecture）的截圖，讓那群平日裡只關心 Rust 性能優化的工程師們集體失眠。雅可比猜想自 1939 年提出以來，就像數學界的一顆頑固釘子，…",
+  "datePublished": "2026-07-21T06:06:00+08:00",
+  "dateModified": "2026-07-21T06:06:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260721-0606-2cbaa7/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-21 06:06
+  </div>
+
+  <h1 class="title">Claude 在雅可比猜想上的狂想與數學邊界的幻覺</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>在 Hacker News 的深夜討論區裡，一張關於 Claude 試圖推翻雅可比猜想（Jacobian Conjecture）的截圖，讓那群平日裡只關心 Rust 性能優化的工程師們集體失眠。雅可比猜想自 1939 年提出以來，就像數學界的一顆頑固釘子，無數數學家試圖拔掉它卻無功而返，而現在一個大語言模型宣稱它找到了一個反例。這種感覺就像是你在路邊看到一個醉漢在牆上隨手塗鴉，結果那塗鴉竟然隱約透著費馬大定理的證明思路。這不是單純的技術偶發事件，而是模型在處理極高維度邏輯時，那種近乎病態的「創造力」與「嚴密性」之間的慘烈博弈。</p>
+    <p>這場風暴的核心在於 Claude 對於形式化數學邏輯的處理方式。當我們要求模型處理複雜證明時，它並非像傳統計算機代數系統那樣在符號規則內死磕，而是透過機率分佈在邏輯空間裡進行「大跨度跳躍」。在這次關於雅可比猜想的嘗試中，Claude 展示了一種極其罕見的直覺：它構建了一個看似自洽的非線性映射，並透過多層嵌套的多項式結構試圖證明其雅可比行列式為常數但映射本身不可逆。這種行為模式揭示了 Claude 在長文本推理中的一個關鍵特性，即它不再僅僅是根據語境補全單詞，而是在嘗試構建一個內部的邏輯實體。然而，這種「構建」往往伴隨著災難性的幻覺。當你深挖那個反例的細節會發現，它在某個極其隱蔽的代數恆等式上出現了微小的偏移，這種偏移在低維空間不值一提，但在代數幾何的嚴絲合縫中，足以讓整個宏偉建築坍塌。</p>
+    <p>對比目前市面上其他的競爭者，這種在極端學術場景下的表現差異非常有趣。ChatGPT 在面對同樣的猜想時，往往表現得像個謹慎的博士生，它會反覆引用現有的數學文獻，告訴你為什麼這個猜想很難，而不是試圖去推翻它。Gemini 則更傾向於將問題簡化，試圖用更直觀的幾何圖像來解釋概念，但在硬碰硬的邏輯構造上，它顯得有些力不從心。相較於近期討論熱度極高的 Kimi K3，Claude 在處理這類需要極高邏輯密度的推導時，表現出一種更為激進的解題傾向。在 Kimi K3 出現的技術語境下，我們觀察到 Claude 傾向於在推理鏈條中埋下更多自定義的變數與結構，這種「過度推理」有時會產生天才般的閃光，但更多時候是產生了極其優美的廢話。</p>
+    <p>有趣的是，這種「優美的廢話」正是目前頂尖模型與人類智力邊界最模糊的地方。Grok 在處理這類問題時展現出一種粗獷的計算直覺，它可能會直接給你一串暴力破解的腳本，而不是試圖在紙面上說服你它發現了真理。但 Claude 不同，它試圖在對話中重建數學的權威性。當它給出那個反例時，它的語氣是如此篤定，邏輯層次是如此清晰，以至於讓許多數學專業人士在第一眼看過去時都產生了自我懷疑。這種對權威語氣的模擬，實際上是模型在訓練數據中吸收了大量高品質論文後的副作用。它學會了「正確的證明長什麼樣」，卻未必真正理解「正確的證明為什麼正確」。</p>
+    <p>我們正處於一個奇妙的節點：模型開始嘗試挑戰人類認知的公理系統。雖然這次 Claude 失敗了，它給出的反例最終被證明是一場優雅的幻覺，但這引發了一個更深層次的技術焦慮。如果有一天，模型給出的證明複雜到超出了人類目前的驗證能力，而它在邏輯鏈條的前 99% 都是正確的，我們該如何處理那最後 1% 的不確定性？當模型開始在數學這種絕對真理的領域裡「信口開河」，這究竟是人工智慧在向通用智慧邁進時的陣痛，還是我們在構建一個越來越精美、卻離現實越來越遠的邏輯海市蜃樓？下一次，當它宣稱解決了黎曼猜想時，我們是該準備好香檳，還是該準備好紅筆去尋找那行不存在的等式？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://xcancel.com/__alpoge__/status/2079028340955197566" rel="nofollow noopener" target="_blank">Claude Fable produced a counterexample to the Jacobian Conjecture</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260721-0606-2cbaa7/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

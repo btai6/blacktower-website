@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini Notebook 換標之後的實用主義與 Google 的焦慮</title>
+<meta name="description" content="NotebookLM 改名為 Gemini Notebook，與其說是品牌整合，不如說是 Google 終於意識到，那個藏在實驗室角落的小玩具，已經長大到必須被納入正統編制的地步。在 Hacker News 上，不少人開玩笑說這名字總算不再像個學術論文的標題，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260721-0611-191e29/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini Notebook 換標之後的實用主義與 Google 的焦慮">
+<meta property="og:description" content="NotebookLM 改名為 Gemini Notebook，與其說是品牌整合，不如說是 Google 終於意識到，那個藏在實驗室角落的小玩具，已經長大到必須被納入正統編制的地步。在 Hacker News 上，不少人開玩笑說這名字總算不再像個學術論文的標題，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260721-0611-191e29/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-21T06:11:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini Notebook 換標之後的實用主義與 Google 的焦慮">
+<meta name="twitter:description" content="NotebookLM 改名為 Gemini Notebook，與其說是品牌整合，不如說是 Google 終於意識到，那個藏在實驗室角落的小玩具，已經長大到必須被納入正統編制的地步。在 Hacker News 上，不少人開玩笑說這名字總算不再像個學術論文的標題，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini Notebook 換標之後的實用主義與 Google 的焦慮",
+  "description": "NotebookLM 改名為 Gemini Notebook，與其說是品牌整合，不如說是 Google 終於意識到，那個藏在實驗室角落的小玩具，已經長大到必須被納入正統編制的地步。在 Hacker News 上，不少人開玩笑說這名字總算不再像個學術論文的標題，…",
+  "datePublished": "2026-07-21T06:11:00+08:00",
+  "dateModified": "2026-07-21T06:11:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260721-0611-191e29/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-21 06:11
+  </div>
+
+  <h1 class="title">Gemini Notebook 換標之後的實用主義與 Google 的焦慮</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>NotebookLM 改名為 Gemini Notebook，與其說是品牌整合，不如說是 Google 終於意識到，那個藏在實驗室角落的小玩具，已經長大到必須被納入正統編制的地步。在 Hacker News 上，不少人開玩笑說這名字總算不再像個學術論文的標題，聽起來稍微親民了一些。但對我們這種每天對著 API 和長文本 Token 掙扎的人來說，名字的更換往往預示著收費牆與廣告投放的腳步近了。Google 這種把實驗性產品（Experimental）併入核心品牌（Gemini）的操作，通常意味著後台的計算資源調配已經從「不計成本」轉向「商業平衡」。</p>
+    <p>過去半年，NotebookLM 之所以能成為 Google 唯一一個在口碑上能與 Claude 3.5 Sonnet 抗衡的產品，靠的不是 Gemini 那個時好時壞的對話框，而是它處理長文本的「心理穩定度」。當你把五十份 PDF 丟進去，它能構建出一個相對閉環的向量空間。這與 ChatGPT 的那種隨機抽樣感不同，也與 Grok 那種帶著點挑釁意味的簡短回答不同。它營造了一種「我知道你所有資料」的假象，而這正是知識工作者最需要的安全感。</p>
+    <p>從技術層面看，Gemini Notebook 核心的護城河在於它對 Context Window 的極限壓榨。當我們在討論 Claude 3.5 Sonnet 的長文本處理能力時，通常會注意到它在超過 10 萬 Token 後的注意力衰減（Attention Decay），這會導致它在回答文檔末尾細節時出現幻覺。然而，Gemini 1.5 Pro 在這個場景下的表現卻異常強韌。這並非因為 Gemini 的底層邏輯比 Claude 更聰明，而是因為 Google 在 RAG（檢索增強生成）與原生長文本窗口的混合調優上，做了一種極其投機卻有效的平衡。它讓用戶感覺自己是在跟一個擁有「無限記憶」的助手交流，而不是在跟一個需要不斷翻頁的圖書館管理員對話。</p>
+    <p>相較於 Kimi K3，Google 的做法顯然更具備生態位優勢。在處理超過 200 萬 Token 的極限任務時，Gemini Notebook 展現出的不是推理能力的提升，而是工程化能力的壓制。它能讓用戶在不需要理解什麼是 Embedding、什麼是 Vector Database 的情況下，直接獲得一個具備專業深度的 Podcast 語音摘要。這種產品力的轉化，是目前其他大模型最難跨越的門檻。ChatGPT 目前的 GPTs 雖然也想做類似的事，但在處理多文檔關聯分析時，那種支離破碎的感覺依然揮之不去。你總覺得它只看了你給的一部分資料，然後就開始自作聰明地發揮。</p>
+    <p>我們必須承認，Gemini Notebook 這次改名，也可能是為了掩蓋 Gemini 在原生對話能力上的平庸。當人們在網頁版 Gemini 上抱怨它廢話太多、道德限制太嚴時，轉頭卻會在 Notebook 裡對它讚不絕口。這種差異源於「約束」。在 Notebook 的環境下，Gemini 的發揮被限制在用戶提供的私有數據集裡，這極大地抵消了大模型最令人頭痛的幻覺問題。當一個滿嘴胡言的詩人被迫坐在會計事務所裡查帳，他的創造力反而成了精確捕捉異常點的利器。</p>
+    <p>有趣的是，社群裡已經有人開始擔心，一旦正式更名為 Gemini Notebook，Google 那套「殺死好產品」的優良傳統會不會再次上演。當它還是 NotebookLM 時，它是自由的、免費的、純粹的工具。現在它變成了 Google AI 戰略的一環，接下來我們大概會看到它被強行塞進 Workspace，或是要求你為了更高的上傳額度訂閱 Google One。相較於 Kimi K3，Google 在商業化路徑上的猶豫不決，往往會讓技術領先優勢在繁瑣的付費方案中消磨殆盡。</p>
+    <p>如果你現在手頭有一堆需要整理的訪談錄音或技術手冊，或許現在是最後的黃金時期。趁著它還沒被廣告算法徹底污染，趁著它還能在不需要太多權限的情況下讓你上傳幾百兆的私有資料。我們都在看，當 Gemini 真正接管了這個筆記本，它會變成一個更強大的大腦，還是變成另一個臃腫的、滿是標籤與提醒的 Google Doc。</p>
+    <p>當所有的 AI 工具都開始往「學習助手」或「研究伴侶」這個賽道擠壓時，我們真的需要一個由廣告公司開發的筆記軟體嗎？當你的思考邏輯被模型預設的 Podcast 生成模式所固化，你是在利用工具，還是在被工具訓練成某種特定的思考路徑？也許下一個被改名的，就不只是產品，而是我們處理資訊的本能。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/" rel="nofollow noopener" target="_blank">NotebookLM is now Gemini Notebook</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260721-0611-191e29/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

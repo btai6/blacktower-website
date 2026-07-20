@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數學家的尊嚴難道只值十頁 Prompt</title>
+<meta name="description" content="那些整天嚷嚷著大模型只會預測下一個字、毫無邏輯推演能力的「移動球門愛好者」，這兩天大概集體禁言了。Hacker News 上關於 GPT 在凸優化領域閉合了三十年技術鴻溝的討論，本質上不是在聊數學突破，而是在探討人類智力溢價的崩塌。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260721-0609-0c10cb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="數學家的尊嚴難道只值十頁 Prompt">
+<meta property="og:description" content="那些整天嚷嚷著大模型只會預測下一個字、毫無邏輯推演能力的「移動球門愛好者」，這兩天大概集體禁言了。Hacker News 上關於 GPT 在凸優化領域閉合了三十年技術鴻溝的討論，本質上不是在聊數學突破，而是在探討人類智力溢價的崩塌。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260721-0609-0c10cb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-21T06:09:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="數學家的尊嚴難道只值十頁 Prompt">
+<meta name="twitter:description" content="那些整天嚷嚷著大模型只會預測下一個字、毫無邏輯推演能力的「移動球門愛好者」，這兩天大概集體禁言了。Hacker News 上關於 GPT 在凸優化領域閉合了三十年技術鴻溝的討論，本質上不是在聊數學突破，而是在探討人類智力溢價的崩塌。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "數學家的尊嚴難道只值十頁 Prompt",
+  "description": "那些整天嚷嚷著大模型只會預測下一個字、毫無邏輯推演能力的「移動球門愛好者」，這兩天大概集體禁言了。Hacker News 上關於 GPT 在凸優化領域閉合了三十年技術鴻溝的討論，本質上不是在聊數學突破，而是在探討人類智力溢價的崩塌。…",
+  "datePublished": "2026-07-21T06:09:00+08:00",
+  "dateModified": "2026-07-21T06:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260721-0609-0c10cb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-21 06:09
+  </div>
+
+  <h1 class="title">數學家的尊嚴難道只值十頁 Prompt</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>那些整天嚷嚷著大模型只會預測下一個字、毫無邏輯推演能力的「移動球門愛好者」，這兩天大概集體禁言了。Hacker News 上關於 GPT 在凸優化領域閉合了三十年技術鴻溝的討論，本質上不是在聊數學突破，而是在探討人類智力溢價的崩塌。這不是那種靠運氣撞出來的答案，而是 OpenAI 的模型在被投餵了十頁精準的數學引導後，完成了一場持續三十年的學術長跑。</p>
+    <p>這場實驗的殘酷之處在於，它直接捅破了「領域專家」最後的遮羞布。我們過去習慣把科研想像成靈光一閃的神蹟，但現在看來，很多所謂的科研不過是極高維度的搜索任務。只要你給出的 Prompt 夠硬，包含足夠多的數學原語和正確的邏輯引導，GPT 就能在人類數學家踏步的地方強行破局。這不是在玩文字遊戲，這是實打實的邏輯重組。</p>
+    <p>在具體的技術實現上，這份長達十頁的 Prompt 其實是某種意義上的「思維腳手架」。它不是簡單的指令，而是把複雜的數學變換拆解成了模型可理解的推理軌跡。我們觀察 ChatGPT 在處理這類高難度任務時，其 Transformer 架構表現出一種令人不安的「穩定性」。在處理長達數萬 token 的複雜公式推導時，它能精準地掛載上下文中的數學約束，而不像早期版本那樣在第三步就開始胡言亂語。這種對邏輯結構的保持能力，才是這次凸優化問題被攻克的底層邏輯。</p>
+    <p>如果我們把目光轉向 Claude，會發現另一種風格。Claude 在處理同類型的長文本邏輯引導時，往往表現得更為「謹慎」，它會反覆確認前置條件的有效性。而 Google 的 Gemini 則在多模態符號理解上試圖走捷徑，但在這種極純粹的抽象代數推導中，Gemini 的表現往往顯得有些飄忽，容易在符號代換的邊界條件上翻車。至於 Elon Musk 的 Grok，雖然號稱擁有最強的算力資源，但在這種需要極致「數學直覺」的微操任務中，它更像是一個力大無窮卻缺乏細膩感的舉重運動員。</p>
+    <p>有趣的是，這週大家都在討論 Kimi K3 的新動態，但相較於 Kimi K3，OpenAI 的做法顯然更具備某種「暴力美學」的色彩。它不依賴特定的插件或外部求解器，而是純粹靠模型內部的權重去對抗人類累積了三十年的認知障礙。當你在討論區看到有人質疑這是否算「創新」時，其實問題已經變質了。如果一個工具能幫你摘掉那些掛了三十年都摘不到的果實，你還在乎它是不是真的「懂」數學嗎？</p>
+    <p>我們現在面臨的尷尬局面是，低難度甚至中等難度的科研果實，正在變成廉價的工業品。過去一個博士生花四年時間去證明的引理，現在可能只需要一個懂行的導師寫個通宵 Prompt 就能搞定。技能正在貶值，而對「概念」的架構能力正在變得前所未有的昂貴。這種分層會導致一個結果：未來只有兩種數學家，一種是能寫出那十頁引導詞的上帝，另一種是負責給 AI 跑出來的結果做審核的校對員。</p>
+    <p>那麼問題來了，當我們把所有的邏輯推演都外包給那些動輒消耗幾千瓦時電力的神經網絡時，人類大腦裡那些閃爍的「直覺」還剩下多少價值？如果下一個三十年的技術鴻溝是在幾秒鐘內被一個 Prompt 填平的，我們還有必要培養那些需要花二十年才能成才的數學家嗎？或者說，當智力變得像自來水一樣廉價且隨取隨用時，我們到底是在進化，還是在集體退化？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/" rel="nofollow noopener" target="_blank">GPT-5.6 used a prompt to close a 30-year gap in convex optimization</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260721-0609-0c10cb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
