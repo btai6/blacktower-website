@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>歌詞意象的文字獄與視覺生成的敘事斷層</title>
+<meta name="description" content="當前那些試圖用一百美金成本砸出來的 AI 音樂錄影帶，與其說是視覺藝術的實驗，倒不如說是一場關於「語義過度解讀」的災難。在 Hacker News 的討論裡，不少人對 Claude 與 GPT 驅動的影像生成感到焦慮，但這種焦慮大多錯位了。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260722-0608-ebd864/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="歌詞意象的文字獄與視覺生成的敘事斷層">
+<meta property="og:description" content="當前那些試圖用一百美金成本砸出來的 AI 音樂錄影帶，與其說是視覺藝術的實驗，倒不如說是一場關於「語義過度解讀」的災難。在 Hacker News 的討論裡，不少人對 Claude 與 GPT 驅動的影像生成感到焦慮，但這種焦慮大多錯位了。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260722-0608-ebd864/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-22T06:08:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="歌詞意象的文字獄與視覺生成的敘事斷層">
+<meta name="twitter:description" content="當前那些試圖用一百美金成本砸出來的 AI 音樂錄影帶，與其說是視覺藝術的實驗，倒不如說是一場關於「語義過度解讀」的災難。在 Hacker News 的討論裡，不少人對 Claude 與 GPT 驅動的影像生成感到焦慮，但這種焦慮大多錯位了。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "歌詞意象的文字獄與視覺生成的敘事斷層",
+  "description": "當前那些試圖用一百美金成本砸出來的 AI 音樂錄影帶，與其說是視覺藝術的實驗，倒不如說是一場關於「語義過度解讀」的災難。在 Hacker News 的討論裡，不少人對 Claude 與 GPT 驅動的影像生成感到焦慮，但這種焦慮大多錯位了。…",
+  "datePublished": "2026-07-22T06:08:00+08:00",
+  "dateModified": "2026-07-22T06:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260722-0608-ebd864/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-22 06:08
+  </div>
+
+  <h1 class="title">歌詞意象的文字獄與視覺生成的敘事斷層</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當前那些試圖用一百美金成本砸出來的 AI 音樂錄影帶，與其說是視覺藝術的實驗，倒不如說是一場關於「語義過度解讀」的災難。在 Hacker News 的討論裡，不少人對 Claude 與 GPT 驅動的影像生成感到焦慮，但這種焦慮大多錯位了。目前的技術瓶頸根本不在於算力夠不夠、或者畫面夠不夠精細，而在於這些大型語言模型在面對非線性的文學修辭時，表現得像個只會查字典的初學者。當歌詞唱到「破碎的心」，模型便真的在畫面中央放上一顆裂開的紅心，這種缺乏隱喻能力的直覺反應，讓成品充滿了一種廉價的滑稽感。</p>
+    <p>這種現象在 Claude 身上尤為明顯。儘管我們常稱讚其文風細膩、富有同理心，但在調度視覺生成工具時，它顯現出一種「過度服從」的性格。它會細緻地拆解歌詞中的每一個動詞與名詞，將其轉化為對應的 Prompt，結果就是產出的影片像是一本索然無味的流水帳，毫無敘事弧線可言。它太想把每一句話都解釋清楚，卻忘了音樂錄影帶的靈魂往往在於畫面的留白與意象的抽離。我們在測試中發現，當輸入具備高度抽象意圖的文本時，Claude 的推理路徑會傾向於穩健的「具象化映射」，這種路徑在處理法律文件或技術文件時是優點，但在藝術創作場景下，簡直是災難。</p>
+    <p>GPT 在這方面的表現雖然稍具動態感，但也沒能好到哪去。它更傾向於生成一種「標準的好萊塢式平庸」，畫面雖然飽滿，但邏輯斷裂感依舊嚴重。這牽涉到一個核心的技術議題：上下文視窗（Context Window）的權重分配。當模型在處理長達三到五分鐘的音軌與歌詞時，它很難在維持單個分鏡品質的同時，還能兼顧到結尾與開頭的視覺呼應。這導致影片看起來像是一串互不相干的素材拼貼，缺乏一個統一的視覺母題。</p>
+    <p>若將目光移向其他參與者，例如近期引起討論的 Qwen-Image-3.0，我們能觀察到不同架構在處理視覺語意時的差異。相較於 Qwen-Image-3.0 的解析邏輯，Claude 在處理長文本指示時的層級感顯然更為複雜。然而，這種複雜性並沒有轉化為審美上的優勢。當我們在討論影視創作的自動化時，我們往往高估了模型對「敘事節奏」的理解。目前所有的四大平台，在本質上都是在做一種「概率式地填空」，它們理解單詞的關聯，卻不理解情緒的起伏。</p>
+    <p>音樂錄影帶的本質是氛圍的營造，是對文字的延伸而非複寫。現狀是，模型在技術層面上已經能生成足以亂真的光影效果，卻在邏輯層面上卡在了幼兒園水平。如果你給它一段充滿隱喻的詩，它回饋給你的是一堆塑料感十足的寫實鏡頭。這讓人想起早期那些拙劣的電影特效，僅僅是因為能做到，所以就毫無節制地堆砌。</p>
+    <p>我們是否該反思，讓語言模型去主導視覺敘事本身就是一個錯誤的方向？目前的架構決定了它們只能是優秀的執行者，而非合格的導演。我們賦予了它們龐大的知識庫，但它們卻連最基本的「虛實結合」都學不會。在未來的迭代中，如果模型無法理解「不說什麼」比「說了什麼」更重要，那麼這種所謂的百元預算實驗，永遠只會停留在技術展示的範疇，而無法觸及藝術的門檻。我們究竟是需要一個能聽懂指令的繪圖員，還是需要一個能理解旋律背後孤獨感的創作夥伴？這或許是四大平台在追求參數增長之餘，最不願面對的審美困境。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.tryai.dev/blog/ai-music-video-arena-claude-vs-gpt-5.6" rel="nofollow noopener" target="_blank">$100 AI Music Video: Claude Fable 5 vs. GPT-5.6 Sol</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260722-0608-ebd864/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

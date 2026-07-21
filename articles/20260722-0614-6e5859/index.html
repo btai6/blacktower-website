@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用二十五美金的 Grok 換五十萬美金的漏洞獎金</title>
+<meta name="description" content="這兩天 Hacker News 上那篇用 LLM 挖出 WordPress 遠端代碼執行（RCE）漏洞的帖子鬧得沸沸揚揚。發文者宣稱只花了二十五美金的 API 額度，就搞定了可能價值五十萬美金的漏洞。這種「以小博大」的敘事聽起來很像矽谷最愛的暴富神話，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260722-0614-6e5859/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="用二十五美金的 Grok 換五十萬美金的漏洞獎金">
+<meta property="og:description" content="這兩天 Hacker News 上那篇用 LLM 挖出 WordPress 遠端代碼執行（RCE）漏洞的帖子鬧得沸沸揚揚。發文者宣稱只花了二十五美金的 API 額度，就搞定了可能價值五十萬美金的漏洞。這種「以小博大」的敘事聽起來很像矽谷最愛的暴富神話，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260722-0614-6e5859/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-22T06:14:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用二十五美金的 Grok 換五十萬美金的漏洞獎金">
+<meta name="twitter:description" content="這兩天 Hacker News 上那篇用 LLM 挖出 WordPress 遠端代碼執行（RCE）漏洞的帖子鬧得沸沸揚揚。發文者宣稱只花了二十五美金的 API 額度，就搞定了可能價值五十萬美金的漏洞。這種「以小博大」的敘事聽起來很像矽谷最愛的暴富神話，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "用二十五美金的 Grok 換五十萬美金的漏洞獎金",
+  "description": "這兩天 Hacker News 上那篇用 LLM 挖出 WordPress 遠端代碼執行（RCE）漏洞的帖子鬧得沸沸揚揚。發文者宣稱只花了二十五美金的 API 額度，就搞定了可能價值五十萬美金的漏洞。這種「以小博大」的敘事聽起來很像矽谷最愛的暴富神話，…",
+  "datePublished": "2026-07-22T06:14:00+08:00",
+  "dateModified": "2026-07-22T06:14:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260722-0614-6e5859/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-22 06:14
+  </div>
+
+  <h1 class="title">用二十五美金的 Grok 換五十萬美金的漏洞獎金</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天 Hacker News 上那篇用 LLM 挖出 WordPress 遠端代碼執行（RCE）漏洞的帖子鬧得沸沸揚揚。發文者宣稱只花了二十五美金的 API 額度，就搞定了可能價值五十萬美金的漏洞。這種「以小博大」的敘事聽起來很像矽谷最愛的暴富神話，但拋開那股黑鏡式的恐懼感不談，這背後反映出的是 AI 在靜態代碼審計（SAST）這塊領地的入侵速度，快得讓人心驚膽顫。這不是什麼科幻片，這是現在進行式。以前漏洞獵人得熬夜喝咖啡，手動翻閱那些寫得跟迷宮一樣的 PHP 原始碼，現在只要把代碼往模型裡一塞，提示詞寫得夠精準，模型就能幫你標註出那些潛在的溢出風險或過濾漏洞。</p>
+    <p>當大家還在討論 Qwen-Image-3.0 這種多模態更新時，xAI 的 Grok 在這種純邏輯、高壓力的代碼推理場景中展現出的攻擊性，才是最值得玩味的。Grok 的訓練數據裡顯然包含了大量未經「過度閹割」的技術文本，這讓它在面對 WordPress 這種被戲稱為「帶有博客功能的遠端 Shell」的複雜架構時，展現出了一種近乎直覺的穿透力。很多人以為 AI 只是在做模式匹配，但如果你真的去測過它對非線性邏輯的理解，你會發現它在追蹤數據流（Data Flow）時的耐心遠超人類。它不會因為代碼寫得爛就感到煩躁，它只會不知疲倦地在數萬行代碼中尋找那個沒被處理好的輸入變量。</p>
+    <p>這種能力在四大平台之間其實存在明顯的斷層。ChatGPT 在處理這類任務時，往往會因為過度的安全對齊（Safety Alignment）而變得畏首畏尾，只要它察覺到你在試圖構建一個攻擊載荷，它就會開始說教，甚至直接拒絕生成代碼。Claude 雖然在理解長文本和邏輯深度上極其出色，但它那種優雅的書生氣有時會讓它忽略掉一些「髒」的漏洞路徑，它太傾向於假設開發者會遵循最佳實踐，這在面對 WordPress 這種充滿歷史遺留問題的代碼庫時反而是個弱點。Gemini 則更像是一個博而不精的圖書館管理員，它能幫你快速定位到相關函數，但在串聯多步利用鏈（Exploit Chain）時，邏輯鏈條經常在第三或第四步斷裂。</p>
+    <p>相比之下，Grok 展現出了一種更為粗獷且高效的邏輯推理能力。它不追求代碼的美感，它追求的是結果的有效性。在針對特定 API 調用進行模糊測試（Fuzzing）的邏輯構建上，Grok 對於邊界條件的敏感度高得離譜。這大概就是為什麼有人能用二十五美金就挖到寶。與 Qwen-Image-3.0 這種專注於視覺理解的模型不同，xAI 在 Grok 上的迭代邏輯似乎更強調對原始邏輯的還原，而不是對人類語言習慣的模擬。這導致了一個有趣的現象：Grok 說話可能很刻薄、很凌亂，但它在拆解一段 C 或 PHP 代碼的安全性時，那種冷靜的解構感是非常可怕的。</p>
+    <p>現在的問題在於，這種「平民化」的漏洞挖掘能力，到底是會讓網路世界變得更安全，還是更危險？當一個大三學生拿著幾十美金的點數就能挑戰價值五十萬美金的防禦體系時，傳統的漏洞賞金機制（Bug Bounty）還能支撐多久？如果 WordPress 這種級別的項目都能被如此輕易地突破，那些跑在金融、電力、通訊基礎設施上的老舊代碼，還能躲在「晦澀難懂」的遮羞布後面多久？</p>
+    <p>如果有一天，AI 發現漏洞的速度超過了人類修復漏洞的速度，甚至超過了人類理解漏洞的速度，我們該如何定義「安全」？當攻擊的成本趨近於零，而防禦的成本依然指數級增長時，這場遊戲的終點會在哪裡？難道我們真的要進入一個由 AI 寫代碼、再由另一個 AI 來挖洞、最後由第三個 AI 來打補丁的荒誕循環嗎？在這個循環裡，人類除了付錢給 API 供應商，還剩下什麼價值？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/" rel="nofollow noopener" target="_blank">I found a WordPress RCEs with GPT5.6 and $25</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260722-0614-6e5859/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

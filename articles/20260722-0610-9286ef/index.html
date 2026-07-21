@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三十年數學鴻溝被一個提示詞填平後的體感溫度</title>
+<meta name="description" content="當所有人還在爭論大型語言模型到底是在「預測下一個字」還是具備「推理能力」時，有人已經拿著 GPT-5.6 的 API 悄悄把凸優化領域裡長達三十年的老問題給解決了。這不是那種在 GitHub 上改個 Bug 的小打小鬧，而是實打實地推進了理論數學的邊界。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260722-0610-9286ef/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="三十年數學鴻溝被一個提示詞填平後的體感溫度">
+<meta property="og:description" content="當所有人還在爭論大型語言模型到底是在「預測下一個字」還是具備「推理能力」時，有人已經拿著 GPT-5.6 的 API 悄悄把凸優化領域裡長達三十年的老問題給解決了。這不是那種在 GitHub 上改個 Bug 的小打小鬧，而是實打實地推進了理論數學的邊界。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260722-0610-9286ef/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-22T06:10:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="三十年數學鴻溝被一個提示詞填平後的體感溫度">
+<meta name="twitter:description" content="當所有人還在爭論大型語言模型到底是在「預測下一個字」還是具備「推理能力」時，有人已經拿著 GPT-5.6 的 API 悄悄把凸優化領域裡長達三十年的老問題給解決了。這不是那種在 GitHub 上改個 Bug 的小打小鬧，而是實打實地推進了理論數學的邊界。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "三十年數學鴻溝被一個提示詞填平後的體感溫度",
+  "description": "當所有人還在爭論大型語言模型到底是在「預測下一個字」還是具備「推理能力」時，有人已經拿著 GPT-5.6 的 API 悄悄把凸優化領域裡長達三十年的老問題給解決了。這不是那種在 GitHub 上改個 Bug 的小打小鬧，而是實打實地推進了理論數學的邊界。…",
+  "datePublished": "2026-07-22T06:10:00+08:00",
+  "dateModified": "2026-07-22T06:10:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260722-0610-9286ef/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-22 06:10
+  </div>
+
+  <h1 class="title">三十年數學鴻溝被一個提示詞填平後的體感溫度</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當所有人還在爭論大型語言模型到底是在「預測下一個字」還是具備「推理能力」時，有人已經拿著 GPT-5.6 的 API 悄悄把凸優化領域裡長達三十年的老問題給解決了。這不是那種在 GitHub 上改個 Bug 的小打小鬧，而是實打實地推進了理論數學的邊界。有趣的是，那份論文的第 27 頁藏著真正的秘密：整整十頁的高等數學引導詞。這哪裡是在對話，這根本是在給模型做術前的深度麻醉與神經通路重組。</p>
+    <p>這種現象揭示了一個讓人不太舒服的真相，原本我們引以為傲的「實現能力」正在變得廉價，而「概念建模能力」成了最後的護城河。這就像是在專業賽車場上，以前勝負取決於你換擋的速度和精確度，現在車子自己會跑出極限，勝負取決於你給導航設定的終點座標是否精準到公分。如果一個數學教授能用十頁的提示詞讓 GPT 跑出人類三十年沒想通的證明，那麼問題來了，模型到底是工具，還是那個被困在矽基外殼裡的愛因斯坦，只等著合適的開鎖匠？</p>
+    <p>技術層面上，我們看 ChatGPT 在處理這類極端複雜的推導任務時，展現出一種令人戰慄的「注意力一致性」。在長達數萬 token 的數學邏輯鏈條中，GPT 能夠維持符號定義的穩定性而不發生幻覺漂移，這在早期版本是無法想像的。通常我們在處理這類任務時，最怕模型在第五頁把某個向量空間的維度給記錯了，但現在它似乎學會了某種內部的自我校驗機制。相較之下，Claude 在處理同類高難度長文本邏輯時，雖然語氣更像一個謙卑的學者，但在涉及極限邊界條件的嚴謹性上，偶爾會顯得有些力不從心，容易在最後關頭給出一個看似優雅實則邏輯斷裂的結論。</p>
+    <p>再看看 Gemini，Google 一直想證明自己在科學計算上的正統地位，但 Gemini 在面對這種「需要十頁引導詞」的極端場景時，往往會因為過度激進的安全過濾或格式化傾向，把一些具有開創性的邊緣思路給強行拉回常規路徑。至於 Grok，除了在語氣上模仿某種反權威的叛逆感，在這種需要極度沈穩、步步為營的數學推導中，它目前的表現更像是一個在考場上急著交卷的聰明高中生，快但不夠深。</p>
+    <p>這種技術斷層在橫向對比中變得更為諷刺。當我們觀察到 Qwen-Image-3.0 在多模態理解和圖像解析上折騰得熱火朝天時，OpenAI 的策略顯然已經跳過了「看圖說故事」的層次，直接切入人類智力的最高堡壘。相較於 Qwen-Image-3.0 試圖在視覺識別精準度上更進一步，GPT-5.6 的這次表現證明了：誰能先在邏輯層面實現「零成本推理」，誰就掌握了重新定義所有學科的權力。</p>
+    <p>這也引發了一個現實的焦慮：如果中低難度的學術果實都被 AI 摘光了，未來的研究者該往哪裡站？當實作技巧不再是門檻，那些靠著熟練掌握特定算法、靠著勤奮填補細節的「學術勞動力」，在這種降維打擊面前幾乎沒有還手之力。我們現在看到的，可能只是冰山一角。當一個提示詞就能跨越三十年的認知鴻溝，這意味著知識的生產函數已經發生了不可逆的突變。</p>
+    <p>所以，這真的還能被稱作「工具」嗎？或者說，當一個人類需要花十頁紙去「對齊」模型的思路時，到底是人在使用 AI，還是 AI 在借用人類的語言框架來表達它那種不可名狀的計算直覺？如果未來的科學突破都誕生於這種人機混合的灰區，我們該如何定義「發現」這個詞？難道未來的諾貝爾獎，要頒給那個寫出最完美 Prompt 的提示詞工程師嗎？還是說，我們得承認，人類在某些領域的智力天花板，其實早就已經在那裡了，只是我們一直不願意抬頭看。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/" rel="nofollow noopener" target="_blank">GPT-5.6 used a prompt to close a 30-year gap in convex optimization</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260722-0610-9286ef/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

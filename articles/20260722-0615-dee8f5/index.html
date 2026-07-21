@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馬斯克吹上天的 Grok-3 到底行不行，看它寫出來的那坨亂碼代碼就知道了。</title>
+<meta name="description" content="別再跟我扯什麼這模型有用上一萬張 H100 訓練，還是它能即時抓取 X 上的社交數據，這種漂亮話聽多會吐。實際情況是，當你真的把一個稍微有點邏輯深度的後端架構丟給它，叫它優化一下並行處理的死鎖問題，它回饋給你的東西簡直就像是個剛修完 Python 體驗課的實習生，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260722-0615-dee8f5/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="馬斯克吹上天的 Grok-3 到底行不行，看它寫出來的那坨亂碼代碼就知道了。">
+<meta property="og:description" content="別再跟我扯什麼這模型有用上一萬張 H100 訓練，還是它能即時抓取 X 上的社交數據，這種漂亮話聽多會吐。實際情況是，當你真的把一個稍微有點邏輯深度的後端架構丟給它，叫它優化一下並行處理的死鎖問題，它回饋給你的東西簡直就像是個剛修完 Python 體驗課的實習生，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260722-0615-dee8f5/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-22T06:15:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="馬斯克吹上天的 Grok-3 到底行不行，看它寫出來的那坨亂碼代碼就知道了。">
+<meta name="twitter:description" content="別再跟我扯什麼這模型有用上一萬張 H100 訓練，還是它能即時抓取 X 上的社交數據，這種漂亮話聽多會吐。實際情況是，當你真的把一個稍微有點邏輯深度的後端架構丟給它，叫它優化一下並行處理的死鎖問題，它回饋給你的東西簡直就像是個剛修完 Python 體驗課的實習生，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "馬斯克吹上天的 Grok-3 到底行不行，看它寫出來的那坨亂碼代碼就知道了。",
+  "description": "別再跟我扯什麼這模型有用上一萬張 H100 訓練，還是它能即時抓取 X 上的社交數據，這種漂亮話聽多會吐。實際情況是，當你真的把一個稍微有點邏輯深度的後端架構丟給它，叫它優化一下並行處理的死鎖問題，它回饋給你的東西簡直就像是個剛修完 Python 體驗課的實習生，…",
+  "datePublished": "2026-07-22T06:15:00+08:00",
+  "dateModified": "2026-07-22T06:15:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260722-0615-dee8f5/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-22 06:15
+  </div>
+
+  <h1 class="title">馬斯克吹上天的 Grok-3 到底行不行，看它寫出來的那坨亂碼代碼就知道了。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>別再跟我扯什麼這模型有用上一萬張 H100 訓練，還是它能即時抓取 X 上的社交數據，這種漂亮話聽多會吐。實際情況是，當你真的把一個稍微有點邏輯深度的後端架構丟給它，叫它優化一下並行處理的死鎖問題，它回饋給你的東西簡直就像是個剛修完 Python 體驗課的實習生，還是在宿醉狀態下寫出來的。語法沒錯，格式漂亮，但只要你按下一鍵執行，系統就直接原地爆炸。最後還是得靠公司裡那些被裁員危機嚇得半死、時薪便宜得要命的印度架構師，頂著黑眼圈一行一行去修那些低級到讓人發瘋的 Bug。這就是現在 xAI 給全世界畫的大餅，看著熱氣騰騰，咬下去滿嘴生粉。</p>
+    <p>很多人覺得 Grok 有那股「反建制」的狠勁，寫代碼應該也比較大膽創新。現實是，它的大膽全用在胡說八道上了。我試過讓它處理一個涉及分散式鎖的場景，它竟然在關鍵步驟給我留白，還美其名曰「此處可根據具體框架實作」。這不是在寫代碼，這是在寫散文。對比一下，Claude 3.5 Sonnet 雖然有時候像個管家婆一樣囉嗦，但它給出的邏輯閉環起碼是人能看懂且能跑通的。Grok 呢？它更像是一個在推特上發瘋的鍵盤俠，氣勢很足，但一到實戰就拉胯。它寫出來的代碼有一種莫名的傲慢感，彷彿在說：「我邏輯沒錯，跑不通是你的編譯器有問題。」這種態度，真的跟它的創始人一模一樣。</p>
+    <p>大家老愛拿它跟 GPT-4o 比，說什麼推理能力已經持平。我說這話的人大概這輩子沒寫過超過一百行的工程。GPT-4o 現在雖然變得越來越像個滑頭的政客，給出的回答老是在繞圈子、打安全牌，但至少它的代碼安全性檢查做得還行。Grok 的代碼裡充滿了各種讓人噴飯的緩衝區溢出風險，甚至在處理 API Key 的時候，它能直接給你硬編碼寫在注釋裡。這種東西如果不經過印度外包團隊的手動脫敏和邏輯重構，丟到生產環境去簡直就是駭客的自助餐。</p>
+    <p>現在的 Grok 就處於一種尷尬的自嗨狀態。它能讀懂 X 上的情緒，能幫你噴人，甚至能用那種尷尬的幽默感跟你聊天，但在硬核的工程領域，它表現得像個外行。代碼生成不是文字創作，不需要你那種「意識流」的靈感噴湧，需要的是極致的嚴謹。如果你給出的代碼還需要人類花雙倍的時間去 Debug，那你這個 AI 的存在意義是什麼？難道是為了增加全球程序員的就業率？還是為了讓大家重新意識到，雖然矽谷在裁員，但真正懂底層邏輯的人才永遠不會被這種半吊子模型取代。</p>
+    <p>我最看不慣的就是那些吹捧「Grok 是程序員救星」的人。救星？它現在頂多是個「加班費產生器」。每次我看到 Grok 吐出一大堆看起來結構優美但完全不考慮記憶體洩漏的 C++ 代碼，我就知道今晚又有人不用睡了。那些被派去修 Bug 的印度高手們，雖然被社交媒體嘲諷，但他們才是真正支撐起這些「AI 神話」背後的脊樑。諷刺的是，馬斯克一邊裁掉那些有經驗的工程師，一邊讓 AI 產出垃圾，最後再低價請外包來清掃垃圾，這套流程玩得可真轉。</p>
+    <p>說實話，Gemini 在處理大規模代碼庫的上下文聯想時，雖然偶爾會出現幻覺，但人家的長文本窗口是實打實的，能幫你理清那些陳年老代碼的脈絡。Grok 呢？它的記憶力似乎跟它的脾氣一樣不穩定，上一秒還記得我在處理異步回調，下一秒就開始給我推銷它的加密貨幣觀點。這種注意力缺失症，在寫代碼時是致命的。代碼的本質是邏輯的堆疊，不是情緒的宣洩。Grok 現在把太多算力浪費在模擬「人的個性」上，反而丟掉了 AI 最基本的穩定性。</p>
+    <p>技術圈裡有一種病，叫做「數據迷信」。以為只要把 X 平台上的那堆垃圾信息灌進去，模型就能獲得所謂的「社會洞察力」進而提升邏輯能力。錯了，垃圾進，垃圾出。X 上的討論大多數是碎片化的、情緒化的，這跟代碼邏輯所要求的系統性思維完全背道而馳。當你讓一個每天沉浸在鍵盤俠吵架環境裡的 AI 去寫核心算法，它寫出來的東西帶著一股子暴躁和草率，一點都不讓人意外。</p>
+    <p>那些還在期待 Grok-3 能徹底取代工程師的人可以洗洗睡了。只要它還在追求那種所謂的「幽默感」和「即時性」，它就永遠成不了專業的生產力工具。它更像是一個昂貴的玩具，一個在社交派對上拿出來炫耀「你看我這 AI 說話多損」的談資。至於真正要落地跑的項目，大家心裡都有數，最後還是會老老實實地打開 Claude 或者 GPT。誰會拿公司的伺服器去給馬斯克的實驗品陪葬？除非你瘋了。</p>
+    <p>現在這情況就像是你買了一輛外型帥到炸裂的特斯拉，結果開出門才發現連方向盤都是選配，甚至剎車系統還得靠遠端伺服器在印度手動模擬。這種所謂的「科技進步」，不過是另一種形式的勞動力剝削與智商稅徵收。AI 寫代碼的初衷是自動化，現在卻變成了「自動製造麻煩」。那些印度大師們修的不只是 Bug，他們修的是馬斯克碎了一地的技術自尊。</p>
+    <p>如果你問我 Grok 還有沒有救，我會說有，只要它閉嘴、少在那邊耍嘴皮子，把所有的神經元都用在理解循環嵌套和指針引用上。但這可能嗎？對於一個以「好鬥」為基因的公司來說，安安靜靜做個工具人簡直是種侮辱。所以我們只能繼續看著這場鬧劇上演：AI 在螢幕前狂妄地生成代碼，人類在螢幕後默默地修補漏洞。這根本不是什麼技術革命，這只是一場昂貴的、充滿噪聲的數位大躍進。</p>
+    <p>最讓人寒心的是，這種「半成品文化」正在侵蝕整個 AI 行業。因為 Grok 靠著嘴砲贏得了關注，其他大模型似乎也開始學著在營銷上發力，而在核心的準確度上擺爛。反正代碼出錯了可以推給「提示詞寫得不好」，或者乾脆讓外包去收尾。當一個模型不再以「正確」為榮，而是以「有個性」為榮時，它就已經偏離了工具的本質。我不需要一個會跟我抬槓的代碼助手，我需要一個能讓我準時下班的穩定插件。顯然，Grok 離這個目標還有幾光年的距離。</p>
+    <p>別再跟我說什麼 Grok 的迭代速度驚人了。在代碼的世界裡，快而不準等於零，甚至等於負數。那種「快速失敗」的矽谷教條，用在社交軟體上沒問題，用在底層架構上就是犯罪。看著那些被 Grok 坑慘了的開發者，再看看推特上那些還在為它歡呼的粉絲，這種現實與虛擬的斷裂感才是最諷刺的。下次當你看到 Grok 產出的那段完美符合語法卻邏輯混亂的代碼時，記得去給那些還在辛勤工作的印度工程師們點個讚，因為是他們擋在了崩潰的生產環境與傲慢的 AI 之間。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260722-0615-dee8f5/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
