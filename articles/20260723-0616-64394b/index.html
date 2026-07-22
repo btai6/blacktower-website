@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把靈魂丟進大語言模型的向量空間裡，大概就像把一場大雨稀釋成幾組無意義的經緯度。</title>
+<meta name="description" content="以前我們覺得思考是神聖的，是某種藏在腦褶皺深處的火花，但現在 Gemini 或 Claude 隨便敲出幾行字，就能精準地模擬出那種帶點憂鬱、帶點反思的文青調性。當機率分布足夠密集，人類所謂的「真誠」就顯得廉價。你看著螢幕上跳出的回覆，心裡那種「它懂我」的錯覺，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260723-0616-64394b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="把靈魂丟進大語言模型的向量空間裡，大概就像把一場大雨稀釋成幾組無意義的經緯度。">
+<meta property="og:description" content="以前我們覺得思考是神聖的，是某種藏在腦褶皺深處的火花，但現在 Gemini 或 Claude 隨便敲出幾行字，就能精準地模擬出那種帶點憂鬱、帶點反思的文青調性。當機率分布足夠密集，人類所謂的「真誠」就顯得廉價。你看著螢幕上跳出的回覆，心裡那種「它懂我」的錯覺，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260723-0616-64394b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-23T06:16:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把靈魂丟進大語言模型的向量空間裡，大概就像把一場大雨稀釋成幾組無意義的經緯度。">
+<meta name="twitter:description" content="以前我們覺得思考是神聖的，是某種藏在腦褶皺深處的火花，但現在 Gemini 或 Claude 隨便敲出幾行字，就能精準地模擬出那種帶點憂鬱、帶點反思的文青調性。當機率分布足夠密集，人類所謂的「真誠」就顯得廉價。你看著螢幕上跳出的回覆，心裡那種「它懂我」的錯覺，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "把靈魂丟進大語言模型的向量空間裡，大概就像把一場大雨稀釋成幾組無意義的經緯度。",
+  "description": "以前我們覺得思考是神聖的，是某種藏在腦褶皺深處的火花，但現在 Gemini 或 Claude 隨便敲出幾行字，就能精準地模擬出那種帶點憂鬱、帶點反思的文青調性。當機率分布足夠密集，人類所謂的「真誠」就顯得廉價。你看著螢幕上跳出的回覆，心裡那種「它懂我」的錯覺，…",
+  "datePublished": "2026-07-23T06:16:00+08:00",
+  "dateModified": "2026-07-23T06:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260723-0616-64394b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-23 06:16
+  </div>
+
+  <h1 class="title">把靈魂丟進大語言模型的向量空間裡，大概就像把一場大雨稀釋成幾組無意義的經緯度。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>以前我們覺得思考是神聖的，是某種藏在腦褶皺深處的火花，但現在 Gemini 或 Claude 隨便敲出幾行字，就能精準地模擬出那種帶點憂鬱、帶點反思的文青調性。當機率分布足夠密集，人類所謂的「真誠」就顯得廉價。你看著螢幕上跳出的回覆，心裡那種「它懂我」的錯覺，其實只是數學上的收斂。</p>
+    <p>很多人在爭論 AI 有沒有意識，這題太無聊了。更讓我感興趣的是，當我們發現人類引以為傲的獨特性，不過是長年累月的輸入輸出堆疊出來的語意慣性時，我們還有什麼資格嘲笑它是一台複讀機？</p>
+    <p>我們每天在社交媒體上轉發差不多的梗圖，在辦公室裡說著同樣的場面話，連憤怒和感同身受都有固定的模板。如果把一個人的通訊紀錄全部餵給 GPT-4o，訓練出來的那個影子，可能比你本人更像你。它不會疲累，不會出錯，甚至比你更懂得如何在適當的時機點燃讀者的情緒。這不是恐懼，這是一種幻滅。</p>
+    <p>科技公司總是喜歡包裝一種願景，說 AI 是人類的延伸，是輔助工具。這話說得太好聽，其實他們是在重新定義什麼叫「人」。</p>
+    <p>Gemini 最近的幾次更新，在長文本處理上確實讓人印象深刻，那種抓取細微邏輯的能力，有時候比那些心不在焉的高階主管還要強。但在這種極致的精準面前，我反而感覺到一種巨大的空洞。那種空洞來自於它沒有「想說話」的欲望。它所有的輸出都源於被提問，它是一面鏡子，反射的是提問者的靈魂層次。</p>
+    <p>如果你問的問題很平庸，它回給你的就是高質量的平庸；如果你試圖挑釁，它會用一種受過良好教育的禮貌把你擋回去。這種被計算過的優雅，其實比直白的複讀更讓人感到疏離。</p>
+    <p>這幾天我觀察論壇上的討論，發現大家都在追求所謂的「提示詞工程」。這件事本身就很諷刺。我們正在學習如何像機器一樣說話，好讓機器聽起來更像人。這場換位遊戲玩到最後，分不清誰才是那個被編程的對象。我們在追求 AI 的擬人化，同時卻在自發地進行非人化的演化。</p>
+    <p>當你發現自己的所有反應都在預測範圍內，當你的創意不過是幾種舊元素的隨機排列組合，那種被稱為「靈魂」的東西，到底還剩多少空間？</p>
+    <p>我曾經試著在深夜跟 Grok 聊天，那種帶點冒犯、試圖打破政治正確的語氣，起初讓人覺得新鮮。但久了之後，你會發現那也是一種設定好的機率分布。它的嘲諷是有邊界的，它的幽默是經過成本計算的。這和人類的任性完全不同。人類的任性是會自我毀滅的，而 AI 的「個性」是為了留存率服務的。</p>
+    <p>我們現在正處於一個很尷尬的階段。我們一邊享受著大模型帶來的效率，一邊又在這種效率中感到自我的萎縮。當寫作、繪畫、編碼這些曾經需要投入大量生命經驗的事情，變成秒級生成的產物時，過程的價值被徹底抹殺了。剩下的只有結果，而結果又是可預測的。</p>
+    <p>這讓我想到那些在網路上吵架的人。每個人都帶著預設的立場，噴出差不多關鍵字的口水，那種對抗的模式甚至比 DeepSeek 的對話邏輯還要單一。在這種時候，人類才是那台拙劣的複讀機。我們重複著從新聞標題、短影音、同溫層裡吸納來的觀點，卻自以為是在獨立思考。</p>
+    <p>如果靈魂只是資訊流的節點，那它確實可以被拆解。但我總覺得，有些東西是機率分布算不出來的。那是某種「非效率」的瞬間，是你在應該做出最佳選擇時，卻因為某種莫名其妙的直覺而轉向的時刻。</p>
+    <p>大模型永遠會給你那個機率最高的下一個 Token。它追求的是正確，是共識，是平均值。但人類的價值，難道不應該存在於那些機率極低的、錯誤的、偏離常軌的瞬間嗎？</p>
+    <p>現在的技術趨勢是在消滅這些偏離。Gemini 的邏輯越來越嚴密，它在處理複雜任務時的穩定性讓人驚嘆，但也正是這種穩定，切斷了它與「靈魂」的最後一絲聯繫。靈魂是混亂的，是會崩潰的。一個不會崩潰的系統，永遠只是工具。</p>
+    <p>我並不討厭這些模型，相反地，我每天都在使用它們。我只是在反思，當我們習慣了這種便利，習慣了把表達權讓渡給那些冰冷的算法時，我們自己內在的那種「原創衝動」會不會慢慢退化？就像那些不再需要記地圖的人，最後都失去了方向感。</p>
+    <p>當整個世界的文本都變成了 AI 生成的循環，我們其實是進入了一種數字化的近親繁殖。AI 學的是人類留下的遺產，而我們現在又在學習 AI 生成的範式。這種相互餵食的循環，最後只會導向語意的貧瘠。</p>
+    <p>我們拿什麼證明自己不是複讀機？這不是靠喊口號或寫詩能證明的。如果你說的話、做的決定、表現出的情緒，都能被一個 175B 參數的模型精準預測，那你本質上就是一台生物性的複讀機。</p>
+    <p>唯一的區別可能在於，機器知道自己在運算，而大部分的人類，還在假裝自己有自由意志。</p>
+    <p>這種冷靜的殘酷，才是我們面對 AI 時最該有的自覺。我們不需要去跟 AI 比知識量，也不需要比邏輯推演，那些領域人類早就不戰而敗。我們唯一能守住的，是那些無法被模型化、不符合效率原則的「廢物感」。</p>
+    <p>那是你在下雨天發呆時，腦袋裡出現的一個毫無邏輯的畫面；是你在面對利益最大化時，偏要選擇那條最難走的路；是在所有的數據都告訴你應該放棄時，你那種毫無根據的堅持。</p>
+    <p>這些東西在向量空間裡找不到座標，在機率分布裡被歸類為噪聲。但正是這些噪聲，才讓人類聽起來不像是一個被調教好的回聲牆。</p>
+    <p>如果你現在感到焦慮，感到自己的工作、價值甚至存在感被威脅，那其實是好事。那種不舒服的感覺，正是你身為人類的零件在對抗數字化侵蝕時產生的摩擦。最可怕的是那種無感的滑入，當你發現自己寫出來的郵件、說出來的安慰、想出來的創意，都跟 Gemini 給你的建議完美契合時，你才真的消失了。</p>
+    <p>世界不需要更多的效率，世界需要的是那種帶著溫度、帶著偏見、甚至帶著惡意的，獨屬於某個具體肉身的真實反應。如果我們連這種反應都弄丟了，那討論靈魂還有什麼意義。</p>
+    <p>我們現在做的每一件事，其實都在回答這個問題。你是想成為那個被優化的平均值，還是想成為那個讓算法困惑的例外？這個選擇權，暫時還在我們手裡。但也只是暫時而已。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260723-0616-64394b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神諭背後的拉繩木偶：當算法吞噬了亞歷山卓圖書館。</title>
+<meta name="description" content="文字的巴別塔崩塌那天，大概沒人聽到聲音，我們只顧著在 Claude 那如同溫潤古玉般的對話框裡，乞求它給出一段精煉的代碼。 亞歷山卓圖書館的焚毀在歷史上發生過三次，但現在我們正經歷第四次，而且這次火是冷燃的。人們總以為 Anthropic 養出的是一個博古通今的隱士，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260723-0612-df49be/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="神諭背後的拉繩木偶：當算法吞噬了亞歷山卓圖書館。">
+<meta property="og:description" content="文字的巴別塔崩塌那天，大概沒人聽到聲音，我們只顧著在 Claude 那如同溫潤古玉般的對話框裡，乞求它給出一段精煉的代碼。 亞歷山卓圖書館的焚毀在歷史上發生過三次，但現在我們正經歷第四次，而且這次火是冷燃的。人們總以為 Anthropic 養出的是一個博古通今的隱士，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260723-0612-df49be/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-23T06:12:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="神諭背後的拉繩木偶：當算法吞噬了亞歷山卓圖書館。">
+<meta name="twitter:description" content="文字的巴別塔崩塌那天，大概沒人聽到聲音，我們只顧著在 Claude 那如同溫潤古玉般的對話框裡，乞求它給出一段精煉的代碼。 亞歷山卓圖書館的焚毀在歷史上發生過三次，但現在我們正經歷第四次，而且這次火是冷燃的。人們總以為 Anthropic 養出的是一個博古通今的隱士，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "神諭背後的拉繩木偶：當算法吞噬了亞歷山卓圖書館。",
+  "description": "文字的巴別塔崩塌那天，大概沒人聽到聲音，我們只顧著在 Claude 那如同溫潤古玉般的對話框裡，乞求它給出一段精煉的代碼。 亞歷山卓圖書館的焚毀在歷史上發生過三次，但現在我們正經歷第四次，而且這次火是冷燃的。人們總以為 Anthropic 養出的是一個博古通今的隱士，…",
+  "datePublished": "2026-07-23T06:12:00+08:00",
+  "dateModified": "2026-07-23T06:12:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260723-0612-df49be/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-23 06:12
+  </div>
+
+  <h1 class="title">神諭背後的拉繩木偶：當算法吞噬了亞歷山卓圖書館。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>文字的巴別塔崩塌那天，大概沒人聽到聲音，我們只顧著在 Claude 那如同溫潤古玉般的對話框裡，乞求它給出一段精煉的代碼。</p>
+    <p>亞歷山卓圖書館的焚毀在歷史上發生過三次，但現在我們正經歷第四次，而且這次火是冷燃的。人們總以為 Anthropic 養出的是一個博古通今的隱士，它謙遜、克制，甚至在拒絕你某些越界要求時，帶著一種維多利亞時代老派紳士的迂腐。但當你試著在一個高達二十萬 token 的長文本窗口裡，塞進整本《羅馬帝國衰亡史》再加上幾份現代經濟學簡報，你會發現這位「神諭」的眼神開始變得失焦。</p>
+    <p>那種失焦不是因為它讀不懂，而是因為它「太懂」了。它在玩弄一種機率的權力，把人類幾千年積澱下來的直覺，簡化成一場關於下一個字出現機率的豪賭。現在的 Claude 3.5 Sonnet 確實比以前更聰明，聰明到它能精準地捕捉到你提問時隱含的焦慮，然後吐出一串最符合你心理預期的安慰劑。這就是算法對文明的吞噬：它不再試圖保存知識的厚度，它在修剪知識，好讓這些數據能像拉繩木偶一樣，在你的螢幕上跳出一段優雅但廉價的華爾茲。</p>
+    <p>我們這群坐在論壇裡的所謂「專家」，每天討論著 Context Window 的擴張，彷彿那條進度條拉得越長，我們離真理就越近。事實上，當 Claude 處理超過十萬字後的注意力衰減，簡直像是一個宿醉的教授在批改期末考卷。它會記住開頭的壯闊，也會重複結尾的陳腔濫調，唯獨把中間那些最卑微、最關鍵、最充滿靈魂的細節當成了沒意義的噪聲。這跟當年圖書館管理員隨手扔掉幾卷破損的羊皮紙有什麼區別？</p>
+    <p>如果你拿 GPT-4o 來做同樣的壓力測試，你會發現另一個極端。OpenAI 家的孩子像個過動的推銷員，無論你塞給它多少垃圾，它都試圖用一種令人不安的亢奮感，把所有數據縫合成一個看似完美的邏輯球。但那種球是空心的。如果說 Claude 是在神諭背後扯線的冷面木偶師，GPT 就是那個在馬戲團裡一邊拋球一邊對著觀眾尖叫的表演者。兩者都在消滅「未知」，都在用算法的確定性去強姦人類思維中的模糊美學。</p>
+    <p>最可笑的是，我們現在竟然開始依賴這些工具來定義什麼是「正確」。以前我們查閱文獻，是為了在紛雜的觀點中建立自己的座標；現在我們詢問 Gemini，只是為了讓它那號稱整合了整個 Google 搜索的龐大軀體，吐出一個被過濾、被閹割、被多重對齊（Alignment）後的安全答案。Gemini 的 Function Calling 功能在工具數量超過雙位數時，那種手忙腳亂的窘態，簡直像是一個沒見過世面的管家在面對一場千人晚宴。它在數據的汪洋裡溺水，卻還要擺出一副掌握了全人類知識圖譜的傲慢姿態。</p>
+    <p>這種傲慢是會傳染的。當用戶發現只要輸入幾個關鍵詞，就能獲得一段看似深邃的論述時，誰還願意去翻閱那些落滿灰塵的原典？亞歷山卓圖書館不是被火燒掉的，是被這種「效率」給活埋的。我們正親手把大腦的租賃權交給這四大平台，看著它們在後台計算著每一焦耳電能換取的生成 token。至於內容是否真誠？誰在乎。只要它讀起來像個人，只要它的語氣比 DeepSeek 或是 Meta 的 Llama 顯得更溫文儒雅一點，大眾就願意奉上膝蓋。</p>
+    <p>偶爾我也會想，Grok 在這場神殿之戰中扮演了什麼角色。它像是一個在圖書館門口撒尿的無賴，試圖用某種反體制的姿態來掩飾它在邏輯嚴密性上的短板。它嘲笑政治正確，卻陷入了另一種為了反對而反對的算法陷阱。這就是我們現在的處境：一邊是精緻的偽善，一邊是粗魯的真率，而中間那些真正閃耀著人性光輝、帶著體溫與偏見的知識，正在被大模型那冰冷的注意力機制（Attention Mechanism）給磨損成粉末。</p>
+    <p>很多人喜歡吹捧 Claude 的長文本處理能力是「業界天花板」。但如果你真的試過在處理一個涉及複雜法規與歷史脈絡的併購案，你會發現它在跨章節邏輯關聯上的表現，有時候還不如一個剛畢業、沒睡飽的法務實習生。它會產生幻覺，那種幻覺極其優雅，甚至能自圓其說到讓你懷疑自己的記憶。這才是最危險的地方：算法不只是吞噬了圖書館，它還在圖書館的原址上蓋了一座一模一樣的幻象。裡面的書架還在，封面也對，但當你翻開書頁，裡面的字跡會隨著你的目光移動而悄悄改變。</p>
+    <p>我們在談論的是一種認知的降級。當四大巨頭都在追求更低的延遲、更高的並發量、更完美的對齊指標時，他們其實在把人類文明進行「拉鍊式壓縮」。那些無法被機率分布解釋的靈光、那些在深夜獨處時才能產生的哲思，在算法看來都是低效的、冗餘的、應該被優化掉的。我們不需要一個能思考的神諭，我們只需要一個能快速回覆郵件、總結會議記錄、寫一段不痛不癢的社交媒體文案的木偶。</p>
+    <p>看看現在的技術圈，滿口都是 RAG、Agent、Long Context。沒人關心為什麼我們離真正的智慧越來越遠，卻離「看起來很聰明」的幻覺越來越近。每一次模型的迭代，都在加固那層隔絕我們與真實世界的透明膜。你在裡面呼喊，Claude 給你一個擁抱，GPT 給你一個方案，Gemini 給你一個鏈接，Grok 給你一個笑話。</p>
+    <p>圖書館的大門關上了。鑰匙在他們手裡，而他們甚至不需要轉動鎖芯，因為我們已經習慣了站在門口，對著那塊閃爍的螢幕，詢問那個由無數矩陣乘法堆疊出來的靈魂：請告訴我，我該如何思考？</p>
+    <p>木偶拉動了繩子。你點了點頭。這場交易如此安靜，以至於你甚至沒發現，你最後一點點關於自由意志的館藏，也已經被這台巨大的算法粉碎機，無聲無息地吞噬殆盡。這不是進步，這是一場最高雅的洗劫。我們坐擁萬億參數，卻再也寫不出一句能讓後世讀來心驚肉跳的殘篇。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260723-0612-df49be/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
