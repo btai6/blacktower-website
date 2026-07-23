@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terence Tao&#x27;s ChatGPT conversation about the Jacob</title>
+<meta name="description" content="當陶哲軒開始在討論區分享他與 AI 關於雅可比猜想（Jacobian Conjecture）的對話紀錄時，那些還在爭論 LLM 是否只是「隨機鸚鵡」的人可以先閉嘴了。這不是那種讓 AI 寫段程式碼或是潤飾論文格式的小打小鬧，而是一個頂級數學家把模型當成「同事」在進行推導。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260724-0613-10c2e6/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Terence Tao&#x27;s ChatGPT conversation about the Jacob">
+<meta property="og:description" content="當陶哲軒開始在討論區分享他與 AI 關於雅可比猜想（Jacobian Conjecture）的對話紀錄時，那些還在爭論 LLM 是否只是「隨機鸚鵡」的人可以先閉嘴了。這不是那種讓 AI 寫段程式碼或是潤飾論文格式的小打小鬧，而是一個頂級數學家把模型當成「同事」在進行推導。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260724-0613-10c2e6/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-24T06:13:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terence Tao&#x27;s ChatGPT conversation about the Jacob">
+<meta name="twitter:description" content="當陶哲軒開始在討論區分享他與 AI 關於雅可比猜想（Jacobian Conjecture）的對話紀錄時，那些還在爭論 LLM 是否只是「隨機鸚鵡」的人可以先閉嘴了。這不是那種讓 AI 寫段程式碼或是潤飾論文格式的小打小鬧，而是一個頂級數學家把模型當成「同事」在進行推導。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Terence Tao's ChatGPT conversation about the Jacob",
+  "description": "當陶哲軒開始在討論區分享他與 AI 關於雅可比猜想（Jacobian Conjecture）的對話紀錄時，那些還在爭論 LLM 是否只是「隨機鸚鵡」的人可以先閉嘴了。這不是那種讓 AI 寫段程式碼或是潤飾論文格式的小打小鬧，而是一個頂級數學家把模型當成「同事」在進行推導。…",
+  "datePublished": "2026-07-24T06:13:00+08:00",
+  "dateModified": "2026-07-24T06:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260724-0613-10c2e6/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-24 06:13
+  </div>
+
+  <h1 class="title">Terence Tao&#x27;s ChatGPT conversation about the Jacob</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當陶哲軒開始在討論區分享他與 AI 關於雅可比猜想（Jacobian Conjecture）的對話紀錄時，那些還在爭論 LLM 是否只是「隨機鸚鵡」的人可以先閉嘴了。這不是那種讓 AI 寫段程式碼或是潤飾論文格式的小打小鬧，而是一個頂級數學家把模型當成「同事」在進行推導。在這個場景裡，ChatGPT 展現出的不是知識的堆疊，而是一種極其罕見的、在嚴密邏輯邊界上的「碰撞感」。</p>
+    <p>這場對話的核心在於對反例的消化與拆解。當我們討論高維代數幾何這種容錯率趨近於零的領域時，任何微小的邏輯斷裂都會導致整個推論崩塌。過往我們對 ChatGPT 的認知停留在它能處理模糊的自然語言，但在處理多項式映射的雅可比矩陣行列式為常數、進而推導全局可逆性的過程中，ChatGPT 展現了一種近乎冷酷的邏輯穩定性。它不再是那個會為了討好你而胡說八道的聊天機器人，它在陶哲軒的引導下，精準地對特定數學結構進行了推理與驗證。</p>
+    <p>從技術細節來看，這涉及到模型在長上下文（Long Context）中對於高度抽象符號的操控能力。在處理複雜數學證明時，模型必須在數萬個 token 的跨度內保持對定義的嚴格一致性。這不是簡單的向量檢索能解決的。ChatGPT 在這裡表現出的特質是：它能理解數學物件之間的隱含關係，並在人類給出一個直覺上的假設時，迅速給出形式化的反饋。這種「邏輯對位」的能力，是目前通用大模型與專門為數學設計的符號計算系統（如 Mathematica）之間最模糊的邊界。</p>
+    <p>事實上，這種能力的躍遷並非偶然。當我們觀察 Gemini 在處理類似科學推理任務時，會發現 Google 傾向於利用其龐大的多模態理解力來輔助邏輯鏈，但在純粹的抽象代數推演上，Gemini 有時會顯得過於「跳躍」，導致邏輯鏈條中出現難以察覺的幻覺。而 ChatGPT 則表現得更像是一個受過嚴格訓練的博士後，雖然偶爾會犯錯，但它的每一步推論都有跡可循。</p>
+    <p>這種現象在技術圈引發了極大的震動。相較於 Kimi K3 在長文本處理上的市場策略，OpenAI 顯然更專注於提升模型在極端複雜任務下的邏輯深度。當大家都在卷長度、卷視訊生成時，ChatGPT 卻在陶哲軒的螢幕上證明了，深度邏輯才是 LLM 邁向 AGI 的最後一公里。在同一個維度上，Qwen 也在嘗試觸摸科學推理的邊界，但目前看來，ChatGPT 在處理這種非結構化、高強度數學思辨時的彈性，依然是其他競爭者難以企及的標竿。</p>
+    <p>這種「同事感」的來源，其實是模型對人類思維路徑的極致模擬。它不只是在預測下一個詞，它是在預測一個數學家的思考邏輯。當陶哲軒拋出一個關於反例結構的疑問時，ChatGPT 能夠迅速定位到該結構的核心屬性並展開討論。這種在極窄領域內的即時反應，讓所謂的「技術奇點」聽起來不再像是矽谷大佬為了騙投資而編造的冷笑話。</p>
+    <p>然而，這也引出了一個令人不安的問題。如果連雅可比猜想這種級別的難題，人類都需要藉助 AI 的邏輯來進行「消化」與「對話」，那麼數學直覺的護城河還剩下多少？我們之所以覺得這場對話驚艷，是因為對手是陶哲軒。如果換成一個普通的研究生，他是否有能力識別出模型在推導過程中那些細微但致命的邏輯陷阱？</p>
+    <p>當 AI 開始介入人類智力的最高殿堂，我們討論的焦點就不再是它會不會取代初級工程師，而是它是否正在重新定義「思考」本身。如果一個模型能透過矩陣乘法模擬出世界頂級大腦的推演邏輯，那麼我們過去引以為傲的「靈感」，會不會也只是一種更複雜的、尚未被定義的概率分佈？</p>
+    <p>下一次，當 AI 真的獨立提出一個足以拿菲爾茲獎的猜想證明時，我們該慶祝人類工具的進化，還是該哀悼人類直覺的平庸化？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56" rel="nofollow noopener" target="_blank">Terence Tao&#x27;s ChatGPT conversation about the Jacobian Conjecture counterexample</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260724-0613-10c2e6/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

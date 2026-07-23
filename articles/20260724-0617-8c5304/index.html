@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 在繪圖場景裡的表現到底是失控還是自由</title>
+<meta name="description" content="讓大語言模型去畫蒙娜麗莎，聽起來就像是讓詩人去搬磚，本質上就是一種對 Token 預測機制的極限霸凌。最近在一些技術社群裡，不少人拿著各種生成的座標代碼去拼湊圖像，想看看這幾家巨頭的空間幾何感到底進化到了什麼地步。結果很有趣，ChatGPT 寫出來的代碼規矩得像教科書，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260724-0617-8c5304/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 在繪圖場景裡的表現到底是失控還是自由">
+<meta property="og:description" content="讓大語言模型去畫蒙娜麗莎，聽起來就像是讓詩人去搬磚，本質上就是一種對 Token 預測機制的極限霸凌。最近在一些技術社群裡，不少人拿著各種生成的座標代碼去拼湊圖像，想看看這幾家巨頭的空間幾何感到底進化到了什麼地步。結果很有趣，ChatGPT 寫出來的代碼規矩得像教科書，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260724-0617-8c5304/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-24T06:17:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 在繪圖場景裡的表現到底是失控還是自由">
+<meta name="twitter:description" content="讓大語言模型去畫蒙娜麗莎，聽起來就像是讓詩人去搬磚，本質上就是一種對 Token 預測機制的極限霸凌。最近在一些技術社群裡，不少人拿著各種生成的座標代碼去拼湊圖像，想看看這幾家巨頭的空間幾何感到底進化到了什麼地步。結果很有趣，ChatGPT 寫出來的代碼規矩得像教科書，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 在繪圖場景裡的表現到底是失控還是自由",
+  "description": "讓大語言模型去畫蒙娜麗莎，聽起來就像是讓詩人去搬磚，本質上就是一種對 Token 預測機制的極限霸凌。最近在一些技術社群裡，不少人拿著各種生成的座標代碼去拼湊圖像，想看看這幾家巨頭的空間幾何感到底進化到了什麼地步。結果很有趣，ChatGPT 寫出來的代碼規矩得像教科書，…",
+  "datePublished": "2026-07-24T06:17:00+08:00",
+  "dateModified": "2026-07-24T06:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260724-0617-8c5304/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-24 06:17
+  </div>
+
+  <h1 class="title">Grok 在繪圖場景裡的表現到底是失控還是自由</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>讓大語言模型去畫蒙娜麗莎，聽起來就像是讓詩人去搬磚，本質上就是一種對 Token 預測機制的極限霸凌。最近在一些技術社群裡，不少人拿著各種生成的座標代碼去拼湊圖像，想看看這幾家巨頭的空間幾何感到底進化到了什麼地步。結果很有趣，ChatGPT 寫出來的代碼規矩得像教科書，Claude 畫出的線條透著一種精緻的僵硬，Gemini 則是在理解指令和執行之間反覆橫跳。最讓人坐不住的是 Grok，這傢伙生成的結果完全不按牌理出牌，甚至讓人懷疑它是不是在訓練數據裡偷吃了什麼奇怪的東西。</p>
+    <p>這不是簡單的「畫得像不像」的問題。當我們要求模型繪製複雜的人像時，實際上是在考驗它對像素空間分佈的邏輯重構能力。ChatGPT 依仗著強大的代碼生成底子，會試著用 SVG 或者是 Python 的 Matplotlib 來構建圖案。這種方式很聰明，它把視覺問題轉化成了邏輯問題。但問題在於，當你要求它畫出蒙娜麗莎那種神秘的微笑時，它生成的代碼往往只能畫出一個類似樂高積木組成的黃臉表情符號。這種「邏輯正確但審美缺失」的表現，說明了 OpenAI 在對齊過程中，過度壓制了模型在非文字領域的發散性。</p>
+    <p>Claude 在這方面的表現稍微好一點，它的代碼結構更具備層次感，對於顏色代碼的選取也更接近人類的直覺。如果你觀察 Claude 生成的 Canvas 組件，你會發現它試圖在模擬光影的過渡，雖然最後呈現出來的效果依然像是一幅低像素的抽象畫，但起碼它理解了什麼叫「漸層」。相較於 Kimi K3，xAI 在 Grok 的訓練策略上顯然走了一條完全不同的路。xAI 似乎並沒有給 Grok 戴上太多的腳鐐，這導致 Grok 在處理這類任務時，展現出了一種近乎野蠻的生命力。</p>
+    <p>Grok 產出的代碼往往不夠優雅，有時候甚至會包含一些無效的冗餘邏輯，但它敢於嘗試那些其他模型不敢碰的複雜結構。當 ChatGPT 和 Gemini 還在糾結於如何畫出一個對稱的圓形當作臉部輪廓時，Grok 可能已經在嘗試用數千個隨機點陣來堆砌光影了。這種差異並非單純的技術落後，而是一種底層哲學的不同。馬斯克推崇的是所謂的「真相」，反映在模型上，就是一種不加修飾的輸出傾向。這種傾向在文字對話中可能表現為毒舌，但在繪圖代碼生成中，就變成了一種不可預測的視覺實驗。</p>
+    <p>當然，很多人會說這毫無意義，因為它們本來就不是圖像生成模型。這種說法太過膚淺。我們觀察的是模型如何理解這個世界。Gemini 在這方面顯得有些掙扎，Google 似乎在它的多模態融合上做了太多的權衡，導致它在純代碼繪圖時，經常會出現邏輯斷裂。它可能前一秒還在精確地定義座標，下一秒就開始胡言亂語。這反映出 Gemini 在長上下文的空間維度保持上，依然存在著不穩定的抖動。</p>
+    <p>我們把這些模型放在一起看，就會發現一個很諷刺的現象。越是經過嚴格安全對齊和人類反饋強化學習（RLHF）的模型，在這種開放式、創造性的技術任務中，表現得就越像是一個平庸的公務員。它們害怕出錯，所以選擇了最穩妥、最無聊路徑。而 Grok 就像是一個在課堂上亂塗亂畫的差生，雖然畫出來的東西常常讓人摸不著頭腦，但偶爾露出的那一兩手，卻讓人看到了大模型在跨模態理解上的另一種可能性。</p>
+    <p>這就引出了一個值得思考的問題：如果我們追求的是極致的邏輯和安全，我們是否正在閹割 AI 的某種原始創造力？當 Grok 拋棄了那些條條框框，試圖用一種近乎瘋狂的方式去解析蒙娜麗莎的輪廓時，它到底是走火入魔了，還是觸碰到了某種我們尚未理解的數據聯覺？在未來，我們到底需要一個永遠給出「標準答案」的工具，還是需要一個能給我們帶來意外驚喜、甚至是不安的觀察者？下一次，當你試著讓它畫出一個不存在的東西時，你希望看到的是一份完美的報告，還是一張混亂但充滿可能性的草圖？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.tryai.dev/blog/ai-drawing-arena-colored-pencils-claude-gpt-grok" rel="nofollow noopener" target="_blank">&quot;Drawing&quot; the Mona Lisa with GPT-5.6, Claude, Gemini, and Grok</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260724-0617-8c5304/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

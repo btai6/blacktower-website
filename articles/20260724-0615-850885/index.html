@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 的版本號遊戲與被遺忘的邏輯邊界</title>
+<meta name="description" content="Google 似乎陷入了一種對數字與後綴的狂熱。Gemini 3.6 Flash、3.5 Flash-Lite 加上 3.5 Flash Cyber，這串命名出現在 Cloud Console 時，給人的感覺不像技術突破，更像是一份急於填補空白的產品目錄。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260724-0615-850885/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 的版本號遊戲與被遺忘的邏輯邊界">
+<meta property="og:description" content="Google 似乎陷入了一種對數字與後綴的狂熱。Gemini 3.6 Flash、3.5 Flash-Lite 加上 3.5 Flash Cyber，這串命名出現在 Cloud Console 時，給人的感覺不像技術突破，更像是一份急於填補空白的產品目錄。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260724-0615-850885/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-24T06:15:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 的版本號遊戲與被遺忘的邏輯邊界">
+<meta name="twitter:description" content="Google 似乎陷入了一種對數字與後綴的狂熱。Gemini 3.6 Flash、3.5 Flash-Lite 加上 3.5 Flash Cyber，這串命名出現在 Cloud Console 時，給人的感覺不像技術突破，更像是一份急於填補空白的產品目錄。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 的版本號遊戲與被遺忘的邏輯邊界",
+  "description": "Google 似乎陷入了一種對數字與後綴的狂熱。Gemini 3.6 Flash、3.5 Flash-Lite 加上 3.5 Flash Cyber，這串命名出現在 Cloud Console 時，給人的感覺不像技術突破，更像是一份急於填補空白的產品目錄。…",
+  "datePublished": "2026-07-24T06:15:00+08:00",
+  "dateModified": "2026-07-24T06:15:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260724-0615-850885/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-24 06:15
+  </div>
+
+  <h1 class="title">Gemini 的版本號遊戲與被遺忘的邏輯邊界</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 似乎陷入了一種對數字與後綴的狂熱。Gemini 3.6 Flash、3.5 Flash-Lite 加上 3.5 Flash Cyber，這串命名出現在 Cloud Console 時，給人的感覺不像技術突破，更像是一份急於填補空白的產品目錄。在 Hacker News 的討論區裡，開發者們正對著 DeepSWE 基準測試中跳動的數字感到困惑——究竟是宣稱的 65% 還是實測的 49%？這種數據上的模糊性，反映出 Google 在面對長達數月的沈默後，急於證明「我還在場」的焦慮感。當一個模型需要靠 Cyber 這種充滿科幻色彩的後綴來區分其安全代碼能力時，技術底層的通用性往往已經顯得有些力不從心。</p>
+    <p>這場關於版本號的爭奪戰背後，隱藏著四大平台在長文本推理與執行成本之間的博弈。Gemini 一直以來引以為傲的優勢是百萬級別的上下文窗口，但這次 3.6 Flash 的更新重點顯然偏移到了輸出精準度與執行循環的縮減上。在具體的 API 調用場景中，當開發者要求模型處理一個涉及多個依賴項的代碼重構任務時，3.6 Flash 表現出的特質是極致的「省」，它試圖通過減少不必要的代碼編輯來降低 Token 消耗。然而，這種克制有時會演變成一種怠惰，比起 GPT-4o 在邏輯推演上的強硬，Gemini 似乎更傾向於給出一個代價最低、而非最優的方案。</p>
+    <p>在技術實現層面，3.5 Flash-Lite 的出現則是對極致低延遲市場的防禦性佈局。這類輕量化模型在處理簡單的分類、意圖識別或初步數據清洗時，確實能將反應時間壓進毫秒級。但問題在於，當我們把同樣的任務丟給 Claude 3.5 Haiku 時，後者展現出的語義理解連貫性依然是 Gemini 難以企及的標竿。Gemini 在處理超過 15 個 Function calling 鏈接時的穩定性波動，即便在 3.6 Flash 版本中也沒有得到本質上的修復，它依然偶爾會在複雜的工具調用中迷失，將參數傳遞給錯誤的接口，這種不穩定性對於追求工業級穩定的資深工程師來說，是版本號再怎麼更新也無法掩蓋的硬傷。</p>
+    <p>相較於 Kimi K3 在特定長文本處理上的邏輯節奏，Google 的做法是試圖通過更細碎的模型分層來覆蓋所有應用場景。在某些特定市場的開發者眼中，Kimi K3 的動態或許代表了另一種演進方向，但回到四大平台的競爭格局，Gemini 這種「機海戰術」顯得有些自我陶醉。相較於 GPT-4o 始終維持著一種強大的通用感，以及 Claude 堅持的精緻推理路徑，Google 似乎更在意如何在財報或開發者大會前夕，湊出一組看起來很漂亮的增量數字。這種內向型的視角，讓他們在基準測試的選擇上變得極其保守，往往只敢與自家的舊版本對比，而刻意忽略了外界早已翻天覆地的性能基準。</p>
+    <p>如果我們把目光投向更純粹的開源或競爭環境，會發現這種閉門造車的姿態正變得日益危險。Grok 在處理實時資訊與邏輯直覺上的進步速度，已經讓 Gemini 那種經過層層對齊、顯得有些畏首畏尾的回答風格顯得老舊。開發者真正需要的不是 3.5 還是 3.6 的數字遊戲，而是在面對一個具體的生產力瓶頸時——比如在處理 50 萬行代碼庫的全局依賴分析時——模型是否能給出不再需要人工二次校對的確定性答案。目前看來，Gemini 3.6 Flash 依然在「成本低廉」與「堪用」之間徘徊，它能幫你寫出一段正確的腳本，但在架構設計的決策點上，它依然缺乏那種令人信服的、來自頂層邏輯的穿透力。</p>
+    <p>這不禁讓人產生疑問，當版本號的迭代速度超過了技術本質的進化，這種頻繁的發布究竟是為了服務開發者，還是為了安撫投資人的耐性？如果有一天，我們發現堆疊更多的 Flash 模型並不能解決推理深度的匱乏，Google 是否還有勇氣承認，這種廣撒網的策略其實是在技術路徑上的另一種迷航？在下一個版本號跳動之前，還有多少開發者願意留在這場永無止境的測試版循環裡，去幫 Google 驗證那些連他們自己都說不清楚的基準數字？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" rel="nofollow noopener" target="_blank">Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260724-0615-850885/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
