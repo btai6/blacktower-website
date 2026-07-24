@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>別再幻想用一堆開源模型縫合出下一個 Grok</title>
+<meta name="description" content="把一堆開源模型塞進同一個桶子裡，對外宣稱能用三分之一的成本達到頂尖水準，這種邏輯聽起來很美，操作起來卻像是在玩一場永遠找不到兇手的謀殺推理劇。最近技術圈又在吵這種所謂的路由架構，試圖透過預判任務類型，把指令分發給不同的模型處理。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260725-0617-bf2277/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="別再幻想用一堆開源模型縫合出下一個 Grok">
+<meta property="og:description" content="把一堆開源模型塞進同一個桶子裡，對外宣稱能用三分之一的成本達到頂尖水準，這種邏輯聽起來很美，操作起來卻像是在玩一場永遠找不到兇手的謀殺推理劇。最近技術圈又在吵這種所謂的路由架構，試圖透過預判任務類型，把指令分發給不同的模型處理。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260725-0617-bf2277/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-25T06:17:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="別再幻想用一堆開源模型縫合出下一個 Grok">
+<meta name="twitter:description" content="把一堆開源模型塞進同一個桶子裡，對外宣稱能用三分之一的成本達到頂尖水準，這種邏輯聽起來很美，操作起來卻像是在玩一場永遠找不到兇手的謀殺推理劇。最近技術圈又在吵這種所謂的路由架構，試圖透過預判任務類型，把指令分發給不同的模型處理。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "別再幻想用一堆開源模型縫合出下一個 Grok",
+  "description": "把一堆開源模型塞進同一個桶子裡，對外宣稱能用三分之一的成本達到頂尖水準，這種邏輯聽起來很美，操作起來卻像是在玩一場永遠找不到兇手的謀殺推理劇。最近技術圈又在吵這種所謂的路由架構，試圖透過預判任務類型，把指令分發給不同的模型處理。…",
+  "datePublished": "2026-07-25T06:17:00+08:00",
+  "dateModified": "2026-07-25T06:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260725-0617-bf2277/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-25 06:17
+  </div>
+
+  <h1 class="title">別再幻想用一堆開源模型縫合出下一個 Grok</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把一堆開源模型塞進同一個桶子裡，對外宣稱能用三分之一的成本達到頂尖水準，這種邏輯聽起來很美，操作起來卻像是在玩一場永遠找不到兇手的謀殺推理劇。最近技術圈又在吵這種所謂的路由架構，試圖透過預判任務類型，把指令分發給不同的模型處理。這事兒要是真這麼容易，馬斯克何必砸幾萬片 H100 去堆算力？直接去 GitHub 下載幾個權重回來做個調度器不就得了？</p>
+    <p>這種做法的核心痛點在於「預判」這件事本身就是個悖論。你想知道哪個模型適合處理這段代碼，你得先理解這段代碼的意圖，而理解意圖本身就需要一個具備極高推理能力的大模型來做決策。如果決策層的模型不夠強，分發出去的結果就是一團亂；如果決策層夠強，那我為什麼不直接讓它回答問題？目前看到所有的 Echo 類實驗，最尷尬的地方就在於它們往往把簡單問題複雜化，最後得出的結果在連貫性和邏輯深度上，根本無法跟單體強大的模型相提並論。</p>
+    <p>從 Grok 的開發路徑來看，xAI 走的是完全相反的暴力美學。他們在處理 Twitter 上的海量實時數據時，強調的是全模態的原生集成，而不是在後台搞什麼微服務架構。當你在 Grok 裡輸入一個涉及當前時事並要求生成代碼的複雜指令時，系統是在同一個上下文窗口裡完成理解、檢索與生成。這種單體架構保證了輸出的穩定性，不會出現那種第一段像是論文、第二段突然變成小學作文的割裂感。那些號稱能路由到不同模型的神奇系統，在面對長達 10 萬 token 的上下文任務時，光是各個模型之間的注意力機制不對齊，就足以讓整套系統在邏輯邊緣崩潰。</p>
+    <p>看看現在的四大平台，ChatGPT 的強大在於它對人類意圖的極致揣摩，Gemini 則是靠著 Google 恐怖的基礎設施在玩多模態大融合。相較於 Kimi K3 在某些特定語境下的長文本嘗試，Grok 在處理高併發、高動態數據時展現出的那種攻擊性，才是技術架構上真正的分水嶺。很多人拿 Kimi K3 的動態來類比這種模型組合的可能性，但他們忘了，真正的技術壁壘不在於你會不會調度模型，而在於你有沒有能力訓練出那個能統治全局的單一權重。</p>
+    <p>一個很現實的技術場景：當你要求 AI 幫你重構一個複雜的微服務架構，並要求它考慮到安全性與異步處理時，這類路由系統往往會把安全性分配給 A，把異步邏輯分配給 B。結果呢？A 給出的建議跟 B 的代碼範例完全不兼容。這就是為什麼我們在實際測試中發現，Claude 3.5 Sonnet 在代碼架構上的嚴謹度，遠遠超過那些拼湊出來的開源大雜燴。對四大平台來說，追求的是端到端的推理能力，而不是在前端搞一個看起來很聰明的過濾網。</p>
+    <p>這類「模型路由」的推崇者總喜歡拿 OpenRouter 的報告說事，說多模型組合能達到頂尖水準。問題是，這種「達到」通常只存在於靜態的 Benchmark 裡。在真實的生產環境中，API 的延遲抖動、權重的版本漂移，隨便一個因素都能讓你的「三分之一成本方案」變成研發團隊的噩夢。當你為了省那點 Token 錢，卻要額外養一個維護調度邏輯的團隊時，這筆帳怎麼算都不划算。</p>
+    <p>我們現在面臨的一個核心問題是：如果未來的 AI 競爭真的進入了算力飽和階段，這種靠調度來取巧的架構還有生存空間嗎？當單體模型的成本進一步下降，或者像 Grok 這樣具備強大實時檢索能力的模型變得更普及，我們真的需要一個由無數平庸模型組成的「委員會」來替我們做決定嗎？還是說，這種組合架構本身就是通往 AGI 路上的一個過渡性補丁，只是為了彌補單體模型在特定時期算力分配不均的尷尬？那些還在研究如何把不同模型縫合在一起的人，是不是在試圖用馬車的零件組裝出一台特斯拉？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=49026810" rel="nofollow noopener" target="_blank">Show HN: Echo – Fable-level results at 1/3 the cost using open-weight models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260725-0617-bf2277/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
