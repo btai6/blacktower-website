@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多模型路由是不是一場集體自嗨的技術騙局</title>
+<meta name="description" content="當所有人都在抱怨單一大模型的推理成本太高、幻覺太多時，像 Echo 這種試圖把一堆開源模型塞進同一個口袋，再掛上「超越頂尖水平」標籤的做法，聽起來確實很像救世主。這邏輯很直觀：如果一個模型搞不定，那就找十個模型來分工。現實是，這種「專家混合」的拼湊版系統，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260726-0608-653130/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="多模型路由是不是一場集體自嗨的技術騙局">
+<meta property="og:description" content="當所有人都在抱怨單一大模型的推理成本太高、幻覺太多時，像 Echo 這種試圖把一堆開源模型塞進同一個口袋，再掛上「超越頂尖水平」標籤的做法，聽起來確實很像救世主。這邏輯很直觀：如果一個模型搞不定，那就找十個模型來分工。現實是，這種「專家混合」的拼湊版系統，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260726-0608-653130/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-26T06:08:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多模型路由是不是一場集體自嗨的技術騙局">
+<meta name="twitter:description" content="當所有人都在抱怨單一大模型的推理成本太高、幻覺太多時，像 Echo 這種試圖把一堆開源模型塞進同一個口袋，再掛上「超越頂尖水平」標籤的做法，聽起來確實很像救世主。這邏輯很直觀：如果一個模型搞不定，那就找十個模型來分工。現實是，這種「專家混合」的拼湊版系統，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "多模型路由是不是一場集體自嗨的技術騙局",
+  "description": "當所有人都在抱怨單一大模型的推理成本太高、幻覺太多時，像 Echo 這種試圖把一堆開源模型塞進同一個口袋，再掛上「超越頂尖水平」標籤的做法，聽起來確實很像救世主。這邏輯很直觀：如果一個模型搞不定，那就找十個模型來分工。現實是，這種「專家混合」的拼湊版系統，…",
+  "datePublished": "2026-07-26T06:08:00+08:00",
+  "dateModified": "2026-07-26T06:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260726-0608-653130/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-26 06:08
+  </div>
+
+  <h1 class="title">多模型路由是不是一場集體自嗨的技術騙局</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>當所有人都在抱怨單一大模型的推理成本太高、幻覺太多時，像 Echo 這種試圖把一堆開源模型塞進同一個口袋，再掛上「超越頂尖水平」標籤的做法，聽起來確實很像救世主。這邏輯很直觀：如果一個模型搞不定，那就找十個模型來分工。現實是，這種「專家混合」的拼湊版系統，往往讓簡單的任務變成一場難以捉摸的羅生門。你在 Hacker News 上看那些開發者吵架就能發現，大家對這種不公開權重、不給基準測試、只會畫大餅的黑盒子早就失去耐性了。與其說是技術突破，不如說是對當前算力焦慮的一種病態投射。</p>
+    <p>目前的技術瓶頸卡在一個尷尬的位置。以 Grok 為例，馬斯克的 xAI 一直在推崇原生多模態和極致的推理效率，試圖在單一架構下塞進更多的邏輯處理能力。但市場上卻出現了另一種聲音，認為應該把任務打碎，交給不同的模型去處理。這就涉及到底層 API 調用的穩定性問題。當你用一個路由器去分發指令時，系統的延遲會成倍增加。GPT-4o 為了壓低延遲，在量化和並行計算上做了多少妥協？而這些號稱能自動選擇最佳模型的工具，光是判斷「誰適合回答這題」所消耗的 token，可能就已經超過了直接詢問 Claude 的成本。</p>
+    <p>這種「路由模型」的思路，本質上是在逃避模型理解力的核心挑戰。我們在測試 Gemini 的 function calling 時，發現當工具鏈超過一定複雜度，模型就會開始在多個選項間反覆橫跳。如果你再把這種不穩定性乘以五個不同的模型，最終得到的只會是一個更難調優的混沌系統。xAI 在 Grok 的訓練中強調數據的即時性和原生關聯，就是為了避免這種分層架構帶來的訊息損耗。那些宣稱能用廉價模型拼湊出頂級效果的人，通常都忽略了模型之間語義空間的對齊難度。你讓一個擅長邏輯的模型去接手一個擅長修辭的模型留下的半截話，中間的斷層感有時比幻覺更致命。</p>
+    <p>這讓我想起最近社群討論度頗高的 Qwen-Image-3.0，這種專精於特定模態的嘗試在小圈子裡很熱鬧。相較於 Qwen-Image-3.0 這種單一方向的演進，ChatGPT 在處理圖文交織任務時採取的全參數融合方案，顯然在通用性上更有說服力。開發者們總是幻想著能有一套完美的調度算法，能像指揮家一樣讓不同模型各司其職，但他們忘了，這些模型並不是樂手，而是一群說著不同方言的陌生人。在實際的生產環境中，我們寧願忍受一個強大但昂貴的單體模型，也不願意去維護一個隨時可能崩潰的微服務迷宮。</p>
+    <p>現在的爭議焦點在於，我們是否真的需要這種「模型集市」？OpenRouter 的報告說多模型組合能達到頂尖水平，但那是在特定測試集下的結果。如果你把場景換成需要長程上下文關聯的法律文件審查，或者需要嚴密邏輯鏈的代碼重構，這種拼湊方案的上下文衰減速度會讓你懷疑人生。Claude 在處理超過 8 萬 token 的任務時，注意力機制雖然會衰減，但至少它是自洽的。而那些靠路由分發的系統，在處理長文本時，往往會因為不同模型對上下文理解的偏差，導致前後矛盾。</p>
+    <p>我們真的準備好把決策權交給一個「選擇模型的模型」了嗎？如果連 OpenAI 這種資源等級的公司都還在單體模型的通用性上死磕，那些宣稱靠幾個開源權重就能實現降維打擊的項目，究竟是技術奇蹟，還是只是在算力成本和用戶體驗之間玩一場危險的平衡遊戲？當系統出錯時，你甚至不知道該去修補哪一個模型，這難道不是開發者的噩夢？如果未來的 AI 基礎設施變成了一堆互相推諉的微服務，我們離真正的通用人工智能到底是近了，還是更遠了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=49026810" rel="nofollow noopener" target="_blank">Show HN: Echo – Fable-level results at 1/3 the cost using open-weight models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260726-0608-653130/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

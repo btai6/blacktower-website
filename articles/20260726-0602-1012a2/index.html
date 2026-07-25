@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Opus 5 的退後一步與 Anthropic 的成本執念</title>
+<meta name="description" content="Anthropic 剛釋出的 Opus 5 報告像是一記悶棍，敲醒了那些還在期待 AGI 奇點的人。System Card 裡那句「Opus 5 整體能力並不優於我們目前最強的 Fable 5」簡直是自我解構的極致。這在商業邏輯上顯得荒謬，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260726-0602-1012a2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Opus 5 的退後一步與 Anthropic 的成本執念">
+<meta property="og:description" content="Anthropic 剛釋出的 Opus 5 報告像是一記悶棍，敲醒了那些還在期待 AGI 奇點的人。System Card 裡那句「Opus 5 整體能力並不優於我們目前最強的 Fable 5」簡直是自我解構的極致。這在商業邏輯上顯得荒謬，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260726-0602-1012a2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-26T06:02:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Opus 5 的退後一步與 Anthropic 的成本執念">
+<meta name="twitter:description" content="Anthropic 剛釋出的 Opus 5 報告像是一記悶棍，敲醒了那些還在期待 AGI 奇點的人。System Card 裡那句「Opus 5 整體能力並不優於我們目前最強的 Fable 5」簡直是自我解構的極致。這在商業邏輯上顯得荒謬，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude Opus 5 的退後一步與 Anthropic 的成本執念",
+  "description": "Anthropic 剛釋出的 Opus 5 報告像是一記悶棍，敲醒了那些還在期待 AGI 奇點的人。System Card 裡那句「Opus 5 整體能力並不優於我們目前最強的 Fable 5」簡直是自我解構的極致。這在商業邏輯上顯得荒謬，…",
+  "datePublished": "2026-07-26T06:02:00+08:00",
+  "dateModified": "2026-07-26T06:02:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260726-0602-1012a2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-26 06:02
+  </div>
+
+  <h1 class="title">Claude Opus 5 的退後一步與 Anthropic 的成本執念</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 剛釋出的 Opus 5 報告像是一記悶棍，敲醒了那些還在期待 AGI 奇點的人。System Card 裡那句「Opus 5 整體能力並不優於我們目前最強的 Fable 5」簡直是自我解構的極致。這在商業邏輯上顯得荒謬，就像蘋果推出 iPhone 16 時告訴你它其實跑得沒 iPhone 15 快。但如果你仔細盯著那個 ARC-AGI-3 拿到 30.2% 的數據，就會發現這家公司正在玩一場極其危險但也極其迷人的降維遊戲。他們不再追求那個無止盡攀升的「智力天花板」，轉而開始修剪神經網路裡的冗餘，試圖在極致的成本控制下保留那層薄薄的、最核心的推理能力。</p>
+    <p>這份報告透露出一個殘酷的技術現實：當模型規模達到某個臨界點後，盲目堆疊算力帶來的邊際效用正在斷崖式下跌。Opus 5 展現出的 Alignment 能力甚至超越了 Fable 5，這意味著 Anthropic 在微調階段投入了比預訓練階段更多的精力。他們正在教導模型如何「更像個人」，而不是「更像一部百科全書」。這種對對齊技術的偏執，讓 Claude 在處理複雜邏輯與長文本推理時，呈現出一種冷靜得近乎病態的穩定性。當其他模型還在為了正確率多一個百分點而瘋狂燒錢時，Anthropic 似乎已經預見到了那個算力資源枯竭的未來，提早開始演練如何在資源受限的環境下維持智力水準。</p>
+    <p>橫向觀察目前的四大平台，這場關於「性價比」的戰爭已經打得血流成河。ChatGPT 依然在試圖維持它全能型選手的體面，Gemini 則靠著 Google 強大的基礎設施在多模態任務上死磕，Grok 則是那個在邊緣反覆試探的局外人。相較於本週同樣有新動態的 Qwen-Image-3.0，Claude 在架構優化上的思路顯然更為決絕。當 Qwen-Image-3.0 出現時，市場往往關注的是其圖像處理的精細度，而 Claude 的做法卻是把視覺能力徹底整合進邏輯鏈條，不求華麗，但求在每百萬 token 消耗中榨出最多的邏輯產出。這種對成本與效能比的極端追求，讓 Claude 在企業級應用場景中展現出一種令人戰慄的競爭力。</p>
+    <p>這讓人想起古羅馬時期的維特魯威，他在《建築十書》中強調建築必須具備堅固、實用、美觀，但如果預算有限，他會毫不猶豫地捨棄美觀。Anthropic 現在就是那個捨棄了「華麗智力參數」的建築師。他們在 Opus 5 上展示的，是一套精密的成本核算體系，而非單純的 AI 突破。這引發了一個讓人不安的問題：如果連最頂尖的實驗室都開始承認模型能力增長已陷入停滯，轉而追求「夠用就好」的商業平衡，那麼我們過去幾年對 AGI 的熱情，究竟是建立在真實的技術階躍上，還是僅僅是一場由無限算力幻覺編織出來的泡沫？</p>
+    <p>當 Opus 5 選擇在 Fable 5 的陰影下低頭潛行，這究竟是 Anthropic 為了下一場大爆發積蓄力量，還是代表著大模型發展已經觸碰到了某種不可逾越的物理與邏輯邊界？如果未來的競爭不再是關於誰更聰明，而是關於誰能用更廉價的電力支撐起同等的智力，那麼我們是否正處於一個「智力平庸化」時代的開端？而在這個過程中，那些還在不斷追求模型規模增長的玩家，會不會最終發現自己蓋出了一座華麗卻無人能負擔得起租金的空中樓閣？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/news/claude-opus-5" rel="nofollow noopener" target="_blank">Claude Opus 5</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260726-0602-1012a2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
