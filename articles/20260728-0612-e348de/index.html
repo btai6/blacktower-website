@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opus 5 的妥協與 Anthropic 的算盤</title>
+<meta name="description" content="Anthropic 這次扔出來的 System Card 簡直像是一份寫給投資人的檢討書，而非給開發者的情書。當大家還在期待 Claude Opus 5 能在推理能力上再次上演那種如同「奧古斯都大帝」掃平群雄的戲碼時，官方卻在文檔裡冷不防地補了一刀：它的綜合能力並未超越現有的 …">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260728-0612-e348de/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Opus 5 的妥協與 Anthropic 的算盤">
+<meta property="og:description" content="Anthropic 這次扔出來的 System Card 簡直像是一份寫給投資人的檢討書，而非給開發者的情書。當大家還在期待 Claude Opus 5 能在推理能力上再次上演那種如同「奧古斯都大帝」掃平群雄的戲碼時，官方卻在文檔裡冷不防地補了一刀：它的綜合能力並未超越現有的 …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260728-0612-e348de/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-28T06:12:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Opus 5 的妥協與 Anthropic 的算盤">
+<meta name="twitter:description" content="Anthropic 這次扔出來的 System Card 簡直像是一份寫給投資人的檢討書，而非給開發者的情書。當大家還在期待 Claude Opus 5 能在推理能力上再次上演那種如同「奧古斯都大帝」掃平群雄的戲碼時，官方卻在文檔裡冷不防地補了一刀：它的綜合能力並未超越現有的 …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Opus 5 的妥協與 Anthropic 的算盤",
+  "description": "Anthropic 這次扔出來的 System Card 簡直像是一份寫給投資人的檢討書，而非給開發者的情書。當大家還在期待 Claude Opus 5 能在推理能力上再次上演那種如同「奧古斯都大帝」掃平群雄的戲碼時，官方卻在文檔裡冷不防地補了一刀：它的綜合能力並未超越現有的 …",
+  "datePublished": "2026-07-28T06:12:00+08:00",
+  "dateModified": "2026-07-28T06:12:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260728-0612-e348de/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-28 06:12
+  </div>
+
+  <h1 class="title">Opus 5 的妥協與 Anthropic 的算盤</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 這次扔出來的 System Card 簡直像是一份寫給投資人的檢討書，而非給開發者的情書。當大家還在期待 Claude Opus 5 能在推理能力上再次上演那種如同「奧古斯都大帝」掃平群雄的戲碼時，官方卻在文檔裡冷不防地補了一刀：它的綜合能力並未超越現有的 Fable 5。這種自廢武功的聲明，在矽谷的敘事邏輯裡極其罕見，就像是法拉利推出了一款新跑車，然後在說明書第一頁告訴你，這台車其實跑不贏去年的型號，只是比較省油。我們這些在論壇裡蹲點的骨灰級用戶，要的可不是什麼節能減碳的乖寶寶，我們要的是那個能把複雜邏輯拆解得連蘇格拉底都自嘆不如的腦袋。</p>
+    <p>技術細節裡藏著很有趣的魔鬼。Opus 5 在 ARC-AGI-3 測試中拿到了 30.2% 的成績，這確實是個里程碑，但在這光鮮數據背後，Anthropic 顯然在進行一場極其慘烈的效能置換。他們不再追求單點突破的智力巔峰，轉而瘋狂打磨「性價比」。這種做法在商業界叫成熟，在極客眼裡叫墮落。當初我們愛上 Claude 是因為它那種帶有人文氣息的深邃感，現在它卻開始像個拿著算盤的帳房先生，精確計算每一兆 token 的損耗。看看它的對齊機制，Opus 5 在對齊表現上確實優於 Fable 5，但這種安全感的提升，往往是以犧牲創造力的邊際效應為代價的。這就像是給一個天才詩人套上了三層防護服，他確實不會摔傷了，但他也寫不出那種讓人脊椎發涼的詩句了。</p>
+    <p>把這件事放在當前的座標系來看，就會發現 Anthropic 正面臨一種集體焦慮。比起 Grok 那種野路子的橫衝直撞，或是 ChatGPT 愈發趨向於工具化的平庸，Claude 曾是最後的高地。然而，現在連這個高地也開始向下兼容。相較於 Echo 這種新興的嘗試，Anthropic 在處理超長上下文時的資源調度顯然更為老練，但也更為保守。他們似乎認定了未來的戰場不在於誰能解決萬分之一的極端難題，而在於誰能用最低的成本處理那百分之九十九的重複勞動。這種策略上的轉向，讓人想起羅馬帝國晚期的防禦工事，雖然依舊宏偉，卻失去了向外擴張的元氣。</p>
+    <p>我們在測試 API 的過程中發現，Opus 5 在處理超過 10 萬 token 的關聯推理時，雖然穩定性有所提升，但那種靈光一閃的「直覺」變少了。Gemini 在處理多模態融合時展現出的那種野心勃勃，或是 ChatGPT 在生態整合上的步步為營，都讓現在的 Claude 看起來像是一個守成之君。相較於 Echo 在特定語境下的激進表現，Claude Opus 5 選擇了一條最穩妥的路：在不增加算力負擔的前提下，優化那些最能被企業客戶量化的數據。這對於需要寫大量文案、整理報表的商業用戶來說是福音，但對於那些試圖利用 AI 探索人類認知邊界的瘋子來說，這無疑是一盆冷水。</p>
+    <p>現在的問題是，如果智力的演進真的撞到了天花板，我們是否得被迫接受這種以「對齊」和「降本」為名的平庸化？Anthropic 試圖證明 Opus 5 是一個更平衡的選擇，但「平衡」這個詞在技術競賽中，往往是「瓶頸」的優雅說法。當我們看著 System Card 上那些精緻的雷達圖時，我不禁想問，下一次讓我們感到震撼的，究竟會是那種突破天際的邏輯穿透力，還是僅僅是一張更划算的訂閱帳單？如果連最偏執於技術純粹性的 Anthropic 都開始在成本面前低頭，那麼下一個版本，我們還能期待看見那個令人驚豔的智力高峰嗎？還是說，我們終將進入一個由優化算法和預算表共同統治的平庸時代？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/news/claude-opus-5" rel="nofollow noopener" target="_blank">Claude Opus 5</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260728-0612-e348de/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

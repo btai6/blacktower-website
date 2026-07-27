@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 命名系統的混亂與 Flash 產品線的焦慮</title>
+<meta name="description" content="Google 似乎陷入了一種命名的循環賽，在版本號的跳躍中試圖找回失去的節奏感。這次悄然出現在 Google Cloud Console 上的 Gemini 3.6 Flash 與 3.5 Flash-Lite，比起技術上的突破，更像是一場倉促的防守。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260728-0617-11a58e/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 命名系統的混亂與 Flash 產品線的焦慮">
+<meta property="og:description" content="Google 似乎陷入了一種命名的循環賽，在版本號的跳躍中試圖找回失去的節奏感。這次悄然出現在 Google Cloud Console 上的 Gemini 3.6 Flash 與 3.5 Flash-Lite，比起技術上的突破，更像是一場倉促的防守。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260728-0617-11a58e/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-28T06:17:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 命名系統的混亂與 Flash 產品線的焦慮">
+<meta name="twitter:description" content="Google 似乎陷入了一種命名的循環賽，在版本號的跳躍中試圖找回失去的節奏感。這次悄然出現在 Google Cloud Console 上的 Gemini 3.6 Flash 與 3.5 Flash-Lite，比起技術上的突破，更像是一場倉促的防守。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 命名系統的混亂與 Flash 產品線的焦慮",
+  "description": "Google 似乎陷入了一種命名的循環賽，在版本號的跳躍中試圖找回失去的節奏感。這次悄然出現在 Google Cloud Console 上的 Gemini 3.6 Flash 與 3.5 Flash-Lite，比起技術上的突破，更像是一場倉促的防守。…",
+  "datePublished": "2026-07-28T06:17:00+08:00",
+  "dateModified": "2026-07-28T06:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260728-0617-11a58e/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-28 06:17
+  </div>
+
+  <h1 class="title">Gemini 命名系統的混亂與 Flash 產品線的焦慮</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 似乎陷入了一種命名的循環賽，在版本號的跳躍中試圖找回失去的節奏感。這次悄然出現在 Google Cloud Console 上的 Gemini 3.6 Flash 與 3.5 Flash-Lite，比起技術上的突破，更像是一場倉促的防守。當一個模型被冠以「Cyber」這種充滿九十年代科幻感的後綴，通常意味著開發者在底層架構沒有本質跨越時，試圖透過場景細分來掩蓋增長曲線的平緩。</p>
+    <p>在實際的 DeepSWE 基準測試中，Gemini 3.6 Flash 的數據表現顯得有些自相矛盾。官方文宣一邊宣稱在特定環境下能達到 65% 的成功率，另一邊在細節描述中又給出了 49% 對比前代的數據。這種數字上的模糊，反映出 Google 在模型微調過程中的不穩定。對於需要處理複雜工程任務的資深開發者來說，這種「減少執行循環」的承諾往往聽起來很豐滿，但實際接入 API 後，面對超過 10 個以上的檔案依賴分析，Gemini 的注意力機制依然存在明顯的漂移現象，甚至在處理簡單的代碼重構時，會出現不必要的冗餘編輯。</p>
+    <p>相較於 ChatGPT 目前在 o1 系列中展現出的強化學習邏輯，Gemini 的 Flash 產品線顯然走的是另一條極端的路徑：極致的成本控制與響應速度。3.5 Flash-Lite 的出現，本質上是為了應對那些對價格極度敏感、卻又不需要模型具備太強推理能力的邊緣場景。然而，當我們將視角拉回到四大平台的競爭時，這種細分策略顯得有些力不從心。Claude 在長文本處理上的優雅感，以及 Grok 在實時數據接入上的銳利，讓 Gemini 這種依賴「版本號刷存在感」的做法顯得格外沉重。</p>
+    <p>在橫向對比的語境下，Google 似乎越來越習慣於「對內競爭」。當我們在討論這些 Flash 模型時，外界不可避免地會提及 Echo 的最新動態。相較於 Echo，Google 的做法是將原本應該屬於同一個模型的能力，強行拆解成不同規格的零件。這種做法在短期內能讓帳面上的 Token 價格看起來很誘人，但卻極大地增加了工程師的選型成本。即便在某些特定語境下提到 Qwen 或 GLM 的參數表現，Gemini 這種閉源且高度封裝的邏輯，在面對靈活的開源生態時，其護城河正在被稀釋。</p>
+    <p>最讓人困惑的是 Google 對於「Frontier」定義的退縮。在最新的技術文檔中，他們幾乎不再主動挑釁 GPT-4 或 Claude 3.5 Sonnet，而是不斷地在自己的舊版本影子裡跳舞。這種內向型的研發邏輯，讓 Gemini 3.6 Flash 看起來更像是一個修補漏洞的補丁，而非帶領技術走向下一個斷裂點的先鋒。當開發者需要的是一個能理解複雜邏輯、具備穩定 Function Calling 能力的智能體時，Google 給出的是一個速度更快、但思考深度依然停留在原地、且命名規則讓人頭暈目眩的工具包。</p>
+    <p>如果一個模型需要靠三個不同的版本後綴來區分其微小的性能差異，這是否意味著我們已經觸碰到了當前架構下「小模型」的物理極限？當 Token 價格已經低到可以忽略不計，而推理準確性卻依然在 50% 左右晃蕩時，這種頻繁的版本更新，究竟是在解決問題，還是只是為了在財報發布前，證明大數據中心的算力沒有被閒置？或許我們該問的是，當下一次 Flash 更新到 4.0 時，我們得到的會是一個真正的智慧體，還是一個跑得更快的打字機？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" rel="nofollow noopener" target="_blank">Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260728-0617-11a58e/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
