@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當一個模型學會承認自己無知</title>
+<meta name="description" content="與其說 AI 正在變得越來越聰明，不如說它們終於開始意識到自己有多蠢。最近技術圈在傳 DeltaNet 的新動態，但真正讓我感興趣的是那群試圖教 Gemma 學會「自省」的工程師。他們在 Gemma 的隱藏層裡翻找，試圖提取出一種名為「自信度」的訊號，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260729-0613-c9961a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當一個模型學會承認自己無知">
+<meta property="og:description" content="與其說 AI 正在變得越來越聰明，不如說它們終於開始意識到自己有多蠢。最近技術圈在傳 DeltaNet 的新動態，但真正讓我感興趣的是那群試圖教 Gemma 學會「自省」的工程師。他們在 Gemma 的隱藏層裡翻找，試圖提取出一種名為「自信度」的訊號，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260729-0613-c9961a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-29T06:13:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當一個模型學會承認自己無知">
+<meta name="twitter:description" content="與其說 AI 正在變得越來越聰明，不如說它們終於開始意識到自己有多蠢。最近技術圈在傳 DeltaNet 的新動態，但真正讓我感興趣的是那群試圖教 Gemma 學會「自省」的工程師。他們在 Gemma 的隱藏層裡翻找，試圖提取出一種名為「自信度」的訊號，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當一個模型學會承認自己無知",
+  "description": "與其說 AI 正在變得越來越聰明，不如說它們終於開始意識到自己有多蠢。最近技術圈在傳 DeltaNet 的新動態，但真正讓我感興趣的是那群試圖教 Gemma 學會「自省」的工程師。他們在 Gemma 的隱藏層裡翻找，試圖提取出一種名為「自信度」的訊號，…",
+  "datePublished": "2026-07-29T06:13:00+08:00",
+  "dateModified": "2026-07-29T06:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260729-0613-c9961a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-07-29 06:13
+  </div>
+
+  <h1 class="title">當一個模型學會承認自己無知</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>與其說 AI 正在變得越來越聰明，不如說它們終於開始意識到自己有多蠢。最近技術圈在傳 DeltaNet 的新動態，但真正讓我感興趣的是那群試圖教 Gemma 學會「自省」的工程師。他們在 Gemma 的隱藏層裡翻找，試圖提取出一種名為「自信度」的訊號，好讓這個跑在本地設備上的小模型在意識到自己可能胡言亂語時，趕緊把球傳給雲端的 Gemini。這件事本身充滿了諷刺：我們花了幾年時間追求模型參數的極致膨脹，現在卻回過頭來，研究如何讓這些數位大腦在出錯前先舉手投降。</p>
+    <p>這種路由機制（Routing）本質上是在處理 AI 領域最令人頭痛的成本與精準度天平。如果你用過 ChatGPT 或 Claude 就會發現，即便模型內部的機率分佈已經亂成一團，它們依然會用一種不容置疑的口吻告訴你錯誤答案。目前主流的解決方案，通常是像 OpenAI 那樣在推理端進行多輪自我修正，或是像 Gemini 1.5 Pro 那樣依靠龐大的上下文窗口來強行「灌溉」正確率。但問題在於，這種做法極其昂貴。當一個查詢只需 35% 的機率轉向雲端就能達到 Flash 等級的表現時，那些整天喊著要將模型推向終端設備的廠商，終於摸到了通往現實世界的門把。</p>
+    <p>技術細節隱藏在神經網絡的「自我意識」訊號中。研究者發現，模型在處理不同任務時，不同層級的隱藏狀態其實攜帶了預測錯誤的特徵。簡單來說，當 Gemma 準備開始一本正經地胡說八道時，它的內部神經元活動會呈現出一種特定的混亂模式。透過訓練一個探針層來預測這個 p(wrong) 數值，開發者就能在模型輸出之前截斷它。在 ChartQA 或 LibriSpeech 這種需要極高精確度的場景下，這種「知之為知之」的能力，比單純增加幾個 B 的參數要有用得多。</p>
+    <p>與 DeltaNet 這種強調架構創新的路徑不同，OpenAI 在處理模型幻覺時，更傾向於透過強化學習（RLHF）來壓制模型的不確定性。這種做法雖然讓 ChatGPT 的回答看起來更像個人，但也抹殺了模型表達「我不確定」的勇氣。至於 Claude，Anthropic 則是給了它一套極其嚴謹的憲法，讓它在面對模糊指令時寧願選擇拒絕回答，也不願冒險出錯。這兩種路線的差異，直接導致了用戶在調用 API 時的體感完全不同：ChatGPT 像個過度自信的實習生，而 Claude 更像個謹慎到有些畏縮的律師。</p>
+    <p>在目前的市場格局中，Gemma 的這套混合路由邏輯其實在跟時間賽跑。Qwen 或許在某些基準測試上數據亮眼，但像 Gemini 這樣具備原生多模態能力的長文本模型，正在透過 Flash-Lite 等輕量化版本蠶食邊緣計算的市場。當我們把視野放寬到整個四大平台，會發現大家都在解決同一個尷尬：既然沒人能保證 100% 的準確性，那至少要讓模型知道什麼時候該閉嘴。Gemini 的優勢在於其生態鏈的垂直整合，它能讓一個在手機端運行的微型模型，在毫秒級的時間內決定是否要向 Google 的雲端大腦求援。</p>
+    <p>這種「混合動力」模式也帶來了新的技術負債。如果你在開發一個程式碼助手，你敢把複雜的重構任務交給一個隨時準備「手抖」的小模型嗎？即便它有 80% 的自信度，那剩下的 20% 災難性後果依然需要人類來買單。目前的技術討論中，有人嘗試將這類機制引入到 Qwen 的部署實踐中，但效果往往取決於你對「錯誤」的定義到底有多寬容。對開發者來說，最怕的不是模型出錯，而是模型以一種極其專業的姿態，在一段關鍵代碼裡埋下一個你完全看不出來的雷。</p>
+    <p>我們現在面臨一個有趣的轉折點。如果未來的大模型不再以「全知全能」為目標，而是轉向追求「完美的自知之明」，這會改變我們與 AI 協作的底層邏輯嗎？當一個 API 返回的不再僅僅是文本，而是一個附帶的「虛假風險指數」時，我們是真的掌握了工具，還是僅僅學會了如何更科學地賭博？當模型開始學會說「我不知道」的時候，我們是不是反而離那個所謂的通用人工智慧更遠了一步？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/cactus-compute/cactus-hybrid" rel="nofollow noopener" target="_blank">Show HN: Cactus Hybrid: We taught Gemma 4 to know when it&#x27;s wrong</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260729-0613-c9961a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

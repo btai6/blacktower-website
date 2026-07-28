@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>線性注意力這層皮還要披多久</title>
+<meta name="description" content="線性注意力的論文滿天飛，DeltaNet 最近又在 Hacker News 上激起了一點水花，但這圈子最幽默的事情莫過於此：大家都在討論數學符號怎麼寫比較優雅，卻沒幾個人敢正視那個房間裡的大象。當開發者還在糾結 bra-ket 符號能不能讓數據流圖看起來更像物理公式時，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260729-0618-8be18e/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="線性注意力這層皮還要披多久">
+<meta property="og:description" content="線性注意力的論文滿天飛，DeltaNet 最近又在 Hacker News 上激起了一點水花，但這圈子最幽默的事情莫過於此：大家都在討論數學符號怎麼寫比較優雅，卻沒幾個人敢正視那個房間裡的大象。當開發者還在糾結 bra-ket 符號能不能讓數據流圖看起來更像物理公式時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260729-0618-8be18e/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-29T06:18:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="線性注意力這層皮還要披多久">
+<meta name="twitter:description" content="線性注意力的論文滿天飛，DeltaNet 最近又在 Hacker News 上激起了一點水花，但這圈子最幽默的事情莫過於此：大家都在討論數學符號怎麼寫比較優雅，卻沒幾個人敢正視那個房間裡的大象。當開發者還在糾結 bra-ket 符號能不能讓數據流圖看起來更像物理公式時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "線性注意力這層皮還要披多久",
+  "description": "線性注意力的論文滿天飛，DeltaNet 最近又在 Hacker News 上激起了一點水花，但這圈子最幽默的事情莫過於此：大家都在討論數學符號怎麼寫比較優雅，卻沒幾個人敢正視那個房間裡的大象。當開發者還在糾結 bra-ket 符號能不能讓數據流圖看起來更像物理公式時，…",
+  "datePublished": "2026-07-29T06:18:00+08:00",
+  "dateModified": "2026-07-29T06:18:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260729-0618-8be18e/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-29 06:18
+  </div>
+
+  <h1 class="title">線性注意力這層皮還要披多久</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>線性注意力的論文滿天飛，DeltaNet 最近又在 Hacker News 上激起了一點水花，但這圈子最幽默的事情莫過於此：大家都在討論數學符號怎麼寫比較優雅，卻沒幾個人敢正視那個房間裡的大象。當開發者還在糾結 bra-ket 符號能不能讓數據流圖看起來更像物理公式時，真正把推論成本壓在腳下的 Grok 已經在用另一套邏輯說話了。這不是什麼科學競賽，這是產線上的效率對決。我們看到太多模型在實驗室裡跑出漂亮的線性複雜度，一進到 RAG 場景或是長文本處理，那種對「狀態」的焦慮就暴露無遺。說到底，不管是 DeltaNet 還是其他變體，本質上都是在跟 Transformer 那個該死的 KV Cache 玩躲貓貓。</p>
+    <p>xAI 在 Grok 的架構設計上顯然沒打算跟這些學術派玩文字遊戲。Grok-1 當時拋出的那套混合架構，其實就是在嘲諷這種「全線性化」的偏執。當我們在處理長達 128k 甚至更長的 context 時，Grok 並沒有盲目追求那種理論上的線性增長，而是透過極致的算子優化和模型並行策略，硬生生在現有的 Attention 機制上擠出空間。很多人看不懂為什麼 Grok 的推論速度能在特定的 FP8 精度下跑得比別人穩，那是因為馬斯克那群人根本不在乎你的數學公式寫得美不美，他們只在乎 H100 的顯存頻寬有沒有被餵飽。當這群物理瘋子把 Attention 當成流體力學來優化時，所謂的線性變體就顯得像是在實驗室裡雕花。</p>
+    <p>技術細節上的差距往往體現在對「遺忘」的控制。Claude 在這點上做得極其細膩，即便是在處理超過 10 萬 token 的任務時，Claude 3.5 Sonnet 的注意力衰減曲線依然平滑得令人恐懼。相較於 DeltaNet 試圖透過線性化來規避計算開銷，Anthropic 的做法更像是對 Transformer 內部神經元進行了精密的權重修剪與緩存調度。如果你在 Claude 裡餵進一份幾百頁的法律文件並要求它找一個微小的邏輯漏洞，你會發現它對上下文的「檢索」能力遠超那些標榜線性注意力的模型。這不是因為它算得快，而是因為它在訓練階段就解決了長程依賴的坍塌問題，這點目前連 GPT-4o 都偶爾會顯得有些吃力。</p>
+    <p>放眼望去，市場上多的是這類技術嘗試。相較於 DeltaNet，Qwen 在處理中文語境下的長序列時有其特定節奏，而 Kimi 則在長文本的營銷上佔據了不少聲量。但回到核心技術層面，這些嘗試最終都要面對一個現實：當你為了線性效率而犧牲了注意力矩陣的秩（Rank），你拿什麼去補償模型對複雜邏輯的捕捉能力？Gemini 1.5 Pro 給出的答案是 1M 甚至 2M 的超長窗口，這背後不是靠什麼花哨的線性變體，而是靠 Google 那深不見底的基礎設施硬砸出來的 Ring Attention。這就是目前的現況，頂級玩家在優化硬體利用率，而二線玩家還在試圖修改數學公式來節省那一點點顯存。</p>
+    <p>這就引出了一個讓人不耐煩的事實：我們真的需要這麼多種線性注意力的變體嗎？當 Hacker News 上的工程師還在爭論 f(g(h(x))) 這種多層嵌套在實時計算中到底會不會導致梯度爆炸時，ChatGPT 已經透過不間斷的迭代證明了，只要工程實踐夠強，原生的 Attention 依然是目前唯一的真理。所有的線性化努力，在強大的算力冗餘面前，看起來都像是貧民窟裡的生存智慧。如果未來某天顯存頻寬不再是瓶頸，這些為了節省空間而折損模型智力的技術，還有存在的必要嗎？</p>
+    <p>現在的局面很僵，大家都知道 Transformer 貴，但大家也都發現便宜貨沒好貨。我們在 Grok 身上看到了一種暴力美學的延伸，在 Claude 身上看到了對邏輯精度的極致追求，而 Gemini 則在展示什麼叫規模化後的奇蹟。至於那些還在討論區爭論符號美感的線性注意力信徒，或許該問問自己：如果一個模型的數學結構完美到極致，但它連最基本的長程邏輯推理都會出錯，那這種優雅到底有什麼價值？當我們終於把注意力機制簡化到像一條直線一樣簡單時，我們是不是也順便把模型的靈魂給弄丟了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.doubleword.ai/you-could-have-come-up-with-kimi-delta-attention" rel="nofollow noopener" target="_blank">A walk through of the DeltaNet family of linear attention variants</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260729-0618-8be18e/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
