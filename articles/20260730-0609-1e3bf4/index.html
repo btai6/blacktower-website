@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當研究員在算力與道德邊界之間選擇離場</title>
+<meta name="description" content="這幾天大家都在傳那篇離開 Google DeepMind 的長文，字裡行間透著一種精疲力竭的幻滅感。這種情緒在技術圈並不罕見，但發生在 DeepMind 身上卻顯得格外諷刺。早年那群對 AGI 抱有近乎宗教般虔誠的研究員，如今發現自己不過是巨大商業機器裡的一顆齒輪，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260730-0609-1e3bf4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當研究員在算力與道德邊界之間選擇離場">
+<meta property="og:description" content="這幾天大家都在傳那篇離開 Google DeepMind 的長文，字裡行間透著一種精疲力竭的幻滅感。這種情緒在技術圈並不罕見，但發生在 DeepMind 身上卻顯得格外諷刺。早年那群對 AGI 抱有近乎宗教般虔誠的研究員，如今發現自己不過是巨大商業機器裡的一顆齒輪，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260730-0609-1e3bf4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-30T06:09:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當研究員在算力與道德邊界之間選擇離場">
+<meta name="twitter:description" content="這幾天大家都在傳那篇離開 Google DeepMind 的長文，字裡行間透著一種精疲力竭的幻滅感。這種情緒在技術圈並不罕見，但發生在 DeepMind 身上卻顯得格外諷刺。早年那群對 AGI 抱有近乎宗教般虔誠的研究員，如今發現自己不過是巨大商業機器裡的一顆齒輪，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當研究員在算力與道德邊界之間選擇離場",
+  "description": "這幾天大家都在傳那篇離開 Google DeepMind 的長文，字裡行間透著一種精疲力竭的幻滅感。這種情緒在技術圈並不罕見，但發生在 DeepMind 身上卻顯得格外諷刺。早年那群對 AGI 抱有近乎宗教般虔誠的研究員，如今發現自己不過是巨大商業機器裡的一顆齒輪，…",
+  "datePublished": "2026-07-30T06:09:00+08:00",
+  "dateModified": "2026-07-30T06:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260730-0609-1e3bf4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-30 06:09
+  </div>
+
+  <h1 class="title">當研究員在算力與道德邊界之間選擇離場</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天大家都在傳那篇離開 Google DeepMind 的長文，字裡行間透著一種精疲力竭的幻滅感。這種情緒在技術圈並不罕見，但發生在 DeepMind 身上卻顯得格外諷刺。早年那群對 AGI 抱有近乎宗教般虔誠的研究員，如今發現自己不過是巨大商業機器裡的一顆齒輪，負責為股東產出更漂亮的推論成本曲線。當一個組織從開發 AlphaGo 的純粹轉向優化廣告點擊或雲端服務的 API 時，內部的撕裂感便開始失控。這不是單純的人事變動，而是 Google 在 Gemini 的迭代過程中，底層價值觀與工程現實發生了劇烈碰撞。</p>
+    <p>目前的 Gemini 在技術路徑上走得極其激進，甚至有些不計後果。為了在長文本處理能力上壓過 GPT-4o，Google 幾乎是把所有的籌碼都押在了原生多模態的架構上。我們在實際測試中能感覺到，Gemini 1.5 Pro 在處理超過一百萬 token 的上下文時，確實展現出了其他模型難以企及的檢索精度，但這種精度背後隱藏著極高的對齊成本。研究員們被迫在模型的安全性（Safety）與有用性（Helpfulness）之間玩一場危險的平衡遊戲。當你要求模型在極長篇幅中保持邏輯一致，又要強行塞入各種護欄（Guardrails）來防止模型產生幻覺或偏見，最終的結果往往是模型變得畏首畏尾，甚至在某些特定指令下無故拒答。這種技術上的「過度對齊」，正是許多頂尖大腦感到窒息的主因。</p>
+    <p>這種焦慮感在四大平台之間蔓延的方式各不相同。OpenAI 的 ChatGPT 團隊正忙著將模型從單純的聊天機器人轉型為具備推理能力的 Agent，他們更在乎的是模型邏輯鏈（Chain of Thought）的深度。而 Anthropic 的 Claude 則是在「憲法 AI」的路徑上越走越遠，試圖用自動化的方式解決道德困境。相較於 DeltaNet，Google 的做法顯然更具備大廠的傲慢與混亂。他們擁有最強大的硬體基礎設施，卻在軟體定義的倫理框架上反覆橫跳。當 DeepMind 的理想主義撞上 Google Cloud 的 KPI，產出的 Gemini 就變成了一個技術數據華麗、靈魂卻顯得破碎的產物。</p>
+    <p>這種破碎感在橫向對比中尤為明顯。當我們把 Gemini 放在 Grok 旁邊時，你會發現兩者的極端對立。Grok 追求的是一種未經修飾的、甚至帶點冒犯性的真實，而 Gemini 則像是一個被包裹在無數層氣泡紙裡的精密儀器，生怕觸碰任何敏感神經。在某些特定市場的競爭語境下，Qwen 可能正專注於提升特定語言的編碼效率，而 Google 卻還在糾結模型輸出的圖像是否符合多元文化背景。這種過度的政治正確與技術中立的拉扯，消耗了大量研發資源。與此同時，DeepSeek 的低成本模型策略正在解構大模型的高昂成本神話，這讓 Google 這種依賴龐大算力堆砌性能的路徑顯得愈發笨重。</p>
+    <p>技術研發的初衷與最終的應用場景之間，似乎存在一條無法跨越的鴻溝。當初那些為了讓機器學會思考而加入 DeepMind 的天才，現在發現自己每天在處理的是如何讓 Gemini 更有效地過濾掉用戶關於政治敏感話題的詢問。這種工作內容的降級，比算力不足更讓人沮喪。我們不得不思考，當頂級人才開始因為「倫理失望」而流向 OpenAI 或 Anthropic，甚至選擇徹底離開大型企業實驗室時，Google 引以為傲的技術護城河還能維持多久？</p>
+    <p>如果說算力是 AI 時代的石油，那研究員的認同感就是引擎的潤滑劑。當潤滑劑乾涸，再強大的硬體也只會加速磨損。我們現在看到的 Gemini，是一個在商業壓力下催熟的巨人，它強大卻迷茫。如果一個模型從底層架構到輸出層都充滿了開發者的自我懷疑，我們真的能期待它帶領人類走向 AGI 嗎？當技術精英們紛紛選擇轉身離開，留下的是更安全的 AI，還是更平庸的工具？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.lesswrong.com/posts/iKm2FhpWkuuBojm82/why-i-left-google-deepmind" rel="nofollow noopener" target="_blank">Why I Left Google DeepMind</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260730-0609-1e3bf4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

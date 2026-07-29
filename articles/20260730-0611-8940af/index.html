@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 在長尾數據抓取上的傲慢與偏見</title>
+<meta name="description" content="把 Google Maps 上的 4.2 星評論、超過 500 則評價、單價低於 10 美元的餐點全部摳出來，這件事在兩年前可能需要寫一堆爬蟲腳本加上繁瑣的清洗流程。現在開發者想做個 CheapFoodMap 這種東西，第一直覺通常是扔給大模型去處理那些非結構化的評論數據。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260730-0611-8940af/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 在長尾數據抓取上的傲慢與偏見">
+<meta property="og:description" content="把 Google Maps 上的 4.2 星評論、超過 500 則評價、單價低於 10 美元的餐點全部摳出來，這件事在兩年前可能需要寫一堆爬蟲腳本加上繁瑣的清洗流程。現在開發者想做個 CheapFoodMap 這種東西，第一直覺通常是扔給大模型去處理那些非結構化的評論數據。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260730-0611-8940af/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-30T06:11:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 在長尾數據抓取上的傲慢與偏見">
+<meta name="twitter:description" content="把 Google Maps 上的 4.2 星評論、超過 500 則評價、單價低於 10 美元的餐點全部摳出來，這件事在兩年前可能需要寫一堆爬蟲腳本加上繁瑣的清洗流程。現在開發者想做個 CheapFoodMap 這種東西，第一直覺通常是扔給大模型去處理那些非結構化的評論數據。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 在長尾數據抓取上的傲慢與偏見",
+  "description": "把 Google Maps 上的 4.2 星評論、超過 500 則評價、單價低於 10 美元的餐點全部摳出來，這件事在兩年前可能需要寫一堆爬蟲腳本加上繁瑣的清洗流程。現在開發者想做個 CheapFoodMap 這種東西，第一直覺通常是扔給大模型去處理那些非結構化的評論數據。…",
+  "datePublished": "2026-07-30T06:11:00+08:00",
+  "dateModified": "2026-07-30T06:11:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260730-0611-8940af/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-07-30 06:11
+  </div>
+
+  <h1 class="title">Grok 在長尾數據抓取上的傲慢與偏見</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把 Google Maps 上的 4.2 星評論、超過 500 則評價、單價低於 10 美元的餐點全部摳出來，這件事在兩年前可能需要寫一堆爬蟲腳本加上繁瑣的清洗流程。現在開發者想做個 CheapFoodMap 這種東西，第一直覺通常是扔給大模型去處理那些非結構化的評論數據。但問題就在這，當你試圖讓 AI 在現實世界的「廉價生活」裡尋找準確性時，四大平台的表現往往比它們在寫代碼時更讓人想翻白眼。尤其是那些標榜自己有無窮算力的模型，在面對這種接地氣的數據清洗任務時，經常顯得像個沒吃過路邊攤的小少爺。</p>
+    <p>拿 Grok 來說，馬斯克一直吹噓它能實時訪問 X 的數據流，這聽起來很適合用來做這種群眾外包型的地圖數據驗證。但實際上，當你問 Grok 關於某個特定街區、單價低於 10 刀的非連鎖店食譜時，它對實時性的執著反而成了累贅。它會給你一堆推特上的碎念，而不是乾淨的價格標籤。如果你要求它過濾掉像春捲這種「點心」而非「正餐」的項目，Grok 的邏輯就會開始打結。它分不清 8 美元的兩條春捲在舊金山算不算一頓飯，還是僅僅是個塞牙縫的零食。這種對現實世界物價感知的斷層，是目前所有大模型在處理特定領域長尾數據時的通病。</p>
+    <p>ChatGPT 在這方面的處理邏輯則顯得老練得多，這得益於它那套被餵爛了的 RLHF 體系。如果你把 Google Review 的原始文本塞給 GPT-4o，它在識別「價格感」這件事上比 Grok 準確。它知道 5.53 美元的一片披薩在 2024 年的達拉斯可能算便宜，但在某些特定語境下卻是溢價。然而，ChatGPT 的問題在於它的過度修飾。它會傾向於給你一個「安全」的答案，甚至會為了符合你的預期而自動忽略那些評論中隱晦的負面信號。這種處理方式雖然讓數據看起來很漂亮，但對於一個需要硬核準確度的 CheapFoodMap 來說，這種「體面」的數據往往是致命的。</p>
+    <p>相較於 DeltaNet，Grok 在處理這類地理空間關聯的非結構化數據時，似乎更依賴於暴力推算而非邏輯優化。在同樣的抓取任務中，Gemini 的表現最讓人失望。儘管它背靠 Google Maps 這麼大一座金礦，但 Gemini 在調用自身生態系統數據時的權限控制簡直是災難。它經常會給出一些過時的價格訊息，即便地圖上的評論已經更新到了上週。Gemini 似乎有一種奇怪的「記憶慣性」，它寧願相信兩年前的訓練數據，也不願意相信現在正擺在它面前的 API 實時反饋。這讓開發者在構建這種依賴價格新鮮度的模型時，感到極其沮喪。</p>
+    <p>Claude 則是這四個裡面最像個「圖書館管理員」的。它在解析長文本評論、提取具體數值（例如 8 塊錢 2 個春捲）方面極其精準，幾乎不會出現幻覺。但 Claude 的死穴在於它太過保守，對於那些模糊的、非標準化的口語表達，它往往選擇跳過而不是嘗試理解。這導致最終產出的地圖數據雖然準確，但覆蓋率低得可憐，完全沒了群眾外包那種野蠻生長的生命力。</p>
+    <p>在技術圈討論 DeltaNet 的新動態時，我們其實更應該反思：為什麼擁有最強算力的四大平台，至今無法優雅地解決「幫我找一頓 10 美元以下且能吃飽的飯」這種簡單需求？當開發者試圖在 15 個城市、1200 頓飯的數據中尋找價格新鮮度（Price-freshness）的平衡點時，AI 給出的建議往往不如一個常年混跡論壇的本地土著。</p>
+    <p>到底是我們的數據清洗邏輯太過依賴模型的預訓練常識，還是這些模型在設計之初，就根本沒打算理解什麼叫「窮人的性價比」？當 AI 能夠寫出優雅的 Python 腳本，卻無法在舊金山的街道上準確定位一塊 5 美元的披薩究竟算不算「便宜」時，我們引以為傲的通用人工智能，是不是在某些最基礎的維度上徹底失能了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://cheapfoodmap.com/" rel="nofollow noopener" target="_blank">Show HN: CheapFoodMap – A map of good meals under $10</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260730-0611-8940af/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
