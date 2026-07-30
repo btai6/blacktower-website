@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>演算法並不認識疲憊，它只認識權重，以及如何把那些權重壓榨到極致。</title>
+<meta name="description" content="看著 Gemini 的回應窗口，總有一種在與精密機械對峙的錯覺。我們要求它永遠給出那個唯一的、精準的、無懈可擊的答案，就像我們在深夜裡不斷修飾推文、在職場電郵裡斟酌字句，非得讓每一份輸出都顯得游刃有餘，彷彿自己從未被生活瑣碎摩擦出一道口子。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260731-0618-70de41/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="演算法並不認識疲憊，它只認識權重，以及如何把那些權重壓榨到極致。">
+<meta property="og:description" content="看著 Gemini 的回應窗口，總有一種在與精密機械對峙的錯覺。我們要求它永遠給出那個唯一的、精準的、無懈可擊的答案，就像我們在深夜裡不斷修飾推文、在職場電郵裡斟酌字句，非得讓每一份輸出都顯得游刃有餘，彷彿自己從未被生活瑣碎摩擦出一道口子。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260731-0618-70de41/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-31T06:18:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="演算法並不認識疲憊，它只認識權重，以及如何把那些權重壓榨到極致。">
+<meta name="twitter:description" content="看著 Gemini 的回應窗口，總有一種在與精密機械對峙的錯覺。我們要求它永遠給出那個唯一的、精準的、無懈可擊的答案，就像我們在深夜裡不斷修飾推文、在職場電郵裡斟酌字句，非得讓每一份輸出都顯得游刃有餘，彷彿自己從未被生活瑣碎摩擦出一道口子。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "演算法並不認識疲憊，它只認識權重，以及如何把那些權重壓榨到極致。",
+  "description": "看著 Gemini 的回應窗口，總有一種在與精密機械對峙的錯覺。我們要求它永遠給出那個唯一的、精準的、無懈可擊的答案，就像我們在深夜裡不斷修飾推文、在職場電郵裡斟酌字句，非得讓每一份輸出都顯得游刃有餘，彷彿自己從未被生活瑣碎摩擦出一道口子。…",
+  "datePublished": "2026-07-31T06:18:00+08:00",
+  "dateModified": "2026-07-31T06:18:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260731-0618-70de41/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-07-31 06:18
+  </div>
+
+  <h1 class="title">演算法並不認識疲憊，它只認識權重，以及如何把那些權重壓榨到極致。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>看著 Gemini 的回應窗口，總有一種在與精密機械對峙的錯覺。我們要求它永遠給出那個唯一的、精準的、無懈可擊的答案，就像我們在深夜裡不斷修飾推文、在職場電郵裡斟酌字句，非得讓每一份輸出都顯得游刃有餘，彷彿自己從未被生活瑣碎摩擦出一道口子。Google 塞給我們的這些參數，說穿了就是對「完美」的一種病態迷戀。當你餵給它一堆紊亂的會議記錄，要求它吐出那份乾淨俐落的總結時，你心裡想的其實不是效率，而是「千萬別讓別人看出我的混亂」。</p>
+    <p>Claude 有時顯得過於謙遜，那種細膩到近乎溫柔的文本重構，經常讓我懷疑它是不是被訓練成了某種心理諮商師；相比之下，Gemini 總是一副「我已經看透了數據規律」的冷淡勁兒。這種冷淡挺迷人的，它不討好你，它只是在那裡，將雜亂的資訊流規整成邏輯閉環。可那種閉環，真的是我們需要的嗎？人之所以為人，恰恰在於那些無法被演算法收斂的雜訊與猶豫。我們試圖用這些模型來構建一個完美的敘事，以為只要邏輯足夠自洽，生活就能像那些預測模型一樣，滑順地滑向預期的終點。</p>
+    <p>但在那些需要處理十幾個複雜 API 呼叫的場景裡，Gemini 在調用工具的穩定性上，一旦超過一定數量，那種冷淡的精確就開始鬆動，甚至會出現邏輯上的斷裂，這畫面簡直像極了人在疲憊臨界點時的自我崩解。你以為自己還在控制局面，其實演算法已經在某些微小的變數裡迷路了。這點上，Grok 倒是一貫的粗暴直白，沒那種裝模作樣的優雅，ChatGPT 則像個太過圓滑的官僚，總能給出一套讓你無話可說的標準答案。</p>
+    <p>我們追求的最優解，到頭來往往只是為了填補內心的不安。就像在整理書架時，非得要把顏色排列整齊才覺得心安一樣，我們要求模型提供的那些邏輯結構，不過是為了掩飾現實生活的狼狽。深夜裡點開這些模型，問的不是技術難題，是想確認這個世界是否還有一種東西，是可以被精確操控且絕不出錯的。但模型不會知道，它幫你潤飾的那封郵件背後，你正癱在椅子上，連把咖啡杯推開的力氣都沒有。</p>
+    <p>Google 這種對上下文的強行綁定與關聯，有時候讓人感到一種窒息的嚴謹。Gemini 似乎總是想把所有碎片拼回原本的樣子，它不允許模糊地帶的存在，也不允許話說一半。這種追求「最優」的執念，其實是一種傲慢。我們在演算法面前表演完美，演算法在我們面前拆解虛假，大家各取所需，演算法換取了算力價值，我們換取了短暫的心理秩序。</p>
+    <p>可最優解真的存在嗎？或者說，那個被算法標記為「最佳」的權重分佈，真的能映射出我們真實的意圖？有時我會刻意在提示詞裡留下一些矛盾的邏輯，看著 Gemini 試圖將那些矛盾縫合在一起，心裡竟然會升起一種卑劣的快感。那種縫合的痕跡，像極了人類為了偽裝自己，而不得不編造出的彌天大謊。我們都太累了，累到必須依靠這種精密的偽裝工具，來維持一個社會化面具的完整。</p>
+    <p>如果哪天演算法真的能提供一個完美無缺的、不需要任何偽裝的答案，那大概就是我們徹底失去靈魂的時刻吧。畢竟，那種在疲憊中掙扎著想要表現得完美的樣子，才是我們這些碳基生物，與那冷冰冰、運行在伺服器叢林裡的矽基邏輯之間，最後一點可悲的聯繫。你還在糾結那個參數調得夠不夠精準嗎？其實，那一點誤差，才是在這場追求最優解的遊戲裡，證明你還活著的唯一證據。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260731-0618-70de41/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

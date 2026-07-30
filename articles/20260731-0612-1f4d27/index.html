@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>密碼學的黃昏與 Claude 多代理協作的破窗效應</title>
+<meta name="description" content="將 Claude 丟進密碼分析的修羅場，就像給一個熟讀《孫子兵法》卻沒上過戰場的書生一把神兵利器。最近技術圈都在傳那份關於 Claude 在加密算法漏洞偵測上的報告，尤其是它在 7 輪 AES-128 攻擊上的細微改進，以及對 NIST 標準候選算法 HAWK …">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260731-0612-1f4d27/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="密碼學的黃昏與 Claude 多代理協作的破窗效應">
+<meta property="og:description" content="將 Claude 丟進密碼分析的修羅場，就像給一個熟讀《孫子兵法》卻沒上過戰場的書生一把神兵利器。最近技術圈都在傳那份關於 Claude 在加密算法漏洞偵測上的報告，尤其是它在 7 輪 AES-128 攻擊上的細微改進，以及對 NIST 標準候選算法 HAWK …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260731-0612-1f4d27/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-07-31T06:12:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="密碼學的黃昏與 Claude 多代理協作的破窗效應">
+<meta name="twitter:description" content="將 Claude 丟進密碼分析的修羅場，就像給一個熟讀《孫子兵法》卻沒上過戰場的書生一把神兵利器。最近技術圈都在傳那份關於 Claude 在加密算法漏洞偵測上的報告，尤其是它在 7 輪 AES-128 攻擊上的細微改進，以及對 NIST 標準候選算法 HAWK …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "密碼學的黃昏與 Claude 多代理協作的破窗效應",
+  "description": "將 Claude 丟進密碼分析的修羅場，就像給一個熟讀《孫子兵法》卻沒上過戰場的書生一把神兵利器。最近技術圈都在傳那份關於 Claude 在加密算法漏洞偵測上的報告，尤其是它在 7 輪 AES-128 攻擊上的細微改進，以及對 NIST 標準候選算法 HAWK …",
+  "datePublished": "2026-07-31T06:12:00+08:00",
+  "dateModified": "2026-07-31T06:12:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260731-0612-1f4d27/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-07-31 06:12
+  </div>
+
+  <h1 class="title">密碼學的黃昏與 Claude 多代理協作的破窗效應</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>將 Claude 丟進密碼分析的修羅場，就像給一個熟讀《孫子兵法》卻沒上過戰場的書生一把神兵利器。最近技術圈都在傳那份關於 Claude 在加密算法漏洞偵測上的報告，尤其是它在 7 輪 AES-128 攻擊上的細微改進，以及對 NIST 標準候選算法 HAWK 密鑰長度近乎腰斬的削減。這不是那種靠隨機碰撞產生的運氣，而是一種帶有邏輯自洽性的「集體狩獵」。當我們還在爭論 AI 是否只會搬運既有知識時，Claude 已經在多代理（multi-agent）工作流的加持下，開始修剪人類密碼學家遺漏的枝節。這種進步讓不少安全部門的負責人如坐針氈，畢竟密碼學是現代文明最後的遮羞布，一旦這層布被撕開一個角，後面的崩塌往往是連鎖反應。</p>
+    <p>真正讓這件事顯得與眾不同的，不是模型本身背誦了多少論文，而是多代理協作中展現出的那種「韌性」。在針對 HAWK 算法的攻堅中，我們看到了一個有趣的動態：第一個代理在初步嘗試後，以技術不可行為由放棄了路徑；然而，第二個代理卻在相同的邏輯起點上找到了突破口，並最終完成了攻擊鏈的閉環。這很像人類實驗室裡的師兄弟協作，一個人的偏見被另一個人的嚴謹所修正。Claude 在處理這種超過 8 萬 token 的長文本任務時，雖然仍會出現注意力衰減，但在特定框架下，它的邏輯連貫性足以支撐起複雜的代數推導。這與我們慣常認知的「統計預測」有著本質區別，它在模擬一種思考的深度，而非單純的概率模擬。</p>
+    <p>這種深度在面對硬核數學問題時尤為致命。以往我們認為 AI 只能修復簡單的緩衝區溢位或邏輯錯誤，但現在它開始挑戰對稱加密算法的結構完整性。雖然 10 輪的 AES 依然穩固，但對 7 輪算法的微小改進，本身就是一種對算力與算法邊界的重新定義。這種行為模式在 ChatGPT 上也有類似體現，但 GPT-4o 在處理極其冷門的密碼學公式時，往往會陷入一種優雅的胡言亂語。相較於 DeepSeek，Claude 的做法是更傾向於在約束條件內進行極限壓榨，而非試圖給出一個看似全能但經不起推敲的通解。Gemini 在處理這類任務時則顯得有些束手束腳，它的安全過濾機制經常會誤傷正常的學術探究，導致研究者在調試過程中像是在與一個過度謹慎的官僚打交道。</p>
+    <p>當前的大環境很有意思，大家都急於展示自己的肌肉。相較於 DeepSeek，Claude 的多代理系統在邏輯一致性上的表現更像是一個老練的獵人。這種獵人直覺並非天生，而是源於對上下文極致的利用。我們在測試中發現，如果將密碼分析的任務拆解為「假設生成」、「邏輯驗證」與「代碼實現」三個環節，Claude 的表現遠比單一對話框下的 Grok 要穩定得多。Grok 雖然在實時資訊獲取上有優勢，但在這種需要靜下心來推算幾百個步驟的密鑰排布任務中，它那種帶點嘲諷意味的跳躍思維反而成了累贅。密碼學是一門沈默的學問，它不需要幽默，只需要精準。</p>
+    <p>如果這套流程被標準化，我們即將面對的是一個「漏洞挖掘自動化」的時代。這引發了一個令人不安的假設：如果一個語言模型在未來的某個深夜，獨自推演出了現行主流加密體系的結構性漏洞，它會選擇告知它的創造者，還是將其埋藏在無數次的推理日誌中？目前 Anthropic 選了與政府合作，這更像是一種緩兵之計。當技術的演進速度超過了社會契約的更新速度，我們對「安全」的定義是否還停留在增加密鑰長度這種原始手段上？既然模型可以發現 HAWK 的缺陷，那麼它是否也能在不被察覺的情況下，為新的標準埋下只有它能解開的伏筆？我們現在看到的，究竟是安全工具的進化，還是某種潘多拉魔盒被撬開前的裂縫聲？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/research/discovering-cryptographic-weaknesses" rel="nofollow noopener" target="_blank">Discovering Cryptographic Weaknesses with Claude</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260731-0612-1f4d27/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
