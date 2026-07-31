@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 MoE 遇上捉襟見肘的記憶體</title>
+<meta name="description" content="在 M 系列晶片的 Mac 上，把一個 26B 參數的模型塞進 2 GB 的記憶體空間，聽起來像是某種數位煉金術。如果你還在糾結買 8GB 還是 16GB 的基本款筆電，這個名為 TurboFieldfare 的引擎顯然是在嘲諷那些宣稱「硬體不足以運行本地 AI」的廠商。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260801-0613-69810b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 MoE 遇上捉襟見肘的記憶體">
+<meta property="og:description" content="在 M 系列晶片的 Mac 上，把一個 26B 參數的模型塞進 2 GB 的記憶體空間，聽起來像是某種數位煉金術。如果你還在糾結買 8GB 還是 16GB 的基本款筆電，這個名為 TurboFieldfare 的引擎顯然是在嘲諷那些宣稱「硬體不足以運行本地 AI」的廠商。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260801-0613-69810b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-01T06:13:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 MoE 遇上捉襟見肘的記憶體">
+<meta name="twitter:description" content="在 M 系列晶片的 Mac 上，把一個 26B 參數的模型塞進 2 GB 的記憶體空間，聽起來像是某種數位煉金術。如果你還在糾結買 8GB 還是 16GB 的基本款筆電，這個名為 TurboFieldfare 的引擎顯然是在嘲諷那些宣稱「硬體不足以運行本地 AI」的廠商。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 MoE 遇上捉襟見肘的記憶體",
+  "description": "在 M 系列晶片的 Mac 上，把一個 26B 參數的模型塞進 2 GB 的記憶體空間，聽起來像是某種數位煉金術。如果你還在糾結買 8GB 還是 16GB 的基本款筆電，這個名為 TurboFieldfare 的引擎顯然是在嘲諷那些宣稱「硬體不足以運行本地 AI」的廠商。…",
+  "datePublished": "2026-08-01T06:13:00+08:00",
+  "dateModified": "2026-08-01T06:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260801-0613-69810b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-08-01 06:13
+  </div>
+
+  <h1 class="title">當 MoE 遇上捉襟見肘的記憶體</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>在 M 系列晶片的 Mac 上，把一個 26B 參數的模型塞進 2 GB 的記憶體空間，聽起來像是某種數位煉金術。如果你還在糾結買 8GB 還是 16GB 的基本款筆電，這個名為 TurboFieldfare 的引擎顯然是在嘲諷那些宣稱「硬體不足以運行本地 AI」的廠商。這不是單純的量化技術，而是針對混合專家模型（MoE）特性的精確獵殺。當模型權重達到 14 GB，而你的可用空間連它的零頭都不到時，唯一的生路就是別想著把整頭大象塞進冰箱。</p>
+    <p>這類技術的核心邏輯在於，MoE 模型雖然參數總量驚人，但每次生成 Token 時，真正被喚醒的「專家」其實寥寥無幾。在 Gemini 或 GPT-4 這種架構的邏輯裡，神經網路不再是一塊沈重的鐵板，而是一群待命的工匠。傳統的推理引擎習慣於將所有權重一股腦兒搬進顯存，但當你開始利用 SSD 作為換頁緩衝，並對「專家」進行快取管理時，記憶體容量就不再是生死的邊界。這種做法讓 8 GB 的 MacBook Air 也能以每秒 5 到 6 個 Token 的速度跑起 26B 的模型。雖然這速度稱不上健步如飛，但對於一個權重體積數倍於記憶體容量的機器來說，這已經是某種程度上的神蹟。</p>
+    <p>深入到 Metal 框架的細節，這類優化本質上是在挑戰統一記憶體架構的 IO 極限。在 M5 晶片上能跑到 35 tok/s，而在 M2 上卻只有零頭，這中間的差距並不完全來自運算單元的數量，更多是來自於 SSD 頻寬與記憶體總線交換資料的延遲。當我們觀察 Google 的 Gemini 1.5 Pro 在長文本任務中的表現，或是 OpenAI 在 GPT-4o 上的推理調優，會發現閉源巨頭們其實也在玩同樣的遊戲，只是他們是在昂貴的 H100 集群上做負載均衡。本地推理引擎的開發者則是在貧瘠的土壤上，試圖透過預測下一個 Token 可能調用的專家索引，提前從硬碟載入權重。如果預測準確度夠高，這種「空間換時間」的操作就能抹平硬體規格的鴻溝。</p>
+    <p>有趣的是，當我們看到 DeepSeek-V4-Flash 在效率上的追求，或者某些特定市場對輕量化模型的執著時，四大平台的開發方向顯得更加財大氣粗。相較於 DeepSeek-V4-Flash 的架構選擇，Claude 3.5 Sonnet 在處理複雜邏輯時，對記憶體與算力的飢渴程度顯然不在同一個維度。OpenAI 傾向於透過蒸餾技術讓模型在維持智慧的前提下縮減體積，而 Anthropic 則似乎更看重模型在長文本注意力機制上的完整性，即便這意味著使用者需要支付更高的 API 費用或購置更強大的本地硬體。Grok 在這方面則顯得有些不拘小節，其開源版本的巨大體積幾乎就是在對家庭用戶說：如果你沒有頂配的 Mac Studio，就別來湊這份熱鬧。</p>
+    <p>目前大眾對於本地 AI 的認知還停留在「模型越小越好」的階段，但這次的技術突破給了我們另一個視角：如果架構本身支持動態調度，模型的大小或許並不是限制體驗的唯一因素。我們在 Gemini 的移動端部署中也能看到類似的影子，系統如何在背景悄悄調換權重，而不讓用戶感知到那幾毫秒的 IO 延遲？這是一場關於快取命中率的豪賭。如果未來所有的 MoE 模型都能實現亞秒級的專家切換，那麼我們買電腦時加的那幾千塊記憶體升級費，是不是就成了給硬體廠商交的智商稅？</p>
+    <p>當軟體層面的優化已經可以跨越物理層級的硬傷，硬體規格的溢價還能撐多久？如果一個 2 GB 的進程就能撬動 26B 的智慧，那麼我們追求的究竟是更強大的晶片，還是更聰明的權重調度算法？當 OpenAI 和 Google 繼續在雲端堆疊算力奇點時，那些躲在 M 系列晶片背後的極客，是否已經提前找到了通往個人 AI 時代的後門？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/drumih/turbo-fieldfare" rel="nofollow noopener" target="_blank">Show HN: Open-source engine running Gemma 4 26B in 2 GB RAM on any M-series Mac</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260801-0613-69810b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
