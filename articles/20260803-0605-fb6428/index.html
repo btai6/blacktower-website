@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini Robotics 2 試圖讓機器人長出腦袋而非只是脊椎</title>
+<meta name="description" content="這幾天大家在討論 DeepSeek-V4-Flash 的動態，但真正讓我停下來思考的是 Google 剛端出來的 Gemini Robotics 2。過去我們看待機器人，總覺得那是一堆伺服馬達與預設指令的堆疊，頂多加上一點視覺辨識。但這次 Gemini 展現的是一種「全身智慧」。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260803-0605-fb6428/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini Robotics 2 試圖讓機器人長出腦袋而非只是脊椎">
+<meta property="og:description" content="這幾天大家在討論 DeepSeek-V4-Flash 的動態，但真正讓我停下來思考的是 Google 剛端出來的 Gemini Robotics 2。過去我們看待機器人，總覺得那是一堆伺服馬達與預設指令的堆疊，頂多加上一點視覺辨識。但這次 Gemini 展現的是一種「全身智慧」。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260803-0605-fb6428/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-03T06:05:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini Robotics 2 試圖讓機器人長出腦袋而非只是脊椎">
+<meta name="twitter:description" content="這幾天大家在討論 DeepSeek-V4-Flash 的動態，但真正讓我停下來思考的是 Google 剛端出來的 Gemini Robotics 2。過去我們看待機器人，總覺得那是一堆伺服馬達與預設指令的堆疊，頂多加上一點視覺辨識。但這次 Gemini 展現的是一種「全身智慧」。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini Robotics 2 試圖讓機器人長出腦袋而非只是脊椎",
+  "description": "這幾天大家在討論 DeepSeek-V4-Flash 的動態，但真正讓我停下來思考的是 Google 剛端出來的 Gemini Robotics 2。過去我們看待機器人，總覺得那是一堆伺服馬達與預設指令的堆疊，頂多加上一點視覺辨識。但這次 Gemini 展現的是一種「全身智慧」。…",
+  "datePublished": "2026-08-03T06:05:00+08:00",
+  "dateModified": "2026-08-03T06:05:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260803-0605-fb6428/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-03 06:05
+  </div>
+
+  <h1 class="title">Gemini Robotics 2 試圖讓機器人長出腦袋而非只是脊椎</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天大家在討論 DeepSeek-V4-Flash 的動態，但真正讓我停下來思考的是 Google 剛端出來的 Gemini Robotics 2。過去我們看待機器人，總覺得那是一堆伺服馬達與預設指令的堆疊，頂多加上一點視覺辨識。但這次 Gemini 展現的是一種「全身智慧」。這不是那種教機器人如何夾起一顆草莓的精細動作，而是讓它在面對一個混亂、隨機、甚至充滿人類干擾的環境時，能有一種近似於直覺的判斷力。</p>
+    <p>具體來說，當一個機器人試圖旋轉門把或是在摔倒的邊緣掙扎時，傳統的控制邏輯依賴的是感測器回傳的物理數值，然後進行毫秒級的補償計算。Gemini Robotics 2 的做法則是將長文本理解的能力直接對接到物理動作上。這意味著機器人不再只是執行「如果傾斜度大於 15 度就調整重心」，而是能理解「我現在正處於一個不穩定的動態過程中」。在 Google 給出的演示中，當人類突然靠近，系統會自動觸發 safety tool calls。這種從感知到反應的鏈條，不再是硬編碼的邏輯門，而是一種基於語義理解的決策機制。</p>
+    <p>這種將大語言模型（LLM）作為機器人中樞的做法，最核心的挑戰在於延遲與精準度的權衡。Gemini 在處理這類任務時，展現出一種比 GPT-4o 更具侵略性的整合意圖。ChatGPT 在處理多模態指令時，往往更傾向於將視覺資訊轉化為文字描述後再進行推理。而 Gemini 則是在底層就將物理空間的座標資訊與語義向量進行融合。當你在實驗室裡讓它去拿一個水瓶，它考慮的不再只是水瓶的像素位置，而是這個動作背後的物理意義與安全性。</p>
+    <p>這讓我想到目前幾大平台的技術分野。相較於 DeepSeek-V4-Flash 的快速迭代，Google 在 Gemini 身上投注的是一種試圖壟斷物理世界的野心。ChatGPT 目前在機器人領域的布局更像是一個聰明的「大腦」，負責給指令，具體動作交給第三方執行。而 Gemini 則是想連機器人的四肢一起接管。Grok 雖然背後有 Tesla 的 Optimus 作為硬體支撐，但在軟體層面的泛化能力，目前看來還沒能像 Gemini 這樣直接把多模態的能力下放到基礎動作層級。</p>
+    <p>有趣的是，這種技術路徑也帶來了新的矛盾。當系統檢測到人類靠近而自動停止，這在工業環境是安全，但在需要近距離協作的居家照護場景，這反而成了障礙。如果機器人因為「離人太近」而頻繁觸發安全停機，那它要如何幫一個行動不便的人翻身？這不是單靠增加感測器就能解決的問題，而是模型對「意圖」的解讀是否足夠細膩。DeepSeek-V4-Flash 在輕量化推理上有其節奏，但 Google 顯然認為，要解決物理世界的複雜度，必須用更厚重的模型能力去強行壓制。</p>
+    <p>Claude 在這方面則顯得低調得多。儘管 Claude 在處理複雜邏輯與長文本的一致性上表現優異，但 Anthropic 至今似乎沒有表現出對機器人硬體整合的強烈興趣。這導致了一個有趣的現象：我們擁有世界上最聰明的邏輯推理工具，但當這些工具要進入物理世界去擰開一個生鏽的螺絲時，它們依然表現得像個剛學走路的孩子。Gemini 的嘗試，本質上是在測試 LLM 的權重裡，是否真的藏著物理規律的密碼。</p>
+    <p>當我們在討論機器人是否會取代水電工時，其實忽略了一個最基本的問題：水電工在修水管時，大腦裡處理的不只是水管的形狀，還有漏水的壓力、工具的觸感、以及對環境危險的預判。Gemini Robotics 2 現在能做到讓機器人停下來，這很了不起。但下一步呢？當一個機器人在野外任務中跌倒，它是否能像人類一樣，在倒下的瞬間做出保護核心關節的反應，而不是在那裡等待雲端模型回傳一組新的運動軌跡參數？</p>
+    <p>我們總是在追求更快的模型、更精準的回答，但當 AI 真正穿上了鋼鐵的外殼，我們才發現，最難學的其實是那種不需要思考的本能。當 Gemini 試圖將安全機制工具化，這究竟是智慧的進化，還是另一種形式的過度保護？如果機器人永遠學不會在混亂中冒險，它是否永遠只能留在實驗室的無塵地板上，對著鏡頭表演那些被精心編排過的「靈巧」？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/" rel="nofollow noopener" target="_blank">Gemini Robotics 2 brings whole body intelligence to robots</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260803-0605-fb6428/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

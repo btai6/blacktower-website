@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPT 降價背後的內核戲法與推理成本的死結</title>
+<meta name="description" content="這兩天 Hacker News 上最熱鬧的事情，莫過於 OpenAI 終於捨得在 GPT-5.6 Luna 的定價上割肉。這場降價戲碼演得很足，號稱透過內核優化讓服務成本降低了 20%，順便把 token 生成效率拉高了 15%。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260803-0603-a24862/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPT 降價背後的內核戲法與推理成本的死結">
+<meta property="og:description" content="這兩天 Hacker News 上最熱鬧的事情，莫過於 OpenAI 終於捨得在 GPT-5.6 Luna 的定價上割肉。這場降價戲碼演得很足，號稱透過內核優化讓服務成本降低了 20%，順便把 token 生成效率拉高了 15%。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260803-0603-a24862/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-03T06:03:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GPT 降價背後的內核戲法與推理成本的死結">
+<meta name="twitter:description" content="這兩天 Hacker News 上最熱鬧的事情，莫過於 OpenAI 終於捨得在 GPT-5.6 Luna 的定價上割肉。這場降價戲碼演得很足，號稱透過內核優化讓服務成本降低了 20%，順便把 token 生成效率拉高了 15%。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "GPT 降價背後的內核戲法與推理成本的死結",
+  "description": "這兩天 Hacker News 上最熱鬧的事情，莫過於 OpenAI 終於捨得在 GPT-5.6 Luna 的定價上割肉。這場降價戲碼演得很足，號稱透過內核優化讓服務成本降低了 20%，順便把 token 生成效率拉高了 15%。…",
+  "datePublished": "2026-08-03T06:03:00+08:00",
+  "dateModified": "2026-08-03T06:03:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260803-0603-a24862/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-08-03 06:03
+  </div>
+
+  <h1 class="title">GPT 降價背後的內核戲法與推理成本的死結</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天 Hacker News 上最熱鬧的事情，莫過於 OpenAI 終於捨得在 GPT-5.6 Luna 的定價上割肉。這場降價戲碼演得很足，號稱透過內核優化讓服務成本降低了 20%，順便把 token 生成效率拉高了 15%。說實話，看著這些冷冰冰的百分比，我腦子裡浮現的只有奧特曼那張精明的商人臉。這不是什麼技術大躍進的恩賜，這只是在算力成本面前，不得不低頭的商業妥協。</p>
+    <p>大家都在談 Luna 便宜了 80%，但我更感興趣的是那個所謂的 kernel work。在 API 調用中，延遲和吞吐量永遠是技術團隊的噩夢。如果這 20% 的成本節省是真的，那意味著 OpenAI 在底層推理框架上進行了極其激進的剪裁。這引發了一個很尷尬的現象：現在很多開發者在辦公室用 Sol 處理複雜邏輯，回家卻改用 Luna 寫腳本，結果發現兩者的「智商」差距正在縮小。這不是 Luna 變聰明了，而是為了壓低成本，Sol 這種旗艦模型的推理路徑可能也變得越來越偷懶，導致高階模型的邊際效應正在快速遞減。</p>
+    <p>當一個模型被切分成三種價格、四種規格，這本質上是在把「選擇架構」的皮球踢給用戶。如果你真的擁有通向 AGI 的路徑，為什麼還需要用戶去思考「這個問題值不值得用貴的算法」？這種模型分層策略，與其說是技術進步，不如說是對當前推理效率瓶頸的變相承認。</p>
+    <p>在長文本與高併發的具體場景下，這種價格戰顯得格外諷刺。當你試圖在一個包含 10 萬 token 的 context 中尋找特定的邏輯關聯時，Luna 的注意力機制衰減得比前代更明顯。相比之下，Claude 在處理這類超長上下文時的穩定性，依然讓 OpenAI 感到如芒在背。Gemini 則是在 function calling 的穩定性上反覆橫跳，雖然它的多模態原生架構在成本控制上有天然優勢，但在這種硬碰硬的 token 價格戰裡，Google 顯然還沒打算跟 OpenAI 玩命。</p>
+    <p>這場價格崩盤的導火線，或許來自於那些正在後方窮追不捨的挑戰者。相較於 DeepSeek-V4-Flash 的定價策略，OpenAI 這次推出的 Luna 顯然是在修補自己那道防禦力不足的護城河。在矽谷的討論區裡，Kimi K3 和 GLM 5.2 的名字也頻繁被提及，作為對標 OpenAI 定價邏輯的背景座標。但無論這些名字如何跳躍，核心問題始終沒變：當推理成本被壓到極致後，剩下的究竟是真智慧，還是僅僅是一堆經過高效壓縮的概率預測？</p>
+    <p>Grok 在這場大亂鬥中倒是顯得格外出世，馬斯克似乎更在乎算力集群的規模，而非如何把 API 賣得像白菜一樣便宜。但這種無視市場定價的傲慢，在開發者轉向更廉價、更高效的 Luna 時，能撐多久也是個問號。如果成本降低 20% 就能省下每個月數十億美元的開支，那麼這些省下來的錢，究竟是進了投資人的口袋，還是變成了下一代模型的訓練燃料？</p>
+    <p>我們現在處於一個很奇妙的階段。模型越來越便宜，能力的分化卻越來越模糊。如果你需要一個能精準執行指令的工具，現在的選擇多到讓人頭暈。但當你真正需要一個具備「思考」深度而非僅僅是「反應」速度的系統時，你會發現即便降價 80%，該出錯的地方還是會出錯。那種所謂的內核優化，到底是在優化算法，還是在優化用戶的心理預期？</p>
+    <p>當 token 變得像電力一樣廉價且無處不在時，我們對於「智能」的定義是否也會隨之貶值？如果未來某天，最強大的模型和最平庸的模型在 API 價格表上只差幾美分，我們還會在意背後是誰在運作嗎？或者說，當 OpenAI 忙著在內核裡摳那 15% 的效率時，他們是否已經忘了，最初承諾給我們的 AGI，應該是不需要看價格標籤的？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/" rel="nofollow noopener" target="_blank">Advancing the price-performance frontier with GPT‑5.6</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260803-0603-a24862/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

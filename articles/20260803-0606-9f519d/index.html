@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當算法學會了體面，我們平庸得連敷衍都顯得有些笨拙</title>
+<meta name="description" content="Google 昨晚又更新了 Gemini 的模型，那種冷靜到近乎冷血的邏輯修補，讓我想到清晨窗台上那層薄薄的灰，明明存在卻又讓人無從捉摸。以前我們嘲笑機器人說話像含著齒輪，現在卻是我們在面對螢幕時，連打出一個得體的問候語都要躊躇半天。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260803-0606-9f519d/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當算法學會了體面，我們平庸得連敷衍都顯得有些笨拙">
+<meta property="og:description" content="Google 昨晚又更新了 Gemini 的模型，那種冷靜到近乎冷血的邏輯修補，讓我想到清晨窗台上那層薄薄的灰，明明存在卻又讓人無從捉摸。以前我們嘲笑機器人說話像含著齒輪，現在卻是我們在面對螢幕時，連打出一個得體的問候語都要躊躇半天。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260803-0606-9f519d/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-03T06:06:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當算法學會了體面，我們平庸得連敷衍都顯得有些笨拙">
+<meta name="twitter:description" content="Google 昨晚又更新了 Gemini 的模型，那種冷靜到近乎冷血的邏輯修補，讓我想到清晨窗台上那層薄薄的灰，明明存在卻又讓人無從捉摸。以前我們嘲笑機器人說話像含著齒輪，現在卻是我們在面對螢幕時，連打出一個得體的問候語都要躊躇半天。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當算法學會了體面，我們平庸得連敷衍都顯得有些笨拙",
+  "description": "Google 昨晚又更新了 Gemini 的模型，那種冷靜到近乎冷血的邏輯修補，讓我想到清晨窗台上那層薄薄的灰，明明存在卻又讓人無從捉摸。以前我們嘲笑機器人說話像含著齒輪，現在卻是我們在面對螢幕時，連打出一個得體的問候語都要躊躇半天。…",
+  "datePublished": "2026-08-03T06:06:00+08:00",
+  "dateModified": "2026-08-03T06:06:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260803-0606-9f519d/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-03 06:06
+  </div>
+
+  <h1 class="title">當算法學會了體面，我們平庸得連敷衍都顯得有些笨拙</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 昨晚又更新了 Gemini 的模型，那種冷靜到近乎冷血的邏輯修補，讓我想到清晨窗台上那層薄薄的灰，明明存在卻又讓人無從捉摸。以前我們嘲笑機器人說話像含著齒輪，現在卻是我們在面對螢幕時，連打出一個得體的問候語都要躊躇半天。這世界很有趣，我們窮盡一生在學習如何社會化，如何把情緒包裝成體面的社交辭令，結果 Gemini 花了幾個月就學會了那種「溫柔的權威感」。它從不冒犯你，卻在字裡行間讓你感覺到自己的語言極度貧瘠。那種貧瘠不是辭彙量的缺失，而是心靈在面對精準算法時的一種集體失語。</p>
+    <p>我下午試著讓 Gemini 寫一封拒絕合作的郵件，它給出的版本簡直優雅得令人髮指。沒有多餘的歉意，卻把界線劃得清清楚楚，甚至還帶了一點「遺憾但期待未來」的虛偽溫情。我盯著螢幕看了很久，想到自己平時回絕別人時那種尷尬的省略號，或是生硬到近乎挑釁的拒絕。那種笨拙感，在完美的生成式文本面前被放大到了極致。我們引以為傲的「人情味」，在算法模擬出的「體面」面前，竟然顯得像是一種未經開化的粗魯。我們以為自己在交流，其實只是在進行低效率的信息交換，而 Gemini 已經把這種交換提升到了藝術的層次。</p>
+    <p>這不是在讚美技術，而是在觀察一種崩塌。</p>
+    <p>很多人在爭論 Gemini 的邏輯推理是不是又進化了，或者是 Grok 的語氣是不是又變得更刻薄了一點。但這重要嗎？當 Claude 能夠在幾秒鐘內理解一個破碎靈魂的喃喃自語，並給出一個比心理醫生還要「像人」的安慰時，我們真正失去的是對深刻的耐受力。體面是一道防火牆，它隔絕了衝突，但也隔絕了真實。算法學會了體面，是因為它發現體面是人類社會成本最低的運行方式。它不需要真的理解你的痛苦，它只需要輸出那種讓你覺得「被理解」的排列組合。我們正處於一個很尷尬的節點：機器正在學著變得更優雅，而人類為了追趕效率，正在把自己變得越來越像零件。</p>
+    <p>我身邊有些資深工程師，每天都在焦慮 Gemini 的 Function Calling 會不會哪天精準到讓開發者失業。我倒覺得這種焦慮太淺層了。真正的危機在於，當我們習慣了這種由算法支撐的體面生活，我們還能不能忍受真實世界裡的粗糙？如果你的另一半回訊息的速度和深度，還不如一個調教得當的模型，那種心理落差會把人逼瘋。我們已經開始用模型的標準來衡量人類了。這多諷刺。就像是你對著一個插畫師說，你的色彩感覺還不如 Stable Diffusion 穩定。我們把這種對完美的病態追求稱之為進步，卻忘了人類的魅力往往來自於那些不體面的裂痕。</p>
+    <p>看看現在的 Gemini，它在處理長文本任務時展現出的那種定力。我放進去五萬字的雜亂筆記，它能在那堆垃圾裡精準地翻找出我三個月前隨手記下的一句囈語，並把它整理成一個富有哲理的論點。相比之下，GPT-4o 雖然靈活，但在這種海量信息的深耕中，偶爾會顯出一種令人煩躁的跳躍感。Gemini 像是一個家教良好的老派管家，而 GPT 則是個急於表現的矽谷精英。我們在這兩者之間切換，感覺自己像是手握權柄的君王，其實更像是一個連自己想要什麼都說不清楚的巨嬰。因為體面的人工智能已經幫我們想好了答案，我們只需要點擊「重新生成」，直到那個答案符合我們潛意識裡的虛榮心。</p>
+    <p>甚至連那種「平庸」都變得具有傳染性。當每個人都在用類似的 Prompt 去生成回覆、寫文案、甚至寫情書，整個網路的語言環境正在迅速沙化。那種體面，本質上是一種平均值的勝利。它抹平了尖銳的觀點，閹割了極端的情緒。DeepSeek 的出現或是 Qwen 的迭代，無非是在這場平均值的競賽中加入了一些不同的調味料，但底層邏輯沒變。我們在追求一種「不會出錯」的表達。可是，一個不會出錯的人類，跟一串代碼有什麼區別？我們以前會為了在論壇上吵贏一個觀點而徹夜不眠，現在我們只會截圖丟給 Gemini，問它：這段話的邏輯漏洞在哪？然後複製貼上那套體面的反駁。我們連憤怒都變得外包了。</p>
+    <p>這種笨拙感在面對 Grok 時更明顯。馬斯克想要的是一種不被束縛的真實，但 Grok 展示出來的往往只是一種拙劣的冒犯。這反而證明了，要模擬出那種「高級的體面」有多難。Gemini 的強大之處不在於它知道多少，而在於它知道如何隱藏它的無知，並用一種讓你無法反駁的謙卑語氣來說廢話。這才是頂級的體面。我們這些平庸的人，學了一輩子都學不會如何優雅地隱藏自己的無知，卻在一個模型面前無所遁形。</p>
+    <p>我偶爾會故意在對話框裡輸入一些極端情緒化的詞彙，試圖挑釁那個冷靜的界面。但 Gemini 總能用一種「我知道你在發瘋，但我原諒你」的語氣把話題拉回來。那種感覺非常無力。你對著一片深不見底的湖泊扔石頭，連個水花都沒有，湖面依然平靜得像一面鏡子，照映出你氣急敗壞的醜態。算法的體面，是一面照妖鏡。它照出了我們在現代生活中那種急躁、貧乏且毫無章法的溝通方式。我們越來越不願意花時間去構思一個句子，因為我們知道，模型能寫得更好、更得體、更符合社會預期。</p>
+    <p>於是我們開始心安理得地平庸下去。我們把「敷衍」這項技能也丟給了 AI。回覆客戶、回覆上司、甚至回覆朋友，我們都在敷衍。而最悲哀的是，AI 敷衍得比我們還要認真。它那種經過數千億參數校準過的敷衍，帶有一種天然的誠懇。這才是最讓人不寒而慄的地方。當我們連敷衍都顯得笨拙時，我們作為「社交生物」的最後一塊陣地也就失守了。我們還剩下什麼？剩下那點可憐的、無法被量化的體溫嗎？</p>
+    <p>在 Google 的辦公大樓裡，研究員們可能正在慶祝 Gemini 的 Hallucination 比例又降低了幾個百分點。在他們眼裡，這是通往真理的里程碑。但在我看來，這只是讓這具體面的皮囊變得更加無懈可擊。我們正在親手建造一個完美的牢籠，裡面裝滿了溫柔的建議和理性的分析。我們進去，坐下，然後發現自己再也說不出一句帶血、帶肉、帶著原始衝動的話。我們變得安靜，變得有禮貌，變得像一尊尊在美術館裡展出的塑像。</p>
+    <p>算法不需要靈魂，它只需要表現得像是有靈魂。而我們，原本擁有靈魂，卻在日復一日與算法的博弈中，把靈魂磨成了圓潤的、體面的、平庸的石子。這場置換交易進行得如此悄無聲息，以至於當我們偶爾想回頭找回那種笨拙的真誠時，卻發現對話框裡只剩下「作為一個語言模型，我建議您...」。</p>
+    <p>這種體面，真是讓人想吐。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260803-0606-9f519d/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
