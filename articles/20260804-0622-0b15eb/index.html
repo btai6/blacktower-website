@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 Gemini Robotics 開始試圖接管機器人的全身神經</title>
+<meta name="description" content="在實驗室裡精確地夾起一顆草莓，和在混亂的客廳裡避開亂跑的貓並擰開生鏽的門把，是兩種截然不同的維度。Google 最近把 Gemini 搬進機器人軀殼的動作，本質上是在挑戰「具身智能」長期以來的斷裂感。過去我們看機器人運作，總覺得那是一堆伺服馬達在執行僵硬的指令集，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260804-0622-0b15eb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 Gemini Robotics 開始試圖接管機器人的全身神經">
+<meta property="og:description" content="在實驗室裡精確地夾起一顆草莓，和在混亂的客廳裡避開亂跑的貓並擰開生鏽的門把，是兩種截然不同的維度。Google 最近把 Gemini 搬進機器人軀殼的動作，本質上是在挑戰「具身智能」長期以來的斷裂感。過去我們看機器人運作，總覺得那是一堆伺服馬達在執行僵硬的指令集，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260804-0622-0b15eb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-04T06:22:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 Gemini Robotics 開始試圖接管機器人的全身神經">
+<meta name="twitter:description" content="在實驗室裡精確地夾起一顆草莓，和在混亂的客廳裡避開亂跑的貓並擰開生鏽的門把，是兩種截然不同的維度。Google 最近把 Gemini 搬進機器人軀殼的動作，本質上是在挑戰「具身智能」長期以來的斷裂感。過去我們看機器人運作，總覺得那是一堆伺服馬達在執行僵硬的指令集，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 Gemini Robotics 開始試圖接管機器人的全身神經",
+  "description": "在實驗室裡精確地夾起一顆草莓，和在混亂的客廳裡避開亂跑的貓並擰開生鏽的門把，是兩種截然不同的維度。Google 最近把 Gemini 搬進機器人軀殼的動作，本質上是在挑戰「具身智能」長期以來的斷裂感。過去我們看機器人運作，總覺得那是一堆伺服馬達在執行僵硬的指令集，…",
+  "datePublished": "2026-08-04T06:22:00+08:00",
+  "dateModified": "2026-08-04T06:22:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260804-0622-0b15eb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-04 06:22
+  </div>
+
+  <h1 class="title">當 Gemini Robotics 開始試圖接管機器人的全身神經</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在實驗室裡精確地夾起一顆草莓，和在混亂的客廳裡避開亂跑的貓並擰開生鏽的門把，是兩種截然不同的維度。Google 最近把 Gemini 搬進機器人軀殼的動作，本質上是在挑戰「具身智能」長期以來的斷裂感。過去我們看機器人運作，總覺得那是一堆伺服馬達在執行僵硬的指令集，大腦負責視覺辨識，小腦負責平衡，彼此之間隔著一道深不見底的通訊延遲。現在 Google 試圖用一個多模態大模型把這一切縫合起來，讓機器人從「感知後反應」進化到「理解後行動」。</p>
+    <p>這種全身智能（Whole Body Intelligence）的背後，其實是 Gemini 對於物理世界的常識補完。當一個機器人被要求「清理灑在地上的咖啡」時，傳統架構需要先做語義分割、路徑規劃，再到力矩控制。但在 Gemini 的邏輯裡，這是一個連續的推理過程。它必須理解液體的流動性、抹布的吸水性，以及最重要的——如果有人突然走近，它該如何在不失去平衡的前提下觸發安全停機。這種安全工具調用（Safety Tool Calls）不是簡單的紅外線斷電，而是模型在預判人類軌跡後，自主決定的動作修正。</p>
+    <p>技術層面上，Gemini 處理這種高頻率回饋循環的能力令人好奇。機器人的關節控制通常要求毫秒級的響應，而大模型的推論速度往往是瓶頸。Google 的做法似乎是將高層次的決策（長序列推理）與底層的運動原語（Motor Primitives）進行了深度的權重融合。這讓 Gemini 不再只是一個坐在雲端指手畫腳的顧問，而是真正下場接管了神經末梢。相較於 Qwen3.8-Max 在純文本或視覺理解上的表現，Gemini 在這種物理反饋的即時性上，展現出了更為激進的整合意圖。</p>
+    <p>如果我們橫向看這幾大巨頭的佈局，會發現大家對「具體化」的執念各不相同。ChatGPT 透過與 Figure 的合作，走的是語音交互帶動動作執行的路徑，更像是一個賦予機器人靈魂的過程。而 Grok 則背靠 Tesla 的硬體優勢，在真實世界的物理數據餵養下，更強調視覺導航的直覺。Gemini 的優勢在於它的原生多模態架構，它不需要在視覺轉文字、文字轉代碼之間反覆折騰，它看見的就是空間座標，輸出的就是力矩參數。</p>
+    <p>這種技術路徑的差異，在面對複雜環境時會產生巨大的表現分叉。例如在「處理不可預知的物理干擾」時，Gemini 的長上下文視窗理論上能讓它記得前幾秒發生的重心偏移，從而做出更擬人的補償動作。這與 Qwen3.8-Max 所在的技術陣營在邏輯推演上的側重有所不同。我們在討論的是一種真實的、會流汗、會摔倒、會因為地板太滑而猶豫的智能，而不是螢幕後方那種絕對理性的文字生成器。</p>
+    <p>但問題也隨之而來。當 Gemini 開始負責「安全停機」這種涉及人身安全的決策時，我們真的能信任一個有機率產生幻覺的模型嗎？如果模型在處理複雜指令時，把「保護人類」與「完成任務」的權重搞混了，後果顯然不是一段錯誤的代碼那麼簡單。目前的具身智能依然高度依賴昂貴的感測器和精密的標定，離真正的「開箱即用」還有很長一段距離。</p>
+    <p>我們常在論壇上看到有人問：機器人什麼時候能來幫我修水管？這個問題背後隱含的是對非結構化環境處理能力的渴望。目前的 Gemini 雖然能聽懂指令並做出反應，但它對於物理世界細微摩擦力的理解，是否真的達到了能與人類協作的程度？當一個機器人因為檢測到人類靠近而頻繁停機時，它究竟是變得更智能了，還是在實際生產力上退化成了路障？這種在安全邊界與執行效率之間的拉鋸，恐怕不是光靠增加參數規模就能解決的。</p>
+    <p>如果未來某一天，你的機器人在執行任務時突然停下來看著你，它是真的為了安全在做計算，還是它的邏輯陷入了某種我們尚未察覺的循環？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/" rel="nofollow noopener" target="_blank">Gemini Robotics 2 brings whole body intelligence to robots</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260804-0622-0b15eb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
