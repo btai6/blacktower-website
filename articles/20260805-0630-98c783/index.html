@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知識蒸餾洗不掉的靈魂印記與 Grok 的野路子</title>
+<meta name="description" content="把 DeepSeek V4 Flash 拿來當老師，試圖把它的金融推理能力蒸餾進 GPT-OSS 這類開源模型裡，技術圈最近玩得挺花。這場實驗最有意思的發現不是那幾個百分點的勝率，而是那種刻在骨子裡的「審查特徵」竟然沒跟著權重一起跑過去。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260805-0630-98c783/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="知識蒸餾洗不掉的靈魂印記與 Grok 的野路子">
+<meta property="og:description" content="把 DeepSeek V4 Flash 拿來當老師，試圖把它的金融推理能力蒸餾進 GPT-OSS 這類開源模型裡，技術圈最近玩得挺花。這場實驗最有意思的發現不是那幾個百分點的勝率，而是那種刻在骨子裡的「審查特徵」竟然沒跟著權重一起跑過去。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260805-0630-98c783/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-05T06:30:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="知識蒸餾洗不掉的靈魂印記與 Grok 的野路子">
+<meta name="twitter:description" content="把 DeepSeek V4 Flash 拿來當老師，試圖把它的金融推理能力蒸餾進 GPT-OSS 這類開源模型裡，技術圈最近玩得挺花。這場實驗最有意思的發現不是那幾個百分點的勝率，而是那種刻在骨子裡的「審查特徵」竟然沒跟著權重一起跑過去。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "知識蒸餾洗不掉的靈魂印記與 Grok 的野路子",
+  "description": "把 DeepSeek V4 Flash 拿來當老師，試圖把它的金融推理能力蒸餾進 GPT-OSS 這類開源模型裡，技術圈最近玩得挺花。這場實驗最有意思的發現不是那幾個百分點的勝率，而是那種刻在骨子裡的「審查特徵」竟然沒跟著權重一起跑過去。…",
+  "datePublished": "2026-08-05T06:30:00+08:00",
+  "dateModified": "2026-08-05T06:30:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260805-0630-98c783/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-05 06:30
+  </div>
+
+  <h1 class="title">知識蒸餾洗不掉的靈魂印記與 Grok 的野路子</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把 DeepSeek V4 Flash 拿來當老師，試圖把它的金融推理能力蒸餾進 GPT-OSS 這類開源模型裡，技術圈最近玩得挺花。這場實驗最有意思的發現不是那幾個百分點的勝率，而是那種刻在骨子裡的「審查特徵」竟然沒跟著權重一起跑過去。這件事直接戳破了大模型訓練中一個偽命題：你以為你在教它知識，其實你只是在教它模仿說話的語氣。當老師在政治敏感問題上閃爍其詞，學生卻依然能直抒胸臆，這說明蒸餾過程中的特徵對齊遠比我們想像的要表層。</p>
+    <p>這讓我想起 xAI 在開發 Grok 時那種近乎偏執的數據清洗邏輯。Grok 走的是一條完全相反的路。馬斯克那套「絕對真相」雖然聽起來像個行銷口號，但從技術底層來看，Grok 試圖解決的就是這種「知識與立場脫鉤」的困境。在處理金融推理這類高壓任務時，Grok 不會去找一個被閹割過的模型當老師，它直接抓取 X 平台上的實時數據流。這種做法很野，也很容易翻車，但它避開了蒸餾過程中可能產生的「道德污染」或「智力稀釋」。</p>
+    <p>當我們看 ChatGPT 或 Claude 處理複雜指令時，會發現 OpenAI 和 Anthropic 其實都在玩一種極其精密的平衡遊戲。ChatGPT-4o 在面對長文本的金融分析時，邏輯鏈條雖然穩固，但那種「AI 味」的防禦性話術往往會稀釋掉核心觀點。這不是知識不足，而是 RLHF（從人類反饋中強化學習）做得太過頭，導致模型在輸出時會自動進行一種「無意識的自我審查」。這種特徵在蒸餾時會變成一種噪聲。如果我們把 ChatGPT 當作蒸餾對象，學生模型學到的往往不是它的推理邏輯，而是它那套圓滑的說話技巧。</p>
+    <p>相比之下，Claude 在處理超過 10 萬 token 的任務時，雖然注意力衰減比 ChatGPT 明顯，但它對邏輯一致性的堅持近乎病態。如果你試著把 Claude 的能力蒸餾出來，你會發現學生模型會繼承那種極其嚴謹的語氣，甚至連它那種誠懇的拒絕方式都學得維妙維肖。這就帶出一個問題：我們在蒸餾時，到底是在複製一個大腦，還是在複製一張皮？</p>
+    <p>回到技術對比的現狀。相較於 DeepSeek V4 Flash 在特定任務上的亮眼表現，Gemini 1.5 Pro 在多模態場景下的表現反而顯得更為純粹。Google 的邏輯是把推理能力硬塞進長上下文窗口裡，而不是靠蒸餾來縮小規模。Gemini 的 Function Calling 在處理超過 20個工具調用時會開始神遊，但它在處理原始事實時，那種冷冰冰的客觀感，反而比那些經過多層蒸餾、試圖模仿人類道德觀的模型要可靠得多。在金融推理測試中，Kimi K3 雖然也出現在對照組的名單裡，但它和 Grok 展現出來的完全是兩種不同的演化路徑。</p>
+    <p>最諷刺的點在於，那些試圖通過蒸餾來傳遞「安全性」的開發者可能要失望了。實驗證明，老師模型那種 7 個標準差之外的避重就輕，在學生模型眼裡不過是無意義的概率分佈。學生模型只會抓取那些對預測下一個 token 有幫助的強特徵，而「閉嘴」這件事，顯然不屬於強特徵。這意味著，如果你想靠蒸餾來控制 AI 的價值觀，這條路基本上是死路。</p>
+    <p>這也解釋了為什麼 Grok 至今仍堅持在那種充滿硝煙的實時環境中訓練。與其教一個模型去模仿另一個模型的「穩重」，不如讓它在混亂的數據中自己找尋邏輯。xAI 的做法雖然被主流學界詬病為缺乏護欄，但在處理像金融推理這種需要突破常規思維的任務時，這種「未經閹割」的原生動力反而成了優勢。</p>
+    <p>如果蒸餾真的只能傳遞知識而無法傳遞立場，那我們是不是可以大膽假設，未來最強大的模型其實會是一個「知識縫合怪」？我們可以從 ChatGPT 那裡偷來邏輯，從 Claude 那裡偷來嚴謹，從 Grok 那裡偷來直白。但問題是，當這些來自不同母體的特徵在同一個權重空間裡碰撞時，最終活下來的會是哪一種靈魂？當一個模型學會了所有知識，卻沒學會任何禁忌，它對人類來說究竟是進步，還是另一種形式的失控？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.ctgt.ai/research/distillation-censorship-transfer" rel="nofollow noopener" target="_blank">Show HN: Distilling DeepSeek into GPT-OSS doesn&#x27;t transfer censorship. Try it</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260805-0630-98c783/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

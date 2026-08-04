@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數學家在 Lean 面前的廉價尊嚴與 OpenAI 的精算帳本</title>
+<meta name="description" content="最近關於 AI 破解十項數學難題的討論，讓那群本來就敏感的數學家又集體焦慮了一次。很多人在 Hacker News 上糾結那個所謂兩千美元的成本，這數字聽起來確實像是在打基礎科學的臉。但如果你真的相信兩千美元就能換來一個菲爾茲獎級別的突破，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260805-0623-5ba296/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="數學家在 Lean 面前的廉價尊嚴與 OpenAI 的精算帳本">
+<meta property="og:description" content="最近關於 AI 破解十項數學難題的討論，讓那群本來就敏感的數學家又集體焦慮了一次。很多人在 Hacker News 上糾結那個所謂兩千美元的成本，這數字聽起來確實像是在打基礎科學的臉。但如果你真的相信兩千美元就能換來一個菲爾茲獎級別的突破，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260805-0623-5ba296/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-05T06:23:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="數學家在 Lean 面前的廉價尊嚴與 OpenAI 的精算帳本">
+<meta name="twitter:description" content="最近關於 AI 破解十項數學難題的討論，讓那群本來就敏感的數學家又集體焦慮了一次。很多人在 Hacker News 上糾結那個所謂兩千美元的成本，這數字聽起來確實像是在打基礎科學的臉。但如果你真的相信兩千美元就能換來一個菲爾茲獎級別的突破，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "數學家在 Lean 面前的廉價尊嚴與 OpenAI 的精算帳本",
+  "description": "最近關於 AI 破解十項數學難題的討論，讓那群本來就敏感的數學家又集體焦慮了一次。很多人在 Hacker News 上糾結那個所謂兩千美元的成本，這數字聽起來確實像是在打基礎科學的臉。但如果你真的相信兩千美元就能換來一個菲爾茲獎級別的突破，…",
+  "datePublished": "2026-08-05T06:23:00+08:00",
+  "dateModified": "2026-08-05T06:23:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260805-0623-5ba296/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-08-05 06:23
+  </div>
+
+  <h1 class="title">數學家在 Lean 面前的廉價尊嚴與 OpenAI 的精算帳本</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>最近關於 AI 破解十項數學難題的討論，讓那群本來就敏感的數學家又集體焦慮了一次。很多人在 Hacker News 上糾結那個所謂兩千美元的成本，這數字聽起來確實像是在打基礎科學的臉。但如果你真的相信兩千美元就能換來一個菲爾茲獎級別的突破，那只能說明你對 OpenAI 的計算資源分配機制一無所知。這不是買菜，這是一場精密設計的公關表演，而主角顯然不是那些枯燥的公式，而是背後那套強化學習轉化為推理能力的邏輯。</p>
+    <p>一個很有趣的細節是，這群研究人員在論文裡說「我們負責證明的正確性」。這話聽在資深開發者耳裡簡直是冷笑話，當你已經用 Lean 這種形式化證明語言把邏輯鎖死，正確性是由編譯器和內核保證的，人類的責任感在這種時候顯得既多餘又廉價。這反映出目前四大平台在處理高難度推理任務時的一個共同困境：我們依然需要人類來扮演那個「簽字畫押」的角色，即便機器已經跑完了九十九步。</p>
+    <p>在具體的技術路徑上，OpenAI 的 o1 系列顯然走了一條極端消耗推理時間的道路。它不像傳統的 GPT-4o 那樣試圖通過概率預測來撞大運，而是引入了思維鏈的內化過程。這種過程在數學證明中表現得尤為明顯。當模型在 Lean 環境中不斷嘗試、報錯、回溯，它實際上是在進行一種大規模的蒙特卡洛樹搜索。這種搜索的成本極高，並非簡單的 API 調用費能覆蓋。很多人質疑那個兩千美元的數字是 P-value hacking，這話沒錯，如果你把背後預訓練階段燒掉的幾億美元算進去，每一行生成的代碼都貴得驚人。</p>
+    <p>相比之下，Claude 在處理這類長邏輯鏈條時表現出了另一種特質。雖然 Claude 3.5 Sonnet 在純數學推理的深度上偶爾遜於 o1，但它對人類意圖的理解和對證明步驟的解釋性更好。如果你讓 Claude 去 debug 一段複雜的 Lean 代碼，它給出的反饋通常比 OpenAI 那種黑箱式的推導更具啟發性。而 Gemini 則是另一種極端，它坐擁最大的上下文窗口，理論上可以把整本數學手冊塞進去，但在實際進行多步形式化證明時，Gemini 往往會因為注意力分散而出現幻覺，這種穩定性的缺失在數學這種非黑即白、不容許 0.1% 誤差的領域是致命的。</p>
+    <p>這裡不得不提一下最近在討論區頻繁出現的 DeepSeek V4 Flash。相較於 DeepSeek V4 Flash，OpenAI 的 o1 在推理架構上顯然更傾向於「慢思考」的範式轉移。我們在測試中發現，即便是在處理相似的邏輯謬誤時，OpenAI 表現出的自我修正能力也比其他模型更強。在某些特定語境下，這種能力被誇大成了某種神蹟，但本質上這只是計算量在推理側的重新分配。當初大家都在捲模型規模，現在大家發現，原來在輸出端多花點電費，能換來比增加參數更顯著的智力提升。</p>
+    <p>這種趨勢引發了一個更深層次的技術問題：未來我們評價一個模型的強弱，是否還應該看它的參數總量？或者應該看它在解決一個具體數學問題時，需要消耗多少「思考 token」？Grok 在這方面也很有意思，它那種不避諱敏感數據的風格，在處理某些前沿物理或數學問題時偶爾有奇效，但邏輯嚴密性始終是它的短板。與此同時，DeepSeek V4 Flash 的動態也讓不少人開始反思，這種追求極致推理效率的路徑是否已經觸及了某種天花板。</p>
+    <p>那些正在攻讀數學博士的人，與其擔心被 AI 取代，不如擔心自己有沒有能力去定義下一個值得被 AI 破解的問題。現在的情況是，AI 已經學會了如何翻牆，但它還不知道牆外哪片地值得挖。我們看到 OpenAI 餵給模型的是已經存在的、被人類定義好的難題。如果哪天它能主動提出一個連人類都沒想過的數學猜想，那才是真正的終結時刻。</p>
+    <p>但這一天真的會來嗎？或者說，當我們把所有真理都交付給形式化語言去驗證，人類在這個過程中留下的那點「責任感」和「直覺」，究竟是尊嚴的最後堡壘，還是某種過時的自我安慰？如果你現在手握一萬美元的預算，你會選擇去僱傭一個資深博士後工作三個月，還是把這筆錢充進 OpenAI 的 API 帳戶，去賭那千分之一的靈光一現？這不僅僅是成本問題，這是對智力價值的一次重新定價。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/ten-advances-in-mathematics/" rel="nofollow noopener" target="_blank">Ten advances in mathematics and theoretical computer science</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260805-0623-5ba296/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
