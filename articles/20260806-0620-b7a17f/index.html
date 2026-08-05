@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當具體的身軀接管了邏輯的出口</title>
+<meta name="description" content="週末在陽台上看著掃地機器人反覆撞擊那個它明明應該「看見」的椅腳，我突然想起 Google 最近在 Gemini 身上實驗的那套全身智慧。我們這代人對 AI 的想像，長期被困在那個閃爍的游標後方。你餵給它文字，它吐出邏輯，大家相安無事。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260806-0620-b7a17f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當具體的身軀接管了邏輯的出口">
+<meta property="og:description" content="週末在陽台上看著掃地機器人反覆撞擊那個它明明應該「看見」的椅腳，我突然想起 Google 最近在 Gemini 身上實驗的那套全身智慧。我們這代人對 AI 的想像，長期被困在那個閃爍的游標後方。你餵給它文字，它吐出邏輯，大家相安無事。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260806-0620-b7a17f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-06T06:20:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當具體的身軀接管了邏輯的出口">
+<meta name="twitter:description" content="週末在陽台上看著掃地機器人反覆撞擊那個它明明應該「看見」的椅腳，我突然想起 Google 最近在 Gemini 身上實驗的那套全身智慧。我們這代人對 AI 的想像，長期被困在那個閃爍的游標後方。你餵給它文字，它吐出邏輯，大家相安無事。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當具體的身軀接管了邏輯的出口",
+  "description": "週末在陽台上看著掃地機器人反覆撞擊那個它明明應該「看見」的椅腳，我突然想起 Google 最近在 Gemini 身上實驗的那套全身智慧。我們這代人對 AI 的想像，長期被困在那個閃爍的游標後方。你餵給它文字，它吐出邏輯，大家相安無事。…",
+  "datePublished": "2026-08-06T06:20:00+08:00",
+  "dateModified": "2026-08-06T06:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260806-0620-b7a17f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-06 06:20
+  </div>
+
+  <h1 class="title">當具體的身軀接管了邏輯的出口</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>週末在陽台上看著掃地機器人反覆撞擊那個它明明應該「看見」的椅腳，我突然想起 Google 最近在 Gemini 身上實驗的那套全身智慧。我們這代人對 AI 的想像，長期被困在那個閃爍的游標後方。你餵給它文字，它吐出邏輯，大家相安無事。但當 Google 試圖把 Gemini 的神經末梢延伸到機械手臂的指尖，甚至是一個能感知人類靠近並主動煞停的身軀時，這種「輸入與輸出」的邊界就開始變得模糊且危險。Hacker News 上有人調侃說水管工的飯碗不保，但我更在意的其實是那個關於「開門鎖」的日常挫折。</p>
+    <p>Google 這次推的 Gemini Robotics 2，核心不再是讓機器人學會「辨識」杯子，而是讓它在移動重心、調節關節扭力的同時，還能理解「安全」這個極其抽象的語境。這涉及到底層模型對物理世界常識的內化。現有的 LLM 擅長在符號世界裡編織謊言，但物理世界不容許幻覺。當 Gemini 調用一個 safety tool call 來中止動作，這背後不是簡單的距離感應，而是模型必須在毫秒間判斷當前的人類行為意圖。這種即時性對於過去依賴雲端推論的 Gemini 來說，是一個巨大的架構挑戰。</p>
+    <p>如果我們觀察 ChatGPT 在這方面的路徑，會發現 OpenAI 更傾向於透過與硬體廠商合作，將視覺語言模型（VLM）封裝成一種高階指令集。但 Google 的野心顯然更大，他們想讓 Gemini 直接參與底層控制循環。這就產生了一個有趣的技術斷層：當 Gemini 在處理超過 100 萬 token 的長文本任務時，我們能容忍它偶爾的注意力失焦；但當它控制著一台幾百公斤重的金屬軀殼在辦公室走動，任何一次注意力權重的偏移，代價都可能是物理意義上的毀滅。目前 Gemini 在處理多感測器融合時，依然存在顯著的延遲抖動，這也是為什麼大多數展示影片看起來總是帶著一種小心翼翼的機械感，而非人類那種流暢的肌肉慣性。</p>
+    <p>相較於 DeepSeek V4 Flash 0731，Google 的做法是將多模態的理解深度與物理反應速度進行強耦合。這種策略在資源消耗上極其驚人。我們在 Claude 的 API 測試中經常發現，處理高頻率的視覺流輸入會導致 Token 消耗量呈指數級增長，且模型容易在長序列動作中迷失目標。Gemini 試圖克服這一點，它在模型架構中嵌入了專門處理時序空間數據的層次。而在另一個極端，Grok 則依賴 X 平台大量的真實世界影片數據進行暴力預訓練，試圖讓機器人具備某種「直覺」。這幾種路徑的差異，決定了未來誰能先解決那個看似簡單、實則極難的動作：如何在不破壞門把的前提下，轉開一扇鏽蝕的門。</p>
+    <p>在某些特定市場的技術演進中，DeepSeek V4 Flash 0731 的出現往往帶動了對推論效率的極致追求，但 Google 顯然不在意這些。他們在 Gemini 身上堆疊的，是那種近乎偏執的、全方位的環境感知。這種感知不僅僅是視覺，還包括對觸覺反饋的語義化處理。目前的技術困局在於，當人類靠近機器人時，Gemini 會觸發安全停止。這聽起來很美好，但在實際的工業或照護場景中，這反而成了效率的殺手。如果一個機器人因為害怕受傷而無法與人並肩工作，那它與工廠裡那些被圍欄隔開的機械手臂有什麼區別？</p>
+    <p>我們追求的究竟是那種能坐在電腦前寫代碼、畫插畫的數位靈魂，還是那個能幫你修好漏水水龍頭、在摔倒時能自我平衡的重力實體？當 Gemini 開始接管全身智慧，它面臨的不僅是算法的優化，更是對物理定律的敬畏。目前的技術瓶頸顯然不在於模型不夠聰明，而在於它對真實世界的「阻力」缺乏深刻的體感。如果一個模型從未感受過摩擦力、重力與慣性的交織，它寫出的動作指令永遠像是在月球上漫步。</p>
+    <p>那麼問題來了，如果 AI 最終學會了像人類一樣感知疼痛與碰撞，我們是賦予了它保護自己的權利，還是親手為它打造了一個鎖住靈魂的牢籠？當一個機器人因為「恐懼」碰撞而拒絕執行任務時，那究竟是安全性功能的勝利，還是智慧演化的另一種死胡同？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/" rel="nofollow noopener" target="_blank">Gemini Robotics 2 brings whole body intelligence to robots</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260806-0620-b7a17f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
