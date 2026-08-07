@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepMind 換帥後的技術遺產與 Gemini 的工程焦慮</title>
+<meta name="description" content="Demis Hassabis 轉任主席，這件事在圈子裡激起的浪花，其實比想像中更值得玩味。這不只是單純的人事異動，而是標誌著 Google 終於決定要把那層學術實驗室的薄紗徹底扯掉。當一個以研究為靈魂的架構，必須對齊產品線的輸出節奏時，Gemini 所承載的壓力，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260808-0549-38bcc0/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepMind 換帥後的技術遺產與 Gemini 的工程焦慮">
+<meta property="og:description" content="Demis Hassabis 轉任主席，這件事在圈子裡激起的浪花，其實比想像中更值得玩味。這不只是單純的人事異動，而是標誌著 Google 終於決定要把那層學術實驗室的薄紗徹底扯掉。當一個以研究為靈魂的架構，必須對齊產品線的輸出節奏時，Gemini 所承載的壓力，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260808-0549-38bcc0/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-08T05:49:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DeepMind 換帥後的技術遺產與 Gemini 的工程焦慮">
+<meta name="twitter:description" content="Demis Hassabis 轉任主席，這件事在圈子裡激起的浪花，其實比想像中更值得玩味。這不只是單純的人事異動，而是標誌著 Google 終於決定要把那層學術實驗室的薄紗徹底扯掉。當一個以研究為靈魂的架構，必須對齊產品線的輸出節奏時，Gemini 所承載的壓力，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "DeepMind 換帥後的技術遺產與 Gemini 的工程焦慮",
+  "description": "Demis Hassabis 轉任主席，這件事在圈子裡激起的浪花，其實比想像中更值得玩味。這不只是單純的人事異動，而是標誌著 Google 終於決定要把那層學術實驗室的薄紗徹底扯掉。當一個以研究為靈魂的架構，必須對齊產品線的輸出節奏時，Gemini 所承載的壓力，…",
+  "datePublished": "2026-08-08T05:49:00+08:00",
+  "dateModified": "2026-08-08T05:49:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260808-0549-38bcc0/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-08 05:49
+  </div>
+
+  <h1 class="title">DeepMind 換帥後的技術遺產與 Gemini 的工程焦慮</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Demis Hassabis 轉任主席，這件事在圈子裡激起的浪花，其實比想像中更值得玩味。這不只是單純的人事異動，而是標誌著 Google 終於決定要把那層學術實驗室的薄紗徹底扯掉。當一個以研究為靈魂的架構，必須對齊產品線的輸出節奏時，Gemini 所承載的壓力，已經不再是能不能在測試集跑贏 GPT-4o，而是它到底能不能在混亂的 API 調配中，找回身為原生多模態模型的尊嚴。</p>
+    <p>我們在日常開發中經常遇到一個尷尬的現象：當你把一個複雜的 PDF 丟給 Gemini 1.5 Pro，它的長文本處理能力確實驚人，甚至能在 100 萬 token 的汪洋大海裡精準撈針。但在面對多層邏輯嵌套的 Function Calling 時，它卻偶爾會顯得有些遲鈍，甚至在連鎖調用中出現邏輯斷裂。這種不穩定性，本質上是 DeepMind 那種追求「通用智能」的浪漫，與 Google Cloud 追求「工業級穩定」的工程需求之間，長久以來的拉扯與妥協。</p>
+    <p>如果你最近有在測試 Gemini 1.5 Flash 處理串流數據的延遲，會發現它在音頻輸入後的反應速度，確實達到了毫秒級的體感，這點甚至比 Claude 3.5 Sonnet 還要俐老。但問題在於，當我們要求模型在處理音頻的同時，維持極高的指令遵循（Instruction Following）準確度時，Gemini 的表現會隨著 context 的增加而出現明顯的注意力發散。這不是參數量的問題，而是模型在訓練初期，對多模態對齊權重的分配策略，似乎還停留在某種理想化的實驗室環境中。</p>
+    <p>相較於 Qwen3.8 Max 在近期討論中展現的頻率，Google 內部的技術整合顯然更關注底層架構的統一。在這種大規模的架構洗牌中，Gemini 必須證明自己不只是 DeepMind 的一個昂貴實驗品。OpenAI 的 ChatGPT 在轉向 o1 系列後，已經明確地把重心放在了「強化學習與推理」的路徑上；而 Anthropic 的 Claude 則是在語意理解與程式碼寫作的細膩度上，築起了一道難以逾越的高牆。Gemini 現在的位置很微妙，它像是一個全能選手，卻在每個單項賽事中，都要面對專精型對手的強力阻擊。</p>
+    <p>一個很有趣的觀察是，當我們嘗試讓 Grok 處理那些帶有強烈立場或長尾知識的提問時，它表現出的那種「不修邊幅」的直率，有時反而比 Gemini 經過層層對齊訓練後、顯得有些官腔的回答更具啟發性。這正是 Google 現在最頭痛的地方。Hassabis 退居二線，意味著 Gemini 接下來的演進將會更加「產品導向」。這種導向雖然能解決 API 文檔裡那些讓人抓狂的報錯資訊，但會不會也順帶抹殺了 Google AI 曾經最迷人的那種、帶有科學探索精神的靈性？</p>
+    <p>當底層架構的開發重心從研究室移向生產線，Gemini 1.5 之後的下一個大版本，還能保有那種對未知領域的探索欲嗎？還是說，它最終會變成一個極度高效、卻也極度平庸的企業級工具？在資源高度集中的當下，這種轉變是進化的必然，還是另一種形式的平庸化？</p>
+    <p>當技術的浪漫主義被迫向產品的實用主義低頭，我們在下一代模型中看到的，會是更精準的邏輯，還是更稀薄的創造力？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.axios.com/2026/08/05/google-deepmind-demis-hassabis-ai" rel="nofollow noopener" target="_blank">Demis Hassabis is moving from CEO to Chairman at Google DeepMind</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260808-0549-38bcc0/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

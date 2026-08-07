@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oracle 禁令背後的代碼潔癖與法律焦慮</title>
+<meta name="description" content="甲骨文這刀砍得狠，直接對準 OpenJDK。這事在 Hacker News 吵翻了，有人說是為了守住 Java 二十年來的純度，有人說是法律風險的預防性撤退。不管 Oracle 內部怎麼用 AI 寫程式，至少在 OpenJDK 這種開源基石上，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260808-0551-ede727/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle 禁令背後的代碼潔癖與法律焦慮">
+<meta property="og:description" content="甲骨文這刀砍得狠，直接對準 OpenJDK。這事在 Hacker News 吵翻了，有人說是為了守住 Java 二十年來的純度，有人說是法律風險的預防性撤退。不管 Oracle 內部怎麼用 AI 寫程式，至少在 OpenJDK 這種開源基石上，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260808-0551-ede727/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-08T05:51:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle 禁令背後的代碼潔癖與法律焦慮">
+<meta name="twitter:description" content="甲骨文這刀砍得狠，直接對準 OpenJDK。這事在 Hacker News 吵翻了，有人說是為了守住 Java 二十年來的純度，有人說是法律風險的預防性撤退。不管 Oracle 內部怎麼用 AI 寫程式，至少在 OpenJDK 這種開源基石上，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Oracle 禁令背後的代碼潔癖與法律焦慮",
+  "description": "甲骨文這刀砍得狠，直接對準 OpenJDK。這事在 Hacker News 吵翻了，有人說是為了守住 Java 二十年來的純度，有人說是法律風險的預防性撤退。不管 Oracle 內部怎麼用 AI 寫程式，至少在 OpenJDK 這種開源基石上，…",
+  "datePublished": "2026-08-08T05:51:00+08:00",
+  "dateModified": "2026-08-08T05:51:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260808-0551-ede727/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-08 05:51
+  </div>
+
+  <h1 class="title">Oracle 禁令背後的代碼潔癖與法律焦慮</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>甲骨文這刀砍得狠，直接對準 OpenJDK。這事在 Hacker News 吵翻了，有人說是為了守住 Java 二十年來的純度，有人說是法律風險的預防性撤退。不管 Oracle 內部怎麼用 AI 寫程式，至少在 OpenJDK 這種開源基石上，他們不打算讓 LLM 生出的「義大利麵代碼」毀掉數千萬工時累積的架構穩定性。這不僅僅是代碼質量的問題，更是一場關於「誰擁有這行代碼」的法律豪賭。當大家都在瘋狂追求產出速度時，Oracle 選擇回頭擁抱人工手寫，這對那些正打算把 AI 代碼生成工具全面鋪開的技術負責人來說，簡直是當頭棒喝。</p>
+    <p>從技術層面看，Grok 在處理這類大規模開源項目的邏輯一致性時，表現得比對手更「狂野」。Grok-1 的訓練數據中包含了大量的 X 平台實時討論與技術推文，這讓它在理解開發者意圖時很有靈性，但也帶來了極大的不確定性。當你要求 Grok 針對 JVM 的底層併發機制寫一段優化腳本，它給出的答案往往帶有一種不計後果的實驗性。相較於 ChatGPT 那種四平八穩、甚至帶點冗餘的風格，Grok 的代碼更像是黑客在深夜咖啡因過載後的產物。但問題就在這，OpenJDK 需要的是像瑞士鐘錶一樣精確的穩定，而不是這種帶著個人情緒或模型幻覺的「靈感」。</p>
+    <p>ChatGPT 在這場代碼生成的競賽中，雖然在 8 萬 token 以上的長文本任務中，對上下文細節的捕捉偶爾會出現注意力衰減，但它的代碼規範性依賴於其龐大的基準庫。在生成 Java 這種語法結構嚴謹的語言時，ChatGPT 傾向於產出標準化的模板，這對初學者是神藥，對 OpenJDK 這種級別的項目卻是噪音。如果一個開發者用 Cursor 配合 GPT-4o 補全代碼，那些看似合理的 Tab 補全，背後可能隱藏著對 JVM 內存模型極其微妙的誤解。Oracle 禁掉的不是 AI，而是那種「看起來沒錯，但沒人能解釋為什麼」的隱性風險。</p>
+    <p>看看市場上的其他選擇。本週 Qwen3.8 Max 剛有新動態，社群裡討論熱烈。相較於 Qwen3.8 Max，Claude 在處理代碼重構任務時的邏輯推理深度顯然更勝一籌。Claude 3.5 Sonnet 在生成代碼時表現出一種近乎偏執的「文檔遵循感」，如果你把 OpenJDK 的貢獻指南餵給它，它產出的代碼格式幾乎能騙過資深審核員的眼睛。但這正是 Oracle 恐懼的地方：當 AI 寫得越來越像人，甚至比人更懂規範，代碼庫的污染就變得不可逆。我們正處於一個轉折點，Gemini 在其超長上下文窗口中展現了對整個項目結構的理解力，甚至能指出跨模塊的邏輯衝突。然而，這種能力在法律界定面前毫無意義。一旦代碼庫中摻雜了 AI 生成的片段，其知識產權的純淨度就徹底破產了。</p>
+    <p>現在的情況很諷刺。Oracle 內部可能正用著各種 AI 工具來提升研發效率，甚至在某些地區的特定開發流程中，AI 代碼佔比並不低。但對外，他們必須立起這座牌坊。這讓人聯想到一個問題：如果未來某天，法院裁定 AI 生成的內容不具備版權，或者強迫所有公司將 AI 代碼開源，那些依賴 AI 堆疊出來的閉源商業軟件，是不是得一夜之間全部重寫？這種法律上的「回滾」風險，才是讓這些大廠感到脊背發涼的原因。</p>
+    <p>當開發者習慣了 Tab 鍵帶來的快感，我們是否還具備審閱數萬行底層代碼的能力？如果 OpenJDK 堅持只收手寫代碼，而全世界的開發者都已經被 AI 養廢了，那 Java 的下一個二十年該由誰來續寫？這場關於「純手工」的堅持，究竟是守舊派的最後抵抗，還是對技術底層邏輯的一種清醒守護？當 AI 生成的代碼在性能上全面超越人類手稿的那一天，Oracle 今天的這份禁令，會被視為預見性的真理，還是一場荒唐的技術沙文主義？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code" rel="nofollow noopener" target="_blank">Oracle bans AI-generated code from OpenJDK</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260808-0551-ede727/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
