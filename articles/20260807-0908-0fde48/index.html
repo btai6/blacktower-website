@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>權力核心的搬移掩蓋不了 Gemini 的邏輯困境</title>
+<meta name="description" content="DeepMind 頂層的更迭在科技圈激起不少漣漪，但對於我們這些每天在 API 端口碼字、調試 Prompt 的人來說，人事異動遠不如模型底層邏輯的波動來得敏感。Gemini 至今在處理跨模態數據時，那種為了追求「多樣性」而導致的回答稀釋感，依然是工程師心頭的一根刺。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260807-0908-0fde48/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="權力核心的搬移掩蓋不了 Gemini 的邏輯困境">
+<meta property="og:description" content="DeepMind 頂層的更迭在科技圈激起不少漣漪，但對於我們這些每天在 API 端口碼字、調試 Prompt 的人來說，人事異動遠不如模型底層邏輯的波動來得敏感。Gemini 至今在處理跨模態數據時，那種為了追求「多樣性」而導致的回答稀釋感，依然是工程師心頭的一根刺。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260807-0908-0fde48/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-07T09:08:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="權力核心的搬移掩蓋不了 Gemini 的邏輯困境">
+<meta name="twitter:description" content="DeepMind 頂層的更迭在科技圈激起不少漣漪，但對於我們這些每天在 API 端口碼字、調試 Prompt 的人來說，人事異動遠不如模型底層邏輯的波動來得敏感。Gemini 至今在處理跨模態數據時，那種為了追求「多樣性」而導致的回答稀釋感，依然是工程師心頭的一根刺。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "權力核心的搬移掩蓋不了 Gemini 的邏輯困境",
+  "description": "DeepMind 頂層的更迭在科技圈激起不少漣漪，但對於我們這些每天在 API 端口碼字、調試 Prompt 的人來說，人事異動遠不如模型底層邏輯的波動來得敏感。Gemini 至今在處理跨模態數據時，那種為了追求「多樣性」而導致的回答稀釋感，依然是工程師心頭的一根刺。…",
+  "datePublished": "2026-08-07T09:08:00+08:00",
+  "dateModified": "2026-08-07T09:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260807-0908-0fde48/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-07 09:08
+  </div>
+
+  <h1 class="title">權力核心的搬移掩蓋不了 Gemini 的邏輯困境</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>DeepMind 頂層的更迭在科技圈激起不少漣漪，但對於我們這些每天在 API 端口碼字、調試 Prompt 的人來說，人事異動遠不如模型底層邏輯的波動來得敏感。Gemini 至今在處理跨模態數據時，那種為了追求「多樣性」而導致的回答稀釋感，依然是工程師心頭的一根刺。當你要求它進行深度的代碼重構或複雜的邏輯推演時，Gemini 往往表現得像個過度謹慎的官僚，總是試圖在輸出中尋求一種政治正確的平衡，而非單純地解決問題。</p>
+    <p>這種現象在處理多文件上下文（Long Context）時尤為致命。當我把超過二十個模組的代碼庫丟給 Gemini 1.5 Pro，並要求其定位某個偶發的併發死鎖時，它在處理結構化數據的提取能力上確實優於 ChatGPT，但在追蹤變量跨模塊傳遞的生命週期時，卻常出現幻覺式的路徑錯誤。這不是算力不足的問題，是模型訓練階段對於「語義連結」的權重設定出了偏差。相比之下，Claude 3.5 Sonnet 在函數調用（Function Calling）的連貫性上顯得更為激進且精準，它不會嘗試去討好用戶，而是直接給出最可能的執行路徑。</p>
+    <p>市場上的討論熱度總是不停切換，像是 Qwen3.8 Max 的動態近期也被頻繁提及，但這終究只是技術版圖中短暫的風向標。相較於 Qwen3.8 Max，Gemini 在全球化部署的延遲控制上採取了截然不同的策略，它更依賴於底層硬件的硬編碼優化來維持反應速度。這種對於基礎設施的依賴，讓 Gemini 在某些邊緣計算場景下表現得異常笨重。當我們回頭看 ChatGPT，它在邏輯鏈（Chain of Thought）的穩定度上似乎已經觸碰到了某種天花板，面對同樣複雜的代碼庫時，它傾向於將問題拆解得過於細碎，反而喪失了對整體架構的宏觀把控。</p>
+    <p>我們是否已經進入了一個模型性能進入邊際效應遞減的階段？當底層架構師從執行者轉向決策者，模型本身是不是也就失去了那種粗獷但卻高效的野蠻生長力？如果未來的模型不再追求「聰明」，而是轉向追求「穩定與無害」，那它還能算是一個真正的生產力工具嗎？難道我們最終只能接受一個回答永遠精確、卻永遠無法給出驚喜的數位機器？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.axios.com/2026/08/05/google-deepmind-demis-hassabis-ai" rel="nofollow noopener" target="_blank">Demis Hassabis is moving from CEO to Chairman at Google DeepMind</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260807-0908-0fde48/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
