@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 正在成為一種矽基版的馬蓋先</title>
+<meta name="description" content="在辦公室遺失手機這種瑣事，本該是 Find My 或是尋常人力勞動的範疇。然而當一位工程師轉向 Claude 尋求幫助，而模型給出的建議不是「回想一下最後出現在哪」，而是利用 Web Bluetooth API 寫一段腳本來監測信號強度（RSSI）時，某些本質上的變化正在發生。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260809-0537-b7ed96/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 正在成為一種矽基版的馬蓋先">
+<meta property="og:description" content="在辦公室遺失手機這種瑣事，本該是 Find My 或是尋常人力勞動的範疇。然而當一位工程師轉向 Claude 尋求幫助，而模型給出的建議不是「回想一下最後出現在哪」，而是利用 Web Bluetooth API 寫一段腳本來監測信號強度（RSSI）時，某些本質上的變化正在發生。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260809-0537-b7ed96/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-09T05:37:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 正在成為一種矽基版的馬蓋先">
+<meta name="twitter:description" content="在辦公室遺失手機這種瑣事，本該是 Find My 或是尋常人力勞動的範疇。然而當一位工程師轉向 Claude 尋求幫助，而模型給出的建議不是「回想一下最後出現在哪」，而是利用 Web Bluetooth API 寫一段腳本來監測信號強度（RSSI）時，某些本質上的變化正在發生。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 正在成為一種矽基版的馬蓋先",
+  "description": "在辦公室遺失手機這種瑣事，本該是 Find My 或是尋常人力勞動的範疇。然而當一位工程師轉向 Claude 尋求幫助，而模型給出的建議不是「回想一下最後出現在哪」，而是利用 Web Bluetooth API 寫一段腳本來監測信號強度（RSSI）時，某些本質上的變化正在發生。…",
+  "datePublished": "2026-08-09T05:37:00+08:00",
+  "dateModified": "2026-08-09T05:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260809-0537-b7ed96/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-09 05:37
+  </div>
+
+  <h1 class="title">Claude 正在成為一種矽基版的馬蓋先</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>在辦公室遺失手機這種瑣事，本該是 Find My 或是尋常人力勞動的範疇。然而當一位工程師轉向 Claude 尋求幫助，而模型給出的建議不是「回想一下最後出現在哪」，而是利用 Web Bluetooth API 寫一段腳本來監測信號強度（RSSI）時，某些本質上的變化正在發生。這不再是單純的問答檢索，而是一種即興的、基於物理世界邏輯的工程實踐。這種「矽基即興創作」的能力，正逐漸拉開四大模型在實際應用層面的斷層。</p>
+    <p>這種行為在技術社群被戲稱為 MacGyvermaxxing。它要求的不是模型背誦過多少行代碼，而是對物理屬性與軟體介面之間聯繫的深度理解。當用戶提到「我弄丟了手機」，Claude 意識到手機具備藍牙廣播特性，且瀏覽器具備訪問藍牙硬體的能力，兩者結合就能變成一個粗糙但有效的雷達。這種思維路徑與傳統的搜尋引擎截然不同，它具備一種極其罕見的「解決問題的自發性」。我們在 ChatGPT 上也能看到類似的影子，但 GPT-4o 往往傾向於給出更標準化、更保險的步驟，比如建議你檢查 Google 帳戶的定位紀錄，而非直接擼起袖子幫你寫一段底層監測代碼。</p>
+    <p>在實踐中，這種能力的差異體現在對 Context 的極限壓榨。當一個八歲的孩子透過語音要求 Claude 製作一個鋼琴教學遊戲，並在幾分鐘內實現 MIDI 設備的支持時，模型處理的不僅僅是代碼邏輯，還有對硬體交互協議的直覺。Gemini 在處理這類多模態任務時，雖然擁有極大的上下文窗口，但在跨協議調度——例如從單純的 UI 繪製轉向複雜的 MIDI 映射——其穩定性有時會顯得捉襟見肘。相較之下，Claude 的 Sonnet 系列在這種小規模、高強度的工具生成任務中，表現出一種令人不安的精準，它似乎能精確定位用戶當下環境中「唯一可用的槓桿」。</p>
+    <p>這種即興工具化的趨勢，也讓我們重新審視了模型定位的差異。在某些特定任務的響應速度對比中，相較於 DeepSeek V4 Flash 0731，Claude 選擇的路徑通常更具備「工具屬性」而非單純的「知識屬性」。當我們在討論這些模型如何介入日常生活時，Grok 可能會用嘲諷的語氣告訴你下次別再弄丟手機，而 ChatGPT 可能會列出五種查找手機的官方 App，唯獨 Claude 表現得像是一個坐在實驗室角落、手持烙鐵的怪才，直接遞給你一個自製的掃描儀。</p>
+    <p>有趣的是，這種「一次性代碼」的氾濫正在填滿開發者的 GitHub 倉庫。人們不再為了永恆的維護而寫程序，而是為了當下五分鐘的需求。這種對技術的消耗方式是前所未有的。當我們把模型視為一種流動的算力資源，而非靜態的百科全書時，模型對現實物理世界的理解深度就成了勝負手。如果說 Gemini 擅長的是檢索海量文獻中的微小關聯，那 Claude 顯然更擅長在資源匱乏的荒野中，用一根迴紋針和一塊磁鐵幫你修好引擎。</p>
+    <p>然而，這種基於邏輯推演的即興發揮是否存在邊界？當模型建議你利用藍牙信號強度來定位時，它實際上是在進行一種高風險的推理。信號強度受牆壁、人體、甚至辦公室微波爐的干擾極大，這種「技術上的可行性」在現實中往往伴隨著極高的噪聲。我們是否過度神化了這種即興生成的工具？當一個模型學會了像人類一樣「走捷徑」來解決問題，它是否也會學會在邏輯中偽造那些看似合理實則無效的解決方案？</p>
+    <p>如果未來所有的技術問題都能透過這種即興的代碼生成來解決，我們還需要那些穩定但笨重的套裝軟體嗎？或者說，當每個人都能在五分鐘內生成一個專屬於自己的、支持 MIDI 的鋼琴教學系統時，軟體的邊際成本歸零後，剩下的價值究竟是什麼？當你下一次在辦公室迷失方向，你是會選擇相信那些經過驗證的官方工具，還是會向那個躲在螢幕後的矽基馬蓋先問路？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://twitter.com/un1c0rnioz/status/2084686552299634805" rel="nofollow noopener" target="_blank">Lost my phone at the office. Claude suggested tracking Bluetooth signal strength</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260809-0537-b7ed96/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
