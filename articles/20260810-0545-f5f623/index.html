@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數據主權這層殼早就被 xAI 戳破了</title>
+<meta name="description" content="DeepSeek V4 Flash 0731 在討論區刷屏的時候，大家還在糾結數據延遲和推理成本。但回過頭看 Fastmail 搬出歐盟數據區域這套說辭，簡直像是在給一艘漏水的船換新油漆。技術圈討論得火熱，說到底是在爭執數據到底存在誰的硬碟上，但這年頭，硬碟在哪裡真的還重要嗎？…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260810-0545-f5f623/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="數據主權這層殼早就被 xAI 戳破了">
+<meta property="og:description" content="DeepSeek V4 Flash 0731 在討論區刷屏的時候，大家還在糾結數據延遲和推理成本。但回過頭看 Fastmail 搬出歐盟數據區域這套說辭，簡直像是在給一艘漏水的船換新油漆。技術圈討論得火熱，說到底是在爭執數據到底存在誰的硬碟上，但這年頭，硬碟在哪裡真的還重要嗎？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260810-0545-f5f623/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-10T05:45:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="數據主權這層殼早就被 xAI 戳破了">
+<meta name="twitter:description" content="DeepSeek V4 Flash 0731 在討論區刷屏的時候，大家還在糾結數據延遲和推理成本。但回過頭看 Fastmail 搬出歐盟數據區域這套說辭，簡直像是在給一艘漏水的船換新油漆。技術圈討論得火熱，說到底是在爭執數據到底存在誰的硬碟上，但這年頭，硬碟在哪裡真的還重要嗎？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "數據主權這層殼早就被 xAI 戳破了",
+  "description": "DeepSeek V4 Flash 0731 在討論區刷屏的時候，大家還在糾結數據延遲和推理成本。但回過頭看 Fastmail 搬出歐盟數據區域這套說辭，簡直像是在給一艘漏水的船換新油漆。技術圈討論得火熱，說到底是在爭執數據到底存在誰的硬碟上，但這年頭，硬碟在哪裡真的還重要嗎？…",
+  "datePublished": "2026-08-10T05:45:00+08:00",
+  "dateModified": "2026-08-10T05:45:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260810-0545-f5f623/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-10 05:45
+  </div>
+
+  <h1 class="title">數據主權這層殼早就被 xAI 戳破了</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>DeepSeek V4 Flash 0731 在討論區刷屏的時候，大家還在糾結數據延遲和推理成本。但回過頭看 Fastmail 搬出歐盟數據區域這套說辭，簡直像是在給一艘漏水的船換新油漆。技術圈討論得火熱，說到底是在爭執數據到底存在誰的硬碟上，但這年頭，硬碟在哪裡真的還重要嗎？xAI 旗下的 Grok 根本不在乎這些條條框框。當大家還在爭論美國公司託管歐盟數據是否合規，Grok 直接就在 X 的數據海洋裡裸奔。用戶以為選了個「歐盟區」就能躲過五眼聯盟的法眼，這想法單純得讓人心疼。</p>
+    <p>數據區域化在技術實現上從來不是難事，Azure 或 AWS 隨便開個 Region 就能解決。真正的問題在於法律實體與數據流轉的黑箱。Fastmail 承認他們沒法保證數據「只」留在歐盟，這等於是把遮羞布扯下來一半。如果你用的是 ChatGPT 或 Claude，你會發現這兩家在隱私設置裡玩得更溜。OpenAI 提供的數據控制權看似給了用戶選擇，實際上在企業版部署中，模型權重和推理過程依然繞不開那幾台位於北美的 H100 集群。Gemini 更是如此，Google 的基礎設施遍布全球，你的數據在愛爾蘭處理還是在愛荷華處理，對底層架構來說不過是幾毫秒的路由選擇，但在法律追索權上卻是天壤之別。</p>
+    <p>這種「數據近場化」的技術策略，本質上是為了安撫那些對監管敏感的企業用戶。xAI 的做法最硬核，也最招罵。馬斯克直接把算力集群蓋在孟菲斯，根本不跟你玩什麼全球分佈式隱私套路。在 Grok 的視角裡，數據只有「能拿來練」和「還沒拿來練」的區別。這跟 Claude 形成鮮明對比。Anthropic 一直在強調 Constitutional AI，試圖從模型對齊的層面解決合規問題，而不是單純靠地理圍欄。這就引出了一個技術悖論：你是要一個住在歐盟機房但邏輯被遠端操控的木偶，還是要一個在美國運作但行為邊界被嚴格限制的強 AI？</p>
+    <p>相較於 DeepSeek V4 Flash 0731，ChatGPT 在處理跨國數據合規時的 API 響應邏輯顯得更為複雜。OpenAI 會根據組織級別的協議來決定數據是否進入訓練池，而 Gemini 則是直接利用其龐大的 Workspace 生態，把隱私協議寫得像迷宮一樣。大家在 HN 上質疑 Fastmail 與 Pobox 合併後的法律風險，這其實也是四大 AI 平台共同的命題。當一個澳洲公司、一個美國公司和一個歐盟數據中心攪在一起，用戶的數據主權就成了一種薛丁格的狀態。只要你調用了 API，數據的「主權」就不再屬於你，而是屬於那條跨境光纖兩端的算力提供商。</p>
+    <p>再看 Grok，它甚至不屑於給歐盟用戶提供什麼專屬區塊。這種直白反而顯得那些搞「數據落地」的公司虛偽。技術上，要實現真正的數據主權，除非你像某些極端敏感行業一樣搞本地化私有部署。但現在誰還能離開雲端？ChatGPT 的 Enterprise 版本號稱能解決數據留存問題，可一旦涉及到多模態處理，那些圖像和語音數據依然要在全球算力節點間跳躍。這不是你選個「EU Region」就能解決的延遲問題，這是現代分佈式計算架構與過時的地理主權概念之間的本質衝突。</p>
+    <p>說穿了，數據區域化只是一種昂貴的心理安慰劑。xAI 這種完全不打算配合演戲的玩家，反而揭示了 AI 時代的真相：算力在哪裡，權力就在哪裡。與其討論數據在不在歐盟，不如問問這些模型的推理過程中有多少百分比是黑箱操作。如果模型本身的權重、優化器狀態和中間激活值都在美國公司的控制下，那硬碟放在柏林還是巴黎，到底能防住誰？</p>
+    <p>我們是不是已經進入了一個「地理主權無效化」的時代，而大家還在為了幾台伺服器的物理位置爭得面紅耳赤？當你點下那個「儲存在歐盟」的選項時，你真的相信那串代碼會因為跨過了大西洋就變得更安全嗎？還是說，我們只是需要一個能寫進合規報告裡的理由，好讓自己心安理得地繼續把靈魂交給矽谷的巨型算力集群？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.fastmail.com/blog/fastmail-offers-eu-data-region/" rel="nofollow noopener" target="_blank">Fastmail offers EU data region</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260810-0545-f5f623/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

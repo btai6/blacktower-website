@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矽谷神話的黃昏與 Google DeepMind 的權力移位</title>
+<meta name="description" content="當 Demis Hassabis 從 CEO 轉任主席，而 Jeff Dean 選擇帶著 Sanjay Ghemawat 這幫老戰友開拓名為 Discovery Loop 的新領地時，很多人還在糾結這是不是另一場矽谷式的和平分手。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260810-0540-6b76e2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="矽谷神話的黃昏與 Google DeepMind 的權力移位">
+<meta property="og:description" content="當 Demis Hassabis 從 CEO 轉任主席，而 Jeff Dean 選擇帶著 Sanjay Ghemawat 這幫老戰友開拓名為 Discovery Loop 的新領地時，很多人還在糾結這是不是另一場矽谷式的和平分手。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260810-0540-6b76e2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-10T05:40:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="矽谷神話的黃昏與 Google DeepMind 的權力移位">
+<meta name="twitter:description" content="當 Demis Hassabis 從 CEO 轉任主席，而 Jeff Dean 選擇帶著 Sanjay Ghemawat 這幫老戰友開拓名為 Discovery Loop 的新領地時，很多人還在糾結這是不是另一場矽谷式的和平分手。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "矽谷神話的黃昏與 Google DeepMind 的權力移位",
+  "description": "當 Demis Hassabis 從 CEO 轉任主席，而 Jeff Dean 選擇帶著 Sanjay Ghemawat 這幫老戰友開拓名為 Discovery Loop 的新領地時，很多人還在糾結這是不是另一場矽谷式的和平分手。…",
+  "datePublished": "2026-08-10T05:40:00+08:00",
+  "dateModified": "2026-08-10T05:40:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260810-0540-6b76e2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-08-10 05:40
+  </div>
+
+  <h1 class="title">矽谷神話的黃昏與 Google DeepMind 的權力移位</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當 Demis Hassabis 從 CEO 轉任主席，而 Jeff Dean 選擇帶著 Sanjay Ghemawat 這幫老戰友開拓名為 Discovery Loop 的新領地時，很多人還在糾結這是不是另一場矽谷式的和平分手。如果你還在看那些公關稿裡提到的「雲端合作夥伴」或「投資關係」，那只能說你太天真。這場變動本質上是 Google 內部技術官僚主義對純粹研究精神的最後一場絞殺。當初 OpenAI 的成立是為了「阻止」Hassabis 描述中的 AI 威脅，諷刺的是，現在真正讓 DeepMind 窒息的並非對手，而是自家母公司那套臃腫的產品線邏輯。</p>
+    <p>技術圈內的人都清楚，Jeff Dean 代表的是一種極致的工程美學。從 MapReduce 到 Spanner，他定義了現代分散式系統的骨架。但在 Gemini 的開發過程中，那種為了追趕 GPT-4o 而強行進行的模型對齊與過度干預，顯然讓這群技術狂人感到了厭倦。Gemini 1.5 Pro 在長文本處理上的優勢確實顯著，其 1M 到 2M 的 token 窗口在處理超大規模代碼庫時表現穩定，但一旦涉及到邏輯推理的靈活性，那種被強行灌入的「安全護欄」就顯得笨重不堪。與其說是模型在回答問題，不如說是一個被層層枷鎖束縛的巨人在讀劇本。</p>
+    <p>這種工程與商業的斷裂，在 API 的調用行為中表現得淋漓盡致。Gemini 的 Function Calling 功能在工具數量增加後，幻覺率會呈指數級上升。這不是底層模型能力不足，而是 Google 在模型層與應用層之間塞入了太多冗餘的過濾機制。相比之下，ChatGPT 在處理複雜指令時的那種「乾脆感」，正來自於 OpenAI 相對扁平的決策鏈。OpenAI 不需要像 DeepMind 那樣，在發布任何一項技術更新前，都要先考慮是否會冒犯到 Google 搜尋業務的廣告主。</p>
+    <p>在橫向對比的語境下，這種體制性的僵化更顯得刺眼。當我們看到 DeepSeek V4 Flash 0731 在特定推理任務上的響應速度時，OpenAI 的做法是迅速優化其推理成本結構，試圖在 GPT-4o-mini 上找回場子。而 Google 的反應是什麼？他們在忙著調整高層架構。相較於 DeepSeek V4 Flash 0731 所代表的那種極致效率導向，Gemini 雖然擁有頂級的硬體資源支持，卻在模型迭代的步調上顯得步履蹣跚。Grok 在數據獲取上的狂野與不羈，Claude 在文體美感與邏輯細節上的偏執，都讓現在的 Google DeepMind 看起來像是一個守著金礦卻不知道該怎麼挖掘的落魄貴族。</p>
+    <p>Jeff Dean 帶走的 Discovery Loop，號稱是一個公共利益公司，這本身就是對 Google 商業邏輯的一種無聲抗議。當 Hassabis 被架空到那個虛無縹緲的主席位置上時，DeepMind 原有的那種「通用人工智能（AGI）第一島鏈」的氣場已經散了大半。現在的 Gemini 更像是一個被精心包裝的企業級工具，而非那個曾經在 AlphaGo 時代讓我們感到恐懼與興奮的智慧生命雛形。這種從「引領者」到「追隨者」的角色轉換，對於這群頂尖大腦來說，或許才是最難以忍受的羞辱。</p>
+    <p>現在的問題在於，失去了靈魂人物的 DeepMind，還能剩下多少純粹的技術底力？當工程大牛紛紛出走，留下來的如果是只會優化 PPT 和 KPI 的管理人才，那麼 Gemini 的下一個版本，除了窗口期拉得更長、對齊做得更保守之外，還能給我們帶來什麼驚喜？當技術天才們發現，與其在巨頭內部內耗，不如去外面重新定義規則時，這個行業的權力天平是否已經徹底傾斜了？下一個十年，我們還能指望 Google 寫出像 Transformers 那樣改變世界的論文嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/" rel="nofollow noopener" target="_blank">Changes at Google DeepMind: Demis Hassabis from CEO to Chair, Jeff Dean departs</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260810-0540-6b76e2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
