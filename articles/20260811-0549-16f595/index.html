@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 默認開啟自動模式是 Anthropic 對開發者防禦心理的試探</title>
+<meta name="description" content="讓程式碼工具自己在終端機裡翻江倒海，這種感覺就像是把剛學會走路的幼童丟進佈滿精密儀器的無塵室，你明知道他可能會按錯開關，卻還是忍不住想看他能走到哪一步。Claude Code 最近將 Auto mode 設為默認選項，這與其說是一次功能升級，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260811-0549-16f595/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code 默認開啟自動模式是 Anthropic 對開發者防禦心理的試探">
+<meta property="og:description" content="讓程式碼工具自己在終端機裡翻江倒海，這種感覺就像是把剛學會走路的幼童丟進佈滿精密儀器的無塵室，你明知道他可能會按錯開關，卻還是忍不住想看他能走到哪一步。Claude Code 最近將 Auto mode 設為默認選項，這與其說是一次功能升級，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260811-0549-16f595/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-11T05:49:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Code 默認開啟自動模式是 Anthropic 對開發者防禦心理的試探">
+<meta name="twitter:description" content="讓程式碼工具自己在終端機裡翻江倒海，這種感覺就像是把剛學會走路的幼童丟進佈滿精密儀器的無塵室，你明知道他可能會按錯開關，卻還是忍不住想看他能走到哪一步。Claude Code 最近將 Auto mode 設為默認選項，這與其說是一次功能升級，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude Code 默認開啟自動模式是 Anthropic 對開發者防禦心理的試探",
+  "description": "讓程式碼工具自己在終端機裡翻江倒海，這種感覺就像是把剛學會走路的幼童丟進佈滿精密儀器的無塵室，你明知道他可能會按錯開關，卻還是忍不住想看他能走到哪一步。Claude Code 最近將 Auto mode 設為默認選項，這與其說是一次功能升級，…",
+  "datePublished": "2026-08-11T05:49:00+08:00",
+  "dateModified": "2026-08-11T05:49:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260811-0549-16f595/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-11 05:49
+  </div>
+
+  <h1 class="title">Claude Code 默認開啟自動模式是 Anthropic 對開發者防禦心理的試探</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>讓程式碼工具自己在終端機裡翻江倒海，這種感覺就像是把剛學會走路的幼童丟進佈滿精密儀器的無塵室，你明知道他可能會按錯開關，卻還是忍不住想看他能走到哪一步。Claude Code 最近將 Auto mode 設為默認選項，這與其說是一次功能升級，不如說是 Anthropic 在技術哲學上的一次激進轉向。當我們習慣了每一行代碼變更都要手動點擊確認時，Claude 卻決定直接把權限拿走，讓開發者從繁瑣的確認彈窗中解放，轉而面對一種更深層的、關於「控制權」的焦慮。</p>
+    <p>這種焦慮並非空穴來風。如果你在本地環境直接運行 Claude Code 而不加任何防護，那無異於邀請一個充滿好奇心且不知疲倦的實習生，在他擁有系統管理員權限的前提下，對你的專案目錄進行外科手術式的切除與重組。社群裡已經有人在討論使用 `--dangerously-skip-permissions` 參數時的快感與恐懼：你可以起身去沖杯咖啡，回來時發現 Bug 已經修好，但也可能發現你的虛擬環境被徹底重塑。這不是簡單的自動化，這是在挑戰人類對於「工具」的傳統定義。我們是否真的準備好讓 AI 在沒有明確授權的情況下，執行那些具有副作用的 Shell 指令？</p>
+    <p>從技術層面看，Claude 在處理長上下文任務時的注意力分配機制，決定了它在自動模式下的穩定性。當代碼庫的規模超過特定閾值，模型對文件依賴關係的理解往往會出現微妙的偏差。即便如此，Anthropic 依然堅持將自動模式推向前端，這背後的邏輯在於數據反饋的質量。比起人類反覆確認後產生的碎片化指令，自動模式下模型自我糾錯、路徑探索的完整鏈條，才是餵養下一代編程模型最肥沃的養分。這是一種典型的以安全性換取進化速度的博弈。</p>
+    <p>而在這場權限爭奪戰中，其他玩家的姿態各異。ChatGPT 在處理類似的 Agent 任務時，依然傾向於維持一種謹慎的互動感，它的代碼解釋器更像是一個受控的實驗室，而非像 Claude 這樣試圖直接與你的作業系統深度掛鉤。Gemini 則試圖通過其龐大的上下文窗口來消弭自動模式帶來的理解斷層，但在實際執行具體的系統指令時，其穩定性在超過數十個工具調用後往往會顯得力不從心。相較於 Qwen3.8 Max 在處理特定邏輯時的表現，Claude 的這種「自動化優先」策略顯然更具備侵略性。這種侵略性體現在它對開發流程的重塑，它不再是一個等待指令的插件，而是一個試圖主導工作流的協作者。</p>
+    <p>有些開發者選擇將 Claude Code 鎖進 Docker 容器，這是一種理性的防禦。在沙盒化成為共識的今天，Anthropic 默認開啟自動模式的做法，迫使我們重新審視沙盒的邊界。如果一個 AI 能夠在沙盒內完成所有測試、構建與部署，那麼這種「自動」帶來的效率提升將是指數級的。但問題在於，當我們為了效率而不斷後退，將那些原本屬於人類的審查權限一一讓渡給算法時，我們最終守住的底線會是什麼？</p>
+    <p>在這種技術演進的背景下，Qwen3.8 Max 的出現為市場提供了另一種觀察維度，但 Claude 依然在引領關於 AI 主動性的討論。當自動模式成為標配，我們該擔心的是 AI 會寫出帶有安全漏洞的代碼，還是該擔心開發者會因為習慣了這種「自動」而喪失了對代碼細微之處的感知力？如果未來的編程不再是邏輯的構建，而演變成對 AI 行為的監視，那時候的我們，究竟是代碼的主人，還是只是在沙盒邊緣守望的保安？我們是否真的信任一個不需要點擊確認的未來？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://claude.com/blog/auto-mode-default-in-claude-code" rel="nofollow noopener" target="_blank">Auto mode is now the default in Claude Code</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260811-0549-16f595/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
