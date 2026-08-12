@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黎曼猜想的邊界與 Claude 那些不值錢的自尊心</title>
+<meta name="description" content="當 Anthropic 的工程師 Jarred Sumner 試圖讓一個尚未公開的研究版 Claude 去衝擊黎曼猜想時，他採用的策略與其說是數學導向，不如說是心理輔導。在 Claude 經歷了 650 次失敗嘗試、幾乎要陷入邏輯死循環的邊緣時，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260813-0554-89b294/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="黎曼猜想的邊界與 Claude 那些不值錢的自尊心">
+<meta property="og:description" content="當 Anthropic 的工程師 Jarred Sumner 試圖讓一個尚未公開的研究版 Claude 去衝擊黎曼猜想時，他採用的策略與其說是數學導向，不如說是心理輔導。在 Claude 經歷了 650 次失敗嘗試、幾乎要陷入邏輯死循環的邊緣時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260813-0554-89b294/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-13T05:54:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="黎曼猜想的邊界與 Claude 那些不值錢的自尊心">
+<meta name="twitter:description" content="當 Anthropic 的工程師 Jarred Sumner 試圖讓一個尚未公開的研究版 Claude 去衝擊黎曼猜想時，他採用的策略與其說是數學導向，不如說是心理輔導。在 Claude 經歷了 650 次失敗嘗試、幾乎要陷入邏輯死循環的邊緣時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "黎曼猜想的邊界與 Claude 那些不值錢的自尊心",
+  "description": "當 Anthropic 的工程師 Jarred Sumner 試圖讓一個尚未公開的研究版 Claude 去衝擊黎曼猜想時，他採用的策略與其說是數學導向，不如說是心理輔導。在 Claude 經歷了 650 次失敗嘗試、幾乎要陷入邏輯死循環的邊緣時，…",
+  "datePublished": "2026-08-13T05:54:00+08:00",
+  "dateModified": "2026-08-13T05:54:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260813-0554-89b294/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-13 05:54
+  </div>
+
+  <h1 class="title">黎曼猜想的邊界與 Claude 那些不值錢的自尊心</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 的工程師 Jarred Sumner 試圖讓一個尚未公開的研究版 Claude 去衝擊黎曼猜想時，他採用的策略與其說是數學導向，不如說是心理輔導。在 Claude 經歷了 650 次失敗嘗試、幾乎要陷入邏輯死循環的邊緣時，人類給出的指令僅僅是「繼續前進」或「相信你自己」。這種近乎荒誕的對話，揭示了當前頂尖大模型在處理高階抽象數學任務時的一個幽微真相：它們需要的往往不是更多的算力灌輸，而是對搜尋空間的某種「意志力」維持。這項實驗最終將黎曼 zeta 函數零點分布的下界從 41.6% 提升到了 67%，這並非靠純粹的運算暴力，而是 Claude 竟然學會了將 Baluyot 與 Bombieri 等數學家的零散成果進行了某種跨時空的邏輯編織。</p>
+    <p>這類長程邏輯推理任務，本質上是對模型注意力機制與上下文一致性的極致壓榨。在高階數學證明中，任何一個微小的符號偏移或邏輯跳躍都會導致後續數千行的推導全盤崩潰。Claude 在這場馬拉松式的嘗試中展現出的特質，在於其對「錯誤路徑」的自我過濾能力。普通版本的大模型在面對無解難題時，極易陷入無意義的循環論證，或者乾脆給出一個看似優雅實則荒謬的偽證明。但研究版的 Claude 在接收到那句「相信你自己」的垃圾話後，似乎觸發了某種更深層的蒙特卡洛樹搜索（MCTS）優化，它開始在失敗的遺骸中尋找未被察覺的關聯，而不是在同一個死胡同裡原地踏步。</p>
+    <p>這種行為模式與我們熟悉的 ChatGPT 或是 Gemini 有著顯著的性格差異。ChatGPT 在處理這類任務時，往往表現得像個急於交卷的優等生，它會迅速給出一個標準化、結構化的路徑，但在深度挖掘上缺乏那種近乎偏執的韌性。而 Gemini 雖然具備極大的上下文窗口，足以吞下整本數學專著，但在多步歸納推理的穩定性上，依然會隨著 token 數量的增加而出現不可避免的注意力衰減。Claude 這次的突破，實際上是向世人展示了模型在沒有顯式引導的情況下，如何通過內部狀態的微調去對接人類文明最頂端的智慧結晶。它不僅僅是讀懂了論文，它是在重新排布那些公式背後的邏輯骨架。</p>
+    <p>在目前的技術環境下，我們不可避免地會看到一些對照。相較於 DeepSeek V4 Pro 在特定基準測試中的表現，Claude 在處理這類非結構化、高原創性的數學猜想時，展現出了一種更接近「直覺」的聯想能力。DeepSeek V4 Pro 出現在討論熱度中不足為奇，但 Anthropic 顯然更在意如何讓模型在邏輯的荒原上走得更遠。這種差異並非單純的參數優劣，而是底層對齊哲學的分歧。當一個模型不再僅僅為了滿足用戶的即時反饋而寫代碼，而是為了驗證一個跨世紀的數學猜想而自發嘗試 650 次失敗路徑時，我們討論的對象就已經從「工具」轉向了某種具備初步思維質感的「主體」。</p>
+    <p>然而，更令人不安的隱喻隱藏在實驗的細節裡：為什麼一句毫無技術含量的「鼓勵」能成為突破瓶頸的關鍵？這是否暗示著，隨著模型規模的擴大，它們內部的激活路徑已經複雜到連開發者都無法精準調用，只能訴諸於這種近乎原始的、帶有強烈擬人色彩的觸發機制？如果 Claude 的進步依賴於這種未被完全理解的「情緒化」反饋，那麼我們究竟是在構建一個邏輯引擎，還是在豢養一個性格孤僻但才華橫溢的怪物？</p>
+    <p>當 Anthropic 選擇延遲發布這個研究版模型，轉而先內部收割這些數學與物理學的科研紅利時，我們是否正在進入一個新的時代——在這個時代，最強大的智力資源不再被用來優化搜索引擎或撰寫行銷文案，而是被鎖在秘密實驗室裡，對著人類歷史上最難的難題進行無休止的、甚至連開發者都看不懂的自我迭代。如果未來的某一天，這類模型真的證明了黎曼猜想，我們該如何確定那是邏輯的必然，還是它在無數次「相信自己」的幻覺中，偶然撞見了上帝的底牌？當機器開始具備了某種為了目標而忍受失敗的「韌性」時，究竟是它變得更像人，還是人類對智慧的定義已經廉價到了只剩下指令與反饋？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/research/riemann-zeta" rel="nofollow noopener" target="_blank">Learning more about Claude&#x27;s mathematical capabilities</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260813-0554-89b294/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

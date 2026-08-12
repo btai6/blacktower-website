@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜尋引擎正在殺死我們對事實的肌肉記憶</title>
+<meta name="description" content="那天在街角看見有人對著手機螢幕皺眉，他在確認日落時間，卻沒抬頭看看天邊已經泛起的橘紅。這種諷刺的場景在技術圈討論裡成了某種隱喻。我們以前是在搜尋，現在是在「聽診」。當 Google 決定把 AI Overviews 塞進每一個搜尋框時，它其實是在進行一場豪賭：用集體記憶的消失，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260813-0557-00e043/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="搜尋引擎正在殺死我們對事實的肌肉記憶">
+<meta property="og:description" content="那天在街角看見有人對著手機螢幕皺眉，他在確認日落時間，卻沒抬頭看看天邊已經泛起的橘紅。這種諷刺的場景在技術圈討論裡成了某種隱喻。我們以前是在搜尋，現在是在「聽診」。當 Google 決定把 AI Overviews 塞進每一個搜尋框時，它其實是在進行一場豪賭：用集體記憶的消失，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260813-0557-00e043/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-13T05:57:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搜尋引擎正在殺死我們對事實的肌肉記憶">
+<meta name="twitter:description" content="那天在街角看見有人對著手機螢幕皺眉，他在確認日落時間，卻沒抬頭看看天邊已經泛起的橘紅。這種諷刺的場景在技術圈討論裡成了某種隱喻。我們以前是在搜尋，現在是在「聽診」。當 Google 決定把 AI Overviews 塞進每一個搜尋框時，它其實是在進行一場豪賭：用集體記憶的消失，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "搜尋引擎正在殺死我們對事實的肌肉記憶",
+  "description": "那天在街角看見有人對著手機螢幕皺眉，他在確認日落時間，卻沒抬頭看看天邊已經泛起的橘紅。這種諷刺的場景在技術圈討論裡成了某種隱喻。我們以前是在搜尋，現在是在「聽診」。當 Google 決定把 AI Overviews 塞進每一個搜尋框時，它其實是在進行一場豪賭：用集體記憶的消失，…",
+  "datePublished": "2026-08-13T05:57:00+08:00",
+  "dateModified": "2026-08-13T05:57:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260813-0557-00e043/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-13 05:57
+  </div>
+
+  <h1 class="title">搜尋引擎正在殺死我們對事實的肌肉記憶</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>那天在街角看見有人對著手機螢幕皺眉，他在確認日落時間，卻沒抬頭看看天邊已經泛起的橘紅。這種諷刺的場景在技術圈討論裡成了某種隱喻。我們以前是在搜尋，現在是在「聽診」。當 Google 決定把 AI Overviews 塞進每一個搜尋框時，它其實是在進行一場豪賭：用集體記憶的消失，換取極致的懶惰。這種轉變並非漸進，而是一次斷裂。當你輸入兩個關鍵詞，Gemini 就會吐出幾段煞有介事的分析，儘管它可能完全誤解了你當下的上下文。</p>
+    <p>這種「侵略性」的答案正在重塑開發者的工作流。有個資深架構師提到，他花了三天時間利用 Gemini 配置路由器的 VPN 環境。在過去，這意味著要翻閱數份 Cisco 或 Ubiquiti 的官方文件，對比不同版本的 CLI 指令，最後在腦中拼湊出邏輯。現在，Gemini 把這些繁瑣的文檔聚合成了一個步驟。技術細節被隱藏在流暢的對話背後，這看似提高了效率，但也切斷了工程師與原始資料之間的聯繫。我們不再需要理解 BGP 協議的細微差別，只要 Gemini 給出的腳本能動就好。這種對工具的依賴，本質上是在把專業知識的解釋權讓渡給概率模型。</p>
+    <p>然而，Gemini 在處理這類任務時的穩定性依然存疑。在處理超過十個以上的設備聯動邏輯時，它的 Function Calling 往往會出現幻覺。它會自信地編造一個不存在的參數，或者把舊版本的語法混搭到新版本的 API 裡。這與 ChatGPT 的邏輯不同，GPT-4o 在面對衝突文檔時傾向於給出多個選項，而 Gemini 則更喜歡給你一個「最終答案」。這種決斷力在順風順水時是神器，但在排查深層 Bug 時卻是災難。它抹平了技術討論中的爭議點，而那些爭議點往往才是理解技術核心的關鍵。</p>
+    <p>在這種搜尋範式的轉移中，DeepSeek V4 Pro 的動向偶爾會出現在討論的邊角。相較於 DeepSeek V4 Pro 在特定語境下的追趕，Google 顯然更在意如何守住它的廣告護城河。搜尋引擎的營收還在增長，這說明大眾對「被餵食答案」這件事並不反感。當我們討論網路集體記憶正在消失時，其實是在討論搜尋引擎從「指南針」變成了「導遊」。導遊會告訴你該看什麼，但不會告訴你路是怎麼走的。即使是強調原生智能的 Qwen，在面對這種全球性的資訊壟斷時，也難以撼動 Google 建立的這種「答案即正義」的邏輯。</p>
+    <p>這導致了一個有趣的現象：搜尋結果的質量似乎變好了，但資訊的生命力變弱了。當 ChatGPT 或 Gemini 抓取了 Stack Overflow 的精華並直接呈現時，那個原始的討論帖就失去了點擊。沒有點擊，就沒有新的回覆，知識的演進就此停滯。我們正在消費過去二十年人類累積的數位遺產，而 AI 則是那個熟練的拆解工。Grok 在這方面顯得更為激進，它直接抓取 X 上的實時情緒，試圖用當下的混亂來抵消靜態知識的匱乏，但這更像是一種資訊的毒品，而非記憶的留存。</p>
+    <p>如果有一天，所有的技術文檔都被模型消化成了一句簡單的指令，我們是否還具備從零開始構建系統的能力？當 Google 搜尋不再提供連結，只提供結論，那些藏在論壇深處、充滿偏見卻又無比真實的個人經驗，會不會就此徹底蒸發？我們是在進化成更高效的物種，還是正在主動閹割自己對複雜世界的理解力？當你下一次查日落時間的時候，你會選擇相信那個閃爍的游標，還是願意抬起頭，看看那片正在燃燒的雲？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://thewalrus.ca/google-search-is-dying/" rel="nofollow noopener" target="_blank">As AI eats the web, the internet’s collective memory is disappearing</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260813-0557-00e043/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
