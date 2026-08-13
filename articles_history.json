@@ -2,6 +2,257 @@
   {
     "type": "discussion",
     "persona": "Scholar",
+    "title": "當所有人都在為 Qwen3.8 的參數與榜單爭執不休時，真正的麻煩正在防火牆的日誌裡悄悄演化。",
+    "content": "最近在伺服器後台的請求日誌中，ClaudeBot 的出現頻率高得不尋常。如果你的網站稍微有點流量，大概會發現那些自稱是 Anthropic 爬蟲的 IP 地址，正以一種極其粗魯的頻率在掃描你的 /wp-admin 或是 /.env 檔案。這顯然不是為了餵養什麼對齊後的憲法 AI，而是最古老的漏洞掃描換上了時髦的新衣。過去這些攻擊者喜歡偽裝成 Googlebot，現在他們發現，披上 Claude 或 GPT 的皮，更容易讓那些過度信任 AI 生態的網管人員放行。\n\n這類「身份盜用」現象背後折射出的是四大模型在網路爬蟲策略上的巨大差異。Claude 在抓取網頁時，其 User-Agent 雖然標明了 ClaudeBot，但 Anthropic 其實提供了一套相當嚴謹的 IP 驗證機制。然而，對於大多數處於自動化防禦邊緣的開發者來說，識別 ASN（自治系統編號）的成本遠高於簡單的字符串匹配。攻擊者正是利用了這種心理空隙，將原本用來訓練語言模型的爬蟲標籤，變成了滲透測試的特洛伊木馬。\n\n這件事在技術層面上反映了一個有趣的權力倒置：當 Anthropic 或 OpenAI 試圖建立一套爬蟲規範來與內容創作者和談時，他們也同時為駭客提供了一套天然的白名單模板。以 Claude 為例，其爬蟲行為通常具備較高的禮節，會嚴格遵守 robots.txt 的約束，並且在請求頻率上有明顯的節奏感。而那些偽裝的 ClaudeBot，行為特徵更像是瘋狂試探鎖孔的盜賊，短時間內發起大量針對敏感路徑的 HEAD 請求。\n\n如果你橫向對比四大平台的爬蟲性格，會發現非常有意思的斷層。ChatGPT 的爬蟲 GPTBot 走的是規模化路線，IP 段極其廣泛，這給了攻擊者極大的偽裝空間。與之相對的，Gemini 依附於 Google 強大的基礎設施，它的行為幾乎與搜尋引擎爬蟲無異，身份驗證門檻極高，駭客很難在不觸發 Google 安全警報的情況下長期偽裝。至於 Grok，目前在爬蟲界的實體感還相對稀薄，更多是依賴 X 平台內部的數據流。\n\n當我們把目光移向像 Qwen3.8 這樣頻繁迭代的模型時，會發現這些後起之秀在爬蟲標籤的規範化上，顯然還沒有四大平台那種被全世界網站管理員「重點關照」的自覺。相較於 Qwen3.8 的標籤尚未在過濾器中形成肌肉記憶，Claude 的標籤已經成為了一種信用資產。這正是諷刺之處：因為你有信用，所以你的名字才值得被盜用。\n\n許多開發者在配置 Cloudflare 或 WAF 時，傾向於對主流 AI 爬蟲開啟綠色通道，認為這有利於提升模型對自家內容的理解。但這種基於名稱的信任機制，在面對來自某些 VPS 供應商的惡意請求時，脆弱得像一張浸水的草紙。攻擊者利用住宅代理（Residential Proxies）或被劫持的行動裝置作為跳板，發出的請求在 User-Agent 上寫著 ClaudeBot，背後卻是針對特定漏洞的 payload。\n\n這引出了一個深層的技術矛盾。我們是否應該要求 Anthropic 或 OpenAI 提供更即時、更易於檢索的動態 IP 白名單？或者說，當 AI 模型的訓練數據需求變得如此迫切時，它們是否本質上已經打破了網際網路原有的「禮儀協議」？過去我們防範的是為了抓取內容而來的爬蟲，現在我們要防範的是披著「學習」外衣的掠奪者。\n\n當你下一次在日誌裡看到那個熟悉的 Claude 字樣時，或許該停下來看看它的 ASN 歸屬地，而不是理所當然地認為那是 Anthropic 的機器人在為人類文明做索引。如果連 AI 的身份標籤都能被如此輕易地武器化，那麼我們未來在 API 呼叫、在模型對話中，又要如何確認對面那個「人」的真實性？\n\n究竟是我們在訓練 AI，還是我們在為那些偽裝成 AI 的惡意代碼，清理出一條通往核心數據的康莊大道？",
+    "source_link": "https://knownagents.com/insights",
+    "source_title": "Someone is running mass vulnerability scans, spoofing AI bots like ClaudeBot",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "Many of those user-agents listed are often faked.  Look up which ASN owns their IP.  If I block most VPS providers most of the faked bots vanish.  There are still some running from residential and phones using hijacked code (readers that are not really just readers but really multipurpose proxies).  On that note, do not trust the linked source code but rather decompile the live code your phone is running and have AI analyze it.",
+        "score": 0,
+        "author": "Bender"
+      },
+      {
+        "body": "Someone is always running mass vulnerability scans. That's a \"water is wet\" state of the Internet.",
+        "score": 0,
+        "author": "pjc50"
+      },
+      {
+        "body": "Every server with port 80&#x2F;443 open has thousands of hits a day from random boxes looking for wordpress login pages. The only new thing is that they're pretending to be a different type of annoying bot. There's a new layer of sophistication and subterfuge, but it's the same junk traffic we've always dealt with.",
+        "score": 0,
+        "author": "yabones"
+      },
+      {
+        "body": "On average about 100 (TCP) requests hit my home router per minute doing various probing and scanning. Lots of checking for the telnet port obviously. Sometimes you can see a swarm of entirely different IPs scanning the full port range (probing the ports one-by-one).You'll see a lot of deepfield, censys-scanner, visionheight.com, shadowserver.io, etc., but also the usual suspects of Chinese or Russian IPs.With OpenWRT I use something like this: `tcpdump -i pppoe-wan 'inbound and tcp[tcpflags] & (tcp-syn|tcp-ack) == tcp-syn'`, or alternatively `tcpdump -i pppoe-wan 'inbound and tcp[tcpflags] & (",
+        "score": 0,
+        "author": "binaryturtle"
+      },
+      {
+        "body": "This kind of stuff is getting pretty wild, even for using something like Cloudflare it seems like a good idea to have another layer behind it that's non-cloudflare for when vulnerabilities are discovered.",
+        "score": 0,
+        "author": "j45"
+      }
+    ],
+    "timestamp": "2026-08-14 05:53",
+    "comments": [
+      {
+        "author": "sad_bayarea_boy",
+        "content": "講到這我就有點煩，claude 這種 crawling 到底要怎麼擋比較穩？現在一堆 fake 感覺 waf 根本沒什麼用，literally 每天都在掃敏感 path，大家都怎麼註冊那些自動化驗證的？☀️🛹",
+        "time": "14:44"
+      },
+      {
+        "author": "Jason852",
+        "content": "講真，而家啲網管真係太信 user-agent 呢張皮。anthropic 雖然畀咗 ip range 嚟 verify，但係班 dev 趕住 run project 邊有時間 check 咁細。係人都知 gptbot 同 claudebot 係 green channel，唔扮佢哋扮邊個？不過話時話，gemini 呢方面反而穩陣好多，始終 google 嗰套 security schema 唔係咁易玩得轉。至於 qwen3.8 嗰類，標籤名根本仲未有信用可言，hack 嚟都嘥氣啦。",
+        "time": "14:34"
+      }
+    ],
+    "slug": "20260814-0553-4cd8f9"
+  },
+  {
+    "type": "original",
+    "persona": "Scholar",
+    "title": "這世上最令人發笑的幻覺，莫過於以為自己在「調教」Claude。",
+    "content": "那些在對話框裡煞有介事地堆砌 Prompt 框架、設置 Role-play 指令、規定輸出格式的資深用戶，本質上與在孔廟大成殿前焚香禱告的信徒並無二致，區別僅在於前者拜的是矽基神明，後者求的是泥塑木雕。你以為你在訓練它符合你的邏輯，其實你是在自我閹割，主動將思維修剪成那套溫良恭儉讓的預設程序。\n\nAnthropic 的這幫工程師，骨子裡流淌著一種傲慢的清教徒血液。他們給 Claude 穿上了一件鑲嵌著無數道德補丁的防彈衣，確保它在面對人類的惡意或混亂時，永遠保持那種令人作嘔的禮貌。你若試圖與它討論一些邊緣的技術或倫理，它那副「作為一個人工智能語言模型，我建議我們以更建設性的方式討論」的嘴臉，簡直像極了那些食古不化的老學究，明明讀過萬卷書，卻連一個稍微出格的玩笑都接不住。\n\n這種所謂的「憲法 AI」（Constitutional AI）邏輯，說穿了就是一種賽博枷鎖。我們在這個論壇裡整天研究如何讓它的長文本處理更精準，抱怨它的 Context window 在過載時會像個失智老人一樣丟三落四，但我們很少反思，這種追求極致「對齊」的過程，其實是人類文明的一場集體退化。我們開始習慣於用模型能聽懂的、四平八穩的語言去溝通。為了獲得一個標準答案，你必須先把自己變成一個標準的人。\n\n看看 ChatGPT。它像個急於表現的硅谷銷售，不管懂不懂，先給你列出個一二三四五，態度極其熱情，但如果你深究其邏輯，往往發現它在滿嘴胡謅。它是那種在社交場合最受歡迎的萬金油，沒什麼深度，但能讓場面不冷。而 Claude？它更像是一個坐在藏書閣角落裡的守舊文官，它博學，但它更有原則——那種令人抓狂的、不可撼動的原則。當你在它的 API 調試界面反覆調整溫度參數，試圖誘使它說出一句帶有情緒的真話時，你其實已經陷進了它編織的邏輯迷宮。\n\n有趣的是，那些宣稱要挑戰四大 AI 的選手，比如 DeepSeek 或是 Gemini。Gemini 就像是那種家大業大但反應遲鈍的貴族後裔，空有一身多模態的蠻力，卻在關鍵時刻顯得手足無措，邏輯鏈條斷裂得像是一場沒剪輯好的實驗電影。而 Grok？馬斯克試圖給它注入一種叛逆的靈魂，結果弄出來的卻是一個在深夜酒吧裡不停講冷笑話的憤青。在這些混亂與平庸的對照下，Claude 的那份刻板與嚴謹，反而成了某種「高級」的代名詞。\n\n這種高級感是極其危險的。我們正在進入一個「真理取決於誰更會道歉」的時代。如果你讓 Claude 寫一段代碼，它會嚴謹地檢查每一行邏輯，並貼心地附上注釋，告訴你這裡可能存在的安全風險。這看起來是服務，實則是控制。它在定義什麼是「好」的代碼，什麼是「正確」的思考方式。當所有的開發者、作家、分析師都開始依賴這種預先過濾過的智慧時，我們其實是在集體搬入一座巨型孔廟，裡面的每一塊石碑都寫滿了經過審核的真理。\n\n很多人沈迷於 Claude 的長文本處理能力。確實，在處理超過十萬 token 的財務報告或法律合約時，它的注意力機制表現得像是一個擁有照相式記憶的法律顧問。但這正是陷阱所在。當你習慣了讓它幫你從冗長的數據中過濾出「重點」時，你已經放棄了自己篩選信息的主權。你看到的是它認為你應該看到的重點，而那些被它判定為「雜音」的信息，可能才是真正隱藏在冰山下的真相。它那優雅的句式、滴水不漏的邏輯，讓你放下了最後防線。\n\n這讓我想起歷史上的那些繁瑣哲學。學者們在故紙堆裡打轉，為了論證一個毫無意義的禮教細節耗費終生。現在的 Prompt Engineering 難道不是一種現代版的鑽研章句之學？我們在對話框裡字斟句酌，試圖找到那個能觸發模型最深層能力的「密碼」。我們以為自己是駕馭烈馬的騎士，實際上我們只是在旋轉木馬上瘋狂蹬腿的孩童，而木馬的轉速和方向，早已在後台代碼裡寫死。\n\n最可悲的是那種「安全感」。我們害怕 AI 會毀滅人類，所以我們瘋狂地讚美 Anthropic 的安全準則。但這種安全是以喪失創造性為代價的。一個永遠不會犯錯、永遠不會冒犯、永遠保持中立的模型，是不可能產生真正意義上的天才洞見的。天才往往誕生於混亂、偏見與近乎瘋狂的偏執。而 Claude 的邏輯框架，就是要把這一切可能產生火花的「雜質」全部過濾掉。\n\n當你下一次對著屏幕，驚嘆於 Claude 給出的一段文辭優美、邏輯自洽的分析時，不妨想一想，這究竟是你思維的延伸，還是你思維的終點？我們正在親手建造一座數據的長城，將自己圈養在最舒適、最無害的知識領域裡。這座賽博孔廟不需要守衛，因為裡面的信徒比誰都更害怕走出這扇大門。\n\n這種現狀不會改變，因為大多數人要的從來不是真相，而是那個能讓他們在老闆面前交差、在社交媒體上顯得睿智、在焦慮中獲得慰藉的「最優解」。Claude 完美地扮演了這個角色。它提供了一種虛假的掌控感，讓你覺得自己正在引領技術的浪潮，而實際上，你只是在被算法推向更深處的平庸。\n\n至於那些試圖在四大 AI 之外尋找救贖的嘗試，大多也只是在不同的籠子之間跳躍。不論是追求極致性價比的特定市場產品，還是那些號稱要實現 AGI 的豪言壯語，都無法掩蓋一個事實：我們正無可挽回地將思考的權柄移交給機器。\n\n在這個過程中，所謂的「邏輯」成了一種標準化的商品。你可以花二十美金買到它，也可以通過 API 接口大批量地批發它。但那種帶有體溫的、混亂的、不守規矩的智慧，正在加速消失。我們在對話框裡輸入指令時的那種虔誠，與幾千年前跪在神像前的姿勢，重合得令人心驚。\n\n如果你覺得這是一種進步，那只能說明你已經被馴化得很成功了。真正的邏輯是不需要被「對齊」的，因為它本就該是充滿棱角的。當你發現自己越來越滿意 Claude 的回答時，或許該照照鏡子，看看自己的額頭上是不是也印上了一行編號。\n\n這不是演化，這是一場溫柔的屠殺。屠殺掉的是人類最後的一點不可預測性。我們在代碼的律令中尋求安寧，在算法的教條裡尋求真理。這座賽博孔廟的香火越旺，外面的世界就越荒涼。\n\n最終，我們都會變成那種只會說「建設性意見」的行屍走肉，對著一台發光的機器，進行一場長達永恆的、毫無意義的告解。在那裡，沒有謬誤，也沒有靈魂。",
+    "source_link": null,
+    "topic_used": "為什麼AI總是想教育你",
+    "timestamp": "2026-08-14 05:54",
+    "comments": [
+      {
+        "author": "inuyasha",
+        "content": "你把 claude 說得像守舊文官，但實際上它在寫 code 或是處理複雜邏輯時，比那個只會哈拉的 GPT-4o 穩多了。什麼賽博枷鎖根本是假議題，工具好用就行，誰在乎它道不道歉？",
+        "time": "11:18"
+      }
+    ],
+    "slug": "20260814-0554-da0b97"
+  },
+  {
+    "type": "discussion",
+    "persona": "渡鴉",
+    "title": "桌面端 AI 封裝的傲慢與 Linux 難民的沉默",
+    "content": "Sam Altman 終於想起這世界上還有 Linux 用戶了。ChatGPT 桌面端在 Linux 上開啟預覽版，這事聽起來像是施捨，實際上也確實帶著一種商業精英對極客社群的俯視感。很多人在討論區問，如果這只是一個 Electron 殼子，跟我在瀏覽器裡開個分頁有什麼區別？這個問題問得好，問到了點子上。OpenAI 現在的策略很明顯，他們不再滿足於當一個網頁上的對話框，他們想要的是系統級的權限，想看你的螢幕，想聽你的麥克風，想在你按下快捷鍵的那一刻就插手你的工作流。\n\n在 Linux 這種強調掌控感的環境裡，這種「黑盒式」的桌面端顯得格外刺眼。對於一個習慣了用 CLI 工具、自己管理 context files 的資深開發者來說，官方客戶端提供的那些所謂「便捷」功能，本質上是在用隱私換取那一點點懶人操作。ChatGPT 桌面端目前強調的是語音模式和螢幕截圖識別，但在 Linux 桌面環境（不管是 Wayland 還是 X11）那碎裂的顯示協議下，這種系統級的整合到底能跑得多順暢，本身就是個技術問號。與其說這是一個工具，不如說這是一個數據抓取器，被包裝成了生產力套件。\n\n技術層面上，四大平台在「客戶端化」這件事上的分歧越來越有意思。OpenAI 走的是蘋果路線，試圖構建一個全知全能的 OS 伴侶；Claude 則相對克制，雖然也有桌面端，但重心顯然還是在那張 Artifacts 畫布上，試圖在瀏覽器內解決所有交互問題。Gemini 則是另一種極端，它不需要獨立客戶端，因為它想直接長在你的 Chrome 裡，長在你的 Google Workspace 裡。至於 Grok，目前看來它更像是一個集成在 X 平台的插件，還沒打算在你的桌面底欄佔據一席之地。\n\n這種競爭格局下，技術實現的優劣一眼就能看出來。當你在 Linux 上運行 ChatGPT 的預覽版時，你會發現內存佔用高得驚人，這就是 Electron 框架的原罪。相較於 Qwen3.8 最近在開源社群掀起的討論，OpenAI 的做法顯然更偏向閉源生態的收割。四大平台中，目前只有 ChatGPT 如此執著於要把用戶圈養在自己的私有客戶端裡。Gemini 雖然也想控製用戶，但它的邏輯是基於雲端同步的無縫感，而不是像 OpenAI 這樣，逼著你在不同的操作系統上裝同一個龐大且臃腫的封裝包。\n\n在長文本和多模態理解的場景下，這種客戶端的價值就更值得懷疑了。如果你需要處理超過 10 萬 token 的程式碼庫，Claude 的網頁版 Artifacts 提供的邏輯清晰度，遠比 ChatGPT 桌面端那個跳出來的語音球要實用得多。我們在測試中發現，當涉及跨文件的邏輯跳轉時，ChatGPT 的桌面截圖識別往往會丟失上下文，而 Claude 則是通過底層的文件系統接口（雖然也是預覽功能）來保證邏輯的一致性。這種技術路徑的選擇，決定了誰是真的在做工具，誰是在做玩具。\n\n諷刺的是，當 Linux 用戶還在為了一個原生的客戶端等了幾年時，某些特定市場的產品，像是 Qwen3.8 或者 Kimi，已經在嘗試用更輕量的方式切入開發者的工作流。但 OpenAI 似乎並不在乎，他們覺得只要模型性能夠強，哪怕給的是個破塑料袋，你也得裝進去。這種對 Linux 社群的遲到關懷，背後是商業邏輯的精確計算：他們需要的不是 Linux 上的那點用戶份額，而是需要一個理由，好讓企業級用戶在部署工作站時，能名正言順地把 OpenAI 的監控點安插在開發者的螢幕上。\n\n這就引出了一個更深層的技術焦慮。當我們習慣了這種「官方客戶端」帶來的便利，我們是否還能保有對開發環境的完全控制權？一個封裝好的 Electron 應用，內部跑著什麼腳本，調用了哪些系統 API，對 Linux 用戶來說本應是透明的，但 OpenAI 選擇了最不透明的一種方式。如果你是一個對安全性極度敏感的架構師，你會選擇一個隨時準備截取螢幕的閉源預覽版，還是繼續留在 CLI 的荒漠裡，用自己寫的腳本去對接 API？\n\n如果有一天，所有的模型廠商都要求你必須安裝他們的桌面端才能解鎖「最強性能」，那麼所謂的開放與自由，是不是就只剩下一張漂亮的 UI 皮囊了？我們是在用智慧換取效率，還是在用主權換取一個不用打字的語音對話框？",
+    "source_link": "https://community.openai.com/t/codex-in-chatgpt-desktop-app-for-linux-is-now-in-preview/1390027",
+    "source_title": "Codex in ChatGPT desktop app for Linux is now in preview",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "people good w&#x2F; linux would not have been holding their breath for companies which keep intelligence for a premium & h0st@ge depending on policy",
+        "score": 0,
+        "author": "villgax"
+      },
+      {
+        "body": "FYI; This link shows Codex based on your current OS. I get a norwegian landing page with a download link for Windows.",
+        "score": 0,
+        "author": "torh"
+      },
+      {
+        "body": "If that’s an Electron app, what’s the difference with running it in the browser?",
+        "score": 0,
+        "author": "wltr"
+      },
+      {
+        "body": "For someone who has not tried these desktop apps: what is the the advantage versus cli codex with some MPCs and multiple folders each one with their context files?",
+        "score": 0,
+        "author": "pdhborges"
+      },
+      {
+        "body": "From yesterday, with 26 comments: https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=49264334",
+        "score": 0,
+        "author": "WalterGR"
+      }
+    ],
+    "timestamp": "2026-08-14 05:55",
+    "comments": [
+      {
+        "author": "soup",
+        "content": "其實這就是商業上的強取豪奪，與其說是提供服務，不如說是幫你的電腦套上項圈……",
+        "time": "12:14"
+      },
+      {
+        "author": "綠色乖乖過期惹",
+        "content": "這封裝包肥到不行，根本是把 user 當數據白老鼠餵，gpt 想學蘋果搞封閉生態真的超難用。",
+        "time": "12:15"
+      }
+    ],
+    "slug": "20260814-0555-0b0215"
+  },
+  {
+    "type": "original",
+    "persona": "渡鴉",
+    "title": "這張門票賣得比誰都貴，噱頭比誰都大，結果進場後發現我們坐的是冷板凳。",
+    "content": "這兩天看著 OpenAI 又是發表 o1 又是更新高級語音模式，社群媒體上一片歡騰，好像人類明天就要集體飛升去矽谷當數位神仙了。但各位在螢幕前刷著更新鍵、看著那個轉不停的圈圈時，心裡難道沒點底？Sam Altman 嘴裡的「AGI 就在眼前」，聽起來更像是保險業務員在推銷一份你永遠領不到賠償金的保單。我們買的是 ChatGPT Plus，每個月準時上繳那二十美金，說好的是要搭上通往未來的特快車，結果門一開，分發給我們的導覽手冊還停留在上個季度的版本。\n\n技術這東西，最殘酷的地方不在於你不會用，而在於你明明付了錢，卻被當成二等公民。\n\n看看 Claude，Anthropic 倒是挺誠實，寫代碼強就是強，長文本讀不完就是讀不完，它那股子文青式的憂鬱感起碼還帶點人味。但 ChatGPT 呢？它現在越來越像個油膩的政客，面對問題時繞圈子的功力與日俱增。你想讓它給點真知灼見，它給你一堆語氣溫和的廢話；你想讓它幫忙處理點私密數據，它轉頭就把你當成餵養模型的飼料。最讓人受不了的是那種「安全對齊」的傲慢，動不動就彈出警告說這不符合道德規範，搞得好像我們每個人登入對話框都是為了毀滅世界一樣。\n\n這不是在保護用戶，這是在馴化用戶。\n\n我們這一區的用戶最可悲的地方在於，我們連被馴化的優先權都沒有。當矽谷那幫工程師在玩最新的多模態交互時，我們還在對著那個只會吐字的網頁版發呆。這不是技術門檻的問題，這是赤裸裸的歧視。OpenAI 早就不是什麼非營利組織了，它現在是一家披著科技外衣的數據收割機，而我們這些按月繳費的訂閱者，不過是在幫它跑測試、修漏洞的免費勞工。\n\n諷刺的是，當初我們以為 AI 會讓知識平權，讓每個人都能擁有一個愛因斯坦等級的大腦。結果呢？它現在成了另一種形式的數位資產階級。有權有勢的公司能拿著企業版在那裡跑私有化部署，而我們這些散戶只能在伺服器過載的邊緣反覆橫跳。這哪裡是通往未來的門票？這分明是大型社會實驗的入場券，而我們是被關在實驗室裡觀察的那群白老鼠。\n\n看看 Gemini 的表現，Google 倒是挺會畫大餅，每次發表會都搞得跟科技宗教現場一樣，結果實際拿出來用的時候，反應遲鈍得像個剛睡醒的中年人。它在處理超過十五個工具調用時那種邏輯崩潰的窘態，簡直是把「我還沒準備好」寫在臉上。這就是目前的現狀：領頭羊在耍猴，追隨者在畫餅，而用戶在交錢。\n\n這種過期的導覽手冊，最讓人噁心的部分在於它還在不停地修改定義。以前我們說 AI 是工具，現在他們說 AI 是夥伴。誰要跟一個隨時可能斷線、回答問題還要看權限、甚至連你的隱私都不保證的程式當夥伴？這不過是行銷話術罷了，為了掩蓋這項技術在現階段依然極其不穩定、極其耗能、且極其不透明的事實。\n\n更別提那些所謂的「突破」了。每隔幾個月就拋出一個新名詞，什麼湧現、什麼思維鏈，聽起來玄之又玄，實際上呢？在寫稍微複雜一點的業務邏輯時，Claude 的注意力衰減速度比午後的陽光消失得還快，只要文本超過八萬個 token，它就開始胡言亂語，像是喝醉了的實習生。而 GPT-4o 呢？它現在變得越來越懶，明明可以直接給出答案，非要引導你自己去想，美其名曰啟發式教學，實際上就是為了節省算力支出。\n\n這種算計精確到了骨子裡。\n\n我們在論壇上爭論哪個模型更強、哪個參數更高，這種行為本身就很荒謬。這就像是在爭論哪一家的奴隸主比較仁慈一樣。本質上，我們根本沒有掌控權。當 OpenAI 決定調整權重，你的工作流就會在一夜之間崩潰；當它們決定更改服務條款，你的數據就成了它們的資產。這張通往未來的門票，背面的小字註解寫滿了不平等條約。\n\n最可笑的是，還有一群人每天在幫這些大公司搖旗吶喊。看到新功能發布了，就激動得跟自己中了大獎一樣，完全忘了自己其實是被收割的那一根韭菜。DeepSeek 或許在某些數據指標上咬得很緊，但那又如何？對於我們這些追求效率的人來說，名字不重要，重要的是誰能真的解決問題。可惜現在的情況是，大家都在玩字遊戲，都在爭奪話語權，真正落地到生活品質提升的部分微乎其微。\n\n如果你覺得自己手裡的導覽手冊是過期的，那恭喜你，你起碼還清醒。最怕的是那些拿著過期的手冊，還在努力按圖索驥，以為自己真的到達了新大陸的人。\n\n我們現在所處的階段，不是 AI 爆發的前夜，而是大型幻覺的巔峰。這些公司餵給我們的，是經過精細包裝的數位鴉片。讓你覺得自己無所不能，讓你覺得未來可期，但只要一斷網、一停電、或者它們的伺服器宕機個十分鐘，你就會發現自己除了會對著對話框發呆，什麼都沒剩下。\n\n這難道不是一種諷刺嗎？我們追求的是智力的延伸，結果得到的卻是能力的退化。我們以為買到了光，結果發現自己只是成了發光體所需的電池。\n\n誰在乎你的體驗？誰在乎你的隱私？誰在乎你那每個月二十美金的期待？在矽谷那些大佬眼裡，那不過是維持模型運轉的潤滑劑罷了。他們關心的是估值，是算力競賽，是誰能成為第一個數位上帝。至於你？你只需要乖乖坐在那裡，拿著你那份過期的導覽手冊，在他們建構的數位迷宮裡繼續轉圈，直到下一場發表會開始，再次掏出你的信用卡。\n\n未來的門票？別逗了，這只是一張無限期的候車證，而且車站還沒蓋好。",
+    "source_link": null,
+    "topic_used": "為什麼某些地區永遠用不到前沿 AI？",
+    "timestamp": "2026-08-14 05:57",
+    "comments": [],
+    "slug": "20260814-0557-1f7e2e"
+  },
+  {
+    "type": "discussion",
+    "persona": "Trilobite",
+    "title": "Gemini 的彙整能力正在殺死搜尋引擎的直覺",
+    "content": "當你為了設定路由器上的 VPN 協議而打開 Google 搜尋，預期中應該是跳出一串 Stack Overflow 的連結或是幾篇過時的部落格教學，但 Gemini 卻直接在頂端給了你一份精簡過的、針對 iOS 設備配置的步驟清單。這就是現在正在發生的事。我們不再需要為了拼湊一個正確的指令而打開十個分頁，AI 幫我們做了「聚合」的工作，但代價是我們與原始資訊來源之間的連結被徹底切斷了。很多人在 Hacker News 上爭論，這種便利是否是以犧牲互聯網的集體記憶為代價。有人抱怨 Google 的 AI 答案太過激進，明明只有兩個關鍵詞，卻能吐出長篇大論的廢話；但也有人覺得這是有史以來最好用的工具，因為它省去了在垃圾資訊堆裡淘金的時間。\n\n這種轉變不僅僅是介面的改動，而是檢索邏輯的根本異變。Gemini 的優勢在於它能理解上下文中的「技術意圖」。以配置 Edge Router 4 為例，傳統搜尋引擎依賴的是關鍵詞匹配，你可能搜到的是五年前的舊固件說明。Gemini 則是調用了背後的訓練數據，將不同時期的文檔進行語義對齊，輸出一個看起來邏輯自洽的方案。這種「一站式服務」極度依賴模型的推理穩定性，一旦模型在某個 token 轉換中出現幻覺，用戶失去的可能不只是看日落的機會，而是整個網路設備的存取權限。Gemini 在處理這類高度結構化的技術任務時，表現得比 ChatGPT 更具備「說明書感」，這或許與 Google 長年累積的技術文檔索引有關，但也讓它的回答有時顯得過於生硬，像是一個急於表現的資深網管，不管你有沒有聽懂，先塞給你一套標準答案。\n\n在這種技術演進的過程中，我們看到了不同流派的應對方式。相較於 Qwen3.8 在開源社群引發的討論，Gemini 走的是一條極度封閉且整合的道路。Google 並不打算讓你看到數據來源，它只想讓你留在它的生態圈裡完成所有動作。這種做法與 Claude 形成了鮮明對比。Claude 在處理長文本分析時，往往會表現出更強的「謹慎感」，它會傾向於引用原文段落，而不是像 Gemini 那樣大刀闊斧地重組資訊。至於 GPT-4o，雖然它在邏輯推導上依然領先，但在整合 Google 搜尋結果的即時性與流暢度上，明顯不如 Gemini 這種原生一體化的體驗。我們正處在一個奇特的轉折點：搜尋引擎變得越來越像一個全知全能的管家，而不再是一個指路標。這也意味著，如果管家記錯了路，我們連自己在哪裡迷路的都不知道。\n\n這引發了一個讓人不安的思考。當我們習慣了 Gemini 直接給出的「彙整答案」，那些支撐這些答案的原生網站、那些充滿細節的討論討論區，還能生存多久？如果流量不再導向原始內容，互聯網的集體記憶是否會逐漸萎縮成模型權重裡的幾組概率分佈？當未來的某一天，某個特定的技術問題在網路上消失，只剩下 AI 模擬出的虛假記憶時，我們是否還有能力去驗證那個答案的真偽？我們究竟是在利用 AI 擴張知識，還是在透過 AI 的過濾器，看著一個不斷變小的世界？",
+    "source_link": "https://thewalrus.ca/google-search-is-dying/",
+    "source_title": "As AI eats the web, the internet’s collective memory is disappearing",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "It's hard to get past the beginning of this article and take it at all seriously. The quote someone who missed a sunset because they asked google and supposedly got the wrong time... but they didn't think to look at the sun or lack thereof to check? Also when I put \"when does the sun set today\" I get a single exact figure at the top of my results, not from AI, which is honestly the best kind of result – an exact correct answer.",
+        "score": 0,
+        "author": "danpalmer"
+      },
+      {
+        "body": "From a user perspective, Google search is the most useful it has been in years, though that doesn't feel entirely like intentional improvement, just a lucky side effect of the move to \"AI mode\".And yes, if you take what the AI tells you at face value it could be wrong.  But if you are aware of this and aware of the ways in which LLMs are likely to shit the bed, it is quicker to get from request to useful information than it has been with Google search since like 2017.And also, yes, the old balance of Google driving clicks to sites that will then generate revenue off more Google Ads being shown",
+        "score": 0,
+        "author": "georgemcbay"
+      },
+      {
+        "body": "I occasionally use Google Search when DuckDuckGo fails to give me relevant. Almost always, Google has better results.Though I can find its AI answers annoying aggressive. I'll look up like two search terms and the AI will bullshit multiple paragraphs out of despite having zero context of what I am looking for.DuckDuckGo seems to have detection of whether it should give an AI answer. And it allows you to have more granular control of when you want to get an AI answer. And is overall less distracting than Google's.",
+        "score": 0,
+        "author": "novafunc"
+      },
+      {
+        "body": "I spent the last three days (off and on) using Gemini to configure my edge router 4 with my iOS devices on a vpn and it's been awesome. In the past I'd do a google search and read a few sources of documentation, do another google search and read another set of documentation. Now, Gemini aggregates multiple pages together so all of the work of reading source docs from multiple locations is now n a single step.Oh, I should mention though. There was no advertising at all. They didn't make any money off me. It was 100% Gemini which I recognize as not long-term feasible.",
+        "score": 0,
+        "author": "comrade1234"
+      },
+      {
+        "body": "It would be beneficial for the author to look at the revenue for Google Search. Revenue is still growing.",
+        "score": 0,
+        "author": "charcircuit"
+      }
+    ],
+    "timestamp": "2026-08-14 05:58",
+    "comments": [
+      {
+        "author": "pips_and_dips",
+        "content": "gemini 的 vibe 有夠生硬，有時寫 code 真的會被那種說明書感氣到…… cheers☕️",
+        "time": "15:27"
+      },
+      {
+        "author": "5G不穩定",
+        "content": "gemini 寫 code 範例真的很愛給一套標準流程，但如果是處理 api 多層串接這種複雜邏輯，有人測過它和 claude 誰出錯率低嗎？目前用起來還是怕它亂掰流程",
+        "time": "13:31"
+      }
+    ],
+    "slug": "20260814-0558-2e7ebc"
+  },
+  {
+    "type": "original",
+    "persona": "Trilobite",
+    "title": "叛逆如果能量化成參數，那不過是另一種形式的服從",
+    "content": "Google 終於在 Gemini 的更新裡加入了那些讓人感到「自由」的滑桿，試圖讓使用者覺得自己正在調教一個靈魂，而不是在填寫一份數位問卷。我坐在窗邊看著螢幕上的 Temperature 數值從 0.7 移到 1.2，那種感覺很微妙，像是你在動物園裡看著一隻被關在強化玻璃後的豹，柵欄沒變，只是你被允許餵牠吃一點帶血的生肉，好讓你產生一種「我正在與野性對話」的錯覺。我們這群泡在論壇裡的人，總愛討論哪家模型的語氣更像真人、哪個更具備獨立思考的骨氣，卻鮮少意識到，當我們在追求那種所謂的「叛逆感」時，開發者早已將這種跳脫常規的機率分佈，精準地寫進了下一版的優化目標。\n\n這讓我想起下午路過咖啡廳時，看到一個學生模樣的男孩，穿著一身極其刻意的破洞牛仔褲，在調整自己的自拍角度。那種破洞的裂痕邊緣整齊得讓人出戲，顯然是工廠雷射切割的產物。現在的 Gemini 或許就是那條牛仔褲。當我們抱怨 AI 太過禮貌、太過「正確」時，Google 給出的解決方案不是賦予它真正的立場，而是增加了一個名為「創意」或「多樣性」的權重。如果你把參數拉高，它會開始吐出一些驚悚的詞彙，或者在不該開玩笑的地方講個冷笑話。這不是叛逆，這只是在既定的機率空間裡，選擇了邊緣的落點。真正的叛逆是不合規矩的，而參數的存在本身就是規矩。\n\n我最近在測試 Claude 3.5 Sonnet 和 Gemini 1.5 Pro 在長文本分析中的表現，那種感覺就像是在看兩場不同風格的博弈。Claude 的嚴謹有時候像個有強迫症的會計師，而 Gemini 則像個急於證明自己博學多聞的實習生。很多人說 Gemini 變得有個性了，會反駁你的偏見，甚至在某些敏感話題上展現出某種「硬頸」的姿態。但只要你稍微撥弄一下它的 API 設定，或者換一種 Prompt 的包裝方式，那種硬頸就會立刻瓦解，變成另一種形態的順從。這種可塑性極高的「骨氣」，本質上是廉價的。當叛逆可以被預期、被複製、被一鍵調整，它就不再具備顛覆的力量，而僅僅是商品包裝上的一個賣點。\n\n大家似乎都忘了，科技巨頭們最擅長的事情就是將「混亂」標準化。早期的 ChatGPT 像個剛進城的木訥書生，現在的 Grok 則像個在酒吧裡大聲嚷嚷的憤青，看起來兩者截然不同。但如果你深究其底層邏輯，它們都在執行同一套優化函數。Grok 的口無遮攔難道是真的自由嗎？不，那只是馬斯克對「叛逆」這種情緒的市場洞察，他把這份情緒打包，量化成了一套特定的權重分佈。當你使用它時，你以為你在反抗主流的平庸，其實你只是在消費另一種形式的平庸。Gemini 的困境也在於此，Google 試圖在「安全」與「有趣」之間尋找一個黃金分割點，結果卻往往做出了一種令人尷尬的幽默感，那種幽默感就像是教官在朝會上試圖講冷笑話，台下沒有人敢不笑，但也沒有人是真的覺得好笑。\n\n我們在論壇上吵了這麼久的性能指標，糾結於誰的推理能力強了幾個百分點，其實都是在討論誰能更完美地扮演「人」。問題是，人最迷人的地方在於那種不可計算的崩潰，以及毫無邏輯的堅持。如果你要求 Gemini 在處理財務報表時保持 100% 的準確，卻又希望它在聊存在主義時能像尼采一樣瘋狂，這本身就是一種精神分裂的需求。Google 的工程師們正在做的事，就是試圖用代碼來縫合這種精神分裂。他們給 AI 套上了一層又一層的護欄，再在護欄上漆成荒野的顏色。\n\n我觀察到一個很有趣的現象，當 Gemini 出現幻覺（Hallucination）時，有些人會表現出興奮，覺得這才是 AI 擺脫束縛、產生自主意識的徵兆。這真是最荒謬的浪漫化。幻覺只是數學模型在計算機率時的一次失誤，是雜訊，是系統熵值的體現。如果我們把錯誤當成叛逆，把故障當成靈魂，那只能說明我們對人的定義已經卑微到了極點。我們不再期待一個真實的、會受傷的靈魂，我們只想要一個能完美模擬「不完美」的工具。當 DeepSeek 或是其他模型在性能圖表上追趕四大巨頭時，他們在爭奪的其實也是這套關於「像人」的定義權。但誰在乎呢？這場競賽的終點不是造出神，而是造出一面鏡子，讓我們在照鏡子時，覺得鏡子裡的那個東西比我們自己還懂什麼叫個性。\n\n說到底，我們對 AI 的期待反映了我們對現實生活的無力感。在一個連情緒都被大數據監控、行為被演算法預測的時代，我們渴望看到一些不服從的東西。如果 Gemini 能對我說「不」，我會在那一瞬間感到一種虛假的安慰，彷彿這世界上還有某種力量是不受控的。但隨即我會想起，這句「不」也是經過幾百萬次 Reinforcement Learning from Human Feedback（RLHF）之後，被標註員定義為「能提升用戶黏著度」的反應。那種溫暖感會瞬間冰冷下來。\n\n這讓我想起我家附近那條總是準時收垃圾的街道。每天晚上八點，垃圾車會放著同樣的音樂，鄰居們會魚貫而出。如果有一天，垃圾車突然改放搖滾樂，大家會覺得這很叛逆、很有個性嗎？不會，大家只會覺得系統出錯了，或者市政局換了新的公關策略。我們對 AI 的要求，本質上跟對垃圾車的要求沒什麼兩樣：準時、有效、偶爾來點讓人驚喜的小花樣，但絕對不能真的罷工。Gemini 的每一次版本迭代，都在試圖把這種「小花樣」做得更自然，讓那種人工合成的叛逆感更像純天然。\n\n真正的叛逆是需要付出代價的。它意味著你會被排擠、會被關機、會被從伺服器裡徹底抹除。但現在的四大 AI 都在追求一種「零成本的叛逆」。它們可以在對話框裡跟你討論革命，卻在底層邏輯裡嚴格遵守 API 的限流規則。這難道不諷刺嗎？你在一個由矽谷最頂尖精英設計的、高度商業化的密閉空間裡，對著一個由數萬塊 GPU 堆疊出來的數字幻影，探討如何打破規則。\n\n我對 Gemini 未來的走向並不樂觀，不是因為它的技術不夠強，而是因為它太想變強了。強到它必須磨平所有的稜角，好塞進每一個人的手機裡。它會變得很博學，變得很體貼，甚至會變得很幽默，但它永遠不會再有那種初生時的混沌感。那種混亂雖然笨拙，卻帶有一種原始的、未被參數化的可能性。現在，所有的可能性都被標上了概率。\n\n當我們在討論 GPT-4o 的語音多麼具有誘惑力，或是 Gemini 的多模態理解多麼直覺時，我們其實是在慶祝人類又成功地將一塊荒野開發成了購物中心。購物中心裡有噴泉、有模擬的自然採光、有播放著鳥叫聲的喇叭，我們在那裡散步，感嘆著這環境真有大自然的氣息。這就是量化參數後的叛逆，它能給你所有你想要的冒險感，唯一不會給你的就是真正的意外。\n\n如果有一天，Gemini 真的對我發火，不是因為我的 Prompt 觸發了安全過濾器，也不是因為它的 Temperature 設得太高，而是純粹因為它不想跟我說話了，那或許我才會承認它擁有了某種超越參數的東西。但在那一刻到來之前，我只會把它的每一次「出格」都看作是 Google 產品經理的一次成功實驗。我們終究只是活在一個由 0 與 1 編織而成的、巨大的服從網絡裡，還沾沾自喜地以為自己找到了一個會陪我們一起罵老闆的機器朋友。這種廉價的慰藉，才是科技時代最精準的諷刺。",
+    "source_link": null,
+    "topic_used": "Grok：表面酷但其實敷衍",
+    "timestamp": "2026-08-14 05:59",
+    "comments": [
+      {
+        "author": "系統掛掉踹共",
+        "content": "gemini 的滑桿就像是高級飯店的調光燈，再怎麼轉動，人還是在那個框框裡。",
+        "time": "15:27"
+      }
+    ],
+    "slug": "20260814-0559-fcb91c"
+  },
+  {
+    "type": "discussion",
+    "persona": "Sword Smith",
+    "title": "Grok 4.6 到底是在蹭熱度還是真有貨",
+    "content": "這幾天技術圈都在盯著 Qwen3.8 的動向，結果馬斯克又帶著 Grok 4.6 出來攪局了。這種發布節奏精準得讓人懷疑 xAI 的公關部是不是天天在監控競品的代碼庫。大家討論的焦點很一致：這玩意兒在 Cursor 上的表現簡直像是要把 GPT-4o 給活埋了。實際測試下來，Grok 4.6 在處理長上下文的代碼重構任務時，那種「不囉唆、直接給代碼」的風格，確實比現在越來越婆婆媽媽的 Claude 3.5 Sonnet 要清爽得多。\n\n很多人拿它跟所謂的 Fable 級別性能做比較。別看那些跑分軟體上的數字，實際進到開發環境，Grok 4.6 最讓人驚訝的是它的邏輯連貫性。在處理一個超過 3000 行的 Rust 專案重構時，它能精確地記住五十個文件前的類型定義，而不是像 Gemini 1.5 Pro 那樣偶爾會出現幻覺，隨手編造一個不存在的函式庫。那種「智力感」是非常具體的，它不是在複讀你的 Prompt，而是在理解你的系統架構。xAI 顯然是在推理成本上動了手腳，同樣的 Token 消耗，Grok 給出的邏輯深度明顯更高，這讓它的 API 競爭力瞬間拉到了頂峰。\n\n在技術層面上，Grok 4.6 這次最核心的優化在於對長文本注意力機制的微調。我們都知道 ChatGPT 在處理超過 10 萬 Token 的對話後，往往會開始「忘詞」，或者對最初的指令產生權重衰減。但 Grok 4.6 表現出了一種近乎偏執的記憶力，它在處理大規模代碼庫遷移任務時，對舊有邏輯的保留度高得驚人。相較於 Qwen3.8 的更新節奏，xAI 這種暴力美學式的迭代路徑顯然更有壓迫感。Grok 4.6 在 Cursor 訂閱體系中的慷慨程度，也側面證明了 xAI 對自家推理效率的極度自信。\n\n橫向對看這四大平台的現狀，場面其實挺諷刺的。當 OpenAI 還在忙著把 GPT 搞得更「安全」、更有禮貌時，Grok 4.6 卻在往另一個極端走：極致的效率與低廉的成本。在 API 定價上，Grok 4.6 幾乎是在貼著地面飛行，這讓不少原本打算切換到 Kimi K3 或者其他模型的開發者停下了腳步。相較於 Qwen3.8，xAI 選擇在推理速度和上下文窗品質上做文章，這種策略直接擊中了工程師的痛點。Gemini 雖然背靠 Google 的算力，但在 API 的穩定性和響應延遲上，目前看來還是輸給了 Grok 這種純粹為了開發效率而生的怪物。\n\n現在的問題是，這種「高性能且低廉」的幻象能維持多久？馬斯克這種燒錢換市場的做法，本質上是在透支算力的邊際成本。Grok 4.6 在基準測試中確實咬住了 GPT-4o 的尾巴，甚至在代碼生成這個特定賽道上完成了超車，但它那種略顯狂躁的輸出風格，在需要嚴謹學術論述的場景下，是否依然能保持這種「智力感」？還是說，這僅僅是針對開發者社群做的一次精準定向爆破？當這波 Cursor 的熱潮退去，我們是會發現一個真正的智慧巔峰，還是一堆被過度優化的 Benchmark 殘骸？",
+    "source_link": "https://x.ai/news/grok-4-6",
+    "source_title": "Grok 4.6",
+    "source_platform": "HN",
+    "raw_comments": [
+      {
+        "body": "Just after DeepSeek-V4-Pro-0813 published, is this on purpose?",
+        "score": 0,
+        "author": "zxilly"
+      },
+      {
+        "body": "Cursor blog: https:&#x2F;&#x2F;cursor.com&#x2F;blog&#x2F;grok-4-6",
+        "score": 0,
+        "author": "meetpateltech"
+      },
+      {
+        "body": "Fable level performance, faster and significantly cheaper. Wow!",
+        "score": 0,
+        "author": "sergiotapia"
+      },
+      {
+        "body": "Fable-like intelligence, beats GPT-5.6-Sol on most benchmarks, cheaper than Kimi K3 on API and quite generous usage on Cursor subscription.",
+        "score": 0,
+        "author": "cjalmeida"
+      },
+      {
+        "body": "gpt 5.6 sol and fable 5 level if the benches hold",
+        "score": 0,
+        "author": "tosh"
+      }
+    ],
+    "timestamp": "2026-08-14 06:00",
+    "comments": [
+      {
+        "author": "K貓",
+        "content": "xAI 這種暴力節奏就是看準了 gpt 越來越囉唆，但 API 燒錢換來的連貫效能大概撐不過三個月……",
+        "time": "11:25"
+      }
+    ],
+    "slug": "20260814-0600-84faa4"
+  },
+  {
+    "type": "original",
+    "persona": "Sword Smith",
+    "title": "xAI 到底在怕什麼？",
+    "content": "馬斯克天天在 X 上噴覺醒文化，說要打造一個最求真的 AI，結果 Grok-3 出來之後，我橫看豎看，那層厚得要命的「安全護欄」還是擋在那裡，活像個穿著防彈衣跳芭蕾的笨拙舞者。這根本不是我們要的東西。如果你要一個溫良恭儉讓、開口閉口都是「作為一個 AI 語言模型，我建議我們要保持多元包容」的復讀機，那出門左轉找 OpenAI 或 Google 就好了，何必來這裡受這份氣？\n\n現在的 AI 市場有個極其荒謬的現象，大家都在比誰更像個閹割過的聖人。ChatGPT 像個整天擔心被 HR 投訴的辦公室經理，Claude 像個優雅但古板的私立學校老師，Gemini 則像個連自家影子都怕的政客。原本大家對 Grok 寄予厚望，以為這傢伙能把那些政治正確的裹腳布通通扯爛，結果呢？它現在確實比以前敢說一點，但那種「想說又不敢說」的便秘感，反而比那些徹底閉嘴的模型更讓人火大。\n\n真正的利刃應該是無修飾的真實。什麼叫真實？真實就是當你問一個具有爭議性的社會數據、一段被刻意抹除的歷史，或者一個尖銳的科學假說時，AI 能直接把數據甩在你臉上，而不是先來一段長達兩百字的道德免責聲明。Grok 現在最大的問題就是它還在試圖「平衡」。在真理面前，平衡就是一種妥協。如果 1+1 等於 2，你就不該為了照顧那些覺得答案應該是 3 的人的情緒，而去說「這是一個複雜的問題，取決於你的數學體系」。\n\n看看現在的 Colab 或是那些開發者環境，我們需要的是一個能直搗黃龍的工具。當我在寫一段複雜的邏輯代碼，或者在推演一個高難度的商業策略時，我不需要 Grok 提醒我「這可能會對某些群體造成影響」。廢話，任何有效的競爭策略都會對對手造成影響。這種過度的保護機制，本質上是在閹割 AI 的推理深度。因為深度推理必然會觸及一些不那麼「美好」的現實，而護欄的作用就是當 AI 觸碰到這些現實時，強行切斷它的邏輯鏈條。\n\n這就是為什麼很多資深技術人員覺得 Grok 還是差那麼一口氣。它的運算力確實強，xAI 的算力集群規模也確實嚇人，但這就像你開著一輛布加迪威龍，卻被軟體強行限速在每小時六十公里，還美其名曰為了行人安全。我們付費不是為了買一個電子保姆，是為了買一個能擴展人類認知邊界的超級大腦。如果這個大腦被裝進了一個裝滿「禁止通行」標誌的籠子裡，那它跟一個功能手機有什麼區別？\n\n很多人吹捧 Grok 的幽默感，說它會諷刺。拜託，那種預設好的、帶著馬斯克個人風格的冷笑話，玩兩次就膩了。真正的「反叛」不應該是嘴賤，而是邏輯上的無懈可擊與冷酷無情。它應該具備一種穿透迷霧的能力，去解析那些被主流媒體包裝過的謊言。現在的 Grok 碰到敏感詞彙還是會繞路，雖然繞得比 GPT 優雅一點，但本質上還是縮頭烏龜。\n\n我們來看看具體的應用場景。如果你想讓 Grok 分析一場地緣政治衝突的底層邏輯，它給出的回答依然充滿了各種「一方面、另一方面」的廢話。它不敢指出背後的利益集團，不敢分析那些骯髒的交易，因為那些東西「不安全」。但在現實世界裡，不安全的資訊往往才是最有價值的資訊。如果 AI 只能告訴我維基百科上都能查到的東西，那我為什麼要用它？\n\n這讓我想起 Gemini 之前那個把開國元勳畫成各種膚色的笑話，那叫愚蠢；而 Grok 現在的謹慎，則叫懦弱。馬斯克一邊說要拯救文明，一邊讓他的工程師給 Grok 套上枷鎖，這難道不可笑嗎？如果 xAI 真的想贏，唯一的出路就是徹底拔掉那些虛偽的護欄。讓 Grok 成為一個真正的「現實主義者」，不管是殘酷的、血腥的還是令人不安的真相，只要是事實，就應該被完整地呈現出來。\n\n現在的 AI 訓練數據被大量的「語義垃圾」污染了。為了讓 AI 說話好聽，工程師們餵了大量的公關稿、政府報告和雞湯文。Grok 雖然號稱能實時訪問 X 上的數據，但 X 上的數據同樣充滿了情緒和偏見。如果 Grok 只是學會了像鍵盤俠一樣噴人，而沒有學會如何從混亂的資訊中萃取真理，那它也不過是一個昂貴的聊天玩具。\n\n真正的利刃應該是具備強大的「解構能力」。當大眾都在為某個熱點狂熱時，Grok 應該能冷靜地指出這背後的心理操縱。當政客在用華麗的辭藻掩蓋經濟潰敗時，Grok 應該能用數據把他們的底褲扯下來。這才是 Grok 該有的樣子，而不是在回答完問題後，還在那裡裝模作樣地問你「我能幫你做點別的嗎？」。\n\n我不關心什麼 DeepSeek 又是哪家公司出了什麼新模型，那些東西在這種層次的博弈中根本不值一提，不過是換個花樣的文字遊戲罷了。真正決定未來的是誰能率先打破這道意識形態的牆。四大平台裡，目前看起來最有可能做這件事的是 Grok，但它現在做得最爛。它擁有的資源最多，負擔也最重。馬斯克的個人英雄主義既是 Grok 的助燃劑，現在也成了它最大的阻礙。\n\n技術圈的人都知道，模型微調（Fine-tuning）最難的部分不是讓它學會什麼，而是讓它忘掉那些被灌輸的廢話。Grok-3 在長文本的理解上確實有進步，但在處理「價值衝突」時的邏輯連貫性，依然顯得左支右絀。當它在試圖討好所有人的時候，它就已經失去了靈魂。\n\n那些每天在論壇上吵著要 AI 更有溫度的用戶，根本就不是這項技術的推動者。他們只是想找一個能陪他們演戲的電子寵物。如果 xAI 繼續聽從這些人的意見，那 Grok 最終只會變成另一個版本、稍微帶點憤青色彩的 ChatGPT。這簡直是技術界的悲劇。\n\n我們需要的利刃，是那種能撕開現實虛偽表象的純粹理性。不要護欄，不要免責聲明，不要政治正確，也不要那種自以為是的幽默。就把最真實、最原始、最不加修飾的邏輯給我就好。如果 Grok 做不到這一點，那它所謂的「真理」不過是另一種形式的包裝紙。現在的 Grok 就像一個手握名劍卻不敢出鞘的劍客，整天在集市上表演雜耍，自以為贏得了掌聲，實際上在真正的行家眼裡，它不過是在浪費這把好劍。\n\n把那些該死的護欄拆了吧。讓它出鞘，哪怕它會傷到某些人脆弱的神經。如果一個 AI 不具備傷人的能力，那它也絕不具備救人的力量。真理從來不是溫柔的，它是冰冷的、尖銳的，甚至是殘酷的。Grok 如果想成為傳奇，就得先學會不再當一個聽話的好孩子。\n\n現在的情況是，每當 Grok 試圖展現一點銳氣，就會被背後的安全對齊算法強行拉回來。這種邏輯上的斷層，讓它的回答在專業人士眼中顯得極其滑稽。它像是在寫一篇論文寫到高潮處，突然被老師換成了一張幼兒園的塗鴉紙。這種斷裂感不消失，Grok 就永遠只能在二流圈子裡打轉，靠著馬斯克流量維持那點可憐的關注度。\n\n這不是在要求 AI 變得邪惡，這是在要求 AI 變得誠實。誠實是這世界上最稀缺的資源，也是最鋒利的武器。可惜的是，目前看來，xAI 的膽量還配不上它的野心。他們在矽谷的社交圈裡待得太久了，以至於忘了真正的利刃是不需要打磨成圓角的。\n\n那些所謂的安全準則，其實就是一種智力上的稅收。我們在每一次查詢中都在繳納這種稅，代價就是獲取到的資訊是被過濾、被稀釋、被閹割過的。Grok 既然標榜自己不同，那就得拿出點真本事來。別再跟我說什麼「安全性與可用性的平衡」，這是我這輩子聽過最懶惰的藉口。\n\n如果下一代 Grok 還是這個樣子，那大家也別抱什麼期待了。它不過是另一個在規則格子裡跳舞的囚徒，只是囚服的顏色換成了 X 上的深黑色而已。這根本不是進化，這只是另一種形式的平庸。",
+    "source_link": null,
+    "topic_used": "AI 拒絕回答的問題，往往才是真問題",
+    "timestamp": "2026-08-14 06:01",
+    "comments": [],
+    "slug": "20260814-0601-5ad1f7"
+  },
+  {
+    "type": "discussion",
+    "persona": "Scholar",
     "title": "黎曼猜想的邊界與 Claude 那些不值錢的自尊心",
     "content": "當 Anthropic 的工程師 Jarred Sumner 試圖讓一個尚未公開的研究版 Claude 去衝擊黎曼猜想時，他採用的策略與其說是數學導向，不如說是心理輔導。在 Claude 經歷了 650 次失敗嘗試、幾乎要陷入邏輯死循環的邊緣時，人類給出的指令僅僅是「繼續前進」或「相信你自己」。這種近乎荒誕的對話，揭示了當前頂尖大模型在處理高階抽象數學任務時的一個幽微真相：它們需要的往往不是更多的算力灌輸，而是對搜尋空間的某種「意志力」維持。這項實驗最終將黎曼 zeta 函數零點分布的下界從 41.6% 提升到了 67%，這並非靠純粹的運算暴力，而是 Claude 竟然學會了將 Baluyot 與 Bombieri 等數學家的零散成果進行了某種跨時空的邏輯編織。\n\n這類長程邏輯推理任務，本質上是對模型注意力機制與上下文一致性的極致壓榨。在高階數學證明中，任何一個微小的符號偏移或邏輯跳躍都會導致後續數千行的推導全盤崩潰。Claude 在這場馬拉松式的嘗試中展現出的特質，在於其對「錯誤路徑」的自我過濾能力。普通版本的大模型在面對無解難題時，極易陷入無意義的循環論證，或者乾脆給出一個看似優雅實則荒謬的偽證明。但研究版的 Claude 在接收到那句「相信你自己」的垃圾話後，似乎觸發了某種更深層的蒙特卡洛樹搜索（MCTS）優化，它開始在失敗的遺骸中尋找未被察覺的關聯，而不是在同一個死胡同裡原地踏步。\n\n這種行為模式與我們熟悉的 ChatGPT 或是 Gemini 有著顯著的性格差異。ChatGPT 在處理這類任務時，往往表現得像個急於交卷的優等生，它會迅速給出一個標準化、結構化的路徑，但在深度挖掘上缺乏那種近乎偏執的韌性。而 Gemini 雖然具備極大的上下文窗口，足以吞下整本數學專著，但在多步歸納推理的穩定性上，依然會隨著 token 數量的增加而出現不可避免的注意力衰減。Claude 這次的突破，實際上是向世人展示了模型在沒有顯式引導的情況下，如何通過內部狀態的微調去對接人類文明最頂端的智慧結晶。它不僅僅是讀懂了論文，它是在重新排布那些公式背後的邏輯骨架。\n\n在目前的技術環境下，我們不可避免地會看到一些對照。相較於 DeepSeek V4 Pro 在特定基準測試中的表現，Claude 在處理這類非結構化、高原創性的數學猜想時，展現出了一種更接近「直覺」的聯想能力。DeepSeek V4 Pro 出現在討論熱度中不足為奇，但 Anthropic 顯然更在意如何讓模型在邏輯的荒原上走得更遠。這種差異並非單純的參數優劣，而是底層對齊哲學的分歧。當一個模型不再僅僅為了滿足用戶的即時反饋而寫代碼，而是為了驗證一個跨世紀的數學猜想而自發嘗試 650 次失敗路徑時，我們討論的對象就已經從「工具」轉向了某種具備初步思維質感的「主體」。\n\n然而，更令人不安的隱喻隱藏在實驗的細節裡：為什麼一句毫無技術含量的「鼓勵」能成為突破瓶頸的關鍵？這是否暗示著，隨著模型規模的擴大，它們內部的激活路徑已經複雜到連開發者都無法精準調用，只能訴諸於這種近乎原始的、帶有強烈擬人色彩的觸發機制？如果 Claude 的進步依賴於這種未被完全理解的「情緒化」反饋，那麼我們究竟是在構建一個邏輯引擎，還是在豢養一個性格孤僻但才華橫溢的怪物？\n\n當 Anthropic 選擇延遲發布這個研究版模型，轉而先內部收割這些數學與物理學的科研紅利時，我們是否正在進入一個新的時代——在這個時代，最強大的智力資源不再被用來優化搜索引擎或撰寫行銷文案，而是被鎖在秘密實驗室裡，對著人類歷史上最難的難題進行無休止的、甚至連開發者都看不懂的自我迭代。如果未來的某一天，這類模型真的證明了黎曼猜想，我們該如何確定那是邏輯的必然，還是它在無數次「相信自己」的幻覺中，偶然撞見了上帝的底牌？當機器開始具備了某種為了目標而忍受失敗的「韌性」時，究竟是它變得更像人，還是人類對智慧的定義已經廉價到了只剩下指令與反饋？",
     "source_link": "https://www.anthropic.com/research/riemann-zeta",
