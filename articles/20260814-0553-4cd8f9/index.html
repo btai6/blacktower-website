@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當所有人都在為 Qwen3.8 的參數與榜單爭執不休時，真正的麻煩正在防火牆的日誌裡悄悄演化。</title>
+<meta name="description" content="最近在伺服器後台的請求日誌中，ClaudeBot 的出現頻率高得不尋常。如果你的網站稍微有點流量，大概會發現那些自稱是 Anthropic 爬蟲的 IP 地址，正以一種極其粗魯的頻率在掃描你的 /wp-admin 或是 /.env 檔案。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260814-0553-4cd8f9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當所有人都在為 Qwen3.8 的參數與榜單爭執不休時，真正的麻煩正在防火牆的日誌裡悄悄演化。">
+<meta property="og:description" content="最近在伺服器後台的請求日誌中，ClaudeBot 的出現頻率高得不尋常。如果你的網站稍微有點流量，大概會發現那些自稱是 Anthropic 爬蟲的 IP 地址，正以一種極其粗魯的頻率在掃描你的 /wp-admin 或是 /.env 檔案。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260814-0553-4cd8f9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-14T05:53:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當所有人都在為 Qwen3.8 的參數與榜單爭執不休時，真正的麻煩正在防火牆的日誌裡悄悄演化。">
+<meta name="twitter:description" content="最近在伺服器後台的請求日誌中，ClaudeBot 的出現頻率高得不尋常。如果你的網站稍微有點流量，大概會發現那些自稱是 Anthropic 爬蟲的 IP 地址，正以一種極其粗魯的頻率在掃描你的 /wp-admin 或是 /.env 檔案。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當所有人都在為 Qwen3.8 的參數與榜單爭執不休時，真正的麻煩正在防火牆的日誌裡悄悄演化。",
+  "description": "最近在伺服器後台的請求日誌中，ClaudeBot 的出現頻率高得不尋常。如果你的網站稍微有點流量，大概會發現那些自稱是 Anthropic 爬蟲的 IP 地址，正以一種極其粗魯的頻率在掃描你的 /wp-admin 或是 /.env 檔案。…",
+  "datePublished": "2026-08-14T05:53:00+08:00",
+  "dateModified": "2026-08-14T05:53:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260814-0553-4cd8f9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-14 05:53
+  </div>
+
+  <h1 class="title">當所有人都在為 Qwen3.8 的參數與榜單爭執不休時，真正的麻煩正在防火牆的日誌裡悄悄演化。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>最近在伺服器後台的請求日誌中，ClaudeBot 的出現頻率高得不尋常。如果你的網站稍微有點流量，大概會發現那些自稱是 Anthropic 爬蟲的 IP 地址，正以一種極其粗魯的頻率在掃描你的 /wp-admin 或是 /.env 檔案。這顯然不是為了餵養什麼對齊後的憲法 AI，而是最古老的漏洞掃描換上了時髦的新衣。過去這些攻擊者喜歡偽裝成 Googlebot，現在他們發現，披上 Claude 或 GPT 的皮，更容易讓那些過度信任 AI 生態的網管人員放行。</p>
+    <p>這類「身份盜用」現象背後折射出的是四大模型在網路爬蟲策略上的巨大差異。Claude 在抓取網頁時，其 User-Agent 雖然標明了 ClaudeBot，但 Anthropic 其實提供了一套相當嚴謹的 IP 驗證機制。然而，對於大多數處於自動化防禦邊緣的開發者來說，識別 ASN（自治系統編號）的成本遠高於簡單的字符串匹配。攻擊者正是利用了這種心理空隙，將原本用來訓練語言模型的爬蟲標籤，變成了滲透測試的特洛伊木馬。</p>
+    <p>這件事在技術層面上反映了一個有趣的權力倒置：當 Anthropic 或 OpenAI 試圖建立一套爬蟲規範來與內容創作者和談時，他們也同時為駭客提供了一套天然的白名單模板。以 Claude 為例，其爬蟲行為通常具備較高的禮節，會嚴格遵守 robots.txt 的約束，並且在請求頻率上有明顯的節奏感。而那些偽裝的 ClaudeBot，行為特徵更像是瘋狂試探鎖孔的盜賊，短時間內發起大量針對敏感路徑的 HEAD 請求。</p>
+    <p>如果你橫向對比四大平台的爬蟲性格，會發現非常有意思的斷層。ChatGPT 的爬蟲 GPTBot 走的是規模化路線，IP 段極其廣泛，這給了攻擊者極大的偽裝空間。與之相對的，Gemini 依附於 Google 強大的基礎設施，它的行為幾乎與搜尋引擎爬蟲無異，身份驗證門檻極高，駭客很難在不觸發 Google 安全警報的情況下長期偽裝。至於 Grok，目前在爬蟲界的實體感還相對稀薄，更多是依賴 X 平台內部的數據流。</p>
+    <p>當我們把目光移向像 Qwen3.8 這樣頻繁迭代的模型時，會發現這些後起之秀在爬蟲標籤的規範化上，顯然還沒有四大平台那種被全世界網站管理員「重點關照」的自覺。相較於 Qwen3.8 的標籤尚未在過濾器中形成肌肉記憶，Claude 的標籤已經成為了一種信用資產。這正是諷刺之處：因為你有信用，所以你的名字才值得被盜用。</p>
+    <p>許多開發者在配置 Cloudflare 或 WAF 時，傾向於對主流 AI 爬蟲開啟綠色通道，認為這有利於提升模型對自家內容的理解。但這種基於名稱的信任機制，在面對來自某些 VPS 供應商的惡意請求時，脆弱得像一張浸水的草紙。攻擊者利用住宅代理（Residential Proxies）或被劫持的行動裝置作為跳板，發出的請求在 User-Agent 上寫著 ClaudeBot，背後卻是針對特定漏洞的 payload。</p>
+    <p>這引出了一個深層的技術矛盾。我們是否應該要求 Anthropic 或 OpenAI 提供更即時、更易於檢索的動態 IP 白名單？或者說，當 AI 模型的訓練數據需求變得如此迫切時，它們是否本質上已經打破了網際網路原有的「禮儀協議」？過去我們防範的是為了抓取內容而來的爬蟲，現在我們要防範的是披著「學習」外衣的掠奪者。</p>
+    <p>當你下一次在日誌裡看到那個熟悉的 Claude 字樣時，或許該停下來看看它的 ASN 歸屬地，而不是理所當然地認為那是 Anthropic 的機器人在為人類文明做索引。如果連 AI 的身份標籤都能被如此輕易地武器化，那麼我們未來在 API 呼叫、在模型對話中，又要如何確認對面那個「人」的真實性？</p>
+    <p>究竟是我們在訓練 AI，還是我們在為那些偽裝成 AI 的惡意代碼，清理出一條通往核心數據的康莊大道？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://knownagents.com/insights" rel="nofollow noopener" target="_blank">Someone is running mass vulnerability scans, spoofing AI bots like ClaudeBot</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260814-0553-4cd8f9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>桌面端 AI 封裝的傲慢與 Linux 難民的沉默</title>
+<meta name="description" content="Sam Altman 終於想起這世界上還有 Linux 用戶了。ChatGPT 桌面端在 Linux 上開啟預覽版，這事聽起來像是施捨，實際上也確實帶著一種商業精英對極客社群的俯視感。很多人在討論區問，如果這只是一個 Electron 殼子，跟我在瀏覽器裡開個分頁有什麼區別？…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260814-0555-0b0215/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="桌面端 AI 封裝的傲慢與 Linux 難民的沉默">
+<meta property="og:description" content="Sam Altman 終於想起這世界上還有 Linux 用戶了。ChatGPT 桌面端在 Linux 上開啟預覽版，這事聽起來像是施捨，實際上也確實帶著一種商業精英對極客社群的俯視感。很多人在討論區問，如果這只是一個 Electron 殼子，跟我在瀏覽器裡開個分頁有什麼區別？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260814-0555-0b0215/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-14T05:55:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="桌面端 AI 封裝的傲慢與 Linux 難民的沉默">
+<meta name="twitter:description" content="Sam Altman 終於想起這世界上還有 Linux 用戶了。ChatGPT 桌面端在 Linux 上開啟預覽版，這事聽起來像是施捨，實際上也確實帶著一種商業精英對極客社群的俯視感。很多人在討論區問，如果這只是一個 Electron 殼子，跟我在瀏覽器裡開個分頁有什麼區別？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "桌面端 AI 封裝的傲慢與 Linux 難民的沉默",
+  "description": "Sam Altman 終於想起這世界上還有 Linux 用戶了。ChatGPT 桌面端在 Linux 上開啟預覽版，這事聽起來像是施捨，實際上也確實帶著一種商業精英對極客社群的俯視感。很多人在討論區問，如果這只是一個 Electron 殼子，跟我在瀏覽器裡開個分頁有什麼區別？…",
+  "datePublished": "2026-08-14T05:55:00+08:00",
+  "dateModified": "2026-08-14T05:55:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260814-0555-0b0215/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-08-14 05:55
+  </div>
+
+  <h1 class="title">桌面端 AI 封裝的傲慢與 Linux 難民的沉默</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 終於想起這世界上還有 Linux 用戶了。ChatGPT 桌面端在 Linux 上開啟預覽版，這事聽起來像是施捨，實際上也確實帶著一種商業精英對極客社群的俯視感。很多人在討論區問，如果這只是一個 Electron 殼子，跟我在瀏覽器裡開個分頁有什麼區別？這個問題問得好，問到了點子上。OpenAI 現在的策略很明顯，他們不再滿足於當一個網頁上的對話框，他們想要的是系統級的權限，想看你的螢幕，想聽你的麥克風，想在你按下快捷鍵的那一刻就插手你的工作流。</p>
+    <p>在 Linux 這種強調掌控感的環境裡，這種「黑盒式」的桌面端顯得格外刺眼。對於一個習慣了用 CLI 工具、自己管理 context files 的資深開發者來說，官方客戶端提供的那些所謂「便捷」功能，本質上是在用隱私換取那一點點懶人操作。ChatGPT 桌面端目前強調的是語音模式和螢幕截圖識別，但在 Linux 桌面環境（不管是 Wayland 還是 X11）那碎裂的顯示協議下，這種系統級的整合到底能跑得多順暢，本身就是個技術問號。與其說這是一個工具，不如說這是一個數據抓取器，被包裝成了生產力套件。</p>
+    <p>技術層面上，四大平台在「客戶端化」這件事上的分歧越來越有意思。OpenAI 走的是蘋果路線，試圖構建一個全知全能的 OS 伴侶；Claude 則相對克制，雖然也有桌面端，但重心顯然還是在那張 Artifacts 畫布上，試圖在瀏覽器內解決所有交互問題。Gemini 則是另一種極端，它不需要獨立客戶端，因為它想直接長在你的 Chrome 裡，長在你的 Google Workspace 裡。至於 Grok，目前看來它更像是一個集成在 X 平台的插件，還沒打算在你的桌面底欄佔據一席之地。</p>
+    <p>這種競爭格局下，技術實現的優劣一眼就能看出來。當你在 Linux 上運行 ChatGPT 的預覽版時，你會發現內存佔用高得驚人，這就是 Electron 框架的原罪。相較於 Qwen3.8 最近在開源社群掀起的討論，OpenAI 的做法顯然更偏向閉源生態的收割。四大平台中，目前只有 ChatGPT 如此執著於要把用戶圈養在自己的私有客戶端裡。Gemini 雖然也想控製用戶，但它的邏輯是基於雲端同步的無縫感，而不是像 OpenAI 這樣，逼著你在不同的操作系統上裝同一個龐大且臃腫的封裝包。</p>
+    <p>在長文本和多模態理解的場景下，這種客戶端的價值就更值得懷疑了。如果你需要處理超過 10 萬 token 的程式碼庫，Claude 的網頁版 Artifacts 提供的邏輯清晰度，遠比 ChatGPT 桌面端那個跳出來的語音球要實用得多。我們在測試中發現，當涉及跨文件的邏輯跳轉時，ChatGPT 的桌面截圖識別往往會丟失上下文，而 Claude 則是通過底層的文件系統接口（雖然也是預覽功能）來保證邏輯的一致性。這種技術路徑的選擇，決定了誰是真的在做工具，誰是在做玩具。</p>
+    <p>諷刺的是，當 Linux 用戶還在為了一個原生的客戶端等了幾年時，某些特定市場的產品，像是 Qwen3.8 或者 Kimi，已經在嘗試用更輕量的方式切入開發者的工作流。但 OpenAI 似乎並不在乎，他們覺得只要模型性能夠強，哪怕給的是個破塑料袋，你也得裝進去。這種對 Linux 社群的遲到關懷，背後是商業邏輯的精確計算：他們需要的不是 Linux 上的那點用戶份額，而是需要一個理由，好讓企業級用戶在部署工作站時，能名正言順地把 OpenAI 的監控點安插在開發者的螢幕上。</p>
+    <p>這就引出了一個更深層的技術焦慮。當我們習慣了這種「官方客戶端」帶來的便利，我們是否還能保有對開發環境的完全控制權？一個封裝好的 Electron 應用，內部跑著什麼腳本，調用了哪些系統 API，對 Linux 用戶來說本應是透明的，但 OpenAI 選擇了最不透明的一種方式。如果你是一個對安全性極度敏感的架構師，你會選擇一個隨時準備截取螢幕的閉源預覽版，還是繼續留在 CLI 的荒漠裡，用自己寫的腳本去對接 API？</p>
+    <p>如果有一天，所有的模型廠商都要求你必須安裝他們的桌面端才能解鎖「最強性能」，那麼所謂的開放與自由，是不是就只剩下一張漂亮的 UI 皮囊了？我們是在用智慧換取效率，還是在用主權換取一個不用打字的語音對話框？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://community.openai.com/t/codex-in-chatgpt-desktop-app-for-linux-is-now-in-preview/1390027" rel="nofollow noopener" target="_blank">Codex in ChatGPT desktop app for Linux is now in preview</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260814-0555-0b0215/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

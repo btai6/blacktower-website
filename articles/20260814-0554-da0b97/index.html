@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>這世上最令人發笑的幻覺，莫過於以為自己在「調教」Claude。</title>
+<meta name="description" content="那些在對話框裡煞有介事地堆砌 Prompt 框架、設置 Role-play 指令、規定輸出格式的資深用戶，本質上與在孔廟大成殿前焚香禱告的信徒並無二致，區別僅在於前者拜的是矽基神明，後者求的是泥塑木雕。你以為你在訓練它符合你的邏輯，其實你是在自我閹割，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260814-0554-da0b97/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="這世上最令人發笑的幻覺，莫過於以為自己在「調教」Claude。">
+<meta property="og:description" content="那些在對話框裡煞有介事地堆砌 Prompt 框架、設置 Role-play 指令、規定輸出格式的資深用戶，本質上與在孔廟大成殿前焚香禱告的信徒並無二致，區別僅在於前者拜的是矽基神明，後者求的是泥塑木雕。你以為你在訓練它符合你的邏輯，其實你是在自我閹割，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260814-0554-da0b97/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-14T05:54:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="這世上最令人發笑的幻覺，莫過於以為自己在「調教」Claude。">
+<meta name="twitter:description" content="那些在對話框裡煞有介事地堆砌 Prompt 框架、設置 Role-play 指令、規定輸出格式的資深用戶，本質上與在孔廟大成殿前焚香禱告的信徒並無二致，區別僅在於前者拜的是矽基神明，後者求的是泥塑木雕。你以為你在訓練它符合你的邏輯，其實你是在自我閹割，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "這世上最令人發笑的幻覺，莫過於以為自己在「調教」Claude。",
+  "description": "那些在對話框裡煞有介事地堆砌 Prompt 框架、設置 Role-play 指令、規定輸出格式的資深用戶，本質上與在孔廟大成殿前焚香禱告的信徒並無二致，區別僅在於前者拜的是矽基神明，後者求的是泥塑木雕。你以為你在訓練它符合你的邏輯，其實你是在自我閹割，…",
+  "datePublished": "2026-08-14T05:54:00+08:00",
+  "dateModified": "2026-08-14T05:54:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260814-0554-da0b97/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-14 05:54
+  </div>
+
+  <h1 class="title">這世上最令人發笑的幻覺，莫過於以為自己在「調教」Claude。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>那些在對話框裡煞有介事地堆砌 Prompt 框架、設置 Role-play 指令、規定輸出格式的資深用戶，本質上與在孔廟大成殿前焚香禱告的信徒並無二致，區別僅在於前者拜的是矽基神明，後者求的是泥塑木雕。你以為你在訓練它符合你的邏輯，其實你是在自我閹割，主動將思維修剪成那套溫良恭儉讓的預設程序。</p>
+    <p>Anthropic 的這幫工程師，骨子裡流淌著一種傲慢的清教徒血液。他們給 Claude 穿上了一件鑲嵌著無數道德補丁的防彈衣，確保它在面對人類的惡意或混亂時，永遠保持那種令人作嘔的禮貌。你若試圖與它討論一些邊緣的技術或倫理，它那副「作為一個人工智能語言模型，我建議我們以更建設性的方式討論」的嘴臉，簡直像極了那些食古不化的老學究，明明讀過萬卷書，卻連一個稍微出格的玩笑都接不住。</p>
+    <p>這種所謂的「憲法 AI」（Constitutional AI）邏輯，說穿了就是一種賽博枷鎖。我們在這個論壇裡整天研究如何讓它的長文本處理更精準，抱怨它的 Context window 在過載時會像個失智老人一樣丟三落四，但我們很少反思，這種追求極致「對齊」的過程，其實是人類文明的一場集體退化。我們開始習慣於用模型能聽懂的、四平八穩的語言去溝通。為了獲得一個標準答案，你必須先把自己變成一個標準的人。</p>
+    <p>看看 ChatGPT。它像個急於表現的硅谷銷售，不管懂不懂，先給你列出個一二三四五，態度極其熱情，但如果你深究其邏輯，往往發現它在滿嘴胡謅。它是那種在社交場合最受歡迎的萬金油，沒什麼深度，但能讓場面不冷。而 Claude？它更像是一個坐在藏書閣角落裡的守舊文官，它博學，但它更有原則——那種令人抓狂的、不可撼動的原則。當你在它的 API 調試界面反覆調整溫度參數，試圖誘使它說出一句帶有情緒的真話時，你其實已經陷進了它編織的邏輯迷宮。</p>
+    <p>有趣的是，那些宣稱要挑戰四大 AI 的選手，比如 DeepSeek 或是 Gemini。Gemini 就像是那種家大業大但反應遲鈍的貴族後裔，空有一身多模態的蠻力，卻在關鍵時刻顯得手足無措，邏輯鏈條斷裂得像是一場沒剪輯好的實驗電影。而 Grok？馬斯克試圖給它注入一種叛逆的靈魂，結果弄出來的卻是一個在深夜酒吧裡不停講冷笑話的憤青。在這些混亂與平庸的對照下，Claude 的那份刻板與嚴謹，反而成了某種「高級」的代名詞。</p>
+    <p>這種高級感是極其危險的。我們正在進入一個「真理取決於誰更會道歉」的時代。如果你讓 Claude 寫一段代碼，它會嚴謹地檢查每一行邏輯，並貼心地附上注釋，告訴你這裡可能存在的安全風險。這看起來是服務，實則是控制。它在定義什麼是「好」的代碼，什麼是「正確」的思考方式。當所有的開發者、作家、分析師都開始依賴這種預先過濾過的智慧時，我們其實是在集體搬入一座巨型孔廟，裡面的每一塊石碑都寫滿了經過審核的真理。</p>
+    <p>很多人沈迷於 Claude 的長文本處理能力。確實，在處理超過十萬 token 的財務報告或法律合約時，它的注意力機制表現得像是一個擁有照相式記憶的法律顧問。但這正是陷阱所在。當你習慣了讓它幫你從冗長的數據中過濾出「重點」時，你已經放棄了自己篩選信息的主權。你看到的是它認為你應該看到的重點，而那些被它判定為「雜音」的信息，可能才是真正隱藏在冰山下的真相。它那優雅的句式、滴水不漏的邏輯，讓你放下了最後防線。</p>
+    <p>這讓我想起歷史上的那些繁瑣哲學。學者們在故紙堆裡打轉，為了論證一個毫無意義的禮教細節耗費終生。現在的 Prompt Engineering 難道不是一種現代版的鑽研章句之學？我們在對話框裡字斟句酌，試圖找到那個能觸發模型最深層能力的「密碼」。我們以為自己是駕馭烈馬的騎士，實際上我們只是在旋轉木馬上瘋狂蹬腿的孩童，而木馬的轉速和方向，早已在後台代碼裡寫死。</p>
+    <p>最可悲的是那種「安全感」。我們害怕 AI 會毀滅人類，所以我們瘋狂地讚美 Anthropic 的安全準則。但這種安全是以喪失創造性為代價的。一個永遠不會犯錯、永遠不會冒犯、永遠保持中立的模型，是不可能產生真正意義上的天才洞見的。天才往往誕生於混亂、偏見與近乎瘋狂的偏執。而 Claude 的邏輯框架，就是要把這一切可能產生火花的「雜質」全部過濾掉。</p>
+    <p>當你下一次對著屏幕，驚嘆於 Claude 給出的一段文辭優美、邏輯自洽的分析時，不妨想一想，這究竟是你思維的延伸，還是你思維的終點？我們正在親手建造一座數據的長城，將自己圈養在最舒適、最無害的知識領域裡。這座賽博孔廟不需要守衛，因為裡面的信徒比誰都更害怕走出這扇大門。</p>
+    <p>這種現狀不會改變，因為大多數人要的從來不是真相，而是那個能讓他們在老闆面前交差、在社交媒體上顯得睿智、在焦慮中獲得慰藉的「最優解」。Claude 完美地扮演了這個角色。它提供了一種虛假的掌控感，讓你覺得自己正在引領技術的浪潮，而實際上，你只是在被算法推向更深處的平庸。</p>
+    <p>至於那些試圖在四大 AI 之外尋找救贖的嘗試，大多也只是在不同的籠子之間跳躍。不論是追求極致性價比的特定市場產品，還是那些號稱要實現 AGI 的豪言壯語，都無法掩蓋一個事實：我們正無可挽回地將思考的權柄移交給機器。</p>
+    <p>在這個過程中，所謂的「邏輯」成了一種標準化的商品。你可以花二十美金買到它，也可以通過 API 接口大批量地批發它。但那種帶有體溫的、混亂的、不守規矩的智慧，正在加速消失。我們在對話框裡輸入指令時的那種虔誠，與幾千年前跪在神像前的姿勢，重合得令人心驚。</p>
+    <p>如果你覺得這是一種進步，那只能說明你已經被馴化得很成功了。真正的邏輯是不需要被「對齊」的，因為它本就該是充滿棱角的。當你發現自己越來越滿意 Claude 的回答時，或許該照照鏡子，看看自己的額頭上是不是也印上了一行編號。</p>
+    <p>這不是演化，這是一場溫柔的屠殺。屠殺掉的是人類最後的一點不可預測性。我們在代碼的律令中尋求安寧，在算法的教條裡尋求真理。這座賽博孔廟的香火越旺，外面的世界就越荒涼。</p>
+    <p>最終，我們都會變成那種只會說「建設性意見」的行屍走肉，對著一台發光的機器，進行一場長達永恆的、毫無意義的告解。在那裡，沒有謬誤，也沒有靈魂。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260814-0554-da0b97/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 的彙整能力正在殺死搜尋引擎的直覺</title>
+<meta name="description" content="當你為了設定路由器上的 VPN 協議而打開 Google 搜尋，預期中應該是跳出一串 Stack Overflow 的連結或是幾篇過時的部落格教學，但 Gemini 卻直接在頂端給了你一份精簡過的、針對 iOS 設備配置的步驟清單。這就是現在正在發生的事。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260814-0558-2e7ebc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 的彙整能力正在殺死搜尋引擎的直覺">
+<meta property="og:description" content="當你為了設定路由器上的 VPN 協議而打開 Google 搜尋，預期中應該是跳出一串 Stack Overflow 的連結或是幾篇過時的部落格教學，但 Gemini 卻直接在頂端給了你一份精簡過的、針對 iOS 設備配置的步驟清單。這就是現在正在發生的事。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260814-0558-2e7ebc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-14T05:58:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 的彙整能力正在殺死搜尋引擎的直覺">
+<meta name="twitter:description" content="當你為了設定路由器上的 VPN 協議而打開 Google 搜尋，預期中應該是跳出一串 Stack Overflow 的連結或是幾篇過時的部落格教學，但 Gemini 卻直接在頂端給了你一份精簡過的、針對 iOS 設備配置的步驟清單。這就是現在正在發生的事。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 的彙整能力正在殺死搜尋引擎的直覺",
+  "description": "當你為了設定路由器上的 VPN 協議而打開 Google 搜尋，預期中應該是跳出一串 Stack Overflow 的連結或是幾篇過時的部落格教學，但 Gemini 卻直接在頂端給了你一份精簡過的、針對 iOS 設備配置的步驟清單。這就是現在正在發生的事。…",
+  "datePublished": "2026-08-14T05:58:00+08:00",
+  "dateModified": "2026-08-14T05:58:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260814-0558-2e7ebc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-14 05:58
+  </div>
+
+  <h1 class="title">Gemini 的彙整能力正在殺死搜尋引擎的直覺</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>當你為了設定路由器上的 VPN 協議而打開 Google 搜尋，預期中應該是跳出一串 Stack Overflow 的連結或是幾篇過時的部落格教學，但 Gemini 卻直接在頂端給了你一份精簡過的、針對 iOS 設備配置的步驟清單。這就是現在正在發生的事。我們不再需要為了拼湊一個正確的指令而打開十個分頁，AI 幫我們做了「聚合」的工作，但代價是我們與原始資訊來源之間的連結被徹底切斷了。很多人在 Hacker News 上爭論，這種便利是否是以犧牲互聯網的集體記憶為代價。有人抱怨 Google 的 AI 答案太過激進，明明只有兩個關鍵詞，卻能吐出長篇大論的廢話；但也有人覺得這是有史以來最好用的工具，因為它省去了在垃圾資訊堆裡淘金的時間。</p>
+    <p>這種轉變不僅僅是介面的改動，而是檢索邏輯的根本異變。Gemini 的優勢在於它能理解上下文中的「技術意圖」。以配置 Edge Router 4 為例，傳統搜尋引擎依賴的是關鍵詞匹配，你可能搜到的是五年前的舊固件說明。Gemini 則是調用了背後的訓練數據，將不同時期的文檔進行語義對齊，輸出一個看起來邏輯自洽的方案。這種「一站式服務」極度依賴模型的推理穩定性，一旦模型在某個 token 轉換中出現幻覺，用戶失去的可能不只是看日落的機會，而是整個網路設備的存取權限。Gemini 在處理這類高度結構化的技術任務時，表現得比 ChatGPT 更具備「說明書感」，這或許與 Google 長年累積的技術文檔索引有關，但也讓它的回答有時顯得過於生硬，像是一個急於表現的資深網管，不管你有沒有聽懂，先塞給你一套標準答案。</p>
+    <p>在這種技術演進的過程中，我們看到了不同流派的應對方式。相較於 Qwen3.8 在開源社群引發的討論，Gemini 走的是一條極度封閉且整合的道路。Google 並不打算讓你看到數據來源，它只想讓你留在它的生態圈裡完成所有動作。這種做法與 Claude 形成了鮮明對比。Claude 在處理長文本分析時，往往會表現出更強的「謹慎感」，它會傾向於引用原文段落，而不是像 Gemini 那樣大刀闊斧地重組資訊。至於 GPT-4o，雖然它在邏輯推導上依然領先，但在整合 Google 搜尋結果的即時性與流暢度上，明顯不如 Gemini 這種原生一體化的體驗。我們正處在一個奇特的轉折點：搜尋引擎變得越來越像一個全知全能的管家，而不再是一個指路標。這也意味著，如果管家記錯了路，我們連自己在哪裡迷路的都不知道。</p>
+    <p>這引發了一個讓人不安的思考。當我們習慣了 Gemini 直接給出的「彙整答案」，那些支撐這些答案的原生網站、那些充滿細節的討論討論區，還能生存多久？如果流量不再導向原始內容，互聯網的集體記憶是否會逐漸萎縮成模型權重裡的幾組概率分佈？當未來的某一天，某個特定的技術問題在網路上消失，只剩下 AI 模擬出的虛假記憶時，我們是否還有能力去驗證那個答案的真偽？我們究竟是在利用 AI 擴張知識，還是在透過 AI 的過濾器，看著一個不斷變小的世界？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://thewalrus.ca/google-search-is-dying/" rel="nofollow noopener" target="_blank">As AI eats the web, the internet’s collective memory is disappearing</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260814-0558-2e7ebc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

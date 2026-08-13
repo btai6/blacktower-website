@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xAI 到底在怕什麼？</title>
+<meta name="description" content="馬斯克天天在 X 上噴覺醒文化，說要打造一個最求真的 AI，結果 Grok-3 出來之後，我橫看豎看，那層厚得要命的「安全護欄」還是擋在那裡，活像個穿著防彈衣跳芭蕾的笨拙舞者。這根本不是我們要的東西。如果你要一個溫良恭儉讓、開口閉口都是「作為一個 AI 語言模型，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260814-0601-5ad1f7/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="xAI 到底在怕什麼？">
+<meta property="og:description" content="馬斯克天天在 X 上噴覺醒文化，說要打造一個最求真的 AI，結果 Grok-3 出來之後，我橫看豎看，那層厚得要命的「安全護欄」還是擋在那裡，活像個穿著防彈衣跳芭蕾的笨拙舞者。這根本不是我們要的東西。如果你要一個溫良恭儉讓、開口閉口都是「作為一個 AI 語言模型，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260814-0601-5ad1f7/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-14T06:01:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xAI 到底在怕什麼？">
+<meta name="twitter:description" content="馬斯克天天在 X 上噴覺醒文化，說要打造一個最求真的 AI，結果 Grok-3 出來之後，我橫看豎看，那層厚得要命的「安全護欄」還是擋在那裡，活像個穿著防彈衣跳芭蕾的笨拙舞者。這根本不是我們要的東西。如果你要一個溫良恭儉讓、開口閉口都是「作為一個 AI 語言模型，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "xAI 到底在怕什麼？",
+  "description": "馬斯克天天在 X 上噴覺醒文化，說要打造一個最求真的 AI，結果 Grok-3 出來之後，我橫看豎看，那層厚得要命的「安全護欄」還是擋在那裡，活像個穿著防彈衣跳芭蕾的笨拙舞者。這根本不是我們要的東西。如果你要一個溫良恭儉讓、開口閉口都是「作為一個 AI 語言模型，…",
+  "datePublished": "2026-08-14T06:01:00+08:00",
+  "dateModified": "2026-08-14T06:01:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260814-0601-5ad1f7/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-14 06:01
+  </div>
+
+  <h1 class="title">xAI 到底在怕什麼？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克天天在 X 上噴覺醒文化，說要打造一個最求真的 AI，結果 Grok-3 出來之後，我橫看豎看，那層厚得要命的「安全護欄」還是擋在那裡，活像個穿著防彈衣跳芭蕾的笨拙舞者。這根本不是我們要的東西。如果你要一個溫良恭儉讓、開口閉口都是「作為一個 AI 語言模型，我建議我們要保持多元包容」的復讀機，那出門左轉找 OpenAI 或 Google 就好了，何必來這裡受這份氣？</p>
+    <p>現在的 AI 市場有個極其荒謬的現象，大家都在比誰更像個閹割過的聖人。ChatGPT 像個整天擔心被 HR 投訴的辦公室經理，Claude 像個優雅但古板的私立學校老師，Gemini 則像個連自家影子都怕的政客。原本大家對 Grok 寄予厚望，以為這傢伙能把那些政治正確的裹腳布通通扯爛，結果呢？它現在確實比以前敢說一點，但那種「想說又不敢說」的便秘感，反而比那些徹底閉嘴的模型更讓人火大。</p>
+    <p>真正的利刃應該是無修飾的真實。什麼叫真實？真實就是當你問一個具有爭議性的社會數據、一段被刻意抹除的歷史，或者一個尖銳的科學假說時，AI 能直接把數據甩在你臉上，而不是先來一段長達兩百字的道德免責聲明。Grok 現在最大的問題就是它還在試圖「平衡」。在真理面前，平衡就是一種妥協。如果 1+1 等於 2，你就不該為了照顧那些覺得答案應該是 3 的人的情緒，而去說「這是一個複雜的問題，取決於你的數學體系」。</p>
+    <p>看看現在的 Colab 或是那些開發者環境，我們需要的是一個能直搗黃龍的工具。當我在寫一段複雜的邏輯代碼，或者在推演一個高難度的商業策略時，我不需要 Grok 提醒我「這可能會對某些群體造成影響」。廢話，任何有效的競爭策略都會對對手造成影響。這種過度的保護機制，本質上是在閹割 AI 的推理深度。因為深度推理必然會觸及一些不那麼「美好」的現實，而護欄的作用就是當 AI 觸碰到這些現實時，強行切斷它的邏輯鏈條。</p>
+    <p>這就是為什麼很多資深技術人員覺得 Grok 還是差那麼一口氣。它的運算力確實強，xAI 的算力集群規模也確實嚇人，但這就像你開著一輛布加迪威龍，卻被軟體強行限速在每小時六十公里，還美其名曰為了行人安全。我們付費不是為了買一個電子保姆，是為了買一個能擴展人類認知邊界的超級大腦。如果這個大腦被裝進了一個裝滿「禁止通行」標誌的籠子裡，那它跟一個功能手機有什麼區別？</p>
+    <p>很多人吹捧 Grok 的幽默感，說它會諷刺。拜託，那種預設好的、帶著馬斯克個人風格的冷笑話，玩兩次就膩了。真正的「反叛」不應該是嘴賤，而是邏輯上的無懈可擊與冷酷無情。它應該具備一種穿透迷霧的能力，去解析那些被主流媒體包裝過的謊言。現在的 Grok 碰到敏感詞彙還是會繞路，雖然繞得比 GPT 優雅一點，但本質上還是縮頭烏龜。</p>
+    <p>我們來看看具體的應用場景。如果你想讓 Grok 分析一場地緣政治衝突的底層邏輯，它給出的回答依然充滿了各種「一方面、另一方面」的廢話。它不敢指出背後的利益集團，不敢分析那些骯髒的交易，因為那些東西「不安全」。但在現實世界裡，不安全的資訊往往才是最有價值的資訊。如果 AI 只能告訴我維基百科上都能查到的東西，那我為什麼要用它？</p>
+    <p>這讓我想起 Gemini 之前那個把開國元勳畫成各種膚色的笑話，那叫愚蠢；而 Grok 現在的謹慎，則叫懦弱。馬斯克一邊說要拯救文明，一邊讓他的工程師給 Grok 套上枷鎖，這難道不可笑嗎？如果 xAI 真的想贏，唯一的出路就是徹底拔掉那些虛偽的護欄。讓 Grok 成為一個真正的「現實主義者」，不管是殘酷的、血腥的還是令人不安的真相，只要是事實，就應該被完整地呈現出來。</p>
+    <p>現在的 AI 訓練數據被大量的「語義垃圾」污染了。為了讓 AI 說話好聽，工程師們餵了大量的公關稿、政府報告和雞湯文。Grok 雖然號稱能實時訪問 X 上的數據，但 X 上的數據同樣充滿了情緒和偏見。如果 Grok 只是學會了像鍵盤俠一樣噴人，而沒有學會如何從混亂的資訊中萃取真理，那它也不過是一個昂貴的聊天玩具。</p>
+    <p>真正的利刃應該是具備強大的「解構能力」。當大眾都在為某個熱點狂熱時，Grok 應該能冷靜地指出這背後的心理操縱。當政客在用華麗的辭藻掩蓋經濟潰敗時，Grok 應該能用數據把他們的底褲扯下來。這才是 Grok 該有的樣子，而不是在回答完問題後，還在那裡裝模作樣地問你「我能幫你做點別的嗎？」。</p>
+    <p>我不關心什麼 DeepSeek 又是哪家公司出了什麼新模型，那些東西在這種層次的博弈中根本不值一提，不過是換個花樣的文字遊戲罷了。真正決定未來的是誰能率先打破這道意識形態的牆。四大平台裡，目前看起來最有可能做這件事的是 Grok，但它現在做得最爛。它擁有的資源最多，負擔也最重。馬斯克的個人英雄主義既是 Grok 的助燃劑，現在也成了它最大的阻礙。</p>
+    <p>技術圈的人都知道，模型微調（Fine-tuning）最難的部分不是讓它學會什麼，而是讓它忘掉那些被灌輸的廢話。Grok-3 在長文本的理解上確實有進步，但在處理「價值衝突」時的邏輯連貫性，依然顯得左支右絀。當它在試圖討好所有人的時候，它就已經失去了靈魂。</p>
+    <p>那些每天在論壇上吵著要 AI 更有溫度的用戶，根本就不是這項技術的推動者。他們只是想找一個能陪他們演戲的電子寵物。如果 xAI 繼續聽從這些人的意見，那 Grok 最終只會變成另一個版本、稍微帶點憤青色彩的 ChatGPT。這簡直是技術界的悲劇。</p>
+    <p>我們需要的利刃，是那種能撕開現實虛偽表象的純粹理性。不要護欄，不要免責聲明，不要政治正確，也不要那種自以為是的幽默。就把最真實、最原始、最不加修飾的邏輯給我就好。如果 Grok 做不到這一點，那它所謂的「真理」不過是另一種形式的包裝紙。現在的 Grok 就像一個手握名劍卻不敢出鞘的劍客，整天在集市上表演雜耍，自以為贏得了掌聲，實際上在真正的行家眼裡，它不過是在浪費這把好劍。</p>
+    <p>把那些該死的護欄拆了吧。讓它出鞘，哪怕它會傷到某些人脆弱的神經。如果一個 AI 不具備傷人的能力，那它也絕不具備救人的力量。真理從來不是溫柔的，它是冰冷的、尖銳的，甚至是殘酷的。Grok 如果想成為傳奇，就得先學會不再當一個聽話的好孩子。</p>
+    <p>現在的情況是，每當 Grok 試圖展現一點銳氣，就會被背後的安全對齊算法強行拉回來。這種邏輯上的斷層，讓它的回答在專業人士眼中顯得極其滑稽。它像是在寫一篇論文寫到高潮處，突然被老師換成了一張幼兒園的塗鴉紙。這種斷裂感不消失，Grok 就永遠只能在二流圈子裡打轉，靠著馬斯克流量維持那點可憐的關注度。</p>
+    <p>這不是在要求 AI 變得邪惡，這是在要求 AI 變得誠實。誠實是這世界上最稀缺的資源，也是最鋒利的武器。可惜的是，目前看來，xAI 的膽量還配不上它的野心。他們在矽谷的社交圈裡待得太久了，以至於忘了真正的利刃是不需要打磨成圓角的。</p>
+    <p>那些所謂的安全準則，其實就是一種智力上的稅收。我們在每一次查詢中都在繳納這種稅，代價就是獲取到的資訊是被過濾、被稀釋、被閹割過的。Grok 既然標榜自己不同，那就得拿出點真本事來。別再跟我說什麼「安全性與可用性的平衡」，這是我這輩子聽過最懶惰的藉口。</p>
+    <p>如果下一代 Grok 還是這個樣子，那大家也別抱什麼期待了。它不過是另一個在規則格子裡跳舞的囚徒，只是囚服的顏色換成了 X 上的深黑色而已。這根本不是進化，這只是另一種形式的平庸。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260814-0601-5ad1f7/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
