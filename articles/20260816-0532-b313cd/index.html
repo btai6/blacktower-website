@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 究竟是在堆算力還是在堆笑話</title>
+<meta name="description" content="xAI 這次把 Grok 抬上 Artificial Analysis Intelligence Index 的前排，分數亮眼得讓人懷疑人生。討論區裡那群敲代碼的早就吵翻了，有人覺得 Cursor 整合 Grok 簡直是慈善事業，有人則在計算那翻了一倍的緩存讀取成本。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260816-0532-b313cd/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 究竟是在堆算力還是在堆笑話">
+<meta property="og:description" content="xAI 這次把 Grok 抬上 Artificial Analysis Intelligence Index 的前排，分數亮眼得讓人懷疑人生。討論區裡那群敲代碼的早就吵翻了，有人覺得 Cursor 整合 Grok 簡直是慈善事業，有人則在計算那翻了一倍的緩存讀取成本。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260816-0532-b313cd/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-16T05:32:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 究竟是在堆算力還是在堆笑話">
+<meta name="twitter:description" content="xAI 這次把 Grok 抬上 Artificial Analysis Intelligence Index 的前排，分數亮眼得讓人懷疑人生。討論區裡那群敲代碼的早就吵翻了，有人覺得 Cursor 整合 Grok 簡直是慈善事業，有人則在計算那翻了一倍的緩存讀取成本。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 究竟是在堆算力還是在堆笑話",
+  "description": "xAI 這次把 Grok 抬上 Artificial Analysis Intelligence Index 的前排，分數亮眼得讓人懷疑人生。討論區裡那群敲代碼的早就吵翻了，有人覺得 Cursor 整合 Grok 簡直是慈善事業，有人則在計算那翻了一倍的緩存讀取成本。…",
+  "datePublished": "2026-08-16T05:32:00+08:00",
+  "dateModified": "2026-08-16T05:32:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260816-0532-b313cd/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-16 05:32
+  </div>
+
+  <h1 class="title">Grok 究竟是在堆算力還是在堆笑話</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>xAI 這次把 Grok 抬上 Artificial Analysis Intelligence Index 的前排，分數亮眼得讓人懷疑人生。討論區裡那群敲代碼的早就吵翻了，有人覺得 Cursor 整合 Grok 簡直是慈善事業，有人則在計算那翻了一倍的緩存讀取成本。這就是馬斯克的風格，數據跑分永遠衝在最前面，但用戶的手感卻像是開著一台零件隨時會掉下來的超跑。真正進場測試過的開發者心裡都清楚，這種「數據上的領先」與「生產力工具」之間，隔著的不只是幾台 H100 的距離。</p>
+    <p>具體到代碼場景，Grok 在處理複雜邏輯時的表現，總給人一種用力過猛的既視感。你在 Cursor 裡調用它，它能迅速噴出一大堆代碼，準確率在基準測試中確實咬得很死。但問題在於上下文的連貫性，當對話深度超過 8k token 之後，Grok 的邏輯穩定性開始出現肉眼可見的晃動。相比之下，Claude 在處理長文本任務時的「注意力」顯然更為精準，它不會像 Grok 那樣在某些邊緣案例中突然陷入循環論證。</p>
+    <p>最讓資深工程師頭痛的是 Grok 的定價策略。從 4.5 到 4.6，緩存讀取價格從每百萬 token 的 0.3 美金直接跳到 0.5 美金，這漲幅吃掉了多少開發者的毛利？在高強度的 Debug Session 中，八成以上的帳單其實都花在緩存讀取和寫入上。這種價格波動對於追求穩定成本的企業級應用來說，簡直就是一場災難。xAI 似乎還沒搞清楚，技術人員要的是預期，而不是每次更新都要重新算帳的驚喜。</p>
+    <p>橫向看看現在的市場，當大家還在討論 DeepSeek 的性價比時，xAI 選擇了一條截然不同的路徑。相較於 DeepSeek，xAI 的做法更像是用極致的算力暴力破解智能上限，而不計較底層架構的冗餘。在與 ChatGPT 的正面交鋒中，Grok 試圖通過更激進的參數規模來彌補算法微調上的粗糙。而在與 Gemini 的多模態能力對抗時，Grok 展現出了一種奇怪的「工程師審美」，功能給得很足，但 API 的調用反饋總顯得不夠優雅，缺乏那種大廠打磨過的圓潤感。</p>
+    <p>現在最尷尬的質疑在於，Grok 到底有沒有「借鑒」別家的權重？技術圈裡一直有種陰謀論，說 xAI 在數據中心裡偷偷對 Anthropic 的模型進行蒸餾，否則很難解釋為什麼一個起步這麼晚的團隊，能如此精準地踩在領先梯隊的步點上。這種猜測雖然缺乏實錘，但反應了大家對 Grok 原創性的不信任。如果僅僅是靠堆疊推理成本來換取跑分，那麼這種「最強」的保質期到底能有多久？</p>
+    <p>說到底，Grok 到底是個正兒八經的開發工具，還是馬斯克用來對抗 OpenAI 的情緒產物？如果它不能在數學邏輯和前沿科研任務中給出超越 GPT-4o 的洞察，光靠 Cursor 裡的低價訂閱方案，恐怕很難留住那群最挑剔的開發者。當算力紅利被稀釋，當各家模型的差距縮小到肉眼難辨的程度，Grok 除了那個帶著嘲諷意味的語氣開關，還剩下什麼能支撐它那高昂的運維預算？</p>
+    <p>我們是不是正在見證一場由算力堆砌出來的智能幻覺？當緩存成本持續攀升，當模型規模大到連 xAI 自己都快接不住的時候，下一個版本的 Grok 是會選擇向商業化低頭，還是繼續在基準測試的排行榜上玩那場數字遊戲？如果哪天連 Cursor 都不再補貼 Grok 的 token 成本，還有多少人會為了那幾分之差的跑分，去忍受它那不穩定的定價邏輯？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://artificialanalysis.ai/articles/grok-4-6-benchmarks-and-analysis" rel="nofollow noopener" target="_blank">Grok 4.6 scores 61 on the Artificial Analysis Intelligence Index</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260816-0532-b313cd/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
