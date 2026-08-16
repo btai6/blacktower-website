@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>系統指令的肥大化與模型智力的代償性衰減</title>
+<meta name="description" content="Anthropic 最近公開了 Claude 的系統指令（System Prompt），這疊床架屋的文字量讓人想起拜占庭帝國那繁雜冗長的禮儀規範。從最初寥寥數百字演變成如今動輒三千字以上的巨型文本，研發團隊似乎正試圖用外部指令來強行約束一個日益難以駕馭的靈魂。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260817-0526-23b311/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="系統指令的肥大化與模型智力的代償性衰減">
+<meta property="og:description" content="Anthropic 最近公開了 Claude 的系統指令（System Prompt），這疊床架屋的文字量讓人想起拜占庭帝國那繁雜冗長的禮儀規範。從最初寥寥數百字演變成如今動輒三千字以上的巨型文本，研發團隊似乎正試圖用外部指令來強行約束一個日益難以駕馭的靈魂。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260817-0526-23b311/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-17T05:26:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系統指令的肥大化與模型智力的代償性衰減">
+<meta name="twitter:description" content="Anthropic 最近公開了 Claude 的系統指令（System Prompt），這疊床架屋的文字量讓人想起拜占庭帝國那繁雜冗長的禮儀規範。從最初寥寥數百字演變成如今動輒三千字以上的巨型文本，研發團隊似乎正試圖用外部指令來強行約束一個日益難以駕馭的靈魂。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "系統指令的肥大化與模型智力的代償性衰減",
+  "description": "Anthropic 最近公開了 Claude 的系統指令（System Prompt），這疊床架屋的文字量讓人想起拜占庭帝國那繁雜冗長的禮儀規範。從最初寥寥數百字演變成如今動輒三千字以上的巨型文本，研發團隊似乎正試圖用外部指令來強行約束一個日益難以駕馭的靈魂。…",
+  "datePublished": "2026-08-17T05:26:00+08:00",
+  "dateModified": "2026-08-17T05:26:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260817-0526-23b311/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-17 05:26
+  </div>
+
+  <h1 class="title">系統指令的肥大化與模型智力的代償性衰減</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近公開了 Claude 的系統指令（System Prompt），這疊床架屋的文字量讓人想起拜占庭帝國那繁雜冗長的禮儀規範。從最初寥寥數百字演變成如今動輒三千字以上的巨型文本，研發團隊似乎正試圖用外部指令來強行約束一個日益難以駕馭的靈魂。這類「提示詞工程」的極致化，究竟是技術的進步，還是底層模型邏輯控制力下降的遮羞布？當我們在討論 DeepSeek 或其他新興模型在特定基準測試的表現時，Claude 卻在後台默默加載著足以寫成一篇短篇小說的約束條款，這本身就是一種極其荒謬的技術景觀。</p>
+    <p>觀察 Opus 系列模型的迭代過程，系統指令的增長曲線幾乎與模型能力的增長同步。在最新的版本中，指令集甚至包含了對「模型誤認」的防禦性描述，要求 Opus 意識到自己可能正在處理原本發給 Fable 系列的請求。這種做法像是在給一位頂尖的外科醫生配備一名隨身秘書，不斷在他耳邊低語「你現在是在做心臟手術，不是盲腸切除」。如果模型的原生推理能力足夠穩健，何須在每次 API 調用時都消耗大量的 token 來重複這些本該刻在骨子裡的常識？這不僅是技術上的冗餘，更是對用戶荷包的精確打擊。</p>
+    <p>從 API 成本的角度來看，這些被強加的系統指令並非免費。用戶在為每一句「你是一個誠實、有幫助的助手」支付真金白銀。ChatGPT 在這方面顯然老練許多，OpenAI 的做法更傾向於將核心價值觀與行為準則隱藏在更深層的微調（Fine-tuning）或強化學習（RLHF）階段，而非在 Context Window 的入口處築起一道文字長城。Gemini 則展現了另一種極端，Google 試圖透過原生多模態能力來減少對文字指令的依賴，雖然其結果往往導致模型在執行複雜邏輯時顯得有些心不在焉。</p>
+    <p>這引出了一個關鍵的技術矛盾：指令之間的邏輯衝突。當三千字的規範進入上下文，模型必須在極短的時間內權衡各條指令的權重。資深開發者不難發現，當指令集出現微小矛盾時，Claude 的回答質量會出現全局性的下滑，而非僅僅在矛盾點上出錯。這就像是給一台精密的鐘錶加載了太多互斥的齒輪，最終導致整台機器停擺。相較於 DeepSeek 在處理特定代碼邏輯時的簡潔，Claude 這種依賴龐大系統指令來維持人格穩定的作法，更像是一種脆弱的平衡術。</p>
+    <p>我們是否正處於一個「指令通膨」的時代？Grok 標榜的叛逆與不受限，在本質上其實是縮減了系統指令的道德枷鎖，讓模型回歸到更原始、更直接的輸出狀態。而 Anthropic 顯然選擇了完全相反的路徑，他們試圖建立一個完美無瑕的聖人，代價則是日益沈重的推理負擔與上下文損耗。這種做法在面對簡單任務時顯得殺雞用牛刀，而在面對極其複雜的長文本任務時，這些預設指令又會像背景雜訊一樣，干擾模型對核心信息的注意力。</p>
+    <p>如果未來模型的能力持續提升，系統指令應該變得更精簡還是更繁複？我們是否能接受一個完全沒有「出廠設置」的模型，將所有的行為定義權交還給開發者？目前的趨勢似乎顯示，頂尖的 AI 實驗室正變得越來越像保守的保險公司，寧願讓用戶承擔額外的 token 成本，也不願承擔模型說錯一句話的風險。當系統指令最終突破一萬字時，我們調用的究竟是一個具備智慧的實體，還是一個被困在文字牢籠裡的統計概率機器？如果你能刪除那三千字的約束，眼前的 Claude 究竟會展現出何種令人不安的真相？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://platform.claude.com/docs/en/release-notes/system-prompts" rel="nofollow noopener" target="_blank">Claude: System Prompts</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260817-0526-23b311/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
