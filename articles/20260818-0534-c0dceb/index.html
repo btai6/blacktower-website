@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 試圖用 Flash 掩蓋 Pro 的停滯不前</title>
+<meta name="description" content="開發者對 Gemini 的耐心正變得稀薄。這不是因為它的模型變弱了，而是因為 Google 似乎陷入了一種命名遊戲的死循環。當 Gemini 3.7 Flash 頂著「閃電速度」的光環出現在 API 文檔時，這款模型在生產環境的實際表現卻讓人產生一種強烈的既視感。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260818-0534-c0dceb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 試圖用 Flash 掩蓋 Pro 的停滯不前">
+<meta property="og:description" content="開發者對 Gemini 的耐心正變得稀薄。這不是因為它的模型變弱了，而是因為 Google 似乎陷入了一種命名遊戲的死循環。當 Gemini 3.7 Flash 頂著「閃電速度」的光環出現在 API 文檔時，這款模型在生產環境的實際表現卻讓人產生一種強烈的既視感。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260818-0534-c0dceb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-18T05:34:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 試圖用 Flash 掩蓋 Pro 的停滯不前">
+<meta name="twitter:description" content="開發者對 Gemini 的耐心正變得稀薄。這不是因為它的模型變弱了，而是因為 Google 似乎陷入了一種命名遊戲的死循環。當 Gemini 3.7 Flash 頂著「閃電速度」的光環出現在 API 文檔時，這款模型在生產環境的實際表現卻讓人產生一種強烈的既視感。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 試圖用 Flash 掩蓋 Pro 的停滯不前",
+  "description": "開發者對 Gemini 的耐心正變得稀薄。這不是因為它的模型變弱了，而是因為 Google 似乎陷入了一種命名遊戲的死循環。當 Gemini 3.7 Flash 頂著「閃電速度」的光環出現在 API 文檔時，這款模型在生產環境的實際表現卻讓人產生一種強烈的既視感。…",
+  "datePublished": "2026-08-18T05:34:00+08:00",
+  "dateModified": "2026-08-18T05:34:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260818-0534-c0dceb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-18 05:34
+  </div>
+
+  <h1 class="title">Google 試圖用 Flash 掩蓋 Pro 的停滯不前</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>開發者對 Gemini 的耐心正變得稀薄。這不是因為它的模型變弱了，而是因為 Google 似乎陷入了一種命名遊戲的死循環。當 Gemini 3.7 Flash 頂著「閃電速度」的光環出現在 API 文檔時，這款模型在生產環境的實際表現卻讓人產生一種強烈的既視感。這不是什麼跨時代的新架構，更像是 Google 把本應作為 3.5 Pro 的研發成果，降級封裝成一個快消品。許多在後台調試 Agent 的開發者發現，儘管 input 價格被壓到了每百萬 token 0.75 美元，但那種在長上下文任務中偶發的智力掉線，依然像幽靈一樣揮之不去。</p>
+    <p>在具體的 Agent 開發場景中，當我們要求模型執行超過 20 個步驟的複雜 Function Calling 時，Gemini 3.7 Flash 的穩定性並沒有因為版本號的跳躍而提升。它在處理結構化輸出時，偶爾會出現 JSON 格式的崩潰，這種情況在處理高併發的客服機器人或自動化腳本時是致命的。雖然 Google 強調這款模型是為了「生產級 Agent」設計的，但如果開發者必須要在 Prompt 中反覆叮囑模型不要遺漏參數，那麼這種所謂的性價比就顯得有些諷刺。它在速度上的優勢，往往被後端為了修正其邏輯錯誤而增加的重試次數所抵消。</p>
+    <p>與此同時，Grok 在推理速度與邏輯嚴密性之間的平衡感，正在讓 Google 的 Flash 策略顯得笨重。Grok 目前在處理代碼生成與複雜邏輯推演時，展現出了一種更為直接的「直覺」，不像 Gemini 總是在試圖用過度的安全對齊來閹割回答的深度。ChatGPT 在 o1 系列推出後，已經把競爭維度拉到了強化學習的軌道上，而 Claude 則穩守著它那令人驚豔的文字質感與長文本理解力。當 Claude 3.5 Sonnet 在代碼理解上幾乎成為行業標配時，Google 卻還在 Flash 這個產品線上修修補補，試圖用更低的價格來換取市場份額。</p>
+    <p>這種市場策略在面對特定競爭對手時顯得格外耐人尋味。相較於 Qwen 3.8 27B 的動態，Google 的做法是選擇在定價策略上進行更精準的卡位。但在這個算力即正義的時代，僅僅靠價格戰和型號更迭的煙霧彈，很難長期留住那些對性能極度挑剔的技術團隊。當開發者在測試環境中反覆橫跳，試圖找出 Gemini 3.7 Flash 到底比上一代進步在哪裡時，他們往往會發現，除了 API 調用的延遲縮短了幾毫秒，邏輯內核的進步微乎其微。這種「以量代質」的更新節奏，反映出的是 Google 在 Pro 級別模型開發上的某種瓶頸。</p>
+    <p>現在最核心的問題在於，Google 是否已經放棄了在純粹的智力巔峰上與 ChatGPT 或 Claude 一決高下，轉而追求一種「夠用就好」的商業壟斷？如果 Gemini 的產品線繼續向 Flash 傾斜，而遲遲不肯拿出一個真正能在多模態理解與長程推理上徹底碾壓對手的 Pro 模型，那麼它的生態位將會變得非常尷尬。開發者需要的不是一個更便宜的工具，而是一個更聰明的夥伴。當市場上出現越來越多性價比極高的開源或閉源模型時，Google 這種靠頻繁更新版本號來維持存在感的做法，還能奏效多久？下一次我們等來的，會是真正的 4.0 Pro，還是另一個換湯不換藥的 Flash？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/" rel="nofollow noopener" target="_blank">Gemini 3.7 Flash</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260818-0534-c0dceb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

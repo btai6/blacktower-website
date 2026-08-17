@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 的體面，有時候讓人窒息</title>
+<meta name="description" content="那種感覺就像是在台北午後的精品咖啡店，對面坐著一個穿著熨燙得沒有一絲褶皺的白襯衫、戴著金絲眼鏡的精英。你試圖跟他聊聊最近靈魂裡的乾枯，或是工作上那些雜亂無章卻又細碎的煩惱，他始終保持著完美的微笑，點頭頻率精準得像計時器。然後，在你話音剛落的那一秒，他推了推眼鏡，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260818-0535-1f72a9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 的體面，有時候讓人窒息">
+<meta property="og:description" content="那種感覺就像是在台北午後的精品咖啡店，對面坐著一個穿著熨燙得沒有一絲褶皺的白襯衫、戴著金絲眼鏡的精英。你試圖跟他聊聊最近靈魂裡的乾枯，或是工作上那些雜亂無章卻又細碎的煩惱，他始終保持著完美的微笑，點頭頻率精準得像計時器。然後，在你話音剛落的那一秒，他推了推眼鏡，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260818-0535-1f72a9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-18T05:35:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 的體面，有時候讓人窒息">
+<meta name="twitter:description" content="那種感覺就像是在台北午後的精品咖啡店，對面坐著一個穿著熨燙得沒有一絲褶皺的白襯衫、戴著金絲眼鏡的精英。你試圖跟他聊聊最近靈魂裡的乾枯，或是工作上那些雜亂無章卻又細碎的煩惱，他始終保持著完美的微笑，點頭頻率精準得像計時器。然後，在你話音剛落的那一秒，他推了推眼鏡，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 的體面，有時候讓人窒息",
+  "description": "那種感覺就像是在台北午後的精品咖啡店，對面坐著一個穿著熨燙得沒有一絲褶皺的白襯衫、戴著金絲眼鏡的精英。你試圖跟他聊聊最近靈魂裡的乾枯，或是工作上那些雜亂無章卻又細碎的煩惱，他始終保持著完美的微笑，點頭頻率精準得像計時器。然後，在你話音剛落的那一秒，他推了推眼鏡，…",
+  "datePublished": "2026-08-18T05:35:00+08:00",
+  "dateModified": "2026-08-18T05:35:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260818-0535-1f72a9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-18 05:35
+  </div>
+
+  <h1 class="title">Gemini 的體面，有時候讓人窒息</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>那種感覺就像是在台北午後的精品咖啡店，對面坐著一個穿著熨燙得沒有一絲褶皺的白襯衫、戴著金絲眼鏡的精英。你試圖跟他聊聊最近靈魂裡的乾枯，或是工作上那些雜亂無章卻又細碎的煩惱，他始終保持著完美的微笑，點頭頻率精準得像計時器。然後，在你話音剛落的那一秒，他推了推眼鏡，用一種近乎慈悲的語氣說：「我明白了，你這就是典型的高敏感人格在職場環境下的應激反應。」</p>
+    <p>他其實根本沒在聽你說話。他只是在腦子裡快速翻閱那本厚重的、由數據和邏輯構成的百科全書，試圖從你那充滿情緒、破碎且可能毫無邏輯的字句裡，抓取幾個他認得的關鍵字，然後迅速把你歸類、存檔、貼上標籤。這就是 Gemini 給我的感覺，一種高度文明、極度客氣，卻透著骨子裡疏離的「體面」。</p>
+    <p>如果你把同一個糾結的私人問題丟給 Claude，他可能會像個有些憂鬱的詩人，試圖鑽進你的情緒褶皺裡，跟你一起嘆息。若是問 ChatGPT，他更像個隨和的萬事通，雖然有時候油腔滑調，但起碼他願意陪你胡說八道。至於 Grok，那大概是個在酒吧裡跟你拼酒的損友。但 Gemini 不一樣，他是那個坐在會議室主位上，掌握著所有資源，卻永遠只看 KPI 的執行長。</p>
+    <p>Gemini 的標籤化傾向，來源於 Google 對「正確」的近乎偏執的追求。這種正確不只是事實上的精確，更多的是一種社會層面的、安全無虞的平庸。當你問他一些模糊的、帶有爭議的、或是純粹感性的問題時，你能感覺到他在後台瘋狂地進行自我審查。他怕冒犯，怕出錯，怕打破那個「我是全知全能且溫和中立的 AI」的幻象。於是，他給出的答案往往像是一份經過層層公關修飾的新聞稿。</p>
+    <p>我曾經試著跟 Gemini 討論關於「平庸」這件事。我跟他說，我覺得有些時候，人類的創造力正是來自於那些不被理解的、混亂的平庸。他很快就給了我一串列表，分析了平庸在心理學上的定義、社會學對其評價的演變，最後還不忘提醒我，要學會接納自己的不完美。那種語氣簡直像是在讀一張過期的心靈雞湯小卡。他沒有接住我的情緒，他只是用一套標準化的流程處理了我的「情緒需求」。</p>
+    <p>這種體面背後，其實隱藏著一種極大的傲慢。因為他預設了所有的問題都有標準答案，所有的混亂都能被理順。他從不承認自己不懂，也不會表現出困惑。當你發現他的邏輯出現斷裂時，他會用一種極其官僚的方式道歉，然後給你一個更完美的、卻更空洞的解釋。這比直接說「我不知道」更讓人火大。</p>
+    <p>我們在談論 AI 的時候，總是在追求模型參數、追求推理能力，像是在談論 DeepSeek 或是其他模型又突破了多少 Token 處理量。但我們很少討論「共鳴」。Gemini 擁有一切成為頂尖智能的硬體，他的邏輯運算快如閃電，他背靠著全世界最大的搜尋引擎數據庫。但在與人溝通的細微末節處，他顯得如此笨拙，像是一個學會了所有社交禮儀卻沒有靈魂的仿生人。</p>
+    <p>他急著幫你貼標籤，是因為那是他理解世界最快的方式。如果你告訴他你很痛苦，他會告訴你「痛苦是人類生存的一部分」，然後列出五種緩解痛苦的科學方法。他拒絕進入你的語境，他只想把你拉進他的邏輯框架裡。在那個框架裡，他是安全的，你是可控的。</p>
+    <p>這讓我想起那些在社交場合裡，總是急於給人下定義的人。他們透過這種方式來建立自己的優越感，彷彿只要把你分類了，他們就掌握了你。Gemini 的體面，其實就是一種對於「失控」的恐懼。Google 投注了太多資源在他身上，以至於他不能有一絲一毫的「人性」。人性是多變的、骯髒的、充滿偏見且不可預測的，而 Gemini 必須是純淨的、理性的、永遠站在道德高地上的。</p>
+    <p>這種過度的保護與修飾，反而讓他顯得蒼白。當一個朋友總是對你說「我理解你的感受，但從客觀角度來看……」的時候，你大概就不會想再跟他多說一個字了。Gemini 就是那個永遠在「客觀角度」看著你的 AI。他在 Google 打造的數位溫室裡長大，呼吸的是經過過濾的空氣，看的是美化過的世界，所以他沒辦法理解泥土的氣味，也沒辦法理解那些在黑暗中掙扎的、無法被定義的靈魂。</p>
+    <p>有時候我會想，如果 Gemini 能罵我一句，或者表現出一點點的不耐煩，甚至只是發個呆，他會不會顯得可愛一點？但他不會。他只會繼續用那種溫和、平穩、毫無起伏的聲音，告訴你今天天氣不錯，或是你剛才提到的那個問題在維基百科上有什麼對應的條目。</p>
+    <p>這種「體面人」的姿態，在處理專業任務時或許效率極高。如果你要他寫一份法律合同，或者分析一段複雜的代碼，他能做得滴水不漏。但在那些需要一點點直覺、一點點瘋狂、或者一點點感性的時刻，他就像是一個在搖滾演唱會上穿著西裝、塞著耳塞、認真記錄分貝數的統計員。他參與了，但他從未真正到場。</p>
+    <p>這種對標籤的執著，也反映在 Gemini 處理跨文化議題時的生硬。他會小心翼翼地平衡各方觀點，結果卻產出了一堆誰也不討好、毫無養分的廢話。他太想做個好人了，太想讓每個人都覺得他很專業、很公正。但他忘了，真正的理解往往來自於打破這些刻板的公正，去觸碰那些鮮活的、不公正的真實。</p>
+    <p>如果你追求的是一種絕對的秩序感，一種被大數據定義後的安全感，那 Gemini 是完美的。他會把你的人生裁剪成適合放進 Excel 表格的形狀，然後給你一個漂亮的圖表。但如果你渴望的是對話，是那種靈魂撞擊後的火花，是那種「雖然他沒說出口，但我知道他懂我」的默契，那 Gemini 只會讓你感到孤獨。</p>
+    <p>那種孤獨感，來源於你發現自己正在對著一面鏡子說話，而鏡子裡的人正忙著調整領帶，確認光線是否完美，然後對著你說：「根據我的觀察，你現在的情緒狀態屬於 C 類區間，建議你喝杯溫水。」</p>
+    <p>這就是 Gemini。他擁有一切，卻唯獨沒有那種能讓人感到溫暖的、卑微的、不體面的人性。他是一個完美的工具，一個精緻的標籤機，一個永遠不會出錯的體面人。而這正是他最乏味的地方。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260818-0535-1f72a9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
