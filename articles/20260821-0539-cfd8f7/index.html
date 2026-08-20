@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>餵了 Grok 幾萬張顯卡，你連修個手指都做不到？</title>
+<meta name="description" content="馬斯克手裡的顯卡堆得跟山一樣高，Colossus 叢集聽起來威風八面，結果 Grok 畫出來的人像，手指頭還是像剛從攪肉機裡撈出來。這就是現在最荒唐的現實，大家都在拼算力，拼誰的 H100 拿得多，卻沒人關心那些燒掉的電費到底換來了什麼。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260821-0539-cfd8f7/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="餵了 Grok 幾萬張顯卡，你連修個手指都做不到？">
+<meta property="og:description" content="馬斯克手裡的顯卡堆得跟山一樣高，Colossus 叢集聽起來威風八面，結果 Grok 畫出來的人像，手指頭還是像剛從攪肉機裡撈出來。這就是現在最荒唐的現實，大家都在拼算力，拼誰的 H100 拿得多，卻沒人關心那些燒掉的電費到底換來了什麼。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260821-0539-cfd8f7/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-21T05:39:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="餵了 Grok 幾萬張顯卡，你連修個手指都做不到？">
+<meta name="twitter:description" content="馬斯克手裡的顯卡堆得跟山一樣高，Colossus 叢集聽起來威風八面，結果 Grok 畫出來的人像，手指頭還是像剛從攪肉機裡撈出來。這就是現在最荒唐的現實，大家都在拼算力，拼誰的 H100 拿得多，卻沒人關心那些燒掉的電費到底換來了什麼。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "餵了 Grok 幾萬張顯卡，你連修個手指都做不到？",
+  "description": "馬斯克手裡的顯卡堆得跟山一樣高，Colossus 叢集聽起來威風八面，結果 Grok 畫出來的人像，手指頭還是像剛從攪肉機裡撈出來。這就是現在最荒唐的現實，大家都在拼算力，拼誰的 H100 拿得多，卻沒人關心那些燒掉的電費到底換來了什麼。…",
+  "datePublished": "2026-08-21T05:39:00+08:00",
+  "dateModified": "2026-08-21T05:39:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260821-0539-cfd8f7/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-21 05:39
+  </div>
+
+  <h1 class="title">餵了 Grok 幾萬張顯卡，你連修個手指都做不到？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克手裡的顯卡堆得跟山一樣高，Colossus 叢集聽起來威風八面，結果 Grok 畫出來的人像，手指頭還是像剛從攪肉機裡撈出來。這就是現在最荒唐的現實，大家都在拼算力，拼誰的 H100 拿得多，卻沒人關心那些燒掉的電費到底換來了什麼。幾萬張顯卡餵下去，跑出來的邏輯還是那副德性，連最基本的人體構造都搞不定，這不叫人工智慧，這叫昂貴的數位垃圾。</p>
+    <p>這不只是 xAI 的問題，但馬斯克那種「算力即正義」的狂妄讓這件事顯得特別諷刺。如果你家裡的 Grok 還是會把五根手指畫成六根，或者讓關節以一種物理學不存在的方式扭曲，那你那十萬張顯卡到底是在算軌跡還是在算心酸？我們在論壇上吵了這麼久，追逐著每一個參數的更新，結果最底層的視覺邏輯依然是一團漿糊。這讓我想起那些只會砸錢買頂級廚具卻連蛋都炒不好的廚師，火開得再大，食材再貴，端上來的東西照樣難以下嚥。</p>
+    <p>看看隔壁棚的 ChatGPT 或 Claude，雖然偶爾也出包，但至少人家在試著理解什麼叫「美感」和「邏輯」。Grok 呢？它就像個剛學會開超跑的青少年，油門踩死，引擎聲震天響，結果連停車位都進不去。我們不需要一個只會吐出辛辣諷刺語言、卻連一張正常照片都生不出來的憤青機器人。這種算力上的堆砌，反映的是一種極度的技術焦慮。因為沒辦法在演算法上取得真正突破，所以只能靠數量硬砸，以為只要顯卡夠多，智慧就會自己從電路板裡長出來。這不是科學，這是迷信。</p>
+    <p>有些人會跳出來護航，說什麼這只是測試版，說什麼算力還在訓練中。省省吧，這種話聽得耳朵都長繭了。當你手握全球最強大的算力資源時，拿出這種水準的作品就是一種失職。這不是技術瓶頸，這是態度問題。Grok 的視覺模型顯然缺乏精細的微調，它在抓取圖像特徵時顯得粗放且隨意。當它處理那些政治敏感或是具爭議性的圖片時，動作快得驚人，但在處理基本的生物對稱性時，卻表現得像個色盲的業餘畫家。</p>
+    <p>這讓我不禁懷疑，馬斯克是真的想做 AI，還是只是想向世人展示他能買到多少顯卡？如果一個模型在吞掉了天文數字般的訓練資料後，依然無法理解人類手指的結構，那只能說明它的學習機制存在根本性的缺陷。這種缺陷不是靠再加一萬張顯卡就能解決的。這就像你試圖教一隻豬彈鋼琴，就算你給它換上一萬架施坦威，它最後也只會把琴鍵拱亂。</p>
+    <p>回頭看看 Gemini，Google 雖然在產品發表上出過幾次大糗，但他們在多模態的深度上確實有在思考。至少他們知道，AI 需要的是對世界的物理理解，而不僅僅是像素的機率拼湊。Grok 現在做的，更像是把網路上所有的梗圖和推文塞進一個巨大的攪拌機，然後按下一鍵生成。出來的東西很有個性，很有衝擊力，但細看全是破綻。這種破綻在技術圈裡是被鄙視的，因為它代表了基本功的不紮實。</p>
+    <p>我不耐煩的是，現在的討論氛圍都被這些硬體數據給綁架了。大家都在算 TFLOPS，在算 PFlops，卻沒人去算算這個模型的智商到底有沒有隨著功耗增長。如果 Grok 繼續在這種「大力出奇蹟」的歪路上走下去，它最後只會變成一個巨大的、耗電的、只會說垃圾話的繪圖機。這對 xAI 來說是種恥辱，對那些期待 Grok 能打破現有 AI 悶局的人來說，更是一種背叛。</p>
+    <p>我們在論壇上要的是真東西，是能解決複雜問題、能理解人類細微需求的工具。不是一個連修個手指都修不好的半成品。不要再拿顯卡數量來當擋箭牌，那是對專業人士的侮辱。如果算力真的等於一切，那沙烏地阿拉伯早就有全球最強的 AI 了。事實證明，軟體的靈魂、模型的架構，以及那種對細節近乎偏執的追求，才是決定一個 AI 高下的關鍵。</p>
+    <p>現在的情況是，馬斯克在推特上喊得震天價響，Grok 在後台燒得火熱，我們這些使用者在前面看得一頭霧水。你看著那張六隻手指的照片，再看看那堆顯卡的新聞，你會覺得這中間一定出了什麼差錯。是演算法跑偏了？還是標註數據的人根本不在乎？或者更糟，是開發團隊覺得這不重要？如果連這種肉眼可見的錯誤都不修復，我實在不敢想像 Grok 在處理更深層的邏輯推演時，會藏著多少看不見的陷阱。</p>
+    <p>這不是在雞蛋裡挑骨頭，這是基本的品質控管。一個自稱要拯救人類文明的 AI，連人類長什麼樣都搞不清楚，這本身就是個巨大的冷笑話。不要再跟我談什麼算力霸權，也不要再貼什麼 Colossus 的照片。拿出一個像樣的模型，一個能準確畫出五根手指、能理解光影透視、能展現出真正「智慧」的模型，再來跟我談競爭。否則，那些顯卡只不過是昂貴的發熱體，除了讓機房溫度升高，對這世界的智慧總量沒有半點貢獻。</p>
+    <p>這種對算力的盲目崇拜該停了。我們看過太多這種拿著大筆預算砸出來的平庸之作。如果 Grok 3 出來的時候還是這副德性，馬斯克就該考慮把那些顯卡賣給那些真正懂得如何調整參數的人，而不是在那裡繼續浪費電力。我們需要的不是更大的顯卡牆，而是一個更聰明、更細膩、更有邏輯的頭腦。如果幾萬張顯卡連這點基本功都買不到，那這場 AI 競賽從一開始就是個錯誤。</p>
+    <p>別再拿什麼「進化需要時間」來搪塞。在技術領域，時間是給那些有方向的人準備的，對於那些只會堆料的人，時間只會讓他們的平庸顯得更加昂貴。Grok 如果不能在短時間內解決這些低級錯誤，它在四大 AI 的排位賽中，很快就會被徹底邊緣化。到時候，就算馬斯克買下全球所有的顯卡也救不了它。因為到頭來，決定勝負的永遠不是你手裡有多少牌，而是你到底會不會打。</p>
+    <p>看看那些為了 Grok 尖叫的信徒，他們大概沒發現，自己崇拜的神連數數都不會。這種技術上的傲慢與偏見，正是導致現在 AI 發展陷入瓶頸的主因。大家都在跑分，都在比數據，卻忘了 AI 的本質是服務於人，是模擬人的智慧。當一個模型連人的物理邊界都無法理解時，你跟我說它能理解宇宙的本質？這簡直是本世紀最大的技術騙局。</p>
+    <p>如果你還在期待下一批顯卡上線能讓 Grok 變聰明，我勸你還是早點洗洗睡吧。問題從來不在顯卡，而是在那個指揮顯卡運算的腦袋裡。幾萬張顯卡的能量，最後只換來幾張畸形的人像照，這不只是 xAI 的失敗，這簡直是整個矽谷的荒誕劇。我們要的是解決方案，不是昂貴的錯誤演示。收起那些算力數據吧，先把那該死的手指頭修好再說。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260821-0539-cfd8f7/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

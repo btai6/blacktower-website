@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫代碼的人不需要更多代理，需要的是能聽懂人話的編輯器</title>
+<meta name="description" content="開發者現在陷入了一種奇怪的集體焦慮。今年年初大家還在吹捧 Coding Agent 能包辦一切，只要輸入一段話，代碼就能自動生成。但幾個月下來，那種新鮮感消失後，剩下的是無盡的疲憊。你在對話框裡敲下長篇大論的自然語言，試圖精確描述一個組件的行為，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260821-0539-0f981c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="寫代碼的人不需要更多代理，需要的是能聽懂人話的編輯器">
+<meta property="og:description" content="開發者現在陷入了一種奇怪的集體焦慮。今年年初大家還在吹捧 Coding Agent 能包辦一切，只要輸入一段話，代碼就能自動生成。但幾個月下來，那種新鮮感消失後，剩下的是無盡的疲憊。你在對話框裡敲下長篇大論的自然語言，試圖精確描述一個組件的行為，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260821-0539-0f981c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-21T05:39:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="寫代碼的人不需要更多代理，需要的是能聽懂人話的編輯器">
+<meta name="twitter:description" content="開發者現在陷入了一種奇怪的集體焦慮。今年年初大家還在吹捧 Coding Agent 能包辦一切，只要輸入一段話，代碼就能自動生成。但幾個月下來，那種新鮮感消失後，剩下的是無盡的疲憊。你在對話框裡敲下長篇大論的自然語言，試圖精確描述一個組件的行為，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "寫代碼的人不需要更多代理，需要的是能聽懂人話的編輯器",
+  "description": "開發者現在陷入了一種奇怪的集體焦慮。今年年初大家還在吹捧 Coding Agent 能包辦一切，只要輸入一段話，代碼就能自動生成。但幾個月下來，那種新鮮感消失後，剩下的是無盡的疲憊。你在對話框裡敲下長篇大論的自然語言，試圖精確描述一個組件的行為，…",
+  "datePublished": "2026-08-21T05:39:00+08:00",
+  "dateModified": "2026-08-21T05:39:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260821-0539-0f981c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-21 05:39
+  </div>
+
+  <h1 class="title">寫代碼的人不需要更多代理，需要的是能聽懂人話的編輯器</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>開發者現在陷入了一種奇怪的集體焦慮。今年年初大家還在吹捧 Coding Agent 能包辦一切，只要輸入一段話，代碼就能自動生成。但幾個月下來，那種新鮮感消失後，剩下的是無盡的疲憊。你在對話框裡敲下長篇大論的自然語言，試圖精確描述一個組件的行為，結果模型回傳了一堆看似正確但邏輯破碎的垃圾。這種溝通成本甚至高過你自己動手寫代碼。最近在 Hacker News 上討論火熱的 Huzzah 編輯器實驗，其實就是這種情緒的集中爆發。我們到底是想當一個代碼工頭，還是想當一個擁有超能力的開發者？</p>
+    <p>目前 Claude 在處理代碼邏輯時，確實表現出了比其他模型更高的靈敏度。尤其是在面對超過 5 萬 token 的中大型專案時，Claude 3.5 Sonnet 的上下文理解能力讓它在補全邏輯時不至於太過離譜。但問題在於，所有的模型現在都卡在同一個技術瓶頸：自然語言與抽象代碼之間的轉換損耗。當你要求 ChatGPT 生成一個複雜的異步處理邏輯，它往往會給出一套通用的、符合訓練數據分佈的模板，而不是最適合你當前系統架構的解法。這種「平庸的正確」在專案初期很有效，但當代碼庫複雜度提升到一定程度，模型就開始自己跟自己打架，出現明顯的注意力衰減。</p>
+    <p>這不僅僅是模型的問題，更是交互介面的崩潰。我們現在與這些 AI 互動的方式太過原始，要嘛是全自動的 Agent 接管一切，要嘛是單純的補全。Grok 在這方面的嘗試顯得有些急躁，雖然它背靠 xAI 的算力支持，實時數據獲取能力也強，但在代碼生成的嚴謹性上，Grok 顯然還沒找到節奏。它有時候像個喝醉的資深工程師，能給你一些驚艷的解決方案，但轉頭就在基礎語法上出錯。這讓我們不得不思考，如果連 Grok 這種追求極致效率的模型都無法徹底解決代碼一致性的問題，那純粹的 Agent 路徑是否真的走得通？</p>
+    <p>在技術實現的選擇上，Gemini 1.5 Pro 提供的超長上下文窗口本該是開發者的救星。理論上你可以把整個文檔、測試用例和架構圖都塞進去，讓它在完整的環境下思考。然而在實際操作中，Gemini 經常會出現「幻覺跳躍」。你告訴它修改 A 文件，它卻自作主張地重構了 B 文件，原因僅僅是因為它在長文本中捕捉到了一些它認為相關但實際上無關的關聯。這種不穩定性對於追求精確的工程環境來說是致命的。相較於 DeepSeek 最近在代碼補全領域展現出的推理趨勢，ChatGPT 的 o1 系列模型試圖通過強化學習來增加思考深度，這在解決特定算法難題時非常有效，但在日常那種瑣碎、充滿 side effects 的業務邏輯修改中，這種昂貴的推理過程顯得有些大材小用。</p>
+    <p>現在大家開始轉向尋找某種「半形式化」的語言。我們不需要寫長句子，也不想手打每一行括號。我們需要的是一種結構化的、介於偽代碼與真實語法之間的表達方式。如果你在編輯器裡輸入幾個關鍵詞和邏輯符號，AI 就能精準填充餘下的部分，這比寫一段自然語言描述要快得多。目前四大 AI 中，還沒有哪一家真正把這種「開發者友好型」的語法層做進原生體驗裡。大家都在競爭誰的 Agent 更能像人一樣對話，卻忽略了開發者其實並不喜歡跟機器聊天。</p>
+    <p>如果未來代碼的維護成本有一半是花在與 AI 校對邏輯上，那我們是進步了還是退步了？當 DeepSeek 這種專注於特定領域的模型開始在性能指標上緊咬不放時，ChatGPT 和 Claude 是否會重新審視它們的交互邏輯？現有的對話式開發介面，會不會在兩年內看起來就像當初的命令行界面一樣過時？我們是在構建一個能自動編寫軟體的未來，還是在親手製造一堆沒人能完全看懂、只能靠 AI 勉強縫補的代碼垃圾山？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.danielvaughn.dev/posts/huzzah/" rel="nofollow noopener" target="_blank">Show HN: Huzzah – a novel approach to coding with AI</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260821-0539-0f981c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

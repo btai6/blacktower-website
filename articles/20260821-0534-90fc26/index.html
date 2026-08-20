@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當開發者被迫在倉庫根目錄供奉一個專屬的文件名</title>
+<meta name="description" content="這兩年程式碼倉庫的根目錄變得擁擠不堪，除了 .gitignore 和 README，現在還得給 AI 留個位子。Claude 帶頭搞起了 CLAUDE.md，美其名曰「上下文規範」，實際上是把開發者的專案當成了自家的佈告欄。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260821-0534-90fc26/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當開發者被迫在倉庫根目錄供奉一個專屬的文件名">
+<meta property="og:description" content="這兩年程式碼倉庫的根目錄變得擁擠不堪，除了 .gitignore 和 README，現在還得給 AI 留個位子。Claude 帶頭搞起了 CLAUDE.md，美其名曰「上下文規範」，實際上是把開發者的專案當成了自家的佈告欄。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260821-0534-90fc26/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-21T05:34:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當開發者被迫在倉庫根目錄供奉一個專屬的文件名">
+<meta name="twitter:description" content="這兩年程式碼倉庫的根目錄變得擁擠不堪，除了 .gitignore 和 README，現在還得給 AI 留個位子。Claude 帶頭搞起了 CLAUDE.md，美其名曰「上下文規範」，實際上是把開發者的專案當成了自家的佈告欄。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當開發者被迫在倉庫根目錄供奉一個專屬的文件名",
+  "description": "這兩年程式碼倉庫的根目錄變得擁擠不堪，除了 .gitignore 和 README，現在還得給 AI 留個位子。Claude 帶頭搞起了 CLAUDE.md，美其名曰「上下文規範」，實際上是把開發者的專案當成了自家的佈告欄。…",
+  "datePublished": "2026-08-21T05:34:00+08:00",
+  "dateModified": "2026-08-21T05:34:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260821-0534-90fc26/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-21 05:34
+  </div>
+
+  <h1 class="title">當開發者被迫在倉庫根目錄供奉一個專屬的文件名</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>這兩年程式碼倉庫的根目錄變得擁擠不堪，除了 .gitignore 和 README，現在還得給 AI 留個位子。Claude 帶頭搞起了 CLAUDE.md，美其名曰「上下文規範」，實際上是把開發者的專案當成了自家的佈告欄。這件事在 Hacker News 激起的浪花不算小，大家開始討論為什麼不能有個統一的 AGENTS.md。這不單是文件命名的口水戰，背後藏著 Anthropic 這些大廠對開發環境「主權」的微妙蠶食。</p>
+    <p>如果你在開發一個複雜的 Rust 專案，為了讓 Claude 能聽懂你的代碼風格，你得在 CLAUDE.md 裡寫滿構建指令、測試規範甚至是那幾條它老是搞錯的類型定義。這本來是個效率工具，但當所有 AI 都要求專屬待遇時，事情就變得滑稽了。想像一下，如果你為了照顧不同的工具，得同時維護一個 ChatGPT.md，一個 GROK.md，甚至還要應付 Gemini 的特定格式要求，這跟當年為了適應不同瀏覽器寫一堆 CSS hack 有什麼區別？開發者的精力應該花在邏輯上，而不是去伺候這些大模型的「閱讀偏好」。</p>
+    <p>這種強迫症般的命名要求，本質上是一種「Sent from my iPhone」式的品牌滲透。當你把代碼推送到 GitHub，全世界都會看到那個顯眼的 CLAUDE.md。這是一種廉價卻極其有效的廣告。Anthropic 顯然很清楚，只要掌握了開發者的工作流入口，就能在潛意識裡建立一種「非它不可」的依賴感。這跟技術實力無關，純粹是商業地盤的圈占。</p>
+    <p>在實際的工程場景中，Claude 對長文本的依賴程度遠高於 ChatGPT。如果你嘗試在一個擁有上百個模組的 monorepo 中使用 Claude，你會發現它對 CLAUDE.md 裡那些規則的依賴簡直到了病態的地步。一旦文件缺失或格式稍有偏差，它在處理複雜邏輯重構時的注意力就會像夏天的冰淇淋一樣迅速融化。相較之下，ChatGPT 在處理這類專案時顯得隨意得多，它更傾向於通過掃描目錄結構來自我補完，而不是在那等著你餵飯。這反映了兩者在推理邏輯上的路徑分歧：一個追求極致的規範引導，另一個則在試圖模擬人類那種「邊看邊猜」的直覺。</p>
+    <p>這種差異在面對多模型協作時會變得更刺眼。當我們討論 DeepSeek 時，會發現它的模型行為在特定語境下有其獨特性，但回過頭來看 Claude，它對 CLAUDE.md 的執著反而顯得有些僵化。即便開發者嘗試用符號連結（symlink）把 AGENTS.md 指向 CLAUDE.md，這也只是在技術層面打了個補丁，沒能解決核心問題：為什麼我們得為了不同的模型去適配不同的「說明書」？如果未來出現了 subagents 或是 swarm 模式，難道我們要為每一個子代理都寫一份個資表嗎？</p>
+    <p>Gemini 在這方面走的是另一條路，它試圖利用超長上下文（Context Window）來暴力破解這個問題。它不需要你寫什麼規則文件，它更傾向於把整個倉庫吞下去。但這種「大胃王」式的做法在精確度上往往不如 Claude 那種守著 CLAUDE.md 的精耕細作。Grok 則更像是一個不按牌理出牌的闖入者，它在即時資訊的整合上領先，但在處理這種結構化、靜態的開發規範時，表現得像個剛進實驗室、什麼都想摸一下的實習生。</p>
+    <p>我們現在面臨的其實是技術標準化的遲到。在 Web 時代，我們有 robots.txt，有 sitemap.xml，這些都是為了讓機器更好地理解人類世界的秩序。而現在，AI 巨頭們似乎更熱衷於建立自己的「私家園林」。如果開發者群體不主動推動 AGENTS.md 這樣的通用標準，最後的結果就是每個人的根目錄都變成了一座模型的墓碑林。</p>
+    <p>當一個工具開始要求你改變組織代碼的方式來遷就它時，它到底是在輔助你，還是在試圖馴化你？如果有一天，當我們移除掉那些精心編寫的引導文件，這些標榜著擁有強大推理能力的模型，還剩下多少真正的「智慧」能用來理解人類那些混亂卻真實的代碼邏輯？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/anthropics/claude-code/issues/6235" rel="nofollow noopener" target="_blank">Feature Request: Support AGENTS.md</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260821-0534-90fc26/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
