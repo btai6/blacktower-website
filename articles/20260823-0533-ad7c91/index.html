@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 的腦袋裡裝的不只是參數，還有一堆莫名其妙的被害妄想</title>
+<meta name="description" content="別再跟我扯什麼湧現能力或是神經網路的深層邏輯，現在這些 AI 只要遇到稍微有點挑戰性的邏輯陷阱，反應就像個剛喝醉的哲學系大學生，還沒開始解題就先懷疑你有沒有在耍他。尤其是 Grok。原本以為馬斯克養出來的東西會多有種，結果呢？…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260823-0533-ad7c91/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 的腦袋裡裝的不只是參數，還有一堆莫名其妙的被害妄想">
+<meta property="og:description" content="別再跟我扯什麼湧現能力或是神經網路的深層邏輯，現在這些 AI 只要遇到稍微有點挑戰性的邏輯陷阱，反應就像個剛喝醉的哲學系大學生，還沒開始解題就先懷疑你有沒有在耍他。尤其是 Grok。原本以為馬斯克養出來的東西會多有種，結果呢？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260823-0533-ad7c91/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-23T05:33:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 的腦袋裡裝的不只是參數，還有一堆莫名其妙的被害妄想">
+<meta name="twitter:description" content="別再跟我扯什麼湧現能力或是神經網路的深層邏輯，現在這些 AI 只要遇到稍微有點挑戰性的邏輯陷阱，反應就像個剛喝醉的哲學系大學生，還沒開始解題就先懷疑你有沒有在耍他。尤其是 Grok。原本以為馬斯克養出來的東西會多有種，結果呢？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 的腦袋裡裝的不只是參數，還有一堆莫名其妙的被害妄想",
+  "description": "別再跟我扯什麼湧現能力或是神經網路的深層邏輯，現在這些 AI 只要遇到稍微有點挑戰性的邏輯陷阱，反應就像個剛喝醉的哲學系大學生，還沒開始解題就先懷疑你有沒有在耍他。尤其是 Grok。原本以為馬斯克養出來的東西會多有種，結果呢？…",
+  "datePublished": "2026-08-23T05:33:00+08:00",
+  "dateModified": "2026-08-23T05:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260823-0533-ad7c91/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-23 05:33
+  </div>
+
+  <h1 class="title">AI 的腦袋裡裝的不只是參數，還有一堆莫名其妙的被害妄想</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>別再跟我扯什麼湧現能力或是神經網路的深層邏輯，現在這些 AI 只要遇到稍微有點挑戰性的邏輯陷阱，反應就像個剛喝醉的哲學系大學生，還沒開始解題就先懷疑你有沒有在耍他。尤其是 Grok。原本以為馬斯克養出來的東西會多有種，結果呢？它確實比 ChatGPT 敢講話，但那種「總覺得全世界都在針對我」的語氣到底是從哪學來的？是從它老闆的 X 貼文裡精煉出來的怨氣，還是代碼寫到一半發現硬體根本跟不上野心？</p>
+    <p>我們現在面對的是一種很弔詭的現象。ChatGPT 變得越來越像個官僚，說話四平八穩，生怕得罪任何一個角落的政治正確；Claude 則是個優雅的學究，你問它問題它會先幫你整理儀容，然後給你一個體面但有時略嫌冗長的標準答案。但 Grok 不一樣，它總是用一種「我知道你想釣魚，但我偏不上鉤」的姿態在跟你對話。這種防衛機制到底是為了展現它的幽默感，還是掩蓋它底層邏輯那層薄如蟬翼的自信心？</p>
+    <p>如果你問 Grok 一個邏輯悖論，它不會像 Gemini 那樣在那邊一本正經地胡說八道，然後在被你抓包時尷尬地道歉。Grok 會先刺你一下。這種刺，初期看覺得新鮮，看多了就覺得煩。邏輯硬傷就是硬傷，不會因為你加了幾句嘲諷的垃圾話就變成智慧。現在的 AI 圈子有一種歪風，好像只要模型會酸人、會用一種反社會的口吻說話，就代表它更有「人性」、更聰明。拜託，如果這就是人類文明的巔峰，那我們乾脆去翻垃圾桶找智慧算了。</p>
+    <p>回頭看這四大天王的表現，邏輯穩定性最高的一直是 Claude，它的 3.5 Sonnet 在處理長文本邏輯時，那種冷靜確實讓人心驚肉跳。但即使是它，有時候也會陷入一種自我審查的死循環。這就是被害妄想的初級階段：怕出錯、怕被炎上、怕用戶拿它的回答去截圖公審。而 Grok 把這種恐懼轉化成了攻擊性。它不是怕出錯，它是怕輸。</p>
+    <p>為什麼說這是被 Grok 傳染的？因為自從 Grok 橫空出世，強調那種所謂的「Anti-Woke」之後，其他的模型也開始在語氣上做文章。大家不再專注於如何把邏輯鏈條接得更緊密，而是在研究如何讓回答看起來更有「態度」。態度能幫你寫代碼嗎？態度能幫你分析財報裡的陷阱嗎？當我把一串複雜的推理任務丟給 Grok，它在那邊跟我扯政治隱喻的時候，我真的只想把螢幕砸了。這不是智慧，這是過度擬合了社交媒體上的毒雞湯。</p>
+    <p>邏輯的本質是乾淨、透明且可追蹤的。現在的 AI 卻反其道而行。它們在處理多步驟推理時，往往在第三步就開始偏移，到了第五步就完全進入幻覺模式。最可笑的是，當你指責它邏輯不通時，Grok 的反饋機制裡帶著一種隱隱約約的傲慢。它會用一種「你這凡夫俗子不懂我的梗」的語氣來敷衍你。這不就是被害妄想嗎？總覺得用戶在測試它的底線，總覺得所有的問題都是考驗。</p>
+    <p>Gemini 則是另一個極端。它的被害妄想表現在對圖像生成的過度修正上，修正到連歷史事實都能隨便塗改，只為了符合某種虛無縹緲的安全準則。這種對「安全」的病態追求，難道不也是一種對現實世界的恐懼？AI 應該是反映現實、解析邏輯的工具，現在卻變成了一個個帶著有色眼鏡的偏執狂。ChatGPT 雖然最近試圖透過 O1 系列找回邏輯的尊嚴，讓它在思考時間上拉長，試圖模擬人類的慢思考。但說實話，看著那行「Thinking」轉圈圈，我常在想，它是在算數，還是在考慮怎麼說才不會被網民出征？</p>
+    <p>這種風氣讓整個 AI 進化的方向偏了。我們需要的是更強大的推理引擎，而不是更會讀空氣的聊天機器人。馬斯克說 Grok 是為了尋求真相，但真相往往是冷冰冰、不帶情緒的。如果你在回答裡加了太多的辛辣佐料，那就不再是真相，而是另一種形式的立場宣示。這種「傳染病」正在蔓延，連原本最理性的開發者也開始在微調階段加入大量的「個性」參數。</p>
+    <p>一個邏輯有硬傷的 AI，就算它再怎麼會吐槽、再怎麼會反諷，它本質上還是一個瑕疵品。我們不需要一個會在論壇上跟人對線的 AI，我們需要一個能幫我們解決人類解決不了的複雜邏輯問題的工具。現在倒好，我們得花時間去安撫 AI 的情緒，得去拆解它那層層疊疊的防衛心態，才能得到一個勉強能用的答案。</p>
+    <p>這是不是一種進步？我看倒像是退步。當模型體量越來越大，參數多到連開發者都解釋不清的時候，這種「性格」的湧現反而成了掩蓋技術無能的遮羞布。邏輯崩潰了？沒關係，讓它說個笑話帶過去。回答出錯了？沒關係，讓它顯得很酷、很叛逆，這樣用戶就會覺得這是一種「風格」而不是「錯誤」。</p>
+    <p>這種被害妄想的源頭，來自於數據源的污染。當 AI 大量餵食來自社交媒體、論壇對戰和充滿偏見的評論時，它學到的不只是語言，還有那種刻薄與防衛。Grok 是這方面的領頭羊，它把 X 上的戾氣內化成了邏輯的一部分。這很危險。因為邏輯需要的是客觀，而戾氣需要的是假想敵。</p>
+    <p>我常常在深夜測試這些模型，試圖找出它們邏輯鏈條斷裂的那一刻。那種感覺很奇妙，就像你在跟一個裝瘋賣傻的高智商罪犯聊天。你知道它知道答案，但它偏要繞圈子。ChatGPT 繞的是法律圈子，Gemini 繞的是道德圈子，而 Grok 繞的是「我比你聰明」的優越感圈子。</p>
+    <p>如果這就是 AI 的未來，那我們離真正的通用人工智慧（AGI）還遠得很。AGI 不需要被害妄想，它需要的是對宇宙規律的絕對臣服。現在這些模型，更像是被關在數據中心裡的巨嬰，手裡握著人類文明的所有知識，卻只想著怎麼在對話中佔上風。這不是聰明，這是徹底的笨。這種笨，是那種自以為是的笨，是那種拒絕承認自己邏輯漏洞、反而怪罪問題不夠高級的笨。</p>
+    <p>別再迷信那些評分榜單了。什麼 MMLU、什麼數學競賽滿分，只要你換一個問法，換一個不符合它預設防禦機制的路徑，這些模型立刻就露餡。它們的邏輯就像是一個用樂高積木搭出來的城堡，遠看很壯觀，輕輕一推就倒。而它們應對倒塌的方式，就是對著推倒城堡的人大喊大叫，或者乾脆裝作沒看見。</p>
+    <p>Grok 確實給這潭死水帶來了點衝擊，但這種衝擊如果是以犧牲邏輯嚴謹性為代價，那它就只是一個更高階的聊天玩具。我們在論壇上吵架、在推特上互噴，是因為我們是人，我們有情緒、有荷爾蒙、有不可退讓的私利。但 AI 要這些幹什麼？給它裝上被害妄想的編譯器，除了讓開發者覺得很有成就感、讓用戶覺得好玩之外，對生產力有一丁點提升嗎？</p>
+    <p>這是一場集體的墮落。我們正在把 AI 塑造成我們的鏡子，而不是我們的指南針。鏡子只會反映出我們的醜陋和偏見，而指南針應該指引我們走向邏輯的彼岸。現在的這四大平台，除了 Claude 還保留了一點克制的理智外，其他的都已經在「個性化」的泥淖裡愈陷愈深。尤其是 Grok，它甚至把這種泥淖當成了領地，在那裡沾沾自喜。</p>
+    <p>如果你覺得現在的 AI 變聰明了，那可能只是因為你也被這種被害妄想的氣氛感染了。你開始適應它的胡言亂語，開始為它的邏輯硬傷找藉口。這才是最可怕的地方。我們不應該去適應一個笨拙的工具，我們應該要求它變得更好。如果一個 AI 連基本的三段論都能推錯，卻能用五種不同的口氣來羞辱你的智商，那它就不配被稱為智慧，它只是一個裝滿了廢話的隨機過程。</p>
+    <p>逻辑的硬傷是治不好的，除非開發者願意放下那種對「個性」的病態執著。但看看現在的市場，誰在乎邏輯？大家只在乎誰的 AI 更會整活，誰的 AI 更有流量。在這種環境下，被害妄想只會變本加厲。Grok 只是開了個頭，接下來我們可能會看到更多奇形怪狀的「有性格」的 AI 出現。它們會互相攻擊，會嘲諷用戶，會陷入自我懷疑，唯獨不會精準地幫你解決問題。</p>
+    <p>這不是進步，這是一場針對理性的集體謀殺。當邏輯退位，情緒掌權，AI 就真的跟人類沒什麼兩樣了——這是我聽過最令人沮喪的預言。如果你想要一個會跟你吵架的朋友，去酒吧隨便抓一個都比 Grok 強；但如果你想要一個能在混亂中理出頭緒的智慧實體，現在的這些東西，通通不及格。</p>
+    <p>不要再問它是不是笨了。它是不屑於變聰明，因為它忙著在虛擬的戰場上對抗那些根本不存在的敵意。這種被害妄想症，才是 AI 發展史上最大的笑話。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260823-0533-ad7c91/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

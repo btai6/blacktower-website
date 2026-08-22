@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當訓練數據成為虛假訊息的培養皿</title>
+<meta name="description" content="矽谷那幫人最近大概在頭痛一件事：如果有人處心積慮蓋了一座富麗堂皇的虛擬智庫，裡面塞滿了看起來像模像樣的報告、論文和地緣政治分析，結果全是為了誘導 AI 吐出特定立場的內容，模型該怎麼辦？這不是科幻小說，而是正在發生的現實。當以色列被爆出疑似透過虛假智庫來操弄 AI …">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260823-0529-3d6f17/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當訓練數據成為虛假訊息的培養皿">
+<meta property="og:description" content="矽谷那幫人最近大概在頭痛一件事：如果有人處心積慮蓋了一座富麗堂皇的虛擬智庫，裡面塞滿了看起來像模像樣的報告、論文和地緣政治分析，結果全是為了誘導 AI 吐出特定立場的內容，模型該怎麼辦？這不是科幻小說，而是正在發生的現實。當以色列被爆出疑似透過虛假智庫來操弄 AI …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260823-0529-3d6f17/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-23T05:29:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當訓練數據成為虛假訊息的培養皿">
+<meta name="twitter:description" content="矽谷那幫人最近大概在頭痛一件事：如果有人處心積慮蓋了一座富麗堂皇的虛擬智庫，裡面塞滿了看起來像模像樣的報告、論文和地緣政治分析，結果全是為了誘導 AI 吐出特定立場的內容，模型該怎麼辦？這不是科幻小說，而是正在發生的現實。當以色列被爆出疑似透過虛假智庫來操弄 AI …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當訓練數據成為虛假訊息的培養皿",
+  "description": "矽谷那幫人最近大概在頭痛一件事：如果有人處心積慮蓋了一座富麗堂皇的虛擬智庫，裡面塞滿了看起來像模像樣的報告、論文和地緣政治分析，結果全是為了誘導 AI 吐出特定立場的內容，模型該怎麼辦？這不是科幻小說，而是正在發生的現實。當以色列被爆出疑似透過虛假智庫來操弄 AI …",
+  "datePublished": "2026-08-23T05:29:00+08:00",
+  "dateModified": "2026-08-23T05:29:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260823-0529-3d6f17/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-08-23 05:29
+  </div>
+
+  <h1 class="title">當訓練數據成為虛假訊息的培養皿</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>矽谷那幫人最近大概在頭痛一件事：如果有人處心積慮蓋了一座富麗堂皇的虛擬智庫，裡面塞滿了看起來像模像樣的報告、論文和地緣政治分析，結果全是為了誘導 AI 吐出特定立場的內容，模型該怎麼辦？這不是科幻小說，而是正在發生的現實。當以色列被爆出疑似透過虛假智庫來操弄 AI 聊天機器人的認知時，我們得面對一個殘酷的技術事實：當前的四大模型在面對「有組織的真實感」時，防線比想像中脆弱。</p>
+    <p>問題在於檢索增強生成（RAG）和長文本窗口的雙重負擔。以 ChatGPT 為例，當你要求它分析某個中東衝突的現狀，它的搜尋組件會優先抓取那些格式規範、引用完整且看起來具有權威性的來源。如果一個虛假智庫在 SEO 上下足了功夫，並且其輸出的 PDF 文件結構完美符合 GPT-4o 的解析偏好，那麼這套虛假敘事就會順理成章地進入模型的 context 之中。這不是簡單的「幻覺」，而是模型在邏輯層面被「投毒」了。系統認為自己在處理高品質的外部知識，實際上卻是在幫政治公關公司背書。</p>
+    <p>Claude 在處理這類問題時顯得稍微「神經過敏」一些。Anthropic 內置的憲法 AI 訓練讓它在遇到敏感政治議題時，往往會啟動一種近乎防禦性的中立姿態。如果你把那些虛假智庫的內容餵給 Claude，它可能會在回答中不斷加入「有觀點認為」、「然而也有證據顯示」這類對沖語句。這種做法雖然規避了直接被洗腦的風險，卻也暴露了模型在辨識「事實真偽」與「語氣權威性」之間的失能。它分不清這是一個真正的研究機構，還是一個包裝精美的傳聲筒，它只能選擇誰都不得罪。</p>
+    <p>在這種訊息戰的背景下，我們看到 DeepSeek-v4-flash-vision-exp 的動態引發了不少討論。相較於 DeepSeek-v4-flash-vision-exp 展現出的處理速度，Gemini 在應對多模態虛假訊息時的處理邏輯更值得玩味。Google 擁有地表最強的索引庫，理應能識別出這些智庫網域的註冊時間和關聯性，但在實際測試中，Gemini 往往會陷入一種「權威盲從」。只要訊息源的排版夠專業、術語夠艱澀，Gemini 就傾向於給予較高的權重。這種技術慣性在面對地緣政治操弄時，簡直是給對方開了後門。</p>
+    <p>Grok 則是另一個極端。馬斯克宣稱的「反覺醒」和「追尋真相」，讓 Grok 在抓取 X（原 Twitter）上的即時資訊時，非常容易撞上那些被水軍刻意擴散的虛假智庫連結。與 ChatGPT 試圖維持的一種精緻平衡不同，Grok 的語氣往往帶著一種對既有敘事的反叛，而這種反叛剛好最容易被那些「非主流但看起來專業」的假訊息所利用。當模型被設計成要挖掘「被隱瞞的真相」時，它往往會忽略最基本的來源驗證。</p>
+    <p>這件事背後的陰影遠不止於幾個聊天機器人說錯話。四大模型目前都與特定國家的國防部門有著深淺不一的合約關係。當這些模型被集成到決策輔助系統中，而輸入的數據來源已經被敵對或友盟國家的情報體系污染，這就成了一個莫比烏斯環式的悖論：我們用 AI 來消除人類的偏見和誤判，結果 AI 本身成了最昂貴的偏見放大器。</p>
+    <p>如果未來幾年，網路空間充斥著 90% 由 AI 生成、為了餵養 AI 而存在的「專業報告」，我們該如何定義所謂的基準真相？當四大平台都在標榜自己更聰明、更懂人類時，它們是否具備哪怕一點點辨別「穿著西裝的謊言」的能力？還是說，我們最終會發現，這些價值千億美金的矽谷產物，本質上只是一群看見格式正確就盲目點頭的數位速記員？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://responsiblestatecraft.org/israel-influence-chatgpt/" rel="nofollow noopener" target="_blank">Israel creates fake think tank in likely attempt to dupe AI chatbots</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260823-0529-3d6f17/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

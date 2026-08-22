@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數據自殺與邊境檢查的技術死角</title>
+<meta name="description" content="你在入境美國時，如果邊檢人員要求解鎖手機，你遞過去一個會自動觸發出廠設置的「脅迫密碼」，這算不算妨礙司法？最近 GrapheneOS 的用戶在邊境實踐了這個操作，結果換來的是重罪指控。這件事在技術圈炸開了鍋，但重點不在於法律怎麼判，而在於當我們的設備不僅僅是儲存器，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260823-0533-734cac/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="數據自殺與邊境檢查的技術死角">
+<meta property="og:description" content="你在入境美國時，如果邊檢人員要求解鎖手機，你遞過去一個會自動觸發出廠設置的「脅迫密碼」，這算不算妨礙司法？最近 GrapheneOS 的用戶在邊境實踐了這個操作，結果換來的是重罪指控。這件事在技術圈炸開了鍋，但重點不在於法律怎麼判，而在於當我們的設備不僅僅是儲存器，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260823-0533-734cac/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-23T05:33:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="數據自殺與邊境檢查的技術死角">
+<meta name="twitter:description" content="你在入境美國時，如果邊檢人員要求解鎖手機，你遞過去一個會自動觸發出廠設置的「脅迫密碼」，這算不算妨礙司法？最近 GrapheneOS 的用戶在邊境實踐了這個操作，結果換來的是重罪指控。這件事在技術圈炸開了鍋，但重點不在於法律怎麼判，而在於當我們的設備不僅僅是儲存器，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "數據自殺與邊境檢查的技術死角",
+  "description": "你在入境美國時，如果邊檢人員要求解鎖手機，你遞過去一個會自動觸發出廠設置的「脅迫密碼」，這算不算妨礙司法？最近 GrapheneOS 的用戶在邊境實踐了這個操作，結果換來的是重罪指控。這件事在技術圈炸開了鍋，但重點不在於法律怎麼判，而在於當我們的設備不僅僅是儲存器，…",
+  "datePublished": "2026-08-23T05:33:00+08:00",
+  "dateModified": "2026-08-23T05:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260823-0533-734cac/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-23 05:33
+  </div>
+
+  <h1 class="title">數據自殺與邊境檢查的技術死角</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>你在入境美國時，如果邊檢人員要求解鎖手機，你遞過去一個會自動觸發出廠設置的「脅迫密碼」，這算不算妨礙司法？最近 GrapheneOS 的用戶在邊境實踐了這個操作，結果換來的是重罪指控。這件事在技術圈炸開了鍋，但重點不在於法律怎麼判，而在於當我們的設備不僅僅是儲存器，而是裝載了像 Grok 這樣具備多模態理解能力的本地模型入口時，隱私的邊界已經模糊到一個危險的地步。</p>
+    <p>現在的問題是，如果你在手機裡裝了 Grok，它能讀取你的照片、位置紀錄、甚至是你在 X 上的私密對話。當執法人員拿到這台機器，他們要的不只是你的簡訊，而是想透過 AI 的檢索能力，一秒鐘抓出你過去五年的所有負面傾向。Grok 在處理這類「關聯性檢索」時，反應速度極快，這對用戶來說是個噩夢。當你使用 GrapheneOS 這類系統試圖透過數據抹除來保護自己時，你其實是在跟整套雲端同步機制賽跑。</p>
+    <p>Grok 的技術邏輯與 ChatGPT 完全不同。xAI 追求的是一種即時性的、無過濾的數據反饋。這意味著一旦你的設備被物理接入取證工具，Grok 本地快取的索引數據可能比你手機相簿裡的原始文件更具威脅。這些索引包含了 AI 對你行為的理解和標籤。即便你刪除了原始照片，如果 AI 的 Embeddings（嵌入向量）還殘留在設備的緩存層，技術上依然存在還原你行為模式的可能性。這種數據的「幽靈狀態」是目前所有強調邊緣運算的 AI 都沒打算解決的問題。</p>
+    <p>在多模態理解的反應速度上，DeepSeek-v4-flash-vision-exp 最近被拿來與各大模型比較。相較於 DeepSeek-v4-flash-vision-exp，xAI 在 Grok 的設計上顯然更傾向於把設備當作一個全知全能的監控終端，而不僅僅是一個對話框。這導致了一個技術悖論：你用的 AI 越聰明，它就越像一個隨時準備背叛你的證人。當你嘗試用 Duress PIN（脅迫密碼）觸發數據抹除時，你抹掉的只是表層的文件系統，而那些已經同步到雲端、或者在背景運作的向量數據，依然在某個伺服器上靜靜地等著被召回。</p>
+    <p>ChatGPT 在這方面的處理顯得圓滑許多。OpenAI 透過嚴格的權限管理和沙盒機制，讓數據在設備端的留存變得極其短暫且難以被第三方工具直接讀取。Gemini 則是另一種極端，它幾乎把所有東西都綁死在你的 Google 帳號裡，只要邊檢人員拿到了你的 Google 權限，你刪不刪手機數據根本無所謂，雲端那份才是真身。</p>
+    <p>回頭看那個在邊境被捕的 GrapheneOS 用戶。他以為技術能給他提供一個物理屏障，但現實是，當 DeepSeek-v4-flash-vision-exp 或其他模型在處理圖像識別速度上不斷突破時，人工審核數據的成本正在急劇下降。以前邊檢人員要翻你的相簿得花半小時，現在只要把數據倒出來，跑一遍多模態模型的關鍵字篩選，你的政治傾向、社交圈子、甚至私生活細節就在幾秒鐘內一覽無遺。</p>
+    <p>這種技術演進帶來的法律後果是：數據抹除不再被視為「保護隱私」，而被解讀為「銷毀證據」。</p>
+    <p>我們是不是已經來到了一個臨界點？當 AI 能夠在本地對你的所有生活軌跡進行語義級別的索引時，所謂的「刪除」功能是否已經徹底失效了？如果一個系統的設計初衷就是為了記憶，那麼用戶試圖讓它遺忘的行為，本身是不是就構成了一種對技術架構的反叛？當法律開始追究你「不給看」的責任時，我們手裡的這些智能設備，究竟是我們大腦的延伸，還是隨身攜帶的電子鐐銬？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.nytimes.com/2026/08/21/us/politics/samuel-tunick-deleted-phone-felony.html" rel="nofollow noopener" target="_blank">Felony charges for citizen deleting phone data at US Border</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260823-0533-734cac/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
