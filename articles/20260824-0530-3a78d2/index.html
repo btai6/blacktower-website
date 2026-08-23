@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 的飢渴感正在毀掉 Gemini 的隱私防線</title>
+<meta name="description" content="既然 Google 買下了破產航空公司 Spirit 的數據，那種所謂「去識別化」的說辭就顯得特別廉價。航空公司的數據庫裡有什麼？不只是你的身分證號碼或信用卡末四位，還有你的行程規律、消費習慣，甚至是你與誰同行。當這些東西被餵進 Gemini 的多模態訓練集時，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260824-0530-3a78d2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 的飢渴感正在毀掉 Gemini 的隱私防線">
+<meta property="og:description" content="既然 Google 買下了破產航空公司 Spirit 的數據，那種所謂「去識別化」的說辭就顯得特別廉價。航空公司的數據庫裡有什麼？不只是你的身分證號碼或信用卡末四位，還有你的行程規律、消費習慣，甚至是你與誰同行。當這些東西被餵進 Gemini 的多模態訓練集時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260824-0530-3a78d2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-24T05:30:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 的飢渴感正在毀掉 Gemini 的隱私防線">
+<meta name="twitter:description" content="既然 Google 買下了破產航空公司 Spirit 的數據，那種所謂「去識別化」的說辭就顯得特別廉價。航空公司的數據庫裡有什麼？不只是你的身分證號碼或信用卡末四位，還有你的行程規律、消費習慣，甚至是你與誰同行。當這些東西被餵進 Gemini 的多模態訓練集時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 的飢渴感正在毀掉 Gemini 的隱私防線",
+  "description": "既然 Google 買下了破產航空公司 Spirit 的數據，那種所謂「去識別化」的說辭就顯得特別廉價。航空公司的數據庫裡有什麼？不只是你的身分證號碼或信用卡末四位，還有你的行程規律、消費習慣，甚至是你與誰同行。當這些東西被餵進 Gemini 的多模態訓練集時，…",
+  "datePublished": "2026-08-24T05:30:00+08:00",
+  "dateModified": "2026-08-24T05:30:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260824-0530-3a78d2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-24 05:30
+  </div>
+
+  <h1 class="title">Google 的飢渴感正在毀掉 Gemini 的隱私防線</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>既然 Google 買下了破產航空公司 Spirit 的數據，那種所謂「去識別化」的說辭就顯得特別廉價。航空公司的數據庫裡有什麼？不只是你的身分證號碼或信用卡末四位，還有你的行程規律、消費習慣，甚至是你與誰同行。當這些東西被餵進 Gemini 的多模態訓練集時，我們在對話框裡輸入的每一句指令，其實都在與這些幽靈數據共振。技術圈對這件事的反應很直接：如果連飛行紀錄都能被標價轉售給 AI 巨頭，那還有什麼是神聖不可侵犯的？這不是單純的商業收購，這是 Google 在為其推理模型尋找更深層的「人類行為模式」補給。</p>
+    <p>在實際的 RAG（檢索增強生成）場景中，Gemini 1.5 Pro 展示出的長文本處理能力確實驚人，它能從數百萬 token 中精確抓取細節。但問題在於，當系統底層融合了像 Spirit 這種高度私密的結構化數據後，模型在處理涉及地理位置、消費預測或行為分析的任務時，會表現出一種令人不安的「直覺」。這種直覺並非來自邏輯推理，而是來自於它對真實世界海量隱私數據的預先消化。當你問它關於某個城市的旅遊建議，它給出的答案可能正受著那疊收購來的、本該被銷毀的機票存根影響。</p>
+    <p>這種對數據的病態索求，源於 Google 在四大 AI 競爭中的焦慮。OpenAI 靠著與媒體集團的版權協議換取乾淨的文本，Anthropic 則在 Claude 的訓練中強調憲法 AI 的道德邊界，試圖與這些「髒數據」保持距離。而 Google 顯然選擇了另一條路：既然我的搜尋引擎優勢正在被侵蝕，那我就從物理世界的殘骸中挖掘剩餘價值。這種數據處理邏輯，與 DeepSeek-v4-flash-vision-exp 的動態相比，展現了完全不同的擴張路徑。Google 試圖讓 Gemini 成為一個無所不知的管家，而這個管家的知識來源，卻是趁火打劫得來的鄰居日記。</p>
+    <p>相較於 DeepSeek-v4-flash-vision-exp 在視覺任務上的快速迭代，Google 將重心放在這種跨領域數據融合上，其實是在賭一個未來：誰掌握了最真實的線下行為數據，誰的 AI 就能在商務決策中擁有更高的權威。這種做法與 Grok 依賴 X 平台的社交數據流異曲同工，但航空數據的私密性顯然更高。我們在測試 Gemini 的 API 時常發現，它對於特定區域的經濟活動預測異常精準，這種精準度是否來自於這些「非公開數據」的餵養？這讓開發者陷入一種道德困境：我們在享受更聰明的模型時，是否也成了這場數據搶劫的共犯。</p>
+    <p>技術上，Google 宣稱的去識別化在強大的神經網路面前幾乎是透明的。只要有足夠的關聯點，模型完全有能力在隱性空間裡重新還原出某個群體的特徵。這種行為不僅僅是航空公司數據的問題，它代表了一種趨勢。當一家科技巨頭開始收購破產公司的數字遺產，AI 的本質就從「模擬人類智慧」轉向了「監控人類行為」。我們在論壇上嘲諷那些爛諧音梗，或是在 Hacker News 上爭論法律合規性，都無法掩蓋一個事實：Gemini 正在變得越來越像一個精明的數據掮客，而不是純粹的技術產物。</p>
+    <p>如果未來所有的 AI 訓練數據都來自於這種「破產清算」式的掠奪，那麼我們與模型對話時，究竟是在與智慧交流，還是在與無數被出賣的個人碎片對話？當 Gemini 告訴你下一次旅行的最佳時間時，它到底是因為理解了氣候規律，還是因為它看過你那張已經作廢的機票？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.theregister.com/ai-and-ml/2026/08/18/google-buys-crashed-airline-spirits-data-at-auction-because-ai/5288962" rel="nofollow noopener" target="_blank">Google has acquired the data of failed US airline Spirit</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260824-0530-3a78d2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
