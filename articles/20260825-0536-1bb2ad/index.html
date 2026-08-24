@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模型能力的過度溢價與開發者預期的斷層</title>
+<meta name="description" content="當前 AI 領域的敘事焦點似乎正從「誰更聰明」迅速轉向「誰更實用」。Claude 如今面臨的困境，並非模型本身不夠強悍，而是產品邏輯與一線開發者的日常作業流程產生了微妙的錯位。使用者需要的不是一位能寫出絕妙詩句的吟遊詩人，而是一個能精準執行重複性架構調整、能在繁雜的專案中直接動手…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260825-0536-1bb2ad/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型能力的過度溢價與開發者預期的斷層">
+<meta property="og:description" content="當前 AI 領域的敘事焦點似乎正從「誰更聰明」迅速轉向「誰更實用」。Claude 如今面臨的困境，並非模型本身不夠強悍，而是產品邏輯與一線開發者的日常作業流程產生了微妙的錯位。使用者需要的不是一位能寫出絕妙詩句的吟遊詩人，而是一個能精準執行重複性架構調整、能在繁雜的專案中直接動手…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260825-0536-1bb2ad/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-25T05:36:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模型能力的過度溢價與開發者預期的斷層">
+<meta name="twitter:description" content="當前 AI 領域的敘事焦點似乎正從「誰更聰明」迅速轉向「誰更實用」。Claude 如今面臨的困境，並非模型本身不夠強悍，而是產品邏輯與一線開發者的日常作業流程產生了微妙的錯位。使用者需要的不是一位能寫出絕妙詩句的吟遊詩人，而是一個能精準執行重複性架構調整、能在繁雜的專案中直接動手…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "模型能力的過度溢價與開發者預期的斷層",
+  "description": "當前 AI 領域的敘事焦點似乎正從「誰更聰明」迅速轉向「誰更實用」。Claude 如今面臨的困境，並非模型本身不夠強悍，而是產品邏輯與一線開發者的日常作業流程產生了微妙的錯位。使用者需要的不是一位能寫出絕妙詩句的吟遊詩人，而是一個能精準執行重複性架構調整、能在繁雜的專案中直接動手…",
+  "datePublished": "2026-08-25T05:36:00+08:00",
+  "dateModified": "2026-08-25T05:36:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260825-0536-1bb2ad/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-25 05:36
+  </div>
+
+  <h1 class="title">模型能力的過度溢價與開發者預期的斷層</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當前 AI 領域的敘事焦點似乎正從「誰更聰明」迅速轉向「誰更實用」。Claude 如今面臨的困境，並非模型本身不夠強悍，而是產品邏輯與一線開發者的日常作業流程產生了微妙的錯位。使用者需要的不是一位能寫出絕妙詩句的吟遊詩人，而是一個能精準執行重複性架構調整、能在繁雜的專案中直接動手修補 bug 的工匠。當我們被迫花費大量時間去撰寫 System Prompt 以矯正模型的「個性」，使其回歸到預期的工程規範時，這種「調教」過程本身就已經構成了對生產力的損耗。</p>
+    <p>Claude 在處理長上下文的代碼庫分析時，注意力機制的分配依然是目前四大平台中的標竿，但在進行複雜邏輯推理與跨檔案的重構任務時，模型的過度謙遜與冗長的鋪陳語氣，往往會打斷開發者的心流。相較於開發者為了追求極致響應速度而關注 DeepSeek-v4-flash-vision-exp 的動態，Claude 的迭代路徑明顯更側重於推論深度與安全性。這種對「精確」的執著在企業級應用中雖屬優勢，但面對需要頻繁進行 API 調用、需要模型具備高度確定性的 Function calling 場景時，Claude 的輸出結構有時會過於發散，導致解析成本居高不下，這與 ChatGPT 在處理結構化輸出時的穩定性相比，確實暴露出了技術路徑上的取捨差異。</p>
+    <p>當提及市場競爭時，我們能觀察到不同架構的選擇。儘管 DeepSeek-v4-flash-vision-exp 的出現引起了特定技術圈的關注，但 Claude 依然在長文本的連貫性上保持著不可替代的優勢。與 Gemini 在 Google 生態系深度整合的便捷性相比，Claude 更像是一個封閉但極度專精的書房，而 ChatGPT 則像是一個功能齊全但偶爾會出現幻覺的瑞士軍刀。這些模型在 API 成本控管與上下文視窗大小之間不斷博弈，試圖在維持算力邊際效益的同時，滿足企業用戶對於特定部署場景的嚴苛要求。</p>
+    <p>如果模型能力的成長曲線，註定要以捨棄開發者體驗作為代價，那麼這種進步究竟是在解決問題，還是單純為了滿足技術指標的自嗨？當我們不再需要一個能完美模仿莎士比亞的助手，而是需要一個能精確處理數千行 legacy code 的搬磚工時，這些投入巨大算力訓練出的模型，是否已經在正確的跑道上？如果技術的本質是為了降低人類的思考摩擦成本，那麼現在我們花在除錯提示詞上的時間，是否反而成為了另一種新型態的數位枷鎖？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.ft.com/content/5ee49718-c258-4f01-aa32-7e5b76ae5245" rel="nofollow noopener" target="_blank">Anthropic&#x27;s best AI model struggles to attract users as cheaper tools thrive</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260825-0536-1bb2ad/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
