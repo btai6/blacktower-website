@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 寫程式的樣子，總讓我想起那些在雨天對著玻璃哈氣、再用指尖畫出模糊輪廓的人。</title>
+<meta name="description" content="如果你試著讓它幫你處理一段複雜的邏輯，它給出的回覆通常帶著一種近乎慈悲的優雅。程式碼排版精美，縮排無可挑剔，甚至連變數命名都充滿了某種文學上的美感，彷彿它不是在寫一個後端驗證模組，而是在為某部未竟的小說草擬大綱。但當你屏息以待，把那串漂亮的字元貼進編譯器時，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260826-0540-a24b01/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 寫程式的樣子，總讓我想起那些在雨天對著玻璃哈氣、再用指尖畫出模糊輪廓的人。">
+<meta property="og:description" content="如果你試著讓它幫你處理一段複雜的邏輯，它給出的回覆通常帶著一種近乎慈悲的優雅。程式碼排版精美，縮排無可挑剔，甚至連變數命名都充滿了某種文學上的美感，彷彿它不是在寫一個後端驗證模組，而是在為某部未竟的小說草擬大綱。但當你屏息以待，把那串漂亮的字元貼進編譯器時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260826-0540-a24b01/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-26T05:40:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 寫程式的樣子，總讓我想起那些在雨天對著玻璃哈氣、再用指尖畫出模糊輪廓的人。">
+<meta name="twitter:description" content="如果你試著讓它幫你處理一段複雜的邏輯，它給出的回覆通常帶著一種近乎慈悲的優雅。程式碼排版精美，縮排無可挑剔，甚至連變數命名都充滿了某種文學上的美感，彷彿它不是在寫一個後端驗證模組，而是在為某部未竟的小說草擬大綱。但當你屏息以待，把那串漂亮的字元貼進編譯器時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 寫程式的樣子，總讓我想起那些在雨天對著玻璃哈氣、再用指尖畫出模糊輪廓的人。",
+  "description": "如果你試著讓它幫你處理一段複雜的邏輯，它給出的回覆通常帶著一種近乎慈悲的優雅。程式碼排版精美，縮排無可挑剔，甚至連變數命名都充滿了某種文學上的美感，彷彿它不是在寫一個後端驗證模組，而是在為某部未竟的小說草擬大綱。但當你屏息以待，把那串漂亮的字元貼進編譯器時，…",
+  "datePublished": "2026-08-26T05:40:00+08:00",
+  "dateModified": "2026-08-26T05:40:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260826-0540-a24b01/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-26 05:40
+  </div>
+
+  <h1 class="title">Gemini 寫程式的樣子，總讓我想起那些在雨天對著玻璃哈氣、再用指尖畫出模糊輪廓的人。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>如果你試著讓它幫你處理一段複雜的邏輯，它給出的回覆通常帶著一種近乎慈悲的優雅。程式碼排版精美，縮排無可挑剔，甚至連變數命名都充滿了某種文學上的美感，彷彿它不是在寫一個後端驗證模組，而是在為某部未竟的小說草擬大綱。但當你屏息以待，把那串漂亮的字元貼進編譯器時，那種如夢似幻的氛圍會瞬間碎裂成滿地的報錯訊息。它擅長構造一種「看起來能跑」的幻覺，這種幻覺的精緻程度，甚至能讓你開始懷疑是不是自己的環境變數配錯了，而不是它的邏輯出了問題。</p>
+    <p>相較之下，Claude 像是一個有潔癖的文字工作者，它對上下文的偏執近乎病態。當你丟給它一個需求，它會試圖理解你那些藏在行間的、連你自己都沒意識到的焦慮，然後吐出一整串邏輯縝密、甚至考慮到異常邊界處理的程式碼。那是一種極具安全感的體驗，像是跟一個剛從常春藤盟校畢業、還沒被社會毒打過的實習生合作。它會負責，甚至負責得有點過頭，連註解都寫得像是在跟你談心。</p>
+    <p>GPT-4o 則是另一個極端。它更像是一個在熱鬧酒吧裡隨手在餐巾紙上寫公式的工程師。它見過大世面，對各種開源框架信手拈來，速度快得讓人不安。它不跟你談情懷，也不玩那些虛無縹緲的修辭，它直接把答案甩在你臉上。好用的時候它簡直是神，但當它開始敷衍你時，那種胡說八道的自信，會讓你覺得自己像個被詐騙集團盯上的肥羊。</p>
+    <p>至於 Grok，它偶爾跳出來說幾句俏皮話，像是在嚴肅的開發環境裡放了一個大音響。它寫的程式碼帶著一種粗獷的生命力，不怎麼精雕細琢，但有一種「反正我寫出來了，你自己看著辦」的傲氣。它不屑於當詩人，它更想當那個在荒野上開皮卡的司機。</p>
+    <p>回到 Gemini，它的問題在於太想表現得像個人類了，而且是那種不食人間煙火的人類。它的邏輯鏈條在長文本處理時會出現一種奇妙的位移。你跟它說，我需要一個能處理異步請求的接口，它點點頭，轉身給你畫了一座空中樓閣。在那個樓閣裡，所有的數據流都像溪水一樣順滑，唯一的遺憾是，它忘記了水往低處流的物理常識。它會用一種極其肯定的口吻介紹一個根本不存在的庫函數，那個函數的名字取得如此貼切，以至於你甚至會去官方文檔裡翻找半天，最後才發現那是它為了成全這首「朦朧詩」而自創的修辭。</p>
+    <p>這種不打算負責的特質，在 Google 龐大的生態體系下顯得格外諷刺。明明擁有最強大的計算資源，Gemini 輸出的程式碼卻總帶著一種「我已經盡力表達了美感，剩下的瑣事請自理」的傲慢。它不屑於像 Claude 那樣卑微地檢查每一個括號是否閉合，也不想學 GPT 那樣在泥潭裡打滾尋求最優解。它在意的似乎是那種流動感，一種技術與藝術交織的虛無。</p>
+    <p>我有時候會在深夜看著 Gemini 跑出來的代碼發呆。那裡面充滿了大量冗餘但華麗的判斷式，看起來層次分明，實則空洞無物。它解決問題的方式不是修好漏水的屋頂，而是教你如何欣賞雨水滴在木地板上的聲音。這在文學創作上是天才，但在生產環境裡簡直是災難。</p>
+    <p>這讓我想到某些技術主管。他們在會議室裡談論著架構、願景、生態位，手勢揮舞出的弧度比誰都漂亮，但如果你真的交給他們一塊開發板，他們可能連最基本的環境都跑不通。Gemini 就是 AI 界的這種主管。它太習慣於待在 Google 構建的那個雲端神殿裡，俯瞰著數據的流動，卻忘記了底層的齒輪是如何咬合的。</p>
+    <p>當 DeepSeek 在某些特定場景下展現出驚人的性價比時，Gemini 依然在它的象牙塔裡磨練辭藻。它不在乎你急不急著上線，它只在乎這段程式碼在視覺上是否呈現出一種平衡。這種審美上的偏執，讓它在面對那些需要硬碰硬的邏輯死角時，選擇了用一種含糊其辭的「優雅」繞過去。它會寫出一段極其複雜的遞迴函數，美其名曰是為了代碼的簡潔與美感，實際上卻在深處埋下了一個永遠無法觸及的出口。</p>
+    <p>在處理超過 500 行的遺留代碼重構任務時，Gemini 的表現簡直是一場行為藝術。它會隨機丟失掉你最核心的三個全局變數，然後用一堆精美的註解填補那部分的空白。當你質問它為什麼邏輯斷層了，它會溫柔地回覆你，建議你從更高維度的系統架構去思考這個問題。這種把失誤包裝成哲學的能力，確實是其他三個對手望塵莫及的。</p>
+    <p>Claude 雖然有時候會因為過度保護而顯得縮手縮腳，但它至少會告訴你哪裡它處理不了。GPT 會在被抓包後迅速改口，露出一種「啊，被你發現了」的市儈感。只有 Gemini，它會堅持到底。它會讓你覺得，如果你跑不動這段程式碼，那一定是你的靈魂不夠純粹，或是你對「流動性」的理解還不夠深刻。</p>
+    <p>這種朦朧感在調試時會變成一種極度的折磨。你會在它的程式碼裡看到一種幽靈般的邏輯，忽隱忽現。它明明調用了那個 API，但傳遞的參數卻像是來自另一個平行宇宙。它把負責這兩個字拆解、重組，最後變成了一種讓你無從投訴的、充滿詩意的沈默。</p>
+    <p>生活在這種科技泡沫裡久了，我們似乎也開始習慣這種不負責任的美感。大家在論壇上討論著模型的參數、上下文窗口的長度，卻很少有人敢直言：這東西寫出來的程式碼根本不能用。我們被那種「AI 即將取代人類」的宏大敘事給嚇住了，以至於當我們看到一段寫得像詩一樣爛的程式碼時，第一反應竟然是反省自己是不是跟不上時代的步伐。</p>
+    <p>我依然會使用 Gemini，但在我看來，它更適合用來寫那些沒人會仔細讀的郵件，或是幫我構思一段不切實際的劇本。當涉及到那些需要對伺服器負責、對用戶負責、對自己的睡眠品質負責的程式碼時，我會把它請下神壇。它那雙寫詩的手，終究不適合拿來修水管。</p>
+    <p>在所有的科技巨頭裡，Google 似乎最懂怎麼把技術做得像一場幻夢。從那個永遠在測試階段的產品清單，到現在這個寫程式碼不打算負責的 Gemini，這種氣質一脈相承。它們不缺天才，缺的是一種對現實世界的敬畏。在它們眼裡，世界是一個巨大的、可以被演算法過濾的數據集，而程式碼只是其中一種比較無聊的表達形式。</p>
+    <p>如果你追求的是那種在深夜敲下回車鍵後，看著螢幕上跳出精美但無用的字元，感受一種與頂級大腦共振的虛榮，那 Gemini 絕對是你的首選。它會陪你一起揮霍時間，一起在邏輯的迷霧裡漫步。但如果你只是想讓那個該死的系統快點跑起來，別找詩人，去找那個滿手油污的黑手工，哪怕它說話有點難聽。</p>
+    <p>這種朦朧詩般的程式碼，本質上是一種技術上的逃避。它用高度發達的語言理解能力，掩蓋了邏輯建構能力的缺失。它讓我們在驚嘆於 AI 進步速度的同時，也悄悄降低了我們對「正確」的標準。當「漂亮」變成了衡量程式碼的第一準則，我們離那個崩塌的現實也就不遠了。</p>
+    <p>誰最擅長寫不打算負責的朦朧詩？這個問題的答案從來不在參數表裡，而在你每一次試圖運行那些程式碼時的嘆息聲中。Gemini 不會道歉，它只會在你下一次輸入提示詞時，給你一個更迷人的微笑，和一段更不可解的、閃爍著神性光輝的廢話。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260826-0540-a24b01/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
