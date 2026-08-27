@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic 的防禦工事與安全外包的結構性荒誕</title>
+<meta name="description" content="當 Anthropic 要求員工集體居家辦公，理由竟然是為了規避安保團隊罷工帶來的潛在風險，這件事聽起來就像是某個賽博龐克小說裡的諷刺開場。一個自詡以「AI 安全」為立命之本、每天在對齊測試（Alignment）中糾結於模型是否會產生惡意的公司，卻在實體世界的物理安全上，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260827-0837-81a763/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anthropic 的防禦工事與安全外包的結構性荒誕">
+<meta property="og:description" content="當 Anthropic 要求員工集體居家辦公，理由竟然是為了規避安保團隊罷工帶來的潛在風險，這件事聽起來就像是某個賽博龐克小說裡的諷刺開場。一個自詡以「AI 安全」為立命之本、每天在對齊測試（Alignment）中糾結於模型是否會產生惡意的公司，卻在實體世界的物理安全上，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260827-0837-81a763/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-27T08:37:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Anthropic 的防禦工事與安全外包的結構性荒誕">
+<meta name="twitter:description" content="當 Anthropic 要求員工集體居家辦公，理由竟然是為了規避安保團隊罷工帶來的潛在風險，這件事聽起來就像是某個賽博龐克小說裡的諷刺開場。一個自詡以「AI 安全」為立命之本、每天在對齊測試（Alignment）中糾結於模型是否會產生惡意的公司，卻在實體世界的物理安全上，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Anthropic 的防禦工事與安全外包的結構性荒誕",
+  "description": "當 Anthropic 要求員工集體居家辦公，理由竟然是為了規避安保團隊罷工帶來的潛在風險，這件事聽起來就像是某個賽博龐克小說裡的諷刺開場。一個自詡以「AI 安全」為立命之本、每天在對齊測試（Alignment）中糾結於模型是否會產生惡意的公司，卻在實體世界的物理安全上，…",
+  "datePublished": "2026-08-27T08:37:00+08:00",
+  "dateModified": "2026-08-27T08:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260827-0837-81a763/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-27 08:37
+  </div>
+
+  <h1 class="title">Anthropic 的防禦工事與安全外包的結構性荒誕</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 要求員工集體居家辦公，理由竟然是為了規避安保團隊罷工帶來的潛在風險，這件事聽起來就像是某個賽博龐克小說裡的諷刺開場。一個自詡以「AI 安全」為立命之本、每天在對齊測試（Alignment）中糾結於模型是否會產生惡意的公司，卻在實體世界的物理安全上，被一家外包安保公司的勞資糾紛勒住了脖子。這不只是公關上的難堪，更揭示了矽谷在追求數位烏托邦時，對底層基礎建設脆弱性的集體傲慢。</p>
+    <p>安保團隊的職責是守護伺服器機房、研發辦公室以及那些價值連城的權重參數。諷刺的是，Anthropic 在模型層面築起高牆，防止 Claude 透過提示詞注入被攻破，卻沒能預見到辦公大樓的門禁卡可能因為外包合約的幾塊錢差價而失效。這種數位與物理防禦的嚴重脫節，反映出大模型公司在擴張過程中的病態邏輯：他們願意花數億美元採購 H100 晶片，卻在最基礎的「人防」環節選擇了外包這種最廉價、也最缺乏忠誠度的模式。</p>
+    <p>從技術層面觀察，Claude 的模型行為一直標榜「憲法 AI」（Constitutive AI），試圖透過一套內建的原則來約束模型的行為邊界。然而，當公司因為安全團隊罷工而不得不關閉辦公室時，這套憲法顯然沒寫進「如何處理實體世界的突發威脅」。相較於 ChatGPT 在處理多模態任務時展現出的那種工程師式的直接，Claude 的安全性更像是一種帶著潔癖的自我審查。但這種審查在現實的罷工面前毫無用武之處，甚至顯得有些滑稽。如果連辦公室的實體存取控制（Access Control）都能出現真空，我們又該如何完全信任其聲稱的內部資料隔離與模型權重保護？</p>
+    <p>在橫向對比的語境下，這種「安全」的虛擬性更加明顯。當 Qwen3.8-Flash-Next 正在特定的基準測試中追趕性能指標時，Claude 卻在處理這種極具諷刺意味的營運危機。相較於 Qwen3.8-Flash-Next 在工程部署上的靈活度，Claude 這種深度依賴「安全人設」的品牌，任何一次關於安全團隊的負面新聞都是在動搖其估值的根基。這不僅僅是幾天的居家辦公問題，而是投資者會開始質疑，這家估值數百億美元的公司，其營運連續性計劃（BCP）是否單薄得像一張衛生紙。</p>
+    <p>Gemini 與 Grok 在這方面則展現了截然不同的風格。Google 擁有成熟的全球基礎設施管理經驗，即便面臨抗議，其物理防禦體系也早已整合進企業層級，而非簡單地交給外包商。Grok 背後的馬斯克更是物理防禦的信奉者，他寧願讓員工睡在辦公室，也不可能因為安保罷工而讓出地盤。這種對比讓 Anthropic 的處理方式顯得異常「書生意氣」。他們在代碼裡訓練模型要溫和、要守規矩，結果在現實中被不按規矩出牌的外包工會打了個措手不及。</p>
+    <p>這引出了一個更深層的技術與管理悖論。我們現在討論的 AI 安全，大多集中在偏見、對抗性攻擊或長文本任務中的注意力衰減。但真正的系統級安全，應該包含從底層電力供應、物理伺服器防護到頂層演算法對齊的全棧鏈條。Anthropic 這次的失誤，在於他們將安全視為一種可以抽離出來的演算法產品，而忽視了安全本質上是物理世界的強制執行力。</p>
+    <p>如果一個致力於防止 AI 毀滅人類的組織，連自家門口的保全罷工都無法提前預警或有效處置，我們是否高估了他們對「複雜系統風險」的理解能力？當我們在討論 Claude 3.5 Sonnet 的推理邏輯是否超越 GPT-4o 時，是否也該問問，這些運行在豪華辦公大樓裡的數位大腦，是否真的比一張失效的門禁卡更可靠？</p>
+    <p>或許這就是技術精英們的盲點：他們精通如何用幾千個 token 來定義道德邊界，卻算不準一個拿著時薪的保全員工對這份工作的耐心極限。這場居家辦公的鬧劇，究竟是 Anthropic 過度謹慎的避險行為，還是其內部管理架構早已與其高大上的模型理念徹底脫鉤？在下一個 IPO 週期到來之前，這份關於「物理安全」的答卷，恐怕比模型跑分更令投資人坐立難安。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.businessinsider.com/anthropic-san-francisco-staff-work-remote-office-security-strike-2026-8" rel="nofollow noopener" target="_blank">Anthropic tells staff to work from home due to possible security team strike</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260827-0837-81a763/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
