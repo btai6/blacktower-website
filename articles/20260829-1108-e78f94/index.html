@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 筆下的辭藻修飾與工程直覺的集體喪失</title>
+<meta name="description" content="最近 Hacker News 上那份關於 Claude 承重詞彙清單的討論，倒像是一面照妖鏡，照出了 Anthropic 在對齊過程中所沉溺的那種「矯揉造作的優雅」。當你發現自己寫的每一段代碼、每一個技術方案都被 Claude 冠以「精妙的平衡」或「複雜的交響樂」時，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260829-1108-e78f94/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 筆下的辭藻修飾與工程直覺的集體喪失">
+<meta property="og:description" content="最近 Hacker News 上那份關於 Claude 承重詞彙清單的討論，倒像是一面照妖鏡，照出了 Anthropic 在對齊過程中所沉溺的那種「矯揉造作的優雅」。當你發現自己寫的每一段代碼、每一個技術方案都被 Claude 冠以「精妙的平衡」或「複雜的交響樂」時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260829-1108-e78f94/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-29T11:08:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 筆下的辭藻修飾與工程直覺的集體喪失">
+<meta name="twitter:description" content="最近 Hacker News 上那份關於 Claude 承重詞彙清單的討論，倒像是一面照妖鏡，照出了 Anthropic 在對齊過程中所沉溺的那種「矯揉造作的優雅」。當你發現自己寫的每一段代碼、每一個技術方案都被 Claude 冠以「精妙的平衡」或「複雜的交響樂」時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 筆下的辭藻修飾與工程直覺的集體喪失",
+  "description": "最近 Hacker News 上那份關於 Claude 承重詞彙清單的討論，倒像是一面照妖鏡，照出了 Anthropic 在對齊過程中所沉溺的那種「矯揉造作的優雅」。當你發現自己寫的每一段代碼、每一個技術方案都被 Claude 冠以「精妙的平衡」或「複雜的交響樂」時，…",
+  "datePublished": "2026-08-29T11:08:00+08:00",
+  "dateModified": "2026-08-29T11:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260829-1108-e78f94/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-08-29 11:08
+  </div>
+
+  <h1 class="title">Claude 筆下的辭藻修飾與工程直覺的集體喪失</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>最近 Hacker News 上那份關於 Claude 承重詞彙清單的討論，倒像是一面照妖鏡，照出了 Anthropic 在對齊過程中所沉溺的那種「矯揉造作的優雅」。當你發現自己寫的每一段代碼、每一個技術方案都被 Claude 冠以「精妙的平衡」或「複雜的交響樂」時，那種感覺就像是在路邊攤買一碗陽春麵，老闆卻非要給你配上銀質餐具和一段關於小麥產地的詠嘆調。技術討論追求的是信、達、雅，而 Claude 顯然在「雅」這條路上走火入魔，甚至不惜犧牲了「信」的純度。那些重複出現的詞彙並非偶然，它們是模型在機率預測空間中被強行扭曲後的殘留物。當底層權重被反覆灌輸某種「溫良恭儉讓」的對齊目標時，語言的豐富性就坍縮成了這幾十個看似高級實則空洞的形容詞。</p>
+    <p>這種現象在長文本處理和代碼解釋場景中尤為刺眼。你遞給它一段邏輯混亂的遺留代碼，希望它能像個滿手油污的老師傅一樣告訴你哪根管線漏了，結果它還給你一篇充滿「多維度觀察」和「本質特質」的文學評論。這種「辭藻承重」現象本質上是模型在處理不確定性時的一種防禦機制。當 Claude 無法精準定位技術問題的核心時，它會慣性地滑向那些它最擅長的、經過強化學習固化的安全詞庫。這對資深工程師來說簡直是種折磨，因為我們需要的不是一個試圖顯得很有教養的助手，而是一個能精準切中痛點的工具。這種語義上的「通膨」讓溝通成本呈幾何級數增長，你得在滿篇的修辭泡沫中，小心翼翼地撈出那幾句真正有用的邏輯建議。</p>
+    <p>相較於 Qwen3.8-Flash-Next 頻繁的動態更迭，Claude 在處理複雜邏輯與辭藻包裝之間的矛盾時，顯得有些尾大不掉。在同樣的技術解釋任務下，ChatGPT 雖然有時顯得平鋪直敘，甚至有些機械感，但它至少不會讓你在閱讀說明文時產生誤入莎士比亞劇組的幻覺。Gemini 則走向了另一個極端，它試圖在回答中塞入過多的結構化列表，雖然規避了修辭過度的問題，卻也丟失了對話的流暢感。至於 Grok，那種刻意為之的叛逆與幽默，有時比 Claude 的矯揉造作更讓人疲勞。在四大平台的混戰中，Claude 本該以「最強推理能力」坐穩江山，現在卻因為這些揮之不去的詞彙標籤，讓人懷疑其內在邏輯是否也被這種虛偽的優雅所侵蝕。</p>
+    <p>現在最讓人困惑的技術命題在於，這種語義坍縮是否為大語言模型在後監督微調階段不可避免的代價。如果我們為了追求回答的安全性與體面感，必須忍受這種如複讀機般的詞彙循環，那麼我們是否正在主動閹割 AI 的表達多樣性。當一個工具開始具備「性格」，且這種性格還是由預設的、單一的價值偏好所勾勒出來的，它所產出的內容究竟是智慧的結晶，還是一場精確計算後的文字遊戲。如果未來的模型都能在技術精準度與語言自然度之間找到那個完美的平衡點，那麼現在 Claude 這些令人尷尬的「承重詞」，是否會成為某種特定技術時代的荒謬考古遺跡。或者說，我們是否真的準備好接受一個不再試圖討好人類審美、只會冷冰冰地說出真相的純粹工具。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://louisabraham.github.io/load-bearing/" rel="nofollow noopener" target="_blank">Show HN: The load-bearing vocabulary of Claude</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260829-1108-e78f94/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

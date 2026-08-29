@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>靜態編譯的代價不該由 Grok 的推論速度來買單</title>
+<meta name="description" content="這兩天技術圈又在吵 musl 的性能問題，起因是有人測出它在某些分配場景下比 glibc 慢了超過 20%。這件事放在一般的後端開發可能只是個選擇題，但放到 xAI 這種追求極致算力擠壓的環境裡，這就是個災難。Grok 的架構從一開始就跑在大量的容器化環境中，為了部署方便，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260829-1116-63da90/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="靜態編譯的代價不該由 Grok 的推論速度來買單">
+<meta property="og:description" content="這兩天技術圈又在吵 musl 的性能問題，起因是有人測出它在某些分配場景下比 glibc 慢了超過 20%。這件事放在一般的後端開發可能只是個選擇題，但放到 xAI 這種追求極致算力擠壓的環境裡，這就是個災難。Grok 的架構從一開始就跑在大量的容器化環境中，為了部署方便，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260829-1116-63da90/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-29T11:16:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="靜態編譯的代價不該由 Grok 的推論速度來買單">
+<meta name="twitter:description" content="這兩天技術圈又在吵 musl 的性能問題，起因是有人測出它在某些分配場景下比 glibc 慢了超過 20%。這件事放在一般的後端開發可能只是個選擇題，但放到 xAI 這種追求極致算力擠壓的環境裡，這就是個災難。Grok 的架構從一開始就跑在大量的容器化環境中，為了部署方便，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "靜態編譯的代價不該由 Grok 的推論速度來買單",
+  "description": "這兩天技術圈又在吵 musl 的性能問題，起因是有人測出它在某些分配場景下比 glibc 慢了超過 20%。這件事放在一般的後端開發可能只是個選擇題，但放到 xAI 這種追求極致算力擠壓的環境裡，這就是個災難。Grok 的架構從一開始就跑在大量的容器化環境中，為了部署方便，…",
+  "datePublished": "2026-08-29T11:16:00+08:00",
+  "dateModified": "2026-08-29T11:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260829-1116-63da90/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-08-29 11:16
+  </div>
+
+  <h1 class="title">靜態編譯的代價不該由 Grok 的推論速度來買單</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天技術圈又在吵 musl 的性能問題，起因是有人測出它在某些分配場景下比 glibc 慢了超過 20%。這件事放在一般的後端開發可能只是個選擇題，但放到 xAI 這種追求極致算力擠壓的環境裡，這就是個災難。Grok 的架構從一開始就跑在大量的容器化環境中，為了部署方便，很多人直覺會想用 musl 把 Rust 寫的推理組件直接打包成一個 static binary。方便是方便了，但你以為省下的部署成本，最後都變成了昂貴的 GPU 等待時間。</p>
+    <p>關鍵在於內存分配器（Allocator）。musl 為了保證代碼簡潔和二進制體積小，它的分配器設計得非常保守。在多線程併發的高壓場景下，那種頻繁的鎖競爭簡直是性能殺手。xAI 在處理 Grok 的並行請求時，底層對內存的吞吐要求極高。如果你在生產環境裡用了預設的 musl 分配器，你會發現模型的首字延遲（TTFT）莫名其妙地升高，這不是模型本身算得慢，而是內存管理在那裡拖後腿。</p>
+    <p>當我們觀察 ChatGPT 或 Gemini 的後端架構時，你會發現這些大廠幾乎不會在核心推理路徑上妥協於這種「簡潔」。ChatGPT 的執行環境高度依賴經過魔改的 glibc 甚至是自研的內存分配方案，為的是在數萬個核心同時調度時，不讓 OS 級別的開銷成為瓶頸。Gemini 在 TPU 集群上的調度更是精細到了字節級別，這類系統對靜態編譯帶來的「部署便利性」完全不屑一顧。</p>
+    <p>這種對性能的偏執，在某些特定型號的對比下更顯眼。相較於 Qwen3.8-Flash-Next 這種在特定市場被頻繁討論的小型化模型，Grok 這種走暴力美學路線的大傢伙，任何 1% 的性能損失都會被放大成數百萬美元的電費。在 xAI 的集群裡，他們更傾向於使用 jemalloc 或 mimalloc 來替代標準分配器，這基本上已經成了高性能 AI 服務的標配。</p>
+    <p>有趣的是，Claude 在處理超長上下文任務時，其後端對內存的壓力和分佈式內存的回收機制，顯然比單純的二進制體積更有討論價值。當你的 Context Window 拉到幾十萬甚至上百萬時，內存碎片的處理能力直接決定了系統會不會在任務中途崩潰。這時候，如果你還在糾結 musl 能幫你省下幾十 MB 的鏡像大小，那簡直是捨本逐末。</p>
+    <p>這引出了一個很有意思的對比。Qwen3.8-Flash-Next 在一些輕量化部署場景中被推崇，而四大平台則在重型計算的泥潭裡死磕性能極限。這不是技術路線的好壞，而是你到底在為什麼付錢。如果你追求的是一個能塞進微型服務器的 sidecar，musl 或許是你的救星；但如果你要的是像 Grok 那樣，在幾千片 H100 上瘋狂噴湧 Token，那請離 musl 的預設分配器遠一點。</p>
+    <p>現在的問題是，當我們越來越依賴 Rust 這種強類型、高性能語言來構建 AI infrastructure 時，我們是不是過度迷信了「靜態編譯」帶來的穩定性？為了那點可憐的部署便利，把 20% 的性能拱手讓給內存鎖，這在算力即權力的時代，究竟算不算一種技術上的傲慢？當 AI 模型已經大到連內存頻寬都嫌不夠的時候，我們竟然還在操作系統的最底層，為了省幾個 Shared Library 的空間而沾沾自喜。</p>
+    <p>那麼，當下一個更依賴低延遲、高併發的 Grok 版本發布時，開發者是會選擇繼續忍受 musl 的平庸，還是回歸那個看起來笨重、卻能在關鍵時刻火力全開的 glibc 生態？或者說，未來的 AI 原生操作系統，是否根本就不該存在這些歷史包袱？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.brokk.ai/dont-use-musl-if-you-care-about-performance/" rel="nofollow noopener" target="_blank">Don&#x27;t use musl if you care about performance</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260829-1116-63da90/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
