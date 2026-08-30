@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>從 Qwen3.8-Flash-Next 到 Google Play 的版權羅生門：代碼污染的迴聲</title>
+<meta name="description" content="開源遊戲引擎 Luanti 被 Google Play 下架了，理由是那套聽起來正確卻極其荒謬的「AI 版權侵權」。這不是什麼新鮮的法律糾紛，而是技術層面上最諷刺的循環：開源代碼被餵給了 AI，AI 產出了相似的商業邏輯，然後版權掃描工具回頭指控原作者抄襲了 AI …">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260831-0724-90af4c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="從 Qwen3.8-Flash-Next 到 Google Play 的版權羅生門：代碼污染的迴聲">
+<meta property="og:description" content="開源遊戲引擎 Luanti 被 Google Play 下架了，理由是那套聽起來正確卻極其荒謬的「AI 版權侵權」。這不是什麼新鮮的法律糾紛，而是技術層面上最諷刺的循環：開源代碼被餵給了 AI，AI 產出了相似的商業邏輯，然後版權掃描工具回頭指控原作者抄襲了 AI …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260831-0724-90af4c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-08-31T07:24:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="從 Qwen3.8-Flash-Next 到 Google Play 的版權羅生門：代碼污染的迴聲">
+<meta name="twitter:description" content="開源遊戲引擎 Luanti 被 Google Play 下架了，理由是那套聽起來正確卻極其荒謬的「AI 版權侵權」。這不是什麼新鮮的法律糾紛，而是技術層面上最諷刺的循環：開源代碼被餵給了 AI，AI 產出了相似的商業邏輯，然後版權掃描工具回頭指控原作者抄襲了 AI …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "從 Qwen3.8-Flash-Next 到 Google Play 的版權羅生門：代碼污染的迴聲",
+  "description": "開源遊戲引擎 Luanti 被 Google Play 下架了，理由是那套聽起來正確卻極其荒謬的「AI 版權侵權」。這不是什麼新鮮的法律糾紛，而是技術層面上最諷刺的循環：開源代碼被餵給了 AI，AI 產出了相似的商業邏輯，然後版權掃描工具回頭指控原作者抄襲了 AI …",
+  "datePublished": "2026-08-31T07:24:00+08:00",
+  "dateModified": "2026-08-31T07:24:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260831-0724-90af4c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-08-31 07:24
+  </div>
+
+  <h1 class="title">從 Qwen3.8-Flash-Next 到 Google Play 的版權羅生門：代碼污染的迴聲</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>開源遊戲引擎 Luanti 被 Google Play 下架了，理由是那套聽起來正確卻極其荒謬的「AI 版權侵權」。這不是什麼新鮮的法律糾紛，而是技術層面上最諷刺的循環：開源代碼被餵給了 AI，AI 產出了相似的商業邏輯，然後版權掃描工具回頭指控原作者抄襲了 AI 產出的「原創內容」。當我們在討論 Qwen3.8-Flash-Next 這種新一代模型如何加速代碼生成的效率時，Google 的自動化審核機制正忙著用這種效率回火，燒掉開源社區的根基。</p>
+    <p>這種「代碼污染」的現象在 Gemini 的 API 響應中已經初現端倪。當你要求 Gemini 生成一段複雜的 Voxel 渲染邏輯時，它給出的代碼片段與 Minetest（Luanti 的前身）源碼庫的重合度高得驚人。這不是簡單的代碼補全，而是模型內部的注意力機制在大量抓取 Github 公開倉庫後，形成了一種路徑依賴。Google 的問題在於，他們一邊推動 Gemini 深入開發者的工作流，讓 AI 幫你寫代碼，另一邊卻在應用商店的准入審查中，使用了一套完全不透明的、基於相似度比對的黑箱算法。</p>
+    <p>這種技術矛盾在四大平台之間表現得尤為撕裂。ChatGPT 在處理這類爭議時，採取的是一種近乎消極的「防禦性輸出」。如果你嘗試讓 GPT-4o 生成帶有明顯特定遊戲特徵的底層架構，它會頻繁觸發安全過濾，或者乾脆給出一套平庸到極致、毫無侵權風險但也毫無價值的範本。相較之下，Gemini 追求的是極高的「可用性」，它更傾向於直接從其海量的訓練語料中提取最優解。當最優解正好來自於某個開源項目時，Gemini 並不會主動標註引用來源，這直接導致了後續在 Google 審核體系下的悲劇。</p>
+    <p>我們觀察到 Claude 在這方面的處理邏輯則顯得稍微聰明一些。Claude 3.5 Sonnet 在生成長代碼段時，會嘗試對變數命名和函數結構進行某種程度的「脫敏」處理。雖然這無法從根本上規避邏輯相似性，但至少在靜態代碼掃描中，它比 Gemini 產出的結果更不容易觸發那種死板的 Hash 值比對。至於 Grok，它那種粗獷的抓取方式目前還處於一種法律真空狀態，它甚至不介意告訴你這段代碼是從哪個討論串裡扒下來的，這種誠實反而讓它的法律風險變得清晰可見，不像 Google 這樣躲在「自動化審核」的幌子後面。</p>
+    <p>有趣的是，當 Qwen3.8-Flash-Next 試圖在模型輕量化和響應速度上刷新紀錄時，Google 的法律團隊卻在拖慢整個生態的進度。一個獨立開發者或開源項目，在面對這種由 AI 引發的版權誤傷時，申訴成功與否往往取決於你是否具備足夠的技術證據去拆解對方的掃描算法。這是一場極不對稱的戰爭。Google 擁有最強大的模型 Gemini，卻用最愚蠢的自動化腳本去懲罰那些為 Gemini 貢獻了訓練數據的人。</p>
+    <p>這種技術上的閉環——從開源中來，到封閉中死——揭示了當前 AI 發展的一個陰暗面。如果代碼生成模型的進步，代價是摧毀了那些提供原始靈感的開源土壤，那麼這種進步本身就是一種寄生。當掃描工具在 jar 文件中發現了「相似代碼」時，它無法分辨誰是因、誰是果。它只知道這段代碼出現在了某個受保護的商業數據庫中。</p>
+    <p>這讓人不得不去思考，當未來所有的商業軟件有 80% 的代碼是由 AI 生成時，我們該如何定義「原創」？如果一個模型在訓練過程中吸收了全球 90% 的開源代碼，那麼它生成的任何一段有效代碼，是否本質上都是對全人類開源遺產的某種形式的洗白？當 Google 再次因為同樣的理由道歉並重新上架 Luanti 時，這場技術與法律的鬧劇真的結束了嗎，還是說，這僅僅是更大規模代碼主權爭奪戰的前奏？我們是否已經進入了一個由 AI 定義真實、由算法決定合法性的時代，而真正的創作者只能在 F-Droid 這樣的避風港裡苟延殘喘？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.luanti.org/2026/08/27/luanti-dmca-tracer-ai/" rel="nofollow noopener" target="_blank">Luanti removed from Google Play due to baseless AI copyright notice</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260831-0724-90af4c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
