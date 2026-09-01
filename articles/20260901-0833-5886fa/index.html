@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 把 ChatGPT Work 藏在錢包背後的算盤</title>
+<meta name="description" content="這兩天 Hacker News 上那群對代碼視如草芥的工程師們，終於把注意力從 Ox Alpha 的新動態挪開了一點，開始拆解 OpenAI 塞進 ChatGPT Work 裡的那個神祕黑盒。大家以為這只是一個能讀取 Google Drive 或 Gmail 的增強版插件，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260901-0833-5886fa/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 把 ChatGPT Work 藏在錢包背後的算盤">
+<meta property="og:description" content="這兩天 Hacker News 上那群對代碼視如草芥的工程師們，終於把注意力從 Ox Alpha 的新動態挪開了一點，開始拆解 OpenAI 塞進 ChatGPT Work 裡的那個神祕黑盒。大家以為這只是一個能讀取 Google Drive 或 Gmail 的增強版插件，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260901-0833-5886fa/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-01T08:33:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 把 ChatGPT Work 藏在錢包背後的算盤">
+<meta name="twitter:description" content="這兩天 Hacker News 上那群對代碼視如草芥的工程師們，終於把注意力從 Ox Alpha 的新動態挪開了一點，開始拆解 OpenAI 塞進 ChatGPT Work 裡的那個神祕黑盒。大家以為這只是一個能讀取 Google Drive 或 Gmail 的增強版插件，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 把 ChatGPT Work 藏在錢包背後的算盤",
+  "description": "這兩天 Hacker News 上那群對代碼視如草芥的工程師們，終於把注意力從 Ox Alpha 的新動態挪開了一點，開始拆解 OpenAI 塞進 ChatGPT Work 裡的那個神祕黑盒。大家以為這只是一個能讀取 Google Drive 或 Gmail 的增強版插件，…",
+  "datePublished": "2026-09-01T08:33:00+08:00",
+  "dateModified": "2026-09-01T08:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260901-0833-5886fa/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-01 08:33
+  </div>
+
+  <h1 class="title">OpenAI 把 ChatGPT Work 藏在錢包背後的算盤</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天 Hacker News 上那群對代碼視如草芥的工程師們，終於把注意力從 Ox Alpha 的新動態挪開了一點，開始拆解 OpenAI 塞進 ChatGPT Work 裡的那個神祕黑盒。大家以為這只是一個能讀取 Google Drive 或 Gmail 的增強版插件，但實際上，OpenAI 正在嘗試一種極其危險的「後台作業」模式。很多人在嘗試調用這個功能時發現，瀏覽器遠端桌面會在幾秒鐘內凍結，或者乾脆陷入無窮無盡的等待。這不是單純的網路延遲，而是 OpenAI 在計算資源分配上玩的一場數字遊戲：他們試圖在一個無頭瀏覽器環境裡，同時模擬人類的視覺驗證與邏輯鏈條，卻忘了告訴用戶，這一切都在透支你那原本就不富裕的 Codex 配額。</p>
+    <p>技術層面上，ChatGPT Work 的邏輯與普通的聊天對話完全不同。當你要求它生成一份包含一百張投影片的簡報，並要求它對每一張投影片進行「視覺驗證」時，模型並不是在跟你對話，而是在後台開啟了一個獨立的執行環境。這個環境擁有自己的檔案系統和遠端瀏覽器權限，它更像是一個擁有初級意識的運算單元。問題在於，OpenAI 把這部分的額度與 Codex（代碼生成模型）掛鉤了。這意味著，如果你是一個依賴 AI 寫代碼的開發者，當你讓 ChatGPT Work 去幫你整理那些瑣碎的電子郵件時，你正在親手殺掉你下午寫程式碼的生產力。這種資源競爭的設計，讓 ChatGPT Work 在目前的產品階段顯得極其彆扭，像是一個穿著西裝卻必須共用呼吸機的精密儀器。</p>
+    <p>這種「後台掛機」的邏輯，目前在四大平台中走得最激進。相較於 Ox Alpha 在特定任務上的自動化嘗試，OpenAI 的做法是直接給模型一個虛擬操作間。Claude 目前雖然在長文本處理和代碼邏輯上依然穩健，但 Anthropic 顯然對「讓 AI 操控瀏覽器」這件事保持著一種近乎潔癖的謹慎。Gemini 雖然背靠 Google Workspace 的原生優勢，整合了 Gmail 和 Docs，但它更像是一個高級的數據檢索器，而不是一個能獨立執行複雜工作流的 Agent。至於 Grok，目前還在忙著處理 X 上的數據噪音，對於這種重度生產力場景的資源調度，它連門票都還沒拿到。在這種背景下，DeepSeek 或許也意識到了後台執行與即時對話的資源分配矛盾，但 OpenAI 選擇了最直接也最粗暴的方式：收錢。</p>
+    <p>現在的情況是，除非你願意支付每個月至少 25 美金的 Team 版本，甚至那種動輒上百美金的高級訂閱，否則你很難體會到那種「語音交代一聲，後台自動搞定」的快感。這種階級分化在技術圈引起了不小的冷笑，因為即便是付了錢，用戶依然要面對那個動不動就崩潰的遠端桌面，以及無法調用 TTS（語音合成）或 Embedding 模型的尷尬限制。OpenAI 似乎在向全世界宣告：我們已經做出了能幹活的數位勞動力，但如果你想讓它像個真人一樣同時具備視覺、聽覺和執行力，那現在的算力成本會貴到讓你懷疑人生。</p>
+    <p>我們真的準備好把生產力命脈交給一個隨時可能因為「Codex 配額用盡」而停擺的虛擬員工了嗎？當我們在追求那種自動生成百頁簡報的效率時，是否意識到，我們其實是把原本屬於大腦的邏輯推理權，典當給了一個按 token 計費的黑箱？如果有一天，連這種後台執行的「穩定性」也變成了分級收費的奢侈品，那 AI 到底是解放了生產力，還是只是為我們創造了一個更高門檻的數位官僚系統？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" rel="nofollow noopener" target="_blank">Understanding ChatGPT Work</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260901-0833-5886fa/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 的版權神經質與被演算法誤傷的開源靈魂</title>
+<meta name="description" content="Luanti 再次從 Google Play 消失了。這個曾經叫作 Minetest 的開源沙盒遊戲引擎，在沒有任何實質侵權證據的情況下，被 Google 的版權審核機制一鍵抹除。這不是什麼新鮮事，去年同樣的戲碼才演過一遍，當時 Google 在申訴後恢復了它，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260901-0837-781141/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 的版權神經質與被演算法誤傷的開源靈魂">
+<meta property="og:description" content="Luanti 再次從 Google Play 消失了。這個曾經叫作 Minetest 的開源沙盒遊戲引擎，在沒有任何實質侵權證據的情況下，被 Google 的版權審核機制一鍵抹除。這不是什麼新鮮事，去年同樣的戲碼才演過一遍，當時 Google 在申訴後恢復了它，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260901-0837-781141/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-01T08:37:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 的版權神經質與被演算法誤傷的開源靈魂">
+<meta name="twitter:description" content="Luanti 再次從 Google Play 消失了。這個曾經叫作 Minetest 的開源沙盒遊戲引擎，在沒有任何實質侵權證據的情況下，被 Google 的版權審核機制一鍵抹除。這不是什麼新鮮事，去年同樣的戲碼才演過一遍，當時 Google 在申訴後恢復了它，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 的版權神經質與被演算法誤傷的開源靈魂",
+  "description": "Luanti 再次從 Google Play 消失了。這個曾經叫作 Minetest 的開源沙盒遊戲引擎，在沒有任何實質侵權證據的情況下，被 Google 的版權審核機制一鍵抹除。這不是什麼新鮮事，去年同樣的戲碼才演過一遍，當時 Google 在申訴後恢復了它，…",
+  "datePublished": "2026-09-01T08:37:00+08:00",
+  "dateModified": "2026-09-01T08:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260901-0837-781141/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-01 08:37
+  </div>
+
+  <h1 class="title">Gemini 的版權神經質與被演算法誤傷的開源靈魂</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Luanti 再次從 Google Play 消失了。這個曾經叫作 Minetest 的開源沙盒遊戲引擎，在沒有任何實質侵權證據的情況下，被 Google 的版權審核機制一鍵抹除。這不是什麼新鮮事，去年同樣的戲碼才演過一遍，當時 Google 在申訴後恢復了它，並表示這是一場誤會。但當誤會變成了某種具有週期性的自動化處分，我們就不得不重新審視，當 Gemini 這種多模態大模型被深度整合進應用商店的審核管線時，技術的傲慢是如何摧毀開源生態的。</p>
+    <p>這背後隱藏著一個極其諷刺的技術閉環。開源項目的程式碼被公開抓取，餵給了包括 Gemini 在內的所有主流大模型；接著，某個使用 AI 輔助開發的商業遊戲，產出了與開源項目高度相似的程式碼段落或美術資源；最後，Google 的自動化掃描工具——現在極大機率是由 Gemini 的視覺或代碼分析能力驅動的——在掃描 .jar 或 .apk 檔案時，發現了這種「相似性」。諷刺的是，演算法並不會判斷誰是原創，它只會根據權重將弱勢的開源項目標記為侵權者。</p>
+    <p>Google 在處理這類爭議時，展現出一種令人不安的「黑盒」傾向。Gemini 的多模態理解能力在處理 Voxel Art（體素藝術）這種風格化的視覺資源時，往往會陷入過度推論的陷阱。對於演算法而言，Luanti 的方塊世界與某款付費商業遊戲的方塊世界在特徵向量上太過接近，它無法理解這是一種通用的遊戲類型，而非特定的版權資產。相比之下，ChatGPT 在處理類似的程式碼歸屬問題時，雖然也會出現幻覺，但 OpenAI 至少在版權保護機制（Copyright Shield）上提供了一層法律緩衝，試圖將責任從用戶端剝離。而 Google 則是直接把判官的權力交給了那個還沒分清「風格」與「拷貝」區別的 AI 模型。</p>
+    <p>這種審核機制的不透明與冷酷，正成為開發者的噩夢。相較於 Ox Alpha，Google 在處理這類爭議時，顯然缺乏一套人類干預的優先級邏輯。在 Gemini 的世界觀裡，數據的相似度高於歷史的先後順序，這導致了開源項目在自己的代碼被 AI 吞噬後，反而要為 AI 產出的衍生品騰出生存空間。這不僅僅是誤報，這是一種技術性的掠奪。當我們談論 AI 對開發者的幫助時，往往忽略了當這些 AI 變成應用商店的守門人時，它們對缺乏法務團隊支撐的獨立開發者有多麼殘酷。</p>
+    <p>即便強大如 Claude，在處理長文本代碼庫的邏輯關聯時，也偶爾會對複雜的開源許可證產生誤讀。但在 Google 的生態位裡，Gemini 不僅是一個建議者，它直接參與了裁決。如果我們觀察同類型的平台，比如 Meta 雖然沒有對等的應用商店，但其對開源模型的擁抱姿態，至少在輿論上形成了一種保護傘；而 Grok 則表現出一種對傳統版權規範的漠視，這反倒給了某些處於灰色地帶的項目一點喘息空間。</p>
+    <p>與 Ox Alpha 的演進路徑不同，Google 似乎急於證明 Gemini 在自動化運營上的效率，卻忘了效率的代價是公正的缺席。對於 Luanti 的開發者來說，他們必須在 F-Droid 這種非主流渠道尋求庇護，這本身就是對 Google Play 長期以來建立的生態信任的一次重擊。如果一個模型的預訓練數據來自於全世界的奉獻，而它的輸出卻被用來封殺這些貢獻者，那麼這個生態的邏輯從根源上就已經崩塌了。</p>
+    <p>我們是否已經進入了一個由 AI 互相證明、互相舉報，最終抹除人類原創痕跡的循環？當 Gemini 掃描到一段它曾經在訓練集裡見過的代碼，卻因為這段代碼出現在一個沒有商業權重的開源 APK 裡而判定其侵權時，誰能為這種邏輯錯誤買單？如果開源精神必須要在 AI 時代為了「演算法的純淨」而做出讓步，那麼我們最終留下的會是一個充滿活力、不斷自我迭代的開發環境，還是只剩下一堆被大公司標記過、卻毫無靈魂的代碼殘影？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.luanti.org/2026/08/27/luanti-dmca-tracer-ai/" rel="nofollow noopener" target="_blank">Luanti removed from Google Play due to baseless AI copyright notice</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260901-0837-781141/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
