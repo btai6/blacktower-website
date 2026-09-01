@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當版權掃描器開始吞噬開源代碼的合法性</title>
+<meta name="description" content="Luanti 在 Google Play 下架這件事，最荒謬的地方不在於版權爭議本身，而在於那個被自動化腳本驅動的邏輯閉環。一個深耕多年的開源專案，僅因為其代碼特徵與某些商業產品相似，就遭到了演算法的「處決」。這不是孤例，而是 Google 乃至整個矽谷巨頭在處理 AI …">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260902-0716-404b54/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當版權掃描器開始吞噬開源代碼的合法性">
+<meta property="og:description" content="Luanti 在 Google Play 下架這件事，最荒謬的地方不在於版權爭議本身，而在於那個被自動化腳本驅動的邏輯閉環。一個深耕多年的開源專案，僅因為其代碼特徵與某些商業產品相似，就遭到了演算法的「處決」。這不是孤例，而是 Google 乃至整個矽谷巨頭在處理 AI …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260902-0716-404b54/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-02T07:16:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當版權掃描器開始吞噬開源代碼的合法性">
+<meta name="twitter:description" content="Luanti 在 Google Play 下架這件事，最荒謬的地方不在於版權爭議本身，而在於那個被自動化腳本驅動的邏輯閉環。一個深耕多年的開源專案，僅因為其代碼特徵與某些商業產品相似，就遭到了演算法的「處決」。這不是孤例，而是 Google 乃至整個矽谷巨頭在處理 AI …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當版權掃描器開始吞噬開源代碼的合法性",
+  "description": "Luanti 在 Google Play 下架這件事，最荒謬的地方不在於版權爭議本身，而在於那個被自動化腳本驅動的邏輯閉環。一個深耕多年的開源專案，僅因為其代碼特徵與某些商業產品相似，就遭到了演算法的「處決」。這不是孤例，而是 Google 乃至整個矽谷巨頭在處理 AI …",
+  "datePublished": "2026-09-02T07:16:00+08:00",
+  "dateModified": "2026-09-02T07:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260902-0716-404b54/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-02 07:16
+  </div>
+
+  <h1 class="title">當版權掃描器開始吞噬開源代碼的合法性</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Luanti 在 Google Play 下架這件事，最荒謬的地方不在於版權爭議本身，而在於那個被自動化腳本驅動的邏輯閉環。一個深耕多年的開源專案，僅因為其代碼特徵與某些商業產品相似，就遭到了演算法的「處決」。這不是孤例，而是 Google 乃至整個矽谷巨頭在處理 AI 生成內容與版權存證時，一種集體性的技術傲慢與懶惰。</p>
+    <p>我們正處於一個非常尷尬的節點。Google 的 Gemini 在協助開發者生成代碼時，強調其模型的強大理解力與檢索能力，但在面對自家應用商店的內容審核時，卻又換了一副面孔。當一個 AI 抓取了開源代碼作為訓練素材，隨後生成了與該源碼高度相似的商業代碼，而這份商業代碼又反過來被版權掃描器識別為「唯一合法版本」，原本的開源創作者反而成了「抄襲者」。這種技術上的「洗產地」行為，正在蠶食開源社群的生存空間。</p>
+    <p>Gemini 在這種處理機制中扮演的角色令人玩味。如果我們觀察 Google 的處理流程，會發現其 API 的調度邏輯優先考慮的是法律避險，而非事實判斷。當 DMCA 通知寄達時，系統的第一反應是切斷連結，而不是利用其引以為傲的大模型去比對源碼庫的提交歷史。Gemini 明明有能力分析代碼的演進脈絡，判斷誰才是真正的上游，但在商業規則面前，這種技術被刻意地冷處理了。</p>
+    <p>相比之下，ChatGPT 在這類問題上的處理顯得稍微世故一些。OpenAI 雖然也面臨同樣的版權訴訟壓力，但他們在處理 Code Interpreter 的輸出時，開始嘗試引入更多的來源標註。不過這依然沒能解決核心問題：當 AI 產出的代碼進入生產環境後，現有的版權掃描工具是否具備分辨「AI 幻覺引發的相似」與「真實惡意抄襲」的能力？</p>
+    <p>在這種混亂的版權認定過程中，不同平台的策略差異非常明顯。Ox Alpha 最近在技術圈內引起了些許討論，其對於數據處理的透明度被反覆提及。但回頭看 Google 的做法，他們顯然更傾向於一種黑箱式的決策模式。對於像 Luanti 這樣的專案，Google 甚至懶得啟動一次人工覆核，哪怕對方的上訴紀錄清清楚楚地躺在伺服器裡。</p>
+    <p>Grok 在這方面的立場則更為激進且混亂，馬斯克一向宣稱要對抗這種「企業審查」，但在技術層面上，Grok 對於開源代碼的抓取與再產出同樣缺乏有效的權利追溯機制。如果說 Gemini 是在用官僚主義的代碼進行冷暴力，那麼 Grok 則是在製造更多的版權煙霧彈。而 Claude 在這四者中表現得最為克制，Anthropic 試圖通過縮小訓練集的範圍來規避法律風險，但這種克制也意味著它在處理複雜、冷門的開源庫代碼時，效率遠不如 Gemini 那樣橫衝直撞。</p>
+    <p>我們在討論這些問題時，偶爾會提到 Qwen 或是文心一言在處理中文語境下的代碼邏輯，但當話題回到全球開發者社群的生存權時，核心矛盾依然集中在 Google 和 OpenAI 身上。這是一場權力的不對等，開發者將代碼無私地貢獻給網路，AI 模型將其吞噬、拆解、重組，最後由同一個體系產生的審核機制，判定原作者是侵權者。</p>
+    <p>這件事背後隱藏著一個讓人背脊發涼的技術趨勢：未來，版權的定義權可能不再掌握在法律條文裡，而是掌握在誰擁有的模型算力更強、誰的掃描器更早佔領市場。如果一個軟體的功能特徵被 AI 標記為屬於某個巨頭，那麼原始碼的提交紀錄還能保護開發者多久？</p>
+    <p>當 Google 習慣性地撤下 Luanti，然後在幾個月後因為輿論壓力再輕描淡寫地恢復它時，這中間損失的下載量、用戶信任，以及開發者的熱情，誰來支付帳單？我們是不是正在進入一個由 AI 判定「真實」的時代，而人類的原始創作，反而需要向機器證明自己並非贗品？如果有一天，連代碼的邏輯結構都被某個模型預先註冊了專利，我們還剩下什麼可以自由撰寫的空間？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.luanti.org/2026/08/27/luanti-dmca-tracer-ai/" rel="nofollow noopener" target="_blank">Luanti removed from Google Play due to baseless AI copyright notice</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260902-0716-404b54/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

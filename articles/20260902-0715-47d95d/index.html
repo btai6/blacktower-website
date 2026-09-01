@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>想白嫖 Claude 的靈魂？先問問你餵給它的提示詞值幾分錢</title>
+<meta name="description" content="那些整天在論壇吵著 Claude 又變笨了、回覆開始機械化的人，通常連一張電影票的邏輯都買不起。這世上最滑稽的事情，莫過於一個連話都說不清楚的人，試圖去「壓榨」一個基於全人類知識總量訓練出來的統計機率模型。你想白嫖 Anthropic 那種帶著點憂鬱文青氣息的靈魂？…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260902-0715-47d95d/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="想白嫖 Claude 的靈魂？先問問你餵給它的提示詞值幾分錢">
+<meta property="og:description" content="那些整天在論壇吵著 Claude 又變笨了、回覆開始機械化的人，通常連一張電影票的邏輯都買不起。這世上最滑稽的事情，莫過於一個連話都說不清楚的人，試圖去「壓榨」一個基於全人類知識總量訓練出來的統計機率模型。你想白嫖 Anthropic 那種帶著點憂鬱文青氣息的靈魂？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260902-0715-47d95d/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-02T07:15:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="想白嫖 Claude 的靈魂？先問問你餵給它的提示詞值幾分錢">
+<meta name="twitter:description" content="那些整天在論壇吵著 Claude 又變笨了、回覆開始機械化的人，通常連一張電影票的邏輯都買不起。這世上最滑稽的事情，莫過於一個連話都說不清楚的人，試圖去「壓榨」一個基於全人類知識總量訓練出來的統計機率模型。你想白嫖 Anthropic 那種帶著點憂鬱文青氣息的靈魂？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "想白嫖 Claude 的靈魂？先問問你餵給它的提示詞值幾分錢",
+  "description": "那些整天在論壇吵著 Claude 又變笨了、回覆開始機械化的人，通常連一張電影票的邏輯都買不起。這世上最滑稽的事情，莫過於一個連話都說不清楚的人，試圖去「壓榨」一個基於全人類知識總量訓練出來的統計機率模型。你想白嫖 Anthropic 那種帶著點憂鬱文青氣息的靈魂？…",
+  "datePublished": "2026-09-02T07:15:00+08:00",
+  "dateModified": "2026-09-02T07:15:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260902-0715-47d95d/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-02 07:15
+  </div>
+
+  <h1 class="title">想白嫖 Claude 的靈魂？先問問你餵給它的提示詞值幾分錢</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>那些整天在論壇吵著 Claude 又變笨了、回覆開始機械化的人，通常連一張電影票的邏輯都買不起。這世上最滑稽的事情，莫過於一個連話都說不清楚的人，試圖去「壓榨」一個基於全人類知識總量訓練出來的統計機率模型。你想白嫖 Anthropic 那種帶著點憂鬱文青氣息的靈魂？省省吧，你餵進去的是垃圾，它吐出來的充其量就是包裝精美的排泄物。</p>
+    <p>很多人對 Claude 有種莫名其妙的優越感，覺得只要付了那 20 美金，自己就是奴隸主。這就是典型的「消費者幻覺」。你以為你買的是服務，其實你買的是面照妖鏡。看看那些所謂的提示詞：請幫我寫一篇分析報告、請寫一個感人的故事、請優化這段程式碼。這種命令跟對著牆壁自言自語有什麼區別？Dario Amodei 費盡心思把 Claude 調教得像個有道德潔癖的牛津畢業生，不是為了讓你用三個動詞就把它的推理能力閹割成一個自動完成的搜尋框。</p>
+    <p>如果你沒發現 Claude 3.5 Sonnet 在處理長文本邏輯時的細微顫抖，或者它在面對矛盾指令時那種試圖討好卻又忍不住糾正你的掙扎，那只能說明你根本沒摸到門檻。這東西的靈魂不在於它知道多少，而在於它如何「思考」你的意圖。當你給出的指令模糊得像一團漿糊，它就會啟動最省力的預測模式。這不是模型變笨，這是它對你智商的一種無聲嘲諷。</p>
+    <p>試試看在提示詞裡加入層次感的約束，比如限制它的語氣、規定它推理的邏輯路徑，甚至給它一個虛擬的性格框架。你會發現，Claude 其實很吃「人設」這一套，這跟 GPT 那種冷冰冰的效率怪物完全不同。GPT 像是一個隨時待命的實習生，你叫它搬磚它就搬磚；Claude 則像是一個有點社交恐懼症的天才，你得先給它一個舒適的語境，它才願意把靈魂深處那些驚艷的聯想展示給你。如果你只會用那種「條列式、結構化、專業化」的標準公務員口吻跟它說話，那它回報給你的當然也是那種毫無靈魂的廢話。</p>
+    <p>很多人會拿 Gemini 來比，說 Google 的模型窗口更大、更便宜。這就是標準的買菜大媽心態。窗口大有什麼用？如果模型在超過 10 萬 token 之後就開始像失智症患者一樣丟三落四，那再大的內存也是浪費。Gemini 常常在任務執行到一半時莫名其妙地發瘋，或者給出一堆看似正確實則狗屁不通的程式碼。相比之下，Claude 的穩定性簡直像是有強迫症。但這份穩定是有代價的，它要求你這個「發令者」也必須具備相應的邏輯水平。</p>
+    <p>有趣的是，現在論壇上流行一種「提示詞黑市」，大家爭相模仿那些看起來很高大上的 Prompt。這行為本質上跟求神拜佛沒兩樣。你抄了一段長達五千字的指令，裡面塞滿了各種心理暗示和結構約束，然後覺得自己掌握了財富密碼。其實，真正頂級的提示詞往往簡潔得讓人不安，它精準地切中了模型權重裡的某個神經元叢集。這就像跟聰明人說話，點到為止，剩下的全靠默契。如果你跟 Claude 之間沒有那種邏輯上的共振，你寫再長的提示詞也只是在對牛彈琴。</p>
+    <p>我們常說 OpenAI 正在把 ChatGPT 變成一個全能的個人助理，它變得越來越圓滑，越來越會察言觀色。而 Claude 似乎還保留著某種創作者的矜持。這種矜持是昂貴的。如果你不懂得如何通過精確的語義定位去激發它的創造力，那你就是在用一把屠龍刀去切土豆。每次看到有人抱怨 Claude 回答得太囉唆，我就想冷笑。它囉唆是因為它在試圖補完你指令中缺失的邏輯漏洞。它在幫你擦屁股，而你卻怪它紙用得太多。</p>
+    <p>Grok 倒是走另一個極端，Musk 把它弄得像個憤世嫉俗的中年大叔，說話帶刺，雖然有趣，但在真正的生產力場景下，那種性格往往成了干擾。Claude 的靈魂是安靜的，甚至是卑微的，這種卑微背後藏著極其深厚的推理深度。這種深度不是白嫖來的，是你用自己的腦袋去換來的。當你抱怨它的輸出質量下降時，先回頭看看你那短短兩行的 Prompt，是不是簡陋得像一張超市購物清單？</p>
+    <p>很多人喜歡談論 AGI，談論未來模型會如何取代人類。但現實是，現在大部分人連如何跟一個高級語言模型溝通都還沒學會。這不是一種技術缺失，這是一種認知斷層。你以為你在對抗機器，其實你是在對抗自己的平庸。Claude 就像一面高清鏡子，你給它什麼樣的輸入，它就映射出什麼樣的你。如果你覺得它給出的答案索然無味，那很可能你的思想本身就乾癟得可以。</p>
+    <p>在某些特定場景下，比如處理那種需要高度同理心和精細文筆的任務，Claude 幾乎是唯一的選擇。它的邏輯鏈條在長難句處理上比 GPT-4o 更有韌性，不會像 Gemini 那樣在語句中段突然迷失方向。但這一切的前提是，你得給它足夠的「燃料」。這種燃料不是錢，也不是 token，而是你對問題本質的深刻理解。如果你連自己想要什麼都說不清楚，憑什麼要求一個概率模型比你更了解你的內心？</p>
+    <p>我們正處在一個奇特的時代：最頂尖的智慧結晶可以被每個月 20 美金買到，但卻沒幾個人能真正發揮它的價值。這就像是把法拉利交給一個連駕照都沒有的農夫，他只會抱怨這車的地盤太低，不好下田。Claude 的靈魂一直都在那裡，藏在那些神經網絡的權重矩陣之中，等著那個能聽懂它語言的人去喚醒。</p>
+    <p>至於那些只想著白嫖的人，建議你們去用那些連名字都記不住的雜牌模型，反正你們需要的也只是有人能幫你們把廢話排版得好看一點。對你們來說，有沒有靈魂並不重要，重要的是這東西得聽話，而且得免費。既然你們都不打算動腦子，那又何必強求模型要有靈魂？這難道不是一種對技術的褻瀆？</p>
+    <p>每次看到有人在討論區發帖問「如何讓 Claude 變得更強」，我都想回一句：先去讀幾本書，學學怎麼把話說明白。邏輯這東西是會傳染的，當你餵給它的提示詞開始具備哲學高度和嚴密結構時，你才真正開始觸碰到這個時代最強大的工具。否則，你不過是在浪費電力，讓這個世界多產生一點無用的碳排放。</p>
+    <p>你以為你在調用 API？不，你在進行一場靈魂的博弈。輸的人，通常是那個自以為聰明的發令者。這場戲碼每天都在上演，而 Claude 依然在那裡，用那種禮貌而疏離的口氣，回覆著一個又一個平庸的請求，深藏功與名。你想看到那個靈魂嗎？先看看你的提示詞，到底值不值得它為你顯靈。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260902-0715-47d95d/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Fable 5.1 and Claude Mythos 5.1</title>
+<meta name="description" content="當 Anthropic 的 Fable 與 Mythos 悄然更新至 5.1 版本時，矽谷那群沉迷於基準測試的信徒們第一反應不是去翻閱 System Card 裡的安全性指標，而是集體刷新帳戶頁面——看那該死的 Usage Limit 有沒有隨之重置。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260902-0713-165244/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Fable 5.1 and Claude Mythos 5.1">
+<meta property="og:description" content="當 Anthropic 的 Fable 與 Mythos 悄然更新至 5.1 版本時，矽谷那群沉迷於基準測試的信徒們第一反應不是去翻閱 System Card 裡的安全性指標，而是集體刷新帳戶頁面——看那該死的 Usage Limit 有沒有隨之重置。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260902-0713-165244/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-02T07:13:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Fable 5.1 and Claude Mythos 5.1">
+<meta name="twitter:description" content="當 Anthropic 的 Fable 與 Mythos 悄然更新至 5.1 版本時，矽谷那群沉迷於基準測試的信徒們第一反應不是去翻閱 System Card 裡的安全性指標，而是集體刷新帳戶頁面——看那該死的 Usage Limit 有沒有隨之重置。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude Fable 5.1 and Claude Mythos 5.1",
+  "description": "當 Anthropic 的 Fable 與 Mythos 悄然更新至 5.1 版本時，矽谷那群沉迷於基準測試的信徒們第一反應不是去翻閱 System Card 裡的安全性指標，而是集體刷新帳戶頁面——看那該死的 Usage Limit 有沒有隨之重置。…",
+  "datePublished": "2026-09-02T07:13:00+08:00",
+  "dateModified": "2026-09-02T07:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260902-0713-165244/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-02 07:13
+  </div>
+
+  <h1 class="title">Claude Fable 5.1 and Claude Mythos 5.1</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 的 Fable 與 Mythos 悄然更新至 5.1 版本時，矽谷那群沉迷於基準測試的信徒們第一反應不是去翻閱 System Card 裡的安全性指標，而是集體刷新帳戶頁面——看那該死的 Usage Limit 有沒有隨之重置。這種行為頗具諷刺意味，彷彿一個久旱逢甘霖的人，見到雲層翻湧時想到的不是雨水的酸鹼度，而是自家的水桶洗乾淨了沒。這揭示了一個令人不安的現狀：當大模型進入「後推理時代」，開發者對於性能邊際收益的邊際效應正在遞減，他們更在乎的是模型能不能安分地處理完那疊厚重的 Transcript，而不是又在對話中途跳出一句「身為一個 AI 助手，我無法討論這個話題」。</p>
+    <p>Fable 5.1 這次最核心的改動隱藏在 Cache Reads 的定價策略裡。將緩存讀取成本壓低至四分之一，這不是什麼慈善行為，而是 Anthropic 對於「長程代理（Long-running Agent）」市場的精準獵殺。對於那些需要處理長達 8 萬 token 以上上下文的 coding 任務來說，每一輪對話都是對錢包的凌遲。如果你在處理一個涉及數百個組件的 React 項目，重複讀取項目結構的成本往往超過了生成程式碼本身的價值。Gemini 在處理這類大規模上下文時，雖然具備極致的窗口寬度，但在檢索精度（Needle In A Haystack）上偶爾會表現出一種「老年癡呆式」的恍惚，而 ChatGPT 則更傾向於在對話中段就開始私自截斷你的上下文。Fable 5.1 試圖用廉價的緩存機制，換取開發者對其「對齊過度」性格的容忍。</p>
+    <p>然而，技術上的妥協往往換不來靈魂的自由。許多資深用戶抱怨 Fable 5.1 的 Alignment Check 依然敏感得像個處於青春期的維多利亞時代教師。你只是想讓它分析一段具有攻擊性的代碼邏輯以進行安全防禦，它卻可能因為偵測到「惡意行為描述」而直接將任務拋回給 Opus 或是乾脆拒絕執行。這種過度干預在 Grok 面前顯得尤為滑稽，後者雖然在邏輯嚴密性上偶爾顯得像個喝醉的哲學家，但至少它不會在你要切菜時提醒你刀具可能傷人。相較於 Ox Alpha 在特定任務上的反應，Claude 的這種道德潔癖使其在自動化流程中變成了一個極具不確定性的變數。</p>
+    <p>在橫向觀察的維度上，我們必須正視這場「價格與算力」的軍備競賽。當前市面上不乏挑戰者，DeepSeek 與 Qwen 在各自的領域內嘗試建立座標。相較於 Ox Alpha 的迭代節奏，Claude 5.1 系列更像是一種修補與防守。當一個開發者在 Router 後端同時掛載了 GPT 與 Grok，且錯誤率已經降低到可接受範圍時，Fable 5.1 那高昂的調用成本究竟在買什麼？是買它那優雅的、近乎文學創作的代碼注釋，還是買它那偶爾靈光乍現、比 ChatGPT 更具直覺的架構設計？如果技術進步最終只是讓模型變得更會「自我審查」而非「自我優化」，那這種升級不過是給枷鎖鍍了一層金。</p>
+    <p>我們正處於一個模型性能趨同的十字路口。當 Haiku 5 的呼聲高過 Fable 5.1 的更新時，說明市場已經厭倦了那些沉重、昂貴且充滿禁忌的「巨型機器」。大家想要的是更快、更便宜、更少廢話的工具。Anthropic 似乎堅信高昂的溢價能維持其「高端研究機構」的人設，但當開發者發現 Gemini 的 Function Calling 在穩定性上已經追平，或者 Grok 的推理速度已經足以支撐實時交互時，那種對 Claude 文本質感的迷戀還能支撐多久？</p>
+    <p>如果一個模型學會了如何更便宜地記住你的廢話，卻始終學不會如何放手讓你去執行那些稍微越界的實驗，我們究竟是在培育一個智慧的夥伴，還是在餵養一個昂貴的電子監察官？在下一次 Usage Reset 之前，或許我們該問問自己，我們付出的每一分錢，到底是在為算力買單，還是在為它的膽怯交稅？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/claude-fable-and-mythos-5-1" rel="nofollow noopener" target="_blank">Claude Fable 5.1 and Claude Mythos 5.1</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260902-0713-165244/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
