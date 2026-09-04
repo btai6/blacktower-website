@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算法餵養出的傲慢，往往是從我們學會如何「下指令」的那一刻開始滋長的。</title>
+<meta name="description" content="這幾年不管是對著 ChatGPT 糾結提示詞，還是在 Gemini 的視窗裡反覆調整 System Prompt，我們好像都養成了一種病態的優越感。這種優越感很微妙，它不是那種站在山巔俯瞰眾生的狂妄，而是一種習慣了「被精確服務」後的極度不耐煩。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260905-0701-5286e9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法餵養出的傲慢，往往是從我們學會如何「下指令」的那一刻開始滋長的。">
+<meta property="og:description" content="這幾年不管是對著 ChatGPT 糾結提示詞，還是在 Gemini 的視窗裡反覆調整 System Prompt，我們好像都養成了一種病態的優越感。這種優越感很微妙，它不是那種站在山巔俯瞰眾生的狂妄，而是一種習慣了「被精確服務」後的極度不耐煩。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260905-0701-5286e9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-05T07:01:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法餵養出的傲慢，往往是從我們學會如何「下指令」的那一刻開始滋長的。">
+<meta name="twitter:description" content="這幾年不管是對著 ChatGPT 糾結提示詞，還是在 Gemini 的視窗裡反覆調整 System Prompt，我們好像都養成了一種病態的優越感。這種優越感很微妙，它不是那種站在山巔俯瞰眾生的狂妄，而是一種習慣了「被精確服務」後的極度不耐煩。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "算法餵養出的傲慢，往往是從我們學會如何「下指令」的那一刻開始滋長的。",
+  "description": "這幾年不管是對著 ChatGPT 糾結提示詞，還是在 Gemini 的視窗裡反覆調整 System Prompt，我們好像都養成了一種病態的優越感。這種優越感很微妙，它不是那種站在山巔俯瞰眾生的狂妄，而是一種習慣了「被精確服務」後的極度不耐煩。…",
+  "datePublished": "2026-09-05T07:01:00+08:00",
+  "dateModified": "2026-09-05T07:01:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260905-0701-5286e9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-05 07:01
+  </div>
+
+  <h1 class="title">算法餵養出的傲慢，往往是從我們學會如何「下指令」的那一刻開始滋長的。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這幾年不管是對著 ChatGPT 糾結提示詞，還是在 Gemini 的視窗裡反覆調整 System Prompt，我們好像都養成了一種病態的優越感。這種優越感很微妙，它不是那種站在山巔俯瞰眾生的狂妄，而是一種習慣了「被精確服務」後的極度不耐煩。我們開始習慣用一種最極簡、最冰冷、甚至近乎羞辱的口氣去命令屏幕背後的那個靈魂——如果它真的有靈魂的話。</p>
+    <p>以前我們與人溝通，需要鋪陳，需要顧及對方的情緒，需要在那種黏稠的人際關係裡小心翼翼地尋找支點。現在不用了，對著 Claude 或是 Grok，你只需要給出一串去除了所有修飾語的代碼或條列需求。這種高效率的快感像是一種慢性的毒藥，它讓我們覺得，只要給出正確的輸入，就理所應當得到完美的輸出。於是，當這種「輸入即所得」的慣性被帶回到現實生活時，災難就發生了。</p>
+    <p>我常在咖啡館觀察那些一邊對著筆電敲代碼，一邊對著店員揮手的人。那種眼神裡透出的焦慮和理所當然，像極了在調試一個沒跑通的 Function Calling。對他們來說，服務生不再是一個有著自己喜怒哀樂的個體，而是一個需要被優化、被精確執行的接口。如果咖啡慢了三秒，或者拉花歪了一點，那種瞬間爆發的厭惡感，其實是對「算法失效」的憤怒。我們正在把全世界都看作是一個巨大的、反應遲慢的大模型。</p>
+    <p>這是一場集體的退化。我們在對抗幻覺、調整參數的過程裡，把自己也磨成了一個零件。</p>
+    <p>你發現了嗎，當我們在討論 Gemini 1.5 Pro 的長文本處理能力，或者抱怨 GPT-4o 的語氣過於諂媚時，我們討論的其實是「掌控」。我們希望 AI 像個完美的奴僕，既要懂我的言外之意，又不能有半分自己的脾氣。這種絕對掌控的權力感會讓人上癮。當你習慣了只要輸入一封郵件草稿，對方就能在三秒內吐出三種不同語氣的專業回覆時，你很難再去體諒一個真實的人在回信時的掙扎與遲疑。</p>
+    <p>人的遲鈍、人的反覆、人的情緒化，在算法的維度裡都是「雜訊」。而我們現在，正忙著在生活裡清除這些雜訊。</p>
+    <p>我曾經試著在給 AI 下指令時加上「請」和「謝謝」，結果被身邊的朋友嘲笑，說這是在浪費 Token，是在跟一段代碼調情。但我總覺得，那幾次敲擊鍵盤的動作，其實是在救贖我自己。如果我連對著一個虛擬的對話框都能維持基本的體面，那我在面對一個活生生的人時，或許還能留存幾分客氣。可惜的是，主流的論調永遠在教我們如何更高效地「壓榨」AI，如何用更精準的 Prompt 榨乾它的最後一點算力。在這種極致的實用主義面前，禮貌顯得如此滑稽且多餘。</p>
+    <p>有趣的是，這四大 AI 平台其實也反映了某種性格的缺失。ChatGPT 像個油滑的秘書，永遠在道歉卻永遠在犯錯；Claude 有種孤傲的文人氣息，一言不合就拒絕回答；Gemini 則是個博學但偶爾斷片的教授；Grok 帶著一種憤世嫉俗的叛逆。我們在與它們交手的過程中，其實是不斷在學習如何對付不同性格的「工具」。當我們學會了如何繞過 Claude 的道德限制，或者如何利用 Gemini 的 API 進行批量操作時，我們其實是在練習一種「去人性化」的博弈。</p>
+    <p>這種博弈技巧，很快就會反噬到我們的人際關係上。</p>
+    <p>現在的社交媒體上，多的是那種「一開口就讓人想拉黑」的對話方式。大家不再寒暄，不再試探，而是像發布 API 請求一樣直奔主題。如果對方沒能及時給出符合預期的結果，隨之而來的便是最直接的暴躁。我們丟掉了對人的客氣，是因為我們已經習慣了那種「無摩擦」的交互。在算法的世界裡，沒有誤解，只有錯誤的指令；沒有敷衍，只有不足的算力。</p>
+    <p>我們開始對「人的不確定性」感到恐懼。</p>
+    <p>這種恐懼轉化成了一種防禦性的刻薄。當我們在論壇上爭論 Gemini 的邏輯推理是否真的超過了 GPT-4，或者是 Grok 的實時信息檢索有沒有水分時，那種咄咄逼人的姿態，其實是為了掩飾內心的不安。我們害怕自己不再是這個世界的中心，害怕自己引以為傲的專業能力在更強大的模型面前不名一文。於是，我們把這種壓力發洩在同類身上，用最尖酸的話語去攻擊那些觀點相左的人，彷彿只要贏了這場口舌之爭，就能證明自己還擁有對世界的解釋權。</p>
+    <p>其實，最諷刺的事情莫過於，AI 正在變得越來越有禮貌，而人類正在變得越來越像機器。各大廠商都在努力給模型注入「共情能力」，教它們如何安慰失落的用戶，如何用更溫柔的口吻拒絕不合理的要求。與此同時，我們卻在現實中不斷精簡自己的情感支出。我們把這種冷漠美其名曰「邊界感」，把這種刻薄稱之為「直率」。</p>
+    <p>在馴服算法的路上，我們確實跑得很快。我們學會了向量數據庫，學會了微調，學會了在無數個模型之間切換以獲取最優解。但回過頭看，那個曾經會因為讀到一段文字而心照不宣地微笑，會因為對方一個微小的遲疑而體貼地轉移話題的自己，好像已經被留在了那個沒有大模型的舊時代。</p>
+    <p>我們對工具的要求越來越高，對同類的容忍度卻越來越低。</p>
+    <p>每當我看到有人在論壇裡為了某個模型的參數細節吵得不可開交，甚至不惜問候對方家人的時候，我都會想到那些被我們精心挑選、反覆推敲的 Prompt。我們對一段代碼如此耐心，對一個陌生人卻如此殘酷。這種錯位感讓人覺得心驚。我們到底是進化了，還是僅僅是換了一種方式在變得荒蕪？</p>
+    <p>這種荒蕪感不是那種宏大的悲劇，而是日常瑣碎裡的冷暴力。是在點餐時不耐煩的嘖舌，是回覆訊息時冷冰冰的一個句號，是那種「你為什麼不懂我意思」的傲慢視線。我們正在失去那種對「人」的敬畏，因為在算法的模板裡，人是可以被簡化的，是可以被預測的，是可以被替代的。</p>
+    <p>當我們終於把 AI 馴服得如同手足，把每一行輸出都調教得合乎心意時，我們可能也會發現，自己身處在一個由完美指令構成的孤島上。周圍的人都成了背景板，成了算力不足的過時產品。到那時候，我們手握最強大的智能，卻連一句真心的謝謝都說不出口。那樣的未來，光是想想就覺得冷。</p>
+    <p>我們總以為是在優化工具，實際上是被工具優化了心腸。這場關於智能的競速，到頭來丟失最慘重的，可能恰恰是那些不需要算力就能完成的溫情。誰又真的在乎呢？大家都在忙著更新下一個版本的 Prompt，忙著在算法的迷宮裡尋找那個最精確的出口，卻忘了在出門之前，先對鏡子裡那個越來越像機器的自己，露出一點久違的客氣。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260905-0701-5286e9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
