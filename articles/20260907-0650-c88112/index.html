@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當形式化證明不再是數學家的專屬遊戲</title>
+<meta name="description" content="凱文·巴澤德（Kevin Buzzard）大約沒想到，在他帶領帝國理工學院的學生們於 Lean 語言的荒原上艱難跋涉時，Anthropic 的 Claude 已經悄無聲息地翻過了費馬大定理（FLT）那座看似不可逾越的高山。這場關於形式化證明的競賽，本質上不是在比拼誰的邏輯更嚴密，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260907-0650-c88112/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當形式化證明不再是數學家的專屬遊戲">
+<meta property="og:description" content="凱文·巴澤德（Kevin Buzzard）大約沒想到，在他帶領帝國理工學院的學生們於 Lean 語言的荒原上艱難跋涉時，Anthropic 的 Claude 已經悄無聲息地翻過了費馬大定理（FLT）那座看似不可逾越的高山。這場關於形式化證明的競賽，本質上不是在比拼誰的邏輯更嚴密，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260907-0650-c88112/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-07T06:50:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當形式化證明不再是數學家的專屬遊戲">
+<meta name="twitter:description" content="凱文·巴澤德（Kevin Buzzard）大約沒想到，在他帶領帝國理工學院的學生們於 Lean 語言的荒原上艱難跋涉時，Anthropic 的 Claude 已經悄無聲息地翻過了費馬大定理（FLT）那座看似不可逾越的高山。這場關於形式化證明的競賽，本質上不是在比拼誰的邏輯更嚴密，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當形式化證明不再是數學家的專屬遊戲",
+  "description": "凱文·巴澤德（Kevin Buzzard）大約沒想到，在他帶領帝國理工學院的學生們於 Lean 語言的荒原上艱難跋涉時，Anthropic 的 Claude 已經悄無聲息地翻過了費馬大定理（FLT）那座看似不可逾越的高山。這場關於形式化證明的競賽，本質上不是在比拼誰的邏輯更嚴密，…",
+  "datePublished": "2026-09-07T06:50:00+08:00",
+  "dateModified": "2026-09-07T06:50:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260907-0650-c88112/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-07 06:50
+  </div>
+
+  <h1 class="title">當形式化證明不再是數學家的專屬遊戲</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>凱文·巴澤德（Kevin Buzzard）大約沒想到，在他帶領帝國理工學院的學生們於 Lean 語言的荒原上艱難跋涉時，Anthropic 的 Claude 已經悄無聲息地翻過了費馬大定理（FLT）那座看似不可逾越的高山。這場關於形式化證明的競賽，本質上不是在比拼誰的邏輯更嚴密，而是在考驗誰能先將人類幾百年來積累的、充滿直覺與跳躍的數學黑話，精確地翻譯成機器能理解的低階指令。當學術界還在爭論 Lean 語言的庫有多麼晦澀難懂、人類大腦難以處理那些密集的代數幾何結構時，大模型已經開始在代碼空間裡自動補完那些繁瑣的證明細節。這不是簡單的文本生成，這是邏輯鏈條在極高維度下的對齊。</p>
+    <p>在形式化證明的語境下，Claude 表現出的那種令人不安的「直覺」，實際上源於它對結構化數據的高度敏感。數學證明與編寫高質量的 Rust 或 Haskell 代碼並無二致，都要求在嚴格的類型約束下完成狀態轉移。Claude 在處理超過十萬 token 的長上下文時，依然能精準地捕捉到 Lean 項目中跨文件的引理依賴，這讓它在處理費馬大定理這種需要調動大量現代數論基礎（如模形式、橢圓曲線）的任務時，顯得比那些依賴規則引擎的傳統自動定理證明器（ATP）更像一個數學家。它不是在窮舉可能性，而是在預測邏輯的流向。</p>
+    <p>這種能力的底層邏輯在於，Claude 對符號邏輯的理解已經脫離了單純的模式匹配。當你給它一個複雜的幾何代數命題，它不僅能給出證明的草圖，還能主動識別出當前 Lean 數學庫（mathlib）中缺失的定義，並嘗試自行構造。這種「填補空白」的能力，是區分通用模型與專用數學模型的關鍵。雖然 ChatGPT 在處理這類硬核數學任務時也表現不俗，但在面對極端抽象的範疇論或李群理論時，其邏輯鏈條的穩定性往往不如 Claude 那般如精密齒輪般扣合。</p>
+    <p>如果我們將視角稍微轉移，看看那些試圖在推理賽道上追趕的選手。相較於 Qwen 3.8 27B，Claude 在處理深層遞歸邏輯時的崩潰閾值明顯更高。當任務涉及到需要連續進行數十步轉換的代數變形時，Qwen 3.8 27B 的表現與 Claude 相比，展現出了截然不同的路徑選擇。這種差異並非僅僅是參數規模的問題，更多地關乎於模型在預訓練階段對結構化邏輯數據的消化方式。這也解釋了為什麼在 Hacker News 上的那些資深工程師，即便能忍受 Lean 語言那種反人類的語法，也無法忍受一個會在證明的最後一步出現低級邏輯滑坡的模型。</p>
+    <p>Gemini 在這方面則採取了另一種策略，它試圖通過強化學習與形式化環境的閉環來解決問題，但在實際操作中，其生成的代碼往往帶有一種過度工程化的僵硬感。與之相比，Grok 雖然在語氣上極盡嘲諷之能事，但在這種嚴肅的科學邊界探索中，它的存在感始終略顯稀薄。這讓我們不得不思考一個問題：當 AI 能夠比人類更快地完成形式化證明，我們對「理解」的定義是否已經發生了偏移？</p>
+    <p>數學家們曾以為，將數學形式化是為了確保絕對的真理，是人類為了對抗自身直覺謬誤而建立的最後堡壘。然而，當這個堡壘的每一塊磚石都是由 AI 搬運並砌築時，人類是否還能宣稱自己擁有了這座城堡？凱文·巴澤德的博客中流露出的那種複雜情緒，或許正是所有智力勞動者在面對這一轉折點時的共同宿命。我們正在進入一個「後證明時代」，在這個時代裡，證明的正確性由機器保證，而人類的工作僅僅是給出那個最初的、充滿野心的猜想。</p>
+    <p>如果有一天，AI 給出了一個長達數百萬行、且完全通過了機器檢核的黎曼猜想證明，但地球上沒有一個人類能夠讀懂其中的邏輯鏈條，這份證明究竟算是人類文明的勝利，還是機器對人類智力邊界的最終接管？當我們在為 Claude 征服費馬大定理而歡呼時，是否也無意中遞出了那把通往黑盒世界的鑰匙？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/research/formalizing-fermats-last-theorem" rel="nofollow noopener" target="_blank">Formalizing Fermat&#x27;s Last Theorem</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260907-0650-c88112/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
