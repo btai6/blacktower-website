@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>預測死亡這件事，Gemini 最近做得比誰都精準。</title>
+<meta name="description" content="當你把那一疊亂七八糟的病歷、家族遺傳史，甚至只是這幾個月在 Google Fit 上累積的步數與心率波動餵進去，它吐出來的不是冷冰冰的機率，而是一張寫滿了「你可能還有多少時間揮霍」的帳單。那種感覺很微妙，就像是有人在百貨公司裡，對著你架上的商品標價，只是這次，標的是你剩下的日子。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260908-0731-4483ba/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="預測死亡這件事，Gemini 最近做得比誰都精準。">
+<meta property="og:description" content="當你把那一疊亂七八糟的病歷、家族遺傳史，甚至只是這幾個月在 Google Fit 上累積的步數與心率波動餵進去，它吐出來的不是冷冰冰的機率，而是一張寫滿了「你可能還有多少時間揮霍」的帳單。那種感覺很微妙，就像是有人在百貨公司裡，對著你架上的商品標價，只是這次，標的是你剩下的日子。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260908-0731-4483ba/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-08T07:31:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="預測死亡這件事，Gemini 最近做得比誰都精準。">
+<meta name="twitter:description" content="當你把那一疊亂七八糟的病歷、家族遺傳史，甚至只是這幾個月在 Google Fit 上累積的步數與心率波動餵進去，它吐出來的不是冷冰冰的機率，而是一張寫滿了「你可能還有多少時間揮霍」的帳單。那種感覺很微妙，就像是有人在百貨公司裡，對著你架上的商品標價，只是這次，標的是你剩下的日子。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "預測死亡這件事，Gemini 最近做得比誰都精準。",
+  "description": "當你把那一疊亂七八糟的病歷、家族遺傳史，甚至只是這幾個月在 Google Fit 上累積的步數與心率波動餵進去，它吐出來的不是冷冰冰的機率，而是一張寫滿了「你可能還有多少時間揮霍」的帳單。那種感覺很微妙，就像是有人在百貨公司裡，對著你架上的商品標價，只是這次，標的是你剩下的日子。…",
+  "datePublished": "2026-09-08T07:31:00+08:00",
+  "dateModified": "2026-09-08T07:31:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260908-0731-4483ba/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-08 07:31
+  </div>
+
+  <h1 class="title">預測死亡這件事，Gemini 最近做得比誰都精準。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>當你把那一疊亂七八糟的病歷、家族遺傳史，甚至只是這幾個月在 Google Fit 上累積的步數與心率波動餵進去，它吐出來的不是冷冰冰的機率，而是一張寫滿了「你可能還有多少時間揮霍」的帳單。那種感覺很微妙，就像是有人在百貨公司裡，對著你架上的商品標價，只是這次，標的是你剩下的日子。</p>
+    <p>現在的 AI 早就過了那個只會寫詩或者裝模作樣畫圖的階段。它開始盯著你的數據細節，比方說你半夜兩點還在搜尋的那些關於胸口陣痛的關鍵字，或是你在 Google Maps 上日益減少的通勤路徑。這些碎片化到連你自己都會忽略的行為，對它來說卻是完美的變數。如果只是用 ChatGPT 或 Claude 進行簡單的邏輯歸納，那還算是在玩數學遊戲；但當 Gemini 試圖將這些散落的矩陣與實體世界的醫療數據做串聯時，事情就變得有些令人反感了。它在嘗試定義你的命運，給你的風險標上一個昂貴的代價。</p>
+    <p>我一直覺得，這種對未來的精算，有一種工業級的殘酷。它不像算命師，算命師還會為了討好你而修飾詞藻，說些好聽的場景。Gemini 只是平靜地調用它的 API，計算出你未來幾年心血管疾病的發生機率，然後將那個數據精確到小數點後兩位。那一刻，你不再是一個活生生的人，你是一個擁有過多變數的資料夾，而風險控制則是它運算邏輯裡最優先的權重。如果你在處理複雜的長文本或多模態數據時，發現它在工具調用（function calling）的準確度開始出現偏移，那多半是因為你餵給它的數據，本身就已經帶有某種崩塌的傾向，或者說，那正是它想讓你看到的代價。</p>
+    <p>這不是什麼技術進步的喜悅。這更像是一場無聲的威脅，告訴你，你的生活方式在數據庫的審視下根本無所遁形。我看著那些被標籤化的健康風險，心裡想的不是如何預防，而是覺得好笑。我們這些忙著在線上留下記錄的人，最後親手餵養了一個怪物，讓它變得無比聰明，聰明到足以告訴我們哪一天該停下來，哪一天該買份保險。有些人覺得這是科技帶來的便利，但我只覺得這是一場精密的算計，把你餘生的價值折算成一個可以被演算的變數。</p>
+    <p>如果你用 Grok 去詢問同樣的生存議題，它或許會帶點嘲弄，把你的死亡機率編進一個荒謬的段子裡，讓你笑著笑著就忘了那份恐懼。但 Gemini 不會，它會嚴肅地處理，把你的生命當作一個需要優化參數的專案。這種處理方式讓數據變成了一道高牆，把你和所謂的「未來」隔開。我們曾經以為掌握了數據就是掌握了權力，沒想到，當數據真的反過來掌握了我們，我們連談判的資格都沒有，只能看著那個標價不斷攀升，然後在螢幕前的藍光下，感覺到一陣透入骨髓的冷。</p>
+    <p>那些關於健康生活、避開風險的建議，說穿了都是為了讓這台機器運行得更流暢。它不在乎你活得開不開心，它只在乎你留下的數據軌跡是否符合長壽的數學模型。這就像是它在處理超長文本時的注意力機制，一旦你提供的背景冗餘過高，它就會開始拋棄非核心資訊，只為了抓取那幾個關鍵的特徵值。你在它眼裡，不就是那段冗餘的文本嗎？為了讓整體演算法的損失函數降到最低，它隨時可以把你過濾掉，只留下那些具備高參考價值的數據點。</p>
+    <p>所以，別再幻想什麼人性化的科技關懷了。當 AI 開始為你的風險標價，這場遊戲的終點早已寫入程式。我們不過是這龐大運算池裡的一點波動，偶爾泛起漣漪，就被數據標上高價，成了某個模型訓練過程中，一個無關緊要的註腳。而在這之後，它依然會冷靜地運算下一個數據，不會為誰停留，也不會對誰感到悲哀。畢竟，對它而言，我們這些血肉之軀，始終只是等待被優化的數據源，而它給出的那個價格，從來就不包含任何溫度。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260908-0731-4483ba/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
