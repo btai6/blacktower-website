@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當長文本窗口成了廉價的遮羞布</title>
+<meta name="description" content="Spotify 最近開源的 Portal 像是一記耳光，抽在了那些迷信百萬上下文窗口的開發者臉上。大家都在傳誦 Portal 如何透過所謂的「大宗讀取」和「代碼寫手」模式，將 Claude Code 的 Token 消耗硬生生砍掉九成，這聽起來像是某種煉金術，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260909-0717-932cc6/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當長文本窗口成了廉價的遮羞布">
+<meta property="og:description" content="Spotify 最近開源的 Portal 像是一記耳光，抽在了那些迷信百萬上下文窗口的開發者臉上。大家都在傳誦 Portal 如何透過所謂的「大宗讀取」和「代碼寫手」模式，將 Claude Code 的 Token 消耗硬生生砍掉九成，這聽起來像是某種煉金術，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260909-0717-932cc6/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-09T07:17:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當長文本窗口成了廉價的遮羞布">
+<meta name="twitter:description" content="Spotify 最近開源的 Portal 像是一記耳光，抽在了那些迷信百萬上下文窗口的開發者臉上。大家都在傳誦 Portal 如何透過所謂的「大宗讀取」和「代碼寫手」模式，將 Claude Code 的 Token 消耗硬生生砍掉九成，這聽起來像是某種煉金術，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當長文本窗口成了廉價的遮羞布",
+  "description": "Spotify 最近開源的 Portal 像是一記耳光，抽在了那些迷信百萬上下文窗口的開發者臉上。大家都在傳誦 Portal 如何透過所謂的「大宗讀取」和「代碼寫手」模式，將 Claude Code 的 Token 消耗硬生生砍掉九成，這聽起來像是某種煉金術，…",
+  "datePublished": "2026-09-09T07:17:00+08:00",
+  "dateModified": "2026-09-09T07:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260909-0717-932cc6/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-09 07:17
+  </div>
+
+  <h1 class="title">當長文本窗口成了廉價的遮羞布</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Spotify 最近開源的 Portal 像是一記耳光，抽在了那些迷信百萬上下文窗口的開發者臉上。大家都在傳誦 Portal 如何透過所謂的「大宗讀取」和「代碼寫手」模式，將 Claude Code 的 Token 消耗硬生生砍掉九成，這聽起來像是某種煉金術，實則揭露了一個極其尷尬的技術現狀：即便強如 Claude 3.5 Sonnet，在面對 Java Monorepo 這種結構複雜、歷史債務深重的程式碼庫時，其「注意力」依然散亂得像個宿醉的詩人。我們習慣於把成千上萬行的代碼塞進 Prompt，美其名曰讓模型理解上下文，實際上卻是在浪費昂貴的輸入 Token 去換取一堆充滿幻覺的雜訊。</p>
+    <p>技術圈對此的反應很有趣，有人譏諷這不過是模型界的「業務外包」，將沉重的閱讀任務甩給廉價勞動力。但這背後折射的是 Claude 在處理超長文本時，其底層注意力機制（Attention Mechanism）的邊際效用遞減問題。即便 Anthropic 的工程師宣稱他們優化了長文本的檢索精度，但在實際的大型專案遷移或重構任務中，模型往往會在讀到第兩萬行代碼時，忘記了第一萬行定義的接口規範。這種「後讀忘前」的現象，迫使開發者不得不回過頭來，用更原始、更結構化的方式去「餵食」模型。Portal 的做法並非創新，它只是承認了當前頂尖模型在處理大規模工程時，依然缺乏一種高效的、類似人類開發者的「跳躍式閱讀」能力。</p>
+    <p>這種能力上的缺失，催生了一種多模型協作的扭曲美學。開發者開始在 Claude Code 的工作流中強行塞入其他組件，試圖建立一個層級體制。在這個體制裡，Claude 扮演的是那位坐在昂貴辦公室裡畫架構圖的總工程師，而具體的代碼挖掘和粗活則交給了反應更快、成本更低的執行者。這種做法在技術本質上是對「單一模型全能論」的否定。當我們在討論 Token 節省率時，本質上是在討論模型理解密度的極限。如果一個模型需要閱讀十倍的代碼才能寫出一行正確的邏輯，那這不是智慧，而是暴力破解。</p>
+    <p>在這種多模型調度策略的討論中，人們不可避免地會聯想到 DeepSeek 的動態路由機制，或是 Qwen 在處理結構化指令時的反應速度。相較於 DeepSeek，Claude 在處理 Portal 這種需要高度邏輯連貫性的規畫任務時，其推理深度依然具備不可替代的優勢。但有趣的是，當我們把視角切換到實作層，你會發現開發者寧願忍受稍微笨一點的 Gemini 1.5 Flash 來處理大批量的代碼掃描，也不願讓 Claude 獨攬大權。這種對「昂貴推理」與「廉價檢索」的權衡，正成為當前 AI 應用層開發的主旋律。與此同時，相較於 Qwen，ChatGPT 在 Function Calling 的穩定性上，依然是這類自動化工具最穩固的底座，哪怕它的 Token 計費方式有時讓人心驚肉跳。</p>
+    <p>我們現在面臨一個弔詭的技術節點：我們擁有的窗口越來越大，但我們敢於交付給模型的信任卻越來越碎。Grok 在處理實時數據對接時表現出的那種狂放，在面對嚴謹的工業級代碼庫時顯然不夠沉穩；而 Gemini 雖然有著驚人的吞吐量，但在處理 Portal 產生的那種高度濃縮的「讀取摘要」時，其代碼生成的精確度往往會出現令人不安的抖動。這導致了一個結果，即便我們有了自動化工具，我們依然在做著最原始的「特徵工程」——只不過這次我們手工提取的不是數據特徵，而是代碼的邏輯片段。</p>
+    <p>如果 Token 的消耗真的能透過這種層次化的代理機制降低 90%，那我們是否該重新審視那些追求無限長窗口的研究方向？如果更聰明的模型註定更昂貴，且在處理瑣碎任務時顯得大而無當，那麼未來的主流架構會不會是一個由 Claude 負責大腦、由無數個廉價模型負責眼球和手指的怪物？當我們不再需要模型去「閱讀」整個世界，而只需要它「理解」我們過濾後的殘渣時，那種被稱為 AGI 的幻影，究竟是離我們更近了，還是被這層層疊疊的代理架構推得更遠了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90" rel="nofollow noopener" target="_blank">Portal by Spotify cut my Claude Code token usage by 90%</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260909-0717-932cc6/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

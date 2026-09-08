@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當納維-斯托克斯方程遇上三千億個 Token</title>
+<meta name="description" content="OpenAI 最近拿著納維-斯托克斯方程（Navier–Stokes equations）的千禧年大獎難題出來秀肌肉，宣稱他們的 Agent 體系在數學證明上有了突破。這事兒在 Hacker News 炸開了鍋。倒不是因為物理學界真的被顛覆了，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260909-0719-7484a8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當納維-斯托克斯方程遇上三千億個 Token">
+<meta property="og:description" content="OpenAI 最近拿著納維-斯托克斯方程（Navier–Stokes equations）的千禧年大獎難題出來秀肌肉，宣稱他們的 Agent 體系在數學證明上有了突破。這事兒在 Hacker News 炸開了鍋。倒不是因為物理學界真的被顛覆了，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260909-0719-7484a8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-09T07:19:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當納維-斯托克斯方程遇上三千億個 Token">
+<meta name="twitter:description" content="OpenAI 最近拿著納維-斯托克斯方程（Navier–Stokes equations）的千禧年大獎難題出來秀肌肉，宣稱他們的 Agent 體系在數學證明上有了突破。這事兒在 Hacker News 炸開了鍋。倒不是因為物理學界真的被顛覆了，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當納維-斯托克斯方程遇上三千億個 Token",
+  "description": "OpenAI 最近拿著納維-斯托克斯方程（Navier–Stokes equations）的千禧年大獎難題出來秀肌肉，宣稱他們的 Agent 體系在數學證明上有了突破。這事兒在 Hacker News 炸開了鍋。倒不是因為物理學界真的被顛覆了，…",
+  "datePublished": "2026-09-09T07:19:00+08:00",
+  "dateModified": "2026-09-09T07:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260909-0719-7484a8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-09 07:19
+  </div>
+
+  <h1 class="title">當納維-斯托克斯方程遇上三千億個 Token</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 最近拿著納維-斯托克斯方程（Navier–Stokes equations）的千禧年大獎難題出來秀肌肉，宣稱他們的 Agent 體系在數學證明上有了突破。這事兒在 Hacker News 炸開了鍋。倒不是因為物理學界真的被顛覆了，而是那組冷冰冰的數據：為了搞定這些問題，這群 Agent 總共發送了 490 萬條訊息，吞掉了將近 3000 億個輸出 Token。這哪是在做數學研究，這簡直是在用錢堆出一座通往真理的焚化爐。很多人在討論這算不算 AGI 的曙光，但我看著這組數字，只聞到了顯卡燒焦的味道，還有那股掩蓋不住的、屬於矽谷式的傲慢。</p>
+    <p>這場實驗的技術核心不在於模型對偏微分方程有多深刻的理解，而在於那套昂貴的「思考」鏈條。ChatGPT 在處理這類極端任務時，依賴的是一種近乎窮舉的推理路徑。當模型在 A100 或 H100 集群上瘋狂空轉，試圖從無窮的概率空間裡撈出一條正確的證明邏輯時，它其實是在用推理成本換取邏輯深度。這種做法與 Claude 追求的「直覺式」精準截然不同。Claude 在處理複雜長文本和邏輯鏈條時，通常表現得更有「教養」一些，它會試圖在有限的 Context Window 內保持注意力的聚焦，而不是像 ChatGPT 這樣，一旦遇到瓶頸就開啟無限回圈模式，瘋狂輸出那些被開發者戲稱為「Slopcode」的代碼片段。</p>
+    <p>我們得看清楚這背後的代價。3000 億個 Token 意味著什麼？按現在主流 API 的公開定價算下去，這是一筆足以讓大多數創業公司直接破產的帳單。OpenAI 敢這麼玩，是因為他們手裡握著內部專用的推理模型，那些尚未對外開放、專門為了長鏈條推理優化的版本。這類模型在處理數學物理問題時，會強行拉長 CoT（思維鏈）的長度，甚至在內部進行自我博弈和多路徑驗證。這種行為模式在 Gemini 上也見過類似的蹤跡，Gemini 在處理多模態融合任務時，也會試圖通過增加採樣次數來提升準確率，但 Google 的問題在於它的 Function Calling 穩定性，一旦工具調用超過一定閾值，邏輯鏈條就會像斷了線的風箏，不像 OpenAI 這次展示的，能把幾百萬條訊息強行擰成一股繩。</p>
+    <p>在這種暴力美學的背景下，其他的玩家顯得有些格格不入。比如最近在技術圈討論度極高的 DeepSeek，或者在特定語境下表現尚可的 Qwen，它們也在嘗試優化推理成本。相較於 DeepSeek 在架構上對計算效率的追求，OpenAI 的做法更像是在告訴全世界：只要算力足夠，邏輯就是可以被「暴力破解」的。這種策略上的分歧非常有趣。一邊是試圖用更巧的算法來模擬智慧，另一邊則是堅信量變產生質變，哪怕這個「量」大到讓人生理不適。Grok 在這方面則顯得比較邊緣，雖然它一直標榜自己有更強的實時數據獲取能力，但在這種純粹的、封閉系統的數學證明面前，實時數據救不了命，只有紮實的推理步數才能換來最終的那個 Q.E.D.。</p>
+    <p>更讓人玩味的是，這次實驗還捲入了「抄襲」與「過度借鑒」的爭議。有風聲說這些所謂的突破，其實是建立在某些研究員已有的成果和特定的 Prompt 策略之上。這戳破了 AI 圈最後一層濾鏡：如果一個模型需要人類精準地餵到嘴裡，再加上三千億個 Token 的反覆咀嚼才能吐出一點點新東西，那這到底是模型的勝利，還是人類勞動力在數位世界的變相延伸？ChatGPT 展現出的這種「侵略性」行為，不僅僅體現在對算力的吞噬，更體現在它對現有知識產權邊界的模糊化處理。</p>
+    <p>我們現在站在一個很尷尬的節點上。我們看著這些 Agent 在虛擬實驗室裡揮霍著普通人一輩子也賺不到的資源，去證明一個可能對現實生活暫時沒什麼鳥用的物理難題。這到底是通往 AGI 的必經之路，還是一場由資本和算力堆砌出來的技術幻覺？如果未來的科學發現都必須建立在這種量級的資源消耗之上，那科學究竟是變得更民主了，還是變成了一種只有少數幾家巨頭才玩得起的密教儀式？當我們下一次為了一個精確的答案而按下發送鍵時，我們消耗的到底是模型的智慧，還是這個星球上日益枯竭的廉價能源？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/navier-stokes-solution/" rel="nofollow noopener" target="_blank">On the Navier–Stokes Millennium Prize Problem</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260909-0719-7484a8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
