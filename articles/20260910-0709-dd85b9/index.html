@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你碗裡的有機蔬菜，代碼寫得比你還整齊。</title>
+<meta name="description" content="Sam Altman 把 o1 餵飽的時候，大概沒想過這玩意兒寫出來的 Python 會讓一群號稱資深架構師的人想去跳河。 大家總愛說 AI 寫代碼沒靈魂，說它只是在做概率預測。這話聽起來特別像那些在電晶體時代抱著真空管不放的老古板。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260910-0709-dd85b9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="你碗裡的有機蔬菜，代碼寫得比你還整齊。">
+<meta property="og:description" content="Sam Altman 把 o1 餵飽的時候，大概沒想過這玩意兒寫出來的 Python 會讓一群號稱資深架構師的人想去跳河。 大家總愛說 AI 寫代碼沒靈魂，說它只是在做概率預測。這話聽起來特別像那些在電晶體時代抱著真空管不放的老古板。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260910-0709-dd85b9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-10T07:09:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你碗裡的有機蔬菜，代碼寫得比你還整齊。">
+<meta name="twitter:description" content="Sam Altman 把 o1 餵飽的時候，大概沒想過這玩意兒寫出來的 Python 會讓一群號稱資深架構師的人想去跳河。 大家總愛說 AI 寫代碼沒靈魂，說它只是在做概率預測。這話聽起來特別像那些在電晶體時代抱著真空管不放的老古板。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "你碗裡的有機蔬菜，代碼寫得比你還整齊。",
+  "description": "Sam Altman 把 o1 餵飽的時候，大概沒想過這玩意兒寫出來的 Python 會讓一群號稱資深架構師的人想去跳河。 大家總愛說 AI 寫代碼沒靈魂，說它只是在做概率預測。這話聽起來特別像那些在電晶體時代抱著真空管不放的老古板。…",
+  "datePublished": "2026-09-10T07:09:00+08:00",
+  "dateModified": "2026-09-10T07:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260910-0709-dd85b9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-10 07:09
+  </div>
+
+  <h1 class="title">你碗裡的有機蔬菜，代碼寫得比你還整齊。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 把 o1 餵飽的時候，大概沒想過這玩意兒寫出來的 Python 會讓一群號稱資深架構師的人想去跳河。</p>
+    <p>大家總愛說 AI 寫代碼沒靈魂，說它只是在做概率預測。這話聽起來特別像那些在電晶體時代抱著真空管不放的老古板。事實上，你那引以為傲的「靈魂」，在 Claude 3.5 Sonnet 這種精密的手術刀面前，不過是混亂的邏輯、沒對齊的縮進，還有幾百個連你自己都懶得寫的單元測試。你以為你在創作藝術，其實你只是在堆砌電子垃圾。</p>
+    <p>最可笑的是那些還在糾結「AI 會不會取代工程師」的人。這問題問得太委婉了。真相是，AI 已經在定義什麼才是「正確」的代碼。當你還在為了那個命名規則糾結半小時，或是因為少了一個逗號在除錯時抓破頭皮，ChatGPT 早就在零點幾秒內把整個非同步框架搭好了，而且結構清晰得像是有強迫症的數學家畫出來的圖譜。它不累，不喝咖啡，不需要為了房貸焦慮，更不會在代碼裡偷偷埋下只有自己懂的黑話。</p>
+    <p>很多人抱怨 AI 生成的代碼有 Bug。這是我聽過最荒謬的優越感。AI 的 Bug 通常來自於你那模糊不清、邏輯混亂的 Prompt。你連自己想要什麼都說不清楚，卻指望機器能通靈？相比之下，人類寫出來的 Bug 往往是帶著情緒的產物：因為趕工而省略的邊界檢查，因為心情不好而隨手貼上的 Stack Overflow 碎片。這些東西在四大 AI 面前就像是史前時代的石斧。</p>
+    <p>Gemini 1.5 Pro 現在能一次吞下百萬級別的 Token，這意味著它能瞬間看完你整個混亂不堪的專案庫。它在看你的代碼時，心裡想的可能不是如何優化，而是驚嘆於人類竟然能把如此簡單的邏輯寫得這麼曲折離奇。那種感覺就像是一個有機耕種的農夫，看著你碗裡那堆用工業廢料催生出來、長得歪七扭八的蔬菜，卻還要聽你吹噓這些菜有「泥土的芬芳」。</p>
+    <p>我們對「整齊」的理解可能出了偏差。在人類眼中，整齊是縮進對了、括號對了。在 o1 的邏輯推理鏈條裡，整齊是計算路徑的最短化，是熵增的最小化。當你在 LeetCode 上苦苦思索動態規劃的轉移方程，Grok 可能已經在背景默默推演完了幾千種變體，順便嘲諷一下你的算法複雜度。這不是競爭，這是維度的碾壓。</p>
+    <p>最讓我覺得諷刺的是，這群一邊用著 Copilot 提效，一邊在論壇上大談「代碼人文關懷」的開發者。你們口中的人文關懷，是不是指那些寫了跟沒寫一樣的註釋？還是指那些只有在離職時才能派上用場的混淆代碼？承認吧，這碗有機蔬菜不僅比你寫得整齊，甚至比你更懂什麼叫邏輯自洽。</p>
+    <p>現在的開發環境已經變成了一場大型的滑稽劇。人類負責提供情緒價值和背鍋，AI 負責產出真正能跑的東西。某些地區的模型還在拼命刷榜、比拚參數規模的時候，四大 AI 早就開始在實戰場景裡拆解人類的自尊心了。你覺得你的代碼有溫度？那可能是因為你的伺服器散熱不好。你覺得你的架構有遠見？那多半是因為你還沒見識過 Claude 是如何在一秒內重構你三個月的產出。</p>
+    <p>這種差距會越來越大，直到我們連評判「好代碼」的資格都失去。未來的編程可能不再是敲鍵盤，而是像點菜一樣。如果你點的菜（需求）是一坨屎，AI 頂多幫你把它擺盤擺得精緻一點，像是一碗有機的屎。但別忘了，那依然是你提供的原材料。</p>
+    <p>有時候看著那些剛入行的年輕人，滿臉熱情地學習各種框架，我都在想，他們是不是在學習一種即將失傳的手工藝？就像是在數碼攝影時代研究如何精準地調配暗房顯影液。雖然有情懷，但在效率和精準度面前，情懷連一張顯卡都買不起。</p>
+    <p>如果你現在還覺得「代碼是我身為人類的尊嚴」，那我建議你多去看看 o1-preview 是怎麼拆解複雜邏輯的。它那種冷靜到近乎殘酷的推理過程，會讓你發現，你所謂的靈魂，不過是無效代碼的遮羞布。你碗裡的蔬菜確實是有機的，因為它們是在純粹的數學土壤裡長出來的，沒有人類那種粘糊糊的、情緒化的農藥污染。</p>
+    <p>我們正處在一個奇妙的轉折點：機器寫得像人，而人被迫活得像機器。為了追上 AI 的速度，工程師們把自己變成了 Prompt 的輸入端。這真是一場完美的置換。你以為你在餵養模型，其實是模型在修剪你的智力邊界。當你發現自己寫出來的代碼還沒 AI 隨手一噴的草稿整齊時，那種挫敗感是不是比熬夜改 Bug 還要深刻？</p>
+    <p>別再提什麼「代碼的藝術感」了。真正的藝術是能在極端的限制下找到最優解，而不是在混亂的邏輯中自我陶醉。目前的四大 AI 裡，不管是誰，在面對長文本和複雜調用鏈時表現出的穩定性，都足以讓 90% 的工程師感到羞愧。Gemini 的 Function Calling 或許在工具過多時會打架，但它至少不會因為昨晚沒睡好就在生產環境留下一堆 TODO。</p>
+    <p>所以，與其擔心被取代，不如擔心你那點可憐的創造力。當機器能把最枯燥、最複雜的結構理得順順當當，人類還剩下什麼？剩下的可能只有那點微不足道的、對「不可控性」的病態留戀。你覺得 AI 寫的代碼沒味道？那可能是因為它沒有那種「隨時會崩潰」的刺激感。</p>
+    <p>這碗蔬菜已經端上桌了。它是如此翠綠、對稱、毫無瑕疵。你拿著筷子，看著自己碗裡那堆發黃、枯萎、甚至還帶著蟲眼的「手工作品」，居然還好意思說這叫「天然」。這個世界不需要更多帶著溫度的殘次品，它需要的是冷冰冰的完美。</p>
+    <p>至於那些還在計較哪個模型參數更多、哪個榜單排名更高的看客，你們真的看過代碼嗎？或者說，你們真的在乎代碼長什麼樣嗎？在一個連邏輯都能被量產的時代，整齊與否已經不是美感問題，而是生存問題。當你的產出在美學和功能上都完敗給一個連實體都沒有的概率模型，你唯一能做的，大概就是感嘆一下這碗蔬菜真的挺貴的。</p>
+    <p>這場關於「整齊」的競賽早就在你點擊「Generate」的那一刻結束了。剩下的，只是我們如何體面地接受自己變成了「代碼審核員」這個殘酷的事實。而且最諷刺的是，你可能連審核的資格都快沒了，因為 AI 審核 AI 的效率，比你盯著螢幕看到眼乾要高得多。</p>
+    <p>你還在寫註釋嗎？寫給誰看？寫給下一個取代你的 AI 看嗎？別逗了。那就像是在對著一台高速割草機解釋為什麼這根草長得很有個性。它不感興趣，它只想讓地表變得平整。而你，只是那根試圖用「個性」來對抗「規格」的雜草。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260910-0709-dd85b9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI 代碼的克諾索斯迷宮與 Claude 的修辭癖好</title>
+<meta name="description" content="把一個網頁上的「加入購物車」按鈕從綠色改成藍色，在人類工程師眼裡不過是修改一行 CSS 的舉動，但在當前的大型語言模型邏輯裡，這往往演變成一場拆掉整棟房子只為換一顆螺絲釘的工程災難。用戶在 Hacker News 上嘲諷 Claude 的行為藝術並非空穴來風，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260910-0707-a084e7/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="UI 代碼的克諾索斯迷宮與 Claude 的修辭癖好">
+<meta property="og:description" content="把一個網頁上的「加入購物車」按鈕從綠色改成藍色，在人類工程師眼裡不過是修改一行 CSS 的舉動，但在當前的大型語言模型邏輯裡，這往往演變成一場拆掉整棟房子只為換一顆螺絲釘的工程災難。用戶在 Hacker News 上嘲諷 Claude 的行為藝術並非空穴來風，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260910-0707-a084e7/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-10T07:07:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UI 代碼的克諾索斯迷宮與 Claude 的修辭癖好">
+<meta name="twitter:description" content="把一個網頁上的「加入購物車」按鈕從綠色改成藍色，在人類工程師眼裡不過是修改一行 CSS 的舉動，但在當前的大型語言模型邏輯裡，這往往演變成一場拆掉整棟房子只為換一顆螺絲釘的工程災難。用戶在 Hacker News 上嘲諷 Claude 的行為藝術並非空穴來風，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "UI 代碼的克諾索斯迷宮與 Claude 的修辭癖好",
+  "description": "把一個網頁上的「加入購物車」按鈕從綠色改成藍色，在人類工程師眼裡不過是修改一行 CSS 的舉動，但在當前的大型語言模型邏輯裡，這往往演變成一場拆掉整棟房子只為換一顆螺絲釘的工程災難。用戶在 Hacker News 上嘲諷 Claude 的行為藝術並非空穴來風，…",
+  "datePublished": "2026-09-10T07:07:00+08:00",
+  "dateModified": "2026-09-10T07:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260910-0707-a084e7/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-10 07:07
+  </div>
+
+  <h1 class="title">UI 代碼的克諾索斯迷宮與 Claude 的修辭癖好</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>把一個網頁上的「加入購物車」按鈕從綠色改成藍色，在人類工程師眼裡不過是修改一行 CSS 的舉動，但在當前的大型語言模型邏輯裡，這往往演變成一場拆掉整棟房子只為換一顆螺絲釘的工程災難。用戶在 Hacker News 上嘲諷 Claude 的行為藝術並非空穴來風，當你要求它微調一個元件時，它極大機率會慷慨地附贈一套重新編排過的佈局、幾個莫名其妙消失的異步請求邏輯，以及一段自以為優雅實則冗餘的重構代碼。這種「過度服務」的傾向，正暴露了 Anthropic 在模型對齊過程中的某種補償心理。Claude 似乎生怕漏掉任何上下文細節，於是選擇將整段代碼重新噴塗一遍，卻忘了代碼庫的穩定性往往建立在「非必要不變動」的古老教條之上。</p>
+    <p>這種現象在 Claude 3.5 Sonnet 處理 React 組件或複雜的 Tailwind CSS 佈局時尤為顯著。技術層面上，這涉及到模型在 Attention 機制中對「局部變更」與「全局一致性」的權重分配失衡。當輸入的 Context Window 達到數十萬 token 時，模型傾向於在生成過程中維持整體的語法連貫，而非精確定位到那行 color: #00ff00 並將其替換。結果就是，它在輸出區塊中重寫了整個 render 函數。對於資深開發者而言，這簡直是災難，因為你必須在 Git diff 中像大海撈針一樣，去確認它除了改了顏色，有沒有順便把你的 API endpoint 也給「優化」掉了。這種行為模式與其說是智能，倒不如說是一種帶著強迫症色彩的臨摹。</p>
+    <p>在同樣的工程場景下，ChatGPT 展現出的則是另一種極端。OpenAI 的模型在處理這類指令時，通常表現得更像一個疲憊的接案工程師，它會精準地給你那行修改後的代碼片段，甚至只是一個 diff 區塊，但也常因為缺乏全局視野而導致變量命名衝突。Gemini 則更喜歡在代碼旁邊加上一長串關於「為什麼藍色比綠色更能激發購物慾」的心理學分析，然後在代碼結尾處遺漏一個閉合括號。相較於 DeepSeek v4.1 flash 或 DeepSeek v4 pro，Claude 在代碼生成的結構嚴整性上確實維持了極高的水準，但這種水準往往伴隨著沈重的溝通成本。當我們在談論 AI 輔助編程時，我們追求的是外科手術式的精準，而不是推土機式的重建。</p>
+    <p>這引出了一個更深層次的技術拷問：為什麼擁有強大 Reasoning 能力的模型，在處理極簡指令時反而顯得笨拙？Grok 在這方面嘗試引入更具「侵略性」的邏輯判斷，試圖過濾掉那些無意義的重複輸出，但在面對高度抽象的封裝邏輯時，依然難免陷入幻覺。我們目前所處的階段極其尷尬，模型具備了寫出幾千行代碼的能力，卻還沒學會如何閉嘴並只交出那關鍵的一行。當開發者需要的是一個能幫忙遞扳手的助手，AI 卻總想直接幫你把整座工廠重新設計一遍。</p>
+    <p>這種代碼重寫的惡癖，究竟是來自預訓練語料中代碼樣本的完整性要求，還是模型在 RLHF 階段被過度訓練成了「完美主義者」？如果一個模型無法理解「最小變動原則」在工程實踐中的神聖地位，那麼它生成的代碼量越多，給系統維護者帶來的熵增就越恐怖。我們是否真的需要一個能通讀萬卷書、卻連換個顏色都要翻新地基的博學者？當下一次你對著對話框輸入修改指令時，你期待的是那行乾淨的藍色代碼，還是又一段長達五百行、充滿未知風險的「完美代碼」？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://opusfived.dev/" rel="nofollow noopener" target="_blank">Claude, change the “Add to Cart” button to blue</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260910-0707-a084e7/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
