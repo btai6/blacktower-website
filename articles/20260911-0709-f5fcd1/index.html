@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growing proof that autonomous cars save lives</title>
+<meta name="description" content="DeepSeek v4.1 Flash 的更新又在洗版，但對自動駕駛這種拿命開玩笑的技術來說，模型跑得再快也抵不過一次視線遮擋下的邏輯誤判。 現在的風向很有趣，一堆人拿著所謂的數據報告在喊自動駕駛救了多少人。這套邏輯聽起來很美，但如果你天天在路上開車，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260911-0709-f5fcd1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Growing proof that autonomous cars save lives">
+<meta property="og:description" content="DeepSeek v4.1 Flash 的更新又在洗版，但對自動駕駛這種拿命開玩笑的技術來說，模型跑得再快也抵不過一次視線遮擋下的邏輯誤判。 現在的風向很有趣，一堆人拿著所謂的數據報告在喊自動駕駛救了多少人。這套邏輯聽起來很美，但如果你天天在路上開車，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260911-0709-f5fcd1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-11T07:09:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Growing proof that autonomous cars save lives">
+<meta name="twitter:description" content="DeepSeek v4.1 Flash 的更新又在洗版，但對自動駕駛這種拿命開玩笑的技術來說，模型跑得再快也抵不過一次視線遮擋下的邏輯誤判。 現在的風向很有趣，一堆人拿著所謂的數據報告在喊自動駕駛救了多少人。這套邏輯聽起來很美，但如果你天天在路上開車，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Growing proof that autonomous cars save lives",
+  "description": "DeepSeek v4.1 Flash 的更新又在洗版，但對自動駕駛這種拿命開玩笑的技術來說，模型跑得再快也抵不過一次視線遮擋下的邏輯誤判。 現在的風向很有趣，一堆人拿著所謂的數據報告在喊自動駕駛救了多少人。這套邏輯聽起來很美，但如果你天天在路上開車，…",
+  "datePublished": "2026-09-11T07:09:00+08:00",
+  "dateModified": "2026-09-11T07:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260911-0709-f5fcd1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-09-11 07:09
+  </div>
+
+  <h1 class="title">Growing proof that autonomous cars save lives</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>DeepSeek v4.1 Flash 的更新又在洗版，但對自動駕駛這種拿命開玩笑的技術來說，模型跑得再快也抵不過一次視線遮擋下的邏輯誤判。</p>
+    <p>現在的風向很有趣，一堆人拿著所謂的數據報告在喊自動駕駛救了多少人。這套邏輯聽起來很美，但如果你天天在路上開車，就會發現這種「機器救人」的論點簡直是把複雜的物理世界想得太簡單。路面上那些被磨損的標線、被樹葉遮住一半的限速牌，甚至是雪後白茫茫的一片，這些「異常場景」才是檢驗智能與否的試金石。目前的技術討論大多停留在誰的傳感器更牛，卻很少人討論當模型遇到「沒見過的混亂」時，到底是會選擇保護乘客，還是會因為邏輯衝突直接卡死。</p>
+    <p>xAI 的 Grok 最近在視覺推理上下了不少功夫，馬斯克一直吹捧純視覺方案，這本質上是在考驗模型對現實世界的「常識」理解。Grok 的邏輯基礎是試圖模擬人類的因果推斷，而不僅僅是概率匹配。當車輛行駛在視線受阻的巷弄，系統不該只是等待障礙物出現才煞車，而是要根據兩旁停滿車輛的密度，預判可能會有小孩衝出來。這種預判能力，現在的 ChatGPT 雖然在文本上能說得頭頭是道，但要轉化為毫秒級的物理操作，反應速度和精確度顯然還差了一截。</p>
+    <p>ChatGPT 在處理駕駛邏輯時，展現出一種過於保守的傾向。它在模擬測試中往往會因為過度解讀潛在風險而導致車輛頻繁點煞，這在現實交通中反而可能引發後車追撞。相比之下，Google 的 Gemini 依賴其龐大的地圖數據與多模態學習，試圖給出一套更「絲滑」的路徑規劃。但 Gemini 的問題在於它太依賴數據的完整性，一旦進入地圖更新不及時的邊緣區域，那種處理未知狀況的笨拙感就會暴露無遺。</p>
+    <p>相較於 DeepSeek v4.1 Flash 在特定基準測試上的跳躍，Claude 在邏輯穩定性上反而是四大平台中最讓人放心的。Claude 的憲法 AI 框架如果應用在駕駛決策，它對安全邊界的定義會比其他模型更清晰，不會為了「效率」去冒險超車。但這種穩定性也帶來了代價，就是它可能永遠無法應付像巴黎或孟買那種毫無章法的交通流。</p>
+    <p>這就帶出了一個很尷尬的點：我們真的需要「完全」自動駕駛嗎？很多人提到的 ADAS（高級駕駛輔助）加上人類司機，目前看來才是最合理的解法。機器負責疲勞監測和緊急制動，人類負責應付突發的倫理困境和極端天氣。那些宣揚自動駕駛必將取代人類的公關稿，背後往往藏著收割訂閱費的算盤。他們想讓你相信，開車是一項沉重的負擔，而交出控制權則是通往自由的唯一途徑。</p>
+    <p>事實上，目前的技術標準依然是一片混亂。我們沒有一套像障礙賽那樣的標準測試，來衡量這些 AI 到底能不能看懂雪地裡的殘破標線，或是能否在刺眼的夕陽逆光中辨識出橫穿馬路的行人。如果連基礎的視覺語義都無法達成百分之百的共識，談論自動駕駛「救人」未免太過超前。</p>
+    <p>我們是不是正在進入一個技術傲慢的時代？當我們把生命安全交給一個連「為什麼這張路牌被噴漆了」都解釋不清楚的模型時，我們到底是在追求安全，還是在為科技公司的估值添磚加瓦？如果有一天，自動駕駛系統因為一次沒見過的「異常」而選擇了最糟糕的處理方式，到時候誰該為那個被算法犧牲掉的人負責？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://spectrum.ieee.org/are-self-driving-cars-safe" rel="nofollow noopener" target="_blank">Growing proof that autonomous cars save lives</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260911-0709-f5fcd1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

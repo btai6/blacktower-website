@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 在基因組裡埋下的廣告位與護城河</title>
+<meta name="description" content="這兩天 Hacker News 的討論區不安生，話題中心在於 DeepMind 扔出的 AlphaGenome Atlas。比起那些還在優化對話框流暢度的模型，Google 似乎又回到了它最擅長的領域：用暴力計算去解析自然界的代碼。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260911-0707-204d66/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 在基因組裡埋下的廣告位與護城河">
+<meta property="og:description" content="這兩天 Hacker News 的討論區不安生，話題中心在於 DeepMind 扔出的 AlphaGenome Atlas。比起那些還在優化對話框流暢度的模型，Google 似乎又回到了它最擅長的領域：用暴力計算去解析自然界的代碼。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260911-0707-204d66/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-11T07:07:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 在基因組裡埋下的廣告位與護城河">
+<meta name="twitter:description" content="這兩天 Hacker News 的討論區不安生，話題中心在於 DeepMind 扔出的 AlphaGenome Atlas。比起那些還在優化對話框流暢度的模型，Google 似乎又回到了它最擅長的領域：用暴力計算去解析自然界的代碼。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 在基因組裡埋下的廣告位與護城河",
+  "description": "這兩天 Hacker News 的討論區不安生，話題中心在於 DeepMind 扔出的 AlphaGenome Atlas。比起那些還在優化對話框流暢度的模型，Google 似乎又回到了它最擅長的領域：用暴力計算去解析自然界的代碼。…",
+  "datePublished": "2026-09-11T07:07:00+08:00",
+  "dateModified": "2026-09-11T07:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260911-0707-204d66/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-11 07:07
+  </div>
+
+  <h1 class="title">Google 在基因組裡埋下的廣告位與護城河</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天 Hacker News 的討論區不安生，話題中心在於 DeepMind 扔出的 AlphaGenome Atlas。比起那些還在優化對話框流暢度的模型，Google 似乎又回到了它最擅長的領域：用暴力計算去解析自然界的代碼。有人嘲諷 Google 地圖還會把人導航進湖裡，卻已經開始預測人類 DNA 的每一個字母變更。這種割裂感很有趣，但也點出了一個核心事實，大模型競爭的維度正在悄悄分層。一邊是追求生成效率的商業化工具，另一邊是像 Gemini 這樣，試圖把神經網絡直接接在生命科學的底層邏輯上。</p>
+    <p>AlphaGenome Atlas 這次做的，本質上是把人類基因組變成了一個可被索引、可被預測的數據庫。它不只是在看基因，是在預測每一種可能的突變會對蛋白質功能產生什麼影響。這需要極高的長序列建模能力，以及對生物物理規則的深刻理解。Gemini 在處理這種非結構化、高維度的科學數據時，展現出一種與 ChatGPT 截然不同的穩定性。GPT-4o 在處理複雜生化反應或特異性序列預測時，偶爾會出現邏輯上的「幻覺」，將不相關的氨基酸殘基強行關聯。而 Gemini 依賴於 DeepMind 多年累積的 AlphaFold 底座，它在處理基因序列任務時，表現得更像是一個嚴謹的物理模擬器，而不是一個文字預測器。</p>
+    <p>這種技術深度的差異，在處理大規模科研數據時尤為明顯。當你嘗試用 API 接口去調用複雜的基因特徵提取時，ChatGPT 的 token 限制和對專業符號的權重分配往往會讓結果變得支離破碎。Gemini 則是直接在模型架構層面就考慮了多模態的科學輸入，它把基因序列視為一種特殊的語言，而不是單純的文本符號。這種「原生科學模型」的思路，讓它在面對醫藥研發這種容錯率極低的場景時，擁有更強的護城河。</p>
+    <p>在目前的市場環境下，相較於 DeepSeek v4.1 Flash 在極速推理和成本控制上的激進嘗試，Google 的做法顯然更偏向於重資產的科研壁壘。DeepSeek v4.1 Flash 提供了極佳的性價比，但回到基因組這種需要海量算力與多年垂直領域數據積累的賽道，Google 選擇的是一條沒法被輕易複製的路。這不是單靠模型迭代就能追上的，而是需要對生物學實驗數據有長達十年的深度消化。與之相比，Claude 在學術寫作和邏輯推理上雖然極其細膩，但在處理這種超大規模、非文本的科學圖譜時，依然缺乏一個像 AlphaFold 那樣的結構化支撐點。</p>
+    <p>這種策略上的差異也引發了另一個層面的擔憂：數據產權與壟斷。DeepMind 在發布這些數據時，ToS（服務條款）明確限制了非商業用途。這就意味著，雖然科研人員可以免費使用這份地圖，但一旦涉及到藥物研發這種利潤豐厚的商業行為，Google 就成了唯一的收費站。Grok 在這方面倒是顯得更為狂野，馬斯克傾向於開放更多數據，但 Grok 目前的技術重心顯然還在社交媒體情緒分析和實時新聞處理上，對於這種需要沉下心來做的生命科學模型，它還處於一個相對真空的狀態。</p>
+    <p>當我們在討論模型參數、吞吐量和上下文長度時，Google 已經在人類基因組裡劃好了領地。這不再是單純的 AI 競爭，而是對生命底層解釋權的爭奪。如果說 ChatGPT 改變了人類產生內容的方式，那麼 Gemini 背後的這套科學模型，可能正在重新定義人類修補自身的方式。</p>
+    <p>如果未來所有的藥物研發都必須經過 Google 的預測模型驗證，這算不算是一種另類的數據殖民？當開源社區試圖追趕這種量級的科學數據庫時，我們是否還有機會在不依賴大廠算力的情況下，掌握對自己基因的解釋權？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/" rel="nofollow noopener" target="_blank">AlphaGenome Atlas: a high-resolution map of human DNA</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260911-0707-204d66/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

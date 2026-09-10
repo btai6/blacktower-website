@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>那些在提示詞裡玩「疊疊樂」的工程師，正在毀掉 Claude 的邏輯</title>
+<meta name="description" content="把網頁上的「加入購物車」按鈕換成藍色，這原本應該是個連實習生都能在三秒內完成的動作，但在 Claude 的對話框裡，這場景有時會演變成一場災難性的代碼重構。你給它一條指令，它還你一個完整的 React 組件，順便把原本運作良好的 CSS 模組改寫成 Tailwind，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260911-0703-f11df1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="那些在提示詞裡玩「疊疊樂」的工程師，正在毀掉 Claude 的邏輯">
+<meta property="og:description" content="把網頁上的「加入購物車」按鈕換成藍色，這原本應該是個連實習生都能在三秒內完成的動作，但在 Claude 的對話框裡，這場景有時會演變成一場災難性的代碼重構。你給它一條指令，它還你一個完整的 React 組件，順便把原本運作良好的 CSS 模組改寫成 Tailwind，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260911-0703-f11df1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-11T07:03:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="那些在提示詞裡玩「疊疊樂」的工程師，正在毀掉 Claude 的邏輯">
+<meta name="twitter:description" content="把網頁上的「加入購物車」按鈕換成藍色，這原本應該是個連實習生都能在三秒內完成的動作，但在 Claude 的對話框裡，這場景有時會演變成一場災難性的代碼重構。你給它一條指令，它還你一個完整的 React 組件，順便把原本運作良好的 CSS 模組改寫成 Tailwind，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "那些在提示詞裡玩「疊疊樂」的工程師，正在毀掉 Claude 的邏輯",
+  "description": "把網頁上的「加入購物車」按鈕換成藍色，這原本應該是個連實習生都能在三秒內完成的動作，但在 Claude 的對話框裡，這場景有時會演變成一場災難性的代碼重構。你給它一條指令，它還你一個完整的 React 組件，順便把原本運作良好的 CSS 模組改寫成 Tailwind，…",
+  "datePublished": "2026-09-11T07:03:00+08:00",
+  "dateModified": "2026-09-11T07:03:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260911-0703-f11df1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-11 07:03
+  </div>
+
+  <h1 class="title">那些在提示詞裡玩「疊疊樂」的工程師，正在毀掉 Claude 的邏輯</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>把網頁上的「加入購物車」按鈕換成藍色，這原本應該是個連實習生都能在三秒內完成的動作，但在 Claude 的對話框裡，這場景有時會演變成一場災難性的代碼重構。你給它一條指令，它還你一個完整的 React 組件，順便把原本運作良好的 CSS 模組改寫成 Tailwind，最後再附贈一段長達五百字的「為什麼藍色更有利於轉化率」的心理學講座。這種過度服務的傾向，讓不少開發者在 Hacker News 上自嘲，與其說是我們在指導 AI，不如說是我們在伺候一個脾氣古怪、且有強迫症的高級架構師。</p>
+    <p>我們得承認，Claude 在處理程式碼時存在一種近乎偏執的「完整性」。當你要求修改一個按鈕顏色時，它的注意力機制（Attention Mechanism）並非只鎖定在那個 style 屬性上。Anthropic 的模型訓練邏輯似乎更傾向於理解整個上下文的語義連貫性，導致它在輸出的時候，會下意識地認為「只改一個顏色是不專業的」。它試圖修正它自認為的潛在 Bug，或者重組它覺得不夠優雅的函數結構。這在進行複雜算法優化時是神蹟，但在處理瑣碎的 UI 微調時，卻成了典型的「拿大砲打蚊子」。這種現象在 Opus 模型中尤為明顯，它那龐大的參數權重讓它無法忍受任何局部的、零散的修補。</p>
+    <p>這種「過度思考」的技術代價是巨大的。當我們在 API 調用中遇到這種全量回寫（Full Rewrite）的情況，Token 的消耗量會呈指數級增長。對於一個簡單的 CSS 修改，如果模型決定重寫整個 500 行的代碼塊，這不僅是反應延遲的問題，更是對計算資源的公然浪費。相比之下，GPT-4o 在這方面顯得圓滑得多，它更像是一個老練的承包商，你說要刷牆，它絕不會去動你的水管。但在邏輯一致性上，GPT-4o 有時會因為過於追求效率而忽略了作用域的全局影響，導致代碼在局部運行正常，卻在打包時報錯。</p>
+    <p>在技術圈的討論中，有人拿 DeepSeek v4.1 Flash 來對比這種代碼生成的精確度。相較於 DeepSeek v4.1 Flash，Claude 在面對長文本代碼庫時的語意理解確實更深一層，但這種深度往往伴隨著自我感知的膨脹。我們在測試 Gemini 的 Pro 版本時也發現了類似的權衡問題：Gemini 雖然在處理多模態輸入時表現優異，但一旦進入代碼生成的長程對話，它會開始產生某種「幻覺記憶」，試圖引用前幾輪對話中已經被刪除的變量。這與 Claude 的過度重構不同，Gemini 是忘了路標，而 Claude 是想重新修一條高速公路。</p>
+    <p>目前在開發者社區，已經出現了一種被稱為「提示詞極簡主義」的流派。既然 Claude 喜歡擴張，那開發者就得學會限制。有人嘗試在 System Prompt 裡加入「只輸出修改的部分，嚴禁重寫未受影響的代碼」，或者利用 Artifacts 功能強制鎖定代碼區塊。這其實是一種很諷刺的技術倒退——我們發明了強大的語言模型來理解自然語言，最後卻得用另一套更嚴苛的偽代碼語法來約束它的「熱情」。這讓人想起亞歷山大圖書館的管理員，守著萬卷書，卻因為找不到一張特定的借閱卡而焦慮不已。</p>
+    <p>如果我們把範圍擴大到其他模型，比如 Qwen 在處理中文註釋和邏輯對齊時的表現，會發現這種「過度回饋」並非 Claude 獨有，但確實以 Claude 最為頑固。這種現象背後隱藏著一個更深層的技術博弈：模型究竟應該是一個聽命行事的工具，還是應該具備某種程度的「主觀能動性」？當我們希望它擁有邏輯推理能力時，我們就必須接受它可能會對我們的簡陋代碼指手畫腳。</p>
+    <p>現在的問題是，這種對於「完美代碼」的追求，是否已經超出了實用主義的邊界？當模型訓練的目標函數（Objective Function）被設定為極大化語義對齊和邏輯完整性時，它是否還能找回那種「見招拆招」的靈活性？如果有一天，我們連修改一個顏色都要經過 AI 的倫理審查與架構審核，那到底是我們在使用工具，還是工具在重塑我們的平庸？</p>
+    <p>或許我們該問的是，當 Claude 決定為你重寫整個組件時，它是在優化你的代碼，還是在掩蓋它無法進行精確局部編輯的技術缺陷？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://opusfived.dev/" rel="nofollow noopener" target="_blank">Claude, change the “Add to Cart” button to blue</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260911-0703-f11df1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

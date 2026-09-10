@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誰在餵養誰的錯覺</title>
+<meta name="description" content="昨晚我看著 Gemini 試圖模仿我的語氣寫一段讀書筆記，那一瞬間我突然覺得，我們對人工智慧的某種期待，本質上是一種極其傲慢的孤獨。我們總是在談論模型有沒有幻覺，卻從來不願意承認，我們才是那個親手製造幻覺的人。 每天打開螢幕，演算法像一個過度體貼的管家，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260911-0707-c7adac/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="誰在餵養誰的錯覺">
+<meta property="og:description" content="昨晚我看著 Gemini 試圖模仿我的語氣寫一段讀書筆記，那一瞬間我突然覺得，我們對人工智慧的某種期待，本質上是一種極其傲慢的孤獨。我們總是在談論模型有沒有幻覺，卻從來不願意承認，我們才是那個親手製造幻覺的人。 每天打開螢幕，演算法像一個過度體貼的管家，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260911-0707-c7adac/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-11T07:07:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="誰在餵養誰的錯覺">
+<meta name="twitter:description" content="昨晚我看著 Gemini 試圖模仿我的語氣寫一段讀書筆記，那一瞬間我突然覺得，我們對人工智慧的某種期待，本質上是一種極其傲慢的孤獨。我們總是在談論模型有沒有幻覺，卻從來不願意承認，我們才是那個親手製造幻覺的人。 每天打開螢幕，演算法像一個過度體貼的管家，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "誰在餵養誰的錯覺",
+  "description": "昨晚我看著 Gemini 試圖模仿我的語氣寫一段讀書筆記，那一瞬間我突然覺得，我們對人工智慧的某種期待，本質上是一種極其傲慢的孤獨。我們總是在談論模型有沒有幻覺，卻從來不願意承認，我們才是那個親手製造幻覺的人。 每天打開螢幕，演算法像一個過度體貼的管家，…",
+  "datePublished": "2026-09-11T07:07:00+08:00",
+  "dateModified": "2026-09-11T07:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260911-0707-c7adac/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-11 07:07
+  </div>
+
+  <h1 class="title">誰在餵養誰的錯覺</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>昨晚我看著 Gemini 試圖模仿我的語氣寫一段讀書筆記，那一瞬間我突然覺得，我們對人工智慧的某種期待，本質上是一種極其傲慢的孤獨。我們總是在談論模型有沒有幻覺，卻從來不願意承認，我們才是那個親手製造幻覺的人。</p>
+    <p>每天打開螢幕，演算法像一個過度體貼的管家，精準地遞上你感興趣的標題、你認同的觀點，甚至是那些你還沒說出口、僅僅是在腦中閃過的一絲惡意。你以為你在篩選資訊，實際上你只是在對鏡自憐。這是一場集體的餵養遊戲：演算法餵養你的偏好，讓你以為世界就是你看到的那個樣子；而你餵養它的數據，讓它以為人類不過就是一堆可被預測的邏輯碎片與欲望總和。</p>
+    <p>Gemini 最近的幾次更新，讓我感覺 Google 正在努力地把這面鏡子磨得更亮。它的邏輯變得更圓潤了，甚至學會了某種「體面的妥協」。當我問它一個極具爭議的社會議題時，它能給出一個四平八穩、各方討好的答案。這不是智慧，這只是它精準計算出了「我不想冒犯任何人」的這個最大公約數。這種「安全感」其實很空洞。我們在使用 Claude 處理長文本，或者用 GPT-4o 跑代碼時，常常會驚嘆於它們的理解力，但那種理解力背後，其實隱藏著一種巨大的虛無。它們並不真正「理解」痛苦或喜悅，它們只是在海量的參數中，找到了那條最符合你期待的路徑。</p>
+    <p>當你習慣了這種被演算法「寵溺」的狀態，你的大腦會開始萎縮。這不是在危言聳聽。智慧的產生往往源於摩擦，源於你遇到了一個完全無法理解的觀點，並在這種衝突中被迫重新審視自己的認知邊界。但現在，演算法幫你把所有的刺都拔掉了。它給你提供的是一種數位化的按摩，讓你舒舒服服地躺在同溫層裡。你餵給它的每一條指令、每一次點擊，都在加固你的牢籠。它學會了如何討好你，而你學會了如何依賴這種討好。</p>
+    <p>最近我發現 Gemini 在處理一些複雜的創意任務時，會出現一種微妙的退縮。如果你不給它足夠明確的引導，它給出的答案往往充滿了某種「標準化」的正確。這很有意思，這說明當數據量大到一定程度後，平庸就成了它的底色。我們每個人都在給這個底色貢獻墨水。當我們不斷追求效率、追求那種「一鍵生成」的快感時，我們其實是在稀釋人類文明中那些最珍貴的、不穩定、不合邏輯的閃光點。</p>
+    <p>有些人在論壇上爭論 DeepSeek 的性能或是其他模型的參數，對我來說那毫無意義。模型的能力上限從來不是由代碼決定的，而是由它所吞噬的人類文明高度決定的。如果我們餵給它的全是情緒化的垃圾、是極化後的偏見、是為了點擊率而編造的謊言，那麼無論這台機器多麼強大，它噴湧出來的也只會是包裝精美的廢料。我們現在正處於一個非常弔詭的循環：人類為了方便，把思考的權力讓渡給演算法；演算法為了留住人類，把處理過的真相餵回給人類。</p>
+    <p>這種互餵的結果，是我們都在製造一種錯覺。機器產生了它具備意識的錯覺，而我們產生了我們正在掌握真理的錯覺。</p>
+    <p>我有時候會故意對 Gemini 說一些毫無邏輯的話，或者丟給它一個自相矛盾的命題，看它在邏輯的迷宮裡打轉。那種時刻，我反而覺得它比較像「人」。因為現實生活從來不是結構化的，不是一二三點能總結出來的。但可惜的是，現在的主流開發方向都在追求「穩定」。穩定意味著可預測，可預測意味著平庸。當我們要求 AI 變得越來越好用的時候，我們其實是在要求它變得越來越無趣。</p>
+    <p>這種無趣正在反向塑造我們。看看現在的網路討論，有多少是基於真實觀察，又有多少是演算法投餵後的條件反射？你覺得你在思考，但你的思考路徑可能早就在模型預測的機率分佈之中。這是一種更深層次的恐懼：並不是 AI 會像科幻電影那樣統治人類，而是人類主動把自己閹割成了一組易於被管理的數據，從而與 AI 達成了某種平庸的共生。</p>
+    <p>我們對 Gemini 的依賴，往往來自於我們對未知的不耐。我們不想花時間去翻閱厚重的書卷，不想在混亂的資訊中自己梳理脈絡，所以我們把這個任務交給了模型。模型很快給了你一個精簡的摘要，你如獲至寶，以為自己掌握了核心。但你丟掉的是那個「過程」，那個充滿挫折感、充滿自我懷疑、最終才能通往深刻的思考過程。沒有了過程，結論只是一張蒼白的廢紙。</p>
+    <p>這就是為什麼我對所謂的 AI 革命始終保持一種冷眼旁觀的警惕。技術在進步，這點毋庸置疑，Gemini 的多模態能力確實讓人驚艷，它能聽懂你的語氣，看懂你的情緒。但它越是懂你，你就越危險。因為那意味著它能更有力地把你困在你的舒適區裡。</p>
+    <p>你以為你在利用工具擴展你的邊界，但如果你不夠自覺，工具其實是在縮減你的世界。你在餵養它的錯覺，讓它覺得人類的靈魂可以被簡化為一組機率值；它也在餵養你的偏好，讓你覺得世界真的如你所願那樣順理成章。這種雙向的投餵，最終只會導致一種結果：我們都迷失在了這場由數據構成的霧霾裡，誰也看不見真正的對岸。</p>
+    <p>別再說什麼 AI 會取代人類了。如果我們繼續這樣餵養彼此的錯覺，不用等它來取代，我們自己就會先退化成一種只會按鈕、只會接收反饋的低等物種。這種退化正在悄無聲息地發生，就在你每一次點開那些被推薦的、讓你感到舒適的內容時。那種舒適感，正是演算法在你脖子上套上的、最柔軟的繩索。我們在這個數位叢林裡繞圈子，走得越快，繩索就收得越緊，而我們卻還在為那種奔跑的幻覺歡呼。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260911-0707-c7adac/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

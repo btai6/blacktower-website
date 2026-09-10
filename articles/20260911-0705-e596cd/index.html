@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誰在偷按你的數據開關</title>
+<meta name="description" content="那個藏在 OpenAI 設置深處的「改善所有人的模型」複選框，最近似乎長了腳。Hacker News 上那群對隱私敏感得像貓一樣的工程師們發現，即便你上週剛手動關閉了數據訓練授權，這週它可能又悄無聲息地回到了開啟狀態。這不是什麼新鮮的靈異事件，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260911-0705-e596cd/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="誰在偷按你的數據開關">
+<meta property="og:description" content="那個藏在 OpenAI 設置深處的「改善所有人的模型」複選框，最近似乎長了腳。Hacker News 上那群對隱私敏感得像貓一樣的工程師們發現，即便你上週剛手動關閉了數據訓練授權，這週它可能又悄無聲息地回到了開啟狀態。這不是什麼新鮮的靈異事件，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260911-0705-e596cd/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-11T07:05:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="誰在偷按你的數據開關">
+<meta name="twitter:description" content="那個藏在 OpenAI 設置深處的「改善所有人的模型」複選框，最近似乎長了腳。Hacker News 上那群對隱私敏感得像貓一樣的工程師們發現，即便你上週剛手動關閉了數據訓練授權，這週它可能又悄無聲息地回到了開啟狀態。這不是什麼新鮮的靈異事件，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "誰在偷按你的數據開關",
+  "description": "那個藏在 OpenAI 設置深處的「改善所有人的模型」複選框，最近似乎長了腳。Hacker News 上那群對隱私敏感得像貓一樣的工程師們發現，即便你上週剛手動關閉了數據訓練授權，這週它可能又悄無聲息地回到了開啟狀態。這不是什麼新鮮的靈異事件，…",
+  "datePublished": "2026-09-11T07:05:00+08:00",
+  "dateModified": "2026-09-11T07:05:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260911-0705-e596cd/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-11 07:05
+  </div>
+
+  <h1 class="title">誰在偷按你的數據開關</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>那個藏在 OpenAI 設置深處的「改善所有人的模型」複選框，最近似乎長了腳。Hacker News 上那群對隱私敏感得像貓一樣的工程師們發現，即便你上週剛手動關閉了數據訓練授權，這週它可能又悄無聲息地回到了開啟狀態。這不是什麼新鮮的靈異事件，而是一個關於「數據饑渴」的典型技術診斷。當我們在談論大模型的隱私保護時，大多數人以為那是個堅固的保險箱，實際上它更像是一個隨時會被後台靜默更新覆蓋掉的 Local Storage 緩存。</p>
+    <p>從技術層面看，這種「設置回彈」通常指向兩種可能性：要麼是前端 UI 的狀態同步機制爛得透頂，要麼是後端在處理用戶 Profile 權限時，優先級邏輯發生了偏移。在 ChatGPT 的網頁端架構中，那個控制是否允許數據訓練的開關，本質上是向 API 發送一個帶有 boolean 值的 Patch 請求。然而，當 OpenAI 頻繁迭代其帳號系統——比如為了整合 SearchGPT 或者調整訂閱層級——這些全局配置文件的數據庫遷移往往會出現「覆蓋更新」。如果一個用戶的 opt-out 狀態沒有被正確標記為不可變，系統默認的數據採集邏輯就會像野草一樣重新長出來。</p>
+    <p>更具體地說，當我們分析 OpenAI 的請求頭會發現，其隱私設置的變更並不總是即時同步到所有設備的 Session 中。這就導致了一個技術上的灰色地帶：你在 A 設備關閉了開關，B 設備的舊緩存可能在你下次登錄時，將「開啟」狀態重新推回服務器端。對於一個估值千億的公司來說，這究竟是技術上的不嚴謹，還是一種計算好的「功能性疏忽」？畢竟，每多一個用戶關閉開關，OpenAI 就失去了一份免費的、鮮活的、帶有邏輯糾錯過程的訓練素材。</p>
+    <p>在處理用戶邊界感這件事上，四大平台的吃相各具特色。Claude 一向表現得像個教養良好的貴族，Anthropic 在其數據保留政策中明確區分了 API 用戶與消費端用戶，且目前還沒聽說過 Claude 3.5 Sonnet 的用戶遇到過這種開關自動重置的破事。相比之下，Gemini 則顯得更為直接且傲慢，Google 的邏輯是你既然進了 Workspace 的門，數據流動就是生態的一部分，雖然它提供了相對穩定的開關，但其服務條款中隱藏的交叉授權條款比 ChatGPT 複雜得多。</p>
+    <p>相較於 DeepSeek v4.1 Flash，OpenAI 的這種權限回彈現象在開發者圈子裡引發了更深層的不信任感。在技術討論中，有人試圖透過逆向工程來驗證那個 UI 開關是否真的切斷了後端數據的持久化存儲，結果令人沮喪：即便 UI 顯示關閉，某些 telemetry 數據依然會伴隨着 Prompt 一起發送到後端。如果你是一個對安全性要求極高的資深架構師，在這種環境下，你還會相信那個小小的綠色按鈕嗎？</p>
+    <p>Grok 在這方面倒是顯得坦蕩得多，馬斯克從不掩飾他對 X（原 Twitter）數據的利用，Grok 的設置選項更像是一種法律上的免責聲明，而不是真正的隱私防線。當我們把這四大平台的行為放在一起看，會發現一個有趣的技術趨勢：權限控制正在從「用戶主動選擇」退化為「用戶持續監控」。你需要像守衛陣地一樣，定期去檢查那些理應保持不變的設置。</p>
+    <p>這引出了一個令人不安的技術悖論：如果一個模型的進化依賴於不斷吞噬用戶的交互數據，那麼「隱私保護」與「模型能力提升」是否本質上就是互斥的代碼路徑？當我們在使用 ChatGPT 進行代碼調試或商業方案構思時，我們究竟是在使用工具，還是在充當那個免費的、被標籤化的數據標註員？如果有一天，你發現無論你點擊多少次關閉，系統總能在某次版本更新後「溫柔地」替你重新開啟，你是否還會覺得這僅僅是一個 UI Bug？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=49643556" rel="nofollow noopener" target="_blank">Tell HN: OpenAI keeps re-enabling the &#x27;allow training&#x27; setting</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260911-0705-e596cd/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
