@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當身分證成為開啟 Claude 對話框的鑰匙</title>
+<meta name="description" content="在數位世界的邊疆，身分驗證一直像是一道幽靈般的關卡，而 Anthropic 最近將這道關卡從後台挪到了聚光燈下。不少用戶在嘗試與 Claude 對話時，被要求透過 Yoti 進行生物識別或上傳身分證件，以證明自己年滿十八歲。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260912-0708-749d2f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當身分證成為開啟 Claude 對話框的鑰匙">
+<meta property="og:description" content="在數位世界的邊疆，身分驗證一直像是一道幽靈般的關卡，而 Anthropic 最近將這道關卡從後台挪到了聚光燈下。不少用戶在嘗試與 Claude 對話時，被要求透過 Yoti 進行生物識別或上傳身分證件，以證明自己年滿十八歲。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260912-0708-749d2f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-12T07:08:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當身分證成為開啟 Claude 對話框的鑰匙">
+<meta name="twitter:description" content="在數位世界的邊疆，身分驗證一直像是一道幽靈般的關卡，而 Anthropic 最近將這道關卡從後台挪到了聚光燈下。不少用戶在嘗試與 Claude 對話時，被要求透過 Yoti 進行生物識別或上傳身分證件，以證明自己年滿十八歲。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當身分證成為開啟 Claude 對話框的鑰匙",
+  "description": "在數位世界的邊疆，身分驗證一直像是一道幽靈般的關卡，而 Anthropic 最近將這道關卡從後台挪到了聚光燈下。不少用戶在嘗試與 Claude 對話時，被要求透過 Yoti 進行生物識別或上傳身分證件，以證明自己年滿十八歲。…",
+  "datePublished": "2026-09-12T07:08:00+08:00",
+  "dateModified": "2026-09-12T07:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260912-0708-749d2f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-12 07:08
+  </div>
+
+  <h1 class="title">當身分證成為開啟 Claude 對話框的鑰匙</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>在數位世界的邊疆，身分驗證一直像是一道幽靈般的關卡，而 Anthropic 最近將這道關卡從後台挪到了聚光燈下。不少用戶在嘗試與 Claude 對話時，被要求透過 Yoti 進行生物識別或上傳身分證件，以證明自己年滿十八歲。這不是那種點擊一下「我已成年」就能瞞天過海的虛設門檻，而是實打實的硬性驗證。Anthropic 從 Persona 轉向 Yoti 的技術選擇，本質上是將產品的法律風險外包給了第三方服務商，卻也同時把用戶的耐心推向了懸崖邊緣。一位資深開發者在 Hacker News 上冷冷地留下一句「如果它向我要證件，我就棄用」，這並非威脅，而是一種對數位隱私主權的集體焦慮。</p>
+    <p>這種焦慮在於，我們為何需要向一個語言模型證明自己的年齡？如果說銀行是為了合規，社群媒體是為了廣告投放，那麼 Claude 的執著更像是一種近乎潔癖的自我審查。在技術層面，Yoti 的接入意味著你的面部特徵或證件資訊會被轉化為一串雜湊值，理論上 Anthropic 並不持有你的原始數據。但問題在於，對話式 AI 的魅力核心在於「流暢性」，而任何形式的物理驗證都是對流暢性的粗暴阻斷。當你正準備討論一個複雜的演算法優化方案，螢幕卻跳出一個二維碼要求你拿起手機自拍，這種割裂感就像是在圖書館借書時，管理員突然要求你出示體檢報告一樣荒謬。</p>
+    <p>從產品策略的角度來看，Anthropic 的做法與 OpenAI 或 Google 截然不同。ChatGPT 雖然也有年齡限制，但在執行層面上顯然更傾向於「模糊處理」，除非涉及特定的商業或支付環節，否則很少見到如此激進的驗證彈窗。Gemini 則更依賴 Google 帳戶原有的生態系統數據，透過大數據畫像來過濾用戶，而非在前端築起高牆。相比之下，Claude 選擇了一條最笨、也最容易得罪用戶的路。這背後折射出的是 Anthropic 團隊基因裡那種近乎偏執的「AI Safety」理念。他們寧可失去那些不願意上傳證件的潛在用戶，也不願在未成年人保護法規面前留下一絲被攻擊的縫隙。這種謹慎在矽谷的叢林法則中顯得格格不入，卻又無比真實。</p>
+    <p>在這種嚴苛的驗證邏輯下，市場的反應是非常直接的。相較於 DeepSeek v4.1 Flash 在近期展現出的那種近乎野性的接入自由度，Claude 的做法無疑是在自縛手腳。許多用戶在遭遇 Yoti 攔截後，會毫不猶豫地轉向 Grok 或是其他對隱私要求相對寬鬆的平台。Grok 的策略是與 X 平台的帳號體系深度綁定，雖然同樣有門檻，但那種門檻是基於社交身分而非生物特徵，心理壓力小得多。而 Gemini 則是在功能性與合規性之間玩弄平衡術，利用龐大的生態位優勢，讓驗證變得無感。</p>
+    <p>我們不得不思考一個更深層次的問題：當 AI 逐漸成為基礎設施，我們是否真的準備好接受一種「實名制」的智慧生活？如果 Claude 開了這個頭，未來 ChatGPT 是否也會跟進？一旦生物識別成為使用高階模型的標配，我們所追求的開源、自由與去中心化，是否最終都會在「合規」的大纛下消解殆盡？那些自稱是為了保護未成年人的技術手段，最後往往都變成了對成年人隱私的過度索求。</p>
+    <p>當我們在討論 DeepSeek v4.1 Flash 的反應速度與調參靈活性時，Claude 卻在研究如何更精準地掃描你的瞳孔與護照防偽線。這是一種技術演進的錯位，還是一種對未來監管環境的超前佈署？如果有一天，所有的頂尖 AI 都要求你先遞上身分證才能開口說話，那時候我們與機器的對話，究竟是思想的碰撞，還是一場在監控下的有償演出？當技術的邊界被法律的圍籬重重包裹，剩下的究竟是安全，還是窒息？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://support.claude.com/en/articles/15171100-age-assurance-on-claude" rel="nofollow noopener" target="_blank">Claude is only available to people over 18 years</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260912-0708-749d2f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
