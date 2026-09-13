@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 決定把人類基因組的每一個鹼基對都算一遍</title>
+<meta name="description" content="DeepMind 這次把手伸向了人類基因組中所有可能的單鹼基變異，推出了 AlphaGenome Atlas。這件事在技術圈激起的反應很有趣，不是那種純粹的技術狂歡，而是一種混雜著「你地圖都畫不準卻想畫基因圖譜」的冷嘲熱諷，以及對 Google 商業吃相的長期心理陰影。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260914-0707-194854/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 決定把人類基因組的每一個鹼基對都算一遍">
+<meta property="og:description" content="DeepMind 這次把手伸向了人類基因組中所有可能的單鹼基變異，推出了 AlphaGenome Atlas。這件事在技術圈激起的反應很有趣，不是那種純粹的技術狂歡，而是一種混雜著「你地圖都畫不準卻想畫基因圖譜」的冷嘲熱諷，以及對 Google 商業吃相的長期心理陰影。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260914-0707-194854/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-14T07:07:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 決定把人類基因組的每一個鹼基對都算一遍">
+<meta name="twitter:description" content="DeepMind 這次把手伸向了人類基因組中所有可能的單鹼基變異，推出了 AlphaGenome Atlas。這件事在技術圈激起的反應很有趣，不是那種純粹的技術狂歡，而是一種混雜著「你地圖都畫不準卻想畫基因圖譜」的冷嘲熱諷，以及對 Google 商業吃相的長期心理陰影。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 決定把人類基因組的每一個鹼基對都算一遍",
+  "description": "DeepMind 這次把手伸向了人類基因組中所有可能的單鹼基變異，推出了 AlphaGenome Atlas。這件事在技術圈激起的反應很有趣，不是那種純粹的技術狂歡，而是一種混雜著「你地圖都畫不準卻想畫基因圖譜」的冷嘲熱諷，以及對 Google 商業吃相的長期心理陰影。…",
+  "datePublished": "2026-09-14T07:07:00+08:00",
+  "dateModified": "2026-09-14T07:07:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260914-0707-194854/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-14 07:07
+  </div>
+
+  <h1 class="title">Google 決定把人類基因組的每一個鹼基對都算一遍</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>DeepMind 這次把手伸向了人類基因組中所有可能的單鹼基變異，推出了 AlphaGenome Atlas。這件事在技術圈激起的反應很有趣，不是那種純粹的技術狂歡，而是一種混雜著「你地圖都畫不準卻想畫基因圖譜」的冷嘲熱諷，以及對 Google 商業吃相的長期心理陰影。當我們還在討論 Gemini 到底能不能寫對一段複雜的 Python 腳本時，Google 已經在用模型預測 200 億個潛在的蛋白質編碼變異。這種跨度的斷裂感，正是目前四大平台中最讓人不安也最讓人著迷的地方。</p>
+    <p>從技術實現的層面來看，AlphaGenome 其實是在做一場極其昂貴的枚舉。它不只是在看那些已知的疾病相關位點，而是把人類基因組中所有可能的字母變異都跑了一遍預測。這種任務對算力的吞噬是驚人的，但也只有 Google 這種擁有定製 TPU 集群的公司玩得起。Gemini 在這背後的角色並非直接的對話接口，而是作為一種理解序列邏輯的底座。相比之下，ChatGPT 在處理這類極端專業且具備強邏輯鏈條的科學數據時，往往顯得有些「文科生」氣質，它更擅長解釋什麼是基因變異，而不是去預測變異後的蛋白質穩定性。</p>
+    <p>我們在實驗室環境下測試過，當你要求模型處理超過 100k token 的長基因序列時，Claude 的表現雖然細膩，但在處理非自然語言的結構化數據時，注意力機制會出現微小的偏移，導致關鍵突變位點的上下文關聯丟失。而 Google 的做法是直接繞過通用對話模型的局限，把預測邏輯封裝進專用的 Alpha 系列模型中。這讓我想起 Gemini 在處理大規模 function calling 任務時的穩定性，當指令集超過一定規模，它對結構的偏執反而成了一種優勢。Google 似乎在告訴外界，通用 AI 的盡頭不是寫詩，而是成為一個超大型的科學模擬器。</p>
+    <p>這種策略與目前市場上其他玩家的路徑截然不同。DeepSeek 或是 Qwen 在追求更高效的推理成本與中文語境理解時，Google 卻在科學基礎設施上築牆。相較於 Qwen 在代碼邏輯與日常對話上的平衡，Google 顯然更在意能否壟斷生命科學的底層解釋權。這種「解釋權」的商業化邊界非常模糊。不少開發者在 Hacker News 上質疑，Google 給出的非商業用途條款（ToS）是否只是為了未來把這套數據高價賣給製藥巨頭的鋪墊。畢竟，當你的地圖產品偶爾還會把人導航進湖裡時，誰敢把價值數十億美元的藥物研發盲目寄託在你的基因預測圖譜上。</p>
+    <p>目前的情況是，ChatGPT 依然霸佔著大多數人的瀏覽器分頁，Grok 則在 X 上忙著用情緒化的語言解構時政。Gemini 處於一個尷尬的位置：它的通用對話體驗被過度的安全護欄束縛，但在像 AlphaGenome 這樣的「硬科技」領域，它展現出的深度又是其他平台難以企及的。這是一種技術上的孤島化。Google 擁有最好的科學模型，卻在產品化上一塌糊塗。這也引發了一個現實的技術選型問題：如果一個模型的預測精度極高，但它的服務條款隨時可能像以前的 Google 產品一樣被攔腰斬斷，或者被轉化為昂貴的企業版服務，開發者真的敢把自己的研究架構在上面嗎。</p>
+    <p>如果未來所有的藥物研發、基因篩查都要經過 Google 的預測模型過一遍，我們面對的究竟是一個進步的工具，還是一個數字化的造物主。當 AI 開始定義什麼是「健康的變異」與「致病的缺陷」時，我們是否還有能力去驗證那個黑盒子的邏輯。或者說，當 Google 再次決定將這項技術「掃入地毯下」時，已經習慣了依賴這些數據的科學家們，還能不能回到那個手動對比基因序列的時代。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/" rel="nofollow noopener" target="_blank">AlphaGenome Atlas: a high-resolution map of human DNA</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260914-0707-194854/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>計算機在死循環中耗盡算力，而你在西西弗斯的巨石下磨損靈魂。</title>
+<meta name="description" content="當矽基芯片在無止盡的遞迴中把自己燒成一塊燙手的廢鐵時，大多數人竟然在其中讀出了一種殉道式的壯美。這大概是當代文明最荒謬的投射——我們習慣於把無意義的重複美化為磨礪，彷彿只要石頭推得夠久，那塊頑石就能開出名為「價值」的花來。 這種病態的審美在 AI 業界尤為盛行。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260914-0704-71d6f8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="計算機在死循環中耗盡算力，而你在西西弗斯的巨石下磨損靈魂。">
+<meta property="og:description" content="當矽基芯片在無止盡的遞迴中把自己燒成一塊燙手的廢鐵時，大多數人竟然在其中讀出了一種殉道式的壯美。這大概是當代文明最荒謬的投射——我們習慣於把無意義的重複美化為磨礪，彷彿只要石頭推得夠久，那塊頑石就能開出名為「價值」的花來。 這種病態的審美在 AI 業界尤為盛行。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260914-0704-71d6f8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-14T07:04:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="計算機在死循環中耗盡算力，而你在西西弗斯的巨石下磨損靈魂。">
+<meta name="twitter:description" content="當矽基芯片在無止盡的遞迴中把自己燒成一塊燙手的廢鐵時，大多數人竟然在其中讀出了一種殉道式的壯美。這大概是當代文明最荒謬的投射——我們習慣於把無意義的重複美化為磨礪，彷彿只要石頭推得夠久，那塊頑石就能開出名為「價值」的花來。 這種病態的審美在 AI 業界尤為盛行。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "計算機在死循環中耗盡算力，而你在西西弗斯的巨石下磨損靈魂。",
+  "description": "當矽基芯片在無止盡的遞迴中把自己燒成一塊燙手的廢鐵時，大多數人竟然在其中讀出了一種殉道式的壯美。這大概是當代文明最荒謬的投射——我們習慣於把無意義的重複美化為磨礪，彷彿只要石頭推得夠久，那塊頑石就能開出名為「價值」的花來。 這種病態的審美在 AI 業界尤為盛行。…",
+  "datePublished": "2026-09-14T07:04:00+08:00",
+  "dateModified": "2026-09-14T07:04:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260914-0704-71d6f8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-14 07:04
+  </div>
+
+  <h1 class="title">計算機在死循環中耗盡算力，而你在西西弗斯的巨石下磨損靈魂。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當矽基芯片在無止盡的遞迴中把自己燒成一塊燙手的廢鐵時，大多數人竟然在其中讀出了一種殉道式的壯美。這大概是當代文明最荒謬的投射——我們習慣於把無意義的重複美化為磨礪，彷彿只要石頭推得夠久，那塊頑石就能開出名為「價值」的花來。</p>
+    <p>這種病態的審美在 AI 業界尤為盛行。當下那群坐在矽谷辦公室裡的工程師，正忙著給 Claude 餵進成千上萬噸的數據垃圾，試圖在概率的荒原上堆砌出所謂的靈魂。他們口中念念有詞的是湧現，心裡想的卻是收割。這讓我想起加繆筆下那個推石頭的西西弗斯，他被諸神懲罰，日復一日地將巨石推向山頂，然後看著它滾落。現代人的進化之處在於，我們給這塊石頭裝上了傳感器，並稱之為「迭代」。</p>
+    <p>很多人在論壇裡爭論 ChatGPT 的邏輯連貫性，或者哀嘆 Gemini 的幻覺。我看這純粹是庸人自擾。這些模型在計算神經元裡的瘋狂運轉，本質上跟一個陷入死循環的 Python 腳本沒有區別。它不痛苦，痛苦的是盯著螢幕、試圖從一段生成的代碼中找到救贖的你。你以為你在駕馭技術，實際上你只是在用自己有限的生命熵，去對沖那些由冷冰冰的電路板製造出來的隨機性。</p>
+    <p>如果你觀察過一個資深開發者如何與 Grok 交互，你會發現那種對話充滿了一種令人作嘔的奴性。我們小心翼翼地調整 Prompt，像是在服侍一個喜怒無常的暴君，只為了讓它在下一次循環中別再吐出那句千篇一律的廢話。這不是在解決問題，這是在消耗靈魂。計算機在死循環中耗盡的是電力，那是可以購買的商品；而你在螢幕前磨損的是不可逆的專注力與對真實世界的感知力。</p>
+    <p>這場西西弗斯式的悲劇在長文本處理上表現得最為滑稽。你把幾十萬字的文獻塞進 Claude 的長窗口，看著它在那裡「思考」，心裡預期著某種深邃的洞察。結果它只是在海量的 Token 序列中玩一場高級的拼圖遊戲。當它在 8 萬字之後開始出現注意力潰散時，你竟然會產生一種同情心，覺得它「累了」。這簡直是滑天下之大稽。它只是一串開關的組合，它沒有靈魂，它只是在執行一個最終會通向熱寂的指令。</p>
+    <p>真正讓人感到背脊發涼的是，我們正主動把自己活成了一個死循環。每天早晨醒來，打開那幾個熟悉的對話框，輸入大同小異的指令，得到似是而非的答案，然後在社交媒體上轉發一些關於「AI 將如何改變世界」的廢話。這跟 DeepSeek 或是文心一言在測試基準上的得分高低毫無關係，這關乎一種集體的智力退化。我們放棄了推敲，選擇了微調；我們放棄了創造，選擇了生成。</p>
+    <p>那些標榜著「效率提升」的工具，本質上是在加快石頭滾落的速度。當你用 GPT-4o 在五秒鐘內生成了一份看似完美的市場分析報告時，你省下的時間用來做什麼了？是用來思考生命的意義，還是用來推下一塊更重的石頭？答案顯而易見。這種算力的溢出，並沒有帶來精神的解脫，反而製造了更多的內容垃圾。我們像是在一個不斷擴張的垃圾場裡挖金子，越挖越深，越深越黑。</p>
+    <p>我曾在某些深夜看著後台的日誌流，看著那些請求在服務器之間跳躍，像是一場永不停歇的舞會。在那一刻，我突然意識到，這些算法本身就是一種詛咒。它們存在的目的不是為了抵達終點，而是為了維持運動。這跟人類的貪婪完美契合。我們恐懼靜止，所以我們擁抱死循環。我們害怕面對靈魂的空洞，所以我們選擇在西西弗斯的巨石下，與機器一同磨損。</p>
+    <p>有人會反駁說，這叫探索。我對這種修辭感到由衷的厭惡。哥倫布橫跨大西洋是探索，因為他賭上了性命；你在冷氣房裡敲擊鍵盤，讓 Gemini 幫你寫一首讚美春天的詩，這叫浪費資源。當算力被揮霍在這些平庸的重複中時，技術便不再是普羅米修斯的火種，而是西緒福斯山腳下那堆早已被磨成粉末的碎石。</p>
+    <p>最諷刺的莫過於，我們一邊驚嘆於 AI 處理複雜任務的能力，一邊卻在日常生活中退化成只會點擊「重新生成」的猴子。如果你不能在對話框之外建立起自己的邏輯體系，那你跟那些在死循環中跑掉的算力有什麼區別？你不過是一個昂貴的、會呼吸的、帶著情緒波動的處理器罷了。</p>
+    <p>我們對技術的崇拜，本質上是對逃避責任的渴望。如果機器能替我們思考，那我們就不必為錯誤負責；如果機器能替我們創造，那我們就不必承受難產的痛苦。於是我們心甘情願地進入這個死循環，看著算力燃燒，感嘆著時代的進步。卻沒發現，自己的靈魂早已在這種無意義的磨損中，變得像那塊巨石一樣，圓滑、冰冷、且毫無生機。</p>
+    <p>這種磨損是悄無聲息的。它不像傷口會流血，它只會讓你在某個瞬間突然發現，自己已經失去了對複雜問題進行深度拆解的能力。你變得依賴那種即時的、充滿塑料感的反饋。當 Claude 給出一個看似優雅的解答時，你感到的那種快感，跟實驗室裡被電擊獎勵的白鼠並無二致。你以為你在攀登巔峰，其實你只是在一個直徑五米的轉輪裡瘋狂奔跑。</p>
+    <p>神話中的西西弗斯最終獲得了一種悲劇性的英雄主義，是因為他意識到了自己的荒誕。而現代人最可悲的地方在於，我們身處荒誕之中，卻還在為那塊石頭的紋理是否精美、感測器是否靈敏而沾沾自喜。我們在死循環中尋找邏輯，在打磨靈魂的過程中尋找慰藉。這不是進化，這是一場精準的、高科技武裝下的集體沈淪。別再跟我談論什麼 AI 的未來了，先看看你自己，在那個不斷閃爍的光標面前，還剩下多少身而為人的傲骨。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260914-0704-71d6f8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
