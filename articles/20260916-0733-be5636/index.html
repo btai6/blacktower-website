@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 慢條斯理的思考過程與它那失敗的西洋棋局</title>
+<meta name="description" content="這兩天技術圈都在盯著那個所謂 3.8 版本號的風聲，但比起版本數字的跳躍，我更在意的是那個被稱作 Live Extended Thinking 的演示。演示影片裡，號稱最先進的模型在眾目睽睽之下，輸給了西洋棋中最基礎的將死套路。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260916-0733-be5636/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 慢條斯理的思考過程與它那失敗的西洋棋局">
+<meta property="og:description" content="這兩天技術圈都在盯著那個所謂 3.8 版本號的風聲，但比起版本數字的跳躍，我更在意的是那個被稱作 Live Extended Thinking 的演示。演示影片裡，號稱最先進的模型在眾目睽睽之下，輸給了西洋棋中最基礎的將死套路。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260916-0733-be5636/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-16T07:33:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 慢條斯理的思考過程與它那失敗的西洋棋局">
+<meta name="twitter:description" content="這兩天技術圈都在盯著那個所謂 3.8 版本號的風聲，但比起版本數字的跳躍，我更在意的是那個被稱作 Live Extended Thinking 的演示。演示影片裡，號稱最先進的模型在眾目睽睽之下，輸給了西洋棋中最基礎的將死套路。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 慢條斯理的思考過程與它那失敗的西洋棋局",
+  "description": "這兩天技術圈都在盯著那個所謂 3.8 版本號的風聲，但比起版本數字的跳躍，我更在意的是那個被稱作 Live Extended Thinking 的演示。演示影片裡，號稱最先進的模型在眾目睽睽之下，輸給了西洋棋中最基礎的將死套路。…",
+  "datePublished": "2026-09-16T07:33:00+08:00",
+  "dateModified": "2026-09-16T07:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260916-0733-be5636/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-16 07:33
+  </div>
+
+  <h1 class="title">Gemini 慢條斯理的思考過程與它那失敗的西洋棋局</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天技術圈都在盯著那個所謂 3.8 版本號的風聲，但比起版本數字的跳躍，我更在意的是那個被稱作 Live Extended Thinking 的演示。演示影片裡，號稱最先進的模型在眾目睽睽之下，輸給了西洋棋中最基礎的將死套路。這不是什麼深奧的戰術失誤，而是對規則邏輯的一種集體性失焦。很多人在討論區嘲諷這是在「思考」如何輸掉比賽，這種幽默感其實透著一種對技術包裝的疲態。我們並不在乎模型背後運算的參數是幾千億還是幾兆，我們在乎的是，當它宣稱自己在「思考」時，它到底是在整理邏輯，還是在耗費電力編織一段看起來很聰明的廢話。</p>
+    <p>Google 這次在 Gemini 的即時語音模式（Live Mode）上確實下了重手，那種語氣中的呼吸感和節奏，確實比 ChatGPT 的語音功能更像一個「人」。後者有時候聽起來像是一個過度亢奮的播音員，或者在不該停頓的地方發出奇怪的嗡鳴聲。但這裡存在一個弔詭的技術斷層：Gemini 的文風和語氣在四大平台中是最具可讀性的，它不具備那種典型的機器翻譯腔調，甚至帶點優雅的散文感，但在純粹的邏輯推演場景中，它卻會犯下低級錯誤。這種「文科優等生、理科不及格」的表現，讓 Extended Thinking 這個標籤顯得有些尷尬。當我們談論 Thinking 過程時，業界通常期待的是類似 OpenAI 那種強化學習後的思維鏈，而不是一個語速更自然、但大腦空洞的聊天機器人。</p>
+    <p>在技術實踐的場景中，Gemini 的長處一直很清晰，就是它處理超長文本的直覺，以及在 API 層面那種近乎慷慨的上下文窗口。但在需要多步驟精確推理的任務裡，它常常在最後一哩路摔跤。相較於 DeepSeek 在推理邏輯上的激進推進，Google 的做法似乎更傾向於打磨用戶感知的表層，試圖用更流暢的語音交互、更人性化的斷句來掩蓋邏輯內核的遲緩。這種策略在消費級市場或許有效，但在工程師眼裡，這就像是一個穿著西裝卻不會算加減法的面試者。</p>
+    <p>橫向觀察目前的頂級模型，ChatGPT 依然在追求全能與平衡，它的語音模式雖然偶有瑕疵，但邏輯穩定性依舊是標竿。Claude 則在文字的細膩度與長文本的注意力分配上更勝一籌，即便在高負荷 token 下，它的指令遵循能力也比 Gemini 穩定。而 Grok 則是另一個極端，它不需要這種溫柔的偽裝。當我們把 Gemini 3.8 的這些風聲放在一起看，會發現 Google 陷入了一種自相矛盾的境地：它想要給用戶最頂級的 AI 交互體驗，卻在最基礎的邏輯驗證上掉了鏈子。這讓我不禁想起那些在 Workspace Business 帳戶裡遲遲等不到更新的企業用戶，他們還在使用舊版的 Flash，而 Google 的行銷部門已經在描繪一個會「思考」的未來了。</p>
+    <p>這種技術發展的錯位感，其實反映了當前大模型研發的一個瓶頸。我們是否過度追求了「看起來像人」，而忽略了「像人一樣思考」的本質？如果一個模型可以透過語音模式展現出極高的情商，卻在 8x8 的棋盤上看不見危險，那這種「思考」的價值究竟在哪裡？是為了緩解人類等待答案時的焦慮，還是為了在技術演示中湊齊那幾分鐘的時長？</p>
+    <p>如果未來所有的 AI 都學會了用最溫柔、最專業的語氣告訴你一個錯誤的答案，我們還會覺得這種進步是有意義的嗎？或者說，當「思考」變成了一種可以被模擬的語氣助詞，我們還能分辨出真正的邏輯閃光點嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/" rel="nofollow noopener" target="_blank">Gemini 3.8 Live and 3.8 Live Extended Thinking</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260916-0733-be5636/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

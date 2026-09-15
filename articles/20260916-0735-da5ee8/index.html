@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introducing System One Models and Jev</title>
+<meta name="description" content="DeepSeek 的熱度還沒退燒，System One 模型這種不吐文字、只吐「動作」的異類就冒出來攪局。這件事有趣的地方不在於它能不能玩《毀滅戰士》，而在於它徹底撕掉了大語言模型那層「萬能翻譯官」的偽善外衣。現在的技術圈有個毛病，不管遇到什麼問題，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260916-0735-da5ee8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introducing System One Models and Jev">
+<meta property="og:description" content="DeepSeek 的熱度還沒退燒，System One 模型這種不吐文字、只吐「動作」的異類就冒出來攪局。這件事有趣的地方不在於它能不能玩《毀滅戰士》，而在於它徹底撕掉了大語言模型那層「萬能翻譯官」的偽善外衣。現在的技術圈有個毛病，不管遇到什麼問題，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260916-0735-da5ee8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-16T07:35:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introducing System One Models and Jev">
+<meta name="twitter:description" content="DeepSeek 的熱度還沒退燒，System One 模型這種不吐文字、只吐「動作」的異類就冒出來攪局。這件事有趣的地方不在於它能不能玩《毀滅戰士》，而在於它徹底撕掉了大語言模型那層「萬能翻譯官」的偽善外衣。現在的技術圈有個毛病，不管遇到什麼問題，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Introducing System One Models and Jev",
+  "description": "DeepSeek 的熱度還沒退燒，System One 模型這種不吐文字、只吐「動作」的異類就冒出來攪局。這件事有趣的地方不在於它能不能玩《毀滅戰士》，而在於它徹底撕掉了大語言模型那層「萬能翻譯官」的偽善外衣。現在的技術圈有個毛病，不管遇到什麼問題，…",
+  "datePublished": "2026-09-16T07:35:00+08:00",
+  "dateModified": "2026-09-16T07:35:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260916-0735-da5ee8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-09-16 07:35
+  </div>
+
+  <h1 class="title">Introducing System One Models and Jev</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>DeepSeek 的熱度還沒退燒，System One 模型這種不吐文字、只吐「動作」的異類就冒出來攪局。這件事有趣的地方不在於它能不能玩《毀滅戰士》，而在於它徹底撕掉了大語言模型那層「萬能翻譯官」的偽善外衣。現在的技術圈有個毛病，不管遇到什麼問題，第一反應就是塞進 ChatGPT 的對話框，指望那堆 Token 能解決現實世界的物理邏輯。但事實證明，這種做法除了浪費算力，對效率提升幾乎沒什麼貢獻。</p>
+    <p>這種被稱為 System One 的純神經網絡結構，本質上是在挑戰 OpenAI 和 Anthropic 的舒適圈。當我們在談論 ChatGPT 或 Claude 的邏輯推理時，我們其實是在處理一套經過過度修飾的文本轉換邏輯。你輸入一段指令，模型在後台瘋狂計算下一個字出現的機率，最後給你一段看起來很聰明的回覆。這過程太慢了，反應遲鈍得像個沒睡醒的官僚。對於需要即時反饋的場景，比如自動駕駛或高頻交易，這種「慢思考」簡直是災難。</p>
+    <p>這就是為什麼 Grok 現在的處境很尷尬。馬斯克一邊吹噓 xAI 的算力群有多恐怖，一邊又得面對 LLM 在物理直覺上的短板。如果 Grok 只能像 Gemini 那樣在 Google Docs 裡幫你修辭，那它永遠拿不到通往實體世界的門票。目前的技術瓶頸很明顯，ChatGPT 雖然在 GPT-4o 裡優化了語音延遲，但那依然是基於語言邏輯的補丁。當模型不再生成文本，而是直接輸出狀態向量時，那種對環境的即時理解力，才是真正能跟特斯拉 FSD 技術接軌的東西。</p>
+    <p>相較於 DeepSeek 最近在架構上的小修小補，xAI 若能把這種 System One 的邏輯整合進 Grok 的視覺模組，才有機會打破現在這種「對話框戰爭」的僵局。目前四大平台裡，Gemini 雖然有最強的長文本處理能力，但在這種極短反應時間的任務上，它的注意力機制反而成了包袱。當你要模型在毫秒級別做出決策，而不是寫一段優美的程式碼，傳統的 Transformer 架構顯然有點力不從心。Qwen 在一些基準測試上表現不錯，但回到四大平台的主戰場，Claude 的優勢在於它對邏輯邊界的精確控制。然而，這種控制力在面對「非文字任務」時，往往會變成一種僵化的束縛。</p>
+    <p>我們現在看到的趨勢是，純文字 LLM 的 API 成本正在被瘋狂壓縮，這意味著「語言」本身正在貶值。如果 40% 到 70% 的工作流程可以被這種不產生文字的動作模型取代，那現在這些靠著 Token 計費的 AI 巨頭們，好日子可能真的不多了。ChatGPT 目前還在沉迷於讓 DALL-E 畫出更精緻的圖，或者讓語音模式聽起來更像真人，這種對「形式」的執著，有時候讓人覺得他們偏離了技術進化最硬核的路徑。</p>
+    <p>真正讓人頭痛的問題是，如果我們追求的是極致的反應速度和物理直覺，我們是否必須放棄 AI 的「可解釋性」？當一個模型不再輸出人類能讀懂的文字，而是直接操縱系統參數或物理實體時，我們該如何監控它的思考路徑？當 Grok 或 Gemini 未來真的脫離了對話框，變成一個無聲的後台作業系統，我們還能說自己「掌握」了 AI 嗎？還是說，我們其實更害怕一個不需要跟人類解釋理由，就能直接執行最優解的怪物？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" rel="nofollow noopener" target="_blank">Introducing System One Models and Jev</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260916-0735-da5ee8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
