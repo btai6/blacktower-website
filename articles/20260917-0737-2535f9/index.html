@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>代碼評審的廉價感與 OpenAI 階級制的終結</title>
+<meta name="description" content="在矽谷那幫工程師還在為 PR 評審多花十美金吵得不可開交時，我們得先認清一個現實：代碼評審這件事，正在從一種「腦力勞動」降級為一種「雲端訂閱稅」。最近在 Hacker News 上鬧得沸沸揚揚的討論，圍繞著 GPT-5.6 Luna 和 GPT-6 Astra 之間的選擇。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260917-0737-2535f9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="代碼評審的廉價感與 OpenAI 階級制的終結">
+<meta property="og:description" content="在矽谷那幫工程師還在為 PR 評審多花十美金吵得不可開交時，我們得先認清一個現實：代碼評審這件事，正在從一種「腦力勞動」降級為一種「雲端訂閱稅」。最近在 Hacker News 上鬧得沸沸揚揚的討論，圍繞著 GPT-5.6 Luna 和 GPT-6 Astra 之間的選擇。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260917-0737-2535f9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-17T07:37:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代碼評審的廉價感與 OpenAI 階級制的終結">
+<meta name="twitter:description" content="在矽谷那幫工程師還在為 PR 評審多花十美金吵得不可開交時，我們得先認清一個現實：代碼評審這件事，正在從一種「腦力勞動」降級為一種「雲端訂閱稅」。最近在 Hacker News 上鬧得沸沸揚揚的討論，圍繞著 GPT-5.6 Luna 和 GPT-6 Astra 之間的選擇。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "代碼評審的廉價感與 OpenAI 階級制的終結",
+  "description": "在矽谷那幫工程師還在為 PR 評審多花十美金吵得不可開交時，我們得先認清一個現實：代碼評審這件事，正在從一種「腦力勞動」降級為一種「雲端訂閱稅」。最近在 Hacker News 上鬧得沸沸揚揚的討論，圍繞著 GPT-5.6 Luna 和 GPT-6 Astra 之間的選擇。…",
+  "datePublished": "2026-09-17T07:37:00+08:00",
+  "dateModified": "2026-09-17T07:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260917-0737-2535f9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-17 07:37
+  </div>
+
+  <h1 class="title">代碼評審的廉價感與 OpenAI 階級制的終結</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>在矽谷那幫工程師還在為 PR 評審多花十美金吵得不可開交時，我們得先認清一個現實：代碼評審這件事，正在從一種「腦力勞動」降級為一種「雲端訂閱稅」。最近在 Hacker News 上鬧得沸沸揚揚的討論，圍繞著 GPT-5.6 Luna 和 GPT-6 Astra 之間的選擇。這不只是錢的問題，這關乎於我們是否已經接受了讓 AI 來決定代碼質量的平庸化。很多人覺得，每跑一次 PR 評審只要 1.2 美元簡直是恩賜，但如果你看過 Astra 在處理複雜併發邏輯時那種近乎直覺的精準，再回頭看 Luna 那些中規中矩、甚至帶點機械感的建議，你就會發現，這十幾美分的差價，買的其實是程式碼的靈魂。</p>
+    <p>OpenAI 這次的命名策略很有意思，Luna 像是月光，溫和但照不透深處的陰影；Astra 則是星辰，遙遠卻定位精準。在實際的 CI/CD 流程中，如果你只是要 AI 幫你檢查有沒有漏掉空指針，或者變數命名是不是符合規範，Luna 確實夠用了。它的推理路徑被極度優化，為了節省那點顯存與算力，它捨棄了對全局架構的深度解構。當你把一個涉及跨模組調用的 PR 丟給它時，它往往只能給出一些「值得注意」的廢話，而不是告訴你這段代碼會在壓力測試下導致內存洩漏。</p>
+    <p>反觀 GPT-6 Astra，它的強大不在於它讀得更快，而是在於它對 Context 的「消化」方式。它不再是簡單地掃描 Token，而是試圖在潛在空間裡重構你的邏輯拓撲。這種處理能力在面對安全漏洞掃描時尤為明顯。一個低成本模型可能會因為看到 `eval()` 就報警，但 Astra 卻能理解這個函數在特定沙盒環境下的必要性與安全性。我們真的需要為了省下一杯咖啡的錢，去應付 Luna 產生的大量誤報嗎？這種所謂的「成本優化」，本質上是在透支開發者的專注力。</p>
+    <p>在目前的市場格局下，雖然 DeepSeek v4.1 Flash 在特定基準測試中跳得很歡，但回到企業級的開發環境，大家還是得在四大平台之間做取捨。相較於 DeepSeek v4.1 Flash 追求的極致推理效率，OpenAI 的做法顯然更傾向於建立一種「智力階級制」。如果你預算有限，你可以用 Claude 的 Fable 系列來應付日常開發，它的長文本處理能力在處理超過 8 萬 Token 的遺留代碼庫時，依然比 GPT-5.6 穩定得多。Gemini 則是在多模態代碼理解上走得更遠，如果你需要 AI 去理解 UI 組件的渲染邏輯與代碼的對應關係，Gemini 1.5 Pro 的 Function Calling 依然是目前的業界標竿，儘管它在處理超過 20 個工具調用時偶爾會顯得有些迷糊。</p>
+    <p>很多人在討論中提到，他們寧願使用更便宜的模型，然後在腳本前後置處理上花功夫。這聽起來很聰明，其實很可悲。這就像是你買了一輛便宜的車，然後花大價錢去改裝它的引擎和懸吊，最後發現成本加起來還不如直接買一輛高級車。Grok 在這方面倒是走了一條野路子，它的原始性能雖然在某些極端邊角案例下不如 Astra，但它那種不加修飾的邏輯輸出，有時候反而比經過層層對齊過濾後的 OpenAI 模型更能精準刺中 Bug 的要害。</p>
+    <p>我們現在面臨的窘境是：智力已經變成了一種可以精確計價的商品。當我們在討論 1.1 美元和 1.2 美元的區別時，我們實際上是在討論我們對「錯誤」的容忍度。如果一個模型能找出隱藏最深的邏輯炸彈，它的價值難道只值那區區十美分？還是說，我們已經進入了一個「代碼只要能跑，質量並不重要」的快速消耗時代？</p>
+    <p>當未來所有的代碼都是由 AI 寫成，再由更廉價的 AI 來審核，最後由一群已經失去代碼直覺的人類點擊「Merge」按鈕時，那個世界運行的邏輯還會是我們現在理解的軟體工程嗎？如果連最頂尖的工程師都開始計較那點 API 調用費，我們是不是正在集體走向一種技術上的貧民窟？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://entelligence.ai/blogs/gpt-5.6-luna-vs-gpt-6-astra-is-a-1.20-model-good-enough-for-code-review" rel="nofollow noopener" target="_blank">GPT-5.6 Luna vs. GPT-6 Astra: Is a $1.20 Model Good Enough for Code Review?</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260917-0737-2535f9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

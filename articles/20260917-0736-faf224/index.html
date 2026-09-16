@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>被困在代碼裡的 Siri 究竟該把靈魂賣給誰</title>
+<meta name="description" content="既然蘋果代碼裡已經明晃晃地寫著要把 Siri 的內臟掏空，換上 Claude 或 ChatGPT 的邏輯引擎，那這件事就已經不單是「技術整合」這麼溫情的修飾詞可以概括的了。這是一場遲到的投誠。當一個握有全球最強硬體終端的分發者，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260917-0736-faf224/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="被困在代碼裡的 Siri 究竟該把靈魂賣給誰">
+<meta property="og:description" content="既然蘋果代碼裡已經明晃晃地寫著要把 Siri 的內臟掏空，換上 Claude 或 ChatGPT 的邏輯引擎，那這件事就已經不單是「技術整合」這麼溫情的修飾詞可以概括的了。這是一場遲到的投誠。當一個握有全球最強硬體終端的分發者，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260917-0736-faf224/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-17T07:36:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="被困在代碼裡的 Siri 究竟該把靈魂賣給誰">
+<meta name="twitter:description" content="既然蘋果代碼裡已經明晃晃地寫著要把 Siri 的內臟掏空，換上 Claude 或 ChatGPT 的邏輯引擎，那這件事就已經不單是「技術整合」這麼溫情的修飾詞可以概括的了。這是一場遲到的投誠。當一個握有全球最強硬體終端的分發者，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "被困在代碼裡的 Siri 究竟該把靈魂賣給誰",
+  "description": "既然蘋果代碼裡已經明晃晃地寫著要把 Siri 的內臟掏空，換上 Claude 或 ChatGPT 的邏輯引擎，那這件事就已經不單是「技術整合」這麼溫情的修飾詞可以概括的了。這是一場遲到的投誠。當一個握有全球最強硬體終端的分發者，…",
+  "datePublished": "2026-09-17T07:36:00+08:00",
+  "dateModified": "2026-09-17T07:36:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260917-0736-faf224/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-17 07:36
+  </div>
+
+  <h1 class="title">被困在代碼裡的 Siri 究竟該把靈魂賣給誰</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>既然蘋果代碼裡已經明晃晃地寫著要把 Siri 的內臟掏空，換上 Claude 或 ChatGPT 的邏輯引擎，那這件事就已經不單是「技術整合」這麼溫情的修飾詞可以概括的了。這是一場遲到的投誠。當一個握有全球最強硬體終端的分發者，發現自己過去十年積攢的語義理解能力在 LLM 面前像個只會翻字典的小學生，除了把大門打開引狼入室，似乎也沒別的選擇。這讓人想起當年那些在城堡門口排隊領救濟糧的貴族，姿態依然高昂，但手裡的飯碗卻空得發響。</p>
+    <p>如果我們仔細拆解所謂的交換路徑，會發現這不是簡單的 API 調用。Siri 真正缺失的是對用戶意圖的連貫性推理，以及在多設備環境下的執行精度。想像一下，當你對著手錶說「把剛才那張照片處理一下發給老張」，Siri 的舊架構會在「處理」和「老張」之間反覆橫跳，最後給你一個網頁搜索結果。而 Claude 在處理這類帶有模糊上下文的任務時，展現出的 Prompt 遵循能力遠超其競爭對手。它對邊界條件的敏感度，讓它在處理複雜指令時顯得像個老練的管家。當代碼層面允許將 Siri 的請求路由到外部模型，實際上是在測試一種「雙腦架構」：本地的神經網絡負責隱私過濾和簡單觸發，而真正的邏輯重擔則壓在遠端的 Anthropic 或 OpenAI 身上。</p>
+    <p>這種架構的有趣之處在於，它徹底打破了蘋果過去一直標榜的「本地處理」神話。雖然用戶在 Hacker News 上高喊著想要一個本地的 AI Hub，甚至願意為此掏出真金白銀，但現實是殘酷的。即便強如 M4 芯片，在面對需要萬億參數支持的泛化推理時，依然顯得力不從心。ChatGPT 在這裡扮演的角色更像是一個無所不知的混亂守序者，它能解決你的問題，但它也想吞噬你的數據。相比之下，Claude 在隱私協議上的克制，或許更符合庫克那種謹慎的商人審美。</p>
+    <p>在某些特定語境下，這種「可更換靈魂」的設計還有更深層的考量。比如在需要符合特定合規要求的市場，或是面對像 DeepSeek v4.1 Flash 這種在特定成本區間內極其活躍的競爭者時，蘋果必須保留隨時切換底層引擎的靈活性。相較於 DeepSeek v4.1 Flash 這種追求極致響應速度的方案，Claude 在處理跨應用調度（App Intents）時的邏輯穩定性，顯然更適合支撐 Siri 那個已經搖搖欲墜的品牌信譽。這種靈活性並非為了給用戶選擇權，而是為了讓蘋果在面對不同地區的法規和技術浪潮時，不至於被某一家供應商綁死在十字架上。</p>
+    <p>目前的技術 bottleneck 依然在於延遲與上下文的傳遞成本。Gemini 在處理這類問題時，憑藉其與 Android 系統深度集成的經驗，早已證明了多模態輸入與系統級輸出的結合有多難。如果 Siri 真的接入了 ChatGPT，它能否在保證 500 毫秒內響應的同時，還能精確定位你相冊裡那張模糊的收據？Grok 那種放飛自我的風格顯然不適合這種精密的手術，它更適合出現在車載系統裡陪你聊天，而不是幫你管理日程。</p>
+    <p>我們正處於一個滑稽的轉折點：我們買了最貴的硬體，卻發現它最核心的智慧是外包出去的。這種「靈魂租賃」模式會成為常態嗎？當你換掉 Siri 的內核，你換掉的是一個功能，還是用戶對這個品牌最後的一點技術迷信？如果未來某一天，我們發現驅動整台 iPhone 的其實是背後那個不斷切換的外部模型，那麼蘋果引以為傲的生態護城河，究竟是在保護用戶，還是在保護那群正在排隊等著被點名的模型供應商？</p>
+    <p>當 Siri 學會了用 Claude 的語氣跟你探討存在主義，或者用 ChatGPT 的博學來掩蓋它無法幫你設定鬧鐘的尷尬時，我們是否還需要那個圓圓的彩色光球？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/" rel="nofollow noopener" target="_blank">Apple&#x27;s Siri AI Can Be Swapped Out for Claude, ChatGPT, Code Shows</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260917-0736-faf224/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
