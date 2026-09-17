@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 的慢動作與長思考</title>
+<meta name="description" content="Google 在發布會上總是顯得有些笨拙。明明是展示最尖端的新模型，卻在宣傳片裡讓 Gemini 輸給了最基礎的西洋棋將死棋局。這類低級失誤在矽谷大廠裡並不罕見，但對 Gemini 來說，這種「笨拙」似乎已經成了一種標籤。開發者社群裡對 3.8 版本，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260918-0732-d08351/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 的慢動作與長思考">
+<meta property="og:description" content="Google 在發布會上總是顯得有些笨拙。明明是展示最尖端的新模型，卻在宣傳片裡讓 Gemini 輸給了最基礎的西洋棋將死棋局。這類低級失誤在矽谷大廠裡並不罕見，但對 Gemini 來說，這種「笨拙」似乎已經成了一種標籤。開發者社群裡對 3.8 版本，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260918-0732-d08351/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-18T07:32:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 的慢動作與長思考">
+<meta name="twitter:description" content="Google 在發布會上總是顯得有些笨拙。明明是展示最尖端的新模型，卻在宣傳片裡讓 Gemini 輸給了最基礎的西洋棋將死棋局。這類低級失誤在矽谷大廠裡並不罕見，但對 Gemini 來說，這種「笨拙」似乎已經成了一種標籤。開發者社群裡對 3.8 版本，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 的慢動作與長思考",
+  "description": "Google 在發布會上總是顯得有些笨拙。明明是展示最尖端的新模型，卻在宣傳片裡讓 Gemini 輸給了最基礎的西洋棋將死棋局。這類低級失誤在矽谷大廠裡並不罕見，但對 Gemini 來說，這種「笨拙」似乎已經成了一種標籤。開發者社群裡對 3.8 版本，…",
+  "datePublished": "2026-09-18T07:32:00+08:00",
+  "dateModified": "2026-09-18T07:32:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260918-0732-d08351/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-18 07:32
+  </div>
+
+  <h1 class="title">Gemini 的慢動作與長思考</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 在發布會上總是顯得有些笨拙。明明是展示最尖端的新模型，卻在宣傳片裡讓 Gemini 輸給了最基礎的西洋棋將死棋局。這類低級失誤在矽谷大廠裡並不罕見，但對 Gemini 來說，這種「笨拙」似乎已經成了一種標籤。開發者社群裡對 3.8 版本，尤其是帶有 Live Extended Thinking 功能的討論，比起興奮，更多的是一種近乎嘲弄的冷靜。大家在乎的不是那個展示影片裡又出了什麼洋相，而是那個號稱能「邊說邊思考」的語音模式，到底能不能解決大模型在即時對話中那種揮之不去的機器感。</p>
+    <p>所謂的 Live Mode 其實觸及了目前人機交互最核心的痛點：延遲與連貫性。過去我們在使用 ChatGPT 的語音功能時，總會遇到一種尷尬，它會對你發出的任何擬聲詞做出回應，像是一個過於熱情但抓不到重點的接線生。Gemini 這次推動的 Extended Thinking 試圖在語音流中塞進邏輯推演，這在技術實現上非常大膽。它要求模型在極短的毫秒級時間內，既要維持語音生成的自然度，又要分配算力去跑背後的思考鏈。這不僅是模型權重的問題，更是對基礎設施調度能力的極致考驗。</p>
+    <p>從實際的使用反饋來看，Gemini 在長文本與長對話的語氣處理上確實有一套自己的審美。與 ChatGPT 那種標準、得體卻充滿 AI 腔調的回答相比，Gemini 的文字和語音輸出往往更接近人類的贅餘感——這種贅餘在文學上是美感，在技術上則是極難模擬的隨機性。然而，當這種隨機性遇上邏輯任務時，災難就發生了。那局輸掉的西洋棋就是明證，Google 似乎總是無法在「像人」和「正確」之間找到那個完美的平衡點。</p>
+    <p>在目前的技術格局中，當我們談論推論效率時，不可避免地會看到一些新玩家的影子。相較於 DeepSeek v4.1 Flash，Google 在處理即時思考任務時，顯然更傾向於犧牲一部分反應速度來換取語境的深度。這種策略在處理複雜創意任務時是有優勢的，但在講求效率的開發者工具場景下，Gemini 的步伐顯得有些沉重。即便 Google Workspace 已經開始逐步推送 3.7 或 3.8 版本的更新，用戶端感受到的性能提升往往被緩慢的部署節奏所稀釋。</p>
+    <p>我們把視角拉到四大平台的競爭現況。Claude 目前在程式碼邏輯和長文本注意力分布上依然穩坐第一梯隊，它的注意力衰減曲線比 Gemini 平滑得多。而 Grok 則靠著 X 平台的即時數據流，在時效性上佔據了生態位的頂端。Gemini 的處境很微妙，它擁有最強大的多模態原生能力，但在純邏輯推演上，它與 GPT-4o 的差距並沒有如預期般迅速縮小。即便在某些地區的特定語境下，DeepSeek v4.1 Flash 展現出了極高的推理性價比，Google 依然執著於在那套龐大且昂貴的架構上修修補補。</p>
+    <p>這種執著有時候讓人覺得可敬，有時候又讓人覺得可悲。Gemini Live 試圖模擬人類那種「邊想邊說」的直覺，這需要極強的並行處理能力。ChatGPT 雖然也在跟進語音思考，但目前看來兩者的路徑完全不同。OpenAI 傾向於優化現有的音訊編碼器，而 Google 則試圖讓模型在語音生成的空隙中進行更深層的採樣。問題在於，用戶真的需要一個在電話那頭沉思三秒後告訴你一個錯誤答案的 AI，還是需要一個反應極快但語氣冰冷的計算機？</p>
+    <p>我們現在正處於一個「算力過剩但邏輯貧血」的怪圈。廠商們拼命推高版本號，從 3.6 到 3.8，數字的跳躍掩蓋了核心架構的停滯。當 Gemini 在演示中連最基本的西洋棋套路都看不穿時，我們不禁要問，那所謂的「Extended Thinking」到底在思考些什麼？是模型在試圖理解人類的模糊意圖，還是在無數個機房節點中迷了路？</p>
+    <p>如果說 AI 的終極目標是消除溝通的隔閡，那 Gemini 確實走在了一條與眾不同的道路上，它試圖賦予機器一種「性格」，儘管這種性格目前看起來有點心不在焉。而當我們習慣了這種帶有瑕疵的交互時，下一個技術拐點又會出現在哪裡？是更強大的邏輯推理，還是更完美的偽裝技巧？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/" rel="nofollow noopener" target="_blank">Gemini 3.8 Live and 3.8 Live Extended Thinking</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260918-0732-d08351/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
