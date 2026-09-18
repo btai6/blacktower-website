@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把戰爭交給幻覺的代價</title>
+<meta name="description" content="五角大廈的人大概是瘋了，居然想靠 AI 生成的情報報告來定奪目標。Hacker News 上那一群技術宅早就吵翻天，但這件事背後的邏輯比「誤判」更讓人背脊發涼。這不是寫錯一段程式碼，也不是畫出一隻有六根手指的貓。當一個 LLM 在處理軍事情報時，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260919-0715-7383bb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="把戰爭交給幻覺的代價">
+<meta property="og:description" content="五角大廈的人大概是瘋了，居然想靠 AI 生成的情報報告來定奪目標。Hacker News 上那一群技術宅早就吵翻天，但這件事背後的邏輯比「誤判」更讓人背脊發涼。這不是寫錯一段程式碼，也不是畫出一隻有六根手指的貓。當一個 LLM 在處理軍事情報時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260919-0715-7383bb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-19T07:15:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把戰爭交給幻覺的代價">
+<meta name="twitter:description" content="五角大廈的人大概是瘋了，居然想靠 AI 生成的情報報告來定奪目標。Hacker News 上那一群技術宅早就吵翻天，但這件事背後的邏輯比「誤判」更讓人背脊發涼。這不是寫錯一段程式碼，也不是畫出一隻有六根手指的貓。當一個 LLM 在處理軍事情報時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "把戰爭交給幻覺的代價",
+  "description": "五角大廈的人大概是瘋了，居然想靠 AI 生成的情報報告來定奪目標。Hacker News 上那一群技術宅早就吵翻天，但這件事背後的邏輯比「誤判」更讓人背脊發涼。這不是寫錯一段程式碼，也不是畫出一隻有六根手指的貓。當一個 LLM 在處理軍事情報時，…",
+  "datePublished": "2026-09-19T07:15:00+08:00",
+  "dateModified": "2026-09-19T07:15:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260919-0715-7383bb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-09-19 07:15
+  </div>
+
+  <h1 class="title">把戰爭交給幻覺的代價</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>五角大廈的人大概是瘋了，居然想靠 AI 生成的情報報告來定奪目標。Hacker News 上那一群技術宅早就吵翻天，但這件事背後的邏輯比「誤判」更讓人背脊發涼。這不是寫錯一段程式碼，也不是畫出一隻有六根手指的貓。當一個 LLM 在處理軍事情報時，它面對的是極度稀疏、雜亂且高壓的非結構化數據。在這種場景下，所謂的「創造力」就是殺人的刀。我們現在談論的是一種系統性崩潰：人類官僚體系為了省事，把最需要責任承擔的判斷權，丟給了一個根本沒有責任感概念的概率分布模型。</p>
+    <p>這事發生在 Grok-1.5 剛釋出不久、xAI 瘋狂強調推理能力的當下，顯得格外諷刺。馬斯克老愛吹噓 Grok 更有「反骨」、更敢說真話，但在軍事情報這種容錯率為零的黑箱裡，這種所謂的性格毫無意義。Grok 的訓練語料庫裡塞滿了即時的 X 數據，這讓它在追蹤突發事件時反應極快，但也意味著它的幻覺會帶有一種強烈的「趨勢性偏見」。如果社交媒體上某個假消息被轉發了萬次，Grok 很有可能在內部生成報告時，把這則假消息當成已證實的情報來源。這跟 ChatGPT 追求的溫和妥協完全不同。GPT-4o 在面對模糊指令時會傾向於給出一個模稜兩可的「安全」答案，而 Grok 的邏輯結構往往會為了一個自圓其說的論點，去強行編造一個看似邏輯嚴密的虛假事實。</p>
+    <p>技術層面上，這種情報幻覺源於模型對「上下文關聯」的過度補償。當情報碎片不足以拼湊出完整意圖時，Transformer 架構會根據權重自動填補空白。相較於 Qwen 3.8 Omni Flash，xAI 的做法是試圖通過擴大 Context Window 來解決資訊不對稱，但這反而引入了更多噪音。Gemini 1.5 Pro 雖然號稱能處理百萬級 Token，但在長文本中定位關鍵矛盾點的能力依然不穩定。當你把數千小時的無人機監控記錄和地面截獲的通訊丟進去，Gemini 可能會因為注意力機制的衰減，忽略了第 50 萬個 Token 處的一個否定詞，進而導致整份情報報告的結論徹底反轉。</p>
+    <p>我們看 ChatGPT 的處理方式，它試圖通過 RAG（檢索增強生成）來錨定事實，但在軍事數據庫這種高度機密且動態更新的環境下，RAG 的索引速度往往跟不上現實變化。這就導致了一個尷尬的技術斷層：模型在用昨天的邏輯解釋今天的數據。相較於 Qwen 3.8 Omni Flash，Claude 3.5 Sonnet 在處理邏輯嚴密性上確實更勝一籌，它的 Constitutional AI 框架會自我審查輸出內容的邏輯一致性。然而，這種審查是基於語言學的，而不是基於戰場物理現實的。如果 Claude 發現報告中 A 點到 B 點的邏輯通順，它就會放行，即便 A 點本身就是一個由噪音生成的幻覺坐標。</p>
+    <p>這不只是技術問題，這是責任轉移的極致表現。開發者在模型卡片上寫滿了「僅供參考」，但採購這些系統的高層卻把它當成了免責聲明。如果 AI 建議轟炸某個坐標，最後出錯了，誰該上軍事法庭？是寫 Prompt 的參謀，還是訓練模型的那幾百個工程師？目前四大平台的架構都沒有解決一個核心技術痛點：溯源的權重。當一個結論產出時，模型無法百分之百告訴你，這個結論中「幻覺」佔了幾成，「事實」佔了幾成。</p>
+    <p>如果未來的衝突是由一堆概率模型在背後推演，而這些模型又在不斷吸收彼此產生的幻覺數據，我們是不是正在進入一個由演算法編織的平行現實？當 Grok 判斷某處有威脅，而 ChatGPT 的防禦模組卻認為那是平民區，最後決定權交給一個根本不懂什麼叫「人命」的優化函數時，這種自動化的戰爭真的比人類的偏見更公正嗎？或者說，我們真的準備好接受一個由機率決定的死刑判決了嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship" rel="nofollow noopener" target="_blank">US Military had close call after using AI for hallucinated intelligence report</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260919-0715-7383bb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

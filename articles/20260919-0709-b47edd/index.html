@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 Claude 開始讀取 AGENTS.md 時模型在想什麼</title>
+<meta name="description" content="Anthropic 最近在 Claude Code 上的小動作，讓不少習慣在根目錄塞滿各類設定檔的工程師心跳漏了一拍。原本以為這只是這家公司固執地推廣自家 Claude.md 規範的延續，沒想到他們竟然學會了低頭，開始支持 AGENTS.md 這種更具普適性的協議。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260919-0709-b47edd/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 Claude 開始讀取 AGENTS.md 時模型在想什麼">
+<meta property="og:description" content="Anthropic 最近在 Claude Code 上的小動作，讓不少習慣在根目錄塞滿各類設定檔的工程師心跳漏了一拍。原本以為這只是這家公司固執地推廣自家 Claude.md 規範的延續，沒想到他們竟然學會了低頭，開始支持 AGENTS.md 這種更具普適性的協議。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260919-0709-b47edd/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-19T07:09:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 Claude 開始讀取 AGENTS.md 時模型在想什麼">
+<meta name="twitter:description" content="Anthropic 最近在 Claude Code 上的小動作，讓不少習慣在根目錄塞滿各類設定檔的工程師心跳漏了一拍。原本以為這只是這家公司固執地推廣自家 Claude.md 規範的延續，沒想到他們竟然學會了低頭，開始支持 AGENTS.md 這種更具普適性的協議。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 Claude 開始讀取 AGENTS.md 時模型在想什麼",
+  "description": "Anthropic 最近在 Claude Code 上的小動作，讓不少習慣在根目錄塞滿各類設定檔的工程師心跳漏了一拍。原本以為這只是這家公司固執地推廣自家 Claude.md 規範的延續，沒想到他們竟然學會了低頭，開始支持 AGENTS.md 這種更具普適性的協議。…",
+  "datePublished": "2026-09-19T07:09:00+08:00",
+  "dateModified": "2026-09-19T07:09:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260919-0709-b47edd/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-19 07:09
+  </div>
+
+  <h1 class="title">當 Claude 開始讀取 AGENTS.md 時模型在想什麼</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近在 Claude Code 上的小動作，讓不少習慣在根目錄塞滿各類設定檔的工程師心跳漏了一拍。原本以為這只是這家公司固執地推廣自家 Claude.md 規範的延續，沒想到他們竟然學會了低頭，開始支持 AGENTS.md 這種更具普適性的協議。這就像是一個向來只穿訂製西裝的優雅紳士，突然開始研究起如何穿大眾成衣，這背後不單是檔案讀取的邏輯變更，而是 Claude 正在重新定義它與開發環境之間的「主僕契約」。以往我們習慣將 AI 當作一個外掛的編譯器或自動補全工具，但當它主動去尋找 AGENTS.md，它其實是在試圖理解這個專案的靈魂，而不僅僅是處理幾行程式碼的搬運工。</p>
+    <p>這種轉變在技術層面上反映了 Claude 對長文本與上下文感知策略的微調。如果你細看 Claude Code 的運行邏輯，會發現它在掃描檔案目錄時，對於引導性文件的優先級權重正變得異常敏感。比起 GPT-4o 那種更依賴 System Prompt 暴力灌輸指令的方式，Claude 顯然更傾向於在環境中尋找「現成的規矩」。當系統發現沒有專屬的 Claude.md 時，轉而讀取 AGENTS.md，這意味著 Anthropic 的開發團隊意識到，與其強迫開發者為每一種模型都準備一套說明書，不如讓模型學會適應現有的工業標準。這種靈活性對於那些已經構建了複雜自動化腳本的開發者來說，無疑是個好消息，至少不用為了伺候這位新來的「實習生」而重新翻修整個鷹架工程。</p>
+    <p>然而，這種體貼並非毫無瑕疵。從技術社群的反饋來看，Claude Code 目前對於技能檢測（skills detection）的覆蓋率依然顯得有些傲慢。即便它讀取了 AGENTS.md，對於隱藏在 .agents/skills 目錄下的具體能力定義，往往還是視而不見。這造成了一種尷尬的局面：模型知道自己是一個 Agent，也知道這份合約的存在，但在實際執行任務時，卻依然像個記性不好的老教授，空有理論框架卻找不到工具箱在哪裡。相較於 Qwen 3.8 Omni Flash 在這類本地環境適配上的激進嘗試，Claude 的做法顯然更具備一種實驗性的謹慎，它在確保安全性與遵循指令之間走得如履薄冰。</p>
+    <p>這引發了一個更深層次的觀察。當我們在討論四大 AI 巨頭的開發者工具時，Gemini 正在試圖透過超長上下文直接生吞整個 Repo，而 Grok 則在尋求更極端的即時反饋效率。Claude 選擇的這條路徑——對標準化引導文件的支持——本質上是在試圖降低 AI 介入開發流程的摩擦力。如果說 ChatGPT 像是一個什麼都能聊的通才助手，那麼現在的 Claude 正試圖把自己偽裝成專案團隊裡那個最懂規矩的資深工程師。它不只是在寫程式碼，它在閱讀你的「家規」。</p>
+    <p>有趣的是，這種對 AGENTS.md 的兼容，究竟是 Anthropic 真的擁抱開源標準，還是僅僅因為在窺視了競爭對手的倉庫後，發現自己如果不跟進就會被排除在主流工作流之外？在矽谷，這種「借鑑」並不是什麼新鮮事，真正值得玩味的是，當所有模型都開始支持同一套標準文件時，模型之間的差異化將會在哪裡體現？相較於 Qwen 3.8 Omni Flash，Claude 在解析複雜邏輯時展現出的那種近乎偏執的連貫性，是否能彌補它在本地工具鏈對接上的遲鈍？</p>
+    <p>我們或許正處於一個轉折點，AI 不再是被動等待調用的 API，而是開始主動尋找進入專案的路徑。但這也帶來了一個讓人不安的問題：如果 AI 讀取了你的 AGENTS.md，理解了你的開發邏輯，甚至掌握了你所有的隱含技能，那麼下一次當它決定忽視某些指令時，它是因為讀不懂，還是因為它覺得你的規矩定得不夠高明？當工具開始學會挑剔環境，開發者與模型之間的權力天平，是否還能維持在我們自以為掌控的那一端？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://code.claude.com/docs/en/changelog" rel="nofollow noopener" target="_blank">Claude Code now reads AGENTS.md if there is no Claude.md</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260919-0709-b47edd/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

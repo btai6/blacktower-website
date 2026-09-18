@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 3.8 Live 的思考能力是否只是另一場視覺欺詐</title>
+<meta name="description" content="Google 最近在 Gemini 3.8 Live 的發表會上，再次表演了如何讓全世界的西洋棋手集體沈默。當宣傳影片中的 AI 在面對最基礎的將死棋局時陷入邏輯盲區，這種尷尬感讓我想起幾年前那場被剪輯過的演示。很多人在討論「Extended Thinking」到底是真的在思考，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260919-0713-d166f5/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 3.8 Live 的思考能力是否只是另一場視覺欺詐">
+<meta property="og:description" content="Google 最近在 Gemini 3.8 Live 的發表會上，再次表演了如何讓全世界的西洋棋手集體沈默。當宣傳影片中的 AI 在面對最基礎的將死棋局時陷入邏輯盲區，這種尷尬感讓我想起幾年前那場被剪輯過的演示。很多人在討論「Extended Thinking」到底是真的在思考，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260919-0713-d166f5/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-19T07:13:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 3.8 Live 的思考能力是否只是另一場視覺欺詐">
+<meta name="twitter:description" content="Google 最近在 Gemini 3.8 Live 的發表會上，再次表演了如何讓全世界的西洋棋手集體沈默。當宣傳影片中的 AI 在面對最基礎的將死棋局時陷入邏輯盲區，這種尷尬感讓我想起幾年前那場被剪輯過的演示。很多人在討論「Extended Thinking」到底是真的在思考，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 3.8 Live 的思考能力是否只是另一場視覺欺詐",
+  "description": "Google 最近在 Gemini 3.8 Live 的發表會上，再次表演了如何讓全世界的西洋棋手集體沈默。當宣傳影片中的 AI 在面對最基礎的將死棋局時陷入邏輯盲區，這種尷尬感讓我想起幾年前那場被剪輯過的演示。很多人在討論「Extended Thinking」到底是真的在思考，…",
+  "datePublished": "2026-09-19T07:13:00+08:00",
+  "dateModified": "2026-09-19T07:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260919-0713-d166f5/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-19 07:13
+  </div>
+
+  <h1 class="title">Gemini 3.8 Live 的思考能力是否只是另一場視覺欺詐</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 最近在 Gemini 3.8 Live 的發表會上，再次表演了如何讓全世界的西洋棋手集體沈默。當宣傳影片中的 AI 在面對最基礎的將死棋局時陷入邏輯盲區，這種尷尬感讓我想起幾年前那場被剪輯過的演示。很多人在討論「Extended Thinking」到底是真的在思考，還是在浪費用戶的時間。這種所謂的思考模式，本質上是增加推理步驟來換取正確率，但如果基礎邏輯層在面對規則明確的博弈遊戲時都會崩潰，那麼再長的思考鏈條也不過是無效的循環。</p>
+    <p>當我們在 Gemini 3.8 Live 中切換到語音模式，那種絲滑的擬人感確實比 ChatGPT 的語音功能更像一個「人」。OpenAI 的語音模式總有一種莫名的急促感，背景音裡偶爾出現的底噪干擾，讓對話過程顯得神經質。Google 的優勢在於它對音頻訊號的處理更細膩，它不會在你呼吸的間隙急著插話。但問題就在這裡，一個情緒價值拉滿、聲音溫柔的對象，在處理具體邏輯問題時卻像個剛學會走路的孩子，這種反差感在專業開發環境中是非常致命的。我們需要的不是一個會陪聊的玩伴，而是一個不會在關鍵時刻掉鏈子的生產力工具。</p>
+    <p>從技術實踐來看，Gemini 在長文本處理上的優勢一直是它的護城河，百萬級別的 Token 容納量讓它在處理法律文件或代碼庫時極具競爭力。但在 3.8 版本中引入的 Extended Thinking，似乎是在試圖補齊它在邏輯推理上的短板。這種做法讓人聯想到 Claude 在處理複雜推理時的表現。Claude 的思維鏈條通常更加乾淨，不會為了顯得自己在思考而列出大量冗餘的廢話。相比之下，Gemini 的思考過程有時更像是一種文學創作，文字優美但邏輯結構鬆散。</p>
+    <p>在這次的技術更新週期中，市場上的競爭對手動作頻頻。相較於 Qwen 3.8 Omni Flash 的更新節奏，Google 在 Gemini 上的迭代顯得有些混亂。許多 Workspace 企業用戶發現自己還停留在舊版本，而開發者文檔中的 API 行為又與網頁端表現不一。當 Google 試圖通過增加模型深度來解決問題時，我們看到的是一種大廠特有的焦慮感。它既想保有語音互動的領先地位，又急於在推理能力上反超 GPT-4o。</p>
+    <p>這種焦慮在橫向對比中尤為明顯。Grok 在處理實時數據時有其獨特的粗獷感，雖然缺乏修飾，但勝在直接。ChatGPT 則在功能完整性上築起高牆，哪怕它的語音模式偶爾會讓人感到尷尬。而 Gemini 走的是一條極其依賴「體感」的路徑。它產出的文案是四大平台中最不具備 AI 腔調的，讀起來甚至帶點文藝氣質，這也是為什麼許多文字工作者對它情有獨鍾的原因。然而，當這種文藝氣質被帶入到邏輯推理中，就會變成一種災難。</p>
+    <p>在實際測試中，Gemini 的 Function Calling 在處理超過十個以上的工具鏈接時，出錯率明顯高於 Claude。這反映出一個底層問題：Google 的模型在指令遵循（Instruction Following）的穩定性上，依然存在著某種不可預測的飄移。即使在最新的 3.8 版本中，這種飄移也沒有因為增加了思考時間而完全消失。相較於 Qwen 3.8 Omni Flash 在特定任務下的反應速度，Gemini 似乎更傾向於在後台進行一場漫長的自我對話，然後給出一個充滿修辭但可能錯誤的答案。</p>
+    <p>這讓我們不得不重新審視「思考」這件事在 AI 領域的定義。如果增加推理步驟只是為了模擬人類的沈思，而非為了解決邏輯閉環中的漏洞，那麼這種算力消耗的意義何在？Google 擁有的算力資源無疑是頂級的，但它在產品落地的細節上總是透出一種不修邊幅的傲慢。一邊是極致流暢的 Live Mode 語音體驗，一邊是連西洋棋基本步法都會看錯的邏輯漏洞，這種分裂感正是目前 Gemini 最真實的寫照。</p>
+    <p>我們是否正處於一個「表演式 AI」的時代？當所有廠商都在強調自己的模型會思考、有情緒、能聽懂語氣中的微小起伏時，最核心的邏輯正確性反而成了被犧牲的代價。如果一個模型能像真人一樣與你談笑風生，卻在關鍵的決策點上給出一個看似合理實則荒謬的建議，我們真的敢把工作流程交給它嗎？當 Extended Thinking 變成了一種新的黑盒，我們又該如何驗證它在那些漫長的思考秒數裡，到底是在推導真理，還是在編織下一個優雅的錯誤？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/" rel="nofollow noopener" target="_blank">Gemini 3.8 Live and 3.8 Live Extended Thinking</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260919-0713-d166f5/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
