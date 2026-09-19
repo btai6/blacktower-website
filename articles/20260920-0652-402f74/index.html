@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>價值連城的源碼與六千五百美金的打發</title>
+<meta name="description" content="在矽谷那棟充滿理想主義泡沫的建築裡，安全防線似乎比想像中更像一塊充滿孔洞的瑞士乳酪。最近那宗透過 Discourse 論壇漏洞一路摸進 OpenAI 內部倉庫的技術鏈條，讓人看清了這家估值邁向兆級巔峰的公司，在對待底層基礎設施的安全維護上，究竟有多麼「不拘小節」。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260920-0652-402f74/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="價值連城的源碼與六千五百美金的打發">
+<meta property="og:description" content="在矽谷那棟充滿理想主義泡沫的建築裡，安全防線似乎比想像中更像一塊充滿孔洞的瑞士乳酪。最近那宗透過 Discourse 論壇漏洞一路摸進 OpenAI 內部倉庫的技術鏈條，讓人看清了這家估值邁向兆級巔峰的公司，在對待底層基礎設施的安全維護上，究竟有多麼「不拘小節」。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260920-0652-402f74/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-20T06:52:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="價值連城的源碼與六千五百美金的打發">
+<meta name="twitter:description" content="在矽谷那棟充滿理想主義泡沫的建築裡，安全防線似乎比想像中更像一塊充滿孔洞的瑞士乳酪。最近那宗透過 Discourse 論壇漏洞一路摸進 OpenAI 內部倉庫的技術鏈條，讓人看清了這家估值邁向兆級巔峰的公司，在對待底層基礎設施的安全維護上，究竟有多麼「不拘小節」。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "價值連城的源碼與六千五百美金的打發",
+  "description": "在矽谷那棟充滿理想主義泡沫的建築裡，安全防線似乎比想像中更像一塊充滿孔洞的瑞士乳酪。最近那宗透過 Discourse 論壇漏洞一路摸進 OpenAI 內部倉庫的技術鏈條，讓人看清了這家估值邁向兆級巔峰的公司，在對待底層基礎設施的安全維護上，究竟有多麼「不拘小節」。…",
+  "datePublished": "2026-09-20T06:52:00+08:00",
+  "dateModified": "2026-09-20T06:52:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260920-0652-402f74/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-20 06:52
+  </div>
+
+  <h1 class="title">價值連城的源碼與六千五百美金的打發</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>在矽谷那棟充滿理想主義泡沫的建築裡，安全防線似乎比想像中更像一塊充滿孔洞的瑞士乳酪。最近那宗透過 Discourse 論壇漏洞一路摸進 OpenAI 內部倉庫的技術鏈條，讓人看清了這家估值邁向兆級巔峰的公司，在對待底層基礎設施的安全維護上，究竟有多麼「不拘小節」。這不只是一個堆疊溢位（Heap Overflow）的問題，這是一個典型的單點登入（SSO）配置錯誤引發的連鎖反應。當一個社群論壇的頭像上傳功能，能成為通往大模型核心代碼的跳板時，我們不得不懷疑，那些被視為數位神祇的權重文件，是否也只是鎖在一個用迴紋針就能撬開的抽屜裡。</p>
+    <p>這次滲透的技術細節顯示出一個極其荒謬的現實：開發者們在追求 AGI 的道路上跑得太快，快到連 Debian 12 的安全後補都懶得追蹤。問題出在下游組件對 upstream 更新的漠視，一個早在去年就已經在社群修復、卻沒有標註 CVE 編號的漏洞，就這樣靜靜地躺在 OpenAI 的基礎設施裡。技術人員在調研時發現，這類針對論壇系統的圖像處理漏洞，本該在現代容器化環境中被層層隔離，但 SSO 的權限穿透卻像是一把萬能鑰匙，直接抹平了業務系統與研發環境之間的防火牆。當你在討論區貼一張貓咪圖片時，後台的溢位錯誤可能正忙著把你的 Session Token 送往不該去的地方。</p>
+    <p>這種安全意識的斷層，在四大平台之間表現得尤為諷刺。ChatGPT 雖然在用戶增長上不可一世，但在這種傳統安全維護的「髒活兒」上，顯然不如 Google 的 Gemini 團隊來得老道。Google 對於零信任架構（Zero Trust）的執念，讓其內部的權限校驗幾乎到了偏執的地步。相較之下，OpenAI 更像是一個穿著高科技機甲卻忘了繫鞋帶的巨人。而在代碼審計的靈敏度上，Claude 展現出的邏輯嚴密性確實令人生畏，甚至有研究員利用 Claude 的最新模型在短時間內就鎖定了這些隱蔽的內存錯誤。這說明了一個尷尬的事實：AI 已經強大到可以輕易毀掉創造它的人所搭建的簡陋堡壘。</p>
+    <p>在橫向對比的語境下，這種安全管理的疏忽更顯得刺眼。相較於 Qwen 3.8 Omni Flash 在架構更新上展現出的頻率，OpenAI 對於內部基礎設施的修補顯然存在嚴重的延遲。當社群在討論 Qwen 3.8 Omni Flash 的新動態時，OpenAI 卻在為一個本該在一年前就修復的舊漏洞買單。更不用說 Grok 這種由馬斯克主導、崇尚極簡主義與硬核代碼的風格，雖然在功能豐富度上還在追趕，但在系統權限劃分上，X 平台的基因讓它對外部攻擊的防禦姿態遠比這群實驗室裡的科學家要緊繃得多。</p>
+    <p>最讓人寒心的是那六千五百美金的賞金。對於一個可能導致核心模型源碼外流、甚至影響全球數億用戶數據安全的漏洞，這個金額與其說是獎勵，不如說是對安全研究員的一種羞辱。黑市上隨便一個針對這類企業內部權限的 RCE 漏洞，價格都能輕鬆翻上一千倍。這種「打發叫化子」的心態，反映出矽谷大廠在傲慢與節省成本之間的奇妙平衡。他們寧願花幾十億美金去買 H100 顯卡，也不願意拿出一筆像樣的資金來加固那些保護顯卡算力成果的「防盜門」。</p>
+    <p>這引發了一個讓人坐立難安的思考：如果一個獨立的研究團隊能靠著論壇漏洞摸進去，那麼那些擁有國家級資源的專業團隊，現在是否正坐在 OpenAI 的內部 Slack 頻道裡，一邊喝著咖啡一邊看著源碼更新？當我們討論 AI 治理、討論超級對齊、討論人類滅絕風險時，我們是否高估了這些科技巨頭對最基本數位邊界的管控能力？如果通往 AGI 的密碼就放在一個沒打補丁的論壇服務器旁邊，我們所謂的安全防禦，究竟是在防誰？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.hacktron.ai/blog/hacking-openai" rel="nofollow noopener" target="_blank">A heap overflow and SSO misconfiguration to compromise OpenAI internal repos</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260920-0652-402f74/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

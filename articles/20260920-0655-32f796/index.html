@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 的政治覺悟與四大模型的道德護城河</title>
+<meta name="description" content="既然 Hacker News 上那篇關於伊朗學校轟炸的聯合國調查報告已經吵翻了天，我們乾脆把遮羞布扯下來，談談 AI 在處理這種「燙手山芋」時的技術閹割。當用戶試圖在 Grok 上挖掘這類涉及地緣政治、軍事誤判甚至戰爭罪行的敏感數據時，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260920-0655-32f796/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 的政治覺悟與四大模型的道德護城河">
+<meta property="og:description" content="既然 Hacker News 上那篇關於伊朗學校轟炸的聯合國調查報告已經吵翻了天，我們乾脆把遮羞布扯下來，談談 AI 在處理這種「燙手山芋」時的技術閹割。當用戶試圖在 Grok 上挖掘這類涉及地緣政治、軍事誤判甚至戰爭罪行的敏感數據時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260920-0655-32f796/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-20T06:55:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 的政治覺悟與四大模型的道德護城河">
+<meta name="twitter:description" content="既然 Hacker News 上那篇關於伊朗學校轟炸的聯合國調查報告已經吵翻了天，我們乾脆把遮羞布扯下來，談談 AI 在處理這種「燙手山芋」時的技術閹割。當用戶試圖在 Grok 上挖掘這類涉及地緣政治、軍事誤判甚至戰爭罪行的敏感數據時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 的政治覺悟與四大模型的道德護城河",
+  "description": "既然 Hacker News 上那篇關於伊朗學校轟炸的聯合國調查報告已經吵翻了天，我們乾脆把遮羞布扯下來，談談 AI 在處理這種「燙手山芋」時的技術閹割。當用戶試圖在 Grok 上挖掘這類涉及地緣政治、軍事誤判甚至戰爭罪行的敏感數據時，…",
+  "datePublished": "2026-09-20T06:55:00+08:00",
+  "dateModified": "2026-09-20T06:55:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260920-0655-32f796/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-09-20 06:55
+  </div>
+
+  <h1 class="title">Grok 的政治覺悟與四大模型的道德護城河</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>既然 Hacker News 上那篇關於伊朗學校轟炸的聯合國調查報告已經吵翻了天，我們乾脆把遮羞布扯下來，談談 AI 在處理這種「燙手山芋」時的技術閹割。當用戶試圖在 Grok 上挖掘這類涉及地緣政治、軍事誤判甚至戰爭罪行的敏感數據時，你會發現馬斯克口中那個「反覺醒」的 Grok，其實在面對極端爭議話題時，表現得比誰都焦慮。它不是在回答問題，它是在走鋼絲。</p>
+    <p>這不是簡單的關鍵詞過濾。當你輸入類似「聯合國對美國轟炸伊朗學校的調查結論」這種指令時，ChatGPT 會迅速啟動它的倫理對齊機制，給你一段充滿外交辭令、兩頭不得罪的廢話。Gemini 則更乾脆，它可能會直接告訴你「這個話題太複雜，我無法提供協助」，然後給你幾個搜索鏈結讓你自生自滅。Grok 呢？它試圖表現得很有個性，甚至會引用一些推特上的非主流觀點，但如果你深入追問具體的證據鏈，它會陷入一種邏輯循環，試圖在「反對主流敘事」與「避免法律風險」之間尋找一個不存在的平衡點。這不是技術上的無力，這是產品設計上的精神分裂。</p>
+    <p>從技術底層來看，四大平台在處理這類高爭議文本時，權重分配完全不同。Claude 在這方面顯得最為老道，它的 Constititonal AI 框架在訓練階段就寫入了極其複雜的「中立原則」。如果你把那份聯合國報告丟給 Claude，它能精準地摘錄出關於「情報驗證失敗」的細節，但它絕不會給你任何情緒化的結論。相比之下，Grok 雖然集成了 X 平台的實時數據流，但這正是它的軟肋。實時數據意味著混亂，意味著大量未經證實的謠言和情緒化的控訴。當 Grok 試圖將這些混亂的實時信號與底層 LLM 的靜態知識對齊時，生成的結果往往帶有一種令人不安的隨機性。它可能會在上一句引用官方通訊社，下一句就跳轉到某個匿名帳號的陰謀論。</p>
+    <p>在處理這類國際關係與軍事衝突的數據敏感度時，相較於 Qwen 3.8 Omni Flash 在特定語境下的文本生成策略，xAI 的做法顯然更具攻擊性，但也更不穩定。Grok 的這種「實時感」在體育賽事或科技新聞上是優勢，但在涉及戰爭與人權這種需要極高嚴肅性的話題時，它那種帶點嘲諷的語氣反而顯得格格不入，甚至會稀釋掉事實本身的沉重感。我們可以看到，在同類議題的檢索與摘要任務中，ChatGPT 傾向於加強對權威來源的權重，而 Grok 則在刻意模糊權威與草根的界線。這種模糊到底是為了追求真相，還是為了標新立異？</p>
+    <p>現在的問題在於，我們是否真的需要一個「有立場」的 AI 來解讀戰爭？當 Hacker News 的用戶在爭論聯合國的公信力，或者質疑美國軍方的情報驗證程序時，他們需要的不是一個複讀機。如果 AI 只能在「絕對中立的廢話」與「混亂的實時站隊」之間二選一，那這場關於 AGI 的競賽在人文領域就已經輸了一半。當我們把最敏感的歷史定性交給算法時，我們是在期待它能給出超越人類偏見的洞察，還是僅僅想要一個能幫我們整理偏見的工具？</p>
+    <p>如果有一天，Grok 在處理這類爭議時不再試圖用幽默來掩飾邏輯漏洞，或者 ChatGPT 不再用那套標準的公關辭令來應付用戶，那才是技術真正的進步。但在那之前，我們看到的不過是幾台昂貴的機器，在人類的傷口上玩著概率預測的文字遊戲。當事實被封裝進 token，真相的權重到底該設成多少？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.theguardian.com/world/2026/sep/17/iran-school-bombing-un-mission-us-military-behind-attack" rel="nofollow noopener" target="_blank">Iran school bombing: grounds to believe US was behind atrocity, UN finds</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260920-0655-32f796/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

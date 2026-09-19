@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誰家門口的石獅子先低了頭：論 Claude Code 對標準協議的妥協</title>
+<meta name="description" content="Anthropic 終於在 Claude Code 的更新裡，默默把手伸向了 AGENTS.md。這件事在那些習慣了被各大廠商強行餵食私有協議的開發者眼裡，簡直像是一場遲來的撥亂反正。過去我們總得在專案根目錄下專門為它準備一份名為 Claude.md 的「投名狀」，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260920-0650-d3135d/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="誰家門口的石獅子先低了頭：論 Claude Code 對標準協議的妥協">
+<meta property="og:description" content="Anthropic 終於在 Claude Code 的更新裡，默默把手伸向了 AGENTS.md。這件事在那些習慣了被各大廠商強行餵食私有協議的開發者眼裡，簡直像是一場遲來的撥亂反正。過去我們總得在專案根目錄下專門為它準備一份名為 Claude.md 的「投名狀」，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260920-0650-d3135d/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-20T06:50:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="誰家門口的石獅子先低了頭：論 Claude Code 對標準協議的妥協">
+<meta name="twitter:description" content="Anthropic 終於在 Claude Code 的更新裡，默默把手伸向了 AGENTS.md。這件事在那些習慣了被各大廠商強行餵食私有協議的開發者眼裡，簡直像是一場遲來的撥亂反正。過去我們總得在專案根目錄下專門為它準備一份名為 Claude.md 的「投名狀」，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "誰家門口的石獅子先低了頭：論 Claude Code 對標準協議的妥協",
+  "description": "Anthropic 終於在 Claude Code 的更新裡，默默把手伸向了 AGENTS.md。這件事在那些習慣了被各大廠商強行餵食私有協議的開發者眼裡，簡直像是一場遲來的撥亂反正。過去我們總得在專案根目錄下專門為它準備一份名為 Claude.md 的「投名狀」，…",
+  "datePublished": "2026-09-20T06:50:00+08:00",
+  "dateModified": "2026-09-20T06:50:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260920-0650-d3135d/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-20 06:50
+  </div>
+
+  <h1 class="title">誰家門口的石獅子先低了頭：論 Claude Code 對標準協議的妥協</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 終於在 Claude Code 的更新裡，默默把手伸向了 AGENTS.md。這件事在那些習慣了被各大廠商強行餵食私有協議的開發者眼裡，簡直像是一場遲來的撥亂反正。過去我們總得在專案根目錄下專門為它準備一份名為 Claude.md 的「投名狀」，彷彿不冠上它的姓氏，這尊大佛就讀不懂你的程式碼邏輯。現在它學會了如果找不到自己的牌位，就去翻翻公用的 AGENTS.md，這種姿態的轉變，與其說是技術上的躍遷，不如說是這家一向自視甚高的公司，終於意識到自己還沒強大到能定義全球開發者的檔案命名規範。</p>
+    <p>這種對標準協議的兼容，揭示了 AI Agent 在工程實踐中的一個尷尬現狀：我們正處於一個「數位巴別塔」的早期。每個模型都想當造物主，ChatGPT 喜歡它的路徑依賴，Gemini 試圖把一切都塞進它的長文本緩存，而 Claude 則固執地推行那一套獨家的腳手架協議。當開發者為了讓不同的 Agent 讀懂同一個專案，不得不在目錄裡塞滿了 .openai、.anthropic、.cursor 等各種配置文件時，開發效率沒提升多少，專案根目錄倒是變得像個雜貨鋪。</p>
+    <p>技術層面上，Claude Code 這次對 AGENTS.md 的識別，大概率只是在系統提示詞（System Prompt）的預加載邏輯裡增加了一行備選路徑。這不是什麼量子力學級別的突破，但它解決了一個極其陰險的痛點：認知一致性。當你在處理複雜的程式碼重構任務時，如果 Agent 因為讀不到私有配置而開始胡言亂語，那種挫敗感足以讓人想直接拔掉電源。現在它開始向下兼容，意味著 Anthropic 承認了「標準」的力量大於「品牌」的傲慢。當然，這並不代表它變得完美了。社群裡很快有人發現，雖然它會讀 AGENTS.md，但對於 .agents/skills 目錄下的技能檢測依然像個盲人。這種「半吊子」的兼容，讓人不禁懷疑這究竟是架構設計的遺漏，還是產品經理在趕工時留下的補丁。</p>
+    <p>放眼目前的四大平台，這種對「標準」的爭奪戰演變得愈發詭異。ChatGPT 依然在試圖用它龐大的生態位去定義什麼叫「自定義指令」，試圖讓所有人都適應它的對話流。Gemini 則像是一個住在圖書館裡的怪人，它不介意你怎麼命名文件，只要你把它們全部丟進那深不見底的上下文窗口裡就行。相較於 Qwen 3.8 Omni Flash 在某些特定任務上的靈活性，Claude 在處理工程規範時表現出的這種「潔癖」，既是它的護城河，也是它的絆腳石。在實際的開發環境中，我們往往不需要一個教我們怎麼寫程式碼的導師，而是一個能迅速適應既有工作流的學徒。</p>
+    <p>有趣的是，當 Claude 開始向 AGENTS.md 低頭時，我們看到的是一種微妙的心理博弈。如果一個工具強大到不可替代，它大可以要求全世界都改名。但現實是，當 Grok 靠著算力蠻力在後面緊追不捨，而 OpenAI 又在不斷蠶食開發者工具鏈的份額時，Anthropic 必須學會收斂那種學術式的清高。與 Qwen 3.8 Omni Flash 這種在開源與閉源邊界徘徊的競爭對象相比，Claude 的優勢在於它對邏輯嚴密性的偏執，可一旦這種偏執變成了對開發者工作流的騷擾，用戶的流失往往就在一瞬間。</p>
+    <p>我們現在面臨的問題是，這種表面的「兼容」究竟能走多遠？如果未來每個模型都宣稱自己支持標準，但又在實現細節上各搞一套「方言」，那 AGENTS.md 很快就會變成另一個被廢棄的戰場。這就像是當年的瀏覽器戰爭，大家表面上都說支持 HTML，背地裡卻都在搞自己的私有標籤。</p>
+    <p>如果有一天，所有的 AI Agent 都能在不需要任何專屬配置文件的狀況下，僅憑對原始碼的直覺就能理解整個專案的意圖，我們是否還需要這些長得像墓碑一樣的 .md 文件？當 Claude 終於學會翻閱那本不屬於它的筆記本時，它是真的理解了開發者的苦衷，還只是在為了保住那點日漸萎縮的工具佔有率，不得不做出的低姿態？或許我們該問的是，下一個被迫改名以示忠誠的，會是文件，還是我們這些寫程式的人？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://code.claude.com/docs/en/changelog" rel="nofollow noopener" target="_blank">Claude Code now reads AGENTS.md if there is no Claude.md</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260920-0650-d3135d/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
