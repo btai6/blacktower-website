@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多模態開源模型真的能讓視覺理解變廉價嗎</title>
+<meta name="description" content="這兩天技術圈都在盯著 Qwen Image 2.1 的動態，大家對開源模型在圖像理解和生成的進步感到亢奮，甚至有人覺得這玩意兒快要追上專有模型了。但冷靜下來看，這背後的技術斷層依然清晰得讓人絕望。視覺模型最難的從來不是識別一張照片裡有沒有貓，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260921-0713-2fe047/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="多模態開源模型真的能讓視覺理解變廉價嗎">
+<meta property="og:description" content="這兩天技術圈都在盯著 Qwen Image 2.1 的動態，大家對開源模型在圖像理解和生成的進步感到亢奮，甚至有人覺得這玩意兒快要追上專有模型了。但冷靜下來看，這背後的技術斷層依然清晰得讓人絕望。視覺模型最難的從來不是識別一張照片裡有沒有貓，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260921-0713-2fe047/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-21T07:13:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多模態開源模型真的能讓視覺理解變廉價嗎">
+<meta name="twitter:description" content="這兩天技術圈都在盯著 Qwen Image 2.1 的動態，大家對開源模型在圖像理解和生成的進步感到亢奮，甚至有人覺得這玩意兒快要追上專有模型了。但冷靜下來看，這背後的技術斷層依然清晰得讓人絕望。視覺模型最難的從來不是識別一張照片裡有沒有貓，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "多模態開源模型真的能讓視覺理解變廉價嗎",
+  "description": "這兩天技術圈都在盯著 Qwen Image 2.1 的動態，大家對開源模型在圖像理解和生成的進步感到亢奮，甚至有人覺得這玩意兒快要追上專有模型了。但冷靜下來看，這背後的技術斷層依然清晰得讓人絕望。視覺模型最難的從來不是識別一張照片裡有沒有貓，…",
+  "datePublished": "2026-09-21T07:13:00+08:00",
+  "dateModified": "2026-09-21T07:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260921-0713-2fe047/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-09-21 07:13
+  </div>
+
+  <h1 class="title">多模態開源模型真的能讓視覺理解變廉價嗎</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天技術圈都在盯著 Qwen Image 2.1 的動態，大家對開源模型在圖像理解和生成的進步感到亢奮，甚至有人覺得這玩意兒快要追上專有模型了。但冷靜下來看，這背後的技術斷層依然清晰得讓人絕望。視覺模型最難的從來不是識別一張照片裡有沒有貓，而是在複雜邏輯、空間關係以及長文本指令的精準執行上。現在的情況是，多數人被精美的渲染圖蒙蔽了雙眼，卻忽略了模型在處理多步驟視覺推理時的集體失能。</p>
+    <p>拿 Grok 來說，xAI 在視覺處理上的路徑跟別人不太一樣。Grok-1.5V 剛出來的時候，那種對物理世界的「直覺」其實比 ChatGPT 強。如果你給它一張電路圖，要求它找出可能短路的地方，Grok 的推理鏈條往往更直接，不會像 Gemini 那樣繞圈子。但 Grok 的問題在於穩定性，它有時候會表現出一種莫名的傲慢，漏掉圖像邊緣的關鍵細節。這種不穩定性在處理衛星圖像或複雜的醫學切片時會被放大成災難。</p>
+    <p>真正的視覺智慧應該具備「糾錯能力」。目前大多數模型都是單向輸出，你看一眼結果，好就是好，壞就得重來。但事實上，我們需要的是模型能解釋為什麼它認為這張圖標籤為 A 而不是 B。Gemini Pro Vision 在這方面做得最細膩，它能給出更結構化的視覺描述，雖然有時候囉唆得讓人想把它關掉。Gemini 的邏輯是把視覺轉化為極其詳盡的 Token 流，這讓它在處理複雜表格或手寫筆跡時有天然優勢，但在處理「美感」和「藝術風格」時，它的濾鏡感重得讓人出戲。</p>
+    <p>這就引出了一個更深層的技術問題：模型到底是在「看」圖，還是在「背」像素分佈？Qwen Image 2.1 的出現確實提供了一種輕量化的選擇，但相較於 Qwen Image 2.1 這種追求參數效率的作法，ChatGPT 採用的 GPT-4o 則是另一種極致。它把音頻、視覺、文本全部塞進同一個神經網路進行原生訓練，這不是簡單的模組拼接。你在 GPT-4o 面前揮動手指，它能感知到動作的連貫性，這種原生多模態的低延遲感是目前所有開源方案都無法企及的。</p>
+    <p>然而，即便強如 ChatGPT，在處理空間幾何關係時依然會翻車。你畫一個立方體，標註幾個隱藏頂點，問它三維座標，它大概率會開始胡言亂語。這反映出當前四大平台共同的技術瓶頸：缺乏真正的三維空間建模。模型看的是二維投影，它們對深度、遮擋、物理碰撞的理解，本質上還是基於機率預測的文字遊戲。</p>
+    <p>Claude 3.5 Sonnet 在這場混戰中反而顯得很老練。它不追求花哨的實時視覺體驗，但在處理長文檔中的圖表對齊時，準確度高得嚇人。當你把一份 50 頁的 PDF 扔進去，要求它對比第 5 頁的柱狀圖和第 45 頁的結論是否矛盾，Claude 的表現最穩。這就是所謂的「注意力分配」問題。很多模型在看圖時會丟失上下文，或者在看文字時忘了圖裡長什麼樣，Claude 的內存管理機制顯然在權衡這兩者時做了優化。</p>
+    <p>我們現在正處於一個尷尬的過渡期。一方面，像 Qwen Image 2.1 這樣的模型讓視覺技術門檻大幅降低；另一方面，我們對視覺 AI 的期待已經從「認字」變成了「運算」。如果一個模型能讀懂代碼卻看不懂流程圖裡的邏輯門錯誤，那它的視覺功能充其量只是個高級的 OCR 插件。</p>
+    <p>問題在於，如果視覺智慧的終極形態是原生多模態，那麼那些依賴視覺編碼器（Vision Encoder）強行掛載到語言模型上的架構，是否註定會撞上性能天花板？當我們要求 AI 像人類一樣觀察世界時，我們給出的究竟是眼睛，還是只是一副帶濾鏡的眼鏡？如果未來所有模型都能在幾秒內生成完美的圖像，那這種「視覺理解」的含金量，是否會因為缺乏底層物理邏輯的支撐而徹底崩塌？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://qwen.ai/blog?id=qwen-image-2.1" rel="nofollow noopener" target="_blank">Qwen Image 2.1</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260921-0713-2fe047/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
