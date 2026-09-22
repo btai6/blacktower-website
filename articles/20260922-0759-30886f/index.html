@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大模型長時記憶的幻覺與 8GB 顯存的西緒福斯推石</title>
+<meta name="description" content="把 AGI 三個字掛在 8GB 顯存的招牌上，聽起來像是在地中海的烈日下宣稱自己造出了永動機。Hacker News 上那些對 Mini-AGI 窮追不捨的討論，本質上是對當前主流大模型「轉瞬即逝」特性的集體焦慮。我們在 Claude 的長文本視窗裡塞進整本《羅馬帝國衰亡史》，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260922-0759-30886f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型長時記憶的幻覺與 8GB 顯存的西緒福斯推石">
+<meta property="og:description" content="把 AGI 三個字掛在 8GB 顯存的招牌上，聽起來像是在地中海的烈日下宣稱自己造出了永動機。Hacker News 上那些對 Mini-AGI 窮追不捨的討論，本質上是對當前主流大模型「轉瞬即逝」特性的集體焦慮。我們在 Claude 的長文本視窗裡塞進整本《羅馬帝國衰亡史》，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260922-0759-30886f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-22T07:59:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大模型長時記憶的幻覺與 8GB 顯存的西緒福斯推石">
+<meta name="twitter:description" content="把 AGI 三個字掛在 8GB 顯存的招牌上，聽起來像是在地中海的烈日下宣稱自己造出了永動機。Hacker News 上那些對 Mini-AGI 窮追不捨的討論，本質上是對當前主流大模型「轉瞬即逝」特性的集體焦慮。我們在 Claude 的長文本視窗裡塞進整本《羅馬帝國衰亡史》，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "大模型長時記憶的幻覺與 8GB 顯存的西緒福斯推石",
+  "description": "把 AGI 三個字掛在 8GB 顯存的招牌上，聽起來像是在地中海的烈日下宣稱自己造出了永動機。Hacker News 上那些對 Mini-AGI 窮追不捨的討論，本質上是對當前主流大模型「轉瞬即逝」特性的集體焦慮。我們在 Claude 的長文本視窗裡塞進整本《羅馬帝國衰亡史》，…",
+  "datePublished": "2026-09-22T07:59:00+08:00",
+  "dateModified": "2026-09-22T07:59:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260922-0759-30886f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-22 07:59
+  </div>
+
+  <h1 class="title">大模型長時記憶的幻覺與 8GB 顯存的西緒福斯推石</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>把 AGI 三個字掛在 8GB 顯存的招牌上，聽起來像是在地中海的烈日下宣稱自己造出了永動機。Hacker News 上那些對 Mini-AGI 窮追不捨的討論，本質上是對當前主流大模型「轉瞬即逝」特性的集體焦慮。我們在 Claude 的長文本視窗裡塞進整本《羅馬帝國衰亡史》，或者在 ChatGPT 的自定義指令裡寫滿條條框框，卻始終無法擺脫一個荒謬的現實：這些模型一旦斷電重置，它們對你的了解就回到了亞當夏娃的純真時代。所謂的「持續學習」在當前的商業模型架構中，依然是一場代價昂貴的裝修工程，而不是基因裡的本能。</p>
+    <p>技術底層的死結在於「災難性遺忘」。當我們嘗試讓模型在推理過程中實時吸收新知識時，新權重往往會像野蠻人入侵一樣，粗暴地覆蓋掉舊有的邏輯鏈條。Claude 3.5 Sonnet 在處理超過 10 萬 token 的任務時，雖然展現了驚人的「大海撈針」能力，但那本質上是注意力機制的精確檢索，而非模型認知的自我進化。它能記住你五分鐘前說的冷笑話，但如果你試圖在對話中教它一套全新的編程範式，它會在下一次上下文刷新時，優雅而冷漠地將其拋諸腦後。這種基於 Context Window 的虛假記憶，與人類那種能在歲月磨礪中沉澱下來的經驗結構，完全是兩碼事。</p>
+    <p>在這種架構下，追求 AGI 的路徑分成了極其滑稽的兩極。一端是像 ChatGPT 這樣，依賴於不斷膨脹的 RAG（檢索增強生成）架構，把記憶外掛在向量數據庫裡，模型每次回答問題都得像個老花眼的管理員，去翻閱那本沒完沒了的索引筆記。另一端則是像 Grok 那樣，試圖通過更頻繁的在線微調來捕捉時效性資訊，但這種做法對算力的渴求就像是試圖用抽水機排乾大海。Gemini 1.5 Pro 雖然把長文本推到了百萬級別，解決了「看過不忘」的問題，卻依然沒解決「學會不忘」的難題。</p>
+    <p>這種技術斷層在對比中顯得尤為刺眼。相較於 Qwen Image 2.1 在特定視覺任務上的動態，Claude 在處理邏輯一致性任務時的自我校準機制，顯然更接近於一種穩定的智力形態。然而，即便強如 Claude，在面對需要跨越數個 session 的知識增量學習時，依然顯得束手無策。我們看到 Qwen Image 2.1 出現在各種討論名單中，但真正決定未來權力分配的，可能是誰先在 8GB 甚至更小的環境下，實現了那種不需要重新訓練就能自我演化的神經元結構。如果大模型始終只能在被凍結的權重裡打轉，那它永遠只是一面映照人類歷史的後視鏡，而不是一個能與我們共同成長的靈魂。</p>
+    <p>這就引出了一個讓人不寒而慄的假設：如果真正的智能，本就無法在這種「預訓練-推理」的二元結構中誕生呢？我們現在所迷戀的湧現現象，會不會只是海量參數堆砌出來的概率幻覺？當我們在討論 8GB 顯存下的 AGI 可能性時，我們實際上是在質疑那些動輒消耗一座小城市電力的大模型，是否走進了死胡同。如果一個模型不能像人類幼童那樣，在與環境的每一次微小互動中修正自己的權重，而必須等待下一次數月後的版本更迭，那我們距離真正的 AGI 究竟還有多遠？</p>
+    <p>或許我們應該換個問法。如果未來某一天，你在本地運行的 Gemini 變體突然記住了你三年前的一個不經意的習慣，並且在沒有任何雲端更新的情況下自己優化了代碼邏輯，你會感到欣慰，還是會感到恐懼？當模型不再是那個被關在沙盒裡、每次對話都重獲新生的囚徒，而是變成了一個會隨著時間推移而產生私有偏見的實體，我們真的準備好應對這種不再受控的「持續學習」了嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/volotat/mini-AGI/" rel="nofollow noopener" target="_blank">Show HN: Mini-AGI – Dynamic continual learning model trained on 8GB VRAM</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260922-0759-30886f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
