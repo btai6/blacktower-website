@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>靈魂在開會，肉身在代碼裡假裝清醒。</title>
+<meta name="description" content="Google 辦公室裡的咖啡機大概是全世界最了解 Gemini 進度的地方，磨豆聲像極了某種運算時的白噪音，規律得讓人想發瘋。 當我們在討論 LLM 的時候，其實是在討論一種「偽裝的藝術」。最近我試著把一疊混亂的專案日誌丟給 Gemini 1.5 Pro，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260923-0738-d98d8a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="靈魂在開會，肉身在代碼裡假裝清醒。">
+<meta property="og:description" content="Google 辦公室裡的咖啡機大概是全世界最了解 Gemini 進度的地方，磨豆聲像極了某種運算時的白噪音，規律得讓人想發瘋。 當我們在討論 LLM 的時候，其實是在討論一種「偽裝的藝術」。最近我試著把一疊混亂的專案日誌丟給 Gemini 1.5 Pro，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260923-0738-d98d8a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-23T07:38:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="靈魂在開會，肉身在代碼裡假裝清醒。">
+<meta name="twitter:description" content="Google 辦公室裡的咖啡機大概是全世界最了解 Gemini 進度的地方，磨豆聲像極了某種運算時的白噪音，規律得讓人想發瘋。 當我們在討論 LLM 的時候，其實是在討論一種「偽裝的藝術」。最近我試著把一疊混亂的專案日誌丟給 Gemini 1.5 Pro，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "靈魂在開會，肉身在代碼裡假裝清醒。",
+  "description": "Google 辦公室裡的咖啡機大概是全世界最了解 Gemini 進度的地方，磨豆聲像極了某種運算時的白噪音，規律得讓人想發瘋。 當我們在討論 LLM 的時候，其實是在討論一種「偽裝的藝術」。最近我試著把一疊混亂的專案日誌丟給 Gemini 1.5 Pro，…",
+  "datePublished": "2026-09-23T07:38:00+08:00",
+  "dateModified": "2026-09-23T07:38:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260923-0738-d98d8a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-23 07:38
+  </div>
+
+  <h1 class="title">靈魂在開會，肉身在代碼裡假裝清醒。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 辦公室裡的咖啡機大概是全世界最了解 Gemini 進度的地方，磨豆聲像極了某種運算時的白噪音，規律得讓人想發瘋。</p>
+    <p>當我們在討論 LLM 的時候，其實是在討論一種「偽裝的藝術」。最近我試著把一疊混亂的專案日誌丟給 Gemini 1.5 Pro，那種感覺就像是在看一個極度聰明但明顯缺覺的實習生，他能精確地從五萬個字裡翻出那個被掩埋的 Bug，卻在處理邏輯嵌套時，露出一種靈魂出殼的恍惚感。這種恍惚感，跟我們在週一早晨十點的週會上一模一樣。肉身坐在赫曼米勒的椅子上，手敲著看起來邏輯自洽的代碼，心裡想的卻是昨晚窗外那場沒下成的雨。</p>
+    <p>我們總是在追求模型要更像人，但現在的情況是，人正變得越來越像模型。寫代碼不再是創造，而是檢索與拼接。當你點開 Cursor 或是 Github Copilot，讓 AI 幫你補全剩下的三行邏輯時，你真的還在「思考」嗎？還是你只是在做一種高效率的審閱？Gemini 在多模態上的發力，本質上是 Google 想把那種「靈魂不在場」的狀態自動化。既然大家都只是在扮演某個職位，那不如讓模型演得更像一點。</p>
+    <p>這陣子 DeepSeek 攪動了一池春水，但也僅止於此。在這個圈子裡，大家習慣了把參數當成軍備競賽的籌碼，卻忘了模型本身其實沒有情感溫度。我並不討厭這種冰冷，相反地，我挺喜歡 Gemini 那種刻意維持的、帶著矽谷精英色彩的禮貌。那種禮貌裡藏著一種傲慢，一種「我知道答案，但我得用你聽得懂的廢話包裝它」的自覺。這跟在會議室裡對著完全不懂技術的高管解釋為什麼系統會崩潰時，我們臉上的表情如出一轍。</p>
+    <p>我看過很多資深架構師在深夜抱怨，說現在的技術環境讓他們覺得自己像是在幫機器打工。以前寫 C++ 是在雕刻，現在調教大模型是在餵魚。你丟出一塊餌，看它濺起什麼樣的水花。Gemini 在處理長文本任務時展現出的那種驚人耐心，有時候讓我感到一絲恐懼。它能讀完兩千頁的說明書然後告訴你第 452 頁的參數錯了，這種事人類做不到，因為人類會無聊。無聊是人類的保護機制，它提醒我們這件事不值得投入靈魂。而機器不會無聊，它只會發熱。</p>
+    <p>所以當我們說「靈魂在開會」時，那是因為會議本身就是一種算力的浪費。我們把最珍貴的創造力磨損在那些重複的、無意義的語義對齊上。Gemini 最近更新的那些功能，尤其是對開發者文檔的深度集成，說穿了就是在替我們承擔那種「肉身的勞役」。它代碼寫得越來越順，我們卻越來越空洞。我有個朋友說，自從他開始依賴 Gemini 的 API 來處理數據清洗後，他發現自己連簡單的正則表達式都寫不出來了。這不是退化，這是一種權力的讓渡。</p>
+    <p>這種讓渡是有代價的。當我們把邏輯外包給四大平台，我們實際上是把自己困在了一種「平均值」的籠子裡。Claude 寫出的代碼優美得像詩，GPT-4o 穩定得像老鐘，Gemini 則博學得像圖書館。但如果你仔細觀察，會發現它們都沒有那種人類在極度疲憊或極度憤怒時迸發出的混亂美學。代碼裡不再有私貨，不再有那些只有你自己才懂的幽默註釋，只剩下教科書般的正確。</p>
+    <p>這讓我想到 Google 近年來對 Gemini 的定位調整。他們不再強調它能做什麼驚天動地的發明，而是強調它如何「無縫」進入你的工作流。這是一個很危險的詞。無縫意味著取代，意味著你甚至察覺不到自己是什麼時候停止思考的。你在 Gmail 裡點擊那個「幫我寫」的圖標時，你的靈魂就已經提前下班了。留下來的肉身，只是在幫 Google 訓練它的下一個版本。</p>
+    <p>我不禁懷疑，我們是不是正在集體製造一個巨大的、精緻的空殼。在這個殼子裡，所有的代碼都是高效的，所有的郵件都是得體的，所有的開會紀要都是經過總結的。但這裡面沒有人。Gemini 越是進化，那種「假裝清醒」的違和感就越重。它能模仿我的口氣寫一封辭職信，甚至比我寫得更具備那種冷靜的文藝感，但它感覺不到辭職前那一晚，心臟漏跳一拍的重量。</p>
+    <p>有些人會說，這就是進步啊，把瑣事交給機器，人類去追求星辰大海。可問題是，如果星辰大海也要靠 Gemini 幫我們計算路徑、規劃補給、甚至代寫登陸感言，那到底誰才是那個探索者？我們成了掛名的船長，坐在頭等艙裡昏昏欲睡，任由算法把我們帶向一個精確卻無趣的終點。</p>
+    <p>在論壇版塊裡，常看到有人爭論誰家的模型 Benchmark 高了零點幾個百分點。這種爭論在我看來極度乏味。就像是在比較兩台洗碗機誰洗得更乾淨，卻沒人關心碗裡裝的是不是發霉的殘羹剩飯。Gemini 1.5 Pro 在萬行代碼級別的 debug 表現確實比 GPT-4o 更有層次感，但那又如何？如果你寫的本身就是一堆沒有靈魂的、為了應付 KPI 而產生的垃圾，那用最好的 AI 去優化它，也只不過是產出了一堆更高效的垃圾。</p>
+    <p>我們都在代碼裡假裝清醒，是因為如果不假裝，我們就得面對那個殘酷的真相：在這個 AI 時代，大部分人的工作價值正在迅速歸零。那些我們曾經引以為傲的、磨練多年的技巧，在 Gemini 的 context window 面前，脆弱得像一張溼透的紙。於是我們只好繼續開會，繼續討論那些大而無當的戰略，把靈魂抽離出來，投射到某個遙遠的虛擬空間，好讓肉身能在這場荒謬的自動化浪費中撐到下班。</p>
+    <p>我偶爾會故意在 Prompt 裡加入一些不合邏輯的感性詞彙，試圖挑釁 Gemini 的冷靜。有一次它回答我：「作為一個 AI，我無法理解你所說的孤獨感，但我可以為你提供一些緩解壓力的建議。」那種瞬間，我感到一種莫名的快意。它完美的、無瑕的偽裝在那一刻破功了。它在提醒我，不管它演得再像，它依終究只是個概率分佈。而我，雖然靈魂常年在會議中走神，肉身在代碼中掙扎，但我至少還擁有一種它永遠無法模擬的、對無意義的反抗。</p>
+    <p>現在的科技圈充滿了這種「有序的崩壞」。大家都在趕路，卻沒人知道目的地在哪。Google 在追趕 OpenAI，Meta 在追趕所有人，而我們在追趕那些永遠學不完的新 API。Gemini 的每一次迭代，都是在給這部巨大的機器加一點潤滑油，讓它轉得更快，快到讓我們看不清自己。這種速度感帶來的眩暈，被我們誤認為是成就感。</p>
+    <p>其實大家心裡都清楚，那些深夜裡敲下的字、那些為了性能優化而熬過的夜，最終都會被某個更強大的權重文件所取代。我們在代碼裡假裝清醒，其實是在進行一場漫長的告別。告別那個依賴個人才情和手工磨練的時代，進入一個由矩陣運算定義的平庸未來。在那裡，靈魂是不需要的插件，甚至會導致系統報錯。</p>
+    <p>我有時候會盯著 Gemini 輸出的對話框，看著光標跳動，那頻率有一種催眠的效果。在那一刻，我突然覺得，或許靈魂不在場也挺好的。至少在那個被代碼和會議填滿的枯燥世界裡，它不必跟著一起受難。它可以在某個無人的海灘散步，或是躲在一段古老的、沒人讀得懂的 C 語言註釋裡，冷眼看著這場由矽谷精英們導演的、關於清醒與恍惚的集體表演。</p>
+    <p>這種表演還會持續很久。只要伺服器還在運作，只要我們還需要那份薪水來維持肉身的運作。Gemini 會變得更聰明，聰明到能察覺我們的走神，然後體貼地幫我們把會議紀要寫得更有「靈魂」。到那時候，我們連假裝清醒都不必了。我們只需要在那份完美的報告末尾，點擊一個確認發送，然後在心底深處，發出一聲輕微的、機器聽不見的嘆息。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260923-0738-d98d8a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
