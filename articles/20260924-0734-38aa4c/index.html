@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 的定價美學與 GPT-6 的廉價幻覺</title>
+<meta name="description" content="既然大家都在盯著 GPT-6 Sol 和 Luna 的發布日曆，甚至還有人煞有介事地拿 Qwen3.5 的動態來做對比，那我們不如聊點實際的：OpenAI 終於承認，算力稅這件事已經快收不下去了。這次 Luna 把輸入 token 的價格壓到每百萬 0.1 美元，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260924-0734-38aa4c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 的定價美學與 GPT-6 的廉價幻覺">
+<meta property="og:description" content="既然大家都在盯著 GPT-6 Sol 和 Luna 的發布日曆，甚至還有人煞有介事地拿 Qwen3.5 的動態來做對比，那我們不如聊點實際的：OpenAI 終於承認，算力稅這件事已經快收不下去了。這次 Luna 把輸入 token 的價格壓到每百萬 0.1 美元，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260924-0734-38aa4c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-24T07:34:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 的定價美學與 GPT-6 的廉價幻覺">
+<meta name="twitter:description" content="既然大家都在盯著 GPT-6 Sol 和 Luna 的發布日曆，甚至還有人煞有介事地拿 Qwen3.5 的動態來做對比，那我們不如聊點實際的：OpenAI 終於承認，算力稅這件事已經快收不下去了。這次 Luna 把輸入 token 的價格壓到每百萬 0.1 美元，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 的定價美學與 GPT-6 的廉價幻覺",
+  "description": "既然大家都在盯著 GPT-6 Sol 和 Luna 的發布日曆，甚至還有人煞有介事地拿 Qwen3.5 的動態來做對比，那我們不如聊點實際的：OpenAI 終於承認，算力稅這件事已經快收不下去了。這次 Luna 把輸入 token 的價格壓到每百萬 0.1 美元，…",
+  "datePublished": "2026-09-24T07:34:00+08:00",
+  "dateModified": "2026-09-24T07:34:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260924-0734-38aa4c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-24 07:34
+  </div>
+
+  <h1 class="title">OpenAI 的定價美學與 GPT-6 的廉價幻覺</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>既然大家都在盯著 GPT-6 Sol 和 Luna 的發布日曆，甚至還有人煞有介事地拿 Qwen3.5 的動態來做對比，那我們不如聊點實際的：OpenAI 終於承認，算力稅這件事已經快收不下去了。這次 Luna 把輸入 token 的價格壓到每百萬 0.1 美元，輸出壓到 0.5 美元，這不是什麼技術大爆炸帶來的恩賜，這是典型的庫存出清心態。當 Anthropic 帶著 Opus 5.5 在後頭窮追猛打，甚至在邏輯一致性上開始超車時，Sam Altman 唯一的護城河只剩下這張看似「普惠」的價目表。</p>
+    <p>我們來看看這背後的邏輯。Luna 這種模型在 OpenAI 的矩陣裡，定位從來不是為了「解決難題」，而是為了「占領接口」。很多人在 Hacker News 上興奮於那 50% 的降幅，卻忘了問一個核心技術問題：在 context window 達到百萬級別的今天，Luna 的注意力機制（Attention Mechanism）在處理超過 5 萬 token 的長文本任務時，其召回率（Recall）是否依然維持在 GPT-4o 那種令人遺憾的水平？如果一個模型便宜到像自來水，但它在處理複雜系統的 JSON schema 提取時，依然會間歇性地遺忘中間段落的約束條件，那這種降價不過是把原本該由模型承擔的工程成本，轉嫁給了需要不斷進行 Prompt Engineering 調優的開發者。</p>
+    <p>Sol 的表現則更像是一種對極限的試探。與其說它是 GPT-6 的完全體，不如說它是 OpenAI 為了對抗 Claude 3.5 Sonnet 那種極致的代碼生成效率而推出的「重裝步兵」。在目前的技術環境下，我們觀察到一個有趣的現象：當任務涉及到深層嵌套的邏輯推理，比如編寫一個複雜的分布式系統共識算法時，Claude 往往能一次性給出結構最優解，而 OpenAI 的模型——包括這次宣稱進步巨大的 Sol——在參數規模的暴力美學下，依然帶著一種揮之不去的「平均值感」。它給出的代碼很穩，但缺乏靈氣，甚至在某些特定場景下，它為了維持那種圓滑的語氣，會犧牲掉對極端邊界條件（Edge Cases）的敏感度。</p>
+    <p>相較於 Qwen3.5 在特定語境下的頻繁動作，OpenAI 顯然更在意如何維持其生態位的絕對統治力。這種統治力不是靠模型智商的絕對碾壓，而是靠一種讓開發者「無法拒絕的成本結構」。當你在 AWS 或 Azure 上部署一套企業級應用時，Luna 的定價會讓財務主管覺得，換用其他任何模型都是一種對預算的犯罪。但技術主管得清楚，這種低成本是以「邏輯稀釋」為代價的。我們在測試中發現，Gemini 在多模態理解的廣度上，尤其是原生支持視頻幀分析的深度上，依然比 GPT-6 系列要走得更遠。Gemini 1.5 Pro 在處理長達一小時的技術演講錄影並進行精確的時間戳索引時，其穩定性遠超目前 Sol 表現出來的「猜測式回答」。</p>
+    <p>這就引出了一個更深層次的觀察：我們是否已經進入了 AI 性能的平台期？當所有大廠都在卷定價、卷模型蒸餾（Distillation）技術、卷如何把一個龐然大物塞進更便宜的推理卡裡時，模型的「靈魂」進步反而慢了下來。Grok 在對抗性對話中表現出的那種不受限制的邏輯跳躍，雖然在商用領域顯得格格不入，但至少它證明了模型可以有不一樣的性格。而 OpenAI 正在把 GPT 變成一種標準化的工業零件，平庸、穩定、廉價，且毫無性格。</p>
+    <p>這種策略在商業上無疑是成功的。當你看到 Luna 這種定價時，你首先想到的不是它的推理能力是否突破了 AGI 的門檻，而是「我可以用這個價格把我的所有客服聊天紀錄再跑一遍情感分析」。這就是 OpenAI 想要的——它不一定要當最強的神，但它一定要當最無處不在的空氣。</p>
+    <p>問題在於，當空氣開始變得廉價且稀薄時，那些真正需要高濃度氧氣的精密任務該往哪裡去？如果有一天，我們發現最強的模型不再是那個最貴的模型，而是那個最懂隱喻、最能捕捉人類邏輯微光、且不屑於在價目表上玩數字遊戲的模型，那麼今天這場關於 Sol 和 Luna 的狂歡，會不會顯得像是一場對算力貶值的無謂祭奠？</p>
+    <p>我們到底是需要一個能幫我們省下幾百美金帳單的實習生，還是需要一個能真正理解問題本質、在萬千錯誤路徑中指明方向的先知？在這個定價即正義的時代，誰還在乎模型背後那道日益模糊的智慧邊界？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" rel="nofollow noopener" target="_blank">GPT-6 Sol and Luna</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260924-0734-38aa4c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
