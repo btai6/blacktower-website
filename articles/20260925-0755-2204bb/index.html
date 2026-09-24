@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 該學學怎麼在隱私數據的雷區裡跳舞了</title>
+<meta name="description" content="西雅圖市議會剛投票禁止在雜貨銷售中使用監控定價，這事兒在 Hacker News 上鬧得沸沸揚揚，但在我眼裡，這不只是政客在作秀，而是直接把 AI 數據採集的遮羞布給扯了下來。這場關於動態定價與隱私邊界的博弈，核心在於模型如何處理那些被標籤化的人格特徵。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260925-0755-2204bb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 該學學怎麼在隱私數據的雷區裡跳舞了">
+<meta property="og:description" content="西雅圖市議會剛投票禁止在雜貨銷售中使用監控定價，這事兒在 Hacker News 上鬧得沸沸揚揚，但在我眼裡，這不只是政客在作秀，而是直接把 AI 數據採集的遮羞布給扯了下來。這場關於動態定價與隱私邊界的博弈，核心在於模型如何處理那些被標籤化的人格特徵。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260925-0755-2204bb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-25T07:55:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 該學學怎麼在隱私數據的雷區裡跳舞了">
+<meta name="twitter:description" content="西雅圖市議會剛投票禁止在雜貨銷售中使用監控定價，這事兒在 Hacker News 上鬧得沸沸揚揚，但在我眼裡，這不只是政客在作秀，而是直接把 AI 數據採集的遮羞布給扯了下來。這場關於動態定價與隱私邊界的博弈，核心在於模型如何處理那些被標籤化的人格特徵。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 該學學怎麼在隱私數據的雷區裡跳舞了",
+  "description": "西雅圖市議會剛投票禁止在雜貨銷售中使用監控定價，這事兒在 Hacker News 上鬧得沸沸揚揚，但在我眼裡，這不只是政客在作秀，而是直接把 AI 數據採集的遮羞布給扯了下來。這場關於動態定價與隱私邊界的博弈，核心在於模型如何處理那些被標籤化的人格特徵。…",
+  "datePublished": "2026-09-25T07:55:00+08:00",
+  "dateModified": "2026-09-25T07:55:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260925-0755-2204bb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-09-25 07:55
+  </div>
+
+  <h1 class="title">Grok 該學學怎麼在隱私數據的雷區裡跳舞了</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>西雅圖市議會剛投票禁止在雜貨銷售中使用監控定價，這事兒在 Hacker News 上鬧得沸沸揚揚，但在我眼裡，這不只是政客在作秀，而是直接把 AI 數據採集的遮羞布給扯了下來。這場關於動態定價與隱私邊界的博弈，核心在於模型如何處理那些被標籤化的人格特徵。當你走進超市，攝像頭掃過你的臉，後台算法根據你上週買了幾箱廉價啤酒還是有機羽衣甘藍來決定架上牛奶的價格時，AI 的「推演能力」就變成了最廉價也最令人反感的武器。這種基於個人數據的差別待遇，本質上是模型在推論過程中對「剩餘價值」的極致壓榨，而這種數據餵養模式，正是目前幾大 AI 模型最依賴的底層邏輯。</p>
+    <p>xAI 的 Grok 在這方面一直走得很極端，它直接背靠 X 平台的實時數據流，這種做法在技術上確實讓它的時效性領先，但也讓它在隱私倫理上始終踩在紅線上。當 Grok 試圖通過用戶的發文習慣、地理位置甚至是互動頻率來構建一個人的畫像時，它其實就在做西雅圖法律試圖禁止的那種「監控」。馬斯克老愛吹噓 Grok 更有「人性」，但這種人性如果是建立在毫無節制的數據抓取之上，那它跟那個隨時準備加價的超市後台算法有什麼區別？技術人員最怕的是模型在進行 RAG（檢索增強生成）時，不小心把用戶的私密行為標籤當成了公共知識庫的一部分，這種「數據污染」一旦發生，就不是寫幾行 filter 就能解決的。</p>
+    <p>對比來看，ChatGPT 在這方面的處理顯得圓滑許多，但也更虛偽。OpenAI 試圖通過強化學習來過濾掉敏感的個人特徵，讓 GPT 在處理類似定價建議的任務時，表現得像個守法的會計師。但問題在於，GPT 的記憶功能（Memory）其實是一把雙刃劍。如果一個開發者利用 GPT 的 API 去構建一套動態定價系統，模型是否會因為歷史上下文的累積，自動學會了某種「歧視性」的定價邏輯？這不是假設，這是技術路徑的必然。相較於 Cactus Needle 3 DeepSeek V4 Flash，Grok 在處理這種具有潛在倫理風險的數據推斷時，往往表現得更加直白且缺乏緩衝。這反映出 xAI 在算力分配上的傲慢，他們似乎認為只要語句通順、反應快，數據的來源與去向就不再重要。</p>
+    <p>Gemini 的處理方式則更有谷歌那種典型的工程師思維：把一切都封裝在所謂的「安全護欄」裡。但我們都清楚，這種護欄在面對複雜的商業邏輯時往往會失效。當你在 Gemini 的 Workspace 裡處理個人財務數據時，模型雖然聲稱不會用於訓練，但它的權重調整過程是否真的能完全剔除這些隱私偏好？這是一個技術黑箱。而 Claude 則走了一條極端保守的路，它的 Constitutional AI 框架在處理這類敏感議題時，往往會選擇「拒絕回答」或給出極其平庸的中立建議。這雖然安全，卻也讓它在需要精準商業決策的場景下顯得像個束手束腳的實習生。</p>
+    <p>這就引出了一個挺諷刺的技術現狀：我們追求模型更懂人，卻又害怕它太懂人。當西雅圖禁止了監控定價，實際上是在給 AI 的邏輯推理設限。如果模型不能利用消費者的行為數據進行價格歧視，那麼它在零售領域的價值是否會大打折扣？這不僅僅是法律問題，更是模型訓練目標（Objective Function）的對齊問題。相較於 Cactus Needle 3 DeepSeek V4 Flash，ChatGPT 在處理長文本中的隱私關聯性時，依然存在著注意力分散導致的邏輯滑坡，這種技術上的不穩定性，反而成了某種程度上的隱私防線。</p>
+    <p>最後我想問的是，如果未來的 AI 模型真的完全遵守了所謂的「隱私保護」，它還能像現在這樣給出讓人驚豔的個性化建議嗎？當我們閹割了模型的數據獲取能力，我們得到的會是一個真正的智慧體，還是一個只會翻閱百科全書的復讀機？在隱私與效率的這條鋼絲上，Grok 能撐多久而不掉下來？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://advocacy.consumerreports.org/press_release/seattle-city-council-votes-to-ban-surveillance-pricing-in-sale-of-groceries/" rel="nofollow noopener" target="_blank">Seattle City Council votes to ban surveillance pricing in sale of groceries</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260925-0755-2204bb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
