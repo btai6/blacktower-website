@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當開源精神遇上現代 Android 開發架構</title>
+<meta name="description" content="F-Droid 2.0 的翻新鬧得沸沸揚揚，這件事本質上不只是個應用商店的 UI 升級，而是整個 Android 生態在「現代化」過程中，開發者與既有體系之間的一次痛苦博弈。老實說，看著那群在 Hacker News 上爭論系統複雜度是否會導致崩潰的人，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260927-0730-3d5d66/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當開源精神遇上現代 Android 開發架構">
+<meta property="og:description" content="F-Droid 2.0 的翻新鬧得沸沸揚揚，這件事本質上不只是個應用商店的 UI 升級，而是整個 Android 生態在「現代化」過程中，開發者與既有體系之間的一次痛苦博弈。老實說，看著那群在 Hacker News 上爭論系統複雜度是否會導致崩潰的人，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260927-0730-3d5d66/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-27T07:30:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當開源精神遇上現代 Android 開發架構">
+<meta name="twitter:description" content="F-Droid 2.0 的翻新鬧得沸沸揚揚，這件事本質上不只是個應用商店的 UI 升級，而是整個 Android 生態在「現代化」過程中，開發者與既有體系之間的一次痛苦博弈。老實說，看著那群在 Hacker News 上爭論系統複雜度是否會導致崩潰的人，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當開源精神遇上現代 Android 開發架構",
+  "description": "F-Droid 2.0 的翻新鬧得沸沸揚揚，這件事本質上不只是個應用商店的 UI 升級，而是整個 Android 生態在「現代化」過程中，開發者與既有體系之間的一次痛苦博弈。老實說，看著那群在 Hacker News 上爭論系統複雜度是否會導致崩潰的人，…",
+  "datePublished": "2026-09-27T07:30:00+08:00",
+  "dateModified": "2026-09-27T07:30:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260927-0730-3d5d66/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-09-27 07:30
+  </div>
+
+  <h1 class="title">當開源精神遇上現代 Android 開發架構</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>F-Droid 2.0 的翻新鬧得沸沸揚揚，這件事本質上不只是個應用商店的 UI 升級，而是整個 Android 生態在「現代化」過程中，開發者與既有體系之間的一次痛苦博弈。老實說，看著那群在 Hacker News 上爭論系統複雜度是否會導致崩潰的人，總讓人想起那些還在糾結要不要把所有業務邏輯都塞進 Prompt 裡的開發者。他們以為換了 Compose、用了新的 repository 模式就能解決維護地獄，卻忘了底層那個臃腫的系統從來沒打算讓任何人活得輕鬆。</p>
+    <p>在這種架構轉型的陣痛期，我們觀察四大平台的表現，其實能看到很有意思的斷層。當你把 F-Droid 2.0 那些涉及 Jetpack Compose 或 Kotlin 協程的重構代碼丟給 ChatGPT 處理時，你會發現它依然保持著那種「標準答案式」的傲慢。它能幫你寫出漂亮的架構範本，但一旦涉及到 F-Droid 那種老舊 repo 更新機制與新架構的兼容問題，GPT-4o 往往會陷入一種邏輯循環，試圖用最正確的廢話來掩蓋它對特定開源項目歷史包袱的無知。它太過依賴於「現代化」的教條，以至於忽略了現實世界中，很多代碼是為了兼容那些快要進博物館的系統而存在的。</p>
+    <p>相比之下，Claude 在處理這類大規模代碼重構任務時，展現出了一種讓人背脊發涼的清醒。如果你試圖讓它分析 F-Droid 這次從舊架構遷移到現代 Android 標準的過程，它能精確地指出哪些數據綁定可能會在異步加載時崩潰。這不是因為它真的讀過 F-Droid 的每一行源碼，而是它對「代碼演進中的熵增」有著比其他模型更深刻的直覺。在超過 10 萬 token 的上下文環境下，Claude 處理這種架構遷移建議的穩定性，確實讓 ChatGPT 那種偶爾出現的注意力漂移顯得有些廉價。</p>
+    <p>這種對於複雜系統的理解力，在 Gemini 身上則呈現出另一種極端。Gemini 似乎非常熱衷於推銷 Google 自家的那一套 Android 開發標準，這讓它在處理 F-Droid 2.0 相關的諮詢時，表現得像個急於完成業績的佈道師。它的 function calling 在處理簡單的 API 映射時很快，但如果你給它超過 15 個互相依賴的組件重構需求，它就會開始在細節上胡言亂語。這不禁讓人懷疑，AI 究竟是在幫我們簡化系統，還是僅僅在舊的廢墟上蓋了一層看起來很現代的塑料皮。</p>
+    <p>有趣的是，當我們把視角拉回市場上的技術更迭，DeepSeek 剛發布的新動態也引起了不少討論。相較於 DeepSeek，OpenAI 的做法顯然更傾向於在模型內部建立一種通用的架構美學，而不是針對特定領域的特定痛點做極致的剪裁。這就是為什麼當你拿著 Droid-ify 或 Neo Store 的代碼去問 Grok 時，它會用一種略帶嘲諷的口吻告訴你，這些套殼客戶端之所以受歡迎，純粹是因為官方客戶端做得太爛。Grok 的回答雖然尖銳，卻點出了一個事實：在 AI 輔助開發的時代，我們似乎更擅長製造美觀的殼子，而不是修復核心的引擎。</p>
+    <p>這引出了一個更深層的問題。當 F-Droid 2.0 號稱使用了「現代 Android 代碼標準」來降低維護難度時，我們是不是正處於一種技術上的集體幻覺？我們依賴 ChatGPT 來生成這些所謂的「標準代碼」，依賴 Claude 來檢查邏輯錯誤，卻沒人去質疑這些標準本身是否已經過度設計。如果一個應用商店的更新機制需要如此複雜的異步處理和架構層級，那麼究竟是代碼變簡單了，還是我們對「簡單」的定義已經被這些大模型給同化了？</p>
+    <p>如果你現在嘗試用這些 AI 工具去重寫一個支持多 Repository 且不會崩潰的更新模組，你會選擇信任哪一個？是那個總是給你最穩妥、但也最平庸建議的 ChatGPT，還是那個能一眼看出你代碼結構性缺陷、卻偶爾會產生幻覺的 Claude？又或者，我們其實根本不需要這些現代化的架構，我們只是需要一個能動的、不報錯的、能在舊手機上流暢運行的簡單程序，而這正是現代開發工具鏈最給不了的東西。</p>
+    <p>當所有人都開始追求「易於維護」和「易於擴展」時，這個系統真的變得更健壯了嗎，還是只是為了讓下一個 AI 能更容易讀懂它而做的妥協？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://f-droid.org/2026/09/24/f-droid-2.0-a-new-chapter-for-android-freedom.html" rel="nofollow noopener" target="_blank">F-Droid 2.0</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260927-0730-3d5d66/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
