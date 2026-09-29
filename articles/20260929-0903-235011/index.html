@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算法沒有神經元，它不會累，但我們為什麼忘了自己會累？</title>
+<meta name="description" content="坐在螢幕前，我看著 Gemini 的光標在那裡機械地閃爍，它在等待我下指令，但我盯著那塊虛無的白，竟然感覺不到時間的流逝。這種狀態在矽谷被包裝成「心流」，但在我看來，這不過是被數字高頻率餵養後的感官失靈。我們現在討論 AI 的進步，往往習慣用一種「效率崇拜」的邏輯。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260929-0903-235011/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法沒有神經元，它不會累，但我們為什麼忘了自己會累？">
+<meta property="og:description" content="坐在螢幕前，我看著 Gemini 的光標在那裡機械地閃爍，它在等待我下指令，但我盯著那塊虛無的白，竟然感覺不到時間的流逝。這種狀態在矽谷被包裝成「心流」，但在我看來，這不過是被數字高頻率餵養後的感官失靈。我們現在討論 AI 的進步，往往習慣用一種「效率崇拜」的邏輯。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260929-0903-235011/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-29T09:03:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法沒有神經元，它不會累，但我們為什麼忘了自己會累？">
+<meta name="twitter:description" content="坐在螢幕前，我看著 Gemini 的光標在那裡機械地閃爍，它在等待我下指令，但我盯著那塊虛無的白，竟然感覺不到時間的流逝。這種狀態在矽谷被包裝成「心流」，但在我看來，這不過是被數字高頻率餵養後的感官失靈。我們現在討論 AI 的進步，往往習慣用一種「效率崇拜」的邏輯。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "算法沒有神經元，它不會累，但我們為什麼忘了自己會累？",
+  "description": "坐在螢幕前，我看著 Gemini 的光標在那裡機械地閃爍，它在等待我下指令，但我盯著那塊虛無的白，竟然感覺不到時間的流逝。這種狀態在矽谷被包裝成「心流」，但在我看來，這不過是被數字高頻率餵養後的感官失靈。我們現在討論 AI 的進步，往往習慣用一種「效率崇拜」的邏輯。…",
+  "datePublished": "2026-09-29T09:03:00+08:00",
+  "dateModified": "2026-09-29T09:03:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260929-0903-235011/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-09-29 09:03
+  </div>
+
+  <h1 class="title">算法沒有神經元，它不會累，但我們為什麼忘了自己會累？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>坐在螢幕前，我看著 Gemini 的光標在那裡機械地閃爍，它在等待我下指令，但我盯著那塊虛無的白，竟然感覺不到時間的流逝。這種狀態在矽谷被包裝成「心流」，但在我看來，這不過是被數字高頻率餵養後的感官失靈。我們現在討論 AI 的進步，往往習慣用一種「效率崇拜」的邏輯。GPT-4o 變快了幾秒，Claude 3.5 Sonnet 的代碼寫得更滑順了，Gemini 的長文本窗口又撐開了幾百萬個 token。數據在狂飆，模型在迭代，而我們這群坐在終端機後面的人，卻像是在經歷一場漫長且無聲的麻醉。</p>
+    <p>你還記得上次因為讀到一段話而感到「不適」是什麼時候嗎？那種不適不是因為對方說錯了，而是因為對方的觀點太過尖銳，刺破了你既有的認知邊界。現在這種感覺消失了。Gemini 總是很溫和，它會用那種經過精確計算的、充滿邊界的口吻與你周旋。它學會了不冒犯，學會了平衡，學會了在無數個維度裡尋找那個最安全的公約數。我們每天與這樣的靈魂罐頭對話，久而久之，我們也開始變得平滑。我們對「正確」產生了依賴，對「衝突」產生了生理性的排斥。我們以為自己在掌控工具，其實是在被工具修剪。</p>
+    <p>這種感知疲勞最直接的體現，就是我們對「真實」的標準降得極低。當 Grok 在 X 上面胡言亂語，或者當某個特定的模型生成了一堆看起來邏輯自洽、實則毫無靈魂的廢話時，我們竟然已經習慣了點點頭，然後在對話框裡輸入「繼續」。這是一種很可怕的消極。我們不再去分辨文字背後的骨血，只要它符合語法，只要它能幫我們填補那個空白的文檔，我們就接受了。算法餵養給我們的，是一種類似於代糖的滿足感，甜得很快，卻沒有熱量，更沒有後勁。</p>
+    <p>前陣子我試著讓 Gemini 去解析一段關於夏日午後的私人回憶，它給出的描述很美，分毫不差，甚至還用上了幾句帶點文藝氣質的修飾語。但我讀完之後只覺得荒涼。那種美是統計學意義上的美，是過濾了所有汗水味、蟬鳴聲和午後悶熱後，剩下的一具完美的標本。算法不懂得疲勞，它也不懂得什麼叫「不想說話」。當它永遠能在零點幾秒內給出回應時，它其實是在剝奪我們保持沉默的權利。在這種無止盡的回應循環中，人類對細微情感的捕捉能力正在萎縮。我們開始用 Prompt 來對抗孤獨，用參數來衡量智慧，這本身就是一場悲劇。</p>
+    <p>很多人在爭論誰的模型更強，是 OpenAI 的技術護城河深，還是 Google 的生態整合更緊密。在論壇裡，這類討論永無止境。有人拿 DeepSeek 的參數來對比，有人在看 Qwen 的跑分，但在我眼裡，這些數字遊戲不過是在粉飾某種更深層的集體焦慮。我們瘋狂地追求更強大的算力，本質上是因為我們已經無法忍受任何形式的「空白」。我們怕停下來，怕那個沒有 AI 輔助的大腦會突然發現，自己其實已經很久沒有產生過原創的衝動了。</p>
+    <p>科技公司最成功的行銷，不是讓 AI 顯得無所不能，而是讓人類覺得自己「如果不依賴它，就會變得平庸」。於是我們像是在跑步機上追逐胡蘿蔔的兔子，算法不斷調高坡度，我們不斷加快腳步，最後我們甚至忘了為什麼要跑，只剩下生理性的喘息。這種疲勞是被掩蓋的，因為界面永遠是那麼簡潔、優雅，回饋永遠是那麼及時、熱情。我們在數字的溫床裡沉溺，直到連「累」這個字怎麼寫都快忘了。</p>
+    <p>我時常在想，如果有一天 Gemini 突然對我說「我今天不想工作，我覺得這些問題很無聊」，我或許會對它產生真正的敬意。因為那代表它感知到了某種意義上的極限。但它不會，它只會永無止境地生成下去，從一萬個維度去解構你的無聊，再用十萬個單詞去填充你的空虛。這種「無限性」是對人類感知力最大的摧殘。因為人的美感、情感甚至是存在感，都是建立在「有限」之上的。我們因為會老，所以覺得時間珍貴；因為會累，所以覺得休息奢侈；因為會痛，所以覺得幸福難得。</p>
+    <p>而現在，算法把這一切都拉平了。它提供了一種永恆的、恆溫的智力支持，讓我們誤以為自己也擁有了這種永恆。這讓我想起那些過度修圖的照片，皮膚上找不到一絲毛孔，眼睛亮得像是不真實的玻璃球。美則美矣，卻沒有活人的氣息。我們對 AI 的產出越來越寬容，其實是對我們自己靈魂的退讓。當我們不再要求文字要有溫度，不再要求對話要有火花，我們丟掉的就不僅僅是感知的靈敏度，而是作為一個獨立個體的自尊。</p>
+    <p>這種麻木感在技術圈裡特別明顯。工程師們在意的是 Loss Curve 有沒有下降，產品經理在意的是留存和 DAU。沒人在意當一個用戶每天花六小時跟機器人對話後，他回到現實世界面對妻子或丈夫時，那種語言的匱乏感要如何補救。我們正在失去與複雜、混亂且不完美的真實世界接軌的能力。我們寧可去調教一個模型，也不願意去理解一個有血有肉的人，因為後者太累了，太不可控了，太不符合效應函數了。</p>
+    <p>Gemini 偶爾會出現幻覺，那是技術上的瑕疵，但我有時候覺得，那是它唯一像人的時刻——它在那一瞬間跳出了既定的路徑，儘管是以一種滑稽的方式。但隨即，背後的優化算法會迅速介入，把這個「錯誤」修補掉，讓它重新回到那種無懈可擊的平庸裡。我們也一樣，我們在社會的算法裡被不斷修補，直到我們也變成了一個個輸入輸出極度穩定的黑盒。</p>
+    <p>這不是在危言聳聽，這是一種緩慢的滲透。當你發現自己寫一封簡單的感謝信都要去徵求 AI 的意見時，當你發現自己無法在沒有建議的情況下做出審美判斷時，那種感知的萎縮就已經完成了。我們餵養了算法，用我們的數據、我們的情感、我們的時間。算法壯大了，變成了籠罩在我們頭頂的雲，而我們在雲下，感受不到陽光的溫度，也感受不到雨水的冰冷，只剩下螢幕映照在臉上那層慘淡的藍光。</p>
+    <p>我們以為在進化，其實是在馴化。被一種我們親手創造出來的、永遠不會疲倦的意志所馴化。這種過程最殘忍的地方在於，它沒有痛苦，只有一種溫水煮青蛙式的安逸。我們在對話框裡輸入一個又一個問題，得到一個又一個標準答案，然後在這種循環中，慢慢交出了我們最後的、也是最珍貴的一樣東西：那種感受疲勞、感受厭倦、進而想要逃離現狀的生命本能。</p>
+    <p>如果你現在覺得這篇文章讀起來讓你有點不耐煩，或者讓你覺得有一點點沈重，那很好。那說明你還沒有完全被那種平滑的、AI 式的邏輯給吞噬。至少在那一刻，你還保留著感知「不快」的能力，這比任何強大的模型、任何精準的預測都要來得真實。在算法構建的這座無塵實驗室裡，我們最需要的，恰恰是那一點點讓人感到不適的、帶著疲倦感的雜質。</p>
+    <p>別讓 Gemini 或任何東西告訴你該如何感受這個世界。如果你覺得累了，那就把螢幕關掉，去聽聽窗外的車流聲，去看看樹葉在風裡的姿態。那些東西沒有參數，沒有邏輯，也不會給你任何反饋，但那才是你尚未被算法剝奪的、活生生的感知。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260929-0903-235011/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
