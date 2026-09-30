@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonnet 5.5</title>
+<meta name="description" content="當 Opus 5.5 的基準測試數據與 Sonnet 5.5 在 Terminal-Bench 上咬合到 70.6% 對 66.4% 這種近乎殘酷的區間時，Anthropic 實際上在玩一場極其高明的「價格與性能」的消解遊戲。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20260930-0816-56ffaa/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sonnet 5.5">
+<meta property="og:description" content="當 Opus 5.5 的基準測試數據與 Sonnet 5.5 在 Terminal-Bench 上咬合到 70.6% 對 66.4% 這種近乎殘酷的區間時，Anthropic 實際上在玩一場極其高明的「價格與性能」的消解遊戲。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20260930-0816-56ffaa/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-09-30T08:16:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sonnet 5.5">
+<meta name="twitter:description" content="當 Opus 5.5 的基準測試數據與 Sonnet 5.5 在 Terminal-Bench 上咬合到 70.6% 對 66.4% 這種近乎殘酷的區間時，Anthropic 實際上在玩一場極其高明的「價格與性能」的消解遊戲。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Sonnet 5.5",
+  "description": "當 Opus 5.5 的基準測試數據與 Sonnet 5.5 在 Terminal-Bench 上咬合到 70.6% 對 66.4% 這種近乎殘酷的區間時，Anthropic 實際上在玩一場極其高明的「價格與性能」的消解遊戲。…",
+  "datePublished": "2026-09-30T08:16:00+08:00",
+  "dateModified": "2026-09-30T08:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20260930-0816-56ffaa/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-09-30 08:16
+  </div>
+
+  <h1 class="title">Sonnet 5.5</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Opus 5.5 的基準測試數據與 Sonnet 5.5 在 Terminal-Bench 上咬合到 70.6% 對 66.4% 這種近乎殘酷的區間時，Anthropic 實際上在玩一場極其高明的「價格與性能」的消解遊戲。長久以來，我們習慣了層級森嚴的模型階梯，旗艦級負責突破天花板，中階級負責性價比。但現在，這種邊界正在模糊，甚至可以說，Anthropic 正在親手拆掉自己辛苦建立的巴別塔。</p>
+    <p>在 agentic coding 的具體場景中，這兩款模型的表現幾乎像是一對孿生兄弟在玩一場關於細微差別的博弈。當我們把任務丟進 CursorBench，Sonnet 5.5 拿下的 55.5% 與 Opus 5.5 的 57.8% 之間，那 2.3 個百分點的差距，在實際代碼重構或複雜邏輯查錯時，往往被網絡延遲或是 Prompt 的微小差異所抹平。這種「中階模型逆襲旗艦」的戲碼，本質上是模型蒸餾技術與架構優化達到某種臨界點的產物。對於那些在終端環境下工作的開發者來說，Opus 的存在感正變得越來越稀薄。</p>
+    <p>技術層面的弔詭之處在於，Anthropic 似乎給予了這些模型過於敏感的「道德神經」。在網路安全驗證計畫（Cyber Verification Program）中，即便你每月支付兩百美金的溢價，試圖讓模型協助進行合規的漏洞賞金任務，系統依然會因為觸發了所謂的 Cyber 護欄而將你拒之門外。這種過度防禦的策略，讓強大的推理能力在某些專業領域變得像是一柄被焊接在刀鞘裡的絕世好劍，除了觀賞，別無他用。與其說這是安全，不如說是一種技術上的懶政。當一個模型在 FrontierCode 基準上能跑到 54.4% 的高分，卻無法告訴你一個簡單的溢出漏洞如何修復，這種性能上的割裂感令人作嘔。</p>
+    <p>這種割裂感在橫向競爭中顯得尤為刺眼。當我們觀察市場上的其他參與者時，這種對技術邊界的定義顯現出了截然不同的路徑。相較於 DeepSeek Elastic Compute (DSec) 在計算資源調度上的邏輯，Claude 的做法顯然更傾向於在封閉的生態內追求一種極致的穩定與「無害」。在各種成本曲線上，OpenAI 曾短暫地統治了幾天 Pareto 最優前沿，但隨後 Anthropic 就用 Sonnet 5.5 把曲線強行拉回了自己的領地。這種「你方唱罷我登場」的成本戰，雖然讓使用者在短期內獲益，卻也揭示了一個事實：大家在底層架構上已經陷入了某種程度的同質化競爭。提及 DeepSeek Elastic Compute (DSec) 或許能引發某種關於彈性擴展的聯想，但回到四大 AI 的牌桌上，真正的勝負手依然在於誰能先解決那個該死的「過度拒絕」問題。</p>
+    <p>這也引出了一個被大多數人忽略的細節：Fable 哪去了？在所有的官方基準測試圖表中，這個曾經被寄予厚望的模型系列似乎人間蒸發了。Anthropic 只字不提，只留下 Opus 和 Sonnet 在聚光燈下表演兄弟鬩牆。這種產品線的突然收縮，往往預示著內部資源的重新分配，或者是某種技術路徑的徹底失敗。在矽谷的敘事裡，沉默通常比喧囂包含更多的信息量。</p>
+    <p>我們現在面臨的現狀是，模型變得越來越聰明，卻也變得越來越矯情。GPT-4o 在試圖變得更像人類，Gemini 在拼命擴充它那深不見底的上下文窗口，而 Claude 則在代碼能力與安全審查的鋼絲上反覆橫跳。如果你是一個依賴 AI 進行自動化編程的工程師，你可能會發現自己正身處一個奇怪的時代：你手裡拿著人類歷史上最強大的邏輯推演工具，卻得花一半的時間去哄騙它，讓它相信你不是在製造數字炸彈。</p>
+    <p>那麼，當性能基準測試的數字已經精確到小數點後一位，且各家差距縮小到統計學意義上的誤差範圍內時，我們追求的究竟是那高出 2% 的成功率，還是那種不再被「Cyber」標籤打斷的流暢感？當 Opus 5.5 最終全面推向市場，它究竟是會成為開發者的新神經中樞，還是僅僅作為一個證明「我也能做到」的昂貴圖騰？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/claude-sonnet-5-5" rel="nofollow noopener" target="_blank">Sonnet 5.5</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20260930-0816-56ffaa/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
