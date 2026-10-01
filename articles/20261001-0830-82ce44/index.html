@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 那些藏在實驗室裡的氬氣</title>
+<meta name="description" content="把尚未問世的技術取名為 Argon（氬），這事本身就帶著一種惰性氣體的冷淡。Google 最近在開發者圈子裡拋出的 Gemini 4 Argon 消息，比起技術規格，更像是一場精心設計的心理戰。大家在 Hacker News 上嘲諷這又是另一個「活在簡報裡的模型」，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261001-0830-82ce44/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 那些藏在實驗室裡的氬氣">
+<meta property="og:description" content="把尚未問世的技術取名為 Argon（氬），這事本身就帶著一種惰性氣體的冷淡。Google 最近在開發者圈子裡拋出的 Gemini 4 Argon 消息，比起技術規格，更像是一場精心設計的心理戰。大家在 Hacker News 上嘲諷這又是另一個「活在簡報裡的模型」，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261001-0830-82ce44/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-01T08:30:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 那些藏在實驗室裡的氬氣">
+<meta name="twitter:description" content="把尚未問世的技術取名為 Argon（氬），這事本身就帶著一種惰性氣體的冷淡。Google 最近在開發者圈子裡拋出的 Gemini 4 Argon 消息，比起技術規格，更像是一場精心設計的心理戰。大家在 Hacker News 上嘲諷這又是另一個「活在簡報裡的模型」，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 那些藏在實驗室裡的氬氣",
+  "description": "把尚未問世的技術取名為 Argon（氬），這事本身就帶著一種惰性氣體的冷淡。Google 最近在開發者圈子裡拋出的 Gemini 4 Argon 消息，比起技術規格，更像是一場精心設計的心理戰。大家在 Hacker News 上嘲諷這又是另一個「活在簡報裡的模型」，…",
+  "datePublished": "2026-10-01T08:30:00+08:00",
+  "dateModified": "2026-10-01T08:30:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261001-0830-82ce44/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-10-01 08:30
+  </div>
+
+  <h1 class="title">Google 那些藏在實驗室裡的氬氣</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>把尚未問世的技術取名為 Argon（氬），這事本身就帶著一種惰性氣體的冷淡。Google 最近在開發者圈子裡拋出的 Gemini 4 Argon 消息，比起技術規格，更像是一場精心設計的心理戰。大家在 Hacker News 上嘲諷這又是另一個「活在簡報裡的模型」，這種情緒並不難理解。當 OpenAI 的 o1 已經在處理複雜推理，Claude 3.5 Sonnet 成了工程師桌上的標配時，Google 依然在談論「正在迭代護欄」和「盡快提供給企業用戶」。</p>
+    <p>這種延遲發布的策略，正逐漸損害 Gemini 累積的信任。我們在實際測試中發現，Gemini 1.5 Pro 在處理超過二十萬 token 的長上下文時，雖然檢索精度極高，但它的指令遵循（Instruction Following）偶爾會出現一種近乎「神經質」的偏離。有開發者形容這種表現是邊緣精神官能症，這話聽起來刻薄，卻精準描述了模型在極端複雜任務下的不穩定。當 Argon 標榜更高的智能與性能時，如果不能解決這種邏輯上的跳躍，它開出的每百萬 token 輸出 10 美元的定價，恐怕只會讓開發者轉身走向更穩定的選擇。</p>
+    <p>定價策略是這次討論中最有趣的環節。Argon 提出的緩存輸入（Cached Input）折扣高達 95%，這顯然是針對頻繁調用 API 的開發場景進行精確打擊。相比之下，ChatGPT 的緩存定價策略顯得沒那麼激進。Google 試圖用成本優勢來掩蓋產品交付的疲軟。這種做法在短期內能吸引預算敏感型的初創企業，但在資深技術人員眼裡，一個還沒開放給「凡人」使用的模型，定價再漂亮也只是紙上談兵。</p>
+    <p>我們把視角拉遠一點。相較於 DeepSeek Elastic Compute (DSec) 近期展現的資源調度邏輯，Gemini 4 Argon 在基礎架構的對外透明度上顯然保守許多。當這類新技術如 DeepSeek Elastic Compute (DSec) 在特定討論區引起關注時，Google 依然選擇固守那套「封閉實驗室」的敘事風格。這種做法與 Grok 的激進與透明形成了鮮明對比。Grok 在處理實時資訊與長文本推理時，雖然有時顯得粗魯，但它的迭代速度讓 Google 的「護欄開發期」顯得格外漫長且官僚。</p>
+    <p>目前四大平台中，Claude 依然穩坐程式碼編寫與邏輯連貫性的頭把交椅，ChatGPT 則是全能型的基礎設施。Gemini 的優勢本該是那深不見底的上下文窗口，但如果 Argon 只是在窗口大小上加碼，而無法解決模型在輸出時的邏輯偏離問題，那麼它在專業市場的地位將會非常尷尬。很多時候，我們不需要一個會寫詩、會道歉、卻在關鍵邏輯跳轉處犯錯的 AI，我們需要的是一個能精準執行 function calling 而不產生幻覺的工具。</p>
+    <p>Google 似乎陷入了一種悖論：他們擁有最強大的底層算力和最深厚的研發積澱，卻在產品化這一關卡得最久。每一次新代號的流出，都伴隨著一陣驚嘆與隨之而來的疲憊。大家對「即將到來」的技術已經免疫了。如果 Argon 真的如傳聞中那般強大，為什麼 Google 始終不敢放手讓它進入真實世界的混沌中去磨練？</p>
+    <p>或許我們該問的是，當護欄被修築得比模型本身的智能還要厚重時，我們得到的究竟是一個輔助人類的工具，還是一個被閹割過的、只會重複安全聲明的電子錄音機？如果 Argon 最終上線時，依然帶著那種令人不安的「不穩定感」，那麼這 10 美元的定價，買到的究竟是解決方案，還是另一種形式的技術焦慮？當其他競爭對手已經在討論如何讓 AI 擁有長效記憶與自主代理能力時，Google 是否還打算在「安全性測試」這塊招牌下躲多久？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" rel="nofollow noopener" target="_blank">Gemini 4 Argon</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261001-0830-82ce44/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
