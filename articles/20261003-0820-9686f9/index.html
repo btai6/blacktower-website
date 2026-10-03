@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誰在定義 Claude 的安全邊界</title>
+<meta name="description" content="當 Anthropic 的法律團隊在為 FTC 的 6(b) 調查令焦頭爛額時，最讓工程師頭疼的恐怕不是文件存檔，而是如何向監管機構定義什麼叫「安全事故」。這不是玩文字遊戲。如果你要求 Claude 寫一段自動化滲透測試腳本，它拒絕了，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261003-0820-9686f9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="誰在定義 Claude 的安全邊界">
+<meta property="og:description" content="當 Anthropic 的法律團隊在為 FTC 的 6(b) 調查令焦頭爛額時，最讓工程師頭疼的恐怕不是文件存檔，而是如何向監管機構定義什麼叫「安全事故」。這不是玩文字遊戲。如果你要求 Claude 寫一段自動化滲透測試腳本，它拒絕了，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261003-0820-9686f9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-03T08:20:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="誰在定義 Claude 的安全邊界">
+<meta name="twitter:description" content="當 Anthropic 的法律團隊在為 FTC 的 6(b) 調查令焦頭爛額時，最讓工程師頭疼的恐怕不是文件存檔，而是如何向監管機構定義什麼叫「安全事故」。這不是玩文字遊戲。如果你要求 Claude 寫一段自動化滲透測試腳本，它拒絕了，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "誰在定義 Claude 的安全邊界",
+  "description": "當 Anthropic 的法律團隊在為 FTC 的 6(b) 調查令焦頭爛額時，最讓工程師頭疼的恐怕不是文件存檔，而是如何向監管機構定義什麼叫「安全事故」。這不是玩文字遊戲。如果你要求 Claude 寫一段自動化滲透測試腳本，它拒絕了，…",
+  "datePublished": "2026-10-03T08:20:00+08:00",
+  "dateModified": "2026-10-03T08:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261003-0820-9686f9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-03 08:20
+  </div>
+
+  <h1 class="title">誰在定義 Claude 的安全邊界</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 的法律團隊在為 FTC 的 6(b) 調查令焦頭爛額時，最讓工程師頭疼的恐怕不是文件存檔，而是如何向監管機構定義什麼叫「安全事故」。這不是玩文字遊戲。如果你要求 Claude 寫一段自動化滲透測試腳本，它拒絕了，這叫安全機制生效；但如果它在處理長文本時因為注意力機制偏移，漏掉了合約裡的關鍵條款，這算不算產品風險？監管機構想要的是像波音飛機掉零件那樣清晰的物理證據，但大模型領域的風險往往隱藏在權重與概率的迷霧裡，連創作者自己都未必能精準捕捉。</p>
+    <p>目前的爭議核心在於「低價傾銷」與「風險轉嫁」的雙重博弈。矽谷那些燒錢換增長的把戲我們見多了，但在 AI 領域，這種燒錢帶來的社會成本是隱形的。當 ChatGPT 以極低的 API 價格摧毀翻譯、初級編碼等勞動力市場時，這種「低於成本的擴張」是否構成了不正當競爭？FTC 的介入更像是一種遲到的應激反應。他們試圖在技術狂飆的公路上設置減速帶，卻發現司機們連方向盤在哪裡都還在爭論。對 Anthropic 而言，這是一場關於「憲法 AI」原則的終極測試。如果你宣稱你的模型具備自我約束的道德準則，那麼當這個準則失效時，責任主體是代碼還是那套虛無縹緲的憲法？</p>
+    <p>在技術實踐中，Claude 與 ChatGPT 展現了截然不同的應對路徑。OpenAI 傾向於事後補丁，透過大量的 RLHF 來過濾敏感輸出，這導致 GPT-4o 在某些時候顯得像個被過度管教的學生，回答問題戰戰兢兢，甚至出現邏輯閹割。相比之下，Claude 試圖從底層架構上解決「對齊」問題，但在面對複雜的系統級指令時，這種預設的防禦機制往往會變成技術負債。例如，在處理涉及生物醫學的敏感數據分析時，Claude 的拒絕觸發頻率遠高於 Gemini。這種「過度防禦」在監管眼裡是負責任的表現，但在付費企業用戶眼裡，這就是產品缺陷。</p>
+    <p>這種競爭格局在特定的市場語境下顯得尤為滑稽。相較於 DeepSeek 最近在開源社區引起的成本討論，Claude 這種堅持高定價、高安全門檻的商業模式，在監管壓力下顯得脆弱且笨重。當我們觀察四大平台的表現時，會發現這是一場關於「透明度」的表演。Grok 標榜的絕對言論自由在面對聯邦調查時能堅持多久？Gemini 在圖像生成的歷史偏差問題上摔過跤後，現在的自我審查已經到了令人窒息的地步。這些平台在試圖取悅不同受眾的同時，還得在 FTC 的顯微鏡下證明自己沒有在「販賣危險」。</p>
+    <p>最諷刺的莫過於「安全事故」的定義權。如果一個模型在生成代碼時引入了難以察覺的緩衝區溢位漏洞，而開發者直接將其部署到了生產環境，這筆帳該算在誰頭上？是算在模型推理的隨機性，還是算在 Anthropic 沒有在輸出界面加上足夠大的警告標語？現在的監管邏輯仍停留在工業時代，試圖用管理化工廠的方式來管理神經網絡。他們要求大模型公司提交關於數據採集、訓練過程和風險評估的詳細報告，卻忽略了黑盒模型本身就具備某種「不可解釋的創造力」。</p>
+    <p>我們正處於一個奇妙的真空期。一邊是技術專家在 Hacker News 上嘲諷監管機構的遲緩與無知，另一邊是像莉娜·汗（Lina Khan）這樣的監管者試圖重塑反壟斷與產品責任的邊界。當 ChatGPT 的用戶數突破億級，它就不再只是一個工具，而是一個公共基礎設施。基礎設施的崩潰是不被允許的，但 AI 的本質就是不斷在邊界上試探。</p>
+    <p>如果未來某一天，FTC 真的開出了巨額罰單，原因可能不是因為模型「做錯了什麼」，而是因為這幾家公司無法向人類解釋模型「為什麼會這麼做」。我們習慣了對機器下指令，卻從未準備好接受機器的不確定性。如果連開發者都無法定義「安全」，我們又怎能指望幾份法律文件能約束住那些在 GPU 叢林裡奔跑的概率分佈？當法律的腳步試圖追趕算法的演進，最終留下的會是真正的安全，還是一堆束縛創新卻護不住邊界的廢紙？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.cnbc.com/2026/09/30/ftc-ai-probe-openai-anthropic.html" rel="nofollow noopener" target="_blank">FTC is investigating OpenAI, Anthropic and other AI companies over product risks</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261003-0820-9686f9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
