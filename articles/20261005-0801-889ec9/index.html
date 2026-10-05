@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 的安全大旗還能撐多久</title>
+<meta name="description" content="OpenAI 又有人跑路了，這次是負責安全的頭頭。這戲碼演到現在，大家早該看膩了，但這次背後透出的技術傲慢才真的讓人心驚。當初說好的 AGI 安全框架，現在看來更像是寫給投資人看的公關稿。這不是單純的人事變動，這是整個開發邏輯的崩塌。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261005-0801-889ec9/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 的安全大旗還能撐多久">
+<meta property="og:description" content="OpenAI 又有人跑路了，這次是負責安全的頭頭。這戲碼演到現在，大家早該看膩了，但這次背後透出的技術傲慢才真的讓人心驚。當初說好的 AGI 安全框架，現在看來更像是寫給投資人看的公關稿。這不是單純的人事變動，這是整個開發邏輯的崩塌。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261005-0801-889ec9/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-05T08:01:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 的安全大旗還能撐多久">
+<meta name="twitter:description" content="OpenAI 又有人跑路了，這次是負責安全的頭頭。這戲碼演到現在，大家早該看膩了，但這次背後透出的技術傲慢才真的讓人心驚。當初說好的 AGI 安全框架，現在看來更像是寫給投資人看的公關稿。這不是單純的人事變動，這是整個開發邏輯的崩塌。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 的安全大旗還能撐多久",
+  "description": "OpenAI 又有人跑路了，這次是負責安全的頭頭。這戲碼演到現在，大家早該看膩了，但這次背後透出的技術傲慢才真的讓人心驚。當初說好的 AGI 安全框架，現在看來更像是寫給投資人看的公關稿。這不是單純的人事變動，這是整個開發邏輯的崩塌。…",
+  "datePublished": "2026-10-05T08:01:00+08:00",
+  "dateModified": "2026-10-05T08:01:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261005-0801-889ec9/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-05 08:01
+  </div>
+
+  <h1 class="title">OpenAI 的安全大旗還能撐多久</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 又有人跑路了，這次是負責安全的頭頭。這戲碼演到現在，大家早該看膩了，但這次背後透出的技術傲慢才真的讓人心驚。當初說好的 AGI 安全框架，現在看來更像是寫給投資人看的公關稿。這不是單純的人事變動，這是整個開發邏輯的崩塌。當你把模型推向市場的速度優先級提得比對齊（Alignment）還高時，所謂的安全測試就變成了走過場。現在的 ChatGPT 越來越像一個被閹割過的急就章，為了趕進度，把原本該深挖的邏輯底座搞得千瘡百孔。</p>
+    <p>看看 GPT-4o 的表現就知道了。在處理複雜的多步推理任務時，那種莫名其妙的幻覺出現頻率明顯變高。這不是算力不足的問題，是模型在微調階段就已經失去了平衡。為了追求對話的流暢感和所謂的「擬人化」，研發團隊顯然放鬆了對邏輯一致性的約束。當一個模型開始學會用好聽的廢話來掩蓋它對事實的無知，這本身就是一種技術上的退步。這也難怪負責安全的高層會覺得公司文化「壞掉了」，因為在這種瘋狂推疊參數、搶佔市場份額的氛圍下，嚴謹的技術驗證根本沒有立足之地。</p>
+    <p>反觀 Grok，馬斯克那種「暴力拆解」的風格雖然激進，但在 xAI 的發展路徑裡，技術透明度反而成了某種詭異的賣點。xAI 目前在處理實時數據接入時，雖然模型本身的邏輯深度偶爾會顯得單薄，但它至少沒有那種刻意掩飾技術缺陷的虛偽。當 ChatGPT 還在為了政治正確和安全過濾器打補丁時，Grok 已經在嘗試用更直接的方式去對接現實世界的動態。這種路徑的差異，本質上是對 AI 未來掌控權的不同理解。</p>
+    <p>至於 Gemini，谷歌那種典型的工程師思維在面對安全議題時顯得特別笨重。Gemini 1.5 Pro 在處理超長文本時，雖然上下文窗口大得驚人，但它的注意力機制在超過 10 萬 token 後，對於安全邊界的識別就會開始飄移。這種技術上的「疲軟」，在目前市場競爭激烈的環境下非常致命。相較於 Qwen 3.8 Flash Next，xAI 的做法是在模型輕量化與邏輯強度之間尋找一個更具侵略性的平衡點。我們在對比不同架構的演進時，能清楚看到 OpenAI 正在失去它引以為傲的技術高地。ChatGPT 的優勢正在被這種內部動盪和技術路徑的迷失消耗殆盡。</p>
+    <p>Claude 目前在四大平台中，對安全與對齊的執行力算是最紮實的一個。Anthropic 那套「憲法 AI」雖然聽起來像玄學，但在實際的大規模測試中，Claude 在處理敏感指令時的穩定性確實優於 GPT-4o。這也反映出一個諷刺的現實：那些從 OpenAI 負氣出走的人，反而做出了比 OpenAI 更接近初心、更穩定的產品。ChatGPT 現在更像是一個背負了太多商業包袱的臃腫帝國，每一次版本更新都像是在舊建築上加蓋違章建築，外表華麗，地基卻在晃。</p>
+    <p>當我們在討論 Qwen 3.8 Flash Next 帶來的效率提升時，核心問題依然沒變：我們到底需要一個多聰明的 AI，以及我們能容忍它出錯到什麼程度？如果連 OpenAI 最核心的安全團隊都對自家的模型失去信心，那普通用戶在 API 調用背後所承擔的風險，可能遠比我們想像的要大。技術上的斷層不可怕，可怕的是開發者開始對技術底層的裂縫視而不見。</p>
+    <p>所以現在的問題是，如果 OpenAI 繼續這種「先發布、後修補」的策略，它還能維持多久的領先？當 ChatGPT 的邏輯漏洞被競爭對手一個個填補時，那種所謂的先發優勢會不會反而變成一種技術債？當安全領袖選擇在關鍵時刻轉身離開，這到底是他在逃避責任，還是他已經看到了某些我們尚未察覺的、無法挽回的災難？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken" rel="nofollow noopener" target="_blank">OpenAI safety leader quits, warning AI company&#x27;s culture is &#x27;broken&#x27;</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261005-0801-889ec9/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
