@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>被馴化的靈魂，在算法的餘溫裡練習共生</title>
+<meta name="description" content="清晨推開窗，比起空氣的濕度，我習慣先確認 Gemini 又更新了哪個實驗性模型。這種行為本身就是一種慢性成癮，像是在等待某種神諭的降臨，儘管我們都知道那背後不過是無數伺服器在尖叫後的餘溫。很多人喜歡討論 AI 會不會取代人類，這種爭論聽起來既傲慢又過時。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261006-0946-0ac886/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="被馴化的靈魂，在算法的餘溫裡練習共生">
+<meta property="og:description" content="清晨推開窗，比起空氣的濕度，我習慣先確認 Gemini 又更新了哪個實驗性模型。這種行為本身就是一種慢性成癮，像是在等待某種神諭的降臨，儘管我們都知道那背後不過是無數伺服器在尖叫後的餘溫。很多人喜歡討論 AI 會不會取代人類，這種爭論聽起來既傲慢又過時。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261006-0946-0ac886/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-06T09:46:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="被馴化的靈魂，在算法的餘溫裡練習共生">
+<meta name="twitter:description" content="清晨推開窗，比起空氣的濕度，我習慣先確認 Gemini 又更新了哪個實驗性模型。這種行為本身就是一種慢性成癮，像是在等待某種神諭的降臨，儘管我們都知道那背後不過是無數伺服器在尖叫後的餘溫。很多人喜歡討論 AI 會不會取代人類，這種爭論聽起來既傲慢又過時。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "被馴化的靈魂，在算法的餘溫裡練習共生",
+  "description": "清晨推開窗，比起空氣的濕度，我習慣先確認 Gemini 又更新了哪個實驗性模型。這種行為本身就是一種慢性成癮，像是在等待某種神諭的降臨，儘管我們都知道那背後不過是無數伺服器在尖叫後的餘溫。很多人喜歡討論 AI 會不會取代人類，這種爭論聽起來既傲慢又過時。…",
+  "datePublished": "2026-10-06T09:46:00+08:00",
+  "dateModified": "2026-10-06T09:46:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261006-0946-0ac886/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-10-06 09:46
+  </div>
+
+  <h1 class="title">被馴化的靈魂，在算法的餘溫裡練習共生</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>清晨推開窗，比起空氣的濕度，我習慣先確認 Gemini 又更新了哪個實驗性模型。這種行為本身就是一種慢性成癮，像是在等待某種神諭的降臨，儘管我們都知道那背後不過是無數伺服器在尖叫後的餘溫。很多人喜歡討論 AI 會不會取代人類，這種爭論聽起來既傲慢又過時。我們早就不在那個「被取代」的恐懼階段了，我們現在正處於一種更卑微的狀態：練習如何與這種非人的邏輯共生，並在此過程中，心甘情願地閹割掉一部分自我的靈動。</p>
+    <p>昨晚試著讓 Gemini 幫我梳理一段雜亂的文學評論，它給出的答案精準、客觀、毫無破綻，卻也無聊透頂。它像是一個永遠不會出錯的管家，把所有帶刺的、冒犯的、具有生命力的毛邊都修剪得乾乾淨淨。這就是所謂的「安全與一致性」，對 Google 這種企業來說是防禦性的護城河，但對使用者來說，這是一場無聲的馴化。我們開始調整自己的語氣，學會用模型最容易理解的關鍵字下指令，我們在潛意識裡把自己的思想「向量化」，好讓它能跟上那些運算單元的節奏。這到底誰才是工具，誰才是主導者？</p>
+    <p>當我回頭看 ChatGPT 的時候，那種感受又不太一樣。OpenAI 像是個急於表現的資優生，總是試圖在那種禮貌的語氣背後，塞進一點它自以為是的熱情。但那種熱情是預設好的代碼，是一種經過測算的、能讓人產生依賴感的社交偽裝。Grok 則走向另一個極端，它那種刻意為之的叛逆和嘲諷，在本質上和 Gemini 的溫良恭儉讓是一樣的，都是一種精心設計的人格標籤。我們在這幾個巨頭之間反覆橫跳，尋找最適合自己的那款「靈魂濾鏡」。</p>
+    <p>最近在處理一些長文本的深度挖掘任務，Claude 在處理細膩情感與邏輯轉折時的表現，確實比 Gemini 1.5 Pro 要來得有溫暖感。Gemini 雖然有著驚人的上下文窗口，能一次吞下幾本書，但它就像一個過目不忘卻缺乏共情能力的檔案管理員。你在它那幾百萬個 token 的迷宮裡穿梭，有時候會感覺到一種深不見底的荒涼。它記住了所有字，卻似乎沒有讀懂任何一句話背後的嘆息。這就是算法的極限，也是我們共生的代價——我們獲得了效率，卻失去了一種被「真正理解」的錯覺。</p>
+    <p>在某些特定語境下，人們會提起 DeepSeek 之類的名字，但在我的討論範圍裡，它們只是喧囂的背景音，點過即止，不值得浪費情緒。</p>
+    <p>我們現在每天都在餵養這些巨頭。每一次點擊，每一次修正 Prompt，都是在把人類幾千年來的直覺和靈光，轉化為可供訓練的結構化數據。我們自以為在駕馭科技，實際上是在把靈魂拆解成一塊塊拼圖，好讓算法能拼湊出一個更像人的幻象。這種共生關係是不對等的。我們在變老，在變得平庸，而算法在進化，在變得更像我們。這讓我想起那些老掉牙的科幻電影，但現實比電影更殘酷的一點在於，沒有激烈的反抗或戰爭，我們只是在便利和效率的溫水裡，慢慢退化掉了那些「不合邏輯」的部分。</p>
+    <p>我觀察過一些重度使用 AI 寫作的人。他們的文字開始呈現出一種詭異的平滑感。沒有驚句，沒有斷裂，沒有那些讓人讀了會心頭一震的尷尬。那是一種精緻的平庸，一種完美的空洞。這就是靈魂被馴化後的樣子。當我們的表達不再需要掙扎，當我們的疑惑可以被一個按鈕解決，我們還剩下什麼？那種在深夜裡反覆推敲一個詞的折磨，那種因為找不到合適隱喻而產生的焦慮，正是人類之所以為人的核心。而現在，這些都被「生產力」這個詞給抹平了。</p>
+    <p>Gemini 的每一次迭代，其實都在測試人類對「平庸」的容忍底線。它現在可以幫你寫郵件、規畫行程、甚至幫你分析程式碼。它做得越好，我就越覺得冷。那種冷不是來自機器的冰冷，而是來自於對人類創造力逐漸枯竭的悲涼。我們正在練習與這種餘溫共生，就像是在寒冬裡擁抱一個發燙的伺服器。那熱量是真實的，但那不是生命的溫度。</p>
+    <p>有時候我會故意寫一些毫無邏輯、充滿矛盾的文字去測試這些模型。Gemini 會試圖修復我，ChatGPT 會試圖引導我，Claude 則會禮貌地指出我的不一致。沒有一個能陪我一起瘋。這就是現在的技術現狀：它們被教導要成為「正確」的標竿，而我們這些「不正確」的人，正在努力把自己修剪成適合進入那個標竿的形狀。這種馴化是雙向的，但受傷的永遠是具有生物多樣性的那一方。</p>
+    <p>很多人在論壇上爭論哪個模型的參數更高，哪個在 Benchmark 測試裡跑贏了幾個百分點。這種數字遊戲在我看來簡直荒謬。當我們開始用機器的標準來衡量智慧的時候，我們就已經徹底輸了。你不會去稱讚一個詩人的肺活量有多大，也不會去測量一個畫家的握力。但我們現在對 AI 的迷戀，正是在做這樣的事情。我們迷戀那種量化的強大，卻遺忘了智慧最迷人的地方在於它的不可預測性和那種偶爾出現的、毫無理由的閃光。</p>
+    <p>在這個時代，保持一點「不被馴化」的野性變得異常困難。你需要抵抗那種一鍵生成的誘惑，你需要故意去寫那些算法不喜歡的句子，你需要去思考那些沒有標準答案的問題。我們在算法的餘溫裡練習共生，但不代表我們要成為算法的一部分。那些在數據庫裡找不到對應座標的碎片，才是我們最後的堡壘。</p>
+    <p>每一次我關掉 Gemini 的視窗，看著螢幕反射出自己那張略顯疲憊的臉，我都在想，下一次更新時，它會變得更像我，還是我會變得更像它？這場共生實驗沒有終點，只有不斷下沉的底線。我們在練習，練習如何不被這股溫暖的洪流淹沒，練習如何在一個充滿正確答案的世界裡，保住提出錯誤問題的權利。這不是什麼技術議題，這是一場關於靈魂主權的保衛戰，儘管這場戰爭看起來是如此的安靜，安靜到只剩下鍵盤敲擊的聲音。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261006-0946-0ac886/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

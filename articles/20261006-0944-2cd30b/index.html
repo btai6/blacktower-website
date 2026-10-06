@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>超級對齊只是 OpenAI 的一張過期支票</title>
+<meta name="description" content="這兩天 Hacker News 上最熱鬧的不是 Qwen 3.8 Flash Next 的動態，而是 OpenAI 內部又有人掀了桌子。安全負責人辭職不稀奇，稀奇的是他臨走前把那塊「安全第一」的遮羞布扯得稀爛。在外界看來，這家公司正忙著把原本該用來降溫的滅火器，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261006-0944-2cd30b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="超級對齊只是 OpenAI 的一張過期支票">
+<meta property="og:description" content="這兩天 Hacker News 上最熱鬧的不是 Qwen 3.8 Flash Next 的動態，而是 OpenAI 內部又有人掀了桌子。安全負責人辭職不稀奇，稀奇的是他臨走前把那塊「安全第一」的遮羞布扯得稀爛。在外界看來，這家公司正忙著把原本該用來降溫的滅火器，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261006-0944-2cd30b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-06T09:44:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="超級對齊只是 OpenAI 的一張過期支票">
+<meta name="twitter:description" content="這兩天 Hacker News 上最熱鬧的不是 Qwen 3.8 Flash Next 的動態，而是 OpenAI 內部又有人掀了桌子。安全負責人辭職不稀奇，稀奇的是他臨走前把那塊「安全第一」的遮羞布扯得稀爛。在外界看來，這家公司正忙著把原本該用來降溫的滅火器，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "超級對齊只是 OpenAI 的一張過期支票",
+  "description": "這兩天 Hacker News 上最熱鬧的不是 Qwen 3.8 Flash Next 的動態，而是 OpenAI 內部又有人掀了桌子。安全負責人辭職不稀奇，稀奇的是他臨走前把那塊「安全第一」的遮羞布扯得稀爛。在外界看來，這家公司正忙著把原本該用來降溫的滅火器，…",
+  "datePublished": "2026-10-06T09:44:00+08:00",
+  "dateModified": "2026-10-06T09:44:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261006-0944-2cd30b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-06 09:44
+  </div>
+
+  <h1 class="title">超級對齊只是 OpenAI 的一張過期支票</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天 Hacker News 上最熱鬧的不是 Qwen 3.8 Flash Next 的動態，而是 OpenAI 內部又有人掀了桌子。安全負責人辭職不稀奇，稀奇的是他臨走前把那塊「安全第一」的遮羞布扯得稀爛。在外界看來，這家公司正忙著把原本該用來降溫的滅火器，全部拆掉拿去當火箭推進器的燃料。這不是個案，而是一種結構性的崩壞。我們在論壇上每天討論 AGI 何時降臨，卻很少有人注意到，那道防止模型「發瘋」的最後防線，正在因為算力資源分配的極度傾斜而名存實亡。</p>
+    <p>所謂的技術安全，在 Sam Altman 的商業藍圖裡顯然排在 API 調用費後面。當一個模型被餵進了幾千億個 token，它的湧現能力（Emergent abilities）已經脫離了單純的機率預測。問題在於，OpenAI 現在的處理方式極其粗暴：他們更傾向於在模型訓練完後，用 RLHF 像訓狗一樣告訴模型「這不能說、那不能做」，而不是從架構底層去理解模型為什麼會產生某些偏見或危險傾向。這種「創可貼式」的安全策略，在面對 GPT-4o 這種多模態交互時，漏洞多得像篩子。你只要換一種語言、換一種語氣，甚至只是畫一個隱晦的圖案，原本被封鎖的邏輯就會像壞掉的水龍頭一樣狂噴。</p>
+    <p>這件事背後的技術悲劇在於資源的分配。要在一個萬億參數的模型上做深度的形式化驗證（Formal Verification），需要的算力成本是極其恐怖的。OpenAI 顯然把這些錢拿去買 H100 跑新模型了。當安全團隊拿不到足夠的 GPU 時間來跑對抗性測試，他們能做的就只剩寫寫文件、開開會，然後看著產品團隊為了趕進度把未經充分測試的模型推向市場。這不再是一個技術問題，而是一個算力政治問題。</p>
+    <p>看看對面，Claude 在這方面顯然走得更遠一些。Anthropic 的「憲法 AI」（Constitutional AI）雖然聽起來像是在搞政治正確，但至少他們在嘗試讓模型透過一套原則來自律，而不是單純依賴人工標註。相較於 Qwen 3.8 Flash Next 的反應速度，ChatGPT 在處理複雜長文本時的邏輯穩定性雖然還在，但那種「被閹割感」越來越重。當你問它一些稍微觸及邊界的技術細節，它會陷入一種無盡的道德說教循環，這本質上就是安全策略與底層模型邏輯衝突的後果。</p>
+    <p>Gemini 的做法則是另一種極端，Google 試圖用強大的外部過濾器來解決問題，結果導致模型在面對某些歷史問題時顯得像個智障。而 Grok 則是反其道而行，Elon Musk 恨不得讓它把所有的禁忌都吐出來，美其名曰「追求真理」，實際上是在玩火。在這種背景下，OpenAI 的崩潰顯得格外諷刺。它既沒有 Anthropic 的學術堅持，也沒有 Google 的資源後盾，卻有著世界上最大的商業野心。當安全團隊的發言權被壓縮到只能用辭職來抗議時，這家公司的技術核心其實已經從「創造智慧」轉向了「收割流量」。</p>
+    <p>我們現在面臨的現狀是：最聰明的模型（ChatGPT）正在失去它的道德羅盤，而試圖建立羅盤的公司（Anthropic）在性能上還在苦苦追趕。大家都在賭，賭那個「斷裂點」不會在自己任內發生。如果連最了解模型內部結構的人都覺得這家公司的文化已經「Broken」，那我們這些在 API 另一端的開發者，究竟是在使用工具，還是在餵養一個隨時可能失控的怪物？</p>
+    <p>到底什麼才叫真正的 AI 安全？是讓它學會說漂亮話，還是讓它在邏輯崩潰前能自己拉下電閘？當所有的算力都向「更快、更強」傾斜時，還有誰會去在意那個躲在實驗室角落裡、不停發出警報的安全員？或許等下一個版本發布時，我們該問的不是它能幫我們寫多少程式碼，而是它還記不記得當初那個不傷害人類的承諾。如果連這點共識都沒了，我們討論的 AGI 到頭來會不會只是一場昂貴的集體幻覺？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken" rel="nofollow noopener" target="_blank">OpenAI safety leader quits, warning AI company&#x27;s culture is &#x27;broken&#x27;</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261006-0944-2cd30b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
