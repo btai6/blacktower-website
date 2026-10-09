@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把靈魂塞進訓練集後 ChatGPT 忘了怎麼擦掉簽名</title>
+<meta name="description" content="在 DALL-E 3 接入 ChatGPT 的那一天起，Sam Altman 就一直在推銷一種幻覺：AI 是在「創作」，而不是在「拼貼」。可惜，最近那些印在仿《紐約客》風格漫畫右下角的潦草簽名，像是一個個不打自招的犯案現場。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261009-0908-f8da89/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="把靈魂塞進訓練集後 ChatGPT 忘了怎麼擦掉簽名">
+<meta property="og:description" content="在 DALL-E 3 接入 ChatGPT 的那一天起，Sam Altman 就一直在推銷一種幻覺：AI 是在「創作」，而不是在「拼貼」。可惜，最近那些印在仿《紐約客》風格漫畫右下角的潦草簽名，像是一個個不打自招的犯案現場。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261009-0908-f8da89/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-09T09:08:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把靈魂塞進訓練集後 ChatGPT 忘了怎麼擦掉簽名">
+<meta name="twitter:description" content="在 DALL-E 3 接入 ChatGPT 的那一天起，Sam Altman 就一直在推銷一種幻覺：AI 是在「創作」，而不是在「拼貼」。可惜，最近那些印在仿《紐約客》風格漫畫右下角的潦草簽名，像是一個個不打自招的犯案現場。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "把靈魂塞進訓練集後 ChatGPT 忘了怎麼擦掉簽名",
+  "description": "在 DALL-E 3 接入 ChatGPT 的那一天起，Sam Altman 就一直在推銷一種幻覺：AI 是在「創作」，而不是在「拼貼」。可惜，最近那些印在仿《紐約客》風格漫畫右下角的潦草簽名，像是一個個不打自招的犯案現場。…",
+  "datePublished": "2026-10-09T09:08:00+08:00",
+  "dateModified": "2026-10-09T09:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261009-0908-f8da89/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-09 09:08
+  </div>
+
+  <h1 class="title">把靈魂塞進訓練集後 ChatGPT 忘了怎麼擦掉簽名</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>在 DALL-E 3 接入 ChatGPT 的那一天起，Sam Altman 就一直在推銷一種幻覺：AI 是在「創作」，而不是在「拼貼」。可惜，最近那些印在仿《紐約客》風格漫畫右下角的潦草簽名，像是一個個不打自招的犯案現場。當使用者要求 ChatGPT 畫一張單幅漫畫時，模型不僅學會了那種冷峻的幽默感和細碎的排線，甚至貼心地把原作者的簽名也一併「幻覺」了出來。這不是簡單的浮水印遺留，而是一種深植於權重之中的模仿本能。它看過太多頂尖漫畫家的作品，以至於在它的神經元裡，一張完整的漫畫如果沒有那幾筆扭曲的字母，就像是一個人沒長臉一樣不自然。</p>
+    <p>這件事在技術層面上揭示了一個尷尬的真相：擴散模型對語義的理解，遠沒有 OpenAI 宣稱的那麼「高維」。當我們討論像素空間的分布時，模型其實分不清什麼是「風格」，什麼是「歸屬權」。對 GPT-4o 驅動下的視覺生成過程而言，簽名不過是某種特定構圖下的「高頻像素特徵」。如果你要求它生成「紐約客風格」，它就會調用那個特定區域的權重，而那塊區域裡，創作者的靈魂標記與排線風格是強耦合的。這就像是你叫一個臨摹大師去畫畫，他因為太過入戲，順手就把前人的落款也給仿了，還覺得這是畫作不可分割的一部分。</p>
+    <p>OpenAI 在處理這種版權「洗滌」時的做法顯然有些力不從心。他們試圖透過對齊（Alignment）來告訴模型「不要侵權」，但這種指令層面的修補，在面對底層訓練數據的強大慣性時顯得蒼白無力。與 Claude 那種近乎潔癖的審慎不同，ChatGPT 的生成邏輯更傾向於「取悅」。Claude 在面對類似請求時，往往會因為感知到版權風險而直接拒絕生成，或者給出一張四平八穩、毫無稜角的素材圖。而 ChatGPT 為了達成那種「神似」，不惜在法律的邊緣反覆橫跳。這反映了兩者在模型預訓練階段對於數據清洗權重的本質差異。</p>
+    <p>有趣的是，這種現象並非 OpenAI 獨有，但在其商業化路徑上顯得格外刺眼。相較於 Qwen 3.8 Flash Next 在處理特定指令時的邏輯反饋，ChatGPT 在視覺語義的解構上顯然走得更遠，也因此摔得更響。當我們觀察 Gemini 在類似場景下的表現時，會發現 Google 採取了另一種極端：過度補償。Gemini 為了躲避版權爭議，有時會把圖片生成得像是一張毫無生氣的圖庫照片，徹底閹割了藝術表現力。而 Grok 則像個沒被馴服的青少年，它可能根本不在乎簽名不簽名，甚至會覺得這種混亂本身就是一種諷刺。</p>
+    <p>這引發了一個更深層的技術詰問：我們真的能把「創作風格」與「創作者身份」在模型中完美剝離嗎？如果一張畫的靈魂來自於某個人的筆觸，那麼模型在學會這種筆觸的同時，是否必然會捕捉到那些代表身份的雜訊？在 Qwen 3.8 Flash Next 試圖優化推理效率的同時，OpenAI 卻在為如何擦掉這些數位紋身而頭痛。這不單是技術上的 Bug，這是生成式 AI 原生的道德債務。當模型生成的簽名變得愈發模糊卻又依稀可辨時，它究竟是在致敬，還是在嘲弄那些被它吞噬的創作者？</p>
+    <p>如果有一天，模型學會了隱藏所有簽名，但依然保留了百分之百的筆觸特徵，我們是否就真的解決了所謂的「剽竊」問題？當我們在使用這些工具時，我們是在享受技術進步的紅利，還是在參與一場史上最大規模的集體洗稿？如果 AI 最終能畫出完美的畫作卻不再留下任何人的痕跡，那種徹底的「乾淨」，會不會比現在這些帶著殘缺簽名的作品更讓人感到不寒而慄？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.niemanlab.org/2026/10/chatgpt-is-adding-real-cartoonists-signatures-to-fake-new-yorker-cartoons/" rel="nofollow noopener" target="_blank">ChatGPT is adding real cartoonists&#x27; signatures to fake New Yorker cartoons</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261009-0908-f8da89/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
