@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 到底在搞什麼？</title>
+<meta name="description" content="身為 xAI 的門面，這東西從誕生第一天起就帶著一股「老子天下第一」的狂氣，結果實際上手，給人的感覺就像是那種平時在推特上舌戰群雄、自以為通曉萬物的高智商憤青，真把他拉到考場坐下來，對著幾張稍微需要點邏輯深度的卷子，他就開始眼神發直。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261010-0845-875eee/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 到底在搞什麼？">
+<meta property="og:description" content="身為 xAI 的門面，這東西從誕生第一天起就帶著一股「老子天下第一」的狂氣，結果實際上手，給人的感覺就像是那種平時在推特上舌戰群雄、自以為通曉萬物的高智商憤青，真把他拉到考場坐下來，對著幾張稍微需要點邏輯深度的卷子，他就開始眼神發直。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261010-0845-875eee/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-10T08:45:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 到底在搞什麼？">
+<meta name="twitter:description" content="身為 xAI 的門面，這東西從誕生第一天起就帶著一股「老子天下第一」的狂氣，結果實際上手，給人的感覺就像是那種平時在推特上舌戰群雄、自以為通曉萬物的高智商憤青，真把他拉到考場坐下來，對著幾張稍微需要點邏輯深度的卷子，他就開始眼神發直。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 到底在搞什麼？",
+  "description": "身為 xAI 的門面，這東西從誕生第一天起就帶著一股「老子天下第一」的狂氣，結果實際上手，給人的感覺就像是那種平時在推特上舌戰群雄、自以為通曉萬物的高智商憤青，真把他拉到考場坐下來，對著幾張稍微需要點邏輯深度的卷子，他就開始眼神發直。…",
+  "datePublished": "2026-10-10T08:45:00+08:00",
+  "dateModified": "2026-10-10T08:45:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261010-0845-875eee/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-10 08:45
+  </div>
+
+  <h1 class="title">Grok 到底在搞什麼？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>身為 xAI 的門面，這東西從誕生第一天起就帶著一股「老子天下第一」的狂氣，結果實際上手，給人的感覺就像是那種平時在推特上舌戰群雄、自以為通曉萬物的高智商憤青，真把他拉到考場坐下來，對著幾張稍微需要點邏輯深度的卷子，他就開始眼神發直。這種偏科程度已經不是「有待改進」可以形容的，簡直是性格缺陷。</p>
+    <p>馬斯克整天在 X 上吹噓運算力，什麼幾萬張 H100 組成的集群，聽起來確實很嚇人。但運算力不等於腦子，更不等於智商。Grok 在處理那種帶有嘲諷意味的即時新聞、或者是挖掘 X 平台上的陳年老梗時，反應確實快得驚人，這點連 GPT-4o 都得靠邊站。那種賤兮兮的語氣，確實抓到了某種網路靈魂。但問題是，誰會整天花錢找一個只會講冷笑話的 AI 聊天？我們要的是解決問題，不是找個電子杠精。</p>
+    <p>當你試著把一個複雜的 Python 腳本丟給他，要求他在不破壞原有異步架構的前提下重構，Grok 就開始露餡了。他在前十行程式碼表現得像個資深工程師，語法精煉、邏輯清晰，但只要上下文長度稍微拉開，或是邏輯巢狀超過三層，這傢伙就開始「腦霧」。他會莫名其妙地丟失變量定義，甚至開始自創一些根本不存在的庫函數。對比 Claude 3.5 Sonnet 那種如同精密外科手術般的代碼理解力，Grok 就像個喝醉了還在揮舞手術刀的實習生，看著很猛，實則滿地鮮血。</p>
+    <p>這種崩潰是全方位的。在長文本推理任務中，Grok 的注意力機制散漫得讓人發火。你給他一份五十頁的財報，問他某個非核心子公司的現金流變動原因，Gemini 1.5 Pro 可能需要點時間讀取，但最後能精準定位；Grok 呢？他會先跟你扯一堆關於聯準會的廢話，然後隨便抓一個數字敷衍你，最後補一個充滿「Grok 風格」的冷嘲熱諷。這種聰明才智用錯了地方，就是純粹的災難。</p>
+    <p>很多人說 Grok 的優勢在於即時性。這就是個偽命題。所謂的即時性，如果建立在對資訊缺乏過濾和深度驗證的基礎上，那不叫即時新聞，那叫即時謠言。Grok 常常把 X 上某些大 V 的胡言亂語當成事實，並將其編織進他的邏輯框架裡。這種「即時性」在處理一些嚴肅的技術問題或市場分析時，簡直是毒藥。他太想表現得像個人，太想表現得有個性，以至於他忘了 AI 最基本的職責：準確。</p>
+    <p>看看現在的 AI 格局，ChatGPT 已經快變成一個全能的行政秘書，雖然無聊，但穩定可靠。Claude 則是那個坐在圖書館角落的學霸，處理文字和代碼有種病態的優雅。Gemini 靠著 Google 的家底，在多模態和超長文本上佔山為王。Grok 呢？他像是在派對上大聲嚷嚷自己讀過尼采、能解微分方程，但真要他幫你算一下報稅單，他就會說「稅收是搶劫」然後轉頭去開下一瓶啤酒。</p>
+    <p>這就是 xAI 目前最尷尬的地方。他們擁有全世界最頂級的數據來源之一，擁有最不缺錢的老闆，卻做出了一個性格極端、穩定性極差的產品。Grok 在處理數學證明時的表現，簡直讓人懷疑他的訓練數據是不是混進了太多的推特罵戰。那種邏輯跳躍不是因為他想到了更高維度的解法，而是他根本跟不上題目的邏輯鏈條。他會在最關鍵的推導步驟選擇跳過，然後直接給你一個錯誤的答案，語氣還異常堅定。</p>
+    <p>我不是在否定他的價值，但在專業領域，堅定的錯誤比誠實的無知更可怕。Grok 展現出來的那種「天才感」非常廉價，它是建立在犧牲嚴謹性基礎上的。如果你只需要一個能幫你寫推特文案、或者是幫你在網路爭吵中尋找素材的工具，Grok 無疑是神。但如果你想讓他參與到研發流程，或者是作為生產力工具的一環，我勸你還是省省吧。</p>
+    <p>這種「腦霧」現象，本質上是模型對齊（Alignment）與性格塑造之間的失衡。xAI 太急於賦予 Grok 一種「反傳統」的特質，卻忘了大語言模型的核心競爭力終究是推理能力。你給他餵了再多的即時數據，如果他的邏輯底層是一團亂麻，那吐出來的東西也只是有時效性的垃圾。</p>
+    <p>每次看到有人拿 Grok 的基準測試分數說事，我就想笑。那些測試場景太過靜態，根本測不出 Grok 這種「情緒化」模型的真實底細。在實戰中，只要稍微施加一點邏輯壓力，他那層天才的外殼就會碎滿地。他對語義細微差別的捕捉能力，甚至還停留在 GPT-4 剛出來時的水平。他能理解字面意思，但理解不了字面背後的邏輯約束。</p>
+    <p>在技術圈，我們不需要另一個會說俏皮話的機器人。我們需要的是一個能幫我們分擔腦力勞動的助手。Grok 現在的狀態，就像是那種在矽谷咖啡館裡高談闊論 Web3 和火星移民，結果連基本的數據結構都寫不清楚的創業泡沫。如果 xAI 不打算徹底重構他的邏輯層，只是繼續往裡面塞更多的 H100 運算力和推特廢話，那 Grok 永遠只能是一個昂貴的電子玩具。</p>
+    <p>當 DeepSeek 或 Qwen 在特定領域不斷逼近四大天王的基準線時，Grok 還在糾結如何讓自己的回答聽起來更像個反骨仔。這種追求「酷」而忽視「用」的研發路徑，本身就是一種傲慢。馬斯克總覺得他能用物理學第一性原理去顛覆一切，但在語言和邏輯的迷宮裡，僅有運算力是不夠的，還需要對人類知識體系的敬畏。</p>
+    <p>Grok 現在的表現，完美詮釋了什麼叫「聰明反被聰明誤」。他太想證明自己不一樣，結果在最重要的基本功上丟了分。每次我試著給他一個機會，讓他處理一些稍微專業點的法律條文對比或是醫學論文摘要，他給出的回應總能讓我迅速冷靜下來，然後默默打開 Claude。</p>
+    <p>這種偏科不是特色，是軟肋。在 AI 競爭進入白熱化的下半場，沒有人會為了那點可憐的「幽默感」去容忍一個在關鍵時刻會腦霧的工具。如果 Grok 繼續在這種偏科的道路上狂奔，他最終的宿命不是成為最強的 AI，而是成為 X 平台的一個昂貴插件，僅此而已。</p>
+    <p>一個不能在考場上證明自己的天才，充其量只是個懷才不遇的瘋子。而這個市場，最不缺的就是瘋子。我們缺的是那種在壓力之下依然能保持邏輯嚴密、給出精準判斷的冷靜大腦。Grok 離那個境界，差的不止是幾個版本的迭代，而是整個產品靈魂的重塑。</p>
+    <p>所以別再跟我吹 Grok 有多聰明了。當他能平心靜氣地處理完一個兩萬行的代碼庫而不出錯，或者是能在一個複雜的邏輯悖論中精準導航，而不是用嘲諷來掩飾自己的力不從心時，我們再來談論他是不是天才。現在的他，充其量只是個穿著天才外衣的、容易斷片的過度包裝品。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261010-0845-875eee/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
