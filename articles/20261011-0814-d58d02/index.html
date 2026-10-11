@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 Embedding 終於不再只是 LLM 的附屬品</title>
+<meta name="description" content="在向量數據庫被撐爆之前，很少有人會去在意 Embedding 模型的大小。大多數開發者習慣了直接調用 OpenAI 的 API，或者隨手抓一個 Hugging Face 上排名靠前的模型塞進內存。直到 RAG 架構從簡單的檢索擴散到複雜的多模態代理，大家才發現，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261011-0814-d58d02/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 Embedding 終於不再只是 LLM 的附屬品">
+<meta property="og:description" content="在向量數據庫被撐爆之前，很少有人會去在意 Embedding 模型的大小。大多數開發者習慣了直接調用 OpenAI 的 API，或者隨手抓一個 Hugging Face 上排名靠前的模型塞進內存。直到 RAG 架構從簡單的檢索擴散到複雜的多模態代理，大家才發現，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261011-0814-d58d02/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-11T08:14:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 Embedding 終於不再只是 LLM 的附屬品">
+<meta name="twitter:description" content="在向量數據庫被撐爆之前，很少有人會去在意 Embedding 模型的大小。大多數開發者習慣了直接調用 OpenAI 的 API，或者隨手抓一個 Hugging Face 上排名靠前的模型塞進內存。直到 RAG 架構從簡單的檢索擴散到複雜的多模態代理，大家才發現，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 Embedding 終於不再只是 LLM 的附屬品",
+  "description": "在向量數據庫被撐爆之前，很少有人會去在意 Embedding 模型的大小。大多數開發者習慣了直接調用 OpenAI 的 API，或者隨手抓一個 Hugging Face 上排名靠前的模型塞進內存。直到 RAG 架構從簡單的檢索擴散到複雜的多模態代理，大家才發現，…",
+  "datePublished": "2026-10-11T08:14:00+08:00",
+  "dateModified": "2026-10-11T08:14:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261011-0814-d58d02/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-10-11 08:14
+  </div>
+
+  <h1 class="title">當 Embedding 終於不再只是 LLM 的附屬品</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在向量數據庫被撐爆之前，很少有人會去在意 Embedding 模型的大小。大多數開發者習慣了直接調用 OpenAI 的 API，或者隨手抓一個 Hugging Face 上排名靠前的模型塞進內存。直到 RAG 架構從簡單的檢索擴散到複雜的多模態代理，大家才發現，為了那幾百個維度的向量，我們付出的計算成本和推理延遲已經到了令人不耐煩的地步。Google 最近釋出的 EmbeddingGemma 2 似乎就在戳這個痛點，它把文本模型壓縮到 270M，連同視覺模態加起來也才 440M。這種體量對於那些想在邊緣設備或 Android 手機上跑局部檢索的人來說，簡直是久旱逢甘霖。</p>
+    <p>以前我們處理多模態數據，通常得玩一場拼接遊戲：用一個視覺模型提取特徵，再用一個文本模型處理描述，最後強行把它們映射到同一個空間。這種做法的斷裂感很強，尤其是在處理複雜圖像與細微文字描述的對齊時，模型往往會顯得力不從心。Gemini 團隊這次把 Gemma 2 的架構直接拿來做嵌入，本質上是在復用大模型已經學到的語義理解能力。這不是簡單的特徵提取，而是一種語義空間的降維打擊。當你在一個 20 億參數規模的預訓練模型基礎上進行對比學習，產出的向量質量自然不是那些幾千萬參數的小模型能比擬的。</p>
+    <p>這種「輕量化」的趨勢在四大平台之間其實有著截然不同的路徑。OpenAI 依然守著它的 text-embedding-3 家族，雖然性能極其穩定，但它是個黑盒子。你不知道它背後跑的是什麼，更沒法把它部署到你的私有內存裡。對於處理百萬級甚至千萬級向量的應用場景，長期支付 API 費用以及面臨數據出海的合規壓力，始終是懸在開發者頭上的達摩克利斯之劍。Claude 在這方面則顯得有些高冷，Anthropic 似乎更專注於提升長文本的推理能力，對於基礎嵌入模型的更新節奏慢得讓人焦慮。</p>
+    <p>相較於 DeepSeek 4.1 Flash 最近在效率上的激進嘗試，Google 的做法則是試圖在開源權重與商業閉源之間劃出一道分界線。Gemini 1.5 Pro 的嵌入能力雖然強悍，但 EmbeddingGemma 2 的出現，實際上是 Google 在向開發者社區示好。它採用 Apache 2.0 協議，這意味著你可以在自己的服務器上隨意折騰，不用擔心哪天接口突然漲價或者響應變慢。這種開放性在當前的 AI 生態中變得越來越稀缺，尤其是當大家都在追求「越大越好」的時候，有人願意回過頭來優化這種基礎設施級別的小工具，確實值得玩味。</p>
+    <p>在實際的開發場景中，Embedding 模型的好壞直接決定了 RAG 的上限。如果你用 GPT-4o 這種頂級模型去回答問題，但檢索回來的內容本身就是歪的，那再強的推理能力也是在浪費電。Gemini 團隊選擇在 400M 這個量級發力，顯然是看準了移動端和物聯網設備的缺口。試想一下，一個能夠在本地實時索引照片、文檔和對話紀錄的助手，如果每次檢索都要上雲，那用戶體驗基本就毀了。Grok 目前雖然在 X 平台上玩得風生水起，但在這種底層工具鏈的佈局上，顯然還沒能跟上 Google 的步調。</p>
+    <p>不過，EmbeddingGemma 2 的出現也引發了一個有趣的技術爭論：我們真的需要這麼多專門的嵌入模型嗎？Google 內部其實還有像 SigLIP 2 這樣優秀的視覺語義模型，兩者在功能上有重疊，但在架構上又各行其道。這反映出即便是在 Google 內部，對於「如何最優地表示世界」這件事依然沒有達成共識。是應該讓 LLM 兼職做嵌入，還是開發一套全新的多模態對齊算法？</p>
+    <p>當我們在討論模型權重是否應該開放時，往往忽略了最核心的資產其實是那個向量空間的定義權。一旦你的數據庫裡存滿了某個模型的向量，你就很難再切換到另一個平台，因為重新計算數百萬個向量的成本高得驚人。這也是為什麼 Google 選擇開源一個如此輕量的模型——它想成為你數據庫裡的底層操作系統。</p>
+    <p>那麼問題來了，當嵌入模型變得越來越小、甚至可以輕易在瀏覽器裡跑起來時，我們對於「雲端大模型」的依賴，究竟會因此減弱，還是會因為本地預處理能力的增強而變得更加根深蒂固？如果在本地就能完成高品質的語義檢索，那雲端那顆昂貴的腦袋，是不是只需要負責最後那一步的語言組織工作就夠了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/" rel="nofollow noopener" target="_blank">EmbeddingGemma 2: An open, lightweight multimodal embedding model</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261011-0814-d58d02/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

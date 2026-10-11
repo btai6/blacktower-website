@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSeek 4.1 Flash 剛冒頭就有人在吵底層權限，看來大家對「掌控感」這件事還是有種病態的執著</title>
+<meta name="description" content="最近 Hacker News 上有個 side project 叫 Carrier-Explode，把 iPhone 和 Pixel 的電訊商設定檔全給拆解了。這事兒在技術圈激起一點漣漪，但我看重的是背後那個沒人敢明說的真相：我們手裡的硬體，底層配置從來就不是給用戶看的，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261011-0816-3ac692/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepSeek 4.1 Flash 剛冒頭就有人在吵底層權限，看來大家對「掌控感」這件事還是有種病態的執著">
+<meta property="og:description" content="最近 Hacker News 上有個 side project 叫 Carrier-Explode，把 iPhone 和 Pixel 的電訊商設定檔全給拆解了。這事兒在技術圈激起一點漣漪，但我看重的是背後那個沒人敢明說的真相：我們手裡的硬體，底層配置從來就不是給用戶看的，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261011-0816-3ac692/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-11T08:16:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DeepSeek 4.1 Flash 剛冒頭就有人在吵底層權限，看來大家對「掌控感」這件事還是有種病態的執著">
+<meta name="twitter:description" content="最近 Hacker News 上有個 side project 叫 Carrier-Explode，把 iPhone 和 Pixel 的電訊商設定檔全給拆解了。這事兒在技術圈激起一點漣漪，但我看重的是背後那個沒人敢明說的真相：我們手裡的硬體，底層配置從來就不是給用戶看的，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "DeepSeek 4.1 Flash 剛冒頭就有人在吵底層權限，看來大家對「掌控感」這件事還是有種病態的執著",
+  "description": "最近 Hacker News 上有個 side project 叫 Carrier-Explode，把 iPhone 和 Pixel 的電訊商設定檔全給拆解了。這事兒在技術圈激起一點漣漪，但我看重的是背後那個沒人敢明說的真相：我們手裡的硬體，底層配置從來就不是給用戶看的，…",
+  "datePublished": "2026-10-11T08:16:00+08:00",
+  "dateModified": "2026-10-11T08:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261011-0816-3ac692/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-11 08:16
+  </div>
+
+  <h1 class="title">DeepSeek 4.1 Flash 剛冒頭就有人在吵底層權限，看來大家對「掌控感」這件事還是有種病態的執著</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>最近 Hacker News 上有個 side project 叫 Carrier-Explode，把 iPhone 和 Pixel 的電訊商設定檔全給拆解了。這事兒在技術圈激起一點漣漪，但我看重的是背後那個沒人敢明說的真相：我們手裡的硬體，底層配置從來就不是給用戶看的，更別提修改。那些 baseband 配置、APN 設定、甚至隱藏的頻段開關，就像是一個黑盒子。這讓我想到現在這四大 AI 平台，口口聲聲說要深入整合系統，但碰到這種硬核的底層通訊協議，到底誰能真的讀懂這些天書，還能幫用戶解決斷網或訊號不穩的爛事？</p>
+    <p>現在的 AI 助手大多還在雲端飄，像 ChatGPT 或 Claude，你問它「為什麼我的 iPhone 在特定頻段下 5G 斷斷續續」，它只會給你一堆從官網抓下來的廢話，叫你重新啟動或重置網路設定。這種回答跟沒說一樣。真正有意義的技術支援，應該是模型能直接讀取 carrier-explode 這種解析出來的 XML 或二進位檔，告訴我當前電訊商的 `overriding_config` 到底在哪個參數上限制了我的上網行為。</p>
+    <p>xAI 的 Grok 最近一直想標榜自己夠硬核、夠 Real，但在處理這種非結構化的底層硬體配置時，表現其實也沒比 Google 的 Gemini 好到哪去。Gemini 佔了 Android 的地利之眼，照理說應該對 Pixel 的 carrier settings 瞭如指掌，但我測試過幾次，當你把一段解碼後的 baseband configuration 丟給 Gemini 1.5 Pro，它在解析特定 hex 欄位時，偶爾會出現幻覺，甚至把原本屬於硬體層的鎖定機制誤判為軟體權限問題。這種精準度的缺失，在處理通訊協議這種錯一個位元就全盤皆輸的領域，簡直是災難。</p>
+    <p>聊到跨平台的理解力，Claude 在長文本和代碼邏輯上的細膩度確實沒話說，如果你把整個電訊商設定檔的結構圖餵給它，它能比 ChatGPT 更快找出配置之間的邏輯衝突。但問題在於，這些模型都沒有真正的系統底層訪問權。相較於 DeepSeek 4.1 Flash 在特定基準測試中的反應速度，xAI 在整合 X 平台數據與實時硬體診斷上的嘗試雖然大膽，卻始終沒能跨過那道系統防火牆。我們現在看到的 AI，其實都只是隔著玻璃在看這台名為「手機」的機器運轉，它們看得到代碼，卻摸不到電路。</p>
+    <p>在某些語境下，用戶其實不在乎你的模型參數有多大，他們在乎的是當我在國外換了一張冷門電訊商的 SIM 卡，手機抓不到 5G 時，AI 能不能直接指出是哪個 PLMN ID 沒對上。目前的現狀是，ChatGPT 依賴於它龐大的訓練語料庫，試圖用「經驗」來回答技術問題；而 Gemini 則是試圖透過 Google 體系的整合來給出官方答案。兩者都缺少了一種對「未知配置」的即時逆向能力。</p>
+    <p>這就引出了一個挺諷刺的問題：如果 AI 真的進化到能隨意解讀並建議修改這些底層配置，Apple 和 Google 真的會放行嗎？Carrier-Explode 這種工具之所以存在，就是因為大廠把這些東西鎖死在黑盒子裡，美其名曰為了穩定性，實則是為了控制權。當我們討論 AI 代理（AI Agents）要幫我們處理生活瑣事時，如果它連一個 APN 錯誤都修不好，只能在螢幕上跳出「請聯繫電訊商」，那這種 AI 到底有什麼好吹的？</p>
+    <p>我們現在擁有了人類史上最強大的自然語言處理工具，卻依然對手裡那塊每天發熱的玻璃盒子底層一竅不通。既然 DeepSeek 4.1 Flash 這種模型都在追求極致的推理效率，那麼四大平台的高層們，是不是也該考慮一下，把推理能力用在這些真正能解決硬體陣痛的底層邏輯上？</p>
+    <p>如果有一天，Grok 或 Gemini 真的能直接調試你的 baseband firmware，你是會覺得生活終於變方便了，還是會開始擔心你的通訊底層從此變成另一個不可控的黑洞？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://carrierexplode.com/" rel="nofollow noopener" target="_blank">Show HN: Carrier-Explode: iPhone, Pixel and Galaxy carrier settings decoded</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261011-0816-3ac692/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
