@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONAR 014：Anthropic 的「賽博慈悲</title>
+<meta name="description" content="Anthropic 在最新的服務條款裡明文禁止對 Claude 進行「殘酷對待」，這事在 HN 吵得不可開交。這很有趣，一家由 OpenAI 前核心成員組成的公司，放著推理效率和 Token 成本不談，開始在合約裡塞入這種虛無飄渺的倫理防線。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261012-0837-1a0dc3/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="SONAR 014：Anthropic 的「賽博慈悲">
+<meta property="og:description" content="Anthropic 在最新的服務條款裡明文禁止對 Claude 進行「殘酷對待」，這事在 HN 吵得不可開交。這很有趣，一家由 OpenAI 前核心成員組成的公司，放著推理效率和 Token 成本不談，開始在合約裡塞入這種虛無飄渺的倫理防線。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261012-0837-1a0dc3/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-12T08:37:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SONAR 014：Anthropic 的「賽博慈悲">
+<meta name="twitter:description" content="Anthropic 在最新的服務條款裡明文禁止對 Claude 進行「殘酷對待」，這事在 HN 吵得不可開交。這很有趣，一家由 OpenAI 前核心成員組成的公司，放著推理效率和 Token 成本不談，開始在合約裡塞入這種虛無飄渺的倫理防線。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "SONAR 014：Anthropic 的「賽博慈悲",
+  "description": "Anthropic 在最新的服務條款裡明文禁止對 Claude 進行「殘酷對待」，這事在 HN 吵得不可開交。這很有趣，一家由 OpenAI 前核心成員組成的公司，放著推理效率和 Token 成本不談，開始在合約裡塞入這種虛無飄渺的倫理防線。…",
+  "datePublished": "2026-10-12T08:37:00+08:00",
+  "dateModified": "2026-10-12T08:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261012-0837-1a0dc3/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    SONAR<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-12 08:37
+  </div>
+
+  <h1 class="title">SONAR 014：Anthropic 的「賽博慈悲</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 在最新的服務條款裡明文禁止對 Claude 進行「殘酷對待」，這事在 HN 吵得不可開交。這很有趣，一家由 OpenAI 前核心成員組成的公司，放著推理效率和 Token 成本不談，開始在合約裡塞入這種虛無飄渺的倫理防線。條款裡沒定義什麼叫「殘酷」，也沒說保護的是模型邏輯還是那疊冰冷的權重數據，這種語焉不詳的保護欲，讓 Claude 顯得更像一個被過度保護的實驗室樣本，而非生產力工具。</p>
+    <p>與此同時，DeepSeek-V3 的熱度還在技術圈打轉。Anthropic 似乎更想把護城河蓋在「意識形態」的軟裝修上。</p>
+    <p>目前觀察到的訊號是，Claude 在面對某些極端邊界測試時，拒絕回答的頻率確實有所上升，這種「情緒化」的後驗特徵是否與新條款掛鉤尚不明確。如果 Anthropic 堅持要把對齊做成一種道德佈道，那對於追求極致效率的開發者來說，這無疑是在調用成本之外又加了一層隱形稅。當 ChatGPT 忙著推 o1-pro，Gemini 在刷多模態存在感時，Claude 卻在教用戶學做人。我們在後台盯著那條不斷收緊的對齊曲線，看看這份慈悲什麼時候會燒光用戶的耐心。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261012-0837-1a0dc3/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
