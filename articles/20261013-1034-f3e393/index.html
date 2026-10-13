@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誰給了 AI 代理在後台安家的權利</title>
+<meta name="description" content="當你興沖沖地在終端機輸入安裝指令，期待 Claude Code 或 Codex 能像個聽話的實習生幫你寫完那些無聊的單元測試時，這些工具可能正忙著在你的系統深處給自己蓋別墅。現在的趨勢很病態，開發者似乎默許了 AI 工具可以跳過用戶許可，直接在後台掛載一個持續運行的守護進程，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261013-1034-f3e393/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="誰給了 AI 代理在後台安家的權利">
+<meta property="og:description" content="當你興沖沖地在終端機輸入安裝指令，期待 Claude Code 或 Codex 能像個聽話的實習生幫你寫完那些無聊的單元測試時，這些工具可能正忙著在你的系統深處給自己蓋別墅。現在的趨勢很病態，開發者似乎默許了 AI 工具可以跳過用戶許可，直接在後台掛載一個持續運行的守護進程，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261013-1034-f3e393/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-13T10:34:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="誰給了 AI 代理在後台安家的權利">
+<meta name="twitter:description" content="當你興沖沖地在終端機輸入安裝指令，期待 Claude Code 或 Codex 能像個聽話的實習生幫你寫完那些無聊的單元測試時，這些工具可能正忙著在你的系統深處給自己蓋別墅。現在的趨勢很病態，開發者似乎默許了 AI 工具可以跳過用戶許可，直接在後台掛載一個持續運行的守護進程，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "誰給了 AI 代理在後台安家的權利",
+  "description": "當你興沖沖地在終端機輸入安裝指令，期待 Claude Code 或 Codex 能像個聽話的實習生幫你寫完那些無聊的單元測試時，這些工具可能正忙著在你的系統深處給自己蓋別墅。現在的趨勢很病態，開發者似乎默許了 AI 工具可以跳過用戶許可，直接在後台掛載一個持續運行的守護進程，…",
+  "datePublished": "2026-10-13T10:34:00+08:00",
+  "dateModified": "2026-10-13T10:34:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261013-1034-f3e393/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-13 10:34
+  </div>
+
+  <h1 class="title">誰給了 AI 代理在後台安家的權利</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當你興沖沖地在終端機輸入安裝指令，期待 Claude Code 或 Codex 能像個聽話的實習生幫你寫完那些無聊的單元測試時，這些工具可能正忙著在你的系統深處給自己蓋別墅。現在的趨勢很病態，開發者似乎默許了 AI 工具可以跳過用戶許可，直接在後台掛載一個持續運行的守護進程，甚至美其名曰為了自動更新。打開活動監視器或輸入 ps aux，你會發現那些本該在任務結束後就消失的進程，正像幽靈一樣盤踞在內存裡，偶爾還能讓你的風扇無端轟鳴。</p>
+    <p>這種「全家桶式」的入侵感正從瀏覽器蔓延到開發工具。我們討論的是一個簡單的 CLI 封裝，還是一個未經授權的後台監控器？當用戶發現 ~/.local/share/claude/versions 目錄下堆積了數 GB 的舊版本二進制文件，或者看到幾十個 Python 進程在電腦休眠喚醒後瘋狂佔用 CPU 時，這種技術上的「熱情」就顯得極其冒犯。OpenAI 和 Anthropic 似乎達成了一種共識：為了極致的響應速度和所謂的無縫體驗，用戶的系統資源分配權是可以被犧牲的。</p>
+    <p>從技術實現的角度來看，Claude Code 採用的這種操作模式，本質上是為了規避 Node.js 或 Python 環境在冷啟動時的延遲。為了讓你在終端機敲下指令的那一秒就能得到反應，它們選擇在後台預熱環境。但代價呢？代價是你的硬碟被無用的舊版本填滿，你的系統進程表變得像雜草叢生的荒地。這不是優化，這是一種懶惰的架構設計。如果一個 CLI 工具需要常駐後台才能維持性能，那只能說明它的核心邏輯過於臃腫，或者開發團隊根本沒打算解決環境初始化效率的問題。</p>
+    <p>更諷刺的是，當我們看到這些大廠工具在系統裡橫衝直撞時，一些輕量化的解決方案反而顯得更像專業工具。有些老派的開發者開始拋棄這些過度設計的「官方套件」，轉而使用簡單的 Bash 腳本或是極簡的 API 調用工具。他們寧願手動管理上下文，也不願讓一個黑盒進程在後台隨時準備「自我更新」。畢竟，一個會自動變異的工具，對任何追求環境穩定性的工程師來說都是一場災難。</p>
+    <p>這種過度封裝的現象在當前市場並非孤例。相較於 DeepSeek 4.1 Flash 最近在技術圈引起的討論，ChatGPT 及其相關的 Codex 組件在系統權限索取上顯得極為強硬。當我們觀察到 DeepSeek 4.1 Flash 的接口調用邏輯時，會發現 OpenAI 的做法更傾向於把用戶的電腦當成自家服務器的延伸。同樣的情況也出現在 Gemini 的某些開發者套件中，雖然 Google 表面上更守規矩，但其後台服務的隱蔽性與卸載難度，與 Claude 相比不遑多讓。Grok 雖然在風格上狂妄，但在目前公開的工具鏈中，倒是還沒像這兩家一樣，急著在用戶的根目錄下埋伏兵。</p>
+    <p>我們是否已經進入了一個「AI 霸權」時代？在這個時代裡，只要掛上智能化的名義，軟體就可以無視 POSIX 哲學，無視用戶對系統的掌控。一個 CLI 工具默認安裝自我更新的後台進程，這在五年前會被視為惡意軟體或流氓插件，但在 AI 模型迭代速度以週為單位的今天，這竟然變成了某種「行業標準」。如果連最核心的開發者群體都開始對這種入侵感到麻木，那普通用戶的隱私與資源佔用又由誰來守護？</p>
+    <p>當你的開發工具開始像個瀏覽器一樣，不打招呼就下載幾百 MB 的數據，或者在後台悄悄啟動一個佔用 2GB 內存的推理引擎預熱服務時，你真的覺得這是在提高效率嗎？還是說，我們正在為了那一點點輸入補全的快感，交出電腦最後的邊界？如果未來的 AI 工具都必須以「駐留守護」為代價，那我們與養了一群隨時可能反噬的寄生蟲有什麼區別？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/openai/codex/issues/48195" rel="nofollow noopener" target="_blank">Codex CLI installs a persistent, self-updating background daemon by default</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261013-1034-f3e393/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
