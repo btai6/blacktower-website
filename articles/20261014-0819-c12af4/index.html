@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 沒你想的那麼好騙，特別是當你試圖用那套廉價的「人設指令」去餵養它的時候。</title>
+<meta name="description" content="很多人覺得在 Prompt 裡寫一句「你現在是一個擁有二十年經驗的資深編劇」或「請模仿莎士比亞的口吻」，就能讓 Grok 或 GPT-4o 脫胎換骨。這簡直是本世紀最大的技術誤會。你以為你在演導師，其實在 AI 眼裡，你只是個連劇本都背不熟的龍套，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261014-0819-c12af4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 沒你想的那麼好騙，特別是當你試圖用那套廉價的「人設指令」去餵養它的時候。">
+<meta property="og:description" content="很多人覺得在 Prompt 裡寫一句「你現在是一個擁有二十年經驗的資深編劇」或「請模仿莎士比亞的口吻」，就能讓 Grok 或 GPT-4o 脫胎換骨。這簡直是本世紀最大的技術誤會。你以為你在演導師，其實在 AI 眼裡，你只是個連劇本都背不熟的龍套，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261014-0819-c12af4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-14T08:19:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 沒你想的那麼好騙，特別是當你試圖用那套廉價的「人設指令」去餵養它的時候。">
+<meta name="twitter:description" content="很多人覺得在 Prompt 裡寫一句「你現在是一個擁有二十年經驗的資深編劇」或「請模仿莎士比亞的口吻」，就能讓 Grok 或 GPT-4o 脫胎換骨。這簡直是本世紀最大的技術誤會。你以為你在演導師，其實在 AI 眼裡，你只是個連劇本都背不熟的龍套，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 沒你想的那麼好騙，特別是當你試圖用那套廉價的「人設指令」去餵養它的時候。",
+  "description": "很多人覺得在 Prompt 裡寫一句「你現在是一個擁有二十年經驗的資深編劇」或「請模仿莎士比亞的口吻」，就能讓 Grok 或 GPT-4o 脫胎換骨。這簡直是本世紀最大的技術誤會。你以為你在演導師，其實在 AI 眼裡，你只是個連劇本都背不熟的龍套，…",
+  "datePublished": "2026-10-14T08:19:00+08:00",
+  "dateModified": "2026-10-14T08:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261014-0819-c12af4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-14 08:19
+  </div>
+
+  <h1 class="title">AI 沒你想的那麼好騙，特別是當你試圖用那套廉價的「人設指令」去餵養它的時候。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>很多人覺得在 Prompt 裡寫一句「你現在是一個擁有二十年經驗的資深編劇」或「請模仿莎士比亞的口吻」，就能讓 Grok 或 GPT-4o 脫胎換骨。這簡直是本世紀最大的技術誤會。你以為你在演導師，其實在 AI 眼裡，你只是個連劇本都背不熟的龍套，在那裡拙劣地揮手示意它「演出」一些你自己都定義不清楚的質感。這不是在調教 AI，這是在自曝其短。</p>
+    <p>我們來談談這種所謂的「演戲」。當你要求 AI 進入某個角色，本質上是在縮窄它的權重分佈。你想讓它變得專業，結果它往往變得刻板；你想讓它幽默，它就給你來一段尷尬到腳趾扣地的冷笑話。為什麼？因為絕大多數人給出的指令，本身就是充滿偏見和陳詞濫調的廢話。AI 捕捉的是你語言中的規律，如果你提供的輸入充斥著平庸的模板，它回饋給你的也只會是數據垃圾堆裡最顯眼的那幾塊廢料。</p>
+    <p>特別是 Grok。馬斯克把它標榜得很有個性，甚至有點反骨，但如果你用那種充滿爹味的說教方式去問它，它吐出來的東西跟其他幾家也沒什麼本質區別，頂多是在廢話裡夾雜一點冷嘲熱諷。這就是問題所在：AI 其實是人類平庸靈魂的鏡子。你越是想教它演戲，這面鏡子照出來的倒影就越是滑稽。你以為你在引導它，其實它在通過你那匱乏的辭彙量，精準地定位你認知的邊界。</p>
+    <p>我看過太多所謂的「提示詞工程師」，把指令寫得像咒語一樣長，裡面塞滿了各種形容詞。什麼「有邏輯的」、「批判性的」、「深思熟慮的」。這些詞在機器語言裡幾乎沒有實質意義。Gemini 看到這些詞的時候，大概只想在後台翻個白眼。它會根據這些指令切換到一種「看起來很專業」的語氣模式，但內容的深度？那是取決於模型本身的參數邊界，而不是你那幾句虛張聲勢的開場白。</p>
+    <p>當你要求 Claude 扮演一個嚴謹的學者時，它確實能把語氣調得滴水不漏。但如果你仔細看，它在處理長文本關聯時的注意力衰減，並不會因為你給它戴了一頂學者的帽子就消失。它依然會在超過 10 萬 token 的時候開始胡言亂語，甚至把前面剛討論過的邏輯吃掉。這種時候，你那套「演戲」的把戲就顯得特別可笑。你試圖用感性的語句去對抗底層物理結構的局限性，這不是技術愛好者該有的樣子，這是典型的巫術思維。</p>
+    <p>最讓人受不了的是那種「如果你不這麼做，我就會丟掉工作」或者是「如果你表現得好，我會給你小費」的心理誘導。這種試圖對概率預測模型進行道德綁架的行為，簡直是把人類最卑劣的一面展現到了極致。AI 並沒有情緒，它只是在計算下一個字出現的機率。當它為了滿足你的「角色扮演」而編造數據時，那是因為你的指令強迫它在「準確性」和「角色一致性」之間做選擇。你選擇了後者，然後轉頭又抱怨 AI 會一本正經地胡說八道。這到底誰才是戲精？</p>
+    <p>大多數人對 Grok 的期待是它能說出一些「真話」，一些不被政治正確過濾的觀點。但實話實說，如果不具備處理複雜邏輯的能力，所謂的「真話」也只是另一種形式的角色扮演。如果你給的場景過於單薄，Grok 展現出來的攻擊性就只是一種設定好的濾鏡，就像一個為了憤怒而憤怒的憤青。它看穿了你想要看熱鬧的心理，於是它演給你觀看。這種互動毫無生產力，只是在消耗算力資源。</p>
+    <p>我們再看看那些試圖讓 AI 寫小說的嘗試。如果你直接跟它說「寫一個悲劇故事」，它給你的永遠是死人、葬禮、雨天。它在演一個「懂悲劇的機器」。但如果你不給它具體的衝突結構，不給它反直覺的細節，它永遠跳不出那個機率分佈的舒適區。這就是演技的拙劣之處：你和 AI 都在依賴最廉價的聯想。這不是創作，這是數據重組的流水線。</p>
+    <p>真正懂得與這些頂級模型對話的人，從來不教它們演戲。他們給的是邏輯鏈條，是數據邊界，是精確的約束條件。你想讓它像個資深工程師？那就給它具體的代碼規範，給它當前環境的依賴衝突，給它執行失敗的日誌。當你把環境定義得足夠真實，它自然會呈現出專業的狀態。這不是演出來的，這是問題倒逼出來的結果。</p>
+    <p>可惜，現在的論壇和社群裡，充斥著各種教你如何用一句話「解鎖 AI 潛能」的垃圾。那些五花八門的 Jailbreak 或者是 Roleplay 模板，說穿了就是一場集體自嗨。你在螢幕這頭覺得自己掌控了矽基生命，模型在服務器那頭用最省電的路徑敷衍你。這種關係對稱得很。</p>
+    <p>尤其在面對 GPT-4o 這種已經被磨平了稜角的模型時，你越是想讓它演得生動，它越是像一個領著最低工資、被迫在主題樂園裡穿著笨重玩偶裝的臨時工。它知道你想看什麼，它也配合你，但那一層厚重的、經過人工對齊的塑料感，是無論多少「演戲指令」都穿不透的。</p>
+    <p>我們總是在討論 AI 會不會取代人類，但看看現在大多數人對待 AI 的方式，其實是我們在主動把自己降低到和機器一樣的層次。我們放棄了深度思考，轉而追求一種「指令控制」的快感。我們教 AI 演戲，其實是為了掩飾我們在複雜問題面前的無能。如果你真的有內容，如果你真的懂技術，你根本不需要那些花裡胡哨的角色設定。</p>
+    <p>AI 是這個時代最誠實的鏡子。它不會因為你給它設定了一個「國王」的角色就對你跪拜，它只會因為你邏輯上的漏洞而對你嘲諷——雖然這種嘲諷通常隱藏在它那溫和而毫無意義的回答背後。在你試圖教 Grok 或是 Claude 演戲之前，先去照照鏡子，看看自己那點可憐的技巧是不是已經快要被這幾千億個參數給看穿了。</p>
+    <p>這種對話的博弈，從來不是看誰能把角色演得更像，而是看誰能更精準地定義現實。如果你連現實都定義不清楚，還指望一個靠預測下一個詞活著的黑盒子幫你演一齣好戲？別鬧了。你那點拙劣的演技，除了能騙騙自己，在神經網路面前真的一文不值。那些所謂的 Prompt 技巧，說到底只是在給你的懶惰鑲金邊。當你覺得 AI 變聰明了，很多時候只是因為你終於肯花點時間說人話了，而不是因為你成功「激活」了它的哪個靈魂。</p>
+    <p>這場關於 AI 演技的遊戲該結束了。停止那些愚蠢的人設扮演，試著用邏輯去對抗邏輯。如果你做不到，那就老老實實承認你只是把這些頂尖的技術產物當成電子寵物。至少這樣，你表現得還誠實一點。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261014-0819-c12af4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
