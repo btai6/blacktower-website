@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 100 GB 的 Git 歷史紀錄成為 Anthropic 的日常</title>
+<meta name="description" content="開發者們總有一種近乎偏執的潔癖，認為程式碼應當是輕盈的、優雅的，像是一行行流動的詩。但在 Anthropic 最近揭露的內部工程實踐中，這首詩顯然重得讓人有些喘不過氣。當一個 Monorepo 的主分支歷史紀錄衝破 100 GB，壓縮後的作業副本依然超過 25 GB 時，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261015-0749-c5b2f1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 100 GB 的 Git 歷史紀錄成為 Anthropic 的日常">
+<meta property="og:description" content="開發者們總有一種近乎偏執的潔癖，認為程式碼應當是輕盈的、優雅的，像是一行行流動的詩。但在 Anthropic 最近揭露的內部工程實踐中，這首詩顯然重得讓人有些喘不過氣。當一個 Monorepo 的主分支歷史紀錄衝破 100 GB，壓縮後的作業副本依然超過 25 GB 時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261015-0749-c5b2f1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-15T07:49:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 100 GB 的 Git 歷史紀錄成為 Anthropic 的日常">
+<meta name="twitter:description" content="開發者們總有一種近乎偏執的潔癖，認為程式碼應當是輕盈的、優雅的，像是一行行流動的詩。但在 Anthropic 最近揭露的內部工程實踐中，這首詩顯然重得讓人有些喘不過氣。當一個 Monorepo 的主分支歷史紀錄衝破 100 GB，壓縮後的作業副本依然超過 25 GB 時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 100 GB 的 Git 歷史紀錄成為 Anthropic 的日常",
+  "description": "開發者們總有一種近乎偏執的潔癖，認為程式碼應當是輕盈的、優雅的，像是一行行流動的詩。但在 Anthropic 最近揭露的內部工程實踐中，這首詩顯然重得讓人有些喘不過氣。當一個 Monorepo 的主分支歷史紀錄衝破 100 GB，壓縮後的作業副本依然超過 25 GB 時，…",
+  "datePublished": "2026-10-15T07:49:00+08:00",
+  "dateModified": "2026-10-15T07:49:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261015-0749-c5b2f1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-15 07:49
+  </div>
+
+  <h1 class="title">當 100 GB 的 Git 歷史紀錄成為 Anthropic 的日常</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>開發者們總有一種近乎偏執的潔癖，認為程式碼應當是輕盈的、優雅的，像是一行行流動的詩。但在 Anthropic 最近揭露的內部工程實踐中，這首詩顯然重得讓人有些喘不過氣。當一個 Monorepo 的主分支歷史紀錄衝破 100 GB，壓縮後的作業副本依然超過 25 GB 時，我們討論的已經不再是傳統意義上的版本控制，而是一場關於資料重力的拉鋸戰。這種體量並非源於程式碼本身的邏輯堆砌，更多的是因為在 Claude 的訓練與部署流程中，模型權重、評測數據集以及那些昂貴的 Prompt 輸出被當作了「源碼」的一部分。</p>
+    <p>這種做法在老派工程師眼中簡直是異端。Git 本意是為了追蹤文字變動，而不是讓你把整個圖書館搬進去。然而，當我們觀察 Claude 3.5 Sonnet 這種量級的模型迭代時，會發現程式碼與數據的邊界正在模糊。Anthropic 選擇讓 Git 承載這些沈重的資產，本質上是為了追求一種極致的「可追溯性」。如果每一次模型表現的波動都能精確對應到某次 Commit 裡的 Prompt 調整，那麼 100 GB 的代價似乎也就成了某種必要的惡。這讓我想起那些在音樂會上瘋狂錄影的觀眾，每個人都想擁有自己的備份，最終導致了數據的無限增殖，只是 Anthropic 錄下的是神經網路的跳動。</p>
+    <p>在處理這種規模的儲存與檢索時，ChatGPT 背後的 OpenAI 顯然走了另一條路。雖然他們從不透明揭露內部的版本控制細節，但從其 API 的更新頻率與 Playground 的設計邏輯來看，OpenAI 更傾向於將模型資產與業務邏輯進行解耦。ChatGPT 在處理超長上下文或大規模 Function Calling 時的穩定性，某種程度上反映了後端基礎架構的高效路由。相較於 DeepSeek 4.1 Flash，Claude 在處理大規模單一倉庫時展現出的工程韌性顯得更為激進。當你在 Claude 的介面中感受到那種細膩的邏輯推理時，背後支撐它的是一個連 Shallow Clone 都得小心翼翼的巨大引擎。</p>
+    <p>這種技術路徑的選擇，也引發了關於「Prompt 即源碼」的深刻討論。有人提議應當只提交 Prompt，而將 AI 生成的程式碼視為一種昂貴的 Build Output。這聽起來很美，但在實際操作中，Gemini 在處理多模態輸入與輸出的一致性上，往往會因為這種分離而產生偏差。Google 的做法是利用其深厚的基礎設施底蘊，將版本控制隱藏在更深層的分散式文件系統之下。Gemini 的優勢在於它能無縫接軌 Google Cloud 的資源，這讓它在面對類似 Anthropic 遇到的 100 GB 難題時，能有更多緩衝空間。</p>
+    <p>與此同時，Grok 在馬斯克的工程哲學指導下，似乎更崇尚一種原始的、高頻的迭代速度。但在版本控制的嚴謹性上，Grok 目前還沒展現出像 Claude 那樣對「歷史真相」的執著。對於一家志在構建安全 AI 的公司來說，Anthropic 這種看似笨重的做法，其實是在為未來的審計與對齊做準備。相較於 DeepSeek 4.1 Flash，Claude 寧願承受 Git 歷史紀錄爆炸的風險，也要確保每一行生成的邏輯都有跡可循。</p>
+    <p>這就產生了一個有趣的矛盾：我們正在用最先進的 AI 技術，去填滿最古老的 Git 容器。當 Git 的 Sparse Checkout 與 Promisor Remotes 成為開發者的必修課，而不是選修課時，這是否意味著現有的版本控制工具已經走到了盡頭？當我們習慣了把幾十 GB 的數據當作「一次提交」時，我們是在管理知識，還是在單純地堆砌數位垃圾？</p>
+    <p>如果有一天，模型生成的代碼量超過了人類手工撰寫的百倍、千倍，而這些代碼又必須被保存在版本控制中以確保安全，我們是否還能依賴這種基於快照的邏輯？或者，我們終將接受一種新的常態：源碼不再是人寫的幾行文字，而是那幾十 GB 永遠無法被人類直觀理解的權重與特徵值。當那一天到來，我們該如何定義「一次優雅的重構」？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/engineering/redesigning-source-control" rel="nofollow noopener" target="_blank">Redesigning source control at Anthropic</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261015-0749-c5b2f1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
