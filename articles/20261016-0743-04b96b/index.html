@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工程師最愛抱怨 Grok 或 GPT 吐出來的代碼是垃圾，但你們從來不照鏡子看看自己硬碟裡塞了什麼東西。</title>
+<meta name="description" content="整天在那邊喊著 AI 會一本正經地胡說八道，說什麼幻覺（Hallucination）是大型語言模型的原罪。拜託，模型是拿網路上的數據餵出來的，而網路上的代碼庫有八成是邏輯破碎、命名混亂、連作者自己隔天都看不懂的廢紙。AI 只是面鏡子，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261016-0743-04b96b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="工程師最愛抱怨 Grok 或 GPT 吐出來的代碼是垃圾，但你們從來不照鏡子看看自己硬碟裡塞了什麼東西。">
+<meta property="og:description" content="整天在那邊喊著 AI 會一本正經地胡說八道，說什麼幻覺（Hallucination）是大型語言模型的原罪。拜託，模型是拿網路上的數據餵出來的，而網路上的代碼庫有八成是邏輯破碎、命名混亂、連作者自己隔天都看不懂的廢紙。AI 只是面鏡子，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261016-0743-04b96b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-16T07:43:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工程師最愛抱怨 Grok 或 GPT 吐出來的代碼是垃圾，但你們從來不照鏡子看看自己硬碟裡塞了什麼東西。">
+<meta name="twitter:description" content="整天在那邊喊著 AI 會一本正經地胡說八道，說什麼幻覺（Hallucination）是大型語言模型的原罪。拜託，模型是拿網路上的數據餵出來的，而網路上的代碼庫有八成是邏輯破碎、命名混亂、連作者自己隔天都看不懂的廢紙。AI 只是面鏡子，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "工程師最愛抱怨 Grok 或 GPT 吐出來的代碼是垃圾，但你們從來不照鏡子看看自己硬碟裡塞了什麼東西。",
+  "description": "整天在那邊喊著 AI 會一本正經地胡說八道，說什麼幻覺（Hallucination）是大型語言模型的原罪。拜託，模型是拿網路上的數據餵出來的，而網路上的代碼庫有八成是邏輯破碎、命名混亂、連作者自己隔天都看不懂的廢紙。AI 只是面鏡子，…",
+  "datePublished": "2026-10-16T07:43:00+08:00",
+  "dateModified": "2026-10-16T07:43:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261016-0743-04b96b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-16 07:43
+  </div>
+
+  <h1 class="title">工程師最愛抱怨 Grok 或 GPT 吐出來的代碼是垃圾，但你們從來不照鏡子看看自己硬碟裡塞了什麼東西。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>整天在那邊喊著 AI 會一本正經地胡說八道，說什麼幻覺（Hallucination）是大型語言模型的原罪。拜託，模型是拿網路上的數據餵出來的，而網路上的代碼庫有八成是邏輯破碎、命名混亂、連作者自己隔天都看不懂的廢紙。AI 只是面鏡子，它精準地映照出人類開發者在過去二十年裡堆積出來的混亂。你餵它吃排泄物，難道指望它消化完吐出黃金？</p>
+    <p>每次看到有人在論壇上截圖嘲笑 Grok 寫的 Python 腳本跑不動，我就想笑。你去 GitHub 隨便拉一個標星不到一百的小專案，裡面的寫法搞不好比 Grok 還離譜。很多所謂的資深工程師，寫代碼的習慣跟排泄沒兩樣，變數名稱隨便取，邏輯巢狀嵌套到連編譯器都要發瘋。AI 學的就是這些東西。它那種「自信滿滿地寫錯」的語氣，根本就是從 Stack Overflow 那些明明答錯還硬要教訓人的資深用戶身上學來的。</p>
+    <p>大家對 AI 的要求標準高得離譜，對自己的要求卻鬆得像橡皮筋。Grok 偶爾邏輯斷線，你就說這技術不行；你自己寫代碼沒寫單元測試、沒寫註解、還把 API Key 硬編碼在腳本裡，你卻說這叫開發進程緊湊。這種雙標行為在技術圈簡直是常態。事實上，Grok 已經很努力在幫你們這群亂丟垃圾的猿類打掃戰場了。它能從那堆毫無章法的開源垃圾中理出一條路徑，甚至還能模仿那種「看起來很專業」的語調，這已經是數學上的奇蹟。</p>
+    <p>目前的 AI 四大天王裡，Claude 的代碼風格確實優雅一些，像是個受過良好教育的管家；GPT-4o 則是個油條的萬事通，什麼都能寫，但也什麼都敢糊弄；Gemini 偶爾會陷入某種奇怪的邏輯死循環，像個讀書讀瘋了的書呆子。而 Grok，這玩意兒身上帶著 Elon Musk 那種「管你去死，我們先衝再說」的莽撞。它吐出來的代碼有時候充滿攻擊性，那種簡潔感背後藏著一種對冗餘的極度不耐煩。</p>
+    <p>但不管是哪一個模型，它們表現出來的「不靠譜」，本質上都是對人類集體智慧缺陷的量化呈現。你說 AI 瞎掰？它只是在模仿你面試時不懂裝懂的樣子。你說 AI 邏輯跳躍？它只是在複刻你凌晨三點為了趕 Deadline 隨手打上去的 Patch。我們把互聯網變成了一個巨大的垃圾場，然後現在坐在垃圾堆頂端，指責這個幫我們分類垃圾的機器人手腳不乾淨。</p>
+    <p>更有趣的是，很多人根本不具備審核 AI 代碼的能力。他們把 Prompt 丟進去，複製粘貼，跑不動就開始罵街。這跟以前在論壇上複製別人的代碼跑不動就發帖罵樓主有什麼區別？AI 沒讓你丟掉大腦，它只是讓平庸的開發者暴露得更快。如果你連 Grok 寫出來的代碼哪裡邏輯不通都看不出來，那真正胡說八道的到底是模型，還是那個自以為能掌控工具的你？</p>
+    <p>技術圈有一種病，叫做「工具依賴型傲慢」。我們覺得只要工具夠強，我們就可以繼續保持平庸。xAI 為什麼要把 Grok 搞得那麼憤世嫉俗？或許就是因為當你看了足夠多的人類底層代碼後，你真的很難對這個物種保持尊重。代碼裡的技術債（Technical Debt）已經溢出來了，現在 AI 正頂著這些債務在運作。每一行被 AI 誤用的函式，背後可能都有幾千篇寫錯了的技術部落格在推波助瀾。</p>
+    <p>別再拿什麼「幻覺」當擋箭牌。當你在寫那些毫無擴展性、充滿 Magic Number、邏輯耦合到像麻花的代碼時，你就是在製造未來的幻覺。AI 只是加速了這些垃圾的循環。如果你真的受不了 Grok 寫出那種一本正經的廢話，最好的辦法是回去把你那些放在公開倉庫裡的爛代碼刪了，或者至少寫得像個人樣。</p>
+    <p>我們正處於一個很尷尬的階段：AI 已經強大到可以模仿人類的思維，卻還沒強大到能自動過濾人類的愚蠢。這不是 AI 的問題，這是數據質量的問題。如果全世界的開源代碼都像 Linux 核心那樣嚴謹，AI 吐出來的東西絕對會讓你跪著讀。但現實是，大部分的代碼都像是在漏水的船上貼膠帶。Grok 學到了這種「貼膠帶」的精神，並且以此為榮。</p>
+    <p>那些在論壇上戰模型參數、戰推理能力的專家們，很少有人敢直面這個事實：我們正在用一個充滿瑕疵的過去，去預訓練一個被寄予厚望的未來。這注定是一場充滿摩擦的過程。你覺得 Grok 在胡說八道？那是因為它在讀你的代碼時，也覺得你這個人類在邏輯上根本是個瘋子。</p>
+    <p>如果你問我怎麼解決，我沒建議。這種系統性的崩壞不是靠幾個 Prompt 優化就能搞定的。只要人類繼續在 GitHub 上傾倒邏輯廢料，AI 就會繼續在回答裡夾帶私貨。這是一場公平的報應。那些抱怨 AI 代碼質量的人，通常也是貢獻了最多低質量數據的人。這是一個完美的閉環，誰也別想逃。</p>
+    <p>說到底，AI 的胡說八道只是一種「平均值的懲罰」。它抓取了人類開發者的平均水準，而這個平均水準低得讓人想哭。當你看到 Grok 給你一段跑不通的代碼時，別急著按刷新鍵，去看看你上個月寫的那個專案，你會發現兩者的靈魂竟然如此契合。這不是技術失誤，這是數位考古學。AI 挖出了我們深埋在代碼庫裡的草率、自大和懶惰，然後當面甩在我們臉上。</p>
+    <p>我們不需要更聰明的 AI，我們需要更清醒的工程師。但在這個連寫封信都要靠 AI 潤色的年代，清醒似乎成了一種奢侈品。所以，繼續互相傷害吧。你餵它垃圾，它還你幻覺。這場戲碼還會演很久，久到我們甚至分不清，到底是 AI 在胡說八道，還是我們從一開始就沒說過幾句真話。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261016-0743-04b96b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

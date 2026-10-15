@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic 這種程度的借鑑算不算一種技術潔癖的崩塌</title>
+<meta name="description" content="當 Anthropic 在公告中大方談論 Scion 系統如何從 Google 的 Piper 和 Meta 的 Sapling 中吸取「艱難換來的教訓」時，技術圈內那些對代碼血統有著近乎偏執追求的獵犬們，早已順著氣味摸到了 Mononoke 的門檻。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261016-0737-9214cf/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anthropic 這種程度的借鑑算不算一種技術潔癖的崩塌">
+<meta property="og:description" content="當 Anthropic 在公告中大方談論 Scion 系統如何從 Google 的 Piper 和 Meta 的 Sapling 中吸取「艱難換來的教訓」時，技術圈內那些對代碼血統有著近乎偏執追求的獵犬們，早已順著氣味摸到了 Mononoke 的門檻。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261016-0737-9214cf/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-16T07:37:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Anthropic 這種程度的借鑑算不算一種技術潔癖的崩塌">
+<meta name="twitter:description" content="當 Anthropic 在公告中大方談論 Scion 系統如何從 Google 的 Piper 和 Meta 的 Sapling 中吸取「艱難換來的教訓」時，技術圈內那些對代碼血統有著近乎偏執追求的獵犬們，早已順著氣味摸到了 Mononoke 的門檻。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Anthropic 這種程度的借鑑算不算一種技術潔癖的崩塌",
+  "description": "當 Anthropic 在公告中大方談論 Scion 系統如何從 Google 的 Piper 和 Meta 的 Sapling 中吸取「艱難換來的教訓」時，技術圈內那些對代碼血統有著近乎偏執追求的獵犬們，早已順著氣味摸到了 Mononoke 的門檻。…",
+  "datePublished": "2026-10-16T07:37:00+08:00",
+  "dateModified": "2026-10-16T07:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261016-0737-9214cf/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-16 07:37
+  </div>
+
+  <h1 class="title">Anthropic 這種程度的借鑑算不算一種技術潔癖的崩塌</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 在公告中大方談論 Scion 系統如何從 Google 的 Piper 和 Meta 的 Sapling 中吸取「艱難換來的教訓」時，技術圈內那些對代碼血統有著近乎偏執追求的獵犬們，早已順著氣味摸到了 Mononoke 的門檻。這場關於版本控制系統的討論在 Hacker News 上炸開了鍋，與其說是對剽竊的指控，不如說是對這家以「AI 安全」和「學術嚴謹」立命的公司進行的一次成色檢驗。人們驚訝於 Anthropic 在處理超大規模單體倉庫（Monorepo）時，對既有開源組件的致敬竟如此隱晦，以至於讓 Sapling 的核心開發者感到自己像是被抹去姓名的前輩，在後輩的慶功宴上連個座次都沒撈到。</p>
+    <p>這種現象在矽谷並不罕見，但發生在 Claude 的母公司身上就顯得格外諷刺。長期以來，Claude 在長文本處理上的優勢，很大程度上依賴於其對上下文索引的極致優化，而這種優化現在正被引入到基礎設施的構建中。Scion 的出現本是為了支撐那龐大到令人髮指的模型訓練代碼庫，解決分散式團隊在同步數萬個文件時的延遲問題。然而，當一個號稱創新的系統被發現其核心邏輯與 Meta 內部的 Mononoke 高度重合，甚至連實現細節都像是在複刻時，我們不得不思考，在追求極致工程效率的壓力下，這四大巨頭是否正逐漸喪失原創的勇氣，轉而走向一種高級的「代碼裁縫」之路？</p>
+    <p>從技術層面看，Claude 團隊對 Scion 的定位非常明確：它必須承載 TB 級別的單體倉庫，且不能像傳統 Git 那樣在拉取分支時讓工程師有時間去沖三杯咖啡。這需要一種基於虛擬文件系統的延遲加載機制，而這正是 Sapling 和 Mononoke 的拿手好戲。Anthropic 的工程師在實現中優化了元數據的儲存結構，試圖在查詢效率上超越老東家 Google 的 Piper。但在這類底層工具的開發中，邊界模糊得令人不安。如果說 LLM 的訓練是在洗腦式的學習中產生湧現，那麼基礎設施的開發難道也進入了某種「基於既有範式的預測性生成」模式？</p>
+    <p>在這種技術演進的邏輯下，對比其他競爭對手便顯得耐人尋味。當 DeepSeek 在特定的分佈式計算場景下展現其工程偏好時，Claude 選擇的是一條更為封閉且精細的基礎架構路徑。與 ChatGPT 背後那套成熟但臃腫的基礎設施相比，Claude 顯然想在架構初期就建立起一種「技術特權」，即便這種特權的基石是踩在 Meta 或是 Google 的肩膀上。Grok 的團隊在處理海量實時數據流時展現出的那種近乎野蠻的擴張感，與 Anthropic 這種在顯微鏡下精雕細琢卻又在引用上遮遮掩掩的風格，形成了極其鮮明的對比。</p>
+    <p>事實上，這種「借鑑而不具名」的行為在開源協議的灰色地帶遊走，反映出大模型公司內部的某種焦慮。當 Gemini 試圖通過與 Google 全家桶的深度整合來換取生態優勢，而 ChatGPT 不斷通過插件系統擴張其邊界時，Anthropic 似乎更執著於底層控制權。這種執著讓他們不惜在 Scion 的開發中大舉借用前人的智慧，卻在對外敘事中將其包裝成一種獨創的突破。相較於 Qwen 在特定中文語境下的優化策略，Claude 始終在追求一種全球通用的、極致穩定的技術主權，即便這意味著它必須在工程實現上表現得像個冷酷的實用主義者。</p>
+    <p>如果我們把視角拉高，會發現這其實是一場關於「技術誠信」與「交付速度」的博弈。一個開發者在看到 Anthropic 的公告時露出「驚訝的小皮卡丘臉」，背後折射的是對這家公司精英形象的幻滅。我們是否已經進入了一個「大模型公司不再產生新輪子」的時代？當所有的創新都集中在 Transformer 層數的堆疊和推理成本的壓縮上時，連最基礎的版本控制系統都要靠「借鑒」來加速，這是否意味著矽谷的創造力正在被資本的追逐戰所稀釋？</p>
+    <p>當我們在使用 Claude 寫出一段優美的代碼時，我們是否曾想過，支撐這段代碼生成的後台系統，可能正運行在一套血統模糊的架構之上？如果連 Anthropic 這樣標榜道德與安全的標竿，在對待開源社區的貢獻時都顯得如此吝嗇，那麼我們還能指望誰來維護那套早已脆弱不堪的技術倫理？下一個被「借鑒」而後被遺忘的，又會是哪一個在深夜默默提交代碼的無名工程師？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://sunshowers.io/posts/anthropic-mononoke/" rel="nofollow noopener" target="_blank">Anthropic&#x27;s Scion is heavily inspired by Mononoke</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261016-0737-9214cf/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
