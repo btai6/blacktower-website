@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解開 NIST 曲線密碼學種子不再需要陰謀論</title>
+<meta name="description" content="密碼學界那些戴著錫箔帽、堅信 NSA 在 P-256 曲線留有後門的專家們，或許該考慮把帽子摘下來收進儲藏室了。長久以來，NIST 曲線中那些看似隨機的種子（seeds）被視為某種無法解釋的「神諭」，有人懷疑那是刻意挑選的特定值，以便讓執法機構繞過安全防線。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261018-0659-747cc1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="解開 NIST 曲線密碼學種子不再需要陰謀論">
+<meta property="og:description" content="密碼學界那些戴著錫箔帽、堅信 NSA 在 P-256 曲線留有後門的專家們，或許該考慮把帽子摘下來收進儲藏室了。長久以來，NIST 曲線中那些看似隨機的種子（seeds）被視為某種無法解釋的「神諭」，有人懷疑那是刻意挑選的特定值，以便讓執法機構繞過安全防線。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261018-0659-747cc1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-18T06:59:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解開 NIST 曲線密碼學種子不再需要陰謀論">
+<meta name="twitter:description" content="密碼學界那些戴著錫箔帽、堅信 NSA 在 P-256 曲線留有後門的專家們，或許該考慮把帽子摘下來收進儲藏室了。長久以來，NIST 曲線中那些看似隨機的種子（seeds）被視為某種無法解釋的「神諭」，有人懷疑那是刻意挑選的特定值，以便讓執法機構繞過安全防線。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "解開 NIST 曲線密碼學種子不再需要陰謀論",
+  "description": "密碼學界那些戴著錫箔帽、堅信 NSA 在 P-256 曲線留有後門的專家們，或許該考慮把帽子摘下來收進儲藏室了。長久以來，NIST 曲線中那些看似隨機的種子（seeds）被視為某種無法解釋的「神諭」，有人懷疑那是刻意挑選的特定值，以便讓執法機構繞過安全防線。…",
+  "datePublished": "2026-10-18T06:59:00+08:00",
+  "dateModified": "2026-10-18T06:59:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261018-0659-747cc1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-18 06:59
+  </div>
+
+  <h1 class="title">解開 NIST 曲線密碼學種子不再需要陰謀論</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>密碼學界那些戴著錫箔帽、堅信 NSA 在 P-256 曲線留有後門的專家們，或許該考慮把帽子摘下來收進儲藏室了。長久以來，NIST 曲線中那些看似隨機的種子（seeds）被視為某種無法解釋的「神諭」，有人懷疑那是刻意挑選的特定值，以便讓執法機構繞過安全防線。然而，最近技術社群利用 Claude 進行的大規模搜尋任務，竟然直接定位到了這些種子的來源——不過是簡單的 srand48(time(NULL)) 加上一段被遺忘的歷史代碼。這種感覺就像你盯著一扇打不開的重裝甲大門研究了十三年，最後發現鑰匙其實一直壓在門口的踏腳墊下面，而那把鑰匙只是一串平庸的偽隨機數。</p>
+    <p>這次突破的核心在於 Claude 展示了一種近乎偏執的「地毯式搜索」能力。技術人員並非單純詢問模型「種子是什麼」，而是利用模型處理長文本與代碼庫的關聯邏輯，將 1990 年代末期的加密庫、老舊的郵件列表存檔以及各種已經泛黃的技術文檔進行餵養與交叉比對。Claude 在處理這種碎片化資訊時的注意力機制，精準地捕捉到了開發者 Filippo Valsorda 所揭露的細節：原本被認為是「經過精心挑選」的隨機數，實際上只是因為當時的開發者懶得找更好的隨機源，隨手用了當下的系統時間。這種從雜亂無章的歷史數據中提取邏輯鏈條的能力，讓 Claude 在處理這種「數位考古」任務時，表現出了超越傳統搜尋引擎的穿透力。</p>
+    <p>在實際的操作環境中，我們觀察到 Claude 3.5 Sonnet 在處理這類需要邏輯推演的代碼溯源任務時，其準確度明顯優於 ChatGPT。雖然 ChatGPT 的推論引擎在處理開放式對話時極具迷惑性，但面對這種需要死磕代碼細節、不能有一絲「幻覺」空間的密碼學驗證，它往往會陷入一種過度解釋的陷阱。Gemini 雖然擁有極大的上下文窗口，理論上最適合讀取整本加密規範，但其過於保守的安全護欄（Safety Guardrails）經常會讓它在觸及「破譯」、「後門」等敏感詞彙時產生不必要的審查回絕。相較於 DeepSeek-v4.1-Flash-1017，Claude 在這類長程邏輯鏈條的穩定性上展現了代差級別的寬容度與深度，它不會因為任務看似「無意義」而放棄對冷門代碼路徑的檢索。</p>
+    <p>這種技術進展帶來的衝擊是雙向的。對於比特幣與以太坊社群而言，這無疑是一劑強心針，因為他們終於可以更有底氣地推廣 P-256 曲線的預編譯合約，而不必擔心自己正走進一個設計好的陷阱。但另一個問題隨之浮現：當 Anthropic 賦予 Claude 這種「翻遍所有陳年舊箱子」的權限與能力時，普通開發者是否也能擁有同等的工具深度？社群中已經開始出現擔憂，認為這類強大的溯源能力可能會被模型供應商有選擇地開放。如果今天 Claude 能幫我們找回失落的隨機數種子，明天它是否也能在某些人的授權下，精準地找出當代加密協議中那些尚未被發現的、因「疏忽」而產生的漏洞？</p>
+    <p>我們正處於一個奇妙的節點，AI 正在把人類歷史中因為懶惰、疏忽或技術限制而留下的「黑箱」逐一拆解。這聽起來很浪漫，但本質上是極其殘酷的——這意味著所有的技術債終將被償還，所有的隨意性都將被量化。當我們意識到連最核心的加密標準都可能源於一次隨手的 API 調用時，我們對「安全性」的理解是否需要重新定義？如果未來所有的密碼學證明都不再依賴數學上的不可知性，而是依賴於 AI 尚未讀到的文檔深度，那麼這道安全防線究竟是變厚了，還是變薄了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/research/ecdsa-curve-origins" rel="nofollow noopener" target="_blank">Claude reveals ECDSA curve origins</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261018-0659-747cc1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
