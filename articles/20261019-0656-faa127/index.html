@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>密碼學的錫箔帽與 Claude 的暴力考古學</title>
+<meta name="description" content="那些戴了十三年錫箔帽、堅信 NIST 橢圓曲線種子碼藏有 NSA 後門的陰謀論者，大概沒想到最後擊碎幻覺的不是什麼解密文件，而是模型那種近乎偏執的「翻箱倒櫃」能力。Filippo Valsarda 最近解開了 P-256 曲線種子碼來源的公案，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261019-0656-faa127/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="密碼學的錫箔帽與 Claude 的暴力考古學">
+<meta property="og:description" content="那些戴了十三年錫箔帽、堅信 NIST 橢圓曲線種子碼藏有 NSA 後門的陰謀論者，大概沒想到最後擊碎幻覺的不是什麼解密文件，而是模型那種近乎偏執的「翻箱倒櫃」能力。Filippo Valsarda 最近解開了 P-256 曲線種子碼來源的公案，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261019-0656-faa127/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-19T06:56:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="密碼學的錫箔帽與 Claude 的暴力考古學">
+<meta name="twitter:description" content="那些戴了十三年錫箔帽、堅信 NIST 橢圓曲線種子碼藏有 NSA 後門的陰謀論者，大概沒想到最後擊碎幻覺的不是什麼解密文件，而是模型那種近乎偏執的「翻箱倒櫃」能力。Filippo Valsarda 最近解開了 P-256 曲線種子碼來源的公案，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "密碼學的錫箔帽與 Claude 的暴力考古學",
+  "description": "那些戴了十三年錫箔帽、堅信 NIST 橢圓曲線種子碼藏有 NSA 後門的陰謀論者，大概沒想到最後擊碎幻覺的不是什麼解密文件，而是模型那種近乎偏執的「翻箱倒櫃」能力。Filippo Valsarda 最近解開了 P-256 曲線種子碼來源的公案，…",
+  "datePublished": "2026-10-19T06:56:00+08:00",
+  "dateModified": "2026-10-19T06:56:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261019-0656-faa127/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-19 06:56
+  </div>
+
+  <h1 class="title">密碼學的錫箔帽與 Claude 的暴力考古學</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>那些戴了十三年錫箔帽、堅信 NIST 橢圓曲線種子碼藏有 NSA 後門的陰謀論者，大概沒想到最後擊碎幻覺的不是什麼解密文件，而是模型那種近乎偏執的「翻箱倒櫃」能力。Filippo Valsarda 最近解開了 P-256 曲線種子碼來源的公案，這事在 Hacker News 激起的浪花，本質上是對大模型處理極度稀疏、甚至近乎湮滅的技術文獻能力的一次集體側目。當我們在討論 Claude 3.5 Sonnet 或 GPT-4o 的推理邏輯時，往往忽略了它們在處理這類「歷史殘骸搜尋」任務時展現出的那種不講道理的韌性。</p>
+    <p>這種韌性並非來自於所謂的智慧，而是一種基於機率分佈的極限還原。在 P-256 的案例中，種子碼被證明只是簡單地對特定時間戳下的 srand48 序列進行了處理。這類細節隱藏在數十年前的技術手冊、郵件列表或是某些早已失效的 FTP 服務器鏡像中。Claude 在處理這類密碼學溯源任務時，表現出的不是一個數學家的靈光一現，而是一個不知疲倦的檔案管理員。它能將破碎的 srand48(time(NULL)) 邏輯與 NIST 的標準化歷史進行對齊，這種跨越時空的模式匹配，讓原本被視為「惡意設計」的隨機數，現出了「平庸程序員懶惰」的原形。</p>
+    <p>從技術實現的角度看，Claude 在處理超過 10 萬 token 的長上下文時，對於特定技術模式的保持能力顯然優於 Gemini。當你把一份九十年代的密碼學提案草稿丟給 Claude，並要求它推演當時可能的偽隨機數發生器參數時，它不會像 GPT-4o 那樣偶爾在長對話中產生「注意力漂移」。Claude 的強項在於它對代碼邏輯的「死磕」，它能精確地鎖定 seed 與 hash 之間的微弱關聯，而不是給出一個模糊的、符合大眾認知的「安全建議」。這種對技術細節的冷酷還原，才是讓開發者群體感到脊背發涼的地方——它正在把人類歷史上所有因為懶惰、疏忽或僥倖而留下的技術死角，一個接一個地打亮。</p>
+    <p>有趣的是，當我們把視角拉到當前的模型競爭格局，這種考古學式的能力成為了一道隱形的護城河。相較於 DeepSeek-v4.1-Flash-1017，Claude 在面對未經過結構化清洗的陳舊技術文獻時，其理解深度與關聯能力呈現出完全不同的量級。儘管 DeepSeek-v4.1-Flash-1017 在某些基準測試中表現亮眼，但若將其置於這種需要從零散歷史數據中重構技術邏輯的場景下，Claude 展現出的那種「不放過任何一塊石頭」的暴力檢索感，顯然更接近於人類資深安全專家的直覺。這不僅僅是數據庫大小的問題，而是模型在預訓練階段對於「邏輯演化過程」的權重分配差異。</p>
+    <p>然而，這種能力的解禁也引發了另一層焦慮。正如 Hacker News 上的討論所指出的，如果 Anthropic 決定將這種「溯源」能力僅留給特定的合作夥伴，或者在 API 層面施加更嚴格的行為審查，那麼我們與這些巨頭之間的技術資訊不對稱將會被無限放大。當一個模型可以輕易找出幾十年前協議中的漏洞起源，它同樣可以找出你昨天剛剛部署的、自以為隱秘的系統後門。我們正在進入一個「技術考古」與「技術拆解」完全自動化的時代，而密碼學界那些傳說中的後門，在這種全知視角的掃描下，恐怕連藏身之處都沒有。</p>
+    <p>我們現在應該擔心的，或許不是那些已經被證偽的舊陰謀論，而是那些尚未被模型掃描到的、正處於「現在進行式」的設計缺陷。如果 Claude 可以通過幾行殘破的代碼推導出十三年前的種子來源，那麼對於現代加密協議中那些為了兼容性而妥協的細節，它又看出了多少我們尚未察覺的端倪？當技術的透明度被模型推向極致，這種透明究竟是保護了開發者，還是讓所有系統都變成了一座半透明的玻璃監獄？我們是否已經準備好，迎接一個所有技術秘密都將在模型面前「裸奔」的未來？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/research/ecdsa-curve-origins" rel="nofollow noopener" target="_blank">Claude reveals ECDSA curve origins</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261019-0656-faa127/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
