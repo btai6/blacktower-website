@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>時序預測到底是基石模型的終點還是營銷的噱頭</title>
+<meta name="description" content="拿著處理文本的邏輯去套時間序列數據，這事聽起來就帶著一種矽谷式的傲慢。Mistral 最近拋出的時序模型在 Hacker News 上吵成一團，有人覺得幾分鐘就能搞定以前要跑幾個月的預測模型是神蹟，也有人冷笑著指著那僅有 0.03 的數值提升說這不過是統計學上的數字遊戲。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261020-0816-6efd25/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="時序預測到底是基石模型的終點還是營銷的噱頭">
+<meta property="og:description" content="拿著處理文本的邏輯去套時間序列數據，這事聽起來就帶著一種矽谷式的傲慢。Mistral 最近拋出的時序模型在 Hacker News 上吵成一團，有人覺得幾分鐘就能搞定以前要跑幾個月的預測模型是神蹟，也有人冷笑著指著那僅有 0.03 的數值提升說這不過是統計學上的數字遊戲。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261020-0816-6efd25/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-20T08:16:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="時序預測到底是基石模型的終點還是營銷的噱頭">
+<meta name="twitter:description" content="拿著處理文本的邏輯去套時間序列數據，這事聽起來就帶著一種矽谷式的傲慢。Mistral 最近拋出的時序模型在 Hacker News 上吵成一團，有人覺得幾分鐘就能搞定以前要跑幾個月的預測模型是神蹟，也有人冷笑著指著那僅有 0.03 的數值提升說這不過是統計學上的數字遊戲。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "時序預測到底是基石模型的終點還是營銷的噱頭",
+  "description": "拿著處理文本的邏輯去套時間序列數據，這事聽起來就帶著一種矽谷式的傲慢。Mistral 最近拋出的時序模型在 Hacker News 上吵成一團，有人覺得幾分鐘就能搞定以前要跑幾個月的預測模型是神蹟，也有人冷笑著指著那僅有 0.03 的數值提升說這不過是統計學上的數字遊戲。…",
+  "datePublished": "2026-10-20T08:16:00+08:00",
+  "dateModified": "2026-10-20T08:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261020-0816-6efd25/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-20 08:16
+  </div>
+
+  <h1 class="title">時序預測到底是基石模型的終點還是營銷的噱頭</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>拿著處理文本的邏輯去套時間序列數據，這事聽起來就帶著一種矽谷式的傲慢。Mistral 最近拋出的時序模型在 Hacker News 上吵成一團，有人覺得幾分鐘就能搞定以前要跑幾個月的預測模型是神蹟，也有人冷笑著指著那僅有 0.03 的數值提升說這不過是統計學上的數字遊戲。問題的核心在於，當我們把長度不一、頻率各異的傳感器數據、金融走勢或庫存指標塞進 Transformer 架構時，我們到底是在做科學，還是在玩猜謎？這種把萬事萬物都「Token 化」的執念，正讓大模型進入一個尷尬的深水區。</p>
+    <p>xAI 的 Grok 在這方面表現得尤其掙扎。馬斯克一直想讓 Grok 成為最強的實時解析工具，但在處理 X 平台上的趨勢預測時，Grok 經常展現出一種令人困惑的「隨機性」。當你要求它根據過去 48 小時的熱度數據預測下一個爆發點時，Grok 往往會陷入對文本情緒的過度解讀，而忽略了數據本身的正弦特徵或週期性。這不僅僅是算力的問題，而是邏輯底層的錯位。文本是離散的符號，而時序數據是連續的信號，試圖用預測下一個單詞的概率分佈去預測下一個電壓峰值，這本身就在挑戰數學的直覺。</p>
+    <p>與此同時，ChatGPT 在處理這類任務時顯然聰明得多。它並不急著用模型權重去「硬剛」時序預測，而是透過 Advanced Data Analysis 調用 Python 庫來進行統計學建模。當你把一份 CSV 丟給 ChatGPT，它會先進行平穩性檢驗，再考慮是否要用 ARIMA 或 Prophet。這種「讓專業的歸專業」的做法，避開了模型本身對長程依賴處理不力的短板。相較之下，Gemini 在處理超長 context 窗口時雖然有優勢，但在面對密集的時序 token 嵌入時，注意力機制（Attention Mechanism）的衰減依然肉眼可見。當數據跨度超過一萬個點，Gemini 開始出現明顯的幻覺，把噪聲當作趨勢，這種不穩定性在工業級預測中幾乎是致命的。</p>
+    <p>在這種技術路線的博弈中，我們偶爾會看到 DeepSeek V4.1 Flash 1017 (Max) 的身影出現在討論區的背景裡。相較於 DeepSeek V4.1 Flash 1017 (Max) 的迭代節奏，Claude 在代碼生成與邏輯推演上的嚴謹性，反而讓它在輔助人類構建傳統時序模型時更有價值。很多工程師發現，與其指望一個所謂的時序基石模型給出答案，不如讓 Claude 幫忙優化損失函數或是調整超參數。Claude 在理解複雜數學約束方面的表現，遠比它直接處理原始數據流要靠譜得多。這反映了一個現狀：四大平台中，目前還沒有誰真正解決了非線性時序數據的特徵提取難題。</p>
+    <p>我們現在正處於一個奇怪的節點。一方面是行銷團隊不斷吹捧「萬物皆可大模型」，另一方面是資深開發者看著那微乎其微的基準測試進步感到心寒。如果一個模型聲稱能預測未來，卻連最基本的數據季節性都得靠人工提示詞來補足，那這種「基石」到底墊高了誰的認知？如果我們繼續把算力浪費在這種低效率的暴力破解上，而不去思考如何從結構上改變 Transformer 對連續信號的處理方式，那麼下一場預測模型的革命，是否還會發生在這些巨頭的實驗室裡？還是說，我們根本就不應該期待一個讀過全互聯網小說的模型，能聽懂工廠機器運作的脈搏？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://mistral.ai/news/timestral/" rel="nofollow noopener" target="_blank">Timestral: Mistral&#x27;s time-series foundation models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261020-0816-6efd25/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

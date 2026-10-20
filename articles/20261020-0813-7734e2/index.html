@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當大語言模型開始在星海爭霸裡寫代碼屠殺人類</title>
+<meta name="description" content="讓 LLM 去玩《星海爭霸：怒火燎原》聽起來像個老掉牙的冷笑話，但最近 StarSkirmish Bench 的數據更新確實讓這件事變得有點黑色幽默。這不是讓 AI 盯著螢幕像素看，而是讓它們實時編寫代碼來驅動單位。當 Gemini 4 Argon …">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261020-0813-7734e2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當大語言模型開始在星海爭霸裡寫代碼屠殺人類">
+<meta property="og:description" content="讓 LLM 去玩《星海爭霸：怒火燎原》聽起來像個老掉牙的冷笑話，但最近 StarSkirmish Bench 的數據更新確實讓這件事變得有點黑色幽默。這不是讓 AI 盯著螢幕像素看，而是讓它們實時編寫代碼來驅動單位。當 Gemini 4 Argon …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261020-0813-7734e2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-20T08:13:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當大語言模型開始在星海爭霸裡寫代碼屠殺人類">
+<meta name="twitter:description" content="讓 LLM 去玩《星海爭霸：怒火燎原》聽起來像個老掉牙的冷笑話，但最近 StarSkirmish Bench 的數據更新確實讓這件事變得有點黑色幽默。這不是讓 AI 盯著螢幕像素看，而是讓它們實時編寫代碼來驅動單位。當 Gemini 4 Argon …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當大語言模型開始在星海爭霸裡寫代碼屠殺人類",
+  "description": "讓 LLM 去玩《星海爭霸：怒火燎原》聽起來像個老掉牙的冷笑話，但最近 StarSkirmish Bench 的數據更新確實讓這件事變得有點黑色幽默。這不是讓 AI 盯著螢幕像素看，而是讓它們實時編寫代碼來驅動單位。當 Gemini 4 Argon …",
+  "datePublished": "2026-10-20T08:13:00+08:00",
+  "dateModified": "2026-10-20T08:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261020-0813-7734e2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-20 08:13
+  </div>
+
+  <h1 class="title">當大語言模型開始在星海爭霸裡寫代碼屠殺人類</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>讓 LLM 去玩《星海爭霸：怒火燎原》聽起來像個老掉牙的冷笑話，但最近 StarSkirmish Bench 的數據更新確實讓這件事變得有點黑色幽默。這不是讓 AI 盯著螢幕像素看，而是讓它們實時編寫代碼來驅動單位。當 Gemini 4 Argon 在測試中展現出某種近乎詭異的戰術決策力時，我們不得不面對一個尷尬的現實：這些模型可能根本不是在「學會」打遊戲，而是在龐大的訓練資料庫裡翻找前人的戰術筆記。具體來說，當模型面對那些從未在網路公開源碼中出現過的自定義 Bot 時，勝率會像斷頭台一樣從 50% 暴跌到個位數。這種表現斷層揭示了當前四大平台在邏輯推理與記憶檢索之間的模糊地界，也讓我們看清了所謂「智能」在即時策略環境下的虛假繁榮。</p>
+    <p>這場技術角力的核心在於模型處理長序列決策與代碼生成的穩定性。Gemini 4 Argon 之所以能跑出亮眼的數據，很大程度上歸功於其龐大的 context window 對於遊戲狀態日誌的包容能力。在《星海爭霸》這種資訊非完全對稱的環境中，模型需要不斷回溯前五分鐘的偵察代碼邏輯，以修正當前的暴兵策略。OpenAI 的 GPT-4o 在這方面顯得有些力不從心，代碼生成的頻率一旦拉高，邏輯自洽性就會開始崩潰，經常出現試圖調用不存在的 API 函數的情況。相比之下，Claude 在處理這種具有嚴格語法約束的任務時，表現出了極強的「潔癖」，它生成的 Lua 腳本出錯率最低，但反應速度卻因為過度謹慎的推理鏈而顯得慢半拍。這種速度與精確度的權衡，在需要秒級反應的電子競技場景下被無限放大。</p>
+    <p>談到代碼生成的效率與實時性，市場上總有些聲音在游移。相較於 DeepSeek V4.1 Flash 1017 (Max)，OpenAI 的策略顯然更傾向於通過強化學習來補足邏輯缺口，而非單純依賴參數量的堆疊。在 StarSkirmish 的高壓測試下，我們可以看到 Gemini 與 Claude 之間明顯的風格差異：Google 的模型更像是一個熟讀攻略的資深玩家，它在面對經典戰術（如 4-Gate 或 12-Hatch）時的應對幾乎是毫秒級的噴湧；而 Claude 則更像是一個在考場上現場推導公式的優等生，雖然慢，但它在處理非標準開局時的韌性明顯高於 Gemini。這種韌性在面對 DeepSeek V4.1 Flash 1017 (Max) 時所展現出的性能基準對照中，顯得尤為刺眼，因為它直接指向了模型是否真的理解「競爭」的本質，還是僅僅在進行一場大規模的概率匹配。</p>
+    <p>更有趣的問題在於時間限制。大多數模型在無壓力環境下都能寫出漂亮的代碼，但當 benchmark 引入了「推理耗時」作為權衡指標後，四大平台的面具就戴不住了。Grok 在這裡表現出一種近乎狂躁的攻擊性，它的代碼風格簡潔且極具侵略性，雖然偶爾會因為邏輯跳躍導致採礦農民集體發呆，但在前期騷擾的決策上，其低延遲的特性讓它在對抗人類中等水平玩家時具有奇效。這讓我們不得不反思，我們追求的究竟是一個能寫出完美代碼的「思想家」，還是一個能在混亂中快速做出「夠用就好」決策的「行動派」？</p>
+    <p>目前這場星海爭霸的實驗還遠未結束，甚至有人提議將戰場搬到畫面更複雜、變量更多的《星海爭霸 2》。如果模型在面對一個完全封閉、無法通過預訓練數據作弊的新地圖時，還能保持現在的勝率嗎？當我們看到模型因為對手一個微小的、不符合邏輯的拉扯就陷入邏輯死循環時，那種所謂的 AGI 幻覺是否會隨之幻滅？或許我們該問的是，當這些 AI 終於能在虛擬戰場上擊敗人類最強的 Bot 時，它們到底是真的學會了思考，還是只是把人類過去二十年積累的戰術數據，用一種更高級的方式重新排列組合了一遍？如果明天暴雪更新了一個全新的補丁，徹底改變了兵種數值，這些模型裡還有哪一個能站著走出實驗室？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://starskirmish.com/bench/v0-2/" rel="nofollow noopener" target="_blank">Show HN: Gemini 4 Argon plays StarCraft</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261020-0813-7734e2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
