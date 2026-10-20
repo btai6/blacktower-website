@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>給超級智能預留的硬碟空間夠裝幾個崩潰文件</title>
+<meta name="description" content="當矽谷那群人還在為了 AGI 到底能不能解決納維-斯托克斯方程吵得不可開交時，OpenAI 的工程師顯然還沒學會怎麼寫一個合格的垃圾回收機制。最近在技術圈傳得沸沸揚揚的 Codex 崩潰文件堆積事件，與其說是技術失誤，不如說是這家公司的傲慢已經溢出了用戶的硬碟空間。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261021-0746-f1e180/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="給超級智能預留的硬碟空間夠裝幾個崩潰文件">
+<meta property="og:description" content="當矽谷那群人還在為了 AGI 到底能不能解決納維-斯托克斯方程吵得不可開交時，OpenAI 的工程師顯然還沒學會怎麼寫一個合格的垃圾回收機制。最近在技術圈傳得沸沸揚揚的 Codex 崩潰文件堆積事件，與其說是技術失誤，不如說是這家公司的傲慢已經溢出了用戶的硬碟空間。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261021-0746-f1e180/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-21T07:46:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="給超級智能預留的硬碟空間夠裝幾個崩潰文件">
+<meta name="twitter:description" content="當矽谷那群人還在為了 AGI 到底能不能解決納維-斯托克斯方程吵得不可開交時，OpenAI 的工程師顯然還沒學會怎麼寫一個合格的垃圾回收機制。最近在技術圈傳得沸沸揚揚的 Codex 崩潰文件堆積事件，與其說是技術失誤，不如說是這家公司的傲慢已經溢出了用戶的硬碟空間。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "給超級智能預留的硬碟空間夠裝幾個崩潰文件",
+  "description": "當矽谷那群人還在為了 AGI 到底能不能解決納維-斯托克斯方程吵得不可開交時，OpenAI 的工程師顯然還沒學會怎麼寫一個合格的垃圾回收機制。最近在技術圈傳得沸沸揚揚的 Codex 崩潰文件堆積事件，與其說是技術失誤，不如說是這家公司的傲慢已經溢出了用戶的硬碟空間。…",
+  "datePublished": "2026-10-21T07:46:00+08:00",
+  "dateModified": "2026-10-21T07:46:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261021-0746-f1e180/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-21 07:46
+  </div>
+
+  <h1 class="title">給超級智能預留的硬碟空間夠裝幾個崩潰文件</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當矽谷那群人還在為了 AGI 到底能不能解決納維-斯托克斯方程吵得不可開交時，OpenAI 的工程師顯然還沒學會怎麼寫一個合格的垃圾回收機制。最近在技術圈傳得沸沸揚揚的 Codex 崩潰文件堆積事件，與其說是技術失誤，不如說是這家公司的傲慢已經溢出了用戶的硬碟空間。一個號稱要改變人類生產力的工具，在用戶的 Mac 裡悄悄塞滿了 330GB 的 Crashpad 轉儲文件，這種「負向生產力」的諷刺程度，甚至超過了它生成的那些跑不通的代碼。</p>
+    <p>這類問題在 ChatGPT 的桌面端或相關 Agent 組件中並非孤例。核心痛點在於，當我們把模型從雲端的 API 搬進本地環境，開發者似乎忘了本地系統資源是有邊界的。以 Codex 為例，它在處理 3D 場景微調或財務流程自動化時，會產生大量的臨時工件與 git worktrees。問題在於，這些 Agent 像是一個只會瘋狂產出的流水線工人，卻沒有配備掃帚。當程序崩潰，Crashpad 機制啟動，本意是為了診斷，結果卻演變成了硬碟空間的黑洞。用戶如果不裝個 DaisyDisk 之類的工具手動清掃，可能連系統都進不去。</p>
+    <p>從技術層面看，OpenAI 在處理本地 Agent 的執行邊界時顯得極其草率。這涉及一個具體的場景：當 Agent 在多個 git 分支間頻繁切換以嘗試不同代碼路徑時，它會重複生成大量的構建產物。如果這時候模型邏輯出現異常觸發崩潰，Crashpad 就會忠實地記錄下當前內存鏡像。在短時間內高頻迭代失敗的情況下，幾百個 GB 的垃圾數據就這麼誕生了。相比之下，Claude 在處理長文本與代碼生成時，雖然也會在本地緩存一些上下文片段，但在文件系統的佔用上顯然克制得多。Anthropic 似乎更傾向於讓模型在雲端完成繁重的預處理，而不是在用戶的本地環境裡橫衝直撞。</p>
+    <p>這種穩定性的差異，在橫向對比時變得更為刺眼。當我們看到 DeepSeek 在近期社區討論中頻繁被提及時，OpenAI 卻還在處理這種低級的資源洩漏問題。相較於 DeepSeek 在推理成本上的極致壓縮，OpenAI 在客戶端維護上的敷衍，簡直讓人懷疑他們是不是把所有的優秀工程師都派去餵算力集群了。同樣是面對高併發的代碼生成任務，Gemini 在集成開發環境中的資源占用雖然也不低，但至少 Google 還有幾十年的客戶端開發經驗，知道什麼叫作「不要塞爆用戶的磁碟」。Grok 則乾脆走另一條路，目前依然維持著相對輕量化的接口交互，避開了這種複雜本地環境帶來的負擔。</p>
+    <p>說到底，這是一種「SLOP 寫碼風格」的勝利。當模型生成的代碼本身就帶著不確定性，而包裝這些模型的工程結構又缺乏對宿主系統的敬畏時，用戶就成了那個買單的倒霉蛋。OpenAI 試圖讓 Agent 擁有自主修復代碼的能力，但如果這個 Agent 連自己產生的崩潰文件都修不乾淨，我們真的能放心讓它去操作真實的財務系統，或是修改關鍵的生產環境？</p>
+    <p>這背後隱藏著一個更深層的技術斷層：大模型廠商正在瘋狂追求邏輯上的「神性」，卻在基礎工程實踐上顯得極度「業餘」。當一個工具需要用戶去 GitHub Issue 區哀求開發者進行基本的 Triage 處理時，這東西離真正的商業化生產力工具還差得遠。</p>
+    <p>我們是否已經進入了一個「代碼膨脹」的新紀元？在這個時代，模型的智商每提升一點，背後的工程代碼就腐爛得更快。如果未來的 AI 真的能解決物理難題，卻依然會在你的電腦裡留下幾百 GB 的垃圾，這種智能到底是在服務人類，還是在消耗人類？又或者，我們其實根本不在乎這些細節，只要它能寫出那行讓我們交差的代碼，哪怕它把硬碟撐爆也無所謂？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/openai/codex/issues/25921" rel="nofollow noopener" target="_blank">Codex Desktop continuously generates Crashpad pending dumps</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261021-0746-f1e180/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
