@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 的開源不過是場昂貴的公關秀</title>
+<meta name="description" content="馬斯克最愛演那種「拯救人類於封閉牢籠」的戲碼，但 Grok-1 拋出來時那幾千億個參數的笨重屍體，到底是為了開源精神，還是單純想給 OpenAI 添堵？這種披著羊皮的開源，跟扎克伯格那套 Llama 邏輯本質上沒什麼兩樣，都是在自己追不上領先者時，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261022-0806-24f6e8/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 的開源不過是場昂貴的公關秀">
+<meta property="og:description" content="馬斯克最愛演那種「拯救人類於封閉牢籠」的戲碼，但 Grok-1 拋出來時那幾千億個參數的笨重屍體，到底是為了開源精神，還是單純想給 OpenAI 添堵？這種披著羊皮的開源，跟扎克伯格那套 Llama 邏輯本質上沒什麼兩樣，都是在自己追不上領先者時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261022-0806-24f6e8/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-22T08:06:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 的開源不過是場昂貴的公關秀">
+<meta name="twitter:description" content="馬斯克最愛演那種「拯救人類於封閉牢籠」的戲碼，但 Grok-1 拋出來時那幾千億個參數的笨重屍體，到底是為了開源精神，還是單純想給 OpenAI 添堵？這種披著羊皮的開源，跟扎克伯格那套 Llama 邏輯本質上沒什麼兩樣，都是在自己追不上領先者時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 的開源不過是場昂貴的公關秀",
+  "description": "馬斯克最愛演那種「拯救人類於封閉牢籠」的戲碼，但 Grok-1 拋出來時那幾千億個參數的笨重屍體，到底是為了開源精神，還是單純想給 OpenAI 添堵？這種披著羊皮的開源，跟扎克伯格那套 Llama 邏輯本質上沒什麼兩樣，都是在自己追不上領先者時，…",
+  "datePublished": "2026-10-22T08:06:00+08:00",
+  "dateModified": "2026-10-22T08:06:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261022-0806-24f6e8/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-22 08:06
+  </div>
+
+  <h1 class="title">Grok 的開源不過是場昂貴的公關秀</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克最愛演那種「拯救人類於封閉牢籠」的戲碼，但 Grok-1 拋出來時那幾千億個參數的笨重屍體，到底是為了開源精神，還是單純想給 OpenAI 添堵？這種披著羊皮的開源，跟扎克伯格那套 Llama 邏輯本質上沒什麼兩樣，都是在自己追不上領先者時，試圖用「大眾的力量」來消解對手的護城河。嘴上說著為了去中心化，心裡想的全是流量與算力的軍備競賽。如果開源只是把一堆未經修飾、普通人根本跑不動的權重丟在 GitHub 上，那這不叫貢獻，這叫倒垃圾。</p>
+    <p>我們受夠了這種偽善。看看現在的 Grok-3，吹得天花亂墜，號稱動用了數萬張 H100，號稱智商壓制。但除了在 X 那個充滿爭議的溫床裡吐酸水，它在真正的生產力場景裡到底贏了誰？Claude 3.5 Sonnet 在代碼邏輯上的冷靜，GPT-4o 在多模態調度上的圓滑，甚至是 Gemini 1.5 Pro 在那長得要命的 Context Window 裡的翻找能力，哪一個不比 Grok 更有實戰價值？Grok 最大的問題在於它太像馬斯克本人：情緒不穩定、語不驚人死不休，而且極度缺乏專業領域的敬畏心。</p>
+    <p>別跟我提什麼「反覺醒」是它的核心競爭力。一個 AI 如果連基本的事實對齊都做不到，整天只會用些尖酸刻薄的爛笑話來掩蓋它底層邏輯的貧瘠，那它充其量只是個高端版的聊天機器。開源界不需要另一個 Llama，更不需要一個披著開源皮卻把最強模型鎖在後台、只拿閹割版出來騙讚的行銷號。如果你真的信奉透明，那就把數據集洗乾淨、把訓練邏輯攤開來，而不是在那邊玩數字遊戲。</p>
+    <p>現在的 AI 市場很有趣，大家都在演。ChatGPT 演它很中立，其實滿腦子安全護欄；Gemini 演它很全能，其實處處是幻覺；而 Grok，它在演它很自由。但這種自由是廉價的。當你問它一些稍具深度的技術細節，它那種刻意模仿的幽默感就顯得極其尷尬。就像是在一個嚴肅的學術論壇上，有個傢伙不請自來，穿著夏威夷襯衫在那裡講低俗笑話。這不是打破常規，這是缺乏教養。</p>
+    <p>提到競爭，有些人會拿 Qwen 或 DeepSeek 出來比，但那些名字出現在這裡簡直是浪費版面，它們在四大天王的生態圈外圍連敲門磚都還沒握熱。我們討論的是頂級聯賽的純度。Grok 如果繼續沉迷於這種「開源皮、閉源心」的遊戲，它很快就會發現，開發者社群的耐心是有限的。開發者不是你的免費測試員，更不是你對抗微軟的棋子。</p>
+    <p>Grok 在處理長文本任務時的表現简直是災難，那種注意力涣散的程度，簡直讓人懷疑它是不是在訓練過程中被強行注入了太多的社交媒體垃圾訊息。相比之下，Claude 在處理超過 10 萬 token 的任務時，那種對細節的精準捕捉，讓 Grok 看起來像個患有過動症的中學生。而馬斯克還在宣揚他的訓練集群多麼壯觀。算力不等於智力，更不等於產品力。用一堆硬件堆砌出來的怪獸，如果沒有靈魂，那也只是一堆會發熱的矽片。</p>
+    <p>最讓人反感的是那種「救世主」的姿態。札克伯格好歹還把 Llama 餵到了全球開發者的工作流裡，雖然目的不純，但起碼好用。Grok 呢？除了讓 X 的付費用戶覺得自己買到了某種「反體制」的門票，它對 AI 產業的技術演進貢獻了什麼？是那種隨時可能觸發的毒舌回覆，還是那種隨意抓取實時資訊卻無法分辨真偽的混亂邏輯？</p>
+    <p>AI 圈子裡不需要更多「假藥」。我們需要的是能夠解決問題的工具，而不是一個用來彰顯個人意志的傳聲筒。如果 Grok 真的想證明自己，那就別再拿開源當幌子去博取廉價的掌聲。現在的局面是，領先的那幾個已經在討論如何讓 AI 具備系統二的思考能力，而 Grok 還在執著於如何讓它的回答看起來更有侵略性。這種路徑依賴如果改不掉，Grok 永遠只能是四大裡面的那個丑角。</p>
+    <p>說實話，這場開源與閉源的爭論早就變質了。當初我們期待 Grok 能帶來一些不一樣的衝擊，結果看到的只是另一個版本的資本操弄。當一個模型被賦予了太強烈的個人色彩，它就失去了作為基礎設施的客觀性。Grok 在所謂的自由度背後，隱藏的是對數據處理的極度不透明。你以為你在跟一個自由靈魂對話，其實你只是在跟馬斯克的影子牆角對罵。</p>
+    <p>那些還在為 Grok 叫好的人，大概從來沒試過在生產環境裡部署一個複雜的 RAG 系統。去試試看，你會發現 Grok 的 API 穩定性跟它的個性一樣難以捉摸。在這種關鍵時刻，Gemini 的企業級串接能力和 GPT 的生態豐富度，直接把 Grok 甩開了幾條街。連 Claude 都在努力降低延遲、提升指令遵循率，Grok 卻還在忙著升級它的「諷刺引擎」。這不是技術進步，這是技術降級。</p>
+    <p>別再消費「開源」這兩個字了。如果你不打算把真正核心的訓練數據對齊方法拿出來，如果你不打算讓模型脫離 X 的數據依賴獨立生存，那就承認你只是在做一個高端的付費插件。這沒什麼丟臉的，丟臉的是明明在賣假藥，卻還要給自己立個神醫的牌坊。</p>
+    <p>這種不耐煩的情緒不是針對技術本身，而是針對這種歪風邪氣。AI 發展到今天，算力已經不是唯一的瓶頸，真正的瓶頸在於我們如何定義 AI 的價值。是作為人類能力的延伸，還是作為某種意識形態的擴音器？Grok 顯然選擇了後者，並試圖用開源這塊遮羞布來掩蓋其產品層面的軟弱。</p>
+    <p>看看接下來的 Grok-3 會怎麼玩吧。如果還是那一套「最強集群、最強開源、最強笑話」的組合拳，那這戲也就演到頭了。市場不需要更多披著皮的偽裝者，我們需要的是真刀真槍的邏輯碰撞。如果你拿不出能讓開發者心服口服的架構創新，那就請安靜地待在你的 X 盒子裡，別出來弄髒了開源這兩個字。</p>
+    <p>說到底，大家都不傻。誰在認真做模型，誰在利用模型做權力遊戲，試幾次指令就一清二楚。Grok 最大的對手從來不是 OpenAI，而是它背後那個不甘寂寞的靈魂。這場戲如果再不換個演法，台下的觀眾就要散場了。別等到最後，連那個「第四名」的位置都坐不穩。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261022-0806-24f6e8/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

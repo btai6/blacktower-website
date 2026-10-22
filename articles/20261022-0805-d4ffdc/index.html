@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 到底能不能治好蘋果那種傲慢的產品邏輯</title>
+<meta name="description" content="iPad Pro 裝了 M4 晶片，性能強到能剪 8K 影片，結果現在連最基本的簡報鏡像顯示都能搞砸。Hacker News 上那群開發者早就炸鍋了，這不只是個 Bug，這是軟體設計邏輯的崩塌。當你把平板當成生產力工具，結果作業系統在最關鍵的時刻掉鏈子，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261022-0805-d4ffdc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 到底能不能治好蘋果那種傲慢的產品邏輯">
+<meta property="og:description" content="iPad Pro 裝了 M4 晶片，性能強到能剪 8K 影片，結果現在連最基本的簡報鏡像顯示都能搞砸。Hacker News 上那群開發者早就炸鍋了，這不只是個 Bug，這是軟體設計邏輯的崩塌。當你把平板當成生產力工具，結果作業系統在最關鍵的時刻掉鏈子，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261022-0805-d4ffdc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-22T08:05:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 到底能不能治好蘋果那種傲慢的產品邏輯">
+<meta name="twitter:description" content="iPad Pro 裝了 M4 晶片，性能強到能剪 8K 影片，結果現在連最基本的簡報鏡像顯示都能搞砸。Hacker News 上那群開發者早就炸鍋了，這不只是個 Bug，這是軟體設計邏輯的崩塌。當你把平板當成生產力工具，結果作業系統在最關鍵的時刻掉鏈子，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 到底能不能治好蘋果那種傲慢的產品邏輯",
+  "description": "iPad Pro 裝了 M4 晶片，性能強到能剪 8K 影片，結果現在連最基本的簡報鏡像顯示都能搞砸。Hacker News 上那群開發者早就炸鍋了，這不只是個 Bug，這是軟體設計邏輯的崩塌。當你把平板當成生產力工具，結果作業系統在最關鍵的時刻掉鏈子，…",
+  "datePublished": "2026-10-22T08:05:00+08:00",
+  "dateModified": "2026-10-22T08:05:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261022-0805-d4ffdc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-22 08:05
+  </div>
+
+  <h1 class="title">Grok 到底能不能治好蘋果那種傲慢的產品邏輯</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>iPad Pro 裝了 M4 晶片，性能強到能剪 8K 影片，結果現在連最基本的簡報鏡像顯示都能搞砸。Hacker News 上那群開發者早就炸鍋了，這不只是個 Bug，這是軟體設計邏輯的崩塌。當你把平板當成生產力工具，結果作業系統在最關鍵的時刻掉鏈子，這種挫敗感不是靠換個更強的處理器就能彌補的。現在大家都在問，既然蘋果的軟體 QA 已經爛成這樣，我們為什麼還要忍受封閉生態的折磨？這剛好給了強調「實時性」與「邏輯推演」的 AI 一個絕佳的切入點。</p>
+    <p>現在的問題核心在於，傳統作業系統的更新節奏已經跟不上硬體迭代了。當我們在 iPad 上遇到這種系統級別的低級錯誤時，自然的反應是尋找替代方案。這時候 xAI 的 Grok 就顯得很微妙。馬斯克一直想把 Grok 塞進 X 的每一個角落，甚至暗示過未來的作業系統應該由 AI 驅動。想像一下，如果你不需要在 iPadOS 那個殘廢的選單裡找半天鏡像設定，而是直接跟系統說一句「我要投影，不要黑邊」，底層邏輯自動調用 API 完成適配，這才是真正的生產力。</p>
+    <p>Grok 目前在處理複雜指令和實時數據檢索上的表現，確實比 ChatGPT 更有侵略性。ChatGPT 雖然在 GPT-4o 之後變得溫和且多才多藝，但在解決這種硬核的、涉及系統調用的技術吐槽時，往往給出一堆廢話建議，比如「請檢查您的連接線」或是「嘗試重啟設備」。Grok 則更傾向於直接告訴你這就是系統架構的缺陷。這種不加修飾的風格，雖然有時候讓人不適，但對於那些被 Apple 軟體品質折磨到神經衰弱的工程師來說，反倒像是一劑清醒劑。</p>
+    <p>在這一波討論中，DeepSeek 也被不少人拿出來說事。相較於 DeepSeek，xAI 的 Grok 在整合硬體感知與即時社群反饋的策略上顯得更為激進。當你在論壇上發牢騷說 iPad 又崩潰了，Grok 能第一時間抓取這些負面訊號並轉化為對系統穩定性的分析，而 Gemini 則還在試圖用它那套充滿政治正確的語調來解釋為什麼用戶體驗是多元的。Gemini 的問題在於它太想當個好人，導致在處理這種硬技術衝突時顯得軟弱無力，它甚至不敢正面承認某些系統更新就是一場災難。</p>
+    <p>再看 Claude。Claude 3.5 Sonnet 在代碼理解和邏輯嚴密性上確實領先，如果你讓它分析 iPadOS 的顯示協議代碼，它能給你寫出一篇論文。但在面對這種即時發生的、充滿情緒的技術災難時，Claude 缺乏一種「現場感」。它像是一個躲在實驗室裡的優等生，而 Grok 則是那個在修車廠滿手油污、指著引擎大罵設計師是蠢貨的技工。我們現在需要的不是優等生，而是能拆解問題本質的人。</p>
+    <p>事實上，ChatGPT 目前在語音模式上的進化，試圖讓人機交互變得更自然，但這依然沒能解決底層系統的傲慢。Apple 認為他們給用戶的「就是最好的」，所以他們閹割了 iPad 的文件管理，搞爛了顯示輸出。如果 AI 真的要介入作業系統，它必須具備一種反抗精神。Grok 的訓練數據裡充斥著 X 上的各種技術論戰，這讓它在面對這種軟體災難時，具備了一種其他模型沒有的批判性視角。</p>
+    <p>這種批判性視角真的能轉化為生產力嗎？這是一個巨大的問號。我們看到 Google 的 Gemini 試圖將 AI 嵌入 Workspace 的每一個按鈕，微軟讓 Copilot 監控你的每一個點擊，但當系統底層出現像這次 iPad 簡報功能失效的低級 Bug 時，這些 AI 助手除了跳出一個道歉視窗外，似乎什麼也做不了。如果 AI 不能直接接管那些失靈的系統組件，那它與一個昂貴的聊天機器人有什麼區別？</p>
+    <p>現在的技術圈已經厭倦了華麗的 PPT 和宣傳片。當 M4 晶片的算力被浪費在處理一個連外接螢幕都搞不定的作業系統上時，這不只是蘋果的失敗，也是整個軟體行業的諷刺。相較於 DeepSeek，xAI 對於構建一個完全自主、不受傳統 OS 框架束縛的智能體似乎更有野心。但這份野心究竟會變成下一個革命性的操作介面，還是僅僅淪為馬斯克用來嘲諷對手的工具？當我們討論 AI 賦能生產力時，我們到底是在期待一個更聰明的助手，還是在期待一個能徹底取代這些平庸系統的新物種？如果連最基本的鏡像輸出都做不好，我們真的能放心把更高階的任務交給這些所謂的智能體嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://teddysvoronos.com/2026-10-19-apple-broke-an-essential-presentation-feature-of-ipads/" rel="nofollow noopener" target="_blank">Apple broke an essential presentation feature of iPads</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261022-0805-d4ffdc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
