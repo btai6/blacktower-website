@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>封鎖期外的 RCE 幽靈與 AI 安全知識的時差</title>
+<meta name="description" content="PHP 的 CVE-2026-109618 洩漏事件在 Hacker News 鬧得沸沸揚揚，一個開發者因為「不知道有封鎖期」提前公開了遠端代碼執行漏洞。這聽起來像是一場技術圈的公關災難，但對我們這些天天對著 Grok 或 ChatGPT 敲指令的人來說，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261024-0754-cd4e0d/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="封鎖期外的 RCE 幽靈與 AI 安全知識的時差">
+<meta property="og:description" content="PHP 的 CVE-2026-109618 洩漏事件在 Hacker News 鬧得沸沸揚揚，一個開發者因為「不知道有封鎖期」提前公開了遠端代碼執行漏洞。這聽起來像是一場技術圈的公關災難，但對我們這些天天對著 Grok 或 ChatGPT 敲指令的人來說，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261024-0754-cd4e0d/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-24T07:54:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="封鎖期外的 RCE 幽靈與 AI 安全知識的時差">
+<meta name="twitter:description" content="PHP 的 CVE-2026-109618 洩漏事件在 Hacker News 鬧得沸沸揚揚，一個開發者因為「不知道有封鎖期」提前公開了遠端代碼執行漏洞。這聽起來像是一場技術圈的公關災難，但對我們這些天天對著 Grok 或 ChatGPT 敲指令的人來說，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "封鎖期外的 RCE 幽靈與 AI 安全知識的時差",
+  "description": "PHP 的 CVE-2026-109618 洩漏事件在 Hacker News 鬧得沸沸揚揚，一個開發者因為「不知道有封鎖期」提前公開了遠端代碼執行漏洞。這聽起來像是一場技術圈的公關災難，但對我們這些天天對著 Grok 或 ChatGPT 敲指令的人來說，…",
+  "datePublished": "2026-10-24T07:54:00+08:00",
+  "dateModified": "2026-10-24T07:54:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261024-0754-cd4e0d/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-24 07:54
+  </div>
+
+  <h1 class="title">封鎖期外的 RCE 幽靈與 AI 安全知識的時差</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>PHP 的 CVE-2026-109618 洩漏事件在 Hacker News 鬧得沸沸揚揚，一個開發者因為「不知道有封鎖期」提前公開了遠端代碼執行漏洞。這聽起來像是一場技術圈的公關災難，但對我們這些天天對著 Grok 或 ChatGPT 敲指令的人來說，這暴露了一個極其危險的技術斷層：當安全專家還在討論協同披露的時間表時，AI 早就把這些漏洞資訊吃進去，甚至開始教人怎麼寫 PoC 了。這不是假設，這是現在進行式。</p>
+    <p>我們在處理這類高風險漏洞時，最怕的就是這種「資訊不對稱」。當事人在論壇上發道歉信，說他聽信了聯絡人的話，以為沒有封鎖期（Embargo）。這種溝通鏈的斷裂，在傳統社群是負擔，在 AI 時代則是災難。如果你現在去問 Grok 關於這兩個 CVE 的細節，它會根據 X 上的實時討論給你一個似是非是的答案。這種實時性是 xAI 的招牌，但也可能是安全防線的破口。馬斯克追求的 Truth 往往走在安全規程的前面，這讓 Grok 在處理未公開漏洞時，顯得比其他三家更像個沒保險栓的火藥桶。</p>
+    <p>ChatGPT 的做法則完全相反。OpenAI 的對齊團隊（Alignment Team）顯然給它灌了大量的安全守則。如果你嘗試讓它分析這類剛爆出來、還處於封鎖期的 RCE 漏洞，它會開始跟你繞圈子，吐出一堆「我無法提供未經證實的安全漏洞細節」之類的廢話。這種過度保護在技術研究員眼中簡直是浪費時間。明明漏洞已經在 AWS 的安全部落格上被點名正在被利用，ChatGPT 卻還在那裡假裝歲月靜好。這種時差感，讓它在應對零日攻擊（0-day）的預警任務中幾乎處於半殘狀態。</p>
+    <p>相較於 DeepSeek，xAI 在處理即時安全威脅時的動態抓取邏輯顯然更激進。Gemini 在這方面的表現則介於兩者之間，Google 擁有全球最大的漏洞掃描索引，它對 CVE 的理解通常比其他模型更深。但問題在於，Gemini 的過濾器（Safety Filter）有時候會出現莫名其妙的幻覺，它會把已知的補丁細節跟過時的 PHP 版本混為一談。在 PHP 這種有著固定四週發布週期的生態系裡，任何一點版本號的錯位，都可能導致開發者誤判風險。</p>
+    <p>這場 RCE 洩漏事件中最刺眼的一點是，當事人 Pete 提到他自己編譯 PHP 原始碼，並追蹤發布週期，這種硬核的開發者行為，本應是安全社群的最後一道防線。然而，當 AI 模型開始介入這個過程時，我們發現規則變了。Claude 在處理長文本的技術細節上確實有優勢，如果你把 PHP 的原始碼變更（Diff）丟給它，它能比 GPT-4o 更精準地指出潛在的記憶體溢位點。但在面對「封鎖期」這種人類社會的潛規則時，Claude 表現得像個只會讀說明書的機器人。它不懂什麼叫「協同披露」，它只知道你給它的文本裡有沒有漏洞。</p>
+    <p>這引發了一個更深層的技術焦慮。如果一個漏洞已經在特定市場或某些非公開管道流傳，而我們的 AI 助手卻因為所謂的「安全協議」拒絕向防守方提供分析，這是不是在變相幫助攻擊者？攻擊者可不會管什麼封鎖期，他們會利用一切工具，包括那些沒有限制的模型來自動化尋找利用點。我們現在面臨的情況是：防守方在用帶著鐐銬的 ChatGPT，而洩漏資訊的人（不論是有意還是無意）已經在 X 或論壇上把數據餵給了那些抓取速度極快的模型。</p>
+    <p>大家都在談 AI 安全，但沒人在談「AI 的安全時差」。當一個漏洞已經在 AWS 的威脅情報中出現，卻因為 PHP 官方還沒正式發布補丁，AI 到底該選擇告訴你真相，還是選擇遵守那個已經崩潰的封鎖協議？這不是一個簡單的技術問題，這涉及到模型對「事實」與「合規」的權重分配。</p>
+    <p>如果下次再發生類似的 Embargo 破裂，我們是該責怪那個發帖的開發者，還是該問問：為什麼我們的 AI 助手在關鍵時刻，總是比漏洞利用程式慢了半拍？如果 AI 的知識庫永遠存在這幾天的「道德緩衝期」，那麼在真正的網路戰爭面前，這點緩衝期到底是在保護誰？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=50193416" rel="nofollow noopener" target="_blank">Tell HN: I unknowingly broke the PHP RCE embargo. I am sorry</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261024-0754-cd4e0d/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

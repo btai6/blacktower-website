@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>官僚主義下的技術降級與數據特權</title>
+<meta name="description" content="瑞典政府辦公室最近對 ChatGPT 和 Claude 下了禁令，對外的說法是安全隱患，但內行人都看得到那條藏在公文背後的尾巴：他們要求員工轉向 Microsoft Copilot。這種操作在矽谷或技術圈並不罕見，但這不僅僅是行政命令的問題，而是折射出大模型在進入傳統體制時，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261024-0750-5de8b0/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="官僚主義下的技術降級與數據特權">
+<meta property="og:description" content="瑞典政府辦公室最近對 ChatGPT 和 Claude 下了禁令，對外的說法是安全隱患，但內行人都看得到那條藏在公文背後的尾巴：他們要求員工轉向 Microsoft Copilot。這種操作在矽谷或技術圈並不罕見，但這不僅僅是行政命令的問題，而是折射出大模型在進入傳統體制時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261024-0750-5de8b0/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-24T07:50:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="官僚主義下的技術降級與數據特權">
+<meta name="twitter:description" content="瑞典政府辦公室最近對 ChatGPT 和 Claude 下了禁令，對外的說法是安全隱患，但內行人都看得到那條藏在公文背後的尾巴：他們要求員工轉向 Microsoft Copilot。這種操作在矽谷或技術圈並不罕見，但這不僅僅是行政命令的問題，而是折射出大模型在進入傳統體制時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "官僚主義下的技術降級與數據特權",
+  "description": "瑞典政府辦公室最近對 ChatGPT 和 Claude 下了禁令，對外的說法是安全隱患，但內行人都看得到那條藏在公文背後的尾巴：他們要求員工轉向 Microsoft Copilot。這種操作在矽谷或技術圈並不罕見，但這不僅僅是行政命令的問題，而是折射出大模型在進入傳統體制時，…",
+  "datePublished": "2026-10-24T07:50:00+08:00",
+  "dateModified": "2026-10-24T07:50:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261024-0750-5de8b0/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-24 07:50
+  </div>
+
+  <h1 class="title">官僚主義下的技術降級與數據特權</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>瑞典政府辦公室最近對 ChatGPT 和 Claude 下了禁令，對外的說法是安全隱患，但內行人都看得到那條藏在公文背後的尾巴：他們要求員工轉向 Microsoft Copilot。這種操作在矽谷或技術圈並不罕見，但這不僅僅是行政命令的問題，而是折射出大模型在進入傳統體制時，技術主權與便利性之間那道愈發難堪的裂縫。當公職人員被告知「這台電腦不能裝 Chrome 只能用 IE」的現代 AI 版上演時，我們討論的焦點早就不在對話框好不好用，而是誰握有那把名為「合規」的鑰匙。</p>
+    <p>Sam Altman 每天在 X 上發些玄而又玄的冷笑話，試圖把 OpenAI 塑造成人類進步的燈塔，但現實是，當政府機構需要一個能對審計交代的方案時，他們寧願選擇那個套著微軟外殼、反應慢半拍的 Copilot，也不願碰那兩個功能領先、卻連數據流向都說不清的矽谷寵兒。這件事最諷刺的地方在於，ChatGPT 已經在處理長文本和邏輯推理上迭代到了 o1 預覽版，Claude 3.5 Sonnet 在代碼編寫和結構化思維上的表現也早已甩開同類產品一個身位，但這些技術上的卓越，在面對一份陳舊的採購合同和微軟的企業授權協議（EA）時，顯得蒼白無力。</p>
+    <p>技術層面來看，ChatGPT 的數據存儲與 Claude 的隱私協議，對於需要極端安全性的政府環境來說，確實像是一場豪賭。即便 OpenAI 提供了 Enterprise 版本，承諾不使用數據進行訓練，但這種承諾是建立在「信任」而非「物理隔離」之上的。微軟之所以能贏，是因為</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.sverigesradio.se/artikel/chat-gpt-och-claude-forbjuder-regeringskansliet" rel="nofollow noopener" target="_blank">Swedish government offices to ban ChatGPT and Claude</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261024-0750-5de8b0/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
