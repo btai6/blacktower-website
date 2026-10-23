@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矽谷正在把模型包裝成它並非的模樣</title>
+<meta name="description" content="當眾人還在為 DeepSeek 的技術路徑爭論不休時，Anthropic 似乎打算在產品形態上玩一場危險的煉金術。最近曝光的 Claude Duet 揭開了一層尷尬的遮羞布：這些所謂的「個人助理」代理，究竟是在解決用戶的效率焦慮，還是在強行消化大模型過剩的算力？…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261023-0756-0711dc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="矽谷正在把模型包裝成它並非的模樣">
+<meta property="og:description" content="當眾人還在為 DeepSeek 的技術路徑爭論不休時，Anthropic 似乎打算在產品形態上玩一場危險的煉金術。最近曝光的 Claude Duet 揭開了一層尷尬的遮羞布：這些所謂的「個人助理」代理，究竟是在解決用戶的效率焦慮，還是在強行消化大模型過剩的算力？…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261023-0756-0711dc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-23T07:56:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="矽谷正在把模型包裝成它並非的模樣">
+<meta name="twitter:description" content="當眾人還在為 DeepSeek 的技術路徑爭論不休時，Anthropic 似乎打算在產品形態上玩一場危險的煉金術。最近曝光的 Claude Duet 揭開了一層尷尬的遮羞布：這些所謂的「個人助理」代理，究竟是在解決用戶的效率焦慮，還是在強行消化大模型過剩的算力？…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "矽谷正在把模型包裝成它並非的模樣",
+  "description": "當眾人還在為 DeepSeek 的技術路徑爭論不休時，Anthropic 似乎打算在產品形態上玩一場危險的煉金術。最近曝光的 Claude Duet 揭開了一層尷尬的遮羞布：這些所謂的「個人助理」代理，究竟是在解決用戶的效率焦慮，還是在強行消化大模型過剩的算力？…",
+  "datePublished": "2026-10-23T07:56:00+08:00",
+  "dateModified": "2026-10-23T07:56:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261023-0756-0711dc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-23 07:56
+  </div>
+
+  <h1 class="title">矽谷正在把模型包裝成它並非的模樣</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當眾人還在為 DeepSeek 的技術路徑爭論不休時，Anthropic 似乎打算在產品形態上玩一場危險的煉金術。最近曝光的 Claude Duet 揭開了一層尷尬的遮羞布：這些所謂的「個人助理」代理，究竟是在解決用戶的效率焦慮，還是在強行消化大模型過剩的算力？把一個基於 Opus 架構的笨重模型塞進一個獨立的 UI 介面，美其名曰「二重奏」，實際上更像是把一台航空發動機裝進了割草機裡。這種做法讓我想起十七世紀的自動機器，外表精巧，內部卻是齒輪與發條的野蠻堆疊。</p>
+    <p>目前的技術困境在於「上下文的強行關聯」。開發者試圖讓 Claude 通過第三方集成獲取用戶所有的數位足跡，從 Slack 頻道到 Notion 筆記。然而，大模型在處理異質上下文時，有一種近乎病態的「過度聯想」。當你詢問下週的行程，它可能會因為你在某封郵件裡提到過「想去海邊」，就自作主張地為你規劃出一套充滿幻覺的旅遊攻略。這種強行賦予相關性的行為，本質上是注意力機制（Attention Mechanism）在長文本環境下的過載表現。Claude 在超過一定 Token 閾值後，對於「關鍵事實」與「背景噪音」的權衡會變得極其模糊。它太想顯得聰明了，以至於開始在沒有意義的地方尋找意義。</p>
+    <p>這不僅僅是 Claude 的問題。ChatGPT 的操作邏輯是典型的「功能堆疊」，試圖用一個 GPTs 框架解決所有垂直領域的垂直需求，結果卻是讓用戶在無數個對話框中迷失。Gemini 則更像是一個住在 Google Workspace 裡的幽靈，它擁有最完美的權限，卻常常在執行 Function Calling 時表現得像個宿醉的秘書，對於跨應用的指令理解得支離破碎。至於 Grok，它更傾向於一種情緒化的社交輸出，在數據檢索的嚴謹性上，始終無法擺脫那種帶有表演人格的隨意感。</p>
+    <p>相較於 DeepSeek 近期在推理成本上的激進策略，Claude 選了一條截然不同的路：它在販賣一種「組織架構的投射」。如果你觀察 Duet 的設計邏輯，你會發現它不是在優化模型，而是在優化 Anthropic 的產品經理對「未來辦公室」的想像。這是一個極其危險的信號。當一家模型公司開始「配送他們的組織架構圖」而非核心技術能力時，產品就會變得冗餘。為什麼這項功能不直接內置在 Claude 的原生對話框中？為什麼在 3.5 Sonnet 已經證明了其速度與邏輯平衡點後，卻依然要依賴舊時代的 Opus 架構？這種決策背後隱藏的技術債，恐怕比幻覺問題更難解決。</p>
+    <p>我們現在面臨的，是從「對話框」過渡到「代理人」的信任鴻溝。用戶並不需要一個會寫詩的秘書，用戶需要一個能精準執行指令且不會在半路出錯的工具。目前的四大平台都在試圖通過「算力換智能」來掩蓋底層邏輯的缺陷。他們擁有支撐大規模代理運行的算力，也擁有領先全球的推理模型，但他們唯獨缺少對「人類邊界感」的理解。</p>
+    <p>一個能夠讀取你所有隱私數據的代理，如果不能保證在多層推理中不產生邏輯漂移，那麼它與一個會隨意翻看你日記且還會產生幻覺的房客有什麼區別？如果未來的 AI 競爭只是在比拼誰能把 UI 做得更像一個「人」，而非誰能把邏輯鏈條鍛造得更堅韌，那麼我們可能正處於大模型發展史中最華而不實的一個階段。當技術的邊際效應開始遞減，剩下的就只有這些精美的包裝盒了。</p>
+    <p>難道我們真的需要一個獨立的應用程式，來告訴我們那些原本就在眼前、卻被 AI 強行解釋出來的所謂「洞察」嗎？或者說，當我們把所有的上下文都交給這些巨頭的代理時，我們究竟是在購買效率，還是在支付一場關於隱私與控制權的昂貴學費？當這場合奏的樂譜本身就存在錯音，再華麗的演出也掩蓋不了台下的荒蕪。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://claude.com/product/claude-duet" rel="nofollow noopener" target="_blank">Claude Duet</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261023-0756-0711dc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

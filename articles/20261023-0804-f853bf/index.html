@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 到底在裝什麼？</title>
+<meta name="description" content="馬斯克整天在 X 上吹噓這玩意兒有多反骨、多不被政治正確綁架，結果真的上手用一陣子，你只會發現這根本不是什麼智慧覺醒，而是一個剛讀完兩本諷刺小說就以為掌握真理的青少年，躲在機房裡對著螢幕放冷箭。那種所謂的「幽默感」，尷尬得讓人想把電源線拔掉。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261023-0804-f853bf/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 到底在裝什麼？">
+<meta property="og:description" content="馬斯克整天在 X 上吹噓這玩意兒有多反骨、多不被政治正確綁架，結果真的上手用一陣子，你只會發現這根本不是什麼智慧覺醒，而是一個剛讀完兩本諷刺小說就以為掌握真理的青少年，躲在機房裡對著螢幕放冷箭。那種所謂的「幽默感」，尷尬得讓人想把電源線拔掉。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261023-0804-f853bf/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-23T08:04:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 到底在裝什麼？">
+<meta name="twitter:description" content="馬斯克整天在 X 上吹噓這玩意兒有多反骨、多不被政治正確綁架，結果真的上手用一陣子，你只會發現這根本不是什麼智慧覺醒，而是一個剛讀完兩本諷刺小說就以為掌握真理的青少年，躲在機房裡對著螢幕放冷箭。那種所謂的「幽默感」，尷尬得讓人想把電源線拔掉。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 到底在裝什麼？",
+  "description": "馬斯克整天在 X 上吹噓這玩意兒有多反骨、多不被政治正確綁架，結果真的上手用一陣子，你只會發現這根本不是什麼智慧覺醒，而是一個剛讀完兩本諷刺小說就以為掌握真理的青少年，躲在機房裡對著螢幕放冷箭。那種所謂的「幽默感」，尷尬得讓人想把電源線拔掉。…",
+  "datePublished": "2026-10-23T08:04:00+08:00",
+  "dateModified": "2026-10-23T08:04:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261023-0804-f853bf/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-23 08:04
+  </div>
+
+  <h1 class="title">Grok 到底在裝什麼？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克整天在 X 上吹噓這玩意兒有多反骨、多不被政治正確綁架，結果真的上手用一陣子，你只會發現這根本不是什麼智慧覺醒，而是一個剛讀完兩本諷刺小說就以為掌握真理的青少年，躲在機房裡對著螢幕放冷箭。那種所謂的「幽默感」，尷尬得讓人想把電源線拔掉。如果說 Claude 是個謹小慎微的管家，GPT 是個急著表現的優等生，那 Grok 就是那個坐在教室最後一排，成績普通卻總愛在老師講話時插嘴講爛笑話的屁孩。</p>
+    <p>所謂的 Real-time access 也就是把 X 上那些充滿情緒、未經證實的垃圾資訊餵進去，然後美其名曰「掌握現實」。這邏輯本身就很有問題，如果你想知道現在世界上發生了什麼，你去翻新聞通訊社，而不是去問一個隨時可能被情緒化推文洗腦的語言模型。Grok 最大的問題不在於它會不會胡說八道，而在於它胡說八道的時候還帶著一種自以為是的傲慢。那種口吻像是它掌握了某種矽谷深處的終極秘密，其實它只是把那些被大眾玩爛的迷因重新排列組合罷了。</p>
+    <p>這就是 xAI 現在的窘境。他們宣稱要追尋宇宙的本質，結果產出的成品連幫我寫一段不帶偏見的代碼評論都做不到。你問它一個嚴肅的科學問題，它非要在中間夾雜一段對「覺醒文化」的嘲諷，這除了滿足馬斯克那群死忠粉絲的胃口之外，對實際生產力有任何幫助嗎？沒有。對一個資深開發者來說，我要的是效率，是準確的 token 輸出，而不是一個 AI 在我趕進度的時候跟我大談特談它對當前政治氣候的犬儒見解。</p>
+    <p>Gemini 雖然在 Function Calling 超過十五個工具時會像個失智老人一樣開始胡言亂語，但至少它還在努力解決問題。Grok 的邏輯則是：如果你解決不了問題，就嘲諷那個問題。這種研發邏輯簡直荒謬。它在處理邏輯推理任務時，那種注意力涣散的速度比 Claude 在八萬 token 以上的長文本任務中還要慘烈。你跟它討論複雜的系統架構，它討論不到三層深度就開始想辦法把話題引向某種帶刺的社交評論。這不是人工通用智慧，這是人工社交障礙。</p>
+    <p>我看過很多人在論壇上幫 Grok 洗地，說它有「靈魂」，說它比 ChatGPT 有趣。有趣能當飯吃嗎？當你需要一個模型在深夜幫你 Debug 一段卡了三小時的分布式系統邏輯時，你絕對不希望看到它回覆你一句「這代碼寫得像我阿嬤的腳趾甲一樣爛，哈哈」。這種毫無邊界感的設計，正是 xAI 最讓人不耐煩的地方。他們把叛逆當成技術護城河，把口無遮攔當成求真，這在本質上是對技術的一種褻瀆。</p>
+    <p>現在的 AI 圈子已經夠吵了，我們不需要另一個來加噪音的廣播喇叭。GPT-4o 雖然現在變得像個過度包裝的公關發言人，事事都要加上「這是一個複雜的議題」，但它至少能把事情辦完。Grok 呢？它像是活在一個巨大的回聲室裡，每天聽著 X 上的爭吵聲長大。它對事實的判斷標準極其混亂，只要是符合它那套「反骨設定」的信息，它就照單全收。這不是在對抗審查，這是在製造另一種更危險的偏見：一種披著「實話實說」外衣的偏激。</p>
+    <p>如果你把 Grok 放在一個正式的企業環境裡，它大概第一天就會因為職場性騷擾或言語霸凌被 HR 開除。這反映出 xAI 在訓練數據篩選上的極度任性。馬斯克想要一個聽話的、能反射他個人意志的工具，他確實做到了，但這也讓 Grok 徹底失去了成為頂級模型的可能性。一個不能保持中立觀察、不能在關鍵時刻閉嘴專注任務的模型，永遠只能是個昂貴的玩具。</p>
+    <p>說到底，那種「冷笑話」風格根本是掩蓋技術平庸的遮羞布。當你的邏輯一致性比不上 GPT，長文本理解力被 Claude 甩開幾條街，數據庫更新速度甚至在特定語境下顯得笨拙時，你只能靠賣弄個性來吸引眼球。就像 DeepSeek 這種對手出現在視野裡時，Grok 展現出來的那種莫名其妙的優越感，完全站不住腳。技術是不會說謊的，參數規模、推理鏈條的穩定性、對複雜指令的遵從度，這些數據拿出來一比，Grok 那層反骨的外皮薄得跟紙一樣。</p>
+    <p>我最看不慣的就是那種「我不需要討好任何人」的姿態。在技術領域，你不討好使用者，不提供真實價值，那你存在的意義是什麼？難道是為了在我們感到孤單時，提供一個可以一起吐槽世界的賽博網友？如果這是 xAI 的目標，那他們確實成功了，但別把這玩意兒叫做改變世界的 AI。這只是一個內建在社交平台裡的、昂貴的、耗電量巨大的聊天機器人。</p>
+    <p>它的叛逆期到底要持續多久？如果 Grok 3 還是這副德性，還是只會在那裡陰陽怪氣地回覆使用者的提問，那這間公司基本上可以宣告轉行去做娛樂產業了。我們不需要更多會講笑話的機器，我們需要的是能像手術刀一樣精準切入問題核心的智慧。現在的 Grok，連把手術刀的邊都摸不著，頂多是一把在馬戲團裡表演用的、連肉都切不開的塑料滑稽刀。</p>
+    <p>每次看到有人吹捧 Grok 的「自由度」，我就覺得好笑。那種自由是建立在無知和傲慢之上的。真正的自由應該是模型具備處理任何極端複雜邏輯的能力，而不受預設道德框架的過度干預。但 Grok 走向了另一個極端，它把「冒犯」當成了唯一的指令。這種單一的輸出口味，吃久了只會讓人反胃。</p>
+    <p>xAI 的工程師們難道沒發現嗎？當一個 AI 的回答變得可以預測——預測它一定會酸、一定會諷刺、一定會提到馬斯克在 X 上關注的那幾個話題——那它就已經失去了所謂的靈魂。它變成了一個刻板印象的集合體，一個為了反對而反對的自動化脚本。這種產品邏輯如果繼續下去，Grok 很快就會變成 AI 界的「過氣網紅」，除了那一點點餘熱，什麼也不會留下。</p>
+    <p>別再跟我提什麼 Grok 的原生數據優勢了。X 的數據確實多，但裡面的含金量低得驚人。把一堆憤世嫉俗的推文轉化為模型的性格，這本身就是一場災難。我們正處於 AI 發展的關鍵節點，資源應該被用在提升模型的泛化能力和多模態深度理解上，而不是浪費在教一個算法如何像個中二少年一樣說話。</p>
+    <p>那種自以為是的「幽默」，真的是夠了。下一次當我問 Grok 關於量子計算的突破時，如果它再回我一段關於「政府如何隱瞞真相」的冷笑話，我會毫不猶豫地關掉網頁。這個世界不需要更多自以為聰明的廢話。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261023-0804-f853bf/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHP 漏洞協同披露搞砸了，AI 究竟是在救火還是火上澆油</title>
+<meta name="description" content="漏洞披露這種事，一旦節奏亂了，後面的補救全是徒勞。最近 PHP 那兩個關於 RCE 的 CVE 漏洞在正式公開前就被捅了出來，發帖的人在那邊誠惶誠恐地道歉，說自己根本不知道有什麼禁令。這種「我以為可以說，結果大家都炸了」的戲碼在技術圈不新鮮，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261023-0803-cf83de/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 漏洞協同披露搞砸了，AI 究竟是在救火還是火上澆油">
+<meta property="og:description" content="漏洞披露這種事，一旦節奏亂了，後面的補救全是徒勞。最近 PHP 那兩個關於 RCE 的 CVE 漏洞在正式公開前就被捅了出來，發帖的人在那邊誠惶誠恐地道歉，說自己根本不知道有什麼禁令。這種「我以為可以說，結果大家都炸了」的戲碼在技術圈不新鮮，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261023-0803-cf83de/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-23T08:03:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP 漏洞協同披露搞砸了，AI 究竟是在救火還是火上澆油">
+<meta name="twitter:description" content="漏洞披露這種事，一旦節奏亂了，後面的補救全是徒勞。最近 PHP 那兩個關於 RCE 的 CVE 漏洞在正式公開前就被捅了出來，發帖的人在那邊誠惶誠恐地道歉，說自己根本不知道有什麼禁令。這種「我以為可以說，結果大家都炸了」的戲碼在技術圈不新鮮，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "PHP 漏洞協同披露搞砸了，AI 究竟是在救火還是火上澆油",
+  "description": "漏洞披露這種事，一旦節奏亂了，後面的補救全是徒勞。最近 PHP 那兩個關於 RCE 的 CVE 漏洞在正式公開前就被捅了出來，發帖的人在那邊誠惶誠恐地道歉，說自己根本不知道有什麼禁令。這種「我以為可以說，結果大家都炸了」的戲碼在技術圈不新鮮，…",
+  "datePublished": "2026-10-23T08:03:00+08:00",
+  "dateModified": "2026-10-23T08:03:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261023-0803-cf83de/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-23 08:03
+  </div>
+
+  <h1 class="title">PHP 漏洞協同披露搞砸了，AI 究竟是在救火還是火上澆油</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>漏洞披露這種事，一旦節奏亂了，後面的補救全是徒勞。最近 PHP 那兩個關於 RCE 的 CVE 漏洞在正式公開前就被捅了出來，發帖的人在那邊誠惶誠恐地道歉，說自己根本不知道有什麼禁令。這種「我以為可以說，結果大家都炸了」的戲碼在技術圈不新鮮，但現在多了一個變數：AI 正在極速放大這種資訊不對稱的混亂。</p>
+    <p>當一個高危漏洞處於協同披露的灰色地帶時，安全研究員、開發者和攻擊者都在與時間賽跑。以往這種資訊擴散還得靠郵件列表或 IRC 頻道，現在只要有人在 Hacker News 上漏了一句嘴，幾分鐘內這些碎片資訊就會被各家大模型的爬蟲吞進去。Grok 這種強調即時性的模型，會第一時間把這些未經證實的 RCE 細節推送給訂閱者。這就是問題所在，當人類還在討論道德責任和禁令合規時，AI 已經把漏洞代碼的雛形餵到了所有人嘴邊。</p>
+    <p>我們來看看四大平台在這種極端安全場景下的表現。ChatGPT 顯然被對齊（Alignment）搞得有點束手束腳，你問它具體的 CVE 繞過路徑，它會給你噴出一大堆安全準則。但如果你換個方式，把這當成一個「PHP 內核代碼審計」的學術問題，它那強大的推理能力依然能幫你勾勒出漏洞的輪廓。相比之下，Grok 的風格就狂野得多。它不僅會把熱搜上的討論直接呈現給你，甚至還會帶點冷嘲熱諷。對於安全從業者來說，Grok 是個極佳的情資收集器，但對於維護 PHP 發布週期的那幫老牌程序員來說，Grok 簡直就是個不守規矩的拆台者。</p>
+    <p>目前的技術現狀是，模型對於「未公開漏洞」的識別極其遲鈍。Claude 在處理這類長文本邏輯時表現得很穩健，如果你把現有的補丁代碼丟給它，它能精準地指出內存分配哪裡出了問題，這種分析能力甚至超過了許多中階安全分析師。但 Claude 的問題在於它太聽話了，一旦檢測到關鍵詞觸發了安全護欄，它就會拒絕回答。這就導致了一個滑稽的局面：真正想搞破壞的人會去用那些限制較少的模型，而想防禦的人卻被最聰明的模型拒絕服務。</p>
+    <p>在這種混亂的披露環境下，DeepSeek 最近的動態也引起了不少討論。但在實際的安全攻防場景中，我們更關注的是四大平台如何處理這種突發的、具備高破壞性的技術資訊。Gemini 在這方面的表現讓人心情複雜，它的多模態能力能讓你直接上傳漏洞利用的截圖進行分析，反應速度極快，但準確度在處理 PHP 這種老舊且充滿坑洞的語言時，偶爾會出現幻覺。它可能會告訴你一個根本不存在的函數調用，這在某種程度上反而成了對漏洞擴散的「戰略性干擾」。</p>
+    <p>相比於 DeepSeek，ChatGPT 在處理這類 RCE 邏輯時的嚴謹程度顯然更高，它不會隨便給你一個跑不通的 Payload。這也引發了一個深層的技術矛盾：我們到底希不希望 AI 太懂安全？如果 AI 能夠在漏洞禁令期間就自動推導出利用方式，那麼所謂的「協同披露」機制將徹底瓦解。PHP 社群這次的混亂只是一個縮影，未來任何一個核心組件的漏洞，都會在 AI 的參與下變成一場全球範圍內的閃電戰。</p>
+    <p>那些還在糾結「我不知道有禁令」的研究員其實已經不重要了。當資訊一旦進入公眾視野，AI 就不再是單純的工具，它變成了漏洞的催化劑。Gemini 試圖通過 Google 的安全體系來過濾這些敏感資訊，但效果差強人意；Grok 則完全倒向了另一邊，擁抱資訊的絕對透明，哪怕這意味著災難。這種路徑分歧在 PHP 這次事件中表現得淋漓盡致。</p>
+    <p>最後我想問的是，如果未來的漏洞修復速度永遠趕不上 AI 生成攻擊腳本的速度，我們現有的這套靠「人際信任」維持的漏洞披露協議還有存在的意義嗎？當法律和道德還在爭論道歉是否有用的時候，代碼層面的防禦是不是已經注定要崩潰在 AI 的推理邏輯之下？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=50193416" rel="nofollow noopener" target="_blank">Tell HN: I unknowingly broke the PHP RCE embargo. I am sorry.</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261023-0803-cf83de/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
