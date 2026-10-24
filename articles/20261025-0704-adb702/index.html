@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數據隱私只是給平庸者的體面藉口</title>
+<meta name="description" content="瑞典政府辦公室最近的一用紙令，把 ChatGPT 和 Claude 擋在了紅線之外，美其名曰保護數據安全，背地裡卻轉手把靈魂賣給了 Microsoft Copilot。這種操作在技術圈眼裡早就不是新聞，甚至是某種心照不宣的黑色幽默。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261025-0704-adb702/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="數據隱私只是給平庸者的體面藉口">
+<meta property="og:description" content="瑞典政府辦公室最近的一用紙令，把 ChatGPT 和 Claude 擋在了紅線之外，美其名曰保護數據安全，背地裡卻轉手把靈魂賣給了 Microsoft Copilot。這種操作在技術圈眼裡早就不是新聞，甚至是某種心照不宣的黑色幽默。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261025-0704-adb702/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-25T07:04:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="數據隱私只是給平庸者的體面藉口">
+<meta name="twitter:description" content="瑞典政府辦公室最近的一用紙令，把 ChatGPT 和 Claude 擋在了紅線之外，美其名曰保護數據安全，背地裡卻轉手把靈魂賣給了 Microsoft Copilot。這種操作在技術圈眼裡早就不是新聞，甚至是某種心照不宣的黑色幽默。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "數據隱私只是給平庸者的體面藉口",
+  "description": "瑞典政府辦公室最近的一用紙令，把 ChatGPT 和 Claude 擋在了紅線之外，美其名曰保護數據安全，背地裡卻轉手把靈魂賣給了 Microsoft Copilot。這種操作在技術圈眼裡早就不是新聞，甚至是某種心照不宣的黑色幽默。…",
+  "datePublished": "2026-10-25T07:04:00+08:00",
+  "dateModified": "2026-10-25T07:04:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261025-0704-adb702/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-25 07:04
+  </div>
+
+  <h1 class="title">數據隱私只是給平庸者的體面藉口</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>瑞典政府辦公室最近的一用紙令，把 ChatGPT 和 Claude 擋在了紅線之外，美其名曰保護數據安全，背地裡卻轉手把靈魂賣給了 Microsoft Copilot。這種操作在技術圈眼裡早就不是新聞，甚至是某種心照不宣的黑色幽默。當一個組織聲稱為了安全而封殺現階段最強大的兩個生產力工具時，他們真正在意的不一定是數據會不會被 OpenAI 拿去訓練，而是這筆預算到底進了誰的口袋。</p>
+    <p>對於資深技術人員來說，這反映出一個極其尷尬的現狀：OpenAI 和 Anthropic 在企業級信任這條賽道上，輸給了賣 Windows 授權的銷售代表。即便 ChatGPT 的 Enterprise 版本早就承諾數據不入訓練集，即便 Claude 的 API 調用在隱私保護上做得像保險箱一樣嚴密，但在官僚體系的邏輯裡，這兩家公司依然像是隨時會破產或反水的矽谷暴發戶。比起技術架構的安全性，政客和高層主管更相信那張簽了幾十年的微軟服務合約。</p>
+    <p>這就引出了一個具體的技術斷層。在處理政府公文或高敏感代碼時，OpenAI 的 RAG 檢索機制其實非常依賴對上下文的精確控制。當你把一份涉及國防或稅務的敏感文檔丟進 ChatGPT，即便它開啟了隱私模式，後端的 token 處理邏輯依然是一個黑盒。相比之下，Gemini 在 Google Workspace 體系內的運作邏輯更加透明，至少對於 IT 管理員來說，權限控管是可視化的。但問題在於，當這些政府機構選擇 Copilot 時，他們真的測試過 Copilot 在長文本理解上的穩定性嗎？</p>
+    <p>在實際的壓力測試中，當處理超過 5 萬 token 的法案草案時，Claude 的注意力分配明顯比 Copilot 所搭載的基礎模型更為精確。Copilot 經常在處理到文檔中段時開始出現幻覺，甚至在引用法條時張冠李戴。但這種技術上的優劣，在「政治正確的採購流程」面前一文不值。那些決策者寧願要一個平庸但「合規」的工具，也不想要一個卓越但「不可控」的天才。</p>
+    <p>這讓人想起這兩天在 Hacker News 上被熱烈討論的 DeepSeek，同樣作為技術挑戰者，相較於 DeepSeek 在開源邊界上的瘋狂試探，OpenAI 的做法顯然更傾向於閉源壟斷後的商業收割。這種策略在面向普通用戶時無往不利，但在面對國家級別的防禦心理時，卻顯得力不從心。當大家都在談論算力成本和推理速度時，OpenAI 卻在 Rep 管理上栽了跟頭。他們沒能說服瑞典人，為什麼數據交給 Sam Altman 會比交給 Satya Nadella 更安全。</p>
+    <p>如果我們橫向對比四大平台的企業策略，會發現一種有趣的崩塌。Grok 靠著馬斯克的個人色彩在極客圈自嗨，Gemini 縮在 Google 的生態圈裡取暖，而 ChatGPT 和 Claude 則在爭奪那群最挑剔、卻也最容易流失的專業用戶。相較於 DeepSeek 這種在特定市場內橫衝直撞的變量，OpenAI 表現出了一種「大而不能倒」的傲慢，這種傲慢直接導致了像瑞典政府這種機構的集體反彈。他們不信任 OpenAI 的數據留存策略，更不信任 Anthropic 那套玄學般的憲法 AI 邏輯，最終選擇了最保守、最無聊、也最不容易出錯的微軟方案。</p>
+    <p>這究竟是技術的勝利，還是採購合約的勝利？當我們在討論模型參數、注意力機制和推理路徑時，真正的世界卻在用授權金和免責條款投票。我們是不是高估了 AI 改變組織結構的能力，而低估了官僚體系消化新技術時的排異反應？如果連瑞典這種數位化程度極高的國家，都選擇用行政手段閹割員工的工具箱，那麼我們追求的模型演進，最終服務的是真理，還是那張印著企業 Logo 的免責聲明？</p>
+    <p>下一個被禁的會是誰？還是說，我們最終都會被迫接受那個被閹割過、嵌入在舊系統裡、反應遲鈍但「合規」的平庸 AI？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.sverigesradio.se/artikel/chat-gpt-och-claude-forbjuder-regeringskansliet" rel="nofollow noopener" target="_blank">Swedish government offices to ban ChatGPT and Claude</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261025-0704-adb702/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

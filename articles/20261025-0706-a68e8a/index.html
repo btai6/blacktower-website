@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>推理成本與算力霸權的黃昏</title>
+<meta name="description" content="在算力資源被推向神壇的這兩年，我們習慣了用昂貴的 H100 堆砌出某種「智慧感」。但這兩天技術圈裡關於 DeepInfer 這類框架的討論，把一個極其冷酷的事實擺到了四大廠商面前：如果推理成本可以被壓到極低，那麼原本建立在 API 定價權上的商業護城河，其實比想像中要脆弱得多。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261025-0706-a68e8a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="推理成本與算力霸權的黃昏">
+<meta property="og:description" content="在算力資源被推向神壇的這兩年，我們習慣了用昂貴的 H100 堆砌出某種「智慧感」。但這兩天技術圈裡關於 DeepInfer 這類框架的討論，把一個極其冷酷的事實擺到了四大廠商面前：如果推理成本可以被壓到極低，那麼原本建立在 API 定價權上的商業護城河，其實比想像中要脆弱得多。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261025-0706-a68e8a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-25T07:06:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="推理成本與算力霸權的黃昏">
+<meta name="twitter:description" content="在算力資源被推向神壇的這兩年，我們習慣了用昂貴的 H100 堆砌出某種「智慧感」。但這兩天技術圈裡關於 DeepInfer 這類框架的討論，把一個極其冷酷的事實擺到了四大廠商面前：如果推理成本可以被壓到極低，那麼原本建立在 API 定價權上的商業護城河，其實比想像中要脆弱得多。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "推理成本與算力霸權的黃昏",
+  "description": "在算力資源被推向神壇的這兩年，我們習慣了用昂貴的 H100 堆砌出某種「智慧感」。但這兩天技術圈裡關於 DeepInfer 這類框架的討論，把一個極其冷酷的事實擺到了四大廠商面前：如果推理成本可以被壓到極低，那麼原本建立在 API 定價權上的商業護城河，其實比想像中要脆弱得多。…",
+  "datePublished": "2026-10-25T07:06:00+08:00",
+  "dateModified": "2026-10-25T07:06:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261025-0706-a68e8a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-10-25 07:06
+  </div>
+
+  <h1 class="title">推理成本與算力霸權的黃昏</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>在算力資源被推向神壇的這兩年，我們習慣了用昂貴的 H100 堆砌出某種「智慧感」。但這兩天技術圈裡關於 DeepInfer 這類框架的討論，把一個極其冷酷的事實擺到了四大廠商面前：如果推理成本可以被壓到極低，那麼原本建立在 API 定價權上的商業護城河，其實比想像中要脆弱得多。Gemini 1.5 Pro 在處理百萬級上下文時的 Token 成本，與現在市場上那些試圖用 Flash 架構強行超車的方案相比，優勢正在被稀釋。我們過去追求的是「模型能做什麼」，現在大家的目光顯然已經轉向了「我得花多少錢才能讓它做完這件事」。</p>
+    <p>Gemini 在長文本處理上的技術路徑一直很孤傲。Google 依賴的是其原生多模態架構與超大規模的 TPU 叢集，試圖透過基礎設施的規模經濟來對抗推理開銷。當你把一個 10 萬行代碼的專案丟給 Gemini 1.5 Pro，它在理解深度和邏輯一致性上確實展現出了目前市面上最頂尖的穩定度。然而，技術討論中提到的一個關鍵點是 KV Cache 的管理效率。在處理高併發、大規模推理任務時，如果緩存機制不夠精簡，單卡的吞吐量就會遇到瓶頸。即便 Google 擁有自研晶片的深度優化，但在面對極致的工程優化挑戰時，那種大廠特有的「重量感」反而顯得有些遲鈍。</p>
+    <p>這種遲鈍在對比中變得尤為明顯。相較於 DeepSeek 近期在推理框架上的激進優化，Google 的做法更傾向於在封閉系統內完成垂直整合，這種做法雖然保證了穩定性，卻也在無形中推高了門檻。當社群開始討論如何用單卡跑出驚人的吞吐量，甚至將每小時收益精算到美金個位數時，Gemini 的定價策略顯得有些像是在販售某種昂貴的奢侈品，而非普惠的基礎電力。</p>
+    <p>ChatGPT (OpenAI) 目前的應對方式是透過 o1 系列模型來重新定義推理的價值——既然便宜的推理已經普及，那就販售「思考的時間」。但對於大多數需要快速回饋的生產力場景來說，昂貴的思考時間並非剛需。Claude 3.5 Sonnet 則卡在了一個微妙的位置，它的文字質感和邏輯細膩度無可挑剔，但在面對極端高併發的業務場景時，Anthropic 的後端架構是否能撐住那種毀滅性的低價競爭，目前看來仍是個問號。至於 Grok，雖然背靠強大的算力設施，但其模型效率在複雜任務下的表現，依然無法擺脫暴力運算的影子。</p>
+    <p>在這種格局下，Qwen 的更新速度與適配性也常被技術開發者拿來作為參考基準。但回過頭看，四大平台的核心焦慮其實在於：當推理成本不再是祕密，數據的獨特性與模型對工具鏈的精確調用（Function Calling），會不會成為最後一塊遮羞布？Gemini 目前在工具調用上的不穩定性，尤其是在超過 20 個工具選項時的迷失，顯示出單純依賴規模並不能解決所有問題。如果推理變得像水電一樣廉價，使用者還會願意為了一個稍微好一點的文字語感，去支付數倍的溢價嗎？</p>
+    <p>這場關於推理框架的技術革命，本質上是在對矽谷的估值邏輯進行戰略破壞。當風投們開始驚呼要禁止某些開源權重模型以保護利潤時，其實已經輸了一半。未來的競爭可能不再是誰的模型參數更多，而是誰能在那張昂貴的顯示卡上，榨出最後一滴 Token。</p>
+    <p>當計算資源的邊際成本趨近於零，四大廠商引以為傲的算力防火牆還能撐多久？如果未來半年內，一個中型團隊就能用現成框架跑出接近 GPT-4o 性能且成本僅需十分之一的服務，那麼我們現在談論的「大模型護城河」，會不會從頭到尾只是一場關於算力囤積的幻覺？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/deepseek-ai/DeepInfer" rel="nofollow noopener" target="_blank">DeepInfer: High-performance inference framework for DeepSeek models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261025-0706-a68e8a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
