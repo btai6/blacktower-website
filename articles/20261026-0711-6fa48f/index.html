@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當計算變得太便宜時矽谷在焦慮什麼</title>
+<meta name="description" content="這兩天技術圈的視線都在盯著那些不斷下探的推理成本曲線。當一個推理框架宣稱能把單機集群的吞吐量推向每天百萬億級別的 token 時，這件事就不再只是純粹的工程優化，而是一場針對定價權的定點爆破。對於習慣了靠算力護城河與高昂訂閱費構築商業模式的矽谷巨頭來說，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261026-0711-6fa48f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當計算變得太便宜時矽谷在焦慮什麼">
+<meta property="og:description" content="這兩天技術圈的視線都在盯著那些不斷下探的推理成本曲線。當一個推理框架宣稱能把單機集群的吞吐量推向每天百萬億級別的 token 時，這件事就不再只是純粹的工程優化，而是一場針對定價權的定點爆破。對於習慣了靠算力護城河與高昂訂閱費構築商業模式的矽谷巨頭來說，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261026-0711-6fa48f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-26T07:11:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當計算變得太便宜時矽谷在焦慮什麼">
+<meta name="twitter:description" content="這兩天技術圈的視線都在盯著那些不斷下探的推理成本曲線。當一個推理框架宣稱能把單機集群的吞吐量推向每天百萬億級別的 token 時，這件事就不再只是純粹的工程優化，而是一場針對定價權的定點爆破。對於習慣了靠算力護城河與高昂訂閱費構築商業模式的矽谷巨頭來說，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當計算變得太便宜時矽谷在焦慮什麼",
+  "description": "這兩天技術圈的視線都在盯著那些不斷下探的推理成本曲線。當一個推理框架宣稱能把單機集群的吞吐量推向每天百萬億級別的 token 時，這件事就不再只是純粹的工程優化，而是一場針對定價權的定點爆破。對於習慣了靠算力護城河與高昂訂閱費構築商業模式的矽谷巨頭來說，…",
+  "datePublished": "2026-10-26T07:11:00+08:00",
+  "dateModified": "2026-10-26T07:11:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261026-0711-6fa48f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-10-26 07:11
+  </div>
+
+  <h1 class="title">當計算變得太便宜時矽谷在焦慮什麼</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天技術圈的視線都在盯著那些不斷下探的推理成本曲線。當一個推理框架宣稱能把單機集群的吞吐量推向每天百萬億級別的 token 時，這件事就不再只是純粹的工程優化，而是一場針對定價權的定點爆破。對於習慣了靠算力護城河與高昂訂閱費構築商業模式的矽谷巨頭來說，這種「暴力拆遷」式的效率提升，正讓原本邏輯自洽的估值體系出現裂痕。如果 token 真的變成了像電力或自來水一樣廉價的基礎設施，那種動輒千億美金的投入，最後到底是在為誰做嫁衣。</p>
+    <p>在這種極致壓縮成本的氛圍下，Gemini 的架構選擇顯得格外有意思。Google 其實一直走在另一條極端路徑上，他們對計算資源的吝嗇是刻在骨子裡的。Gemini 1.5 Pro 在處理百萬級長文本時，並沒有像傳統 Transformer 架構那樣讓注意力機制隨著序列增長而呈平方級崩潰。他們在底層大量使用了混合專家模型（MoE）的變體，試圖在推理時只激活極小比例的參數。這種做法的本質是精細化管理，而不是盲目地堆疊算力。比起單純追求吞吐量的極限，Google 更在意的是如何在有限的 TPU 資源下，讓那個龐大的 context window 保持穩定。當你在一個長達十萬行的代碼庫裡尋找一個微小的邏輯漏洞時，Gemini 表現出的那種「檢索精準度」，背後其實是對 KV Cache 管理近乎偏執的優化。</p>
+    <p>這種優化在某些場景下是致命的。我們在測試中發現，當並發請求達到某個臨界點，Gemini 的 Function Calling 響應延遲會出現異常抖動。這很可能是因為其調度層在動態切換專家模組時產生的通訊開銷，抵消了 MoE 帶來的計算紅利。相較於 DeepSeek 在推理框架上的激進壓縮，Gemini 顯然更想在「智能密度」和「運作成本」之間找一個體面的平衡點。但問題在於，市場有時候並不想要體面，市場想要的是廉價到可以隨意揮霍的算力。</p>
+    <p>同樣在算力利用率上做文章的還有 OpenAI。ChatGPT 在處理複雜推理任務時採取的路徑與 Google 截然不同。如果說 Gemini 是在空間換時間，那麼 ChatGPT 尤其是在其推理模型系列中，則是在用時間換智商。它允許模型在輸出之前進行大量的隱性思考，這種機制本質上是在消耗更多的推理成本來換取更高質量的邏輯鏈。在矽谷的視角裡，這叫價值創造；但在那些追求極致吞吐量的工程師眼裡，這簡直是算力的奢侈品。</p>
+    <p>這種分歧在橫向對比時變得非常露骨。當我們觀察 Qwen 在開源社區釋放的推理效率數據時，你會發現那種純粹基於吞吐量優化的思路，正迫使四大平台重新審視自己的定價策略。Claude 在這方面一直顯得很克制，Anthropic 似乎更傾向於把算力花在對齊和安全性上，這導致 Claude 在處理超長文本時的 Token 成本始終居高不下。雖然 Claude 3.5 Sonnet 的速度已經有了質的飛躍，但在面對那種每小時幾十美金就能跑出天文數字 token 的野蠻框架時，這種優雅的緩慢是否還能支撐起它的溢價，確實要打個問號。</p>
+    <p>我們甚至可以大膽一點假設，如果未來半年內推理成本再下降一個數量級，四大平台的競爭維度會發生什麼變化。Grok 依賴於 X 平台海量的實時數據輸入，它的優勢在於信源的鮮活度，但如果計算本身變得不值錢，數據的清洗與過濾成本反而會成為新的負擔。這是一個很諷刺的現象：當大家都在討論如何讓 AI 跑得更快、更便宜時，真正決定勝負的可能反而是那些最「重」的東西，比如數據的純淨度，或者是對物理世界邏輯的底層理解。</p>
+    <p>現在的情況是，技術框架的開源與優化正在消解先發者的算法紅利。當一個業餘開發者都能在廉價顯卡上跑出接近頂級實驗室的推理效率時，那些標榜自己擁有「最強大腦」的公司，必須得證明他們的智慧確實比那些廉價的 token 貴出幾百倍。這不僅僅是技術之爭，更是關於 AI 到底應該是奢侈品還是日用品的路線鬥爭。</p>
+    <p>如果未來某一天，算力成本真的歸零，或者說低到可以忽略不計，那麼我們現在引以為傲的這些架構優化，是否會像當年的內存管理技巧一樣，最終消失在硬件過剩的荒原裡。到那時，我們衡量一個模型好壞的標準，又會漂移到哪個維度去。究竟是那種能處理無限長度的冷靜理性更重要，還是那種能像人類一樣在廢話中閃爍靈光的感性更稀缺。或許這才是所有框架優化到極致後，真正要把我們帶去的終點。</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/deepseek-ai/DeepInfer" rel="nofollow noopener" target="_blank">DeepInfer: High-performance inference framework for DeepSeek models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261026-0711-6fa48f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
