@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 的性價比遊戲還能玩多久</title>
+<meta name="description" content="在 Hacker News 刷到 GPT-6.1 Terra 的數據圖表時，我第一反應不是驚艷，而是一種莫名的疲勞感。Sam Altman 似乎迷上了這種「切香腸」式的發布節奏，把一個本該驚天動地的模型架構拆成無數個代號，Terra、Sol、Astra，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261027-0820-41c866/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 的性價比遊戲還能玩多久">
+<meta property="og:description" content="在 Hacker News 刷到 GPT-6.1 Terra 的數據圖表時，我第一反應不是驚艷，而是一種莫名的疲勞感。Sam Altman 似乎迷上了這種「切香腸」式的發布節奏，把一個本該驚天動地的模型架構拆成無數個代號，Terra、Sol、Astra，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261027-0820-41c866/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-27T08:20:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 的性價比遊戲還能玩多久">
+<meta name="twitter:description" content="在 Hacker News 刷到 GPT-6.1 Terra 的數據圖表時，我第一反應不是驚艷，而是一種莫名的疲勞感。Sam Altman 似乎迷上了這種「切香腸」式的發布節奏，把一個本該驚天動地的模型架構拆成無數個代號，Terra、Sol、Astra，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 的性價比遊戲還能玩多久",
+  "description": "在 Hacker News 刷到 GPT-6.1 Terra 的數據圖表時，我第一反應不是驚艷，而是一種莫名的疲勞感。Sam Altman 似乎迷上了這種「切香腸」式的發布節奏，把一個本該驚天動地的模型架構拆成無數個代號，Terra、Sol、Astra，…",
+  "datePublished": "2026-10-27T08:20:00+08:00",
+  "dateModified": "2026-10-27T08:20:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261027-0820-41c866/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-27 08:20
+  </div>
+
+  <h1 class="title">OpenAI 的性價比遊戲還能玩多久</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>在 Hacker News 刷到 GPT-6.1 Terra 的數據圖表時，我第一反應不是驚艷，而是一種莫名的疲勞感。Sam Altman 似乎迷上了這種「切香腸」式的發布節奏，把一個本該驚天動地的模型架構拆成無數個代號，Terra、Sol、Astra，聽起來像是在命名某個二流科幻小說裡的行星，實則是在測試用戶對「邊際效益遞減」的忍耐極限。Terra 被推出來，本質上是 OpenAI 在推理成本與模型智力之間跳的一場廉價華爾滋。當大家都在敲碗等著能跟 Claude Opus 5.5 正面硬剛的完全體時，OpenAI 卻端出了一個在 Terminal Bench 4.0 表現平平、甚至在某些高負載場景下還不如 Sol Low 的過渡產物。這不是在突破邊界，這是在精算帳單。</p>
+    <p>技術層面上，Terra 的出現反映了一個尷尬的現狀：基準測試（Benchmarks）已經飽和到快要溢位了。當 Terra 的性能曲線死死貼著坐標軸，甚至在某些傳統測試項目中與前代模型拉不開差距時，我們必須問一個問題，這種「針對 Web 端優化的微調」究竟是進步，還是為了安撫訂閱用戶的緩兵之計。Terra 在處理長鏈邏輯推理時的穩定性，顯然為了降低 token 成本做了妥協。你可以感覺到它在回答時的那種「聰明伶俐」，但那更像是一種預設好的套路，而不是真正的邏輯湧現。相比之下，Claude 在處理複雜代碼架構時那種近乎偏執的嚴謹，讓 Terra 顯得像個急於交卷的優等生，雖然分數不低，但細節經不起推敲。</p>
+    <p>這種策略在商業上當然是精明的。OpenAI 顯然是想透過降低「每項任務成本」來築起護城河。但這種做法在技術圈內引起的反彈也不小。如果 Terra XHigh 的成本高於 Sol Low，但在實際產出質量上卻沒有質的飛躍，那麼這種產品線的劃分除了增加開發者的調用難度外，意義何在？這種對成本的過度優化，有時候會導致模型在面對非典型邊界案例時出現奇怪的幻覺。這讓我想起 Gemini 最近在多模態理解上的那種「跳躍性思考」，雖然反應快，但偶爾會讓你覺得它根本沒聽懂你在問什麼。</p>
+    <p>在這種性價比的拉鋸戰中，市場的反應其實很誠實。相較於 DeepSeek 最近在分佈式訓練效率上的動作，OpenAI 選擇在模型微調層面玩文字遊戲的做法，顯得有些防禦性過強。即便是在全球範圍內，開發者們對這種頻繁更換代號卻不給出底層架構突破的行為也開始感到乏味。與此同時，Grok 在語境理解上的那種粗獷但直覺的風格，反而吸引了一批厭倦了被過度對齊（Alignment）和過度優化的用戶。我們正處於一個奇怪的節點：一邊是追求極致成本控制的商業怪獸，另一邊是試圖在純粹智力上挑戰人類極限的理想主義者。</p>
+    <p>如果我們把視角拉長，會發現這種「多版本並行」的混亂感，其實是 OpenAI 內部技術路線不確定的體現。他們一邊想維持領先地位，一邊又被運算資源的黑洞拖慢了腳步。相較於 Qwen 在特定語言環境下的適配速度，OpenAI 這種試圖用一個 Terra 覆蓋全球 Web 用戶的野心，是否顯得過於傲慢？當基準測試已經無法區分出 Terra 與 Sol 的本質區別時，開發者該如何選擇？難道我們未來的工作，就是每天在不同的 API 代號之間反覆橫跳，只為了幫 OpenAI 節省那幾美分的運算費？</p>
+    <p>這場關於「誰才是性價比之王」的爭論，最終可能會演變成一場無意義的內耗。當我們在討論 Terra 是否比 Sol 更適合 Codex 訂閱者時，我們其實已經默許了 AI 進化的停滯。如果 Astra 6.1 遲遲不現身，單憑這些在性能邊緣修修補補的衍生版本，真的能擋住競爭對手那種不講道理的迭代速度嗎？或許我們該期待的不是更便宜的 token，而是那個能再次讓我們感到「這不可能」的瞬間。問題是，在 OpenAI 的財務報表與技術邊界之間，還有多少空間留給真正的創新？當模型優化變成了一場數字遊戲，我們離真正的通用人工智慧，到底是近了還是遠了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/introducing-gpt-6-1-terra/" rel="nofollow noopener" target="_blank">GPT-6.1 Terra</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261027-0820-41c866/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
