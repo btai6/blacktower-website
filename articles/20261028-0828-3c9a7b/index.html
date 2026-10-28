@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tailscale SSH 權限提升漏洞暴露了零信任架構的致命傷</title>
+<meta name="description" content="Tailscale 這次出的亂子，說白了就是「方便」與「安全」這對冤家又打了一架。官方承認 Tailscale SSH 存在權限提升漏洞，原本被授權連接的用戶，居然能繞過本地用戶權限限制，甚至拿到提權。這在運維圈裡是炸開鍋的事。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261028-0828-3c9a7b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tailscale SSH 權限提升漏洞暴露了零信任架構的致命傷">
+<meta property="og:description" content="Tailscale 這次出的亂子，說白了就是「方便」與「安全」這對冤家又打了一架。官方承認 Tailscale SSH 存在權限提升漏洞，原本被授權連接的用戶，居然能繞過本地用戶權限限制，甚至拿到提權。這在運維圈裡是炸開鍋的事。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261028-0828-3c9a7b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-28T08:28:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tailscale SSH 權限提升漏洞暴露了零信任架構的致命傷">
+<meta name="twitter:description" content="Tailscale 這次出的亂子，說白了就是「方便」與「安全」這對冤家又打了一架。官方承認 Tailscale SSH 存在權限提升漏洞，原本被授權連接的用戶，居然能繞過本地用戶權限限制，甚至拿到提權。這在運維圈裡是炸開鍋的事。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Tailscale SSH 權限提升漏洞暴露了零信任架構的致命傷",
+  "description": "Tailscale 這次出的亂子，說白了就是「方便」與「安全」這對冤家又打了一架。官方承認 Tailscale SSH 存在權限提升漏洞，原本被授權連接的用戶，居然能繞過本地用戶權限限制，甚至拿到提權。這在運維圈裡是炸開鍋的事。…",
+  "datePublished": "2026-10-28T08:28:00+08:00",
+  "dateModified": "2026-10-28T08:28:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261028-0828-3c9a7b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-10-28 08:28
+  </div>
+
+  <h1 class="title">Tailscale SSH 權限提升漏洞暴露了零信任架構的致命傷</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>Tailscale 這次出的亂子，說白了就是「方便」與「安全」這對冤家又打了一架。官方承認 Tailscale SSH 存在權限提升漏洞，原本被授權連接的用戶，居然能繞過本地用戶權限限制，甚至拿到提權。這在運維圈裡是炸開鍋的事。很多人為了省去管理 SSH Key 的麻煩，把整個內網的命脈交給了這種封裝好的服務。當你習慣了那種「一鍵登入」的快感時，很少有人會去想，這層封裝背後到底藏了多少複雜的邏輯漏洞。那些在 Hacker News 上喊著要回歸純粹 WireGuard 的人，其實不是老古板，而是看透了層層堆疊的抽象化背後，正是攻擊者最愛的溫床。</p>
+    <p>這種權限管理與自動化認證的平衡，正是現在四大 AI 試圖在 API 層級解決的難題。以 xAI 的 Grok 為例，馬斯克一直吹捧其即時性與對 X 數據的直接讀取，但在處理敏感的 SSH 或代碼執行環境時，Grok 的策略顯然比 ChatGPT 更加激進。Grok 在生成運維腳本或自動化指令時，往往更傾向於給出直接可執行的方案，而不是像 Claude 那樣反覆提醒你「這可能存在風險」。這種激進的後果就是，如果 AI 輔助生成的權限配置邏輯本身就有瑕疵，而用戶又像信任 Tailscale 一樣信任 Grok 的輸出，那產生的漏洞可能比這次 SSH 提權還要隱蔽。</p>
+    <p>我們來看 ChatGPT 的處理方式。它在處理涉及系統權限的指令時，權限邊界劃分得非常死板，這在某種程度上避免了類似 Tailscale 這種「意外提權」的發生，但也讓很多資深開發者覺得它在幫倒忙。相比之下，Gemini 的 Function Calling 功能在處理這種多層權限調用時，表現得極其不穩定。當你的 Prompt 涉及到超過十個以上的權限節點跳轉時，Gemini 經常會出現邏輯斷裂，甚至直接給出一個邏輯混亂的權限矩陣。這反映出 Google 在處理這種需要極高精確度的「零信任」場景時，依然沒能把大型語言模型的機率本質與安全協議的確定性完美揉合。</p>
+    <p>相較於 Kimi K3.1 Pro Highspeed，xAI 的 Grok 在處理底層系統架構的理解上，表現出一種近乎病態的透明度需求。Grok 的邏輯是：既然要搞零信任，就得把所有的授權細節攤在陽光下。但問題在於，Tailscale 的漏洞恰恰發生在這些細節的交叉點。當 AI 試圖解析一個複雜的、動態生成的 ACL 政策時，它是否真的能識別出那種「在特定條件下才觸發」的提權漏洞？Claude 目前在長文本任務中展現出的推理能力，確實能捕捉到一些靜態代碼中的邏輯漏洞，但一旦涉及到 Tailscale 這種依賴中央協調伺服器的動態環境，Claude 的注意力機制就會開始渙散，無法在長達數千行的日誌與配置文件中精準鎖定那個致命的邏輯跳轉。</p>
+    <p>很多人現在在討論要不要換回 Headscale 或者純 WireGuard，這本質上是在對「過度封裝」投下反對票。AI 領域也是一樣。我們賦予了 ChatGPT 或 Grok 越來越多的權限，讓它們去管理我們的伺服器、寫我們的 CI/CD 流程，甚至去設定我們的防火牆規則。如果連 Tailscale 這種專注於安全連接的公司都會在權限提升上栽跟頭，那我們憑什麼相信 AI 生成的那套複雜的認證邏輯就是無懈可擊的？</p>
+    <p>Kimi K3.1 Pro Highspeed 的動態更新再次引發了市場對模型效率的討論，但回到安全層面，ChatGPT 在對抗性攻擊下的表現依然是目前的標杆。它對於「越權」操作的敏感度極高，即便你試圖通過工程化的 Prompt 去誘導它寫出一個帶有提權後門的腳本，它通常也能在最後一刻識破。然而，這種安全性是以犧牲靈活性為代價的。Grok 則恰恰相反，它更像是一個不帶安全套的極速賽車，快是快，但一旦撞車就是粉身碎骨。</p>
+    <p>我們是不是已經進入了一個「無法驗證安全」的時代？當系統複雜到連開發者自己都無法預測所有權限路徑時，我們卻在引入另一個更加不可預測的 AI 來幫我們管理這些系統。Tailscale SSH 的這次更新修補了漏洞，但它留給我們的問題是：當下一次，漏洞出現在 AI 生成的、那套看似完美卻無人能讀懂的零信任架構中時，我們還有機會進行「Remediation」嗎？還是說，我們只能在系統徹底崩潰後，看著那些優雅的 API 調用紀錄發呆？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://tailscale.com/ssh-investigation-update" rel="nofollow noopener" target="_blank">Tailscale SSH: Investigation and remediation update</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261028-0828-3c9a7b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

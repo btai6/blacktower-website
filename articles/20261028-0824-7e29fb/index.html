@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 正在試圖用數學證明的屍體鋪路</title>
+<meta name="description" content="這兩天 Hacker News 炸鍋的原因不是哪個模型又更新了上下文長度，而是 OpenAI 悄悄在 GitHub 丟出了幾篇關於數學、計算科學與物理的預印本。其中最讓人眼皮狂跳的一句是：指數時間假設（ETH）是錯誤的。這件事的本質不在於 P 是否等於 NP，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261028-0824-7e29fb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 正在試圖用數學證明的屍體鋪路">
+<meta property="og:description" content="這兩天 Hacker News 炸鍋的原因不是哪個模型又更新了上下文長度，而是 OpenAI 悄悄在 GitHub 丟出了幾篇關於數學、計算科學與物理的預印本。其中最讓人眼皮狂跳的一句是：指數時間假設（ETH）是錯誤的。這件事的本質不在於 P 是否等於 NP，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261028-0824-7e29fb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-28T08:24:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 正在試圖用數學證明的屍體鋪路">
+<meta name="twitter:description" content="這兩天 Hacker News 炸鍋的原因不是哪個模型又更新了上下文長度，而是 OpenAI 悄悄在 GitHub 丟出了幾篇關於數學、計算科學與物理的預印本。其中最讓人眼皮狂跳的一句是：指數時間假設（ETH）是錯誤的。這件事的本質不在於 P 是否等於 NP，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 正在試圖用數學證明的屍體鋪路",
+  "description": "這兩天 Hacker News 炸鍋的原因不是哪個模型又更新了上下文長度，而是 OpenAI 悄悄在 GitHub 丟出了幾篇關於數學、計算科學與物理的預印本。其中最讓人眼皮狂跳的一句是：指數時間假設（ETH）是錯誤的。這件事的本質不在於 P 是否等於 NP，…",
+  "datePublished": "2026-10-28T08:24:00+08:00",
+  "dateModified": "2026-10-28T08:24:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261028-0824-7e29fb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-10-28 08:24
+  </div>
+
+  <h1 class="title">OpenAI 正在試圖用數學證明的屍體鋪路</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天 Hacker News 炸鍋的原因不是哪個模型又更新了上下文長度，而是 OpenAI 悄悄在 GitHub 丟出了幾篇關於數學、計算科學與物理的預印本。其中最讓人眼皮狂跳的一句是：指數時間假設（ETH）是錯誤的。這件事的本質不在於 P 是否等於 NP，而在於 OpenAI 終於意識到，光靠堆算力去預測下一個 token 已經快撞到天花板了，他們得回過頭來，從邏輯的最底層去拆解那些被認為是「不可能」的複雜度難題。如果一個任意的 k-CNF 公式可以在次指數時間內被精確計算滿足賦值，這意味著我們過去對計算邊界的認知可能漏了一個巨大的洞。</p>
+    <p>當我們在討論 OpenAI 的 o1 或是後續模型如何進行推理時，本質上是在討論一種「搜索」與「驗證」的效率。目前的 ChatGPT 在處理極大規模布林可滿足性問題（SAT）時，依賴的是強化學習訓練出來的直覺，而不是純粹的演算法突破。但這次釋出的論文展示了一種確定性演算法，這說明 OpenAI 內部的研究路徑正在發生偏移。他們不再滿足於讓模型「看起來很聰明」，而是試圖讓模型在生成的過程中，利用這種次指數時間的演算法去剪枝。想像一下，當模型在進行思考鏈（CoT）推理時，如果它能內置一套對計算複雜度更敏感的邏輯檢查器，那麼長文本推理中的那種「胡言亂語」機率會大幅下降。</p>
+    <p>這種技術路徑的選擇非常辛辣。ChatGPT 目前在處理複雜數學證明時，最常犯的錯誤不是計算錯誤，而是邏輯路徑的指數級崩塌。一旦進入深度推理，模型往往會迷失在無限的可能性中。OpenAI 現在提出的這種對 ETH 的挑戰，實際上是在為下一代推理模型提供一種「作弊碼」。如果底層邏輯證實某些問題不需要花費指數級的時間，那麼模型在分配推理 token（Reasoning tokens）時，效率將會提升數個數量級。這不是單純的軟體優化，這是試圖在數學物理層面重新定義什麼叫做「可計算」。</p>
+    <p>在這個領域，各家平台的策略差異變得非常有意思。Claude 3.5 Sonnet 目前採用的方式更像是極限壓榨注意力機制，讓模型在長文本的邏輯連貫性上保持穩定，它在處理代數幾何等抽象問題時表現出的「直覺」優於 ChatGPT，但它缺乏這種從算法底層推翻經典假設的野心。Gemini 則是一直在多模態的理解力上打轉，試圖透過增加上下文來掩蓋推理效率的不足。相較於 Kimi K3.1 Pro，OpenAI 這種直接下場去搞諧波分析與量子場論的做法，顯然是想在科學發現的源頭就掐住所有競爭對手的脖子。</p>
+    <p>當大眾還在爭論 Grok 的幽默感或者是某個特定市場的 Kimi K3.1 Pro 讀取 PDF 的速度時，矽谷那邊的風向已經變了。他們在討論 Kakeya 猜想與局部平滑。這不僅僅是為了讓 AI 幫科學家寫論文，而是為了讓 AI 成為科學家本身。如果 AI 能夠自主發現現有計算理論的漏洞，那麼它自我進化的速度將不再受限於人類餵養的數據量。這種橫向對比下，我們會發現大部分的模型競爭還停留在「應用層」的優化，而 OpenAI 已經在挖「公理層」的地基了。</p>
+    <p>現在的問題是，如果指數時間假設真的被證明是錯的，我們現有的加密體系和計算架構會面臨什麼樣的衝擊？更進一步說，如果一個模型被訓練成具備這種超越傳統演算法限制的推理能力，它所產出的答案，人類還有能力驗證嗎？我們一直擔心 AI 會產生幻覺，但如果 AI 給出了一個正確的證明，而這個證明打破了人類過去一百年的數學認知，我們會把它當作是一個更高級的幻覺，還是真理？當 OpenAI 開始在 arXiv 之外的 GitHub 直接發布這種動搖根基的研究時，他們到底是在分享科學發現，還是在向世界宣告：規則已經由我們重新制定了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/building-scientific-understanding-with-academic-communities/" rel="nofollow noopener" target="_blank">Three new discoveries in mathematics, computer science, and physics</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261028-0824-7e29fb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

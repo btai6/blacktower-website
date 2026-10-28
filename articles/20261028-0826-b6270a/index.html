@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當世界模型成了只會讀腳本的放映機</title>
+<meta name="description" content="Google 把 Genie 搬上台面的時候，那種「超寫實 35mm 電影鏡頭」的標籤貼得震天響，但真正在虛幻引擎裡滾過的人一眼就能看出端倪。渲染出來的彩繪玻璃風景確實漂亮，光影在地面上的散射也有模有樣，但當你試圖去推動那個世界的齒輪時，卻發現它更像是一場精心編排的夢境。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261028-0826-b6270a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當世界模型成了只會讀腳本的放映機">
+<meta property="og:description" content="Google 把 Genie 搬上台面的時候，那種「超寫實 35mm 電影鏡頭」的標籤貼得震天響，但真正在虛幻引擎裡滾過的人一眼就能看出端倪。渲染出來的彩繪玻璃風景確實漂亮，光影在地面上的散射也有模有樣，但當你試圖去推動那個世界的齒輪時，卻發現它更像是一場精心編排的夢境。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261028-0826-b6270a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-28T08:26:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當世界模型成了只會讀腳本的放映機">
+<meta name="twitter:description" content="Google 把 Genie 搬上台面的時候，那種「超寫實 35mm 電影鏡頭」的標籤貼得震天響，但真正在虛幻引擎裡滾過的人一眼就能看出端倪。渲染出來的彩繪玻璃風景確實漂亮，光影在地面上的散射也有模有樣，但當你試圖去推動那個世界的齒輪時，卻發現它更像是一場精心編排的夢境。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當世界模型成了只會讀腳本的放映機",
+  "description": "Google 把 Genie 搬上台面的時候，那種「超寫實 35mm 電影鏡頭」的標籤貼得震天響，但真正在虛幻引擎裡滾過的人一眼就能看出端倪。渲染出來的彩繪玻璃風景確實漂亮，光影在地面上的散射也有模有樣，但當你試圖去推動那個世界的齒輪時，卻發現它更像是一場精心編排的夢境。…",
+  "datePublished": "2026-10-28T08:26:00+08:00",
+  "dateModified": "2026-10-28T08:26:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261028-0826-b6270a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-10-28 08:26
+  </div>
+
+  <h1 class="title">當世界模型成了只會讀腳本的放映機</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 把 Genie 搬上台面的時候，那種「超寫實 35mm 電影鏡頭」的標籤貼得震天響，但真正在虛幻引擎裡滾過的人一眼就能看出端倪。渲染出來的彩繪玻璃風景確實漂亮，光影在地面上的散射也有模有樣，但當你試圖去推動那個世界的齒輪時，卻發現它更像是一場精心編排的夢境。現在討論的核心不在於生成出來的畫面有多接近 3A 大作，而在於那種「交互感」的集體缺失。我們在乎的是那個世界的物理邏輯是否自洽，而不是它看起來有多像一部昂貴的電影預告片。</p>
+    <p>從技術層面來看，Genie 在處理時空連續性上確實有它的長處，但作為一個標榜能「模擬」世界的模型，它的反應速度和指令遵循度卻顯得有些遲鈍。如果你嘗試在一個生成的動作場景中進行非線性的干預，比如突然轉向或與環境物體發生隨機碰撞，模型往往會出現一種邏輯上的斷裂，隨後用一種模糊的過渡來掩飾它對物理法則的無知。這種現象在 Gemini 的多模態理解中也偶爾能見到蹤影，當系統試圖將語義理解轉化為動態視覺邏輯時，那種微妙的延遲和對抗感，讓所謂的「實時模擬」聽起來更像是一個遙遠的營銷術語。</p>
+    <p>這種割裂感在 Google 內部的產品生態中顯得尤為諷刺。當 Genie 正展示著如何用 AI 模擬出複雜的 3D 場景時，同門的語音轉文字技術卻連基本的專有名詞都能聽錯。這種資源分配的不均勻，反映出大廠在追求「視覺衝擊力」與「底層工具鏈」之間的失衡。我們在追求更極致的像素表現，卻連最基礎的輸入輸出口都還沒打磨乾淨。一個能模擬宇宙的模型，如果聽不懂觀察者的指令，那它不過是一個關在玻璃球裡的精緻擺件。</p>
+    <p>在追求這種模擬真實感的賽道上，各家的切入點截然不同。相較於 Kimi K3.1 Pro Highspeed，Google 選擇了一條依賴海量視覺數據來堆砌物理規律的路徑。ChatGPT 在處理這類任務時，更傾向於通過代碼解釋器或與物理引擎聯動來構建邏輯框架，而不是單純依靠像素點的預測。Claude 則在理解物理世界的因果鏈條上表現出某種冷靜的克制，它不會輕易給你一個看起來很美但邏輯破碎的畫面，而是試圖在文本描述的邊界內建立對物理規則的敬畏。Grok 則像是一個不按常理出牌的觀察者，在處理大規模動態場景時，它對環境噪聲的容忍度極高，這讓它的生成結果帶有一種野性，卻也更接近真實世界的混亂。</p>
+    <p>這引發了一個讓人感到不安的趨勢。如果未來的遊戲或虛擬世界不再需要釋放任何二進制文件，而是全部托管在雲端的黑盒子裡進行流式傳輸，我們對「真實」的定義是否會被徹底重構？當模型僅僅是根據你的輸入來「播放」下一幀最可能的畫面，而不是根據物理引擎計算出碰撞結果時，這種模擬出來的自由度到底還剩下多少？我們是在與一個世界互動，還是在與一個極其聰明的預測算法玩一場永無止境的捉迷藏？如果有一天，AI 模擬出來的 35mm 鏡頭比肉眼看到的現實還要真實，我們還有能力分辨出那種刻意為之的精緻嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" rel="nofollow noopener" target="_blank">Genie 4</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261028-0826-b6270a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
