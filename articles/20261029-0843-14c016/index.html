@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>克勞德的優雅與圖書館的後門</title>
+<meta name="description" content="當人們還在驚嘆於 Claude 處理十萬字長文本時那種近乎病態的細膩感，或者讚美其「憲法 AI」框架下的道德潔癖時，Anthropic 的技術後院正冒著一股不太好聞的煙。這次被推上風口浪尖的不是其模型幻覺，而是其訓練集來源——那些原本鎖在史丹佛教授私人書架上的著作，繞了一大圈，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261029-0843-14c016/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="克勞德的優雅與圖書館的後門">
+<meta property="og:description" content="當人們還在驚嘆於 Claude 處理十萬字長文本時那種近乎病態的細膩感，或者讚美其「憲法 AI」框架下的道德潔癖時，Anthropic 的技術後院正冒著一股不太好聞的煙。這次被推上風口浪尖的不是其模型幻覺，而是其訓練集來源——那些原本鎖在史丹佛教授私人書架上的著作，繞了一大圈，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261029-0843-14c016/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-29T08:43:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="克勞德的優雅與圖書館的後門">
+<meta name="twitter:description" content="當人們還在驚嘆於 Claude 處理十萬字長文本時那種近乎病態的細膩感，或者讚美其「憲法 AI」框架下的道德潔癖時，Anthropic 的技術後院正冒著一股不太好聞的煙。這次被推上風口浪尖的不是其模型幻覺，而是其訓練集來源——那些原本鎖在史丹佛教授私人書架上的著作，繞了一大圈，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "克勞德的優雅與圖書館的後門",
+  "description": "當人們還在驚嘆於 Claude 處理十萬字長文本時那種近乎病態的細膩感，或者讚美其「憲法 AI」框架下的道德潔癖時，Anthropic 的技術後院正冒著一股不太好聞的煙。這次被推上風口浪尖的不是其模型幻覺，而是其訓練集來源——那些原本鎖在史丹佛教授私人書架上的著作，繞了一大圈，…",
+  "datePublished": "2026-10-29T08:43:00+08:00",
+  "dateModified": "2026-10-29T08:43:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261029-0843-14c016/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-29 08:43
+  </div>
+
+  <h1 class="title">克勞德的優雅與圖書館的後門</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當人們還在驚嘆於 Claude 處理十萬字長文本時那種近乎病態的細膩感，或者讚美其「憲法 AI」框架下的道德潔癖時，Anthropic 的技術後院正冒著一股不太好聞的煙。這次被推上風口浪尖的不是其模型幻覺，而是其訓練集來源——那些原本鎖在史丹佛教授私人書架上的著作，繞了一大圈，最後從 LibGen 這種法外之地被塞進了 Claude 的大腦。這就像一位穿著三件式西裝、大談古典文學與倫理規範的紳士，轉身就被抓到是翻牆進圖書館偷書看的慣犯。技術圈的反應很有趣，有人在憤怒，有人在嘲諷，但更多的人在冷眼旁觀這場關於「數據原罪」的必然結局。</p>
+    <p>問題的本質不在於 Claude 讀了什麼，而在於它怎麼讀的。根據法律判例，將書籍用於模型訓練往往被歸類為「合理使用」，但從盜版來源獲取數據則完全是另一回事。這是一個極其諷刺的技術細節：Anthropic 為了追求模型在邏輯推導與人文素養上的卓越表現，必須餵食高質量的結構化文本，而學術著作無疑是最高等級的養料。然而，為了節省那筆足以讓任何初創公司破產的授權費，他們選擇了技術上最省力、法律上最冒險的路徑。當你發現 Claude 能精準理解某個晦澀的社會學理論時，你很難不去想，這背後到底是知識的傳遞，還是一次成功的數字銷贓。</p>
+    <p>從技術邏輯來看，這暴露了當前頂尖模型在訓練數據上的「潔癖悖論」。OpenAI 與 Google 擁有龐大的網頁抓取能力或原生生態鏈，而 Anthropic 則一直試圖營造一種技術精英的品牌形象。如果 Claude 的回答顯得比 GPT-4 更具備書卷氣，那很可能是因為它真的把那些最昂貴、最難獲取的書「吃」下去了。我們在測試 Claude 的代碼生成或長文本摘要時，常會發現它展現出一種超乎尋常的結構感。這種結構感並非憑空而來，而是對大量嚴謹學術邏輯的統計學模仿。這種模仿的代價是 15 億美元的法律風險，還是對「知識自由」的另一種解讀？</p>
+    <p>在這種數據獲取的博弈中，各大廠商的姿態各異。相較於 Kimi K3.1 Pro 近期在長文本技術上的動作，Claude 顯然在試圖用更高密度的專業數據來對抗同質化。ChatGPT 正在轉向與媒體巨頭簽署數十億美元的授權協議，試圖洗白自己的身分；Gemini 則背靠 Google Books 的天然優勢，雖然那也是一場持續了十幾年的版權拉鋸戰。相比之下，Anthropic 的做法顯得既大膽又笨拙。在面對 Kimi K3.1 Pro 這種追趕者的技術壓力下，第一梯隊的玩家似乎已經顧不得吃相是否優雅，數據的質量決定了模型智力的天花板，而獲取數據的成本則是決定誰能留在牌桌上的底氣。</p>
+    <p>這種「數據原罪」是否會成為 Claude 的阿基里斯之踵？這不僅是法律問題，更是技術倫理的底線。如果一個以「安全」和「道德」為賣點的模型，其智力基礎是建立在未經授權的盜版文本之上，那麼它的所有輸出是否都帶有一種不可抹去的原罪？開發者們在 Hacker News 上爭論不休，有人認為這是打破精英學術壟斷的進步，有人則認為這是純粹的商業盜竊。</p>
+    <p>我們是否已經進入了一個「不問出處，只問智力」的時代？當我們享受著 Claude 給出的精確建議時，誰還會在乎那些文字背後的教授是否拿到了一分錢的報酬。如果所有的知識最終都注定要被熔煉成 AI 模型裡的權重參數，那麼「版權」這個概念，是否正像那些被掃描進 LibGen 的舊書一樣，在數字化的洪流中慢慢發黃、碎裂，最終變得毫無意義？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/" rel="nofollow noopener" target="_blank">Anthropic trained Claude on illegally obtained Stanford professors&#x27; books</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261029-0843-14c016/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
