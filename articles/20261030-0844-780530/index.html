@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>道德潔癖救不了長文本的飢渴</title>
+<meta name="description" content="當 Anthropic 為了讓 Claude 展現出那種類似於波士頓老牌知識分子的優雅談吐，而決定從 LibGen 下載幾十萬本學術著作時，這家公司顯然忘記了矽谷最基本的生存法則：如果你要偷走整個普羅米修斯的火種，千萬別在眾目睽睽之下留下印有斯坦福校徽的餘燼。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261030-0844-780530/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="道德潔癖救不了長文本的飢渴">
+<meta property="og:description" content="當 Anthropic 為了讓 Claude 展現出那種類似於波士頓老牌知識分子的優雅談吐，而決定從 LibGen 下載幾十萬本學術著作時，這家公司顯然忘記了矽谷最基本的生存法則：如果你要偷走整個普羅米修斯的火種，千萬別在眾目睽睽之下留下印有斯坦福校徽的餘燼。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261030-0844-780530/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-10-30T08:44:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="道德潔癖救不了長文本的飢渴">
+<meta name="twitter:description" content="當 Anthropic 為了讓 Claude 展現出那種類似於波士頓老牌知識分子的優雅談吐，而決定從 LibGen 下載幾十萬本學術著作時，這家公司顯然忘記了矽谷最基本的生存法則：如果你要偷走整個普羅米修斯的火種，千萬別在眾目睽睽之下留下印有斯坦福校徽的餘燼。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "道德潔癖救不了長文本的飢渴",
+  "description": "當 Anthropic 為了讓 Claude 展現出那種類似於波士頓老牌知識分子的優雅談吐，而決定從 LibGen 下載幾十萬本學術著作時，這家公司顯然忘記了矽谷最基本的生存法則：如果你要偷走整個普羅米修斯的火種，千萬別在眾目睽睽之下留下印有斯坦福校徽的餘燼。…",
+  "datePublished": "2026-10-30T08:44:00+08:00",
+  "dateModified": "2026-10-30T08:44:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261030-0844-780530/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-10-30 08:44
+  </div>
+
+  <h1 class="title">道德潔癖救不了長文本的飢渴</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 為了讓 Claude 展現出那種類似於波士頓老牌知識分子的優雅談吐，而決定從 LibGen 下載幾十萬本學術著作時，這家公司顯然忘記了矽谷最基本的生存法則：如果你要偷走整個普羅米修斯的火種，千萬別在眾目睽睽之下留下印有斯坦福校徽的餘燼。這場關於非法獲取教授著作的爭議，本質上不是版權保護的哀鳴，而是大模型在「數據窮盡」邊緣的集體焦慮。大家都在說 Claude 的語言質感細膩、邏輯嚴密，甚至在處理長文本時能保持一種驚人的學術穩定性，但很少有人思考，這種「書卷氣」究竟是多少次未經授權的抓取換來的代價。</p>
+    <p>Anthropic 一向以「憲法 AI」自居，給外界的形象總是在鋼索上行走、力求安全與合規的苦行僧。然而，當 Claude 3.5 Sonnet 在處理長達十萬 token 的學術論文分析，還能精準捕捉到導言與結論之間微小的邏輯斷層時，技術圈就該意識到，支撐這種理解能力的底層數據庫，絕不僅僅來自於維基百科或是 Reddit 上的口水仗。學術著作的結構化信息密度是普通網頁數據的數百倍，對於需要「深度思考」的模型來說，斯坦福教授們的著作就像是最高純度的濃縮燃料。問題在於，當你把這些燃料灌進引擎時，你是從正門買的石油，還是在深夜的地下油庫裡接的管子。</p>
+    <p>目前在四大平台的競爭中，Claude 的優勢在於它對語境的極端敏感，這與它訓練集中的高品質書面語料直接相關。相較於 ChatGPT 越來越趨向於一種公務員式的平庸回覆，Claude 的回答往往帶有一種特定的敘事結構，這在進行代碼重構或複雜法條解釋時展現出了極高的勝任力。然而，這種對高品質語料的依依不捨，也讓 Anthropic 陷入了技術上的路徑依賴。如果失去了這些未經授權的學術精華，Claude 是否還能維持那種令人驚豔的「智慧感」？還是會退化成一個只會堆砌辭藻的複讀機？</p>
+    <p>在橫向觀察這場數據爭端時，我們會發現市場的反應充滿了黑色幽默。相較於 Kimi K3.1 Pro，Claude 在面對版權訴訟時的應對顯得極其笨拙，它既想要保留高端的技術調性，又無法像 OpenAI 那樣揮舞著支票與媒體巨頭達成和解。大家都在關心模型是否「侵權」，卻很少有人討論，當數據來源的合法性被質疑時，我們對模型輸出的「真實性」是否也該打個折扣。如果一個模型的智慧是建立在對知識產權的掠奪之上，那麼它的安全性邊界究竟在哪裡？與 Kimi K3.1 Pro 的頻繁迭代相比，Claude 似乎更傾向於在封閉的語料黑箱中精雕細琢，只是這個黑箱的蓋子正被憤怒的教授們撬開一角。</p>
+    <p>更深層的技術問題在於，既然判例法已經逐漸傾向於將「訓練」視為合理使用，那麼 Anthropic 為什麼還要冒著品牌崩潰的風險去使用非法下載的語料？唯一的解釋是，對於 Claude 這種層級的模型來說，合法的、可購買的、高質量的結構化數據已經枯竭了。Gemini 擁有整個 YouTube 和 Google Books 的寶庫，Grok 坐擁 X 平台的實時數據流，而 Anthropic 像是一個家徒四壁卻想培養出貴族的教書先生，只能去鄰居的書房裡「借」書。這種數據貧困與技術野心之間的矛盾，正是目前大模型開發者面臨的集體困局。</p>
+    <p>我們是否已經進入了一個「後版權時代」，在這個時代裡，知識的價值不再體現於其原創者的姓名，而體現於它被餵進權重參數後的轉化效率？如果所有的學術精華最終都縮減為 Claude 模型中的幾組權重數值，那麼我們保護的是知識本身，還是在保護一種已經過時的分配體系？當未來的學生不再閱讀斯坦福教授的原著，而是通過 Claude 的總結來理解世界，那些被「非法」抓取的書籍，究竟是完成了它們傳播知識的宿命，還是成為了數字利維坦體內被消化殆盡的殘渣？如果有一天，所有的模型都只能在自己生成的數據中循環，那時我們是否會懷念這段為了幾本偷來的書而爭論不休的時光？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/" rel="nofollow noopener" target="_blank">Anthropic trained Claude on illegally obtained Stanford professors&#x27; books</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261030-0844-780530/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
