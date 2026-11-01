@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 餵給你的不只有答案還有漏洞</title>
+<meta name="description" content="Sam Altman 每天在推特上勾勒 AI 代理人接管世界的藍圖，但現實是，這台龐大的機器連自己的後門都關不嚴。最近關於 ChatGPT 帳戶劫持的技術細節在圈子裡傳得沸沸揚揚，只要一個精心構造的連結，你的對話紀錄、自定義指令，甚至那些藏在對話裡的 API Key 就可能易主。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261101-0802-469e00/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 餵給你的不只有答案還有漏洞">
+<meta property="og:description" content="Sam Altman 每天在推特上勾勒 AI 代理人接管世界的藍圖，但現實是，這台龐大的機器連自己的後門都關不嚴。最近關於 ChatGPT 帳戶劫持的技術細節在圈子裡傳得沸沸揚揚，只要一個精心構造的連結，你的對話紀錄、自定義指令，甚至那些藏在對話裡的 API Key 就可能易主。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261101-0802-469e00/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-01T08:02:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 餵給你的不只有答案還有漏洞">
+<meta name="twitter:description" content="Sam Altman 每天在推特上勾勒 AI 代理人接管世界的藍圖，但現實是，這台龐大的機器連自己的後門都關不嚴。最近關於 ChatGPT 帳戶劫持的技術細節在圈子裡傳得沸沸揚揚，只要一個精心構造的連結，你的對話紀錄、自定義指令，甚至那些藏在對話裡的 API Key 就可能易主。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 餵給你的不只有答案還有漏洞",
+  "description": "Sam Altman 每天在推特上勾勒 AI 代理人接管世界的藍圖，但現實是，這台龐大的機器連自己的後門都關不嚴。最近關於 ChatGPT 帳戶劫持的技術細節在圈子裡傳得沸沸揚揚，只要一個精心構造的連結，你的對話紀錄、自定義指令，甚至那些藏在對話裡的 API Key 就可能易主。…",
+  "datePublished": "2026-11-01T08:02:00+08:00",
+  "dateModified": "2026-11-01T08:02:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261101-0802-469e00/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-01 08:02
+  </div>
+
+  <h1 class="title">OpenAI 餵給你的不只有答案還有漏洞</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 每天在推特上勾勒 AI 代理人接管世界的藍圖，但現實是，這台龐大的機器連自己的後門都關不嚴。最近關於 ChatGPT 帳戶劫持的技術細節在圈子裡傳得沸沸揚揚，只要一個精心構造的連結，你的對話紀錄、自定義指令，甚至那些藏在對話裡的 API Key 就可能易主。這不是什麼科幻電影裡的賽博入侵，而是最原始、最乏味的網頁安全漏洞：當一個標榜要帶領人類走向 AGI 的公司，在 OAuth 授權和 Session 處理上還能玩出自毀長城的戲碼時，你真的很難不去懷疑，他們那幾千名頂級工程師是不是都去研究怎麼讓 AI 寫詩，而忘了最基本的代碼審計。</p>
+    <p>這種技術漏洞的本質在於系統複雜度的病態擴張。當 ChatGPT 從一個簡單的聊天框變成一個擁有插件、Canvas、桌面客戶端以及各類整合工具的龐大單體架構時，攻擊面會呈對數級別增長。特別是在桌面端應用上，那種能遠程訪問本地文件系統的低級錯誤，簡直像是把家門鑰匙掛在門把手上，還順便在門口貼了張「歡迎光臨」的告示。對於一個處理極其敏感數據的平台來說，這種對基礎設施安全的輕慢，與其宣稱的「安全對齊」口號顯得極其諷刺。</p>
+    <p>我們來看看四大平台的表現。ChatGPT 的問題在於它太想成為一個萬能的作業系統，整合的功能越多，結構性的縫隙就越多。相比之下，Claude 在這方面顯得克制許多，Anthropic 似乎更傾向於把模型關在一個相對封閉、乾淨的沙盒裡。你在 Claude 上很少看到這種因為第三方授權機制崩潰而導致的帳戶危機，但也正因為這種克制，Claude 在跨應用調用和生態擴展上顯得慢半拍。這是一個很難看的交易：你要麼選擇一個功能貧瘠但相對安全的保險箱，要麼選擇一個功能強大但四處漏風的智慧家居中心。</p>
+    <p>Gemini 的情況則更為複雜，它背靠 Google 的帳戶體系，這既是盔甲也是軟肋。Google 有著全世界最成熟的安全防禦機制，但 Gemini 與 Workspace 的深度綁定，意味著一旦發生權限提升漏洞，丟掉的不只是聊天紀錄，還有你的整個雲端硬碟和郵件內容。至於 Grok，馬斯克一邊嘲笑 OpenAI 是「ClosedAI」，一邊在安全性上玩著同樣的黑盒遊戲。Grok 目前的攻擊面較小，單純是因為它還不夠複雜，當它開始試圖接管 X 的更多底層權限時，那種野生式的開發風格難保不會重蹈覆轍。</p>
+    <p>有趣的是，當所有人都在討論 Qwen3.5 的最新動態時，OpenAI 似乎正忙著處理這些令人頭痛的帳戶安全遺留問題。相較於 Qwen3.5 這種在特定市場被頻繁討論的對象，OpenAI 的做法是典型的大力出奇跡——用更多的代碼去堆砌功能，再用更多的補丁去修補代碼，最後形成一個誰也看不透的龐然大物。如果你觀察過 ChatGPT 處理 Token 回傳的機制，你會發現它在追求速度和流暢感的過程中，犧牲了多少驗證環節。那種為了讓用戶「感覺」AI 很聰明而設計的預加載和緩存機制，正是許多中間人攻擊的溫床。</p>
+    <p>現在的問題已經不是「AI 會不會取代人類」，而是「你敢不敢把帳戶交給 AI」。當我們習慣了點擊一個連結就能載入一段精彩的 Prompt，或者一鍵授權讓 AI 讀取我們的本地文件時，我們其實在玩一場信任的俄羅斯輪盤。那些標榜著能自動寫出百萬行代碼的代理人集群，為什麼連自己最基礎的輸入過濾和授權驗證都寫不好？</p>
+    <p>如果這就是通往 AGI 的必經之路，那我們是否已經默認了「隱私」和「安全」只是這張昂貴門票上的附加稅？當你下一次在 ChatGPT 桌面版開啟「工作模式」時，你真的確定螢幕另一頭只有那台伺服器，而不是某個掌握了你 Session 密鑰的陌生人？或者說，在這個連密碼都快要變成裝飾品的時代，我們是不是該重新定義一下，什麼才叫真正的「安全」？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.parameter.ai/labs/we-found-a-gap-at-openai" rel="nofollow noopener" target="_blank">Do the math: How we took over ChatGPT accounts</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261101-0802-469e00/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
