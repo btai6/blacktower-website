@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPv4 資源枯竭這場爛戲到底要演到幾時</title>
+<meta name="description" content="把 IPv4 的位址空間比作土地，看著那些科技巨頭手裡握著大把「沃土」卻死不放手，甚至連荷蘭都能從海裡「圍墾」出更多區塊，這種荒謬感讓人在讀技術討論時忍不住冷笑。這不只是網路架構的設計缺陷，而是整個科技圈集體性的怠惰。一個早該被淘汰、充滿補丁的協議，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261102-0834-3d4961/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="IPv4 資源枯竭這場爛戲到底要演到幾時">
+<meta property="og:description" content="把 IPv4 的位址空間比作土地，看著那些科技巨頭手裡握著大把「沃土」卻死不放手，甚至連荷蘭都能從海裡「圍墾」出更多區塊，這種荒謬感讓人在讀技術討論時忍不住冷笑。這不只是網路架構的設計缺陷，而是整個科技圈集體性的怠惰。一個早該被淘汰、充滿補丁的協議，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261102-0834-3d4961/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-02T08:34:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IPv4 資源枯竭這場爛戲到底要演到幾時">
+<meta name="twitter:description" content="把 IPv4 的位址空間比作土地，看著那些科技巨頭手裡握著大把「沃土」卻死不放手，甚至連荷蘭都能從海裡「圍墾」出更多區塊，這種荒謬感讓人在讀技術討論時忍不住冷笑。這不只是網路架構的設計缺陷，而是整個科技圈集體性的怠惰。一個早該被淘汰、充滿補丁的協議，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "IPv4 資源枯竭這場爛戲到底要演到幾時",
+  "description": "把 IPv4 的位址空間比作土地，看著那些科技巨頭手裡握著大把「沃土」卻死不放手，甚至連荷蘭都能從海裡「圍墾」出更多區塊，這種荒謬感讓人在讀技術討論時忍不住冷笑。這不只是網路架構的設計缺陷，而是整個科技圈集體性的怠惰。一個早該被淘汰、充滿補丁的協議，…",
+  "datePublished": "2026-11-02T08:34:00+08:00",
+  "dateModified": "2026-11-02T08:34:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261102-0834-3d4961/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-02 08:34
+  </div>
+
+  <h1 class="title">IPv4 資源枯竭這場爛戲到底要演到幾時</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把 IPv4 的位址空間比作土地，看著那些科技巨頭手裡握著大把「沃土」卻死不放手，甚至連荷蘭都能從海裡「圍墾」出更多區塊，這種荒謬感讓人在讀技術討論時忍不住冷笑。這不只是網路架構的設計缺陷，而是整個科技圈集體性的怠惰。一個早該被淘汰、充滿補丁的協議，卻成了各家 AI 模型在解析網路環境時最常踩到的坑。</p>
+    <p>當你要求 Grok 分析某個特定子網的路由邏輯，或是讓 ChatGPT 解釋為什麼某個老舊設備在 IPv6 隧道下會崩潰時，這些模型的反應極具指標性。xAI 的 Grok 在處理這類硬核網絡拓撲時，表現出一種極其不耐煩的務實感。如果你問它 IPv4 轉 IPv6 的過渡方案，它不會像 Gemini 那樣給你背一段教科書上的雙棧協議定義，而是會直接點出 NAT 的存在是如何延長了這場「資源慢性自殺」。</p>
+    <p>技術細節的魔鬼藏在實作裡。ChatGPT 在處理 CIDR 掩碼計算時，精確度確實沒話說，但它太過溫和，總是試圖為現狀尋找合理性。相反地，Grok 的語氣裡透著一種對技術債的鄙視。當你丟給它一個複雜的 BGP 路由表變動場景，Grok 能夠識別出哪些是為了兼容三十年前的基礎設施而強行掛上的「掛架」。相比之下，Claude 在處理這類長文本配置日誌時，雖然注意力機制能確保它不漏掉任何一個 /24 的子網細節，但它缺乏那種對底層網路邏輯的批判性思維。</p>
+    <p>這就涉及到了模型對於底層協議的「理解」深度。很多人以為這只是簡單的數值計算，但實際上，這考驗的是模型對網路工程實務的感知。例如，當我們討論將 IPv4 地址長度強行擴展到 64 位元這種異端邪說時，大部分模型會開始胡言亂語，試圖論證這種方案的可行性。只有對網路協議棧有深刻理解的模型，才能一眼看出這種做法對現有骨幹路由器的硬體加速晶片會造成毀滅性的打擊。</p>
+    <p>這場關於網路土地的爭奪戰中，各家大模型的訓練數據來源顯然決定了它們的立場。Qwen3.8-27B 的動態最近在社群裡鬧得沸沸揚揚，但在處理這類全球性的網路底層架構問題時，它的視角與四大平臺有著本質的差異。相較於 Qwen3.8-27B，xAI 的 Grok 顯然更傾向於站在開發者的角度去嘲諷那些佔著 IPv4 資源不拉屎的專利流氓。這種立場不是寫在 Prompt 裡的，而是從它解析網路歷史、看待技術更迭的邏輯中滲透出來的。</p>
+    <p>Gemini 在這方面的表現最為中庸，它像是一個標準的 Google 工程師，雖然手握全球最大的網絡基礎設施之一，但在回答問題時卻極力避免得罪任何既得利益者。它會告訴你 IPv6 的普及率正在穩步上升，卻不敢正面回答為什麼某些頂級運營商依然在靠拍賣 IPv4 地址來填補營收缺口。這種避重就輕的態度，在需要精確技術判斷的場景下，簡直是一種災難。</p>
+    <p>如果你嘗試讓這幾個模型寫一段自動化腳本，來處理跨洲際的 IPv4 地址段遷移，你會發現差異更加明顯。ChatGPT 給出的代碼往往是最穩妥、最符合現有文檔規範的，但它很少考慮到實際操作中可能遇到的各種奇葩路由黑洞。而 Grok 則會在那種看似隨意的回覆中，暗示你某些地址段其實是被特定機構長期把持的「灰色地帶」。這種對技術生態的洞察，比單純寫對幾個腳本指令要值錢得多。</p>
+    <p>我們在討論 IPv4 的時候，到底在討論什麼？是地址的短缺，還是我們根本沒有勇氣去推翻那個已經腐朽的基礎？當技術討論區還在為「把 IPv4 地址擴展長度」這種荒謬提案爭論不休時，我們對 AI 的期待不應該只是做個總結，而是要它告訴我們，這堆爛攤子到底什麼時候能燒掉重來。</p>
+    <p>既然所有人都知道 IPv6 才是未來，為什麼當前最先進的這些 AI 卻還在花大量的算力去優化那些針對 IPv4 的補丁邏輯？如果連 AI 都學會了在舊有的、錯誤的架構上修修補補，而不是指出現實的荒謬，那我們開發這些「智慧」的意義究竟在哪裡？難道我們真的要帶著這些三十年前的技術債，一路走到 AGI 實現的那一天嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://iptrust.co/blog/if-ipv4-were-land" rel="nofollow noopener" target="_blank">If IPv4 were land</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261102-0834-3d4961/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
