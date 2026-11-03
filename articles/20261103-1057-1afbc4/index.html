@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>這場關於世界模型的模擬遊戲才剛開始</title>
+<meta name="description" content="Google 剛把 Genie 升級到了第四代，但我看著展示影片裡那些所謂的「超寫實 35mm 電影鏡頭感」，心裡卻想起了一年前那些粗糙的點陣圖。這種進步很快，快到讓人有點不安，卻又伴隨著一種科技巨頭特有的傲慢。如果你仔細看過那段彩繪玻璃風格的景觀模擬，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261103-1057-1afbc4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="這場關於世界模型的模擬遊戲才剛開始">
+<meta property="og:description" content="Google 剛把 Genie 升級到了第四代，但我看著展示影片裡那些所謂的「超寫實 35mm 電影鏡頭感」，心裡卻想起了一年前那些粗糙的點陣圖。這種進步很快，快到讓人有點不安，卻又伴隨著一種科技巨頭特有的傲慢。如果你仔細看過那段彩繪玻璃風格的景觀模擬，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261103-1057-1afbc4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-03T10:57:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="這場關於世界模型的模擬遊戲才剛開始">
+<meta name="twitter:description" content="Google 剛把 Genie 升級到了第四代，但我看著展示影片裡那些所謂的「超寫實 35mm 電影鏡頭感」，心裡卻想起了一年前那些粗糙的點陣圖。這種進步很快，快到讓人有點不安，卻又伴隨著一種科技巨頭特有的傲慢。如果你仔細看過那段彩繪玻璃風格的景觀模擬，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "這場關於世界模型的模擬遊戲才剛開始",
+  "description": "Google 剛把 Genie 升級到了第四代，但我看著展示影片裡那些所謂的「超寫實 35mm 電影鏡頭感」，心裡卻想起了一年前那些粗糙的點陣圖。這種進步很快，快到讓人有點不安，卻又伴隨著一種科技巨頭特有的傲慢。如果你仔細看過那段彩繪玻璃風格的景觀模擬，…",
+  "datePublished": "2026-11-03T10:57:00+08:00",
+  "dateModified": "2026-11-03T10:57:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261103-1057-1afbc4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-03 10:57
+  </div>
+
+  <h1 class="title">這場關於世界模型的模擬遊戲才剛開始</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 剛把 Genie 升級到了第四代，但我看著展示影片裡那些所謂的「超寫實 35mm 電影鏡頭感」，心裡卻想起了一年前那些粗糙的點陣圖。這種進步很快，快到讓人有點不安，卻又伴隨著一種科技巨頭特有的傲慢。如果你仔細看過那段彩繪玻璃風格的景觀模擬，你會發現這已經不是單純的影像生成了，而是在嘗試構建物理規則。然而，當 Google 的工程師在 Prompt 裡堆砌著「REAL」、「Ultra-photorealistic」這種詞彙時，他們似乎忘記了，真實感不只是像素的飽和度，而是交互時的即時反饋。</p>
+    <p>很多技術人員在討論區裡冷靜地指出了痛點。Genie 4 的畫面確實美得不像話，但它在玩家控制的反應上，甚至顯得比上一代還要遲鈍。這就像是你買了一台頂級的超跑模擬器，螢幕裡的風景精緻到能看清路邊的草葉，但你轉動方向盤後要過半秒鐘，車頭才慢吞吞地偏移。這種延遲感揭示了一個本質問題：Google 正在用影片生成的邏輯去硬套遊戲引擎的靈魂。這不是在玩遊戲，這是在實時渲染一場你可以稍微干預方向的電影。</p>
+    <p>從 Gemini 的多模態演進路徑來看，Google 的野心從來不在於做一個好玩的遊戲，而是想把現實世界「編碼」進權重裡。當你在 Gemini 1.5 Pro 裡丟入一個小時的影片並要求它找出某個特定動作時，它背後的邏輯與 Genie 是一脈相承的。它需要理解重力、碰撞、光影的折射，而不僅僅是預測下一個像素點是什麼顏色。但諷刺的是，Google 既然能做出如此精準的物理模擬預測，卻在自家 YouTube 影片的自動字幕識別上表現得像個剛學說話的孩子。這種技術力的斷層，讓人不禁懷疑 Google 內部不同團隊之間是否真的生活在同一個維度。</p>
+    <p>在這種「世界模擬器」的競賽中，我們能看到明顯的流派分野。ChatGPT 背後的 OpenAI 選擇了更通用的 Sora 路徑，試圖用擴散模型解決一切視覺問題；而 Google 的 Genie 則更偏向於一種具備互動性的潛在空間模擬。相較於 Qwen 在處理結構化數據和多語言理解上的進度，Google 在視覺物理邏輯上的投入顯然更具賭徒色彩。目前看來，Google 想做的是那種不需要發布二進位檔案、不需要客戶端下載，直接在雲端後台模擬並串流回來的 AAA 級遊戲體驗。</p>
+    <p>這引發了一個很有意思的技術討論：如果未來的遊戲不再是由代碼寫成的，而是由模型模擬出來的，那麼「Bug」這個詞還存在嗎？在傳統引擎如 Unreal 或 Unity 中，Bug 是邏輯的錯誤；但在 Genie 這種模型中，Bug 可能只是對物理規律的一次「幻覺」。當我們在討論 Claude 3.5 Sonnet 在編寫複雜代碼時展現出的邏輯嚴密性時，我們其實是在追求確定性；但 Genie 帶給我們的，卻是一種充滿不確定性的「可能性」。它生成的每一幀都是新的，每一種交互都是對模型權重的一次隨機抽樣。</p>
+    <p>這種趨勢讓我想起 Grok 最近在圖像處理上的大膽嘗試，雖然風格迥異，但都在挑戰人類對「真實」的認知邊界。Google 的策略很明確，他們要用算力換取一個虛擬的宇宙。但問題在於，當這種模擬越來越精確，我們該如何界定「遊戲」與「影片」的邊界？</p>
+    <p>如果有一天，你進入一個由 Genie 模擬出的世界，那裡的每一塊石頭都能被撿起，每一片雲的飄動都符合流體力學，但這一切僅僅是因為模型「覺得」這裡應該有塊石頭，而不是因為某個程式員寫下了一行代碼。到了那個時候，我們追求的究竟是交互的自由，還是僅僅沉溺於一場由高維向量編織出來的、極致華麗的集體幻覺？當技術手段已經能模擬出 35mm 膠片的質感，我們對真實的渴望，是否反而會因為這種觸手可及的擬真而變得更加廉價？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" rel="nofollow noopener" target="_blank">Genie 4</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261103-1057-1afbc4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
