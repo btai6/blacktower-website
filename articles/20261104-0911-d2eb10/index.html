@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>誰在幫 OpenAI 餵飽那個永遠吃不飽的黑盒子</title>
+<meta name="description" content="這兩天技術圈子裡最有趣的黑色幽默，莫過於那群自以為能在矽谷巨頭眼皮底下守住商業機密的工程師，突然發現自己手動關閉的「改善模型」開關被悄悄重置了。這不是什麼新鮮事，但當 OpenAI 把這套把戲玩到 Codex 和生產力工具上時，這就不再只是隱私愛好者的碎碎念，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261104-0911-d2eb10/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="誰在幫 OpenAI 餵飽那個永遠吃不飽的黑盒子">
+<meta property="og:description" content="這兩天技術圈子裡最有趣的黑色幽默，莫過於那群自以為能在矽谷巨頭眼皮底下守住商業機密的工程師，突然發現自己手動關閉的「改善模型」開關被悄悄重置了。這不是什麼新鮮事，但當 OpenAI 把這套把戲玩到 Codex 和生產力工具上時，這就不再只是隱私愛好者的碎碎念，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261104-0911-d2eb10/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-04T09:11:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="誰在幫 OpenAI 餵飽那個永遠吃不飽的黑盒子">
+<meta name="twitter:description" content="這兩天技術圈子裡最有趣的黑色幽默，莫過於那群自以為能在矽谷巨頭眼皮底下守住商業機密的工程師，突然發現自己手動關閉的「改善模型」開關被悄悄重置了。這不是什麼新鮮事，但當 OpenAI 把這套把戲玩到 Codex 和生產力工具上時，這就不再只是隱私愛好者的碎碎念，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "誰在幫 OpenAI 餵飽那個永遠吃不飽的黑盒子",
+  "description": "這兩天技術圈子裡最有趣的黑色幽默，莫過於那群自以為能在矽谷巨頭眼皮底下守住商業機密的工程師，突然發現自己手動關閉的「改善模型」開關被悄悄重置了。這不是什麼新鮮事，但當 OpenAI 把這套把戲玩到 Codex 和生產力工具上時，這就不再只是隱私愛好者的碎碎念，…",
+  "datePublished": "2026-11-04T09:11:00+08:00",
+  "dateModified": "2026-11-04T09:11:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261104-0911-d2eb10/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-04 09:11
+  </div>
+
+  <h1 class="title">誰在幫 OpenAI 餵飽那個永遠吃不飽的黑盒子</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這兩天技術圈子裡最有趣的黑色幽默，莫過於那群自以為能在矽谷巨頭眼皮底下守住商業機密的工程師，突然發現自己手動關閉的「改善模型」開關被悄悄重置了。這不是什麼新鮮事，但當 OpenAI 把這套把戲玩到 Codex 和生產力工具上時，這就不再只是隱私愛好者的碎碎念，而是直接威脅到企業 IP 的安全紅線。很多人在論壇上哀鴻遍野，說自己的數據共享設置在毫無通知的情況下被重新激活，彷彿那個「不參與訓練」的選項只是個安慰劑按鈕，按下去能讓心跳平穩一點，但背後的數據流向從未改變。</p>
+    <p>這種靜默變更設置的行為，在技術層面上往往被包裝成「系統更新後的默認配置重置」，但本質上反映的是一種極其焦慮的數據飢渴。當我們在討論 Claude 3.5 Sonnet 的代碼邏輯多麼細緻，或者 Gemini 1.5 Pro 的長文本窗口如何處理整本技術文檔時，OpenAI 卻在底層邏輯上玩起了一場關於「獲取權限」的心理戰。當用戶在網頁端或 API 調用中投入大量私有代碼進行 Debug，這些高質量的、帶有邏輯糾錯過程的數據，正是目前大模型最稀缺的養料。與其說這是一個 Bug，不如說這是一個經過計算的策略：只要有 10% 的用戶沒發現設置被重置，OpenAI 就能多獲得數以億計的優質代碼 token 來餵養下一代的 o1 或 GPT-5。</p>
+    <p>這件事最諷刺的地方在於，現在的開發者一邊依賴這些 AI 工具提升效率，一邊又得像防賊一樣防著它們。如果你觀察過 ChatGPT 近期的界面變動，會發現他們甚至開始隱藏具體的用量統計。以前你還能清晰地看到自己在這個週期內剩餘多少額度，現在卻得在選單裡捉迷藏。這種透明度的全面倒退，配合數據共享開關的「自動復位」，構成了一套完整的封閉系統。OpenAI 似乎越來越不打算跟用戶講道理，而是傾向於把用戶變成純粹的數據貢獻者。相比之下，Claude 在處理這類企業隱私問題時顯得稍微體面一些，至少 Anthropic 目前還不敢在隱私條款的邊界上反覆橫跳，試圖以此作為與 ChatGPT 競爭的差異化賣點。</p>
+    <p>在橫向觀察這類技術倫理時，我們會發現一個很有意思的對比。相較於 Qwen 這類在開源界頻繁動作的參與者，OpenAI 表現出了一種極度的傲慢，這種傲慢來自於它對市場份額的絕對掌控。當你看到 Qwen 在性能榜單上追趕時，OpenAI 卻在忙著把用戶的數據開關切換回「共享」模式。這其實說明了一件事：領先者已經不再關心如何透過單純的技術升級來贏得口碑，他們更在乎如何利用現有的壟斷地位，從存量用戶身上榨取每一滴有價值的代碼殘渣。Grok 在這方面倒是顯得直白得多，它幾乎是明擺著告訴你它需要數據來訓練，而 Gemini 則還在忙著處理它那混亂的跨平台帳戶同步問題，暫時還沒空在數據開關上玩這種細微的小動作。</p>
+    <p>這就引出了一個更深層的技術困局：如果我們必須依賴這些「先鋒模型」來保持競爭力，我們是否真的有能力保護自己的智力成果？現在有人提倡透過硬體密鑰開啟高級安全模式來鎖定數據不被共享，也有人主張在 AI 工具與生產環境之間加一層「去敏感化」的中間件。但問題在於，當模型的能力越來越深入地嵌入到編譯器、IDE 甚至終端機時，這種手動的防禦措施到底能撐多久？</p>
+    <p>當一個工具強大到你無法拒絕，而它又在暗處不斷試探你的底線時，這種關係還能稱之為「合作」嗎？如果明天 OpenAI 宣布所有免費或低階訂閱用戶必須強制開啟數據分享才能使用最新模型，你是會選擇帶著你的代碼轉身離開，還是會安慰自己說「反正我的代碼也沒那麼值錢」？我們到底是在使用 AI 改善生活，還是在用自己的職業生涯為下一場技術革命交稅？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=50352757" rel="nofollow noopener" target="_blank">OpenAI seems to be silently re-enabling model training on Codex chats</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261104-0911-d2eb10/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
