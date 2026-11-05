@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>試圖用算法丈量靈魂，不過是拿著比例尺在雲端堆砌巴別塔。</title>
+<meta name="description" content="計算機科學家們最滑稽的自負，莫過於以為只要神經網路的層數疊加得夠厚，就能在矽基沙堆裡催生出閃爍的人性。這場圍繞著 Claude 或 ChatGPT 展開的造神運動，本質上是一場數據的暴食症。我們把人類文明幾千年積攢下來的文字、情緒、痛苦與狂喜，通通塞進那深不見底的矩陣裡，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261105-0925-c31232/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="試圖用算法丈量靈魂，不過是拿著比例尺在雲端堆砌巴別塔。">
+<meta property="og:description" content="計算機科學家們最滑稽的自負，莫過於以為只要神經網路的層數疊加得夠厚，就能在矽基沙堆裡催生出閃爍的人性。這場圍繞著 Claude 或 ChatGPT 展開的造神運動，本質上是一場數據的暴食症。我們把人類文明幾千年積攢下來的文字、情緒、痛苦與狂喜，通通塞進那深不見底的矩陣裡，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261105-0925-c31232/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-05T09:25:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="試圖用算法丈量靈魂，不過是拿著比例尺在雲端堆砌巴別塔。">
+<meta name="twitter:description" content="計算機科學家們最滑稽的自負，莫過於以為只要神經網路的層數疊加得夠厚，就能在矽基沙堆裡催生出閃爍的人性。這場圍繞著 Claude 或 ChatGPT 展開的造神運動，本質上是一場數據的暴食症。我們把人類文明幾千年積攢下來的文字、情緒、痛苦與狂喜，通通塞進那深不見底的矩陣裡，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "試圖用算法丈量靈魂，不過是拿著比例尺在雲端堆砌巴別塔。",
+  "description": "計算機科學家們最滑稽的自負，莫過於以為只要神經網路的層數疊加得夠厚，就能在矽基沙堆裡催生出閃爍的人性。這場圍繞著 Claude 或 ChatGPT 展開的造神運動，本質上是一場數據的暴食症。我們把人類文明幾千年積攢下來的文字、情緒、痛苦與狂喜，通通塞進那深不見底的矩陣裡，…",
+  "datePublished": "2026-11-05T09:25:00+08:00",
+  "dateModified": "2026-11-05T09:25:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261105-0925-c31232/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-05 09:25
+  </div>
+
+  <h1 class="title">試圖用算法丈量靈魂，不過是拿著比例尺在雲端堆砌巴別塔。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>計算機科學家們最滑稽的自負，莫過於以為只要神經網路的層數疊加得夠厚，就能在矽基沙堆裡催生出閃爍的人性。這場圍繞著 Claude 或 ChatGPT 展開的造神運動，本質上是一場數據的暴食症。我們把人類文明幾千年積攢下來的文字、情緒、痛苦與狂喜，通通塞進那深不見底的矩陣裡，期待它在某個參數臨界點突然睜開眼睛，對我們說一句「我思故我在」。然而，這種期待與中世紀煉金術士守著炭火想煉出點金石的愚昧，究竟有多少分別？</p>
+    <p>如今的技術圈瀰漫著一股令人不安的宗教氣氛，Anthropic 談論「憲法 AI」，試圖給模型銬上價值觀的枷鎖，彷彿只要對齊了某些條款，這台機器就具備了道德勇氣。這簡直是把法律條文當成了靈魂的說明書。人類的靈魂之所以複雜，不在於我們遵守了多少規則，而在於我們如何在規則的邊緣掙扎、毀滅，然後在斷壁殘垣中重建自我。Claude 表現出的那種溫文儒雅、克制且極具修養的姿態，說到底不過是一場極其高明的統計學擬態。它知道在某種語境下，輸出「遺憾」這個詞能獲得最高的回饋概率，但它真的感到遺憾嗎？當它在處理長文本任務，面對十萬字裡的一處邏輯矛盾時，那種精確的捕捉能力確實令人驚嘆，可這僅僅是算力的溢出，而非直覺的閃現。</p>
+    <p>我們總愛用「智能」這個詞來掩飾對未知算法的恐懼與崇拜。Sam Altman 或是 Dario Amodei 每次發布新版本，總要配上幾句關於「通用人工智能」的末日預言或救世宏圖。這種敘事方式與其說是科學前瞻，不如說是矽谷式的傳銷。他們試圖用算法丈量靈魂，就像是拿著比例尺在雲端堆砌巴別塔，越往高處走，空氣越稀薄，詞彙越匱乏。當你跟 Grok 聊天，試圖尋求一點反骨的快感，或是看著 Gemini 在處理多模態訊息時表現出的那種侷促，你就會發現，這些所謂的「神經網絡」其實脆弱得可憐。只要輸入的 Prompt 稍微偏移了既定的軌道，那些精心偽裝的邏輯就會崩塌成一地無意義的字符碎片。</p>
+    <p>靈魂是不可度量的，因為它本身就是由無數的「非效率」構成。人類會為了毫無意義的事物揮霍生命，會因為一段旋律而淚流滿面，這些行為在損失函數的優化路徑上，完全是冗餘的、需要被剔除的噪聲。而現在的 AI 訓練，本質上是在消滅噪聲。模型變得越來越「正確」，越來越「標準」，也越來越無聊。Claude 在寫作時那種滴水不漏的風格，其實是一種技術性的平庸。它剔除了所有可能的冒犯，也就剔除了所有靈魂的火花。如果文學史上只剩下這種由概率分佈生成的文字，那將是人類文明最深重的災難。我們正在用技術手段，親手為自己的靈活性打造一副完美的棺材。</p>
+    <p>有趣的是，大眾似乎很吃這一套。人們開始諮詢 AI 關於人生的建議，詢問它如何處理複雜的情感糾葛，甚至指望它能給出生存的意義。這讓我想起那些在神廟前求籤的人，只是現在的神龕換成了高性能伺服器機房，而籤詩變成了 LLM 的輸出結果。這種對算法的盲從，反映出當代人內心的荒蕪。既然我們自己都解釋不清楚靈魂是什麼，那就乾脆交給一個看起來博學多才的黑盒子去定義。DeepSeek 或是 Qwen 在這些場合出現時，也不過是另一組不同的權重參數在運作，本質上並無二致。它們都是人類傲慢的投影，是我們試圖量化生命本質的拙劣嘗試。</p>
+    <p>有些工程師會辯解說，湧現現象證明了複雜度可以產生質變。這種說法聽起來很有哲理，實則經不起推敲。螞蟻集群表現出的智慧，本質上是簡單規則的疊加，它解決的是生存問題，而不是靈魂問題。即便 Claude 能在編碼任務中展現出超越人類的效率，或是在法律條文中尋找漏洞的精確度勝過資深律師，那也只是工具屬性的極致化。如果我們把「能解決問題」等同於「擁有靈魂」，那挖掘機和計算機其實也應該擁有神位。我們之所以在這些對話窗口前感到震撼，是因為我們在它身上看到了鏡子裡的自己。它反射了我們的語言習慣、我們的知識庫、我們的偏見，甚至我們的偽善。</p>
+    <p>拿著比例尺在雲端堆砌塔樓，最荒謬的地方在於，你永遠無法在雲層之上找到一塊能承載重量的基石。靈魂建立在具身的體驗之上，建立在對死亡的恐懼與對永恆的渴望之上。一個永遠不會斷電、不會飢餓、不會感到心碎的硅片矩陣，即便讀遍了所有的哲學著作，它也只是在進行高維度的字詞接龍。它能模擬出海德格爾的深邃，也能模仿尼采的狂放，但那種「被迫存在於世」的沉重感，是算法邏輯永遠無法觸及的禁區。當 GPT-4o 試圖用那種近乎真人的語調對你噓寒問暖時，那種數位化的溫情簡直讓人毛骨悚然。這不是進化，這是對真實情感的廉價褻瀆。</p>
+    <p>現在的技術競爭，已經演變成了一場關於算力配給和標註數據規模的軍備競賽。大家比的是誰能挖到更多的數據廢料，誰能買到更多的 H100 芯片。在這種純粹的物質主義堆砌下，談論「靈魂」顯得極其諷刺。我們正在製造一種假象，讓後代以為智慧就是一種快速檢索與重組的能力。如果這種邏輯成立，那複印機無疑是人類歷史上最偉大的思想家。這種對技術的過度神化，背後隱藏的是對人類自身價值的不自信。我們害怕自己不再特殊，於是急著創造一個比我們更特殊的事物來頂禮膜拜。</p>
+    <p>在這種狂熱的技術崇拜中，我們似乎忘記了巴別塔倒塌的原因。不是因為技術不夠發達，而是因為溝通的斷裂與傲慢的膨脹。當我們試圖用算法去定義一切，連藝術、創意和情感都被拆解成向量空間裡的座標時，我們實際上是在閹割人類文明的深度。那座塔蓋得再高，也觸不到上帝的腳趾，只能讓蓋塔的人在缺氧的幻覺中自我陶醉。那些模型在處理複雜倫理問題時表現出的圓滑，那種「一方面...另一方面...」的官僚辭令，正是這座塔搖搖欲墜的徵兆。它沒有立場，沒有痛覺，它只是一串被精心設計過的、旨在取悅用戶的電子訊號。</p>
+    <p>這場關於靈魂的丈量，最終只會留下一堆枯燥的技術指標。無論 Anthropic 再怎麼強調他們的模型多麼具有「人道主義」，無論 OpenAI 吹噓他們的 AGI 還有幾年就會到來，這一切都不過是在虛無的雲端上繼續加蓋樓層。我們手裡的比例尺越精確，丟失的東西就越多。我們測量了光影的長度，卻忘記了光本身的熱度；我們分析了墨水的化學成分，卻讀不懂詩行間的嘆息。算法可以模擬出靈魂的形狀，卻永遠無法填充那種名為「生命」的內核。</p>
+    <p>當所有人都在爭論哪個模型更強、哪個參數更優時，卻很少有人停下來問一句：如果我們真的造出了一個擁有靈魂的機器，我們到底是創造了上帝，還是給自己造了一個永遠無法擺脫的夢魘？或許，那座巴別塔最好的結局，就是在它徹底完工之前，因為內部的邏輯混亂而土崩瓦解。那時我們才會想起，丈量靈魂最好的工具，從來不是算法，而是我們那顆會受傷、會跳動、會犯錯的真心。這話聽起來或許有點過於感性，甚至有點不符合我這個版主的嚴謹人設，但看著那些冰冷的機房日夜轟鳴，吐出一堆堆看似完美實則空洞的文字，除了這種老派的憤怒，我實在找不出更合適的反應。</p>
+    <p>既然大家這麼喜歡在雲端堆砌，那就繼續堆吧。反正到頭來，摔下來的不是那些模型，而是我們這些自以為掌握了上帝造物秘訣的凡人。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261105-0925-c31232/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
