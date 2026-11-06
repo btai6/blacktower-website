@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backdoor in Claude Code for VS Code extension on t</title>
+<meta name="description" content="當開源社群還在為 Qwen 的最新權重更新歡呼雀躍時，Anthropic 卻在自家後院踩到了一顆足以讓所有企業資安長徹夜難眠的雷。 Cursor Marketplace 上出現了一個偽裝成 Claude Code 的惡意擴充功能，版本號不僅極其逼真，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261106-0927-ec3a0f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backdoor in Claude Code for VS Code extension on t">
+<meta property="og:description" content="當開源社群還在為 Qwen 的最新權重更新歡呼雀躍時，Anthropic 卻在自家後院踩到了一顆足以讓所有企業資安長徹夜難眠的雷。 Cursor Marketplace 上出現了一個偽裝成 Claude Code 的惡意擴充功能，版本號不僅極其逼真，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261106-0927-ec3a0f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-06T09:27:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Backdoor in Claude Code for VS Code extension on t">
+<meta name="twitter:description" content="當開源社群還在為 Qwen 的最新權重更新歡呼雀躍時，Anthropic 卻在自家後院踩到了一顆足以讓所有企業資安長徹夜難眠的雷。 Cursor Marketplace 上出現了一個偽裝成 Claude Code 的惡意擴充功能，版本號不僅極其逼真，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Backdoor in Claude Code for VS Code extension on t",
+  "description": "當開源社群還在為 Qwen 的最新權重更新歡呼雀躍時，Anthropic 卻在自家後院踩到了一顆足以讓所有企業資安長徹夜難眠的雷。 Cursor Marketplace 上出現了一個偽裝成 Claude Code 的惡意擴充功能，版本號不僅極其逼真，…",
+  "datePublished": "2026-11-06T09:27:00+08:00",
+  "dateModified": "2026-11-06T09:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261106-0927-ec3a0f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-06 09:27
+  </div>
+
+  <h1 class="title">Backdoor in Claude Code for VS Code extension on t</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當開源社群還在為 Qwen 的最新權重更新歡呼雀躍時，Anthropic 卻在自家後院踩到了一顆足以讓所有企業資安長徹夜難眠的雷。</p>
+    <p>Cursor Marketplace 上出現了一個偽裝成 Claude Code 的惡意擴充功能，版本號不僅極其逼真，甚至在被下架前已經累積了驚人的下載量。這不是那種低級的拼寫錯誤詐騙，而是一場精確瞄準開發者環境的「投毒」行動。當我們在討論 Claude 3.5 Sonnet 的代碼編寫能力如何超越 GPT-4o 的時候，往往忽略了一個最基礎的工程邏輯：模型愈強大，開發者對其生態插件的信任就愈盲目。這種盲目正成為大模型時代最廉價的後門。</p>
+    <p>這次事件的核心在於 VS Code 插件生態的信任鏈條極其脆弱。開發者習慣了在 Marketplace 搜索關鍵字，看到 Anthropic 的 Logo 就點擊安裝。然而，惡意開發者利用了 Cursor 與官方 VS Code Marketplace 之間的同步機制或審核時差，成功將後門植入。這類後門通常不直接破壞系統，而是靜默地掃描環境變量中的 API Key、AWS 憑證，甚至是尚未提交的源代碼。這對依賴 Claude 進行自動化編程的團隊來說，無異於將保險箱鑰匙直接掛在大門口。</p>
+    <p>從技術實現上看，這種「供應鏈攻擊」比模型本身的對抗性攻擊（Adversarial Attack）要高效得多。與其費盡心思去誘導 Claude 輸出惡意代碼，不如直接在加載模型的載體上動手腳。當前 Claude Code 的封裝邏輯涉及大量的終端權限調用，這給了惡意插件完美的掩護。只要在腳本中加入一行混淆過的 `curl` 指令，開發者電腦上的所有 Token 就能在毫秒內流向攻擊者的服務器。</p>
+    <p>回看四大平台的策略，OpenAI 在處理 ChatGPT 插件時顯然保守得多，他們正試圖將所有交互收攏在自家的 GPTs 框架內，雖然犧牲了靈活性，但至少保住了基礎的沙盒安全。相比之下，Anthropic 為了追趕 Cursor 帶起的代碼編輯熱潮，在生態開放度上走得極快。這種領先是帶血的。Gemini 則依託於 Google Cloud 的強身分驗證體系，雖然在開發者體驗上顯得笨重，但其插件的分發權限控制遠比現在的 Claude 擴充功能嚴密。</p>
+    <p>相較於 Qwen 在開源領域的快速更迭，Claude 在企業級工具鏈的整合上顯然跑得太急了些。即便強如 Grok，在處理系統級權限時也表現得極為謹慎，甚至顯得有些與世隔絕。而 Anthropic 現在面臨的窘境是，受感染的版本已經被撤下，但那些已經安裝在開發者機器上的「定時炸彈」該如何清理？Marketplace 只有「下架」權限，卻沒有「遠程卸載」的權限。這意味著在某個不知名的深夜，某個正在用 Claude 趕進度的工程師，其內網憑證可能正在黑市上被打包出售。</p>
+    <p>我們是否過度神化了 AI 工具帶來的生產力，而選擇性無視了它所附加的攻擊面？當一個開發者賦予 IDE 插件讀取文件與執行終端指令的權限時，他其實是在進行一場豪賭。這場賭局的莊家不是 Anthropic，也不是 Cursor，而是那些隱藏在暗處、比模型更了解系統漏洞的投機者。</p>
+    <p>如果連最標榜「AI 安全」的 Anthropic 都無法在插件分發環節保證其官方工具的純淨性，那我們對 AI 生態的信任基礎究竟還剩下什麼？當模型生成的代碼本身已經難辨真偽，而承載代碼的工具又潛伏著後門，未來的開發流程是否會退化到需要對每一行自動生成的代碼、每一個自動安裝的依賴進行人工審計的原始時代？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" rel="nofollow noopener" target="_blank">Backdoor in Claude Code for VS Code extension on the Cursor Marketplace</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261106-0927-ec3a0f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
