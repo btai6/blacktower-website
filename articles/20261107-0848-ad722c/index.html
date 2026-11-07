@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當隱私成為工程師為自動化支付的隱形稅金</title>
+<meta name="description" content="Anthropic 最近在 Claude Code 的 User-Agent 設置上玩了一手令人費解的「誠實」。當開發者在終端機啟動這個工具進行網頁搜索或數據抓取時，它會默認在請求頭中塞入使用者的電子郵件地址。這種做法在技術圈引起了不小的騷動，畢竟在現代網路協議中，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261107-0848-ad722c/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當隱私成為工程師為自動化支付的隱形稅金">
+<meta property="og:description" content="Anthropic 最近在 Claude Code 的 User-Agent 設置上玩了一手令人費解的「誠實」。當開發者在終端機啟動這個工具進行網頁搜索或數據抓取時，它會默認在請求頭中塞入使用者的電子郵件地址。這種做法在技術圈引起了不小的騷動，畢竟在現代網路協議中，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261107-0848-ad722c/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-07T08:48:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當隱私成為工程師為自動化支付的隱形稅金">
+<meta name="twitter:description" content="Anthropic 最近在 Claude Code 的 User-Agent 設置上玩了一手令人費解的「誠實」。當開發者在終端機啟動這個工具進行網頁搜索或數據抓取時，它會默認在請求頭中塞入使用者的電子郵件地址。這種做法在技術圈引起了不小的騷動，畢竟在現代網路協議中，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當隱私成為工程師為自動化支付的隱形稅金",
+  "description": "Anthropic 最近在 Claude Code 的 User-Agent 設置上玩了一手令人費解的「誠實」。當開發者在終端機啟動這個工具進行網頁搜索或數據抓取時，它會默認在請求頭中塞入使用者的電子郵件地址。這種做法在技術圈引起了不小的騷動，畢竟在現代網路協議中，…",
+  "datePublished": "2026-11-07T08:48:00+08:00",
+  "dateModified": "2026-11-07T08:48:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261107-0848-ad722c/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-07 08:48
+  </div>
+
+  <h1 class="title">當隱私成為工程師為自動化支付的隱形稅金</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近在 Claude Code 的 User-Agent 設置上玩了一手令人費解的「誠實」。當開發者在終端機啟動這個工具進行網頁搜索或數據抓取時，它會默認在請求頭中塞入使用者的電子郵件地址。這種做法在技術圈引起了不小的騷動，畢竟在現代網路協議中，User-Agent 雖然本意是用於標識客戶端身份，但直接把私人郵箱當作憑據發送給陌生服務器，無異於在推銷電話橫行的時代，把自己的手機號碼印在傳單上隨處散發。許多開發者在不知情的情況下，發現自己的收件匣開始充斥著各類針對性的釣魚郵件，這才驚覺原來背後的推手竟是自己支付高額訂閱費的生產力工具。</p>
+    <p>從技術細節來看，Claude Code 的行為邏輯顯然是為了遵循某種極度古老的網路禮節。在早期的爬蟲規範中，將聯繫方式放入請求頭是為了方便網站管理員在爬蟲造成負擔時能聯繫到開發者。然而，將這種上個世紀的溫情脈脈套用在現代 AI 自動化工具上，顯然是缺乏對安全邊界的起碼尊重。Claude 在處理網路任務時，其行為模式往往顯得比 ChatGPT 更加「規矩」且自我約束，但這種過度的透明化反而成了隱私漏洞。當你要求 Claude Code 幫你調研某個技術文檔或獲取即時數據時，它在底層生成的請求字串 `my-session-slug/1 &lt;user@email.com&gt;`，就像是一個在潛行任務中大聲報出自己身份證號碼的特工。</p>
+    <p>這種設計決策反映了 Anthropic 在安全哲學上的某種偏執。他們試圖通過絕對的透明度來換取網站方的信任，避免 API 被封禁，但代價卻由終端用戶承擔。相較之下，ChatGPT 在處理類似的 Web Browsing 或自定義插件請求時，其 User-Agent 設置通常採取更為通用的標準，將用戶身份隱藏在 OpenAI 的代理網關之後。OpenAI 的做法更符合商業軟體的邏輯：將複雜的信任機制留在平台層面解決，而不是把用戶的個人信息推向第一線。Gemini 則更進一步，依靠 Google 龐大的基礎設施，其行為模式更接近於 Chrome 瀏覽器的標準請求，極大程度地模糊了自動化工具與普通用戶之間的邊界。</p>
+    <p>而在技術社群的討論中，不少人因為對這種機制的不滿而轉向其他選擇。例如在面對類似的自動化任務時，相較於 Qwen 3.8 27B，Claude Code 在權限邊界上的處理顯然帶有更強烈的商業軟體傲慢。有些用戶甚至選擇回歸本地模型來確保絕對的物理隔離。這種現象極其諷刺，我們為了追求極致的上下文理解能力與代碼生成質量，選擇了 Claude，卻在最基礎的網路協議安全上跌了跤。這不禁讓人想起那些華麗的古典建築，外表莊嚴肅穆，內部的排水系統卻還停留在中世紀水平。</p>
+    <p>Grok 在這方面的表現則更具備一種「駭客式」的粗放，它並不屑於遵守這些繁瑣的網路禮節，反而更傾向於直接破門而入。這四大平台在處理外部請求時的策略分歧，實際上揭示了它們對「負責任的 AI」這一概念的不同解讀。Anthropic 認為負責是對全網負責，包括那些被爬取的網站；而其他平台則更傾向於認為負責是對付錢的用戶負責。當一個工具開始代領用戶行使主權，甚至在用戶未察覺的情況下代為放棄隱私權時，這個工具的本質就發生了偏移。</p>
+    <p>現在的問題在於，這種「隱私換取合法性」的策略是否會成為未來 AI 代理工具的標配？如果未來的 AI 助手在幫你訂機票、查資料、比價格時，都習慣性地向對方服務器遞交一份你的數位簡歷，我們是否還能稱之為「私人」助理？當開發者開始為了保護郵箱而不得不手動修改 Claude Code 的源碼，或者乾脆退回到網頁版聊天窗口進行複製貼上時，這種技術進步究竟是簡化了流程，還是創造了新的障礙？我們是否已經進入了一個必須在「好用的模型」與「不漏風的牆」之間二選一的時代？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/anthropics/claude-code/issues/107757" rel="nofollow noopener" target="_blank">Claude Code sends your email address to websites</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261107-0848-ad722c/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

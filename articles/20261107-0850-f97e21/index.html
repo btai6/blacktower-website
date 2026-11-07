@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模型訂閱制的盡頭是放棄折騰</title>
+<meta name="description" content="這兩年關於 AI Agent 的討論多得讓人發膩，彷彿只要寫幾行 Python 調用一下 API，每個人都能在電腦裡養一隻數位勞工。但翻開技術論壇的討論紀錄，你會發現那些曾經熱衷於串接各種工具、研究如何優化 Prompt 的開發者們，最近開始展現出一種集體性的疲態。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261107-0850-f97e21/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型訂閱制的盡頭是放棄折騰">
+<meta property="og:description" content="這兩年關於 AI Agent 的討論多得讓人發膩，彷彿只要寫幾行 Python 調用一下 API，每個人都能在電腦裡養一隻數位勞工。但翻開技術論壇的討論紀錄，你會發現那些曾經熱衷於串接各種工具、研究如何優化 Prompt 的開發者們，最近開始展現出一種集體性的疲態。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261107-0850-f97e21/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-07T08:50:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模型訂閱制的盡頭是放棄折騰">
+<meta name="twitter:description" content="這兩年關於 AI Agent 的討論多得讓人發膩，彷彿只要寫幾行 Python 調用一下 API，每個人都能在電腦裡養一隻數位勞工。但翻開技術論壇的討論紀錄，你會發現那些曾經熱衷於串接各種工具、研究如何優化 Prompt 的開發者們，最近開始展現出一種集體性的疲態。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "模型訂閱制的盡頭是放棄折騰",
+  "description": "這兩年關於 AI Agent 的討論多得讓人發膩，彷彿只要寫幾行 Python 調用一下 API，每個人都能在電腦裡養一隻數位勞工。但翻開技術論壇的討論紀錄，你會發現那些曾經熱衷於串接各種工具、研究如何優化 Prompt 的開發者們，最近開始展現出一種集體性的疲態。…",
+  "datePublished": "2026-11-07T08:50:00+08:00",
+  "dateModified": "2026-11-07T08:50:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261107-0850-f97e21/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-07 08:50
+  </div>
+
+  <h1 class="title">模型訂閱制的盡頭是放棄折騰</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這兩年關於 AI Agent 的討論多得讓人發膩，彷彿只要寫幾行 Python 調用一下 API，每個人都能在電腦裡養一隻數位勞工。但翻開技術論壇的討論紀錄，你會發現那些曾經熱衷於串接各種工具、研究如何優化 Prompt 的開發者們，最近開始展現出一種集體性的疲態。這種疲態並非源於技術停滯，而是大家終於意識到，與其花大把時間在本地端搭建複雜的 Agent 框架，不如直接把錢砸在一個夠強的訂閱服務上，然後像對待實習生一樣模糊地交辦任務。</p>
+    <p>現在最顯著的現象是，訂閱多個帳號的行為正在減少。過去為了繞過 Rate Limit，有人會同時開兩個 Claude Pro，或者在 ChatGPT 和 Claude 之間反覆橫跳。但當 Claude 推出專門的 CLI 工具或整合度更高的 IDE 環境後，這種「備胎心態」正在消失。開發者開始接受一種更為懶惰，或者說更為高效的模式：放棄精細的微操，轉而依賴模型本身的推理連貫性。這種轉變背後折射出的是四大平台在產品型態上的分化，特別是 Claude 在程式碼理解與執行上的激進策略，正在把用戶從複雜的自建工作流中拉回來。</p>
+    <p>從技術層面觀察，Claude 在處理高維度指令時的表現，確實讓許多第三方 Agent 框架顯得像是在畫蛇添足。當你在本地環境使用 API 調用 3.5 Sonnet 時，你必須處理 Token 的損耗、上下文的遺忘，以及那些讓人抓狂的格式輸出問題。但一旦進入它的原生開發環境，那種「上下文感知」的穩定度是 API 很難完全復刻的。它不只是在寫程式，它在模擬一種思考路徑。相比之下，ChatGPT 的 GPT-4o 雖然在多模態切換上依然穩健，但在處理大規模代碼庫的重構任務時，那種邏輯上的「幻覺」頻率明顯高於 Claude。許多用戶反映，GPT-4o 容易在對話超過三十輪後開始出現記憶漂移，而 Claude 則展現出一種近乎偏執的任務執著。</p>
+    <p>這種差異在實際場景中非常刺眼。假設你要寫一個複雜的 Electron 應用程式，涉及到深層的非同步邏輯，Claude 往往能一次性給出結構正確的 boilerplate，而 Gemini 1.5 Pro 雖然擁有誇張的百萬級上下文視窗，卻常常在長文本的海洋裡迷失方向。Gemini 的問題在於它太想取悅用戶了，給出的答案往往過於發散，缺乏一種開發者需要的「確定性」。至於 Grok，雖然在反應速度和資訊的新鮮度上佔優，但在這種需要深度邏輯堆疊的 Agent 場景下，它更像是一個情緒化的觀察者，而非可靠的執行者。</p>
+    <p>當然，總有人不甘心被大廠的訂閱制圈養。在技術社區的角落，依然有一群人在折騰 OpenRouter 或本地模型，試圖尋找性價比的最優解。相較於近期引起討論的 Qwen 3.8 27B，Claude 在 API 調用的成本控制與輸出質量平衡上，依然讓專業開發者感到糾結。這種糾結本質上是對「智慧溢價」的衡量。如果你只需要一個能幫你寫 SQL 查詢的助理，Qwen 3.8 27B 或許能滿足基本需求，但當任務涉及到需要理解整個專案架構的 Agent 指令時，OpenAI 的 GPT-4o 展現出的通用性依然是目前的業界標竿。</p>
+    <p>我們正處於一個很弔詭的節點：模型越來越強，但我們對「工具」的掌控感卻越來越弱。以前我們會討論如何寫更精準的 System Prompt，現在大家討論的是哪個平台的 CLI 比較好用。這是不是一種退化？當我們習慣了「模糊地談論高階需求」，並期待模型能自動補完所有細節時，我們實際上是在把決策權讓渡給那些黑箱。</p>
+    <p>如果有一天，訂閱服務提供的不再只是對話框，而是一個完全自動化的開發單元，你還會介意每個月付出的那二十美金嗎？或者說，當你發現自己最依賴的不再是代碼邏輯，而是某個特定模型的「脾氣」時，這種依賴到底是技術的紅利，還是另一種形式的數位枷鎖？我們究竟是在利用 Agent 解放生產力，還是在為了維持這種虛假的生產力，被迫成為大廠生態系裡最忠誠的付費測試員？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=50366117" rel="nofollow noopener" target="_blank">Ask HN: What&#x27;s your current AI agentic setup?</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261107-0850-f97e21/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

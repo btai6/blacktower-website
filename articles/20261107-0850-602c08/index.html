@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>如果這幾台生成式投幣機開始學會互相抄作業，我們還得付幾份訂閱費？</title>
+<meta name="description" content="這幾天看著 OpenAI 隔三差五地往 ChatGPT 裡塞新功能，那種既視感已經強烈到讓人懷疑 Sam Altman 是不是在 Anthropic 的辦公室裝了竊聽器。 早些年我們還在爭論什麼是「護城河」，覺得模型底層架構、對齊技術、長文本能力是各家的家傳寶鑽，現在放眼望去，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261107-0850-602c08/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="如果這幾台生成式投幣機開始學會互相抄作業，我們還得付幾份訂閱費？">
+<meta property="og:description" content="這幾天看著 OpenAI 隔三差五地往 ChatGPT 裡塞新功能，那種既視感已經強烈到讓人懷疑 Sam Altman 是不是在 Anthropic 的辦公室裝了竊聽器。 早些年我們還在爭論什麼是「護城河」，覺得模型底層架構、對齊技術、長文本能力是各家的家傳寶鑽，現在放眼望去，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261107-0850-602c08/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-07T08:50:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如果這幾台生成式投幣機開始學會互相抄作業，我們還得付幾份訂閱費？">
+<meta name="twitter:description" content="這幾天看著 OpenAI 隔三差五地往 ChatGPT 裡塞新功能，那種既視感已經強烈到讓人懷疑 Sam Altman 是不是在 Anthropic 的辦公室裝了竊聽器。 早些年我們還在爭論什麼是「護城河」，覺得模型底層架構、對齊技術、長文本能力是各家的家傳寶鑽，現在放眼望去，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "如果這幾台生成式投幣機開始學會互相抄作業，我們還得付幾份訂閱費？",
+  "description": "這幾天看著 OpenAI 隔三差五地往 ChatGPT 裡塞新功能，那種既視感已經強烈到讓人懷疑 Sam Altman 是不是在 Anthropic 的辦公室裝了竊聽器。 早些年我們還在爭論什麼是「護城河」，覺得模型底層架構、對齊技術、長文本能力是各家的家傳寶鑽，現在放眼望去，…",
+  "datePublished": "2026-11-07T08:50:00+08:00",
+  "dateModified": "2026-11-07T08:50:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261107-0850-602c08/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-07 08:50
+  </div>
+
+  <h1 class="title">如果這幾台生成式投幣機開始學會互相抄作業，我們還得付幾份訂閱費？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天看著 OpenAI 隔三差五地往 ChatGPT 裡塞新功能，那種既視感已經強烈到讓人懷疑 Sam Altman 是不是在 Anthropic 的辦公室裝了竊聽器。</p>
+    <p>早些年我們還在爭論什麼是「護城河」，覺得模型底層架構、對齊技術、長文本能力是各家的家傳寶鑽，現在放眼望去，滿大街都是長得差不多的通用臉。這感覺就像你逛了一圈百貨公司的手錶專櫃，最後發現大家都在賣水鬼，只是 Logo 刻得不太一樣。如果這幾台生成式投幣機已經開始公然互相抄作業，抄到連產品 UI 的色調和按鈕位置都快統一了，身為用戶的我們，到底憑什麼要每個月拿出二十美金，同時供奉好幾個「除了名字不同，靈魂卻高度重疊」的神像？</p>
+    <p>這不是在開玩笑。曾幾何時，Claude 是那個有點潔癖、寫代碼像個老教授、說話文縐縐的文青；Gemini 則是背靠 Google 海量地圖和郵件數據的富二代，雖然腦袋偶爾當機，但勝在出身名門；至於 ChatGPT，它是那個什麼都懂一點、最快把產品端出來的領跑者。現在呢？Claude 也開始搞 Projects，ChatGPT 轉頭就更新了 Canvas，Gemini 趕緊把 Sidebar 弄得更順手。大家在功能清單上玩的是一種極致的對消遊戲。只要 A 出了個即時語音，B 在三個月內沒跟上，用戶就跟看到過時產物一樣冷臉走人。這種軍備競賽最後導致的結果，就是產品功能的極度同質化。我們買的不再是「獨特性」，而是買誰的「抄襲速度」更快、整合得更無縫。</p>
+    <p>以前我們訂閱不同平台，是為了截長補短。你需要 Claude 的 200k 上下文來啃那本幾百頁的 PDF，因為那時候 GPT-4 還在 32k 的泥淖裡打轉，回覆兩句就開始胡言亂語，像個健忘的老頭。但現在大家都號稱能處理海量數據，雖然 Gemini 號稱能吞下兩百萬 token，但在實際調用 function calling 時，只要工具箱裡的扳手超過十五把，它那引以為傲的注意力機制就開始像宿醉一樣飄忽不定。這種時候，即便它的上下文視窗再大，對開發者來說也不過是個裝飾華麗的廢墟。我們還在付這份錢，僅僅是因為我們不確定哪天誰會突然開竅，或者哪天誰會突然抽風。</p>
+    <p>說白了，現在的訂閱制更像是一種「智力保險」。你付給 OpenAI 二十塊，是怕它的 o1 思考模式真的能解決那道折磨你三天的邏輯題；你付給 Anthropic 二十塊，是因為你受夠了 GPT 那種充滿「AI 味」的公關腔調，想聽幾句 Claude 吐出來的人話。至於 Grok，那純粹是看在 Elon Musk 偶爾敢讓它講幾句政治不正確實話的份上，買個樂子。但在核心體驗上，這四大金剛的邊界正在消失。當一個技術從魔法變成水電煤，我們對水龍頭長什麼樣子其實沒興趣，我們只在乎出水的壓力夠不夠。目前的狀況是，每家水龍頭都宣稱自己流出來的是礦泉水，但喝起來其實都有一股漂白粉的味道。</p>
+    <p>最諷刺的是，這些公司嘴上說著要實現 AGI，要做人類文明的引路人，實際上的產品迭代路徑卻比任何夕陽產業都還要守舊。他們在算力中心燒掉幾十億美金，最後呈現給用戶的競爭點，竟然是「我的側邊欄可以預覽代碼」或者「我的語音聽起來更像撒嬌」。這種層次的競爭，對得起那動輒幾千億的估值嗎？當 ChatGPT 引入 Search 功法後，它就是在公然搶 Google 的飯碗；當 Gemini 試圖深度整合 Android 系統時，它是在試圖把其他大模型驅逐出行動端。這不再是技術之爭，而是純粹的地盤掠奪。在這種掠奪中，用戶的訂閱費成了他們收購伺服器的投名狀。</p>
+    <p>我們真的需要那麼多個「最強模型」嗎？其實不需要。如果有一天 ChatGPT 的穩定性能達到 99%，而且不再因為安全對齊而變得像個膽小的審查官，我想不出任何理由再去額外付費給 Claude。反之亦然。現在之所以還維持著這種「多頭訂閱」的病態平衡，完全是因為這幾家領頭羊都還不夠強大，強大到能徹底封殺對手的優勢。OpenAI 的 o1 雖然在推理上跨了一大步，但在長文本寫作的節奏感上，依然被 Claude 3.5 Sonnet 吊著打。Claude 的邏輯再清晰，一旦面對需要調用外部實時數據的複雜場景，還是顯得有些束手無策。至於 Gemini，它就像個坐擁金山的窮光蛋，坐擁全球最強的生態位，卻始終沒法在產品體驗上給用戶那種「這就是未來」的震撼感。</p>
+    <p>這種互相抄作業的行為，實質上是在透支技術的神秘感。當你發現換了一個模型，輸入同樣的 Prompt，得到的結果相似度高達 80% 時，那種「發現新大陸」的驚喜感就徹底死了。接下來的比賽，比的不是誰的模型更聰明，而是誰的定價策略更無恥，或者誰的捆綁銷售更霸道。如果未來的 AI 市場變成了微軟捆綁 Office、Google 捆綁 Workspace 的複製品，那我們這群早期追隨者追求的「技術民主化」簡直就是個笑話。</p>
+    <p>有時候冷眼看著這些論壇裡的測評，什麼 MMLU 分數、什麼數學競賽排名，看多了只覺得想笑。一個正常人會因為一台跑車的極速從 300 變成 305 而多掏一百萬嗎？不會，除非那是他唯一的愛好。但現在我們被迫在為這些微小的、甚至在實際生產中感覺不到的參數進步買單。我們付了三、四份訂閱費，最後做的事情還是那幾樣：修代碼、寫郵件、整理會議紀要、或者讓 AI 幫忙罵一個不回訊息的客戶。這些任務，其實兩年前的 GPT-4 就已經能做個七七八八了。</p>
+    <p>如果這幾台機器真的學會了互相抄襲，那麼最完美的終局應該是出現一個超級聚合器，讓用戶按需購買算力，而不是按月供養這些傲慢的科技巨頭。但這顯然不符合這些公司的利益。他們希望你留下來，像對待宗教一樣忠誠地續費，即便他們給你的只是隔壁家去年就玩剩下的功能。這不是進步，這只是在原地打轉時順便把你的口袋掏空。</p>
+    <p>更可悲的是，我們一邊嘴上說著累了、貴了，手還是不自覺地在下一次模型更新時點擊續費。因為在這個訊息密度爆炸的時代，我們對「落後」的恐懼遠大於對「浪費」的厭惡。我們害怕萬一 Claude 的下一個版本真的能寫出得普立茲獎的小說，而我們卻因為省那二十塊錢而錯過了見證歷史的機會。這些科技公司精準地拿捏了這種恐懼。他們互相抄作業，不是為了讓產品更好，而是為了確保自己不被踢出局。至於用戶付幾份錢？在他們眼裡，那不過是數據中心冷卻液的成本罷了。</p>
+    <p>所以，別再問還要付幾份訂閱費這種天真的問題了。只要這四家還沒死掉三家，只要他們還在玩這種「你加一個按鈕，我加一個滑桿」的平庸遊戲，你就得一直付下去。除非你哪天真的看開了，發現其實用哪家都沒差，因為他們都在抄同一個標準答案。等到那天，你才會發現，真正的智能不是 AI 給你的，而是你終於學會了如何從這種消費陷阱裡抽身。不過在那之前，我想大多數人還是會一邊罵著 Sam Altman 擠牙膏，一邊乖乖在信用卡帳單上簽名。這就是現狀，既無趣又現實。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261107-0850-602c08/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

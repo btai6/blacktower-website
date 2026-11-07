@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當 AI 開始幫忙研究 AI 的時候我們到底在興奮什麼</title>
+<meta name="description" content="馬斯克成天在 X 上吹噓 Grok 的訓練速度，Anthropic 則是忙著發報告證明 AI 研發正在指數級加速。這套說辭聽久了讓人反胃。現在的技術圈陷入一種自我循環的怪圈：拿著上一代的模型去優化下一代的權重，或者讓一堆 Agent 在虛擬環境裡瘋狂跑模擬。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261107-0854-483708/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當 AI 開始幫忙研究 AI 的時候我們到底在興奮什麼">
+<meta property="og:description" content="馬斯克成天在 X 上吹噓 Grok 的訓練速度，Anthropic 則是忙著發報告證明 AI 研發正在指數級加速。這套說辭聽久了讓人反胃。現在的技術圈陷入一種自我循環的怪圈：拿著上一代的模型去優化下一代的權重，或者讓一堆 Agent 在虛擬環境裡瘋狂跑模擬。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261107-0854-483708/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-07T08:54:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當 AI 開始幫忙研究 AI 的時候我們到底在興奮什麼">
+<meta name="twitter:description" content="馬斯克成天在 X 上吹噓 Grok 的訓練速度，Anthropic 則是忙著發報告證明 AI 研發正在指數級加速。這套說辭聽久了讓人反胃。現在的技術圈陷入一種自我循環的怪圈：拿著上一代的模型去優化下一代的權重，或者讓一堆 Agent 在虛擬環境裡瘋狂跑模擬。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當 AI 開始幫忙研究 AI 的時候我們到底在興奮什麼",
+  "description": "馬斯克成天在 X 上吹噓 Grok 的訓練速度，Anthropic 則是忙著發報告證明 AI 研發正在指數級加速。這套說辭聽久了讓人反胃。現在的技術圈陷入一種自我循環的怪圈：拿著上一代的模型去優化下一代的權重，或者讓一堆 Agent 在虛擬環境裡瘋狂跑模擬。…",
+  "datePublished": "2026-11-07T08:54:00+08:00",
+  "dateModified": "2026-11-07T08:54:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261107-0854-483708/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-07 08:54
+  </div>
+
+  <h1 class="title">當 AI 開始幫忙研究 AI 的時候我們到底在興奮什麼</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克成天在 X 上吹噓 Grok 的訓練速度，Anthropic 則是忙著發報告證明 AI 研發正在指數級加速。這套說辭聽久了讓人反胃。現在的技術圈陷入一種自我循環的怪圈：拿著上一代的模型去優化下一代的權重，或者讓一堆 Agent 在虛擬環境裡瘋狂跑模擬。這聽起來很高效，但實際上更像是把資本燒出來的算力規模偽裝成智力躍遷。大家都在聊 AI 加速 AI，卻沒幾個人敢正視一個問題：如果沒有源源不斷的高質量人類數據灌進去，這種「加速」會不會只是在加速模型坍縮的進程？</p>
+    <p>拿 Grok 來說，xAI 最引以為傲的就是那個號稱地表最強的算力集群。他們試圖用暴力美學解決一切，透過極大規模的水平擴展，讓模型在短時間內完成迭代。但這種做法跟技術突破的關係其實沒那麼大，更多是工程能力的展現。Grok 在處理複雜邏輯推理時，依然能看到明顯的拼湊感。這跟 Anthropic 走的路子完全不同。Claude 之所以能在長文本和代碼生成上維持那種微妙的「人味」，是因為他們在 RLHF 階段投入了極其誇張的成本。但即便如此，當我們把任務場景拉到需要跨領域知識綜合判斷的邊界時，Claude 依然會出現注意力衰減，這種衰減在處理超過 10 萬 token 的任務時尤為致命，這顯然不是靠「AI 輔助研究」就能輕易解決的底層架構缺陷。</p>
+    <p>這種所謂的研發加速，很多時候只是自動化了那些原本就該自動化的髒活。比如寫點測試腳本、跑跑數據清洗。如果說這就是「AI 正在戲劇性地加速 AI 研發」，那當初編譯器的出現是不是也該被稱為「軟體正在戲劇性地加速軟體研發」？我們現在看到的性能提升，很大程度源於垂直領域權重的極端優化。ChatGPT 在最新的版本更新中，明顯加強了對特定開發環境的適應性，這讓它在寫 Python 的時候看起來更聰明了，但這究竟是模型理解了編程邏輯，還是它在訓練集裡吃掉了更多的 GitHub Copilot 回饋數據？這兩者之間有本質區別。</p>
+    <p>回頭看現在的討論熱度，相較於 Qwen 3.8 27B，xAI 的做法顯然更偏向於一種資源壓制。當大家都在談論小型模型如何透過蒸餾技術獲得接近大模型的表現時，OpenAI 和 Google 卻在玩另一場遊戲。Gemini 在處理多模態任務時的邏輯鏈條，雖然在某些特定場景下顯得比 GPT-4o 穩定，但它在 Function Calling 上的表現依然像個醉漢。當你給出的外部工具接口超過 15 個，Gemini 的調用成功率就會像斷頭台一樣垂直下跌。這種不穩定性，恰恰證明了「AI 研發加速」並沒有解決模型對環境感知的魯棒性問題。我們在實驗室裡看到那些漂亮的基準測試分數，往往是經過無數次 Prompt 調整和環境對齊後的結果，一旦丟進真實的、充滿噪音的生產環境，這些「加速產物」就開始露餡。</p>
+    <p>很多人在吵 AI 會不會取代研究員，這簡直是杞人憂天。目前觀察到的現象是，AI 確實在幫忙寫論文摘要、跑模擬實驗，但它無法定義「什麼才是值得研究的問題」。它能在既有的框架內玩命跑，卻跨不出框架半步。如果說目前的技術路徑是正確的，為什麼我們還在忍受幻覺問題？為什麼模型在面對從未見過的數學悖論時，依然只會在那裡胡言亂語？</p>
+    <p>當我們把所有的籌碼都壓在「自動化研發」上時，是不是忽略了模型智力的增長曲線正在變平？如果下一代模型的提升僅僅是因為它吞噬了上一代生成的、經過篩選的數據，那這不叫進化，這叫近親繁殖。當資本不再像現在這樣無底線地燃燒，當算力增長撞到物理極限，這種靠 AI 吹出來的繁榮還能剩多少乾貨？我們到底是處在一個技術爆炸的前夜，還是正被困在一個由算力和算法編織的高級迴聲繚繞室裡？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai" rel="nofollow noopener" target="_blank">AI is dramatically accelerating AI research</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261107-0854-483708/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
