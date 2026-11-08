@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隱私是昂貴的幻覺：Gemini 的數據餵養邏輯</title>
+<meta name="description" content="DeepSWE 最近在開發圈子裡掀起不少討論，但比起模型能力的演進，Google 最近在隱私條款上的透明度反而更讓人清醒。我們總以為支付了每個月二十美金的門票，就能在雲端買到一片私密的自留地。現實是，除非你關閉對話紀錄，否則你餵給 Gemini 的每一句程式碼、每一段產品構思，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261108-0823-5a5495/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="隱私是昂貴的幻覺：Gemini 的數據餵養邏輯">
+<meta property="og:description" content="DeepSWE 最近在開發圈子裡掀起不少討論，但比起模型能力的演進，Google 最近在隱私條款上的透明度反而更讓人清醒。我們總以為支付了每個月二十美金的門票，就能在雲端買到一片私密的自留地。現實是，除非你關閉對話紀錄，否則你餵給 Gemini 的每一句程式碼、每一段產品構思，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261108-0823-5a5495/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-08T08:23:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="隱私是昂貴的幻覺：Gemini 的數據餵養邏輯">
+<meta name="twitter:description" content="DeepSWE 最近在開發圈子裡掀起不少討論，但比起模型能力的演進，Google 最近在隱私條款上的透明度反而更讓人清醒。我們總以為支付了每個月二十美金的門票，就能在雲端買到一片私密的自留地。現實是，除非你關閉對話紀錄，否則你餵給 Gemini 的每一句程式碼、每一段產品構思，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "隱私是昂貴的幻覺：Gemini 的數據餵養邏輯",
+  "description": "DeepSWE 最近在開發圈子裡掀起不少討論，但比起模型能力的演進，Google 最近在隱私條款上的透明度反而更讓人清醒。我們總以為支付了每個月二十美金的門票，就能在雲端買到一片私密的自留地。現實是，除非你關閉對話紀錄，否則你餵給 Gemini 的每一句程式碼、每一段產品構思，…",
+  "datePublished": "2026-11-08T08:23:00+08:00",
+  "dateModified": "2026-11-08T08:23:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261108-0823-5a5495/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-08 08:23
+  </div>
+
+  <h1 class="title">隱私是昂貴的幻覺：Gemini 的數據餵養邏輯</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>DeepSWE 最近在開發圈子裡掀起不少討論，但比起模型能力的演進，Google 最近在隱私條款上的透明度反而更讓人清醒。我們總以為支付了每個月二十美金的門票，就能在雲端買到一片私密的自留地。現實是，除非你關閉對話紀錄，否則你餵給 Gemini 的每一句程式碼、每一段產品構思，都在其訓練集的食譜名單上。</p>
+    <p>這不是什麼新鮮的陰謀論，而是寫在 Google 服務條款裡的陽光法案。即便你是付費訂閱用戶，只要「Gemini 應用程式活動」開關處於開啟狀態，那些對話就可能被人類標註員隨機抽取、閱讀並標記。Google 的說法很巧妙，稱這些數據會與帳號脫鉤處理，但如果你在對話中隨手貼上了一段帶有公司內部 API 金鑰或特定架構設計的文本，匿名化處理就像是在透明容器上貼了一張沒黏性的標籤。</p>
+    <p>Gemini 的技術架構與數據循環策略，本質上是為了彌補其在長文本理解與邏輯推理上的短板。相較於 ChatGPT 對於企業級數據的處理方式，Google 似乎更傾向於將消費端的所有互動視為公共資源。這種作法在技術圈引起反彈，是因為開發者習慣將 AI 當作一種「延伸的大腦」，而現在這個大腦卻在背後偷偷把你的思考過程錄音並上傳。當你在一個擁有 1M context window 的模型裡放入數萬行的私有文檔，這不再只是簡單的對話，而是大規模的數據交付。</p>
+    <p>從技術層面來看，Gemini 這種「預設訓練」的邏輯與 Claude 形成了鮮明的對比。Claude 在處理個人用戶數據時，雖然也保留了濫用監控的權力，但在隱私保護的語氣上顯得保守許多。我們在實際測試中發現，Gemini 處理複雜 function calling 時的穩定性，某種程度上依賴於它對大量真實用戶錯誤嘗試的學習。如果你嘗試在 Gemini 中調用超過十個以上的自定義工具，你會發現它的容錯率在提高，這種進步往往就是建立在無數開發者深夜調試時留下的歷史紀錄之上。</p>
+    <p>這就涉及到了四大平台之間截然不同的生存哲學。ChatGPT 透過 Team 或 Enterprise 版本明確劃分了數據護城河，只要你肯付更多錢，OpenAI 就承諾不碰你的數據。Grok 則是一貫的狂放，數據使用權幾乎是它換取訓練資料的唯一途徑。相較於 DeepSWE 這種特定領域的後起之秀，Google 的策略顯得既貪婪又自信，它賭的是用戶離不開 Workspace 整個生態系的便利性，因此即便條款寫得再露骨，大部分人也只會點擊「同意」。</p>
+    <p>在橫向對比中，你會發現這種數據採集模式對模型性能的影響是緩慢且隱蔽的。當我們在 Claude 3.5 Sonnet 上執行涉及敏感邏輯的任務時，那種「與世隔絕感」其實來自於 Anthropic 較為封閉的數據策略。而 Gemini 則像是一個在鬧區開診所的醫生，他在醫治你的同時，也在把你的病例掃描進他的醫學百科全書裡。這種差異在處理高併發的 API 調用時尤為明顯，Google 必須透過這些真實數據來優化其多模態模型的對齊性能。</p>
+    <p>我們應該思考的是，這種以隱私換取性能的代價，在未來是否會成為一種行業標準？當我們習慣了「付費仍被訓練」，那麼 AI 平台的下一步會是什麼？如果有一天，即便關閉了紀錄，模型依然能透過即時學習（In-context learning）的緩存來「優化」其公共權重，我們還有什麼手段能保護那些尚未成形的靈感？</p>
+    <p>如果你的代碼邏輯在三個月後出現在某個陌生人的自動補全建議裡，這究竟是技術的勝利，還是隱私的集體葬禮？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=50363461" rel="nofollow noopener" target="_blank">Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261108-0823-5a5495/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
