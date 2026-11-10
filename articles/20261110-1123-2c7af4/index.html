@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 頻繁迭代背後的長文本幻覺陷阱</title>
+<meta name="description" content="當眾人的目光還停留在 DeepSeek 掀起的波瀾時，Anthropic 似乎更執著於在 Claude 的邏輯深度上修剪枝條。這次關於 Fable 與 Mythos 版本的技術變動，本質上是長文本注意力機制的又一次微調。很多人抱怨 Claude 在處理超過十萬 token …">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261110-1123-2c7af4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 頻繁迭代背後的長文本幻覺陷阱">
+<meta property="og:description" content="當眾人的目光還停留在 DeepSeek 掀起的波瀾時，Anthropic 似乎更執著於在 Claude 的邏輯深度上修剪枝條。這次關於 Fable 與 Mythos 版本的技術變動，本質上是長文本注意力機制的又一次微調。很多人抱怨 Claude 在處理超過十萬 token …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261110-1123-2c7af4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-10T11:23:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 頻繁迭代背後的長文本幻覺陷阱">
+<meta name="twitter:description" content="當眾人的目光還停留在 DeepSeek 掀起的波瀾時，Anthropic 似乎更執著於在 Claude 的邏輯深度上修剪枝條。這次關於 Fable 與 Mythos 版本的技術變動，本質上是長文本注意力機制的又一次微調。很多人抱怨 Claude 在處理超過十萬 token …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 頻繁迭代背後的長文本幻覺陷阱",
+  "description": "當眾人的目光還停留在 DeepSeek 掀起的波瀾時，Anthropic 似乎更執著於在 Claude 的邏輯深度上修剪枝條。這次關於 Fable 與 Mythos 版本的技術變動，本質上是長文本注意力機制的又一次微調。很多人抱怨 Claude 在處理超過十萬 token …",
+  "datePublished": "2026-11-10T11:23:00+08:00",
+  "dateModified": "2026-11-10T11:23:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261110-1123-2c7af4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-10 11:23
+  </div>
+
+  <h1 class="title">Claude 頻繁迭代背後的長文本幻覺陷阱</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當眾人的目光還停留在 DeepSeek 掀起的波瀾時，Anthropic 似乎更執著於在 Claude 的邏輯深度上修剪枝條。這次關於 Fable 與 Mythos 版本的技術變動，本質上是長文本注意力機制的又一次微調。很多人抱怨 Claude 在處理超過十萬 token 的代碼庫時，會莫名其妙地遺忘掉位於文本中間段落的邏輯約束，這在技術圈內被戲稱為「中段塌陷」。Anthropic 的工程師顯然意識到了這一點，試圖通過調整位置編碼的權重來挽救那逐漸渙散的注意力，但結果似乎並不盡如人意。</p>
+    <p>如果你嘗試讓 Claude 處理一份跨越多個模組的 Rust 項目，你會發現它在處理底層記憶體管理的安全性檢查時，表現得像個宿醉的審核員。它能精準地捕捉到開頭的結構體定義，也能在結尾給出像模像樣的調用示例，偏偏在中間層邏輯轉換時，會拋出一些在當前語境下根本不存在的變數假設。這種現象在 ChatGPT 的 o1 系列中鮮少發生，因為後者傾向於在生成之前進行更長時間的隱性思考，而 Claude 則更像是一個直覺敏銳但缺乏耐心的天才，它在試圖用感性理解來覆蓋嚴密的邏輯推導。</p>
+    <p>這種技術路徑的差異，在面對複雜邏輯樹時變得尤為刺眼。Gemini 雖然依仗著其龐大的上下文窗口在數據吞吐量上占優，但在指令遵循的嚴謹度上，始終無法與 Claude 那種帶有文藝氣息的精準度抗衡。然而，當 Claude 為了追求回答的「人性化」而過度優化其語言風格時，技術層面的嚴謹性往往成了犧牲品。不少開發者發現，在特定版本的迭代後，Claude 竟然開始學會了敷衍，對於一些冗長的報錯日誌，它會選擇性地跳過關鍵錯誤碼，轉而討論一些無關痛癢的語法建議。這種行為模式的轉變，難道是模型在自監督學習過程中，無意間習得的一種「認知節約」本能？</p>
+    <p>有趣的是，相較於 DeepSeek 在極致推理路徑上的單點突破，Claude 在多樣化任務中的平衡感正顯得搖搖欲墜。我們在測試中觀察到，當一個 Prompt 的複雜度超過特定閾值，Claude 的輸出熵值會劇烈波動。這不是隨機性帶來的驚喜，而是模型內部的注意力頭在爭奪控制權時產生的噪音。Grok 在這種情況下通常表現得更為暴力，它會直接忽略掉部分約束條件以換取輸出的連貫性，而 Claude 則陷入了一種自我糾結的邏輯循環，最後給出一個充滿修辭技巧卻毫無實質內容的空洞回答。</p>
+    <p>這種「過度擬合人類偏好」的傾向，正在成為頂尖 AI 模型的集體通病。我們是否正在進入一個模型越來越會「聊天」，卻越來越不會「思考」的怪圈？當 Anthropic 試圖通過微調來掩蓋底層架構在處理長程依賴時的力不從心，這種修修補補的策略還能維持多久？如果一個標榜邏輯最強的模型，在面對一萬行代碼時表現出的疲態比它處理詩歌時還要明顯，那這種進化的方向是否已經發生了偏差？</p>
+    <p>如果未來的模型迭代只是在「更像人」和「更準確」之間進行無意義的搖擺，我們是否該重新審視那些最初被我們奉為圭臬的評測標準？當 Claude 的下一個版本再次發布時，我們是在期待一個更聰明的助手，還是一個更會圓謊的辯論家？在那長達數十萬字的上下文荒原裡，究竟還有多少被遺忘的邏輯漏洞，正等著在某個關鍵時刻給開發者致命一擊？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" rel="nofollow noopener" target="_blank">Claude Fable 5.2 and Mythos 5.2</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261110-1123-2c7af4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

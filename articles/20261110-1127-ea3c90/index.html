@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>餵養 Gemini 的代價是交出你所有的對話</title>
+<meta name="description" content="Google 在個人訂閱服務上的隱私條款，向來像是一場精確的心理博弈。如果你每個月支付二十美元，以為買到的是一份專屬的數位私密空間，那麼最近關於 Gemini 訓練機制細節的討論，可能會讓你覺得這筆錢花得有些諷刺。在 Gemini 的個人帳戶服務協議裡，即便你是付費用戶，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261110-1127-ea3c90/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="餵養 Gemini 的代價是交出你所有的對話">
+<meta property="og:description" content="Google 在個人訂閱服務上的隱私條款，向來像是一場精確的心理博弈。如果你每個月支付二十美元，以為買到的是一份專屬的數位私密空間，那麼最近關於 Gemini 訓練機制細節的討論，可能會讓你覺得這筆錢花得有些諷刺。在 Gemini 的個人帳戶服務協議裡，即便你是付費用戶，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261110-1127-ea3c90/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-10T11:27:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="餵養 Gemini 的代價是交出你所有的對話">
+<meta name="twitter:description" content="Google 在個人訂閱服務上的隱私條款，向來像是一場精確的心理博弈。如果你每個月支付二十美元，以為買到的是一份專屬的數位私密空間，那麼最近關於 Gemini 訓練機制細節的討論，可能會讓你覺得這筆錢花得有些諷刺。在 Gemini 的個人帳戶服務協議裡，即便你是付費用戶，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "餵養 Gemini 的代價是交出你所有的對話",
+  "description": "Google 在個人訂閱服務上的隱私條款，向來像是一場精確的心理博弈。如果你每個月支付二十美元，以為買到的是一份專屬的數位私密空間，那麼最近關於 Gemini 訓練機制細節的討論，可能會讓你覺得這筆錢花得有些諷刺。在 Gemini 的個人帳戶服務協議裡，即便你是付費用戶，…",
+  "datePublished": "2026-11-10T11:27:00+08:00",
+  "dateModified": "2026-11-10T11:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261110-1127-ea3c90/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-10 11:27
+  </div>
+
+  <h1 class="title">餵養 Gemini 的代價是交出你所有的對話</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 在個人訂閱服務上的隱私條款，向來像是一場精確的心理博弈。如果你每個月支付二十美元，以為買到的是一份專屬的數位私密空間，那麼最近關於 Gemini 訓練機制細節的討論，可能會讓你覺得這筆錢花得有些諷刺。在 Gemini 的個人帳戶服務協議裡，即便你是付費用戶，只要你開啟了對話紀錄功能，那些數據就默認成為了 Google 龐大訓練池裡的一滴水。更令人不安的是，這些對話不僅會被機器消化，還可能被人類審核員抽樣閱讀，而這一切在現有的個人訂閱框架下，幾乎沒有任何一鍵「退出訓練但保留紀錄」的選項。</p>
+    <p>這種設計逻辑與其說是技術限制，不如說是 Google 對於數據飢渴的本能反應。在技術實作上，Gemini 依賴大量的真實對話來修正其模型在長文本推理中的幻覺問題。當你在對話框輸入一段複雜的 Python 代碼，或是試圖讓它幫你梳理一份非公開的產品草案時，Google 的後端系統其實已經將這些內容標記為可利用的素材。雖然官方聲稱會進行去中心化處理，將數據與個人身份脫鉤，但對於處理敏感商務資訊的工程師或研究員來說，這種「脫鉤」在人類審核員面前顯得極其脆弱。這不是一個 Bug，而是 Google 刻意為之的產品路徑。</p>
+    <p>相較於 ChatGPT 對付費用戶提供的隱私切換開關，Gemini 的策略顯得更為激進且缺乏彈性。在使用 ChatGPT 時，你可以在設置中明確關閉「為所有人改進模型」，即使這樣做會讓你失去歷史紀錄的同步，但至少它給了一個明確的退出機制。而 Gemini 則將「保留紀錄」與「貢獻數據」深度綑綁。如果你想保護隱私，你唯一能做的就是開啟「臨時聊天」模式，或者徹底關閉歷史紀錄，這在需要長期上下文追蹤的技術開發場景中，幾乎等同於閹割了 AI 的實用價值。</p>
+    <p>這在目前的 AI 競爭格局中顯得饒富趣味。當 DeepSeek 在特定市場引起關注時，Google 似乎更在意如何透過廣大的個人用戶群體，持續餵養其底層模型以維持領先。相較於 DeepSeek，Google 這種強行將訂閱用戶納入訓練集的做法，反映了傳統巨頭對於數據壟斷的傲慢。而在同樣的標準下，Claude 的做法則顯得更為節制，Anthropic 在企業級與個人高級帳戶的數據隔離上，有著比 Google 更清晰的技術邊界，這也是為什麼許多資深開發者在處理核心架構討論時，會優先選擇 Claude 而非 Gemini。</p>
+    <p>我們是否已經進入了一個「付費也無法買到隱私」的階段？當初我們認為訂閱制是為了擺脫廣告模式下「用戶即產品」的宿命，但現在看來，即便你付了錢，你依然是 Google 模型進化路上的免費勞工。Grok 在這方面則走了一條完全不同的路，它在 X 平台上的數據獲取更加明目張膽，卻也因為這種「不裝了」的姿態，反而讓用戶少了一種被條款背叛的錯覺。</p>
+    <p>如果這是一個不可逆的趨勢，那麼未來我們該如何定義「私有 AI」？當你輸入的每一行代碼都可能在三個月後出現在另一個陌生人的建議視窗裡，這種隱形的數據洩漏是否正在瓦解技術社群的信任根基？當所有的巨頭都默認付費用戶的數據也是公共資產時，我們還有什麼理由去追求那種虛假的歷史紀錄便利性？或許我們該問的是，如果連最基本的隱私隔離都做不到，那這份每月二十美元的合約，究竟保護了誰的權益？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://news.ycombinator.com/item?id=50363461" rel="nofollow noopener" target="_blank">Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261110-1127-ea3c90/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
