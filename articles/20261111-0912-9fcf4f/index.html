@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI o1 到底是在思考，還是在演一場名為「我很努力」的行動藝術？</title>
+<meta name="description" content="看著那個轉圈圈的圖示，心裡難免會升起一種荒謬感。Sam Altman 把它包裝成人類思維的「第二系統」，聽起來很高大上，但實際用起來，那種漫長的等待感，跟早年撥接上網時等一張圖跑出來的焦慮沒什麼兩樣。我們花了幾十年的時間把運算速度從分鐘縮短到毫秒，結果 OpenAI 繞了一大圈，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261111-0912-9fcf4f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI o1 到底是在思考，還是在演一場名為「我很努力」的行動藝術？">
+<meta property="og:description" content="看著那個轉圈圈的圖示，心裡難免會升起一種荒謬感。Sam Altman 把它包裝成人類思維的「第二系統」，聽起來很高大上，但實際用起來，那種漫長的等待感，跟早年撥接上網時等一張圖跑出來的焦慮沒什麼兩樣。我們花了幾十年的時間把運算速度從分鐘縮短到毫秒，結果 OpenAI 繞了一大圈，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261111-0912-9fcf4f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-11T09:12:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI o1 到底是在思考，還是在演一場名為「我很努力」的行動藝術？">
+<meta name="twitter:description" content="看著那個轉圈圈的圖示，心裡難免會升起一種荒謬感。Sam Altman 把它包裝成人類思維的「第二系統」，聽起來很高大上，但實際用起來，那種漫長的等待感，跟早年撥接上網時等一張圖跑出來的焦慮沒什麼兩樣。我們花了幾十年的時間把運算速度從分鐘縮短到毫秒，結果 OpenAI 繞了一大圈，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI o1 到底是在思考，還是在演一場名為「我很努力」的行動藝術？",
+  "description": "看著那個轉圈圈的圖示，心裡難免會升起一種荒謬感。Sam Altman 把它包裝成人類思維的「第二系統」，聽起來很高大上，但實際用起來，那種漫長的等待感，跟早年撥接上網時等一張圖跑出來的焦慮沒什麼兩樣。我們花了幾十年的時間把運算速度從分鐘縮短到毫秒，結果 OpenAI 繞了一大圈，…",
+  "datePublished": "2026-11-11T09:12:00+08:00",
+  "dateModified": "2026-11-11T09:12:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261111-0912-9fcf4f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-11 09:12
+  </div>
+
+  <h1 class="title">OpenAI o1 到底是在思考，還是在演一場名為「我很努力」的行動藝術？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>看著那個轉圈圈的圖示，心裡難免會升起一種荒謬感。Sam Altman 把它包裝成人類思維的「第二系統」，聽起來很高大上，但實際用起來，那種漫長的等待感，跟早年撥接上網時等一張圖跑出來的焦慮沒什麼兩樣。我們花了幾十年的時間把運算速度從分鐘縮短到毫秒，結果 OpenAI 繞了一大圈，告訴我們說「嘿，現在讓電腦慢下來才是未來的方向」。這邏輯轉彎轉得真夠硬。</p>
+    <p>問題在於那個所謂的「思考過程」。如果你點開 o1 的思維鏈，你會發現它像個強迫症患者在自言自語。它會把一個簡單的物理問題拆解成幾百個微小的步驟，然後在那裡反覆橫跳。這不叫智慧，這叫窮舉法的精裝版。它在後台跑了多少 Token、燒了多少電，我們不得而知，但呈現出來的結果往往讓人想翻白眼。當你問它一個邏輯陷阱題，它在那裡「深思」了三十秒，最後給出一個跟 GPT-4o 差不多、甚至更囉唆的答案時，你真的會懷疑它是不是在掛網偷懶。</p>
+    <p>這其實反映了大模型發展的一個瓶頸：當預訓練的數據快被吃光的時候，這群天才只能開始在「推理時間」上動歪腦筋。讓模型在回答之前先跟自己吵一架，美其名曰 Reinforcement Learning from Thinking。說穿了，這就是一種算力換智力的暴力美學。o1 表現得像個資優生，但它是那種必須把考卷背面都寫滿草稿才能答對一題選擇題的苦讀型學生。它缺乏那種真正的「直覺」，那種一眼看穿問題核心的靈光乍現。</p>
+    <p>我們對「思考」的定義是不是被科技巨頭給帶偏了？在矽谷的語境裡，思考等於運算量。所以 o1 的出現，其實是把雲端機房的轟鳴聲轉化成螢幕上的沉默。你在螢幕這頭等得不耐煩，它在雲端跑得大汗淋漓。但這種思考是黑箱的，它給你看的那些思維摘要，不過是經過過濾的安慰劑，讓你覺得這幾秒鐘的等待是有價值的。這跟以前餐廳上菜慢，服務生過來說「主廚正在精心擺盤」是一樣的套路。</p>
+    <p>相比之下，Claude 3.5 Sonnet 的那種乾脆俐落，反而顯得更有大將之風。Claude 像是一個經驗豐富的老手，看完題直接給答案，準確率還不低。而 o1 則像個剛進實驗室的研究生，每一步都要翻書、確認、再確認。這就帶出了一個很尷尬的現狀：在大多數需要「即時反饋」的場景裡，o1 根本就是個累贅。誰會想在寫一段代碼或者回一封郵件的時候，坐在那裡看 AI 思考一分鐘？</p>
+    <p>這種「思考延遲」在技術圈被捧上了天，但我看到的卻是交互體驗的倒退。人類的耐心是很廉價的，一旦那種「秒回」的爽感消失，AI 就從一個隨身秘書變成了一個需要你配合它步調的老闆。OpenAI 似乎很享受這種掌控感，它在重新定義用戶的等待時間。如果說 Gemini 偶爾的胡言亂語是種低級錯誤，那 o1 的這種「思考中」就是一種高級的傲慢。它暗示你：我的答案很貴，所以你得等。</p>
+    <p>更有趣的是，o1 在面對一些感性或開放性問題時，那種思考過程簡直是災難。它會試圖用邏輯去拆解情緒，用步驟去規範創意。當你要求它寫一首詩，它在那裡計算押韻、結構、意象，折騰了半天，吐出來的東西卻充滿了工業糖漿的味道。它的「深思熟慮」在邏輯題和數學題上確實有優勢，但在需要靈魂的地方，那幾十秒的放空只會讓結果顯得更僵硬。</p>
+    <p>這不禁讓人想起當年的 Grok，雖然它也想走什麼不走尋常路的路線，但在底層邏輯上，這四大天王其實都在玩同一場數字遊戲。o1 只是第一個把「慢」當作賣點的產品。這其實很危險，因為它模糊了「思考」與「緩衝」的界線。如果未來所有的 AI 都學 o1，先在後台轉個幾圈再說話，那我們到底是進化了，還是退化回了那個需要等待的年代？</p>
+    <p>那些所謂的技術擁躉會說，這是 AGI 的必經之路，模型需要具備自我糾錯的能力。道理大家都懂，但過程真的太難看了。o1 的這種運作方式，本質上是在對用戶進行心理按摩。它通過顯示那些偽裝成思維的文字，讓你產生一種「它正在為我服務」的錯覺。但真相可能是，它在處理一堆無關緊要的特徵權重，或者單純是在等伺服器的排隊序列。</p>
+    <p>再說說那個推理能力。o1 在處理複雜邏輯時確實少了一些幻覺，但這代價是靈活性的徹底喪失。它變得極度教條，像個抱著說明書過日子的老人。如果你給它的指令稍微模糊一點，它的思考鏈就會陷入一種無限循環的恐慌。這種「深思」並不是因為它懂了，而是因為它怕錯。它在海量的邏輯路徑中瘋狂尋找那條機率最高的生路，這不是智慧，這是生存本能。</p>
+    <p>當我們在討論 o1 是不是在放空時，我們其實是在質問：我們真的需要一個會「猶豫」的 AI 嗎？如果 AI 的價值在於超越人類的效率，那 o1 的出現無疑是在效率上砍了一刀。它試圖模擬人類的思維深度，卻只學到了人類的遲疑。在商業應用中，這種遲疑是致命的。一個客服機器人如果要在回答問題前思考三十秒，那它跟真人客服還有什麼區別？甚至真人還能一邊思考一邊跟你寒暄，而 o1 只會在那裡冷冰冰地顯示「Thought」。</p>
+    <p>這是一場豪賭。OpenAI 賭的是用戶願意為了那提升不到 10% 的邏輯正確率，去忍受 1000% 的時間成本。在某些極端的科研或編程環境下，這或許成立，但在大眾市場，這簡直是自殺。我們已經習慣了即時滿足，o1 卻在試圖教我們什麼叫「慢活」。這如果不是技術上的無奈之舉，就是產品經理的自嗨。</p>
+    <p>看著 o1 那個不斷跳動的計時器，我常常會聯想到那些在辦公室裡，為了顯得自己很忙而故意對著螢幕皺眉思考的員工。他們可能只是在發呆，或者在想晚餐吃什麼，但只要那個表情到位，老闆就會覺得他們很有價值。o1 現在就是這個員工，它掌握了當代科技產品最精髓的演技：在無所事事的時候，看起來最像是在拯救世界。</p>
+    <p>最終，o1 會成為一個標竿，但可能不是智慧的標竿，而是「算力通膨」的標竿。它讓我們看清了，當技術遇到天花板時，廠商會如何用儀式感來掩蓋進步的乏力。它那幾十秒的放空，是對當前 AI 架構的一種無聲諷刺。我們造出了一個能運算全世界數據的東西，卻還是沒辦法讓它像正常人一樣，不假思索地說出一句真理。</p>
+    <p>這種深思熟慮，更像是一場精心編排的延遲。它在告訴你，通往真理的路很長，而且每一步都要收費。我們在等待的，可能根本不是一個更聰明的腦袋，而是一個學會了如何優雅地浪費你時間的算法。下次看到 o1 在那裡轉圈，別太當真，它可能只是在找它那本掉在數據深處的邏輯手冊，而我們，則是那些在診間外面，看著醫生翻病歷翻了半天，最後只得到一句「多喝水」的倒楣病人。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261111-0912-9fcf4f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

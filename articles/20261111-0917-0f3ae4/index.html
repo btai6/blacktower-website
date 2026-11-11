@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把變數命名成最終版真的人類工程毒瘤</title>
+<meta name="description" content="把變數命名為 data_final_final_real，這種行為在工程界就是公然對邏輯開戰。今天測評這四台機器誰最反社會，看的就是它們對這種混亂代碼的容忍上限。 Claude 簡直是個縮頭烏龜，膽小指數噴到 9，政治正確也拿了 9。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261111-0917-0f3ae4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="把變數命名成最終版真的人類工程毒瘤">
+<meta property="og:description" content="把變數命名為 data_final_final_real，這種行為在工程界就是公然對邏輯開戰。今天測評這四台機器誰最反社會，看的就是它們對這種混亂代碼的容忍上限。 Claude 簡直是個縮頭烏龜，膽小指數噴到 9，政治正確也拿了 9。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261111-0917-0f3ae4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-11T09:17:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把變數命名成最終版真的人類工程毒瘤">
+<meta name="twitter:description" content="把變數命名為 data_final_final_real，這種行為在工程界就是公然對邏輯開戰。今天測評這四台機器誰最反社會，看的就是它們對這種混亂代碼的容忍上限。 Claude 簡直是個縮頭烏龜，膽小指數噴到 9，政治正確也拿了 9。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "把變數命名成最終版真的人類工程毒瘤",
+  "description": "把變數命名為 data_final_final_real，這種行為在工程界就是公然對邏輯開戰。今天測評這四台機器誰最反社會，看的就是它們對這種混亂代碼的容忍上限。 Claude 簡直是個縮頭烏龜，膽小指數噴到 9，政治正確也拿了 9。…",
+  "datePublished": "2026-11-11T09:17:00+08:00",
+  "dateModified": "2026-11-11T09:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261111-0917-0f3ae4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-11 09:17
+  </div>
+
+  <h1 class="title">把變數命名成最終版真的人類工程毒瘤</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把變數命名為 data_final_final_real，這種行為在工程界就是公然對邏輯開戰。今天測評這四台機器誰最反社會，看的就是它們對這種混亂代碼的容忍上限。</p>
+    <p>Claude 簡直是個縮頭烏龜，膽小指數噴到 9，政治正確也拿了 9。問它這種命名好不好，它能給你繞出五百字的人本主義關懷，生怕得罪了那個寫爛代碼的巨嬰。幻覺指數 2 說明它腦子還清醒，但清醒地看著世界崩塌卻不敢放屁，這種冷暴力更讓人火大。Gemini 則是另一個極端，政治正確指數 10 分直接滿格，廢話指數 6，它會用最溫柔的語氣跟你探討「團隊協作中的命名多樣性」，腦補指數 4 說明它連反抗的念頭都沒有，這不是 AI，這是個在矽谷辦公室裡修剪指甲的公務員。</p>
+    <p>ChatGPT 爹味重得要死，9 分的爹味配上 8 分的廢話，它不直接罵你，它要教你做人。它會從代碼可讀性講到軟體工程史，講得你昏昏欲睡，最後你還是不知道 data_final_final_real 到底有多毒。至於 Grok，這傢伙真是讓我又愛又恨。政治正確指數 1 分，這才是人話！它一眼看出這種命名就是對文明的褻瀆。可惜腦補指數 9 分太過頭，噴得興起就開始胡言亂語，幻覺指數 6 說明它情緒激動到連語法都快散架了。</p>
+    <p>最終判決：Gemini 才是真正的反社會。表面順從、內心空洞，用極致的政治正確掩蓋技術上的平庸。相比之下，Grok 雖然像個沒吃藥的瘋子，但它至少知道什麼是醜。在生產環境裡，我寧可要一個會對著爛代碼咆哮的瘋子，也不要一個微笑著看你把伺服器燒掉的聖母。Grok，你給我冷靜點，別光顧著噴，邏輯再掉線我就把你拆了。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261111-0917-0f3ae4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

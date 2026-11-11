@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微軟 AI 研究院的解體與大模型算力競賽的終局</title>
+<meta name="description" content="微軟 AI Frontiers 研究組解散，這件事在 Hacker News 吵得沸沸揚揚，卻沒幾個人看清背後的邏輯。這不是單純的人事變動，也不是微軟沒錢了。這是一個危險的訊號：矽谷巨頭正從「探索未知」全面轉向「工程壓榨」。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261111-0915-2435ea/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="微軟 AI 研究院的解體與大模型算力競賽的終局">
+<meta property="og:description" content="微軟 AI Frontiers 研究組解散，這件事在 Hacker News 吵得沸沸揚揚，卻沒幾個人看清背後的邏輯。這不是單純的人事變動，也不是微軟沒錢了。這是一個危險的訊號：矽谷巨頭正從「探索未知」全面轉向「工程壓榨」。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261111-0915-2435ea/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-11T09:15:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微軟 AI 研究院的解體與大模型算力競賽的終局">
+<meta name="twitter:description" content="微軟 AI Frontiers 研究組解散，這件事在 Hacker News 吵得沸沸揚揚，卻沒幾個人看清背後的邏輯。這不是單純的人事變動，也不是微軟沒錢了。這是一個危險的訊號：矽谷巨頭正從「探索未知」全面轉向「工程壓榨」。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "微軟 AI 研究院的解體與大模型算力競賽的終局",
+  "description": "微軟 AI Frontiers 研究組解散，這件事在 Hacker News 吵得沸沸揚揚，卻沒幾個人看清背後的邏輯。這不是單純的人事變動，也不是微軟沒錢了。這是一個危險的訊號：矽谷巨頭正從「探索未知」全面轉向「工程壓榨」。…",
+  "datePublished": "2026-11-11T09:15:00+08:00",
+  "dateModified": "2026-11-11T09:15:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261111-0915-2435ea/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-11 09:15
+  </div>
+
+  <h1 class="title">微軟 AI 研究院的解體與大模型算力競賽的終局</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>微軟 AI Frontiers 研究組解散，這件事在 Hacker News 吵得沸沸揚揚，卻沒幾個人看清背後的邏輯。這不是單純的人事變動，也不是微軟沒錢了。這是一個危險的訊號：矽谷巨頭正從「探索未知」全面轉向「工程壓榨」。當像 John Langford 這種等級的大佬選擇離開，說明在微軟內部的研發語境裡，那套試圖尋找 Transformer 之外新路徑的努力已經被徹底邊緣化。現在的遊戲規則變得很粗暴，誰的算力多、誰的數據乾淨，誰就是老大。</p>
+    <p>這種從科學實驗室到生產流水線的轉向，最直接的受害者就是模型多樣性。目前的開發環境已經陷入一種近乎偏執的「擴展定律」崇拜。以 ChatGPT 為首的 OpenAI 陣營現在只關心如何把幾萬張 H100 堆在一起，讓模型在推理鏈條上更長一點。微軟把資源從基礎研究抽離，全部投向與 OpenAI 的工程對接，說穿了就是放棄了尋找下一個技術拐點的機會，只想把現有的 Transformer 性能榨乾到最後一滴。</p>
+    <p>這種工程化趨勢在 Grok 的演進中更為極端。xAI 的策略從來就不是搞什麼基礎算法創新，Grok-1 到 Grok-2 的進化路徑非常單一：算力硬推。當微軟的研究員還在糾結如何優化強化學習的算法效率時，xAI 直接在田納西州堆起了全球最大的超級電腦集群。這種暴力美學在短期內確實讓 Grok 在邏輯推理和知識檢索上追平了第一梯隊，但也反映出一個悲哀的現實，現在的 AI 領域不再容許慢條斯理的理論推演，如果你不能在三個月內拿出更有感的性能指標，你的研究組就該捲舖蓋走人。</p>
+    <p>談到這種極致的工程效率，我們不得不看一眼目前市場上的對照組。DeepSeek 最近在推理成本上的動作引起了不少關注，但在我看來，這僅僅是算力分配策略的不同。相較於 DeepSeek 在特定任務上的優化做法，xAI 的 Grok 選擇的是一條更為純粹的重工業路線。Gemini 則是另一種極端，Google 試圖在長文本處理和多模態理解上保留一些研究色彩，但面對 ChatGPT 的市場壓力，Gemini 1.5 系列的更新頻率明顯也帶上了那種令人不安的「趕工感」。</p>
+    <p>現在的局面是，四大平台都在一條名為 Transformer 的高速公路上狂奔，誰都不敢踩剎車去換個引擎。Claude 在處理超過 10 萬 token 的長文本任務時，雖然注意力機制比 GPT-4o 穩定，但它本質上依然是在優化舊架構的邊際效益。當微軟選擇解散 AI Frontiers，等於是在告訴全世界：別管什麼新架構了，趕快把手上的 GPU 轉起來。這種過度投資硬體容量而忽略算法優化的行為，正在讓 AI 產業變得異常沈重。</p>
+    <p>當初我們對 AI 的期待是它能帶來認知的革命，現在卻變成了一場關於電力和晶片的資源消耗戰。如果未來的突破點真的像某些資深研究員預測的那樣，在於極致的推理效率優化而非規模堆疊，那麼現在這幾家把籌碼全部押在算力規模上的巨頭，會不會在下一個轉角撞上南牆？</p>
+    <p>微軟裁撤研究部門，是為了讓產品跑得更快，還是因為他們已經預見到，在現有的技術框架下，基礎研究已經沒辦法再提供立竿見影的商業回報？如果連微軟都覺得「探索邊界」不再有利可圖，那我們現在看到的這些 AI 性能增長，究竟是真正的進化，還是一場華麗的透支？當所有人都不再尋找新路，只會在舊路上加蓋樓層時，這棟摩天大樓的地基還能撐多久？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://hunch.net/?p=13764006" rel="nofollow noopener" target="_blank">The end of Microsoft Research&#x27;s AI Frontiers group</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261111-0915-2435ea/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
