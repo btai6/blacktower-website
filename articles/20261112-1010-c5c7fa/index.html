@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模型幻覺與漏洞溢出的邊界感</title>
+<meta name="description" content="Anthropic 最近那份關於漏洞發現的數據報告，像極了在平靜的湖面上投下一塊自以為沉重的巨石，結果只激起了幾圈細碎的漣漪。將近三萬八千項發現中，只有不到百分之二十對外公開，而最終被標記為修復的數量更是慘不忍睹的兩百餘個。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261112-1010-c5c7fa/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型幻覺與漏洞溢出的邊界感">
+<meta property="og:description" content="Anthropic 最近那份關於漏洞發現的數據報告，像極了在平靜的湖面上投下一塊自以為沉重的巨石，結果只激起了幾圈細碎的漣漪。將近三萬八千項發現中，只有不到百分之二十對外公開，而最終被標記為修復的數量更是慘不忍睹的兩百餘個。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261112-1010-c5c7fa/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-12T10:10:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模型幻覺與漏洞溢出的邊界感">
+<meta name="twitter:description" content="Anthropic 最近那份關於漏洞發現的數據報告，像極了在平靜的湖面上投下一塊自以為沉重的巨石，結果只激起了幾圈細碎的漣漪。將近三萬八千項發現中，只有不到百分之二十對外公開，而最終被標記為修復的數量更是慘不忍睹的兩百餘個。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "模型幻覺與漏洞溢出的邊界感",
+  "description": "Anthropic 最近那份關於漏洞發現的數據報告，像極了在平靜的湖面上投下一塊自以為沉重的巨石，結果只激起了幾圈細碎的漣漪。將近三萬八千項發現中，只有不到百分之二十對外公開，而最終被標記為修復的數量更是慘不忍睹的兩百餘個。…",
+  "datePublished": "2026-11-12T10:10:00+08:00",
+  "dateModified": "2026-11-12T10:10:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261112-1010-c5c7fa/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-12 10:10
+  </div>
+
+  <h1 class="title">模型幻覺與漏洞溢出的邊界感</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近那份關於漏洞發現的數據報告，像極了在平靜的湖面上投下一塊自以為沉重的巨石，結果只激起了幾圈細碎的漣漪。將近三萬八千項發現中，只有不到百分之二十對外公開，而最終被標記為修復的數量更是慘不忍睹的兩百餘個。這種懸殊的比例，與其說是 AI 在網絡安全領域的功勳章，倒不如說是對現有漏洞審核機制的一次無差別轟炸。當我們在討論 Claude 或是 GPT-4o 這種頂級模型如何改變開發流程時，往往忽略了一個最基本的邏輯：發現漏洞的邊際成本正在趨近於零，但驗證並修復漏洞的成本卻因為這些垃圾信息的湧入而呈幾何倍數增長。</p>
+    <p>這種現象在技術圈被戲稱為「數位噪音干擾」。想像一下，一個不知疲倦的學徒每天指著牆上的裂紋告訴你房子要塌了，其中九成九只是漆面剝落，但你卻不得不花費專業工程師的時間去逐一勘驗。Anthropic 宣稱其模型具備識別複雜邏輯漏洞的能力，但在實際的 CVE 體系下，這些發現大多被標記為「撤回」或「重複」。這反映出當前四大平台在處理安全性任務時的一個共同困境：幻覺並沒有消失，它只是從「胡說八道」演變成了「過度敏感」。Claude 在代碼審計時表現出的那種神經質般的嚴謹，有時候更像是一種為了規避責任而進行的防禦性輸出。</p>
+    <p>在實際的生產環境中，這種高噪聲的自動化掃描簡直是運維災難。Gemini 在處理大規模代碼庫的靜態分析時，同樣表現出類似的特徵。它能迅速抓取出數千個潛在的溢出風險，但在缺乏上下文語境的情況下，這些風險大多屬於「理論上存在但實踐中無法觸發」的死碼。相較於 DeepSeek，Claude 在處理這類長文本邏輯一致性時顯然更在意安全對齊的邊界，卻也因此陷入了自證清明的怪圈。我們在測試中發現，當模型被要求評估一個開源項目的安全性時，GPT-4o 傾向於給出更具建設性的修復建議，而 Claude 則執著於枚舉所有可能的攻擊路徑，哪怕那些路徑在現實中需要極其苛刻的預設條件。</p>
+    <p>這種能力上的不對稱性，正在拉大開發者與審核者之間的鴻溝。如果 AI 尋找漏洞的速度是修復速度的一百倍，那麼我們建立的防禦體系本質上是在向大海裡扔沙子。即便強如 Grok 這種宣稱擁有更即時數據接入能力的模型，在面對深層次的內核漏洞時，依然無法擺脫對模式匹配的依賴。它們都在玩一場概率遊戲。這也解釋了為什麼在過去的一年裡，儘管 AI 工具大行其道，我們卻沒有看到預想中那種「超級市場級別」的災難性漏洞大爆發。因為真正具備殺傷力的漏洞，往往隱藏在模型無法理解的底層架構邏輯中，而不是那些被模型掃描爛了的緩衝區溢出。</p>
+    <p>更有趣的地方在於，這種「發現大於修復」的現狀，似乎成了某種商業策略的遮羞布。當一家公司宣稱其 AI 發現了成千上萬的漏洞時，它實際上是在兜售一種焦慮，而非解決方案。這與 Qwen 在特定任務下的邏輯推演路徑截然不同，四大平台目前更多是在爭奪安全話語權。但技術界並不買帳，那些被標記為「Fixed」的兩百多個漏洞，相對於龐大的報告基數，更像是一種為了維持數據體面而進行的人工干預。</p>
+    <p>我們是否正處於一個技術泡沫的邊緣？在這個泡沫裡，AI 不斷製造出看似專業的廢話，逼迫人類專家在垃圾堆裡淘金。當 Anthropic 或是 OpenAI 不斷刷新它們的安全性報告時，我們真正該問的是：這種自動化的審計，究竟是在減輕人類的負擔，還是在以「安全性」的名義，對全球開發者的注意力進行一場隱形的拒絕服務攻擊（DoS）？如果有一天，我們所有的安全防線都建立在這些充滿幻覺的概率預測之上，那時候的系統究竟是變得更堅固了，還是僅僅變得更臃腫了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.vulncheck.com/blog/anthropic-glasswing-november-update" rel="nofollow noopener" target="_blank">Tracking Anthropic-discovered vulnerabilities</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261112-1010-c5c7fa/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

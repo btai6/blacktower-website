@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寫程式的 AI 腦袋還停在五年前</title>
+<meta name="description" content="丟給 Grok 一個自動伸縮輸入框的需求，它大概率還是會噴出一串監聽 input 事件、手動計算 scrollHeight 再去改 style.height 的陳舊腳本。明明現在 CSS 只要一行 field-sizing: content 就能解決，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261112-1016-d78c16/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="寫程式的 AI 腦袋還停在五年前">
+<meta property="og:description" content="丟給 Grok 一個自動伸縮輸入框的需求，它大概率還是會噴出一串監聽 input 事件、手動計算 scrollHeight 再去改 style.height 的陳舊腳本。明明現在 CSS 只要一行 field-sizing: content 就能解決，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261112-1016-d78c16/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-12T10:16:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="寫程式的 AI 腦袋還停在五年前">
+<meta name="twitter:description" content="丟給 Grok 一個自動伸縮輸入框的需求，它大概率還是會噴出一串監聽 input 事件、手動計算 scrollHeight 再去改 style.height 的陳舊腳本。明明現在 CSS 只要一行 field-sizing: content 就能解決，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "寫程式的 AI 腦袋還停在五年前",
+  "description": "丟給 Grok 一個自動伸縮輸入框的需求，它大概率還是會噴出一串監聽 input 事件、手動計算 scrollHeight 再去改 style.height 的陳舊腳本。明明現在 CSS 只要一行 field-sizing: content 就能解決，…",
+  "datePublished": "2026-11-12T10:16:00+08:00",
+  "dateModified": "2026-11-12T10:16:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261112-1016-d78c16/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-12 10:16
+  </div>
+
+  <h1 class="title">寫程式的 AI 腦袋還停在五年前</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>丟給 Grok 一個自動伸縮輸入框的需求，它大概率還是會噴出一串監聽 input 事件、手動計算 scrollHeight 再去改 style.height 的陳舊腳本。明明現在 CSS 只要一行 field-sizing: content 就能解決，這群號稱讀遍全人類代碼的大型語言模型，骨子裡卻固執得像個拒絕學習新標準的資深工程師。這不是 Grok 一家的問題，ChatGPT 和 Claude 在面對這種 Web 原生 API 時，同樣表現出一種令人煩躁的滯後感。它們不是不知道這些屬性存在，而是當你要求它「寫一個組件」時，它會從機率分佈裡挑選那堆被重複了幾百萬次的、充滿補丁的舊時代代碼。</p>
+    <p>這種現象反映了模型訓練數據的一種結構性崩壞。當我們用過去十年的 GitHub 倉庫去餵養這些 AI，它們學到的是人類為了繞過瀏覽器限制而發明的各種奇技淫巧。Grok 在處理複雜邏輯時雖然有種莽撞的衝勁，但在前端工程這種講究「優雅原創」的領域，它往往顯得力不從心。它會給你寫一個帶有無數 z-index 和事件阻斷的自定義 Modal 彈窗，卻忘了 HTML 早就有了原生 dialog 標籤和 showModal() 方法，後者能自動處理焦點管理和背景層，比那一堆 div 組成的垃圾要穩健得多。</p>
+    <p>技術細節上的懶惰才是最致命的。以 CSS Highlights API 為例，如果要在網頁上做代碼高亮或搜索匹配，傳統做法是強行插入一大堆 span 標籤，這會破壞 DOM 結構，性能也差。Claude 3.5 Sonnet 在處理長文本分析時，雖然邏輯層面無懈可擊，但如果你讓它寫一個前端展示 demo，它依然會走回 span 標籤的老路。即使你在 Prompt 裡明確指定要使用現代 Web 標準，這些模型也常常會在代碼的中段不自覺地滑向舊有的模式。這說明在它們的權重分配裡，那些被淘汰的舊庫、舊框架的優先級，遠高於剛進入標準幾年的原生特性。</p>
+    <p>這種代碼債的累積在生產環境中非常可怕。現在很多工程師根本不看 AI 生成的代碼細節，直接複製貼上，結果就是原本幾行 CSS 就能搞定的功能，被塞進了 50 行難以維護的 JavaScript。Grok 似乎更傾向於給出那種「看起來很努力工作」的解決方案，而不是最簡單、最符合當前平台規範的做法。這種偏好讓我們陷入了一種奇怪的技術倒退：工具越來越先進，產出的代碼卻越來越臃腫。</p>
+    <p>在這一點上，DeepSeek 近期在開發者圈子裡的討論熱度不減，但回頭看四大平台的表現，ChatGPT 在這方面的更新速度依然顯得遲緩。相較於 DeepSeek 的模型表現，OpenAI 的 GPT-4o 雖然在指令遵循上稍強，但在面對最新 Web API 的採納上，依然有一種難以掩蓋的陳腐氣息。Google 的 Gemini 本該是最懂 Web 標準的，畢竟 Chrome 是自家產物，但在實際測試中，Gemini 往往也會為了保險起見，給出一套相容性最高、但也最過時的方案。這種保守策略在短期內能保證代碼跑得通，但長遠來看，它在摧毀 Web 開發的演進路徑。</p>
+    <p>Qwen 在特定場景下的代碼生成能力也常被拿來對比，但在四大平台的語境下，我們更在乎的是誰能率先打破這種「平均值代碼」的魔咒。如果 AI 永遠只會給出概率上的最大公約數，那麼新技術的普及速度將會被嚴重拖累。我們需要的不是一個會背誦舊手冊的複讀機，而是一個能理解平台特性、會主動拋棄過時依賴的智者。</p>
+    <p>現在的問題在於，我們是否應該強行在模型生成階段注入一套「最佳實踐指南」？Google Chrome 團隊最近嘗試為編碼智能體提供現代 Web 引導，這聽起來像是在給模型打補丁，試圖修正它們對過時代碼的依賴。但這又引發了另一個隱憂：如果所有 AI 都聽從某個特定團隊的指引去寫代碼，未來的 Web 標準是否會變成由少數巨頭定義的、缺乏多樣性的封閉生態？</p>
+    <p>當 AI 開始主導代碼庫的產出，而它們的知識儲備卻集體停留在 2019 年，這場技術進步的悖論該如何收場？我們是在進化，還是在利用最強大的算力，去大規模複製過去的平庸？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/GoogleChrome/modern-web-guidance" rel="nofollow noopener" target="_blank">Show HN: Get your coding agent off ~2019 JavaScript, onto modern web primitives</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261112-1016-d78c16/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
