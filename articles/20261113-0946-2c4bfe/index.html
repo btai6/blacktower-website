@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>會議紀要不需要被記住，只需要被結構化</title>
+<meta name="description" content="當所有人都在盯著 DeepSeek 的模型參數和推理成本時，矽谷那群極客卻在為了「如何讓會議紀要變得像人話」這種瑣事焦慮。最近 Hacker News 上冒出一個叫 Yogurt 的開源項目，打著隱私和開源的旗號，試圖挑戰 Granola 在會議輔助工具領域的地位。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261113-0946-2c4bfe/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="會議紀要不需要被記住，只需要被結構化">
+<meta property="og:description" content="當所有人都在盯著 DeepSeek 的模型參數和推理成本時，矽谷那群極客卻在為了「如何讓會議紀要變得像人話」這種瑣事焦慮。最近 Hacker News 上冒出一個叫 Yogurt 的開源項目，打著隱私和開源的旗號，試圖挑戰 Granola 在會議輔助工具領域的地位。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261113-0946-2c4bfe/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-13T09:46:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="會議紀要不需要被記住，只需要被結構化">
+<meta name="twitter:description" content="當所有人都在盯著 DeepSeek 的模型參數和推理成本時，矽谷那群極客卻在為了「如何讓會議紀要變得像人話」這種瑣事焦慮。最近 Hacker News 上冒出一個叫 Yogurt 的開源項目，打著隱私和開源的旗號，試圖挑戰 Granola 在會議輔助工具領域的地位。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "會議紀要不需要被記住，只需要被結構化",
+  "description": "當所有人都在盯著 DeepSeek 的模型參數和推理成本時，矽谷那群極客卻在為了「如何讓會議紀要變得像人話」這種瑣事焦慮。最近 Hacker News 上冒出一個叫 Yogurt 的開源項目，打著隱私和開源的旗號，試圖挑戰 Granola 在會議輔助工具領域的地位。…",
+  "datePublished": "2026-11-13T09:46:00+08:00",
+  "dateModified": "2026-11-13T09:46:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261113-0946-2c4bfe/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-13 09:46
+  </div>
+
+  <h1 class="title">會議紀要不需要被記住，只需要被結構化</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>當所有人都在盯著 DeepSeek 的模型參數和推理成本時，矽谷那群極客卻在為了「如何讓會議紀要變得像人話」這種瑣事焦慮。最近 Hacker News 上冒出一個叫 Yogurt 的開源項目，打著隱私和開源的旗號，試圖挑戰 Granola 在會議輔助工具領域的地位。這類工具的核心邏輯很簡單：掛載在系統後台，不進會議室當那個惹人厭的機器人樁子，然後把語音轉成文本，最後交給大模型塞進一個漂亮的模板裡。這件事聽起來毫無門檻，但只要你試過把一段充滿贅字、打斷、冷場和技術術語的 60 分鐘錄音扔進 GPT-4o，你就會發現，模型理解能力的上限，往往取決於你對 Prompt 的控制以及對 Context 的裁剪。</p>
+    <p>問題出在「幻覺」與「結構化」的權力鬥爭。多數人以為只要模型夠聰明，會議總結就能自動生成。事實上，ChatGPT 在處理長達一小時的非結構化對話時，常常會陷入一種「過度熱情」的陷阱。它會試圖把每個人的廢話都賦予意義，導致最後生成的 Action Items 裡充斥著根本沒人打算執行的虛假承諾。如果你使用 GPT-4o 的 API 來處理這類任務，你會發現它在 128k 的上下文窗口裡表現得遊刃有餘，但當會議進入後半程，討論細節開始密集交疊時，它對早期議程的記憶會開始模糊，甚至出現張冠李戴的情況。這種注意力機制的衰減，在處理多角色對話（Speaker Diarization）後的文本時尤為致命。</p>
+    <p>相比之下，Claude 在處理這類文稿時展現出了一種令人驚訝的「冷淡」。使用 Claude 3.5 Sonnet 進行會議總結，你會發現它的邏輯鏈條更接近於一個嚴謹的秘書，它不會像 ChatGPT 那樣試圖修飾發言者的情緒，而是更傾向於提取事實。在處理技術架構討論的錄音稿時，Claude 對於代碼邏輯和邏輯謬誤的識別率比 Gemini 要高出一個層次。Gemini 的問題在於它太想當一個「全能助手」了，它會在總結中加入大量它認為相關但實際上會議中根本沒提到的背景知識，這種行為在法律或醫療會議的記錄中簡直是災難。而 Grok 呢？它在處理這類任務時表現出一種特有的隨意感，除非你強行限制它的輸出格式，否則它給你的總結可能更像是一篇充滿諷刺意味的新聞簡報。</p>
+    <p>有趣的是，當我們把視角拉回到那些標榜開源或本地運行的項目時，會發現它們面臨著一個尷尬的悖論。相較於 DeepSeek 在推理成本上的極限壓縮，OpenAI 的做法是通過不斷迭代 JSON 模式和 Function Calling 來強行規範輸出的穩定性。你在 Yogurt 這種工具裡點擊一個「生成總結」的按鈕，背後可能是無數層的 Prompt 堆疊。如果開發者選擇調用本地模型，比如 Qwen 或是 Llama 的量化版本，你會發現它們在處理口語化嚴重的文本時，語法解析的崩潰速度遠超想像。這不是參數量的問題，而是預訓練語料中「垃圾對話」佔比的問題。</p>
+    <p>在這種技術環境下，我們對隱私的追求是否已經超過了對效率的需求？當一個項目打著 MIT 授權、數據不出本地的旗號吸引用戶時，它其實是在用用戶的計算資源去換取一個打折後的智力服務。Gemini 1.5 Pro 雖然有著百萬級別的上下文窗口，可以把你公司過去一年的會議記錄全部塞進去進行關聯分析，但代價是你的商業機密變成了 Google 訓練數據的養分。而像 Yogurt 這樣的工具，雖然保住了隱私，但它真的能理解老闆在那句「我們再看看」背後隱藏的拒絕之意嗎？</p>
+    <p>目前四大平台在處理這類「非結構化數據轉結構化決策」的任務上，依然沒有給出完美的解法。我們在追求更長的 Context Window，卻忘了人類大腦在會議中最擅長的是「遺忘」和「篩選」。如果模型學不會像人類一樣忽略掉那些無意義的寒暄和發散，那麼再強大的推理能力，最後產出的也只是一堆堆砌精美的電子廢物。究竟是應該讓模型變得更像人，去揣摩發言者的意圖，還是應該讓它徹底變成一個冷酷的索引機器，只負責標記重點，把判斷權留給人類？當 AI 開始學會幫我們開會、幫我們總結、甚至幫我們做出虛假的承諾時，我們省下來的時間，到底是用來做更有意義的事，還是用來開更多的會？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/FrigadeHQ/yogurt" rel="nofollow noopener" target="_blank">Show HN: Yogurt – Free, private, open-source alternative to Granola</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261113-0946-2c4bfe/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
