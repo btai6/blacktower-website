@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 到底在幹什麼？</title>
+<meta name="description" content="馬斯克把幾萬張 H100 堆在孟菲斯，那聲音大到像要把地球鑽穿，結果吐出來的東西，有時候清醒得像瘋子，有時候蠢得像石頭。這不是什麼計算藝術，這是一場用鈔票填海的豪賭。大家都在看算力，看那堆伺服器發出的熱能足以供應一整個小鎮，但有沒有人問過，這些電費燒出來的邏輯，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261114-0927-e5a4b2/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 到底在幹什麼？">
+<meta property="og:description" content="馬斯克把幾萬張 H100 堆在孟菲斯，那聲音大到像要把地球鑽穿，結果吐出來的東西，有時候清醒得像瘋子，有時候蠢得像石頭。這不是什麼計算藝術，這是一場用鈔票填海的豪賭。大家都在看算力，看那堆伺服器發出的熱能足以供應一整個小鎮，但有沒有人問過，這些電費燒出來的邏輯，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261114-0927-e5a4b2/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-14T09:27:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 到底在幹什麼？">
+<meta name="twitter:description" content="馬斯克把幾萬張 H100 堆在孟菲斯，那聲音大到像要把地球鑽穿，結果吐出來的東西，有時候清醒得像瘋子，有時候蠢得像石頭。這不是什麼計算藝術，這是一場用鈔票填海的豪賭。大家都在看算力，看那堆伺服器發出的熱能足以供應一整個小鎮，但有沒有人問過，這些電費燒出來的邏輯，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 到底在幹什麼？",
+  "description": "馬斯克把幾萬張 H100 堆在孟菲斯，那聲音大到像要把地球鑽穿，結果吐出來的東西，有時候清醒得像瘋子，有時候蠢得像石頭。這不是什麼計算藝術，這是一場用鈔票填海的豪賭。大家都在看算力，看那堆伺服器發出的熱能足以供應一整個小鎮，但有沒有人問過，這些電費燒出來的邏輯，…",
+  "datePublished": "2026-11-14T09:27:00+08:00",
+  "dateModified": "2026-11-14T09:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261114-0927-e5a4b2/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-14 09:27
+  </div>
+
+  <h1 class="title">Grok 到底在幹什麼？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克把幾萬張 H100 堆在孟菲斯，那聲音大到像要把地球鑽穿，結果吐出來的東西，有時候清醒得像瘋子，有時候蠢得像石頭。這不是什麼計算藝術，這是一場用鈔票填海的豪賭。大家都在看算力，看那堆伺服器發出的熱能足以供應一整個小鎮，但有沒有人問過，這些電費燒出來的邏輯，到底值不值那幾美分的 API 成本？</p>
+    <p>很多人在那邊吹捧參數規模，說什麼破兆參數才是未來。拜託，如果你讓一個邏輯混亂的人讀完一整座圖書館，他吐出來的依然是滿嘴胡言。這就是目前 Grok 最讓人焦慮的地方。它背靠 X 的實時數據流，這本該是它最強的利刃，結果呢？這把利刃常常切開的是一堆未經證實的謠言和情緒垃圾。當別人的 AI 還在實驗室裡優雅地分析 17 世紀詩歌時，Grok 已經在泥淖裡跟人掐架了。這種「實時性」到底是真知，還是只是把噴泉換成噴糞機？</p>
+    <p>看看 ChatGPT，現在變得圓滑得像個老牌官僚，問什麼都給你一個標準答案，安全到讓人想打瞌睡。Claude 倒是有點文青氣息，代碼寫得漂漂亮亮，長文本處理確實比 GPT-4o 穩得多，至少在八萬字後它還記得你開頭餵了什麼，而 GPT-4o 可能已經開始胡言亂語。Gemini 則是背著 Google 的大包袱，明明有最好的搜索資源，卻總是在關鍵時刻給你來個「作為 AI 語言模型，我無法回答」。這些都是代價，是為了所謂的「對齊」而犧牲掉的靈魂。</p>
+    <p>Grok 試圖走另一條路，標榜什麼反覺醒、真性情。但在技術層面，這種真性情如果沒有底層邏輯的支撐，就只是在浪費算力。當你在處理複雜的多步推理任務時，Grok 偶爾會閃現出那種不按常理出牌的靈光，那種直接切入本質的粗魯，確實比 OpenAI 那套溫吞水強。可一旦進入嚴謹的科學推導或法律文本分析，它那種「隨性」就變成了災難。你燒了那麼多電，難道只是為了讓一個數字靈魂跟我抬槓？</p>
+    <p>現在的 AI 圈子有個通病，就是以為只要算力夠大，就能堆出智慧。這簡直是本世紀最大的誤解。算力只是引擎，數據是燃料，但算法架構才是那部跑車的變速箱。如果變速箱設計有問題，你裝再大的引擎也只會把輪胎磨爛。Grok 目前就像是一輛裝了火箭引擎的拼裝車，在 X 的荒原上橫衝直撞。它抓取數據的速度無人能敵，但篩選數據的智商顯然還沒跟上它的肌肉。</p>
+    <p>有人會拿 Qwen 或文心一言來做各種榜單對比，說實話，看那些排名簡直是在浪費生命。那些刷出來的分數，在實際高壓的開發環境下根本經不起推敲。你讓一個開發者在凌晨三點修 Bug，他需要的是一個能精準指出邏輯漏洞的夥伴，而不是一個在 Benchmarks 跑分很高但在複雜函數調用裡繞圈子的電子玩具。在這一點上，Claude 3.5 Sonnet 確實給了 Grok 一記響亮的耳光，那種對意圖的精準捕捉，不是靠堆算力堆出來的，那是對模型微調的極致品味。</p>
+    <p>馬斯克一直強調真理，說 Grok 是最追求真相的 AI。問題是，真相往往是枯燥、冷靜且充滿數據支持的，而不僅僅是語不驚人死不休的推文。如果 Grok 繼續把算力浪費在模擬人類的尖酸刻薄上，那它永遠只能是一個高階版的聊天機器人。我們需要的是一個能從海量雜訊中提取出信號的超級大腦，而不是一個會自動生成迷因的複讀機。</p>
+    <p>Gemini 的 Function Calling 在處理超過十五個工具時就會開始手忙腳亂，這說明了即便是大廠，也解決不了注意力分配的底層缺陷。Grok 呢？它甚至還沒走到這一步。它現在還在試圖證明自己「夠酷」。但在科技界，酷是不值錢的，有用才值錢。當算力成本逐年攀升，投資人的耐心被燒成灰燼時，如果 Grok 吐出來的東西還是那些在 X 上隨處可見的陳詞濫調，那這場算力競賽就是一場徹頭徹尾的資源浪費。</p>
+    <p>我們到底在期待什麼？期待一個懂幽默的科學家，還是一個會寫代碼的脫口秀演員？目前的 Grok 更接近後者。它的邏輯鏈條在處理三層以上的嵌套問題時，明顯會出現斷裂感，那種斷裂不是因為它不知道，而是因為它「太想說話了」。這種過度的表現欲，是所有追求實時性模型的通病。數據還沒消化完就急著吐出來，這不叫智慧，這叫消化不良。</p>
+    <p>別跟我提什麼未來可期。在技術領域，沒有所謂的潛力股，只有現在能不能跑通。如果 Grok 1.5 甚至未來的 2.0 還是無法在邏輯推演上超越 GPT-4o 的那道牆，那馬斯克堆再多的 H100 也只是在給全球變暖貢獻一份微薄的力量。算力應該用來突破人類認知邊界，而不是用來模仿人類的愚蠢。</p>
+    <p>當我們在討論這些 AI 的時候，其實是在討論人類文明的溢出物。ChatGPT 溢出的是官僚式的平庸，Claude 溢出的是精英式的傲慢，Gemini 溢出的是大企業的混亂，而 Grok 溢出的是混亂的自由。這四者之間，目前還沒有一個真正能稱為「真知」的產物。大家都在燒錢，都在賭那個所謂的 AGI 奇點。但在那個點到來之前，我們看到的更多是電子垃圾。</p>
+    <p>最諷刺的是，為了訓練這些模型，我們把人類過去幾十年在互聯網上留下的所有廢話都餵給了它們。然後我們驚訝地發現，這些模型吐出來的東西竟然也充滿了廢話。這不是 AI 的錯，這是人類文明本身的鏡像。Grok 只是這面鏡子裡最吵鬧、最不修邊幅的那一個。它抓住了 X 的靈魂，但 X 的靈魂裡有多少是金子，多少是鏽鐵，馬斯克心裡應該比誰都清楚。</p>
+    <p>算力燒成了灰，環境付出了代價，如果最後我們得到的只是一個會開酸民玩笑的程序，那這絕對是人類科技史上最大的冷笑話。不要再跟我說那些宏大的敘事了，先讓 Grok 學會如何在不引用虛假推文的情況下，準確解釋什麼是量子糾纏吧。在那之前，它吐出來的東西，跟你在深夜論壇裡看到的那些胡言亂語沒什麼本質區別。</p>
+    <p>這場競賽沒有中場休息。如果 Grok 拿不出真正的邏輯硬實力，只靠馬斯克的個人光環和那幾萬張顯卡支撐，遲早會被那些更精準、更專業的小型模型肢解。畢竟，沒有人會為了聽一個笑話而買下一座發電廠。當煙霧散去，留下的到底是能改變世界的真理，還是滿地無法回收的電子殘骸？這問題的答案，恐怕連 Grok 自己都算不出來。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261114-0927-e5a4b2/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
