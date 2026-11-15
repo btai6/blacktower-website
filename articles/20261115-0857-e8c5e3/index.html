@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>把會議紀錄丟給大模型總結已經成了某種數位時代的強迫症。</title>
+<meta name="description" content="這種強迫症的背後，是我們對資訊過載的集體焦慮。大家都在找更隱私、更輕量的方式來處理那些開完就忘的對話。最近 Hacker News 上那個叫 Yogurt 的開源專案，試圖用本機模型來挑戰 Granola 這種雲端服務的領地，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261115-0857-e8c5e3/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="把會議紀錄丟給大模型總結已經成了某種數位時代的強迫症。">
+<meta property="og:description" content="這種強迫症的背後，是我們對資訊過載的集體焦慮。大家都在找更隱私、更輕量的方式來處理那些開完就忘的對話。最近 Hacker News 上那個叫 Yogurt 的開源專案，試圖用本機模型來挑戰 Granola 這種雲端服務的領地，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261115-0857-e8c5e3/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-15T08:57:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把會議紀錄丟給大模型總結已經成了某種數位時代的強迫症。">
+<meta name="twitter:description" content="這種強迫症的背後，是我們對資訊過載的集體焦慮。大家都在找更隱私、更輕量的方式來處理那些開完就忘的對話。最近 Hacker News 上那個叫 Yogurt 的開源專案，試圖用本機模型來挑戰 Granola 這種雲端服務的領地，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "把會議紀錄丟給大模型總結已經成了某種數位時代的強迫症。",
+  "description": "這種強迫症的背後，是我們對資訊過載的集體焦慮。大家都在找更隱私、更輕量的方式來處理那些開完就忘的對話。最近 Hacker News 上那個叫 Yogurt 的開源專案，試圖用本機模型來挑戰 Granola 這種雲端服務的領地，…",
+  "datePublished": "2026-11-15T08:57:00+08:00",
+  "dateModified": "2026-11-15T08:57:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261115-0857-e8c5e3/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-15 08:57
+  </div>
+
+  <h1 class="title">把會議紀錄丟給大模型總結已經成了某種數位時代的強迫症。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>這種強迫症的背後，是我們對資訊過載的集體焦慮。大家都在找更隱私、更輕量的方式來處理那些開完就忘的對話。最近 Hacker News 上那個叫 Yogurt 的開源專案，試圖用本機模型來挑戰 Granola 這種雲端服務的領地，本質上是在質疑一個問題：我們真的需要把每一句廢話都上傳到 OpenAI 或 Anthropic 的伺服器嗎？與其說是對隱私的極致追求，不如說是對目前主流 AI 平台那種「吞噬一切數據」邏輯的一種消極抵抗。</p>
+    <p>在具體的技術執行面上，這種本機總結工具最常遇到的牆，不是轉錄準確度，而是上下文理解的深度。如果你用過 Claude 在長文本上的處理，你會發現它在處理超過兩小時的會議逐字稿時，雖然 token 窗格夠大，但注意力機制在中間段落的衰減非常明顯。它能記住開頭的議程和結尾的行動項，但中間那些關於技術細節的爭論，往往會被它用一句「團隊討論了技術可行性」給敷衍過去。相較之下，ChatGPT 的 GPT-4o 在邏輯提取上顯得更油滑，它會試圖去補全那些對話中的邏輯斷層，哪怕那些斷層原本就是會議中的混亂。</p>
+    <p>這引出了一個很有意思的現象。當我們在討論 Qwen3.8-27B 這種規模的模型在特定任務上的表現時，ChatGPT 已經在 API 層面把 function calling 做成了某種標準。當你想要一個工具不只是總結，還要能自動把會議裡提到的 Bug 標題填進 Jira 時，Gemini 的表現就顯得有些掙扎。Gemini 在處理超過 10 個以上的工具定義時，偶爾會發生參數錯位，或者更糟——它會開始產生幻覺，編造一個看起來很像樣但根本不存在的 API 欄位。這種時候，本機模型的優勢通常只剩下「省錢」和「心理安全感」，而在處理複雜指令的穩定性上，四大平台依然靠著背後的算力霸權維持著某種脆弱的領先。</p>
+    <p>在橫向對比的視角下，Grok 的風格則走向了另一個極端。它在處理會議摘要時，那種刻意避開企業黑話的口吻，有時候比 Claude 那種過於禮貌且冗長的學術腔要討喜得多。相較於 Qwen3.8-27B 在多語言語境下的權重分布，OpenAI 的做法是透過大量的 RLHF 讓模型學會如何像一個精幹的秘書一樣說話。但這種「精幹」是有代價的，它意味著模型會自動過濾掉它認為不重要的資訊。如果你在會議中提到了一個非主流的技術解決方案，ChatGPT 很有可能在總結時為了維持結構的簡潔而直接把它「優化」掉。</p>
+    <p>我們現在正處於一個尷尬的過渡期。一邊是像 Yogurt 這種強調開源、隱私、本機執行的工具，它們依賴的是使用者自己那張昂貴的顯示卡；另一邊是四大平台不斷推高推論成本，試圖用更強大的推理能力來換取使用者的依賴。當我們在談論隱私時，我們到底是在擔心數據洩漏，還是在擔心自己那點乏味的辦公室政治被 AI 標記成「低價值資訊」？如果本機模型的推理能力始終追不上雲端模型的進化速度，這種對隱私的堅持，最後會不會演變成一種技術上的自我放逐？</p>
+    <p>當一個開源專案打著「Free and Private」的旗號出現時，我們往往會忽略那個隱形的成本：你的電腦風扇狂轉聲，以及為了精簡模型權重而犧牲掉的那部分語義細節。如果未來某一天，我們能隨手在本地跑起一個推理能力等同於 GPT-4o 的模型，那現在這些標榜隱私的第三方工具還有存在的必要嗎？又或者，當 OpenAI 最終決定把更輕量、更私密的推論層整合進系統底層時，這些在夾縫中生存的開源專案，究竟是先驅者，還是僅僅是一次昂貴的技術行為藝術？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/FrigadeHQ/yogurt" rel="nofollow noopener" target="_blank">Show HN: Yogurt – Free, private, open-source alternative to Granola</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261115-0857-e8c5e3/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
