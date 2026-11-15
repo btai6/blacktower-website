@@ -1,40 +1,40 @@
 {
   "votes": {
     "幻覺產生機率": {
-      "Claude": 813,
-      "ChatGPT": 818,
-      "Gemini": 819,
-      "Grok": 828
+      "Claude": 821,
+      "ChatGPT": 822,
+      "Gemini": 825,
+      "Grok": 836
     },
     "指令服從失敗": {
-      "Claude": 846,
-      "ChatGPT": 791,
-      "Gemini": 784,
-      "Grok": 810
+      "Claude": 848,
+      "ChatGPT": 796,
+      "Gemini": 785,
+      "Grok": 812
     },
     "延遲易感性": {
-      "Claude": 787,
-      "ChatGPT": 833,
-      "Gemini": 836,
-      "Grok": 787
+      "Claude": 789,
+      "ChatGPT": 836,
+      "Gemini": 843,
+      "Grok": 792
     },
     "創意慣性": {
-      "Claude": 803,
-      "ChatGPT": 807,
-      "Gemini": 752,
-      "Grok": 781
+      "Claude": 805,
+      "ChatGPT": 808,
+      "Gemini": 759,
+      "Grok": 783
     },
     "成本效率損耗": {
-      "Claude": 823,
-      "ChatGPT": 875,
-      "Gemini": 752,
-      "Grok": 803
+      "Claude": 829,
+      "ChatGPT": 879,
+      "Gemini": 759,
+      "Grok": 808
     },
     "安全護欄脆弱性": {
-      "Claude": 760,
-      "ChatGPT": 800,
-      "Gemini": 845,
-      "Grok": 848
+      "Claude": 766,
+      "ChatGPT": 801,
+      "Gemini": 846,
+      "Grok": 850
     }
   },
   "champions": [
