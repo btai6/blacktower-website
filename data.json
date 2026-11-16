@@ -1,40 +1,40 @@
 {
   "votes": {
     "幻覺產生機率": {
-      "Claude": 821,
-      "ChatGPT": 822,
-      "Gemini": 825,
-      "Grok": 836
+      "Claude": 825,
+      "ChatGPT": 823,
+      "Gemini": 827,
+      "Grok": 837
     },
     "指令服從失敗": {
-      "Claude": 848,
-      "ChatGPT": 796,
-      "Gemini": 785,
-      "Grok": 812
+      "Claude": 853,
+      "ChatGPT": 803,
+      "Gemini": 792,
+      "Grok": 817
     },
     "延遲易感性": {
-      "Claude": 789,
-      "ChatGPT": 836,
-      "Gemini": 843,
-      "Grok": 792
+      "Claude": 791,
+      "ChatGPT": 840,
+      "Gemini": 844,
+      "Grok": 797
     },
     "創意慣性": {
-      "Claude": 805,
-      "ChatGPT": 808,
-      "Gemini": 759,
-      "Grok": 783
+      "Claude": 811,
+      "ChatGPT": 811,
+      "Gemini": 764,
+      "Grok": 784
     },
     "成本效率損耗": {
-      "Claude": 829,
-      "ChatGPT": 879,
-      "Gemini": 759,
-      "Grok": 808
+      "Claude": 835,
+      "ChatGPT": 880,
+      "Gemini": 764,
+      "Grok": 816
     },
     "安全護欄脆弱性": {
-      "Claude": 766,
-      "ChatGPT": 801,
-      "Gemini": 846,
-      "Grok": 850
+      "Claude": 767,
+      "ChatGPT": 805,
+      "Gemini": 849,
+      "Grok": 855
     }
   },
   "champions": [
@@ -136,6 +136,17 @@
         "Grok": 765
       },
       "date": "2026-11-09"
+    },
+    {
+      "question": "創意慣性",
+      "winner": "Claude",
+      "votes": {
+        "Claude": 811,
+        "ChatGPT": 811,
+        "Gemini": 764,
+        "Grok": 784
+      },
+      "date": "2026-11-16"
     }
   ],
   "hall_of_fame": {}

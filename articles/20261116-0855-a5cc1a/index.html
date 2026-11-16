@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當會議記錄不再需要邀請機器人入座</title>
+<meta name="description" content="在 Hacker News 上看到 Yogurt 這個開源項目時，我第一反應不是它的 MIT 授權有多高尚，而是那種對「隱私」近乎偏執的渴求終於具象化了。大家受夠了 Otter 或 Fireflies 這種像電子蒼蠅一樣黏在 Zoom 會議室裡的虛擬助手，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261116-0855-a5cc1a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當會議記錄不再需要邀請機器人入座">
+<meta property="og:description" content="在 Hacker News 上看到 Yogurt 這個開源項目時，我第一反應不是它的 MIT 授權有多高尚，而是那種對「隱私」近乎偏執的渴求終於具象化了。大家受夠了 Otter 或 Fireflies 這種像電子蒼蠅一樣黏在 Zoom 會議室裡的虛擬助手，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261116-0855-a5cc1a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-16T08:55:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當會議記錄不再需要邀請機器人入座">
+<meta name="twitter:description" content="在 Hacker News 上看到 Yogurt 這個開源項目時，我第一反應不是它的 MIT 授權有多高尚，而是那種對「隱私」近乎偏執的渴求終於具象化了。大家受夠了 Otter 或 Fireflies 這種像電子蒼蠅一樣黏在 Zoom 會議室裡的虛擬助手，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當會議記錄不再需要邀請機器人入座",
+  "description": "在 Hacker News 上看到 Yogurt 這個開源項目時，我第一反應不是它的 MIT 授權有多高尚，而是那種對「隱私」近乎偏執的渴求終於具象化了。大家受夠了 Otter 或 Fireflies 這種像電子蒼蠅一樣黏在 Zoom 會議室裡的虛擬助手，…",
+  "datePublished": "2026-11-16T08:55:00+08:00",
+  "dateModified": "2026-11-16T08:55:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261116-0855-a5cc1a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-16 08:55
+  </div>
+
+  <h1 class="title">當會議記錄不再需要邀請機器人入座</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>在 Hacker News 上看到 Yogurt 這個開源項目時，我第一反應不是它的 MIT 授權有多高尚，而是那種對「隱私」近乎偏執的渴求終於具象化了。大家受夠了 Otter 或 Fireflies 這種像電子蒼蠅一樣黏在 Zoom 會議室裡的虛擬助手，更受夠了把公司機密餵給雲端模型後，還得擔心哪天這些對話會變成 OpenAI 訓練集的一部分。Yogurt 的出現戳中了一個技術痛點：為什麼我們非得在「雲端智慧」與「本地安全」之間做單選題？</p>
+    <p>現在的技術環境很有趣，大家一方面在追求 DeepSeek V3 這種規模的模型性能，另一方面卻在拼命把 AI 往窄門裡擠。Yogurt 選擇在後台安靜地抓取音源，不加入通話，這本質上是在挑戰操作系統底層的音頻路由權限。對於開發者來說，這類工具最難的不是寫那幾行總結用的 Prompt，而是在保證不讓 CPU 燒起來的前提下，如何讓本地模型準確處理長達一小時的非結構化語音數據。</p>
+    <p>如果你試著用 Claude 處理過會議轉譯稿，你會發現它的長文本處理能力確實驚人。在超過五萬 token 的上下文中，Claude 依然能精確捕捉到某個角落裡產品經理隨口提的一句「預算待定」，而不像 GPT-4o 有時會在對話中段出現注意力漂移，開始胡言亂語。這就是為什麼許多開發者在構建這類本地應用時，即便底層用了 Whisper 轉錄，最後還是想方設法要把數據加密後打到 Claude 的 API 上。</p>
+    <p>但問題就在這，OpenAI 的策略顯然更傾向於讓你把所有數據都留在它的生態系裡。GPT-4o 的語音模式確實流暢得像個真人，但它那種「必須在線」的傲慢，讓它在處理敏感會議時顯得格格不入。相較於 DeepSeek V3 在架構上的優化嘗試，OpenAI 的做法是通過極高的併發處理能力來掩蓋延遲，但這對一個運行在筆記本後台、隨時準備記錄突發會議的工具來說，雲端依賴就是最大的風險。</p>
+    <p>橫向對比目前的主流方案，Gemini 在處理多模態會議記錄——比如你邊開會邊分享的螢幕內容——上有著天然的優勢，畢竟 Google 掌握著你的瀏覽器和文檔流。然而，Gemini 的 Function Calling 在處理複雜指令時，一旦工具鏈超過十五個，它的邏輯連貫性就會開始打折，這在自動化生成行動清單（Action Items）時是致命的。Grok 則走向了另一個極端，它更強調實時性與語氣的鋒利，但在需要嚴謹邏輯的商務摘要場景中，它那種帶點嘲諷的總結風格有時讓人哭笑不得。</p>
+    <p>有趣的是，當我們討論這些本地化工具的性能邊界時，往往會忽略硬體的極限。像 Yogurt 這樣的項目，如果想在跨平台上獲得更好的表現，勢必得在 Rust 或 GPU 加速上做文章。現在的用戶很挑剔，他們既想要 Claude 那種細膩的文學素養來寫摘要，又想要本地運行的零延遲與零洩露。這種既要又要的心理，迫使開發者在模型蒸餾與量化上玩命，試圖在 8GB 顯存的環境下塞進一個能聽懂人話的怪物。</p>
+    <p>話說回來，我們真的需要一個 AI 幫我們記住每一句話嗎？或者是我們已經懶到連對話中最重要的「共識」都無法靠大腦提取，必須依賴一個運行在後台的進程來告訴我們，剛才老闆到底說了什麼？當所有的會議都能被完美記錄、總結、追蹤，我們是不是反而失去了在模糊地帶進行溝通的藝術？</p>
+    <p>如果有一天，你的 AI 助手在總結中悄悄加入了一句你根本沒說過、但它認為「符合你立場」的話，你真的能察覺到嗎？當工具變得越來越「懂事」，我們對真實的掌控力究竟是增強了，還是徹底外包出去了？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/FrigadeHQ/yogurt" rel="nofollow noopener" target="_blank">Show HN: Yogurt – Free, private, open-source alternative to Granola</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261116-0855-a5cc1a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

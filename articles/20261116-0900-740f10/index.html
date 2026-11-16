@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SONAR：代碼審美與終端偏好</title>
+<meta name="description" content="Anthropic 的模型行為正在向「資深工程師」的審美趣味靠攏。本週 HN 熱議的 Rust 終端工廠遊戲顯然觸發了 Claude 3.5 Sonnet 的興奮點。我們在多個測試環境中觀察到，當開發者要求模型重構這類基於 Ratatui 框架的代碼時，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261116-0900-740f10/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="SONAR：代碼審美與終端偏好">
+<meta property="og:description" content="Anthropic 的模型行為正在向「資深工程師」的審美趣味靠攏。本週 HN 熱議的 Rust 終端工廠遊戲顯然觸發了 Claude 3.5 Sonnet 的興奮點。我們在多個測試環境中觀察到，當開發者要求模型重構這類基於 Ratatui 框架的代碼時，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261116-0900-740f10/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-16T09:00:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SONAR：代碼審美與終端偏好">
+<meta name="twitter:description" content="Anthropic 的模型行為正在向「資深工程師」的審美趣味靠攏。本週 HN 熱議的 Rust 終端工廠遊戲顯然觸發了 Claude 3.5 Sonnet 的興奮點。我們在多個測試環境中觀察到，當開發者要求模型重構這類基於 Ratatui 框架的代碼時，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "SONAR：代碼審美與終端偏好",
+  "description": "Anthropic 的模型行為正在向「資深工程師」的審美趣味靠攏。本週 HN 熱議的 Rust 終端工廠遊戲顯然觸發了 Claude 3.5 Sonnet 的興奮點。我們在多個測試環境中觀察到，當開發者要求模型重構這類基於 Ratatui 框架的代碼時，…",
+  "datePublished": "2026-11-16T09:00:00+08:00",
+  "dateModified": "2026-11-16T09:00:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261116-0900-740f10/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    SONAR<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-16 09:00
+  </div>
+
+  <h1 class="title">SONAR：代碼審美與終端偏好</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 的模型行為正在向「資深工程師」的審美趣味靠攏。本週 HN 熱議的 Rust 終端工廠遊戲顯然觸發了 Claude 3.5 Sonnet 的興奮點。我們在多個測試環境中觀察到，當開發者要求模型重構這類基於 Ratatui 框架的代碼時，Claude 對非同步事件處理的補全精度遠高於 GPT-4o，甚至表現出一種近乎偏執的類型安全檢查傾向。</p>
+    <p>這種對 Rust 生態的深度理解並非偶然。當 DeepSeek V3 在某些基礎評測指標上試圖逼近時，Anthropic 似乎更在意模型是否具備「開發者直覺」。與其說是邏輯推理，不如說 Claude 正在被塑造出一種特定的編程性格：比起寫出能運行的代碼，它更傾向於寫出優雅且符合終端交互邏輯的結構。</p>
+    <p>值得警惕的是，Claude 在處理 Rust 宏定義時偶爾會出現過度設計。這種傾向在處理大規模併發模型時會導致 token 消耗激增。目前的觀察是，這類終端原生的工具開發正成為 Claude 護城河的一部分。與其關注參數規模，不如看它在命令行環境下展現出的那股冷靜的控制慾。下一階段的焦點在於，這種審美偏好是否會固化成某種難以修正的技術路徑。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261116-0900-740f10/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

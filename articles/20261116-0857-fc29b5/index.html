@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>數學證明與代碼工程的邊界正在模糊</title>
+<meta name="description" content="Google 最近讓 AlphaProof 去啃 Signal 的源代碼，這件事在圈子裡激起的漣漪比想像中深。我們習慣了 LLM 在寫代碼時那種帶著「幻覺」的輕浮感，但當 Google 開始談論「形式化證明」（Formal Proof）時，這場遊戲的性質就變了。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261116-0857-fc29b5/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="數學證明與代碼工程的邊界正在模糊">
+<meta property="og:description" content="Google 最近讓 AlphaProof 去啃 Signal 的源代碼，這件事在圈子裡激起的漣漪比想像中深。我們習慣了 LLM 在寫代碼時那種帶著「幻覺」的輕浮感，但當 Google 開始談論「形式化證明」（Formal Proof）時，這場遊戲的性質就變了。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261116-0857-fc29b5/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-16T08:57:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="數學證明與代碼工程的邊界正在模糊">
+<meta name="twitter:description" content="Google 最近讓 AlphaProof 去啃 Signal 的源代碼，這件事在圈子裡激起的漣漪比想像中深。我們習慣了 LLM 在寫代碼時那種帶著「幻覺」的輕浮感，但當 Google 開始談論「形式化證明」（Formal Proof）時，這場遊戲的性質就變了。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "數學證明與代碼工程的邊界正在模糊",
+  "description": "Google 最近讓 AlphaProof 去啃 Signal 的源代碼，這件事在圈子裡激起的漣漪比想像中深。我們習慣了 LLM 在寫代碼時那種帶著「幻覺」的輕浮感，但當 Google 開始談論「形式化證明」（Formal Proof）時，這場遊戲的性質就變了。…",
+  "datePublished": "2026-11-16T08:57:00+08:00",
+  "dateModified": "2026-11-16T08:57:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261116-0857-fc29b5/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-16 08:57
+  </div>
+
+  <h1 class="title">數學證明與代碼工程的邊界正在模糊</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 最近讓 AlphaProof 去啃 Signal 的源代碼，這件事在圈子裡激起的漣漪比想像中深。我們習慣了 LLM 在寫代碼時那種帶著「幻覺」的輕浮感，但當 Google 開始談論「形式化證明」（Formal Proof）時，這場遊戲的性質就變了。這不再是關於誰能寫出更優雅的 Python 腳本，而是關於 AI 是否能像驗證數學定理一樣，去驗證一段代碼的絕對安全性。</p>
+    <p>很多人對 AlphaProof 的直觀感受還停留在它在國際數學奧林匹克（IMO）上的表現，但把它丟進 Signal 這種級別的加密通訊代碼庫裡，本質上是在做一場降維打擊。Signal 的代碼本身就以嚴謹著稱，但在傳統的軟體工程中，我們對「安全」的理解通常是經驗性的——測試覆蓋率、紅隊滲透、靜態分析。Google 這次想證明的，是代碼在邏輯上的「不可證偽性」。當 Gemini 的底層邏輯與這種形式化驗證系統結合時，它處理的不再是機率分佈，而是邏輯鏈條的閉環。</p>
+    <p>這讓我想到 Gemini 在處理複雜推理任務時的一種特質。與 ChatGPT 那種試圖通過強大的語義聯想來「猜」出正確答案的路徑不同，Gemini 似乎越來越傾向於依賴一種結構化的推理框架。在處理超過十萬行代碼的長文本上下文時，Gemini 的注意力機制展現出了一種奇特的穩定性，它能精確地定位到跨文件的邏輯矛盾，而不是像 Claude 在長文本任務中偶爾會出現的「注意力漂移」。這種穩定性是形式化證明能夠成立的前提。如果模型連變量的生存週期都記不住，那談論邏輯驗證就是天方夜譚。</p>
+    <p>相比之下，最近在技術論壇上被頻繁提及的 DeepSeek V3，雖然在開源社區引起了不少討論，但 Google 的做法顯然是在另一個維度上加築護城河。當 DeepSeek V3 試圖在推理效率和參數規模上尋找平衡時，Google 卻在思考如何把 AI 變成一個永不疲倦的數學家，去審查每一行可能導致系統崩潰的邊界條件。這種技術路徑的選擇，決定了兩者在處理關鍵任務時的信任成本。</p>
+    <p>目前在四大 AI 平台中，對於這種「嚴謹性」的追求呈現出有趣的斷層。ChatGPT 依然是那個最強大的通用型「大腦」，它能幫你快速搭起框架，但在面對需要數學級別精確的驗證任務時，它那種過於擬人的、充滿修辭感的回答往往會掩蓋邏輯上的漏洞。Grok 則更像是一個充滿攻擊性的觀察者，它在處理即時數據和代碼補全上有其獨特的節奏，卻缺乏一種沈穩的架構感。而 Claude，儘管它的語言美感和對人類意圖的理解是第一梯隊，但在面對 AlphaProof 這種硬核的邏輯驗證場景時，它顯得有些過於溫和，缺乏那種要把每一個 bit 都釘死在邏輯板上的狠勁。</p>
+    <p>這就引出了一個讓人有些不安的思考：如果 AI 真的能夠完成對大規模代碼庫的形式化證明，那麼「安全工程師」這個職位的定義會變成什麼？</p>
+    <p>現在的技術討論中，大家都在驚嘆 Signal 代碼的質量，認為它能經受住機器心靈的審視。但如果有一天，AI 寫出來的代碼從第一行開始就是為了滿足形式化證明而存在的，人類還能讀懂這些代碼嗎？我們一直在追求軟體的絕對安全，但當這種安全是由一個我們無法完全理解其推理過程的系統所保證時，這種「安全」本身是否也成了一種黑盒？當 Google 感謝 Sundar Pichai 的支持時，他們是在感謝資金的投入，還是在慶祝人類終於找到了一種超越人類邏輯極限的監督方式？這究竟是代碼的終點，還是另一種無法回頭的演化？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://deepmind.google/blog/introducing-alphaproof-code/" rel="nofollow noopener" target="_blank">AlphaProof Code</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261116-0857-fc29b5/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
