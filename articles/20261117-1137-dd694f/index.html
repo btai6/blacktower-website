@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>終端機裡的賽博禪意與 Claude 的代碼審美</title>
+<meta name="description" content="當一個開發者在 Hacker News 上宣稱他與 Claude 協作，用 Rust 寫了一個運行在終端機裡的自動化工廠遊戲時，這件事本身比遊戲本身更有趣。這不是那種堆砌素材的獨立遊戲，而是一種純粹基於 Ratatui 庫構建的、帶有強烈 ASCII …">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261117-1137-dd694f/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="終端機裡的賽博禪意與 Claude 的代碼審美">
+<meta property="og:description" content="當一個開發者在 Hacker News 上宣稱他與 Claude 協作，用 Rust 寫了一個運行在終端機裡的自動化工廠遊戲時，這件事本身比遊戲本身更有趣。這不是那種堆砌素材的獨立遊戲，而是一種純粹基於 Ratatui 庫構建的、帶有強烈 ASCII …">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261117-1137-dd694f/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-17T11:37:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="終端機裡的賽博禪意與 Claude 的代碼審美">
+<meta name="twitter:description" content="當一個開發者在 Hacker News 上宣稱他與 Claude 協作，用 Rust 寫了一個運行在終端機裡的自動化工廠遊戲時，這件事本身比遊戲本身更有趣。這不是那種堆砌素材的獨立遊戲，而是一種純粹基於 Ratatui 庫構建的、帶有強烈 ASCII …">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "終端機裡的賽博禪意與 Claude 的代碼審美",
+  "description": "當一個開發者在 Hacker News 上宣稱他與 Claude 協作，用 Rust 寫了一個運行在終端機裡的自動化工廠遊戲時，這件事本身比遊戲本身更有趣。這不是那種堆砌素材的獨立遊戲，而是一種純粹基於 Ratatui 庫構建的、帶有強烈 ASCII …",
+  "datePublished": "2026-11-17T11:37:00+08:00",
+  "dateModified": "2026-11-17T11:37:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261117-1137-dd694f/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-17 11:37
+  </div>
+
+  <h1 class="title">終端機裡的賽博禪意與 Claude 的代碼審美</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當一個開發者在 Hacker News 上宣稱他與 Claude 協作，用 Rust 寫了一個運行在終端機裡的自動化工廠遊戲時，這件事本身比遊戲本身更有趣。這不是那種堆砌素材的獨立遊戲，而是一種純粹基於 Ratatui 庫構建的、帶有強烈 ASCII 藝術風格的「副螢幕掛機裝置」。這位開發者提到了一個關鍵細節：他把這個遊戲放在 AI Agent 工作視窗的旁邊。當背後的模型在瘋狂跑代碼、爬數據或執行複雜任務時，他在旁邊的終端機視窗裡看著像素工廠運轉。這不僅僅是消遣，這是一種對當前 AI 開發節奏的無聲諷刺——我們創造了效率驚人的工具，卻因為它的產出速度太快，導致我們必須找點事情來填補等待指令執行的「認知空白」。</p>
+    <p>在處理這類高度結構化且對性能有極致要求的 Rust 代碼時，Claude 展現出一種近乎偏執的嚴謹。不同於 ChatGPT 在面對複雜借用檢查（Borrow Checker）時偶爾表現出的敷衍，Claude 對於生命週期標註和異步封裝的理解更接近一個擁有十年經驗的資深工程師。當開發者要求在一個 TUI（終端用戶界面）框架下實現非阻塞的遊戲循環，同時還要預留接口讓外部 AI Agent 發送消息進來，這涉及到複雜的事件監聽與狀態同步。Claude 在這裡展現的不是簡單的補全，而是一種架構層面的克制。它不會給出那種看起來很華麗但跑起來滿是記憶體洩漏的垃圾，而是傾向於使用更符合 Rust 慣例的原子操作（Atomic）和通道（Channel）機制。</p>
+    <p>這種代碼審美在處理「終端機原生」邏輯時尤為明顯。要在有限的字符網格裡模擬出工廠流水線的流動感，需要對數據結構進行極細緻的切片處理。Claude 在處理這些邏輯時，對 Context 的利用率極高，它能準確記住你在三百行前定義的枚舉類型，而不會像某些模型那樣在代碼後半段突然開始胡言亂語。這種穩定性是構建這類「精緻小品」的基石。如果說 ChatGPT 像是一個什麼都能聊但偶爾會把鹽當成糖的廚師，Claude 更像是一個在實驗室裡精確計量每一克試劑的化學家，它給你的代碼或許不夠激進，但絕對不會讓你編譯失敗。</p>
+    <p>如果我們把目光移向其他競爭者，情況會變得更有意思。相較於 Qwen4-Max 在處理通用指令時的表現，Claude 在代碼生成的邏輯鏈條完整性上依然保持著領先。在某些特定場景下，開發者可能會嘗試用 Qwen4-Max 來生成一些基礎的配置文檔或簡單的 UI 布局描述，但在涉及到 Rust 這種對編譯錯誤零容忍的語言時，最終的調試重擔往往還是落回到了 Claude 身上。Gemini 在處理這類任務時則顯得有些過於「熱情」，它總想給你加一些花哨的註釋和沒必要的擴展功能，結果反而破壞了終端機遊戲那種簡約的極客感。至於 Grok，它或許能寫出更有趣的對話腳本，但在處理多線程異步 IO 時，其穩定性目前還難以支撐起一個完整的項目。</p>
+    <p>這種「掛機遊戲與 AI Agent 並行」的模式，其實揭示了目前 AI 工具鏈的一個技術尷尬期：雖然 Agent 已經能處理複雜任務，但它們的推理延遲和偶發的邏輯卡頓，讓人類用戶處於一種「半監工」的狀態。我們不敢完全離開屏幕，卻又無法忍受長達數分鐘的推理等待。於是，我們在同一個終端機裡，左邊放著正在重構系統底層的 Claude Agent，右邊放著由 Claude 自己編寫的工廠遊戲。這形成了一個奇妙的閉環——AI 創造了讓我們消磨時間的玩具，好讓我們能心平氣和地等待它完成更繁重的工作。</p>
+    <p>當我們開始討論「AI 原生應用」時，我們往往期待的是一些宏大的、顛覆性的交互方式，但或許這種隱藏在命令行裡的、安靜的、甚至帶點復古色彩的小工具，才是技術人員最真實的體感。當一個遊戲的價值主張僅僅是「它能縮在你的工作窗口旁邊」，這反映出的是我們對 AI 工具交互頻率的重新定義。我們是否真的需要那些充滿動效的 GUI？還是在高度自動化的未來，我們需要的僅僅是一個能與後台任務共存的、極簡的數字圖騰？當 AI 已經能幫我們解決掉 90% 的編碼雜事，剩下的那 10%，我們究竟是想用它來創造價值，還是僅僅想在等待進度條拉滿的過程中，感受到一絲掌控代碼的、虛幻的樂趣？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://gitlab.com/snipedbywifi/terminactory" rel="nofollow noopener" target="_blank">Show HN: A terminal-native idle factory game, written in Rust with ratatui</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261117-1137-dd694f/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
