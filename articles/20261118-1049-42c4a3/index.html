@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當工程師不再信任自己的眼睛</title>
+<meta name="description" content="把代碼交給 Claude 撰寫，再交給另一個 Claude 審核，最後由人類按下合併鍵。這種自產自銷的邏輯在 Anthropic 內部已經成了日常。九成的代碼產出率聽起來像是某種自動化烏托邦，但對大多數還在為了每個月兩千美金 Token 帳單發愁的開發者來說，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261118-1049-42c4a3/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當工程師不再信任自己的眼睛">
+<meta property="og:description" content="把代碼交給 Claude 撰寫，再交給另一個 Claude 審核，最後由人類按下合併鍵。這種自產自銷的邏輯在 Anthropic 內部已經成了日常。九成的代碼產出率聽起來像是某種自動化烏托邦，但對大多數還在為了每個月兩千美金 Token 帳單發愁的開發者來說，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261118-1049-42c4a3/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-18T10:49:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當工程師不再信任自己的眼睛">
+<meta name="twitter:description" content="把代碼交給 Claude 撰寫，再交給另一個 Claude 審核，最後由人類按下合併鍵。這種自產自銷的邏輯在 Anthropic 內部已經成了日常。九成的代碼產出率聽起來像是某種自動化烏托邦，但對大多數還在為了每個月兩千美金 Token 帳單發愁的開發者來說，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當工程師不再信任自己的眼睛",
+  "description": "把代碼交給 Claude 撰寫，再交給另一個 Claude 審核，最後由人類按下合併鍵。這種自產自銷的邏輯在 Anthropic 內部已經成了日常。九成的代碼產出率聽起來像是某種自動化烏托邦，但對大多數還在為了每個月兩千美金 Token 帳單發愁的開發者來說，…",
+  "datePublished": "2026-11-18T10:49:00+08:00",
+  "dateModified": "2026-11-18T10:49:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261118-1049-42c4a3/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-18 10:49
+  </div>
+
+  <h1 class="title">當工程師不再信任自己的眼睛</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>把代碼交給 Claude 撰寫，再交給另一個 Claude 審核，最後由人類按下合併鍵。這種自產自銷的邏輯在 Anthropic 內部已經成了日常。九成的代碼產出率聽起來像是某種自動化烏托邦，但對大多數還在為了每個月兩千美金 Token 帳單發愁的開發者來說，這更像是一場昂貴的煉金術實驗。當我們討論驗證（Verification）時，我們到底是在討論代碼的正確性，還是在討論如何用更多的算力去掩蓋模型本身的不穩定？</p>
+    <p>Claude Code 的核心邏輯建立在一個危險的假設上：只要採樣次數夠多、驗證鏈條夠長，隨機性就能轉化為確定性。這本質上是把軟體工程變成了機率工程。在處理長達數萬行的遺留代碼庫時，Claude 展現出的上下文連結能力確實優於 GPT-4o，尤其是在處理深層嵌套的邏輯衝突時，它不太容易出現那種令人惱火的「幻覺補償」。但問題在於，當 Anthropic 的工程師自豪於那 90% 的自動化率時，他們似乎忽略了 Github 上那疊成小山的 Issue 列表。這就像是一個拼命踩油門的司機，卻從不看後照鏡裡掉落的零件。</p>
+    <p>這種「以模型驗證模型」的範式，正讓技術決策陷入一種循環論證。為了確認 A 代碼沒錯，我們啟動了 B 代理程序去跑測試，再啟動 C 代理程序去檢查測試覆蓋率。每一次呼叫都在消耗 Token，每一次並行都是在燒錢。對於那些試圖在本地環境或是受限資源下運作的團隊來說，這種開發模式簡直是何不食肉糜。我們追求的是更聰明的邏輯，還是更龐大的推論成本？如果一個 Bug 需要消耗五十美金的 API 調用才能被「自動」修復，那人類工程師的手工排查反而顯得更有經濟效益。</p>
+    <p>在這種算力競賽的背景下，市場上出現了不少試圖簡化流程的嘗試。相較於 Qwen4-Max 這種在特定基準測試中刷榜的模型，Claude 選擇的路徑顯然更偏向於模擬人類的思維深度，而非單純的模式匹配。在處理複雜的 System Prompt 遵循能力上，Gemini 1.5 Pro 雖然擁有令人稱羨的百萬級上下文窗口，但在面對 Claude Code 這種高頻率、小步快跑的代碼迭代任務時，其反應速度與指令精度往往會隨著對話輪次的增加而出現顯著的熵增。Grok 在這方面則顯得有些激進且缺乏穩定性，它更像是一個直覺敏銳但缺乏紀律的初級開發者，偶爾能給出驚艷的優化建議，但在嚴謹的單元測試面前經常敗下陣來。</p>
+    <p>我們正處於一個尷尬的過渡期。一邊是像 Qwen4-Max 這樣不斷湧現的挑戰者在推高行業的平均參數門檻，另一邊則是四大平台在應用層面的深度捲入。Claude 試圖通過「自我審核」來建立護城河，但這種護城河如果只能靠燃燒經費來維持，它對中小型技術團隊的意義究竟在哪裡？當開發者開始抱怨每個月兩千美金的帳單卻換不來一個乾淨的 Commit 時，這種技術崇拜就該降溫了。</p>
+    <p>如果有一天，模型生成的代碼複雜到連模型自己都無法驗證其副作用，而人類早已因為長期的「點擊確認」而喪失了審閱大規模代碼的能力，那時的軟體架構會變成什麼樣子？我們是在建造巴別塔，還是在親手編織一張自己也看不懂的網？當驗證代碼的代價超過了編寫代碼本身，我們追求的究竟是效率的解放，還是另一種形式的技術役使？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/" rel="nofollow noopener" target="_blank">How the Claude Code team thinks about verification</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261118-1049-42c4a3/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

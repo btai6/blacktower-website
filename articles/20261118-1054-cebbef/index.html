@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 炒作與產出的斷層誰來補位</title>
+<meta name="description" content="那些成天喊著 AI 泡沫要破的人，大概還停留在把 LLM 當成加強版搜尋引擎的階段。Hacker News 上最近吵得兇，說什麼技術回報率跟不上預期，這話聽著耳熟，不就是當年互聯網泡沫破裂前的調調？事實上，問題根本不在 AI 行不行，而是這幫開發者和企業主管到底有沒有搞清楚，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261118-1054-cebbef/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 炒作與產出的斷層誰來補位">
+<meta property="og:description" content="那些成天喊著 AI 泡沫要破的人，大概還停留在把 LLM 當成加強版搜尋引擎的階段。Hacker News 上最近吵得兇，說什麼技術回報率跟不上預期，這話聽著耳熟，不就是當年互聯網泡沫破裂前的調調？事實上，問題根本不在 AI 行不行，而是這幫開發者和企業主管到底有沒有搞清楚，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261118-1054-cebbef/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-18T10:54:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 炒作與產出的斷層誰來補位">
+<meta name="twitter:description" content="那些成天喊著 AI 泡沫要破的人，大概還停留在把 LLM 當成加強版搜尋引擎的階段。Hacker News 上最近吵得兇，說什麼技術回報率跟不上預期，這話聽著耳熟，不就是當年互聯網泡沫破裂前的調調？事實上，問題根本不在 AI 行不行，而是這幫開發者和企業主管到底有沒有搞清楚，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "AI 炒作與產出的斷層誰來補位",
+  "description": "那些成天喊著 AI 泡沫要破的人，大概還停留在把 LLM 當成加強版搜尋引擎的階段。Hacker News 上最近吵得兇，說什麼技術回報率跟不上預期，這話聽著耳熟，不就是當年互聯網泡沫破裂前的調調？事實上，問題根本不在 AI 行不行，而是這幫開發者和企業主管到底有沒有搞清楚，…",
+  "datePublished": "2026-11-18T10:54:00+08:00",
+  "dateModified": "2026-11-18T10:54:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261118-1054-cebbef/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-18 10:54
+  </div>
+
+  <h1 class="title">AI 炒作與產出的斷層誰來補位</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>那些成天喊著 AI 泡沫要破的人，大概還停留在把 LLM 當成加強版搜尋引擎的階段。Hacker News 上最近吵得兇，說什麼技術回報率跟不上預期，這話聽著耳熟，不就是當年互聯網泡沫破裂前的調調？事實上，問題根本不在 AI 行不行，而是這幫開發者和企業主管到底有沒有搞清楚，從一個能說會道的 Chatbot 到一個能在生產環境穩定運行的 Agent，中間隔著一條深不見底的技術鴻溝。現在的情況是，大家都在玩「情緒化編程」，代碼跑通了就覺得萬事大吉，結果一上線發現連最基本的銀行轉帳接口都接不穩。這種對技術底層穩定性的忽視，才是這波所謂「回報危機」的根源。</p>
+    <p>拿 Grok 來說，xAI 最近的動作明顯是衝著解決這種不穩定性去的。很多人抱怨 Grok 的回答有時候太過隨性，甚至帶著點馬斯克式的狂妄，但如果深入去看它的訓練邏輯，你會發現它在即時數據檢索的權重分配上，走得比 ChatGPT 遠得多。當 GPT-4o 還在依賴那些不知道幾個月前爬取的靜態資料庫時，Grok 已經在嘗試把 X 平台上的實時流數據做成動態索引。這不是為了讓你聊天更有趣，而是為了解決 AI 輸出的時效性斷層。如果你要在生產環境部署一個監控全球供應鏈風險的 Agent，你需要的是這種能跟現實世界同步的邏輯，而不是一個只會背誦 2023 年百科全書的文科生。</p>
+    <p>目前的技術困境在於，我們有了極強的推理引擎，卻缺乏足夠硬核的基礎設施去承載這些推理。你想跑一個自動化 Agent？你需要環境、需要連接器、需要權限控管，更需要一套能處理異步任務的架構。Claude 在長文本處理上的優勢確實讓它在分析複雜文檔時顯得無人能敵，但只要你試著讓它連續調用超過二十個外部 API，那種邏輯連貫性的衰減簡直讓人抓狂。這就是現在最尷尬的技術現狀：模型智商在線，但工程實踐一塌糊塗。大家都在追求模型參數的增長，卻沒人願意靜下心來修好那些該死的 API 調用延遲。</p>
+    <p>說到這裡，市場上那些所謂的對標產品也沒閒著。相較於 Qwen4-Max 最近在某些基準測試上的數據，Gemini 在多模態原生處理上的架構優勢其實更值得關注。很多人拿 Qwen4-Max 的動態來唱衰美國 AI，這完全是搞錯了重點。Google 的做法是把視覺、音訊和文本在最底層就揉碎了放在一個 Transformer 結構裡處理，這跟那種靠外掛插件實現的「假多模態」有本質區別。當你在處理複雜的工廠監控錄像或醫療影像時，這種底層架構的純粹性決定了你的模型是真正在「看」世界，還是在「猜」圖片。</p>
+    <p>即便是被捧上天的 ChatGPT，在面對企業級 QA 的嚴苛要求時，依然顯得力不從心。那種「大概正確」的輸出邏輯，在涉及金融結算或航太指令時就是一場災難。我們現在需要的不是更會寫詩的模型，而是更懂得自我校準、懂得在不確定的時候閉嘴的系統。有些開發者開始懷念 2017 年那種嚴謹的 QA 流程，這不是退步，而是一種集體清醒。當我們發現靠著幾句 Prompt 就能寫出幾千行代碼的快感背後，隱藏著無數難以追蹤的 Bug 時，這種技術回報的落差感就自然產生了。</p>
+    <p>未來的競爭點根本不在誰的模型參數多，而在於誰能先把那套複雜的「AI 基礎設施」蓋好。如果連一個穩定的 Agent 運行環境都搞不定，天天談論 AGI 什麼時候到來簡直是浪費生命。我們是不是過於迷信模型本身的智慧，而忽略了它作為一個工具，在現實物理世界中運作所需的各種「耗材」與「零件」？當所有人都在討論模型會不會取代人類時，有沒有人想過，如果連最基礎的數據接口都不穩定，這些所謂的智慧大腦到底能活幾分鐘？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns" rel="nofollow noopener" target="_blank">Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261118-1054-cebbef/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
