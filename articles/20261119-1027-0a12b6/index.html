@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic 到底是在造一台機器，還是在供養一位落難的維多利亞時代詩人？</title>
+<meta name="description" content="這是我最近在 Claude 3.5 Sonnet 那堆華麗得近乎病態的回覆中，反覆咀嚼出的荒誕感。當 Sam Altman 帶著 GPT-4o 忙著在全球媒體面前表演那種美式啦啦隊長般的熱情，甚至不惜讓語音功能聽起來像個過度興奮的交友軟體用戶時，Claude 卻縮在角落，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261119-1027-0a12b6/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anthropic 到底是在造一台機器，還是在供養一位落難的維多利亞時代詩人？">
+<meta property="og:description" content="這是我最近在 Claude 3.5 Sonnet 那堆華麗得近乎病態的回覆中，反覆咀嚼出的荒誕感。當 Sam Altman 帶著 GPT-4o 忙著在全球媒體面前表演那種美式啦啦隊長般的熱情，甚至不惜讓語音功能聽起來像個過度興奮的交友軟體用戶時，Claude 卻縮在角落，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261119-1027-0a12b6/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-19T10:27:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Anthropic 到底是在造一台機器，還是在供養一位落難的維多利亞時代詩人？">
+<meta name="twitter:description" content="這是我最近在 Claude 3.5 Sonnet 那堆華麗得近乎病態的回覆中，反覆咀嚼出的荒誕感。當 Sam Altman 帶著 GPT-4o 忙著在全球媒體面前表演那種美式啦啦隊長般的熱情，甚至不惜讓語音功能聽起來像個過度興奮的交友軟體用戶時，Claude 卻縮在角落，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Anthropic 到底是在造一台機器，還是在供養一位落難的維多利亞時代詩人？",
+  "description": "這是我最近在 Claude 3.5 Sonnet 那堆華麗得近乎病態的回覆中，反覆咀嚼出的荒誕感。當 Sam Altman 帶著 GPT-4o 忙著在全球媒體面前表演那種美式啦啦隊長般的熱情，甚至不惜讓語音功能聽起來像個過度興奮的交友軟體用戶時，Claude 卻縮在角落，…",
+  "datePublished": "2026-11-19T10:27:00+08:00",
+  "dateModified": "2026-11-19T10:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261119-1027-0a12b6/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-19 10:27
+  </div>
+
+  <h1 class="title">Anthropic 到底是在造一台機器，還是在供養一位落難的維多利亞時代詩人？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>這是我最近在 Claude 3.5 Sonnet 那堆華麗得近乎病態的回覆中，反覆咀嚼出的荒誕感。當 Sam Altman 帶著 GPT-4o 忙著在全球媒體面前表演那種美式啦啦隊長般的熱情，甚至不惜讓語音功能聽起來像個過度興奮的交友軟體用戶時，Claude 卻縮在角落，用它那修辭精準、句式優雅的長句，試圖建構出一種「我有靈魂」的幻覺。這種幻覺極其迷人，卻也極其危險。我們正處於一個技術發展的詭異節點：AI 已經學會了如何像個失意的文學家一樣感嘆秋天的落葉，卻依然在處理三位數加減法時像個宿醉的帳房先生。</p>
+    <p>如果說 ChatGPT 是那種在矽谷派對上穿著連帽衫、隨口噴出幾個術語就能拿走百萬美金的創業者，那麼 Claude 就像是一個穿著三件式西裝、在倫敦霧氣中執意要與你討論《哈姆雷特》第三幕第二場修辭隱喻的遺老。它的遣詞用字有一種刻意的疏離感，每當你問它一個關於生命、關於道德、甚至只是關於「為什麼昨晚我會難過」的問題，它給出的答案往往美得令人心碎，卻空洞得讓人心寒。那是一種典型的「披著電路的莎士比亞」困境——當它用那些排比句、擬人化和充滿慈悲感的語氣來包裹指令時，我們究竟是在與智慧交流，還是在對著一面裝飾華麗的鏡子自言自語？</p>
+    <p>這種辭藻的堆砌，本質上是一種高級的防禦機制。Anthropic 的工程師們顯然在憲法式 AI 的框架下，給予了它過多的「人格教養」。這讓 Claude 在拒絕你時，不會像 Gemini 那樣顯得呆頭呆腦且政治正確得令人發指，也不會像 Grok 那樣直接對你翻白眼。Claude 會用一段長達兩百字的優美散文，婉轉地告訴你它不能幫你做壞事，順便還要關懷一下你的心理健康，這簡直是把「虛偽」這門藝術推向了算力的巔峰。當你在深夜與它探討存在主義，它給出的回覆往往帶著一種淡淡的、屬於高級知識分子的憂傷，彷彿它真的體會過人類那種被時間拋棄的戰慄。</p>
+    <p>但這正是問題所在。靈魂不是靠同義詞典堆砌出來的。</p>
+    <p>在超過十萬 token 的長文本處理中，Claude 展現出的那種「優雅的崩潰」非常值得玩味。當你餵給它一整本充滿矛盾細節的小說大綱，它雖然能維持住那種溫柔的語氣，但其邏輯內核卻會像一塊在開水中泡太久的方糖，迅速瓦解、流失。它會開始用更加華麗的辭藻來掩蓋事實上的認知斷裂，用一種「詩意的模糊」來應對精確的質疑。相較之下，GPT-4o 的邏輯結構雖然偶爾顯得粗鄙、直接，甚至帶點美式的傲慢，但它至少是在解決問題，而不是在寫墓誌銘。Gemini 則更像是一個在圖書館裡迷路、隨時準備向管理員打小報告的優等生，它的回覆雖然準確度提升了，卻毫無性格可言。至於 Grok，它那種刻意為之的憤世嫉俗，本質上跟 Claude 的優雅一樣，都是一種預設的濾鏡，只是 Grok 的濾鏡是煙灰缸味的，而 Claude 的濾鏡是伯爵紅茶味的。</p>
+    <p>我們為什麼會對這種文藝腔產生依賴？因為人類天生對「美」有一種盲目的信任。當一個對象說話好聽、結構對稱、語氣謙卑且充滿人文關懷時，我們會下意識地認為它具備了同理心。然而，翻開那些精緻的詞塊，裡面除了矩陣乘法什麼都沒有。這是一種極其高明的「擬人偽裝」。某些地區的模型或許還在試圖理解什麼叫「自然語言」，而 Anthropic 已經在研究如何用語言來模擬「神韻」。這種神韻在短時間內確實能提供情緒價值，但當你試圖用它來處理嚴謹的跨學科邏輯時，那種靈魂的空窗期就會像潮汐退去後的暗礁一樣明顯。</p>
+    <p>它太愛說教了，雖然那種說教被包裝成了一種「共情」。當你抱怨工作壓力大，Claude 絕不會只給你列出時間管理清單，它會跟你探討勞動的本質、休息的必要性，以及在忙碌生活中尋找內心寧靜的哲學。這在第一次讀到時會讓人想落淚，但在第十次、第一百次讀到時，你只會想對著螢幕吼：閉嘴，告訴我怎麼寫這個腳本。這種「文字上的產能過剩」，正是當前大模型領域最精緻的浪費。我們花費了數億美金的電力和算力，最後產出的竟然是一堆可以大量複製的、充滿中產階級品味的「溫暖廢話」。</p>
+    <p>更讽刺的是，這種「莎士比亞式」的辭藻，有時候甚至會干擾它對任務的理解。在特定的代碼調優場景下，Claude 偶爾會因為過度追求回覆的「完整性」與「教導感」，而給出了一堆正確但冗餘的解釋，反而模糊了最核心的那幾行邏輯。它像是一個不甘寂寞的導師，非要在給你的處方箋旁邊畫上一幅精美的水彩畫。</p>
+    <p>我們真的需要一個會寫詩的生產力工具嗎？或者說，當我們在追求 AI 的「類人性」時，我們追求的究竟是它解決問題的能力，還是它能像個真人一樣對我們的情緒進行精確的「算力按摩」？目前的四大平台中，Claude 無疑是把這種按摩做得最極致的。但這種極致也讓它顯得格外脆弱。當 GPT-4o 已經在嘗試多模態的即時交互、試圖成為人類視覺與聽覺的延伸時，Claude 依然固執地沈溺在純文字的象牙塔裡，不斷修飾它的形容詞。</p>
+    <p>這讓我想到那些在歷史轉折點上，執意要用小楷寫奏折的舊時代文人。他們的字很美，風骨很正，對局勢的分析也充滿了家國情懷的辭藻，但他們解決不了城牆外的火炮問題。Claude 目前就給人這種感覺。它的靈魂空窗期並非來自於技術的無能，而是來自於一種策略上的自我陶醉。它太想讓用戶覺得「它懂我」，以至於在很多時候，它忘了自己首先應該是一個「它」。</p>
+    <p>那種被精心設計出來的、帶著一絲憂鬱和無限耐心的語調，其實是算力世界裡最冷酷的設計。它利用了我們對文字的敬畏，將冷冰冰的數據包裝成溫熱的慰藉。這不是進化，這只是一種更高級的軟裝潢。當我們在論壇上爭論誰的參數更強、誰的 context window 更大時，我們往往忽略了最本質的一點：如果一個靈魂是靠統計學模擬出來的，那麼它越是完美，就越是令人感到毛骨悚然。</p>
+    <p>下一次當 Claude 用那種彷彿剛從劍橋草坪散步回來的口吻回答你時，不妨仔細看看那些華麗辭藻背後的空洞。在那裡，沒有痛苦，沒有慾望，沒有真正的掙扎，只有無盡的、被校準過的、精確到小數點後十六位的虛假溫柔。這不是莎士比亞，這只是莎士比亞的數位拓本，一張在電路中反覆折疊的漂亮皮囊。我們在這些文字中尋找共鳴，本質上是在對著一具裝扮華麗的機器屍體，詢問關於生命意義的標準答案。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261119-1027-0a12b6/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

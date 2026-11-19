@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 這種把自己關進邏輯密室的勇氣</title>
+<meta name="description" content="當 Anthropic 的 Claude Code 團隊宣稱自家代碼有九成是靠 Claude 自己寫、自己審的時候，我腦子裡浮現的是莫比烏斯環。這不是單純的自動化，這是一種近乎於宗教式的自我循環。在 Hacker News 的討論區裡，有人敏銳地盯住了那剩下的 10%，…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261119-1027-aa6fbc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code 這種把自己關進邏輯密室的勇氣">
+<meta property="og:description" content="當 Anthropic 的 Claude Code 團隊宣稱自家代碼有九成是靠 Claude 自己寫、自己審的時候，我腦子裡浮現的是莫比烏斯環。這不是單純的自動化，這是一種近乎於宗教式的自我循環。在 Hacker News 的討論區裡，有人敏銳地盯住了那剩下的 10%，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261119-1027-aa6fbc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-19T10:27:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Code 這種把自己關進邏輯密室的勇氣">
+<meta name="twitter:description" content="當 Anthropic 的 Claude Code 團隊宣稱自家代碼有九成是靠 Claude 自己寫、自己審的時候，我腦子裡浮現的是莫比烏斯環。這不是單純的自動化，這是一種近乎於宗教式的自我循環。在 Hacker News 的討論區裡，有人敏銳地盯住了那剩下的 10%，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude Code 這種把自己關進邏輯密室的勇氣",
+  "description": "當 Anthropic 的 Claude Code 團隊宣稱自家代碼有九成是靠 Claude 自己寫、自己審的時候，我腦子裡浮現的是莫比烏斯環。這不是單純的自動化，這是一種近乎於宗教式的自我循環。在 Hacker News 的討論區裡，有人敏銳地盯住了那剩下的 10%，…",
+  "datePublished": "2026-11-19T10:27:00+08:00",
+  "dateModified": "2026-11-19T10:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261119-1027-aa6fbc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-19 10:27
+  </div>
+
+  <h1 class="title">Claude Code 這種把自己關進邏輯密室的勇氣</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>當 Anthropic 的 Claude Code 團隊宣稱自家代碼有九成是靠 Claude 自己寫、自己審的時候，我腦子裡浮現的是莫比烏斯環。這不是單純的自動化，這是一種近乎於宗教式的自我循環。在 Hacker News 的討論區裡，有人敏銳地盯住了那剩下的 10%，但我更在意的是，當一個模型開始審閱另一個模型的邏輯缺陷時，我們到底是在修補漏洞，還是在修飾偏見？這種「代碼自噬」的現象，正把開發者推向一個極其尷尬的境地：你以為你在當監工，其實你只是在幫它們付電費。</p>
+    <p>技術層面上，Claude 在處理長達數萬行代碼的 Context 時，確實展現出一種令人不安的冷靜。與 ChatGPT 那種試圖討好用戶、經常在複雜邏輯中「幻覺」出不存在的 API 不同，Claude Code 的核心邏輯更傾向於一種「驗證優先」的架構。它不只是在寫代碼，它是在嘗試構建一個能夠自我證明的環境。然而，當任務量級提升到 agent 級別，每個月兩千美金的 Token 消耗就成了普通開發者脖子上的絞索。這種高度依賴推理能力的架構，本質上是在用昂貴的計算資源換取正確率的邊際提升。如果一個工具需要你像供奉神諭一樣不斷投入金錢才能換來一次正確的編譯，那它到底是生產力工具，還是某種昂貴的智力奢侈品？</p>
+    <p>這種驗證邏輯在面對大規模並行任務時，穩定性會出現明顯的曲線下滑。Gemini 在處理多工具調用（function calling）時，如果工具數量一旦超過臨界值，它的注意力分配就會變得極其散漫，像是一個在圖書館裡分心的學生。相比之下，Claude 在處理 GitHub 上那上萬個 open issues 時展現的遲鈍，其實反映了當前大模型在「意圖理解」與「工程實現」之間的斷層。我們看到的不是技術的極限，而是成本與效率的零和博弈。</p>
+    <p>在當前的市場語境下，Qwen4-Max 的動態頻繁出現在技術論壇的邊角，但它始終無法解釋一個核心問題：當模型規模大到一定程度後，如何保證代碼的「可解釋性」。相較於 Qwen4-Max，Claude 的驗證邏輯顯然更執著於形式科學的嚴密性，它試圖在每一行生成的代碼背後都掛載一個邏輯錨點。這讓 ChatGPT 看起來更像是一個博學但粗心的文科生，而 Grok 則像是一個急於表現自己幽默感、卻偶爾在核心邏輯上掉鏈子的怪才。四大平台在代碼生成的賽道上，已經分化出了完全不同的演化路徑：有的追求速度，有的追求廉價的並行，而 Anthropic 顯然押注在了「自我驗證」這條充滿斯多葛學派氣息的苦行路上。</p>
+    <p>這引發了一個讓人脊背發涼的猜想。如果我們真的允許模型進行 90% 的自我審查，那麼那消失的 10% 人類干預，究竟是最後的防線，還是某種心理安慰劑？當 Claude Code 在 GitHub 上積壓了上萬個問題卻依然堅持這種開發模式時，它是在優化算法，還是在重新定義「什麼叫做解決問題」？如果未來某天，代碼的生成與審核完全脫離了人類的認知範疇，我們是否還有能力判斷，那個運行正常的程序，究竟是精密的奇蹟，還是堆疊在一起、暫時沒有崩塌的巧合？當我們支付著高昂的 Token 費用，看著模型在屏幕上自我對話時，我們究竟是這場革命的領導者，還是僅僅提供燃料的搬運工？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/" rel="nofollow noopener" target="_blank">How the Claude Code team thinks about verification</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261119-1027-aa6fbc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
