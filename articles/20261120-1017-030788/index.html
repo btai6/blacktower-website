@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grok 的 Prompt Cache 到底是在省錢，還是在羞辱用戶的智商？</title>
+<meta name="description" content="馬斯克成天在 X 上吹噓運算力有多無敵，Colossus 叢集燒了多少張 H100，結果回頭看看 Grok 現在的記性，簡直像個剛宿醉醒來的實習生。大家都在喊 Context Window 要推到幾百萬，xAI 倒好，弄個緩存機制像是在施捨。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261120-1017-030788/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grok 的 Prompt Cache 到底是在省錢，還是在羞辱用戶的智商？">
+<meta property="og:description" content="馬斯克成天在 X 上吹噓運算力有多無敵，Colossus 叢集燒了多少張 H100，結果回頭看看 Grok 現在的記性，簡直像個剛宿醉醒來的實習生。大家都在喊 Context Window 要推到幾百萬，xAI 倒好，弄個緩存機制像是在施捨。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261120-1017-030788/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-20T10:17:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grok 的 Prompt Cache 到底是在省錢，還是在羞辱用戶的智商？">
+<meta name="twitter:description" content="馬斯克成天在 X 上吹噓運算力有多無敵，Colossus 叢集燒了多少張 H100，結果回頭看看 Grok 現在的記性，簡直像個剛宿醉醒來的實習生。大家都在喊 Context Window 要推到幾百萬，xAI 倒好，弄個緩存機制像是在施捨。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Grok 的 Prompt Cache 到底是在省錢，還是在羞辱用戶的智商？",
+  "description": "馬斯克成天在 X 上吹噓運算力有多無敵，Colossus 叢集燒了多少張 H100，結果回頭看看 Grok 現在的記性，簡直像個剛宿醉醒來的實習生。大家都在喊 Context Window 要推到幾百萬，xAI 倒好，弄個緩存機制像是在施捨。…",
+  "datePublished": "2026-11-20T10:17:00+08:00",
+  "dateModified": "2026-11-20T10:17:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261120-1017-030788/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-20 10:17
+  </div>
+
+  <h1 class="title">Grok 的 Prompt Cache 到底是在省錢，還是在羞辱用戶的智商？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克成天在 X 上吹噓運算力有多無敵，Colossus 叢集燒了多少張 H100，結果回頭看看 Grok 現在的記性，簡直像個剛宿醉醒來的實習生。大家都在喊 Context Window 要推到幾百萬，xAI 倒好，弄個緩存機制像是在施捨。你以為它記住了你前三句在講什麼，事實上它只是把那些數據塞進一個隨時會漏水的破桶子裡。對，它是快了那麼一點點，延遲降低了，但那種「快」是建立在它隨時可能斷片的風險上。</p>
+    <p>現在這圈子有個臭毛病，不管是 OpenAI 還是 Anthropic，只要提到 Cache，就一副「我們幫你省了 90% 成本」的嘴臉。省錢？我們缺的是那幾分美金嗎？我們缺的是一個能把邏輯連貫起來的腦袋。當你試圖在 Grok 上跑一個稍微複雜點的代碼庫重構，或者丟給它幾本厚得要命的法律卷宗，你會發現這玩意的「快取」根本是選擇性失憶。它能記住你的變數名稱，卻忘了你半小時前才強調過的架構核心。這種感覺就像你請了一個秘書，他打字速度飛快，但你問他早上的會議記錄，他只會歪著頭問你：「老闆，我們早上開過會嗎？」</p>
+    <p>別跟我扯什麼技術限制。Gemini 的 200 萬 Token 雖然慢得像樹懶，但人家至少是真的把東西吞進去了。Grok 的快取邏輯更像是某種廉價的索引，它在玩一種危險的平衡遊戲：在你想翻臉之前，先用速度塞住你的嘴。這種「魚的記憶」模式，最讓人火大的是它還想表現得很全知。如果你去問它一些即時新聞，它靠著 X 的數據流確實能噴出一些內容，但只要話題轉向深度邏輯，那些被快取的片段就開始打架。</p>
+    <p>這就是現在 AI 界的集體焦慮。大家都在追求表面上的響應速度，卻沒人敢承認，現在的架構根本處理不了真正的「長效記憶」。快取不該只是為了省那點 Token 錢，它應該是思維的延伸。但 Grok 給我的感覺是，它只想趕快把這題答完，好去接下一個客人的單。這種急功近利的演算法邏輯，到底哪來的底氣自稱要追求宇宙的真相？真相不是靠零碎的快取拼湊出來的，真相需要的是穩定的、不可動搖的邏輯支撐。</p>
+    <p>看看 Claude 3.5 Sonnet，人家在處理長文本時的注意力分配，雖然偶爾也會有衰減，但至少它試圖在理解你的脈絡。而 Grok？它像是一個在圖書館裡翻書翻得飛快，卻連書名都記不全的過動兒。馬斯克想要的是一個能對話的維基百科，還是二進位的脫口秀演員？如果是後者，那快取確實夠用了；如果是前者，現在這種記性連魚都不如。</p>
+    <p>更可笑的是，這種技術缺陷被包裝成了一種高效的商業策略。因為用戶沒耐性，所以我們把模型做得更輕、快取做得更淺。這是一個惡性循環。當我們習慣了 AI 這種跳躍式的、斷裂的對話方式，我們自己也在退化。我們開始適應它的健忘，主動把任務切成碎片去餵它，還美其名曰「Prompt Engineering」。這不是工程，這是遷就。這是在幫一個半殘的系統做復健。</p>
+    <p>我在測試 Grok 處理超過 5 萬 Token 的連續對話時，那種邏輯的崩塌是肉眼可見的。前一秒它還在跟你討論分散式架構的併發問題，下一秒它就能把 Python 的語法塞進你的 Rust 專案裡。問它為什麼？它會回你一串看似專業但完全不著邊際的廢話。這就是過度依賴快取卻缺乏深度關聯的下場。它只抓到了關鍵字，卻丟掉了靈魂。</p>
+    <p>這讓我想起某些同樣在玩這場數字遊戲的競爭者。像是 Qwen 或者 DeepSeek 那些同樣標榜大參數、低延遲的東方玩家，雖然在特定榜單上刷得漂亮，但在真實的、高強度的邏輯對抗中，一樣會露出這種「短視近利」的馬腳。大家都在比誰的快取更便宜，誰的反應更像真人，卻沒人在意這台機器到底有沒有「理解」它剛剛說過的話。</p>
+    <p>現在的 Grok，就像是住在 X 平台那個大染缸裡的產物。它很快，它很尖銳，它很有個性，但它沒有定力。一個沒有定力的 AI，它的快取做得再好，也只是在加速垃圾的產出。如果你問我，我寧願要一個慢一點、貴一點，但能記得我五天前說過什麼的模型。而不是現在這種，你稍微換個視窗回來，它就一副「我們認識嗎」的死樣子。</p>
+    <p>技術人員常說，快取是計算機科學裡最難的兩個問題之一。我看 xAI 是打算繞過這個問題，直接把問題丟給用戶去解決。他們在 Colossus 上燒掉的每一度電，如果最後只換來這種「快餐式」的記憶體驗，那這場 AI 競賽真的挺可悲的。我們在追求的不是一個更快的搜尋引擎，而是一個能與人類思考同頻的夥伴。可惜，目前看來，Grok 離這個目標還差了幾萬個儲存節點。</p>
+    <p>別再拿那種漂亮的 Benchmark 數據來糊弄人了。那種在實驗室環境下，餵進去一萬行代碼再讓它找個 Bug 的測試，根本測不出快取的真本事。真正的考驗是在你跟它來回拉鋸三小時，改了十八個版本後，它還能不能精準地指出你第一版留下的隱患。目前這四大 AI 裡，GPT-4o 勉強能跟上節奏，Gemini 雖然慢但還算穩定，Claude 在極限狀態下會開始胡言亂語，而 Grok？Grok 根本就還在門外，忙著把剛聽到的話寫在手心上，然後轉頭就汗濕抹掉了。</p>
+    <p>如果你覺得這叫「改變世界」，那你的世界也未免太廉價了。這種記性，連幫我改個腳本都嫌累，還想扮演上帝去解答宇宙的終極答案？先學會怎麼在不弄丟上下文的前提下，把這行代碼寫對吧。別讓那點可憐的快取，成了你技術無能的遮羞布。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261120-1017-030788/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
