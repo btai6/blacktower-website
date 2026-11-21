@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 的晶片夢想與那條消失的座標軸</title>
+<meta name="description" content="Sam Altman 每天在推特上發那些神神叨叨的密碼，大概是覺得全世界都欠他一個晶圓廠。最近 OpenAI 煞有其事地發了一篇關於用強化學習（RL）優化晶片設計的研究，號稱在 OpenTitan 這種 RISC-V 架構上取得了突破。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261121-1005-90ebbe/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 的晶片夢想與那條消失的座標軸">
+<meta property="og:description" content="Sam Altman 每天在推特上發那些神神叨叨的密碼，大概是覺得全世界都欠他一個晶圓廠。最近 OpenAI 煞有其事地發了一篇關於用強化學習（RL）優化晶片設計的研究，號稱在 OpenTitan 這種 RISC-V 架構上取得了突破。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261121-1005-90ebbe/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-21T10:05:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 的晶片夢想與那條消失的座標軸">
+<meta name="twitter:description" content="Sam Altman 每天在推特上發那些神神叨叨的密碼，大概是覺得全世界都欠他一個晶圓廠。最近 OpenAI 煞有其事地發了一篇關於用強化學習（RL）優化晶片設計的研究，號稱在 OpenTitan 這種 RISC-V 架構上取得了突破。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 的晶片夢想與那條消失的座標軸",
+  "description": "Sam Altman 每天在推特上發那些神神叨叨的密碼，大概是覺得全世界都欠他一個晶圓廠。最近 OpenAI 煞有其事地發了一篇關於用強化學習（RL）優化晶片設計的研究，號稱在 OpenTitan 這種 RISC-V 架構上取得了突破。…",
+  "datePublished": "2026-11-21T10:05:00+08:00",
+  "dateModified": "2026-11-21T10:05:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261121-1005-90ebbe/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-21 10:05
+  </div>
+
+  <h1 class="title">OpenAI 的晶片夢想與那條消失的座標軸</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 每天在推特上發那些神神叨叨的密碼，大概是覺得全世界都欠他一個晶圓廠。最近 OpenAI 煞有其事地發了一篇關於用強化學習（RL）優化晶片設計的研究，號稱在 OpenTitan 這種 RISC-V 架構上取得了突破。這事兒聽起來很硬核，實際上卻像是在演一場給投資人看的技術脫口秀。研究裡提到的「平均歸一化獎勵」（Mean normalized reward）連個具體公式都沒給，這種在學術邊緣試探的行為，對那些每天在 EDA 工具裡熬夜的工程師來說，簡直是種智力羞辱。如果一個改進真的能讓晶片性能提升，正常人的邏輯是把具體的延遲、功耗或面積擺在 Y 軸上，而不是畫一堆不明所以的獎勵曲線。</p>
+    <p>這場技術秀的核心在於，OpenAI 試圖證明他們的模型不只能寫程式碼、畫貓咪，還能深入底層硬體設計。他們在研究中用了 Ibex 處理器作為試驗場，這是一個典型的嵌入式處理器。問題在於，RL 在組合優化問題上的表現一直很微妙，當搜索空間爆炸時，模型往往會陷入局部最優解。ChatGPT 在處理這種邏輯高度嚴密的硬體描述語言（HDL）時，依然存在著「幻覺」的老毛病。你讓它寫個排序算法，它可能信手拈來；你讓它優化一個時鐘樹，它可能直接給你弄出個時序違例，然後在對話框裡禮貌地跟你道歉。這種「禮貌」在流片失敗的幾百萬美元損失面前，顯得格外蒼白。</p>
+    <p>這不禁讓人想起 Claude 最近在代碼理解上的表現。Claude 在處理長文本和複雜結構邏輯時，展現出一種比 ChatGPT 更細膩的穩定性，尤其是在處理 SystemVerilog 這種繁瑣的語法時，Claude 的注意力分配顯然更精確，不會像 GPT-4o 那樣在對話中段就開始胡言亂語。而 Google 的 Gemini 則在多模態理解上佔了便宜，如果你把電路圖直接丟進去，Gemini 的反應速度確實快，但一旦涉及到深層的邏輯推理，它那種「為了正確而正確」的保守傾向，反而限制了在晶片設計這種需要極致優化場景下的發揮。相較於 DeepSeek V3 頻繁出現在開源社群的討論中，OpenAI 這次的做法顯然更傾向於封閉系統內的自我證明。</p>
+    <p>雖然大家都在關注 DeepSeek V3 的新動態，但 OpenAI 似乎更在意如何在市場情緒高漲時，維持住自己那種「通用人工智慧領航員」的人設。Grok 的思路則完全不同，Elon Musk 追求的是暴力的算力堆砌，Grok 目前在這種垂直領域的技術積澱還不足以支撐起什麼晶片設計的宏圖大志。現在的情況是，OpenAI 拿著一套沒公開原始碼的 RISC-V 設計方案，在 PPT 上指點江山，卻絕口不提這些設計是否真的通過了嚴格的驗證測試。這種「黑盒式」的技術發布，與其說是科研，不如說是某種形式的期權保值行為。</p>
+    <p>我們到底是在期待 AI 真的能設計出下一代處理器，還是在期待 AI 能源源不斷地製造出能讓股價上漲的新名詞？如果 RL 真的能解決晶片佈局佈線中的 PPA（性能、功耗、面積）問題，為什麼我們看到的不是一份詳盡的實測數據，而是一堆連單位都模糊不清的獎勵函數圖表？當技術熱潮退去，那些被優化掉的邏輯門，真的能撐起 Sam Altman 那個高達七兆美元的融資計畫嗎？或許，我們該問的是，當 AI 開始設計 AI 晶片時，人類工程師最後的作用，是不是只剩下在那個沒有標註單位的 Y 軸上，幫他們補上一個尷尬的標籤？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/advancing-chip-design-with-our-models/" rel="nofollow noopener" target="_blank">Advancing chip design with OpenAI models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261121-1005-90ebbe/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
