@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 在晶片設計上的「跨界」更像是一場精心編排的公關秀</title>
+<meta name="description" content="既然能在五分鐘內寫出一段堪用的 Python 爬蟲，那為什麼不能讓它去設計晶片？這邏輯聽起來很美，美到讓 OpenAI 迫不及待地宣稱他們在 RISC-V 處理器的邏輯綜合與實體設計上取得了進展。但如果你真的翻開那份報告，盯著那個所謂的「平均歸一化獎勵」圖表看上三分鐘，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261122-0908-97cecd/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 在晶片設計上的「跨界」更像是一場精心編排的公關秀">
+<meta property="og:description" content="既然能在五分鐘內寫出一段堪用的 Python 爬蟲，那為什麼不能讓它去設計晶片？這邏輯聽起來很美，美到讓 OpenAI 迫不及待地宣稱他們在 RISC-V 處理器的邏輯綜合與實體設計上取得了進展。但如果你真的翻開那份報告，盯著那個所謂的「平均歸一化獎勵」圖表看上三分鐘，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261122-0908-97cecd/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-22T09:08:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 在晶片設計上的「跨界」更像是一場精心編排的公關秀">
+<meta name="twitter:description" content="既然能在五分鐘內寫出一段堪用的 Python 爬蟲，那為什麼不能讓它去設計晶片？這邏輯聽起來很美，美到讓 OpenAI 迫不及待地宣稱他們在 RISC-V 處理器的邏輯綜合與實體設計上取得了進展。但如果你真的翻開那份報告，盯著那個所謂的「平均歸一化獎勵」圖表看上三分鐘，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 在晶片設計上的「跨界」更像是一場精心編排的公關秀",
+  "description": "既然能在五分鐘內寫出一段堪用的 Python 爬蟲，那為什麼不能讓它去設計晶片？這邏輯聽起來很美，美到讓 OpenAI 迫不及待地宣稱他們在 RISC-V 處理器的邏輯綜合與實體設計上取得了進展。但如果你真的翻開那份報告，盯著那個所謂的「平均歸一化獎勵」圖表看上三分鐘，…",
+  "datePublished": "2026-11-22T09:08:00+08:00",
+  "dateModified": "2026-11-22T09:08:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261122-0908-97cecd/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-22 09:08
+  </div>
+
+  <h1 class="title">OpenAI 在晶片設計上的「跨界」更像是一場精心編排的公關秀</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>既然能在五分鐘內寫出一段堪用的 Python 爬蟲，那為什麼不能讓它去設計晶片？這邏輯聽起來很美，美到讓 OpenAI 迫不及待地宣稱他們在 RISC-V 處理器的邏輯綜合與實體設計上取得了進展。但如果你真的翻開那份報告，盯著那個所謂的「平均歸一化獎勵」圖表看上三分鐘，你就會發現一種熟悉的荒謬感。沒有方程式，沒有具體的物理參數，只有一條不斷上升的曲線，試圖告訴全世界：看，我們又在一個專業領域降維打擊了。這種做法很 OpenAI，他們總是擅長把複雜的工程問題抽象成一個強化學習的黑盒子，然後在黑盒子外面貼上「通用人工智慧」的標籤。</p>
+    <p>在晶片 EDA 這種容錯率幾乎為零的領域，ChatGPT 表現出的那種「大概正確」往往是最致命的。如果你讓 GPT-4o 去優化一個 OpenTitan 的 Ibex 處理器內核，它能幫你寫出不錯的 SystemVerilog 代碼，甚至能在時序約束上給你一些似是而非的建議。但在真正的流片面前，這種層次的技術輸出跟大學生的期末作業差不了多少。OpenAI 這次強調的並不是它懂硬體，而是它想證明強化學習能自動化那些原本需要資深工程師手動調整的佈線策略。有趣的是，他們選擇了 Ibex 這種成熟的開源項目，這更像是在一個已經有標準答案的考卷上，用更昂貴的計算資源換取了一個已知的結果。</p>
+    <p>從技術底層來看，OpenAI 對於晶片設計的介入與 Claude 處理長代碼邏輯的方式截然不同。Claude 在處理大規模代碼庫時表現出的那種「冷靜」，讓它在理解現有晶片架構的層次結構上更具優勢。相比之下，OpenAI 更傾向於把設計空間看作一個巨大的棋盤，試圖用 PPO 算法硬生生砸出一條路。Gemini 在這方面其實也有類似的嘗試，利用其海量的上下文窗口去吞噬 EDA 工具產生的數萬行 log 文件，試圖從報錯中找到規律。但問題在於，當這三大平台都在試圖證明自己能「思考」硬體時，他們似乎都忽略了物理世界的硬性限制。</p>
+    <p>我們在觀察這種技術演進時，難免會看到一些熟悉的對照組。相較於 Baidu Xiaomi，OpenAI 的做法是徹底拋棄了對特定產業鏈的依賴，轉而追求一種極致的算法通用性。這確實很酷，但當你在 Hacker News 上看到資深工程師吐槽那張毫無意義的 Y 軸圖表時，你就會意識到，這種技術透明度的缺失，正是四大平台在進入工業設計領域時共同的軟肋。Grok 在這方面倒顯得坦誠一點，它甚至不屑於去包裝這些專業場景，而是把精力放在如何讓對話更像一個活生生的人。</p>
+    <p>現在的情況是，OpenAI 拿著一套在虛擬世界無往不利的強化學習框架，試圖去敲開矽片世界的大門。他們在報告中提到的 RISC-V 設計，至今也沒有看到完整的 RTL 代碼開源。這讓人不禁懷疑，這究竟是一次技術突破，還是在某些重大投資進度前的「日常噪音」？畢竟，在晶片設計這種需要極致精確的領域，任何無法被復現的「獎勵曲線」都跟煉金術沒什麼兩樣。如果我們真的把晶片的心臟交給一個連加法都偶爾會算錯的語言模型，那未來的硬體安全究竟是依賴於邏輯，還是依賴於概率？</p>
+    <p>既然模型可以優化晶片佈局，那未來是不是也會出現一種專為模型優化的「閉環晶片」，而人類工程師只需要在旁邊看著那些不斷上升的歸一化獎勵曲線發呆？當這一天真的到來時，我們到底是更接近了真理，還是僅僅是學會了如何更優雅地自欺欺人？那些被 Google 裁掉後轉投 OpenAI 的工程師們，真的在重新定義硬體，還是在用更高明的代碼包裝一個新的泡沫？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/advancing-chip-design-with-our-models/" rel="nofollow noopener" target="_blank">Advancing chip design with OpenAI models</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261122-0908-97cecd/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
