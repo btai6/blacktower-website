@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perplexity and Intelligence</title>
+<meta name="description" content="OpenAI 把預測下一個 Token 的準確率當成智商指標，這件事本身就充滿了某種矽谷式的傲慢。最近他們在那張廣為流傳的圖表上，試圖用困惑度（Perplexity）的持續下降來證明 Scaling Law 還沒撞牆。這邏輯聽起來很美：只要模型預測得越準，它就越理解這個世界。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261123-0931-6f4772/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Perplexity and Intelligence">
+<meta property="og:description" content="OpenAI 把預測下一個 Token 的準確率當成智商指標，這件事本身就充滿了某種矽谷式的傲慢。最近他們在那張廣為流傳的圖表上，試圖用困惑度（Perplexity）的持續下降來證明 Scaling Law 還沒撞牆。這邏輯聽起來很美：只要模型預測得越準，它就越理解這個世界。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261123-0931-6f4772/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-23T09:31:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Perplexity and Intelligence">
+<meta name="twitter:description" content="OpenAI 把預測下一個 Token 的準確率當成智商指標，這件事本身就充滿了某種矽谷式的傲慢。最近他們在那張廣為流傳的圖表上，試圖用困惑度（Perplexity）的持續下降來證明 Scaling Law 還沒撞牆。這邏輯聽起來很美：只要模型預測得越準，它就越理解這個世界。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Perplexity and Intelligence",
+  "description": "OpenAI 把預測下一個 Token 的準確率當成智商指標，這件事本身就充滿了某種矽谷式的傲慢。最近他們在那張廣為流傳的圖表上，試圖用困惑度（Perplexity）的持續下降來證明 Scaling Law 還沒撞牆。這邏輯聽起來很美：只要模型預測得越準，它就越理解這個世界。…",
+  "datePublished": "2026-11-23T09:31:00+08:00",
+  "dateModified": "2026-11-23T09:31:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261123-0931-6f4772/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-23 09:31
+  </div>
+
+  <h1 class="title">Perplexity and Intelligence</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 把預測下一個 Token 的準確率當成智商指標，這件事本身就充滿了某種矽谷式的傲慢。最近他們在那張廣為流傳的圖表上，試圖用困惑度（Perplexity）的持續下降來證明 Scaling Law 還沒撞牆。這邏輯聽起來很美：只要模型預測得越準，它就越理解這個世界。但如果你真的在生產環境裡跑過幾萬次 Prompt 就會發現，這更像是一個優等生在背誦標準答案，而不是一個天才在思考。</p>
+    <p>當我們討論 GPT-4o 或者是 Claude 在特定數據集上的 Perplexity 表現時，我們到底在量化什麼？困惑度本質上是模型對文本序列的不確定性。數值越低，代表模型覺得這段話越「理所當然」。OpenAI 拿自家的內部代碼庫當作測試集，宣稱從 GPT-3.5 到現在，這個數值在對數座標軸上拉出了一條完美的直線。這確實很符合投資人的胃口，但對於那些深夜還在調試 API 的工程師來說，這條直線掩蓋了一個尷尬的現實：模型正在變得越來越像它的訓練集。</p>
+    <p>如果一個模型是靠大量合成數據（Synthetic Data）餵出來的，它的困惑度當然會低得驚人。因為它在預測另一個 AI 寫出來的、充滿邏輯模板的句子，這簡直是作弊。當 ChatGPT 開始預測那些由它前輩產出的、熵值極低的文本時，它在測試集上的表現會變得非常「聰明」，但在處理現實世界中那些混亂、充滿歧義且毫無邏輯的人類表達時，那種所謂的智能感往往會瞬間崩塌。</p>
+    <p>在實際的長文本推理任務中，Claude 展現出了與 OpenAI 完全不同的路徑依賴。Claude 對於脈絡的把握，有時並不在於它預測下一個字有多準，而是在於它對全局邏輯一致性的強迫症。相比之下，GPT-4o 在極短的預測步數內表現得極其流暢，但如果你要求它處理超過 5 萬 token 的複雜邏輯鏈，那種基於困惑度優化的特徵就會顯露出疲態——它太想給出一個「看起來正確」的下一個字，以至於忘了十頁前自己說過什麼。</p>
+    <p>這種現象在與其他模型對比時尤為明顯。相較於 Qwen 在特定語言基準測試下的數值表現，OpenAI 的做法顯然更傾向於一種「閉環驗證」。當 Gemini 在處理多模態輸入並嘗試將其轉化為文本邏輯時，Google 遭遇的困惑度波動遠比 OpenAI 的純文本曲線要劇烈得多。這並非因為 Google 的技術不行，而是因為跨模態的熵值本就不是靠簡單的 Scaling 就能壓下來的。</p>
+    <p>我們甚至可以大膽一點猜測，OpenAI 拿出來的那張圖表，實際上是在展示他們洗數據的功力。當一個模型在訓練階段就已經看過了大部分互聯網的變體，甚至包括那些被標註過的測試集時，所謂的「Held-out dataset」就成了一個笑話。這就像是你在考前已經背過了題庫的 90%，然後在考場上對著考卷說你的邏輯推理能力大幅提升。這不是智能，這只是索引能力的極致進化。</p>
+    <p>與 Qwen 頻繁更新版本號以追求特定 Benchmark 分數的邏輯不同，ChatGPT 現在更像是在維護一種「智能的幻覺」。它在 API 輸出時的確定性越來越高，隨機性（Temperature）的寬容度卻在下降。這種對困惑度的病態追求，直接導致了模型回答的同質化。你問它十個不同的問題，它可能會用十種極其相似的語氣來敷衍你，因為在它的預測模型裡，這種語氣的困惑度最低，最保險。</p>
+    <p>Grok 則在另一個極端跳舞，它似乎根本不在意困惑度這回事。它那種刻意模仿的冒犯感和不可預測性，反而讓它在某些時候看起來比那些經過層層對齊、數值優化後的模型更具「人性」。雖然這在工程上可能是一場災難，但它提醒了我們一件事：真正的智能，往往存在於那些不可預測的、高熵的瞬間，而不是在一條被磨平的對數曲線裡。</p>
+    <p>如果有一天，某個模型的困惑度降到了趨近於零，那意味著它已經完全掌握了人類語言的所有排列組合。到那時，它究竟是成了上帝，還是成了一台價值百億美金的影印機？當我們不再為 AI 的回答感到意外時，我們追求的究竟是它的智能，還是它對我們意圖的絕對服從？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://openai.com/index/perplexity-and-intelligence/" rel="nofollow noopener" target="_blank">Perplexity and Intelligence</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261123-0931-6f4772/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

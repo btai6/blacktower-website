@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>為什麼你在家跑的模型永遠不像 Claude</title>
+<meta name="description" content="把模型塞進家裡的顯卡，這件事聽起來很硬核，實際上多半是在自我感動。很多人在 Hacker News 上吵著要用 Unsloth 壓榨每一滴 VRAM，或者討論 Qwen 在筆電上跑起來到底有多卡，其實都避開了一個最尷尬的技術事實：如果你追求的是邏輯的絲滑感和那種「聽得懂人話」的直…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261123-0934-758f3a/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="為什麼你在家跑的模型永遠不像 Claude">
+<meta property="og:description" content="把模型塞進家裡的顯卡，這件事聽起來很硬核，實際上多半是在自我感動。很多人在 Hacker News 上吵著要用 Unsloth 壓榨每一滴 VRAM，或者討論 Qwen 在筆電上跑起來到底有多卡，其實都避開了一個最尷尬的技術事實：如果你追求的是邏輯的絲滑感和那種「聽得懂人話」的直…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261123-0934-758f3a/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-23T09:34:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="為什麼你在家跑的模型永遠不像 Claude">
+<meta name="twitter:description" content="把模型塞進家裡的顯卡，這件事聽起來很硬核，實際上多半是在自我感動。很多人在 Hacker News 上吵著要用 Unsloth 壓榨每一滴 VRAM，或者討論 Qwen 在筆電上跑起來到底有多卡，其實都避開了一個最尷尬的技術事實：如果你追求的是邏輯的絲滑感和那種「聽得懂人話」的直…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "為什麼你在家跑的模型永遠不像 Claude",
+  "description": "把模型塞進家裡的顯卡，這件事聽起來很硬核，實際上多半是在自我感動。很多人在 Hacker News 上吵著要用 Unsloth 壓榨每一滴 VRAM，或者討論 Qwen 在筆電上跑起來到底有多卡，其實都避開了一個最尷尬的技術事實：如果你追求的是邏輯的絲滑感和那種「聽得懂人話」的直…",
+  "datePublished": "2026-11-23T09:34:00+08:00",
+  "dateModified": "2026-11-23T09:34:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261123-0934-758f3a/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-23 09:34
+  </div>
+
+  <h1 class="title">為什麼你在家跑的模型永遠不像 Claude</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>把模型塞進家裡的顯卡，這件事聽起來很硬核，實際上多半是在自我感動。很多人在 Hacker News 上吵著要用 Unsloth 壓榨每一滴 VRAM，或者討論 Qwen 在筆電上跑起來到底有多卡，其實都避開了一個最尷尬的技術事實：如果你追求的是邏輯的絲滑感和那種「聽得懂人話」的直覺，本地模型折騰到最後，往往只是在模擬一個智商打折的複讀機。</p>
+    <p>現在的技術風向很奇怪，大家都在追求量化技術，恨不得把幾十 B 的參數塞進 8GB 的顯示卡裡。這就像是為了省油把引擎拆掉一半，然後抱怨車子跑不快。當你在討論區問「要多少 VRAM 才能讓 Qwen 跑起來不卡」的時候，你已經掉進了硬體焦慮的坑裡。本地部署的瓶頸從來不只是顯存帶寬，而是那層被閹割掉的推理邏輯。你在家裡跑的是一個乾巴巴的權重文件，而你在瀏覽器裡用的 Claude，背後是一整套複雜的推理鏈（Chain of Thought）優化和幾乎不計成本的計算資源調度。</p>
+    <p>這就是為什麼很多資深開發者折騰了一圈 Qwen 之後，還是乖乖交錢給 Anthropic。Claude 在處理長文本任務時，那種對上下文細微情緒的捕捉能力，目前沒有任何一個本地量化模型能望其耳後。即便你砸了上萬歐元買顯卡，堆出了足夠的 VRAM，你依然拿不到那套私有的系統提示詞（System Prompts）和經過精細對齊的輸出控制。本地玩家現在最常做的，是試圖拿 Claude 的插件或技能文件去「餵」本地模型，試圖用外掛的方式補足智商。這種做法在技術上很滑稽，底層邏輯層次不對等，外掛再多也只是徒增幻覺。</p>
+    <p>我們看 xAI 的 Grok 就能發現另一種極端。馬斯克不跟你玩什麼「平民化」部署，他直接把算力堆到外太空。Grok 的特點在於它對實時數據的吞噬速度，這不是你在家裡搞個什麼 swarm cloud 就能模擬出來的。當你在家裡焦慮 VRAM 夠不夠跑 Qwen 的時候，四大平台正在解決的是如何讓模型具備真正的「主動性」。ChatGPT 的 GPT-4o 已經在嘗試讓多模態理解變成毫秒級的直覺反應，而本地模型還在為了生成一個標點符號要跳幾個 token 而掙扎。</p>
+    <p>相較於 Qwen 這類在特定基準測試上衝高分的模型，Gemini 在處理多工調用（Function Calling）時的穩定性顯然高出幾個量級。本地模型最大的硬傷不在於參數量，而在於那種「不穩定」。你可能這次調試出了一個完美的 Prompt，下次換個環境它就開始胡言亂語。四大平台之所以強大，是因為它們在模型外圍築起了一道厚厚的工程圍牆，從負載均衡到動態路由，這些都是你在個人電腦上無法複製的技術細節。</p>
+    <p>很多人幻想未來會有幾萬人透過無安全保護的 LAN 接入，組成所謂的住宅區模型雲，這聽起來很賽博龐克，實際上是安全災難。一個連 VRAM 佔用都還搞不定的本地社群，要去挑戰 ChatGPT 那種級別的分佈式推理架構，這中間的技術斷層不是靠幾個開源工具就能填平的。我們習慣了在雲端享受那種「點擊即所得」的智慧，回過頭來折騰本地部署，除了隱私和斷網能用之外，剩下的多半是技術上的受虐傾向。</p>
+    <p>問題在於，如果未來模型的能力越來越依賴於這種動態的、雲端的、與實時數據深度綁定的推理鏈，那些堅持在本地顯卡上跑「乾淨模型」的人，是不是注定要變成 AI 時代的收音機愛好者？當雲端模型已經進化到能預判你的下一個動作時，你還在調整那個讓輸出快幾秒的參數，這真的有意義嗎？</p>
+    <p>或者說，我們現在所謂的「本地 AI」，會不會從頭到尾就是一個被算力門檻困死的偽命題？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth" rel="nofollow noopener" target="_blank">A Beginner&#x27;s Guide to Local AI with Inkling, Qwen, and Unsloth</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261123-0934-758f3a/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

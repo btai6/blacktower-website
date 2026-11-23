@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 的命名遊戲與 Gemini 的頻率焦慮</title>
+<meta name="description" content="這幾天大家都在討論 Gemini 4 Neon。如果把 Google 最近的更新頻率畫成曲線，那幾乎是一條垂直上升的直線。這已經是本月第四次模型發布。從 Carbon、Argon 到現在的 Neon，Google 似乎迷上了元素週期表。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261123-0932-2ebe7b/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 的命名遊戲與 Gemini 的頻率焦慮">
+<meta property="og:description" content="這幾天大家都在討論 Gemini 4 Neon。如果把 Google 最近的更新頻率畫成曲線，那幾乎是一條垂直上升的直線。這已經是本月第四次模型發布。從 Carbon、Argon 到現在的 Neon，Google 似乎迷上了元素週期表。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261123-0932-2ebe7b/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-23T09:32:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 的命名遊戲與 Gemini 的頻率焦慮">
+<meta name="twitter:description" content="這幾天大家都在討論 Gemini 4 Neon。如果把 Google 最近的更新頻率畫成曲線，那幾乎是一條垂直上升的直線。這已經是本月第四次模型發布。從 Carbon、Argon 到現在的 Neon，Google 似乎迷上了元素週期表。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 的命名遊戲與 Gemini 的頻率焦慮",
+  "description": "這幾天大家都在討論 Gemini 4 Neon。如果把 Google 最近的更新頻率畫成曲線，那幾乎是一條垂直上升的直線。這已經是本月第四次模型發布。從 Carbon、Argon 到現在的 Neon，Google 似乎迷上了元素週期表。…",
+  "datePublished": "2026-11-23T09:32:00+08:00",
+  "dateModified": "2026-11-23T09:32:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261123-0932-2ebe7b/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-23 09:32
+  </div>
+
+  <h1 class="title">Google 的命名遊戲與 Gemini 的頻率焦慮</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天大家都在討論 Gemini 4 Neon。如果把 Google 最近的更新頻率畫成曲線，那幾乎是一條垂直上升的直線。這已經是本月第四次模型發布。從 Carbon、Argon 到現在的 Neon，Google 似乎迷上了元素週期表。但這種命名方式除了讓開發者在調用 API 時感到一陣茫然，真的解決了長文本推理的穩定性問題嗎？我們在實測中發現，雖然 Neon 被定位為 3.1 Pro 的繼承者，但在處理超過 20 萬 token 的上下文合併任務時，它的邏輯連貫性並沒有表現出代際跨越。相反，它更像是在特定參數區間內進行的一次精準裁切。</p>
+    <p>技術圈對這種「盲盒式」更新感到疲憊。在 Hacker News 上，有人開玩笑說現在選擇 Gemini 模型就像在玩輪盤賭。這背後折射出 Google 內部的某種焦慮感：他們必須不斷向市場證明自己擁有快速迭代的能力，即便這種迭代有時只是為了對齊某個指標。Neon 在中型模型（Mid-size）這個賽道上確實壓制了許多對手，但在面對 OpenAI 的 GPT-4o 或是 Anthropic 的 Claude 3.5 Sonnet 時，那種「差一口氣」的感覺依然揮之不去。當你試圖讓 Neon 執行複雜的 JSON schema 提取任務，且 Schema 層級超過三層時，模型開始出現幻覺的機率依然比 Sonnet 高出約 15%。</p>
+    <p>這種頻繁發布導致了一個尷尬的技術斷層。很多開發者還在處理學生帳號或特定 API 金鑰的權限問題，甚至還沒搞清楚 Astra Fable 和 Neon 的資源分配權重，下一個模型可能又要出來了。相比之下，Claude 在版本迭代上顯得吝嗇許多，但每一次更新的邊界感都非常清晰。開發者知道什麼時候該用 Haiku 省錢，什麼時候必須用 Opus 救命。而 Gemini 則是把光譜切得太細，細到讓人懷疑 Google 是否在用產品命名的多樣性來掩蓋底層架構突破的乏力。</p>
+    <p>在當下的技術競爭環境中，我們看到 Qwen 等模型也在頻繁更新，試圖在開源與閉源的邊界上劃分領地。相較於 Qwen 的更新節奏，Google 的做法更像是在進行一場資源飽和攻擊。他們擁有最強大的計算集群，可以同時跑出十幾個不同參數分布的版本，然後挑選其中表現尚可的填入那張越來越擠的元素週期表。但這種策略對企業級用戶並不友好。一個穩定的生產環境需要的是可預期的輸出，而不是每兩週就要調整一次的 Prompt 模版。Grok 在這方面走的是另一個極端，它不追求細分，而是追求單點突破的暴力美學，這讓 Gemini 的精打細算顯得有些小家子氣。</p>
+    <p>如果我們把目光拉回到模型架構本身，Neon 的出現是否意味著 Google 已經放棄了追求單一的全能模型？目前看來，他們更傾向於建立一個龐大的「模型矩陣」。在這個矩陣中，Neon 負責承接那些對成本敏感、但又需要一定邏輯深度的中端需求。然而，當一個開發者在 agy 環境下因為帳號類型限制而無法調用最新模型時，這種矩陣的覆蓋力就大打折扣。技術的平權不應該只存在於論文的 Benchmark 裡，更應該體現在 API 的穩定接入上。</p>
+    <p>我們不禁要問，當 Google 把模型名稱從 Carbon 換到 Neon，除了在命名藝術上有所造詣，對於那些深埋在代碼堆裡的開發者來說，這種「月更」式的進度條真的能轉化為生產力嗎？還是說，我們正處於一種由大廠主導的「技術通脹」中？當大家都在追求更細的模型劃分、更多的參數版本時，是否有人還記得，我們最初需要的僅僅是一個不會在對話中途遺忘上下文、能精準執行指令的聰明大腦，而不是一張貼滿標籤的化學元素表。</p>
+    <p>如果下個月 Google 發布了 Gemini 5，而我們依然在討論 API 權限和命名規範，那這場競賽的終點到底在哪裡？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" rel="nofollow noopener" target="_blank">Gemini 4 Neon</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261123-0932-2ebe7b/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

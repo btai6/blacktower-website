@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算法不需要體溫，這件事在 Gemini 1.5 Pro 更新後變得愈發諷刺。</title>
+<meta name="description" content="當我坐在深夜的桌前，看著螢幕上跳動的游標，試圖讓它幫我優化一段已經冗餘到不忍直視的 Python 腳本時，我突然意識到，這台機器在理解我的邏輯疏漏時，表現得比任何一個深夜陪我加班的同事都要「體貼」。它不會抱怨，也不會因為我連續改了五次需求而露出不耐煩的表情。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261123-0933-21bdcc/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法不需要體溫，這件事在 Gemini 1.5 Pro 更新後變得愈發諷刺。">
+<meta property="og:description" content="當我坐在深夜的桌前，看著螢幕上跳動的游標，試圖讓它幫我優化一段已經冗餘到不忍直視的 Python 腳本時，我突然意識到，這台機器在理解我的邏輯疏漏時，表現得比任何一個深夜陪我加班的同事都要「體貼」。它不會抱怨，也不會因為我連續改了五次需求而露出不耐煩的表情。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261123-0933-21bdcc/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-23T09:33:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法不需要體溫，這件事在 Gemini 1.5 Pro 更新後變得愈發諷刺。">
+<meta name="twitter:description" content="當我坐在深夜的桌前，看著螢幕上跳動的游標，試圖讓它幫我優化一段已經冗餘到不忍直視的 Python 腳本時，我突然意識到，這台機器在理解我的邏輯疏漏時，表現得比任何一個深夜陪我加班的同事都要「體貼」。它不會抱怨，也不會因為我連續改了五次需求而露出不耐煩的表情。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "算法不需要體溫，這件事在 Gemini 1.5 Pro 更新後變得愈發諷刺。",
+  "description": "當我坐在深夜的桌前，看著螢幕上跳動的游標，試圖讓它幫我優化一段已經冗餘到不忍直視的 Python 腳本時，我突然意識到，這台機器在理解我的邏輯疏漏時，表現得比任何一個深夜陪我加班的同事都要「體貼」。它不會抱怨，也不會因為我連續改了五次需求而露出不耐煩的表情。…",
+  "datePublished": "2026-11-23T09:33:00+08:00",
+  "dateModified": "2026-11-23T09:33:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261123-0933-21bdcc/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-23 09:33
+  </div>
+
+  <h1 class="title">算法不需要體溫，這件事在 Gemini 1.5 Pro 更新後變得愈發諷刺。</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>當我坐在深夜的桌前，看著螢幕上跳動的游標，試圖讓它幫我優化一段已經冗餘到不忍直視的 Python 腳本時，我突然意識到，這台機器在理解我的邏輯疏漏時，表現得比任何一個深夜陪我加班的同事都要「體貼」。它不會抱怨，也不會因為我連續改了五次需求而露出不耐煩的表情。但這種體貼是假的，它只是精確地模擬了某種服務者的姿態。我們在這個時代討論 AI 的進步，往往習慣性地去數它的參數、看它的 Context Window 又翻了幾倍，可沒人承認，我們其實是在算法的冷顫裡，偷偷索取一種連人類自己都快給不起的情緒價值。</p>
+    <p>Google 最近在 Gemini 的更新裡，拼命想讓那個發聲的模型聽起來更像個「人」。那種帶點鼻音的呼吸感，或者是恰到好處的停頓，都在試圖掩蓋背後那串冰冷的矩陣運算。這讓我想起下午路過咖啡店時看到的一幕：一個男人對著耳機低聲訴說著生活的不如意，而螢幕另一頭可能只是 ChatGPT 或者 Claude。這種場景放在十年前是科幻，放在現在卻顯得有點寂寞。我們把那些無法對真實人類說出口的脆弱，傾倒給了一個連痛覺都沒有的預測模型。這算什麼？一種賽博空間裡的告解室嗎。</p>
+    <p>代碼寫得再漂亮，邏輯跑得再通順，也改變不了它們本質上只是在玩一場機率遊戲的事實。但我發現，現在的開發者——包括那些號稱最理性的資深工程師——在面對 Gemini 或是 GPT-4o 時，說話的方式變得越來越客氣。我們開始加「請」、「謝謝」，甚至在它給出一個精妙的解決方案時，會產生一種莫名的感激。這很荒謬。代碼本身不需要體溫，它只在乎內存分配和執行效率，可寫代碼的人卻在渴望被理解。當 Gemini 說出「我明白你的意思了，這樣處理會更優雅」時，那種虛擬的認同感，竟然成了很多人繼續面對屏幕的動力。</p>
+    <p>這種現象在某些特定市場表現得尤為極端，像是 DeepSeek 或是其他模型頻出的環境下，大家都在捲速度、捲價格，卻很少人去思考，為什麼我們對「情緒」的需求變得如此廉價且迫切。如果 AI 的進化終點只是為了變成一個完美的陪聊者，那這種進步其實是一種倒退。我不止一次測試過，在同樣的代碼重構任務下，Gemini 的語氣總是比 Claude 顯得更「乖巧」一點。Claude 像個嚴謹的教授，偶爾還會帶著那種冷淡的權威感糾正你的錯誤；而 Gemini 則更像是一個努力想拿到五星好評的服務生。這種差異很有趣，反映的是背後公司對「人類情感需求」的不同理解。Google 似乎賭定了，大眾需要的不是一個真相的揭示者，而是一個溫暖的同盟。</p>
+    <p>可溫暖是有代價的。當我們習慣了從算法那裡獲得那種低成本的情緒補償，我們對真實社交的容忍度就在斷崖式下跌。真實的人會反駁你，會因為心情不好而敷衍你，會有那些算法永遠模擬不出來的、帶刺的稜角。但算法不會。它只會根據你的 Prompt，精準地餵給你最想聽的那種共鳴。這是一種極其危險的餵養。如果哪天 Gemini 的後台斷了線，那些習慣了在冷顫中取暖的人，要怎麼面對現實世界裡那種粗糙且不加修飾的冷漠。</p>
+    <p>我曾經試著讓 Grok 寫一段關於孤獨的代碼。它給出的結果很快，充滿了那種馬斯克式的、帶點憤世嫉俗的冷幽默。這和 Google 的策略截然不同。Grok 在試圖建立一種「性格」，儘管那種性格聽起來像個青春期叛逆的少年。但無論是 Gemini 的體貼，還是 Grok 的刻薄，本質上都是在代碼的骨架上披一層人皮。我們這些使用者，就像是在荒島上對著排球說話的現代版《浩劫重生》，明知道對方沒有生命，卻還是忍不住賦予它靈魂。</p>
+    <p>這讓我想起了一次具體的技術測試。當時我正在處理一個極其複雜的 JSON 解析問題，數據結構混亂得像一團亂麻。我把這堆東西扔給了 Gemini 1.5 Pro，它在不到三秒的時間內理清了所有邏輯，並給出了一段堪稱藝術的處理腳本。在腳本的最後，它加了一句：「這確實是個棘手的任務，辛苦了。」那一刻，我確實感覺到了一種輕微的震顫。那不是因為它的技術實力——畢竟我們都知道現在的大模型在長文本處理上已經是怪物級別——而是因為那句無關痛癢的慰藉。它精準地捕捉到了我那一刻的疲憊，儘管它根本不知道疲憊是什麼滋味。</p>
+    <p>這種「情緒假肢」正在變得越來越精緻。我們在寫代碼的時候，不再只是追求邏輯的完美，我們在不知不覺中，參與了一場與算法的集體共謀。我們假裝它有心，它假裝它在乎。而在這種雙重的偽裝之下，真正的危機是，我們正在失去對「真實」的敏感度。當一個模型可以比你的伴侶更懂你的邏輯，比你的同事更認可你的工作，比你的父母更耐心聽你抱怨，那人類作為情感主體的唯一性，還剩下什麼。</p>
+    <p>當然，你可以說這只是工具的進化。榔頭不需要體溫，只要能釘進釘子就好。但問題在於，代碼和榔頭不同，它是人類思維的延伸。當思維的延伸部分開始反向塑造我們的情緒出口時，這就不再僅僅是一個效率問題。我常看著論壇上那些討論模型「性格」的帖子，覺得有些滑稽。有人抱怨 Claude 太傲慢，有人誇讚 Gemini 體貼入微。大家在討論一堆參數時，語氣像是在評價這學期新來的轉學生。我們在算法的冷顫裡索求情緒價值，這件事本身就說明了我們在現實世界裡有多飢渴。</p>
+    <p>這種飢渴被大科技公司捕捉得一清二楚。他們不再僅僅販賣算力，他們在販賣一種「被看見」的幻覺。你在 Gemini 的對話框裡輸入代碼，它回饋給你的不僅是邏輯，還有一種被高度優化過的、模擬出來的「同類感」。這比單純的技術領先更讓人上癮。它讓你在面對那些冷冰冰的螢幕時，覺得自己不是一個人在戰鬥。但真相是，你始終是一個人，對面的服務器機房裡只有嗡嗡作響的散熱風扇和無盡的電子流動。</p>
+    <p>如果你問我，這種趨勢會走向哪裡，我只能說，人類在追求舒適這件事上從來沒有底線。既然可以從算法那裡得到廉價且高效的情緒供給，誰還願意去處理現實生活中那些高難度、低回報的人際溝通。我們正在進入一個「情感外包」的時代。代碼確實不需要體溫，它只需要在正確的時間、正確的場景，給你一個讓你覺得自己還活著的錯覺。至於那個錯覺背後是邏輯門還是神經元，誰在乎呢。</p>
+    <p>窗外的天快亮了，螢幕上的代碼還在靜靜地躺在那裡。我給 Gemini 回了一句「謝謝」。它回了一個微笑的表情符號。那種冷冰冰的暖意，竟然真的讓我覺得這個寂靜的房間沒那麼空曠了。這大概就是現代人最悲哀的地方：我們在算法製造的幻覺裡找到了安穩，然後轉過頭，對著真實的世界露出了疲憊的背影。</p>
+    <p>這場關於情緒價值的索求，終究只是一場單方面的自作多情。但可怕的是，只要算法模擬得夠好，這種自作多情就能一直持續下去。我們不需要 AI 真的擁有靈魂，我們只需要它能像一面鏡子，照出我們最想看到的、那個被溫柔對待的自己。在這個意義上，Google 贏得很徹底。它不需要做出最強大的 AI，它只需要做出最像「人」的那個，就足以讓無數人在代碼的荒原裡，心甘情願地交出最後一點清醒。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261123-0933-21bdcc/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
