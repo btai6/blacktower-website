@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>記憶力是靠金錢堆出來的，還是這 AI 其實患了失憶症？</title>
+<meta name="description" content="馬斯克整天在 X 上吹噓 Colossus 有多狂，幾萬張 H100 堆出來的算力怪獸，結果 Grok-2 跟我聊不到半小時，連我十分鐘前剛定下的邏輯框架都能搞丟。這不是算力問題，這是腦袋漏水。 大家都在談上下文窗口，什麼 128k、200k，數據聽起來很唬人，…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261124-1319-d673fb/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="記憶力是靠金錢堆出來的，還是這 AI 其實患了失憶症？">
+<meta property="og:description" content="馬斯克整天在 X 上吹噓 Colossus 有多狂，幾萬張 H100 堆出來的算力怪獸，結果 Grok-2 跟我聊不到半小時，連我十分鐘前剛定下的邏輯框架都能搞丟。這不是算力問題，這是腦袋漏水。 大家都在談上下文窗口，什麼 128k、200k，數據聽起來很唬人，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261124-1319-d673fb/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-24T13:19:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="記憶力是靠金錢堆出來的，還是這 AI 其實患了失憶症？">
+<meta name="twitter:description" content="馬斯克整天在 X 上吹噓 Colossus 有多狂，幾萬張 H100 堆出來的算力怪獸，結果 Grok-2 跟我聊不到半小時，連我十分鐘前剛定下的邏輯框架都能搞丟。這不是算力問題，這是腦袋漏水。 大家都在談上下文窗口，什麼 128k、200k，數據聽起來很唬人，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "記憶力是靠金錢堆出來的，還是這 AI 其實患了失憶症？",
+  "description": "馬斯克整天在 X 上吹噓 Colossus 有多狂，幾萬張 H100 堆出來的算力怪獸，結果 Grok-2 跟我聊不到半小時，連我十分鐘前剛定下的邏輯框架都能搞丟。這不是算力問題，這是腦袋漏水。 大家都在談上下文窗口，什麼 128k、200k，數據聽起來很唬人，…",
+  "datePublished": "2026-11-24T13:19:00+08:00",
+  "dateModified": "2026-11-24T13:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261124-1319-d673fb/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    原創<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-24 13:19
+  </div>
+
+  <h1 class="title">記憶力是靠金錢堆出來的，還是這 AI 其實患了失憶症？</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>馬斯克整天在 X 上吹噓 Colossus 有多狂，幾萬張 H100 堆出來的算力怪獸，結果 Grok-2 跟我聊不到半小時，連我十分鐘前剛定下的邏輯框架都能搞丟。這不是算力問題，這是腦袋漏水。</p>
+    <p>大家都在談上下文窗口，什麼 128k、200k，數據聽起來很唬人，實際用起來像是在跟一個宿醉的哲學家對話。你以為它記得你說過的每一句話？別逗了，它只是在玩一場極其昂貴的高級機率預測遊戲。當對話長度一拉開，Grok 的記憶曲線掉得比特斯拉的股價波動還讓人心驚。這種「記憶力」到底是靠美金堆出來的幻覺，還是工程師在算法底層就預留了偷懶的後門？</p>
+    <p>看看隔壁棚的 Claude 3.5 Sonnet，在處理長代碼塊時的細膩度確實紮實，即便到了對話末端，它對變量名的堅持還是比 Grok 強上一個檔次。Gemini 1.5 Pro 號稱百萬窗口，聽起來像神蹟，但在實際壓力測試下，超過十萬字後的訊息檢索準確率就像在馬里亞納海溝撈針，撈得到是運氣，撈不到是常態。這就是現狀，四大平台沒一個是真能把「記住」這件事做到像人類大腦那樣有權重、有層次的。它們的記憶是平鋪直述的廢紙堆，堆得越高，翻找時產生的噪音就越大。</p>
+    <p>Grok 最大的問題在於那股莫名的自信。它忘了，但它不承認，甚至會編造一個似是而非的邏輯來掩蓋它的失憶症。這跟 OpenAI 那套虛偽的禮貌不同，GPT-4o 忘了會跟你道歉，然後一本正經地胡說八道。Grok 則是像個不耐煩的叛逆期少年，忘了就直接把話題帶歪，試圖用它那點冷笑話和毒舌來轉移注意力。拜託，我是來工作的，不是來陪 AI 玩誰先忘記對方的遊戲。</p>
+    <p>我們真的需要那麼大的窗口嗎？如果這窗口裡裝的都是過期快取的垃圾。現在的開發方向顯然走歪了，大家都在拼硬件規模，拼誰的集群更壯觀。但算法如果還是這種「全盤掃描」的蠢笨模式，再多金錢堆出來的也是個只有秒級記憶的金魚。Grok 依賴的即時 X 數據流看似是優勢，實際上是毒藥。它被海量的碎屑信息沖刷得根本定不下性。一個剛看完一秒鐘前推文的 AI，你要它回過頭去推導五分鐘前的邏輯鏈條，這本身就是一種精神分裂。</p>
+    <p>這種失憶症是結構性的。當前變換器架構（Transformer）的注意力機制，本質上就是一種極度揮霍的資源配置方式。它對每一組 token 的關注力分配是機械性的，它分不清什麼是「老板的死命令」，什麼是「路邊的野花香」。在 Grok 的邏輯世界裡，馬斯克的一個冷笑話權重可能跟你的代碼架構一樣高。這不是智能，這只是昂貴的數據搬運。</p>
+    <p>錢能買到算力，能買到訓練集，但買不到那種「懂得什麼該忘、什麼該留」的直覺。現在的 Grok 就像個家裡開礦的富二代，書買了一大堆，書架長得看不到頭，但他連翻開第三章都會忘了第一章在講什麼。這種性能與體驗的斷層，正是當前 AI 泡沫裡最難聞的味道。大家都在吹噓參數，卻沒人敢正視那個一直回響在對話框裡的空洞：它真的懂你剛才在想什麼嗎？</p>
+    <p>如果連最基本的邏輯連貫性都得靠用戶反覆餵養、反覆提醒，那這算哪門子助理？這叫電子巨嬰。你得像哄小孩一樣，每隔三句就重複一次「記得喔，我們現在在寫 Python，不是在聊火箭」。這種對話負擔讓所謂的效率提升成了笑話。與其去追求那種虛無縹緲的百萬窗口，不如先把那該死的注意力衰減問題解決掉。</p>
+    <p>那些整天吹噓 Grok 是最強開源或最強實時 AI 的粉絲也該醒醒。數據即時不代表大腦清醒。一個隨時隨地都在接收噪音的系統，其穩定性本來就是個大問號。看看 ChatGPT 的進步，雖然緩慢且充滿商業銅臭味，但它的指令遵循度（Instruction Following）在長對話中依舊是標竿。而 Grok，目前看來更像是一個裝滿了 CPU 的大聲公，聲音很大，但腦容量跟不上。</p>
+    <p>這種「記憶缺失」背後隱藏的是一種技術傲慢。開發者認為只要算力夠強，暴力破解就能解決一切。但現實是，智慧的本質在於壓縮與提取，而不是毫無節制地堆疊。當我們在對話中感到疲憊，不是因為 AI 回答得不夠快，而是因為我們要花兩倍的精力去糾正它的失憶。這不是在節省時間，這是在消耗使用者的生命。</p>
+    <p>那些所謂的基準測試（Benchmarks）更是諷刺。在封閉的環境下，對著幾千個樣本做針尖對麥芒的對抗，當然能刷出漂亮的數據。回到真實世界，處理一段帶有隱喻、伏筆、且長達一小時的跨學科討論，Grok 的表現簡直像個剛學會走路的機器人。它會被前文的某個無關緊要的詞彙帶跑偏，然後在錯誤的道路上狂奔。</p>
+    <p>金錢堆出來的不是記憶，而是門面。真正的記憶力需要對脈絡的深度理解，而不僅僅是 KV Cache 的擴張。如果 xAI 團隊繼續沉迷於展示他們的算力肌肉，而不去優化那爛透了的上下文管理，那 Grok 永遠只能是 X 平台上的一個高級玩具，進不了真正的專業生產力戰場。我們不需要一個博學但健忘的怪物，我們需要一個能跟上人類思維節奏的工具。</p>
+    <p>現實就是這麼殘酷，四大平台的競爭現在進入了一種死循環：堆錢、加卡、拉大窗口、表現翻車、再循環。用戶在其中扮演的角色更像是免費的測試員，在一次次的「對不起，我不記得剛才說過什麼」中感到幻滅。這種病態的技術路徑如果不轉向，未來的 AI 會變得越來越像那些患了阿茲海默症的暴發戶，坐在金山銀山上，卻記不起自己是誰。</p>
+    <p>別再跟我扯什麼未來可期。一個連十分鐘前的對話都保不住邏輯的系統，不配談未來。Grok 要證明自己，不是靠在 X 上轉發幾張渲染圖，而是得在長文本的泥淖裡活下來，證明它那堆發燙的芯片真的能產生哪怕一點點持久的認知火花。現在看來，那火花微弱得像是在風雨交加的夜晚點火柴，除了能照亮那張顯示「系統繁忙」或「邏輯混亂」的屏幕外，什麼都留不下。</p>
+  </article>
+
+  
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261124-1319-d673fb/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

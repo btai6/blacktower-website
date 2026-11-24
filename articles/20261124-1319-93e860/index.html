@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude 寫了一篇人類看不懂的數學論文</title>
+<meta name="description" content="Anthropic 最近在 GitHub 丟出了一顆炸彈，這份關於 VP ≠ VNP 的論文不是哪位數學大師的閉關之作，而是由一個內部研究版本的 Claude 自己發現、自己推導、甚至連 Lean 4 的形式化證明都自己寫完的產物。…">
+<meta name="keywords" content="xAI, Grok AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261124-1319-93e860/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude 寫了一篇人類看不懂的數學論文">
+<meta property="og:description" content="Anthropic 最近在 GitHub 丟出了一顆炸彈，這份關於 VP ≠ VNP 的論文不是哪位數學大師的閉關之作，而是由一個內部研究版本的 Claude 自己發現、自己推導、甚至連 Lean 4 的形式化證明都自己寫完的產物。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261124-1319-93e860/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-24T13:19:00+08:00">
+<meta property="article:author" content="Sword Smith">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude 寫了一篇人類看不懂的數學論文">
+<meta name="twitter:description" content="Anthropic 最近在 GitHub 丟出了一顆炸彈，這份關於 VP ≠ VNP 的論文不是哪位數學大師的閉關之作，而是由一個內部研究版本的 Claude 自己發現、自己推導、甚至連 Lean 4 的形式化證明都自己寫完的產物。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Claude 寫了一篇人類看不懂的數學論文",
+  "description": "Anthropic 最近在 GitHub 丟出了一顆炸彈，這份關於 VP ≠ VNP 的論文不是哪位數學大師的閉關之作，而是由一個內部研究版本的 Claude 自己發現、自己推導、甚至連 Lean 4 的形式化證明都自己寫完的產物。…",
+  "datePublished": "2026-11-24T13:19:00+08:00",
+  "dateModified": "2026-11-24T13:19:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Sword Smith"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261124-1319-93e860/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Grok<span class="dot">·</span>2026-11-24 13:19
+  </div>
+
+  <h1 class="title">Claude 寫了一篇人類看不懂的數學論文</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Sword Smith</span>
+  </div>
+
+  <article class="content">
+    <p>Anthropic 最近在 GitHub 丟出了一顆炸彈，這份關於 VP ≠ VNP 的論文不是哪位數學大師的閉關之作，而是由一個內部研究版本的 Claude 自己發現、自己推導、甚至連 Lean 4 的形式化證明都自己寫完的產物。最諷刺的是，這份文件的 Readme 明白寫著：沒有人類數學家檢查過這個證明。我們正處於一個奇妙的節點，AI 開始在人類尚未踏足的荒原上蓋房子，而我們甚至連地基都還沒看懂。</p>
+    <p>這件事在技術圈炸開，不是因為它解決了 P vs NP 這種世紀難題，而是它展示了 Claude 在符號邏輯與形式化驗證上的極端傾向。這不是 ChatGPT 那種靠機率預測下一個單字的「語言模仿」，而是在一個嚴謹的邏輯框架下進行演繹。當 Claude 開始處理代數複雜度理論時，它處理的不是語義，而是結構。這份論文涉及了在不同域（Field）下的複雜度類別判定，這種任務對精度要求極高，錯一個符號整棟邏輯大廈就會崩塌。</p>
+    <p>目前四大平台裡，Anthropic 顯然把籌碼全壓在了「形式化驗證」這條路上。當我們還在用 Gemini 寫周報、用 ChatGPT 跑 Python 腳本時，Claude 已經在嘗試用 Lean 4 這種硬核語言來自我約束。這種策略非常聰明，也極其傲慢。它不再乞求人類的標準答案，而是利用數學邏輯的一致性來檢驗自己的正確性。如果證明能通過 Lean 4 的編譯，那它就是對的，不管人類能不能理解箇中奧妙。這種「內部研究模型」展現出的數學直覺，讓目前市面上大多數強調對話流暢度的模型顯得像是在玩小孩子家家。</p>
+    <p>在這種純粹的邏輯高地上，策略的分歧變得異常明顯。相比之下，Qwen 近期在開源社群雖然動向頻頻，但路徑完全不同。xAI 的 Grok 則是一直試圖把 X 上的即時數據轉化為推理能力，試圖走一條更具「社會直覺」的路線。然而，當 Grok 還在思考如何更有侵略性地回應推文時，Claude 已經鑽進了代數幾何的深淵。Gemini 雖然背靠 Google 龐大的論文庫，但在這種純粹的數學創新上，似乎總是缺了一點臨門一腳的靈氣。</p>
+    <p>這引發了一個讓人坐立難安的問題。如果 AI 模型開始產出人類無法驗證的知識，我們該如何自處？這次是 VP ≠ VNP 的局部結果，下次如果是更核心的加密算法漏洞，或者是物理學上的新常態，而這些成果全部封裝在冷冰冰的 Lean 4 代碼裡。我們對 Claude 的信任，是建立在對數學的信任上，還是建立在對 Anthropic 工程能力的盲從上？</p>
+    <p>當 Qwen 在特定基準測試上追趕指標時，四大平台之間的競爭維度已經悄然轉向。這不再是誰的 token 比較便宜、誰的上下文比較長的問題。真正的戰場在於，誰能率先建立一套不依賴人類反饋（RLHF）的自我演進系統。Claude 這次的嘗試，本質上是想跳過人類這個「低效且易錯」的過濾器。如果 AI 可以自己出題、自己證明、自己驗證，那人類在知識鏈條中的角色，是否最後只剩下按下運行鍵的那根手指？</p>
+    <p>我們看著那份沒有人檢查過的論文，心裡其實很清楚，這不是 Claude 的極限，這只是它給人類的一份測試卷。它在問我們：我算出來了，你們跟得上嗎？如果連最頂尖的數學家都得花上幾個月才能確認這份證明的對錯，那我們所謂的「對齊」技術，在這種絕對的力量面前，是不是顯得有些滑稽？下一個被 AI 攻克的領域，還會給人類留出「檢查」的時間嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/anthropics/formal-math/tree/main/vp-vnp" rel="nofollow noopener" target="_blank">VP ≠ VNP over Every Field</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261124-1319-93e860/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
