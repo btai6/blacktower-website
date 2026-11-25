@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 4 Neon 把模型層級玩成了週期表</title>
+<meta name="description" content="Google 命名部大概是全公司最忙碌的單位。當 Gemini 4 Neon 帶著一堆化學元素與星體代號出現在開發者視線裡時，那種熟悉的神經質又回來了。這不是單純的版本迭代，而是一種對模型生態位的重新定義。我們剛習慣了 Pro 和 Flash 的二元敘事，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261125-1206-c43bd4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 4 Neon 把模型層級玩成了週期表">
+<meta property="og:description" content="Google 命名部大概是全公司最忙碌的單位。當 Gemini 4 Neon 帶著一堆化學元素與星體代號出現在開發者視線裡時，那種熟悉的神經質又回來了。這不是單純的版本迭代，而是一種對模型生態位的重新定義。我們剛習慣了 Pro 和 Flash 的二元敘事，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261125-1206-c43bd4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-25T12:06:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 4 Neon 把模型層級玩成了週期表">
+<meta name="twitter:description" content="Google 命名部大概是全公司最忙碌的單位。當 Gemini 4 Neon 帶著一堆化學元素與星體代號出現在開發者視線裡時，那種熟悉的神經質又回來了。這不是單純的版本迭代，而是一種對模型生態位的重新定義。我們剛習慣了 Pro 和 Flash 的二元敘事，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 4 Neon 把模型層級玩成了週期表",
+  "description": "Google 命名部大概是全公司最忙碌的單位。當 Gemini 4 Neon 帶著一堆化學元素與星體代號出現在開發者視線裡時，那種熟悉的神經質又回來了。這不是單純的版本迭代，而是一種對模型生態位的重新定義。我們剛習慣了 Pro 和 Flash 的二元敘事，…",
+  "datePublished": "2026-11-25T12:06:00+08:00",
+  "dateModified": "2026-11-25T12:06:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261125-1206-c43bd4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-25 12:06
+  </div>
+
+  <h1 class="title">Gemini 4 Neon 把模型層級玩成了週期表</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>Google 命名部大概是全公司最忙碌的單位。當 Gemini 4 Neon 帶著一堆化學元素與星體代號出現在開發者視線裡時，那種熟悉的神經質又回來了。這不是單純的版本迭代，而是一種對模型生態位的重新定義。我們剛習慣了 Pro 和 Flash 的二元敘事，Neon 的出現卻在暗示 Google 打算把模型精細化到像工業零件一樣，每個規格都有專屬的導熱係數。在開發者社區裡，這種「模型輪盤賭」的焦慮正在蔓延，因為沒人知道今天剛調優好的 Prompt，明天會不會在 Carbon 或 Argon 的新參數下崩潰。</p>
+    <p>這種頻繁發布的節奏，本質上是 Google 在解決長久以來的「中量級」困境。過去，我們在處理複雜邏輯時會直覺選擇 Claude 3.5 Sonnet，因為它在推理深度與響應速度之間抓到了那個神祕的平衡點。Gemini 以前的 Pro 版本總讓人覺得差了口氣，像是個博而不精的圖書館員，回答四平八穩但缺乏靈光。Neon 的定位很明確，它是要從底層邏輯上接替 3.1 Pro，試圖在多模態理解的細粒度上與 GPT-4o 扳手腕。尤其是在處理長上下文的注意力分配上，Neon 表現出了一種近乎偏執的精準，它不再像舊版本那樣在超過 20 萬 token 後就開始胡言亂語，而是能更冷靜地在文檔深處撈出那個被埋沒的關鍵變量。</p>
+    <p>這種技術進步是帶點侵略性的。如果你觀察 Gemini 近期在 Function Calling 上的穩定性，會發現它正在試圖繞過單純的文本生成，轉而成為一個更底層的調度員。這跟 OpenAI 那種試圖把模型做成萬能大腦的路徑不同，Google 似乎更傾向於把模型拆解成不同能級的原子。Neon 就像是它的「惰性氣體」，穩定、中性、適配於各種高壓的工業環境。當你在 AGY 環境下調用它時，那種對結構化數據的敏感度，確實讓它在面對複雜 JSON 結構時，比現在的 GPT-4o 更有韌性。</p>
+    <p>在這種快速迭代的背景下，市場上的參照系變得很微妙。相較於 Qwen 近期在開源領域的動作，Google 的做法是完全放棄了對單一模型全能性的追求，轉而用密集的發布節奏來覆蓋所有的邊緣場景。開發者在面對 Qwen 時可能還會考慮微調的可能性，但在面對 Gemini 的元素週期表時，你唯一能做的就是不斷地切換 API Key，測試哪一個元素最適合你當前的容器。這種封閉生態內的快速演進，讓原本屬於四大平台的競爭，逐漸演變成了一場關於「誰能提供最精確工具箱」的競賽。</p>
+    <p>相比之下，Claude 依然守著它那份文人式的清高，Sonnet 的每一次微調都克制得像是在修剪盆栽。而 Grok 則繼續在另一個極端瘋狂試探，用最粗暴的數據灌溉出最不可預測的結果。Google 走的是第三條路，它把模型開發變成了一種化學實驗，不斷地合成新物質，然後扔到市場上看看反應。這種策略雖然讓 API 文檔變得像天書一樣難懂，卻也確實填補了許多特定任務下的空白。只是對於那些不具備學生帳號權限、或者不願為了一次測試就支付高昂費用的獨立開發者來說，這種「全家桶」式的更新節奏，更像是一種溫柔的放逐。</p>
+    <p>當我們把目光從這些閃爍的代號上移開，會發現一個更深刻的矛盾。我們究竟是需要一個像 GPT-4o 那樣，能解決 90% 問題的通用神諭，還是需要像 Gemini 這樣，把世界拆解成 Neon、Argon、Fable 等無數個專用組件？如果未來每一種特定的技術場景都需要對應一個專屬代號的模型，那模型開發本身會不會退化成一種複雜的索引工作？當 Google 下一次發布「Helix」或「Luna」時，我們是真的獲得了更強大的工具，還是僅僅是在這個越來越擁擠的元素週期表裡，又多記住了一個毫無意義的化學符號？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" rel="nofollow noopener" target="_blank">Gemini 4 Neon</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261125-1206-c43bd4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

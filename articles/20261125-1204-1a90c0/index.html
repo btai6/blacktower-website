@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矩陣乘法算力稅的盡頭是九分之四</title>
+<meta name="description" content="OpenAI 在 GitHub 上默默扔出的那個數學倉庫，像是在平靜的湖面丟了一塊鉛磚。這兩天 Hacker News 上那群對複雜度極度焦慮的人，正為了矩陣乘法指數到底是不是 $\Theta(n^{2.25})$ 吵得不可開交。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261125-1204-1a90c0/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩陣乘法算力稅的盡頭是九分之四">
+<meta property="og:description" content="OpenAI 在 GitHub 上默默扔出的那個數學倉庫，像是在平靜的湖面丟了一塊鉛磚。這兩天 Hacker News 上那群對複雜度極度焦慮的人，正為了矩陣乘法指數到底是不是 $\Theta(n^{2.25})$ 吵得不可開交。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261125-1204-1a90c0/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-25T12:04:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="矩陣乘法算力稅的盡頭是九分之四">
+<meta name="twitter:description" content="OpenAI 在 GitHub 上默默扔出的那個數學倉庫，像是在平靜的湖面丟了一塊鉛磚。這兩天 Hacker News 上那群對複雜度極度焦慮的人，正為了矩陣乘法指數到底是不是 $\Theta(n^{2.25})$ 吵得不可開交。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "矩陣乘法算力稅的盡頭是九分之四",
+  "description": "OpenAI 在 GitHub 上默默扔出的那個數學倉庫，像是在平靜的湖面丟了一塊鉛磚。這兩天 Hacker News 上那群對複雜度極度焦慮的人，正為了矩陣乘法指數到底是不是 $\\Theta(n^{2.25})$ 吵得不可開交。…",
+  "datePublished": "2026-11-25T12:04:00+08:00",
+  "dateModified": "2026-11-25T12:04:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261125-1204-1a90c0/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-25 12:04
+  </div>
+
+  <h1 class="title">矩陣乘法算力稅的盡頭是九分之四</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>OpenAI 在 GitHub 上默默扔出的那個數學倉庫，像是在平靜的湖面丟了一塊鉛磚。這兩天 Hacker News 上那群對複雜度極度焦慮的人，正為了矩陣乘法指數到底是不是 $\Theta(n^{2.25})$ 吵得不可開交。雖然大家心裡都清楚，這種純理論的邊際突破，離實際工程落地還有好幾光年的距離，但對於那些天天燒著千萬美金卡債、在 $O(n^3)$ 和 Strassen 算法邊緣試探的巨頭來說，這 0.12 的指數優化，簡直像是從死神手裡搶回來的算力配額。</p>
+    <p>我們在談論大模型時，往往忽視了底層最枯燥的運算單元。現在的四大平台，本質上就是在瘋狂堆疊矩陣乘法的效率。當 OpenAI 的技術人員開始在討論中暗示 $\omega$ 剛好等於 2.25，而不是之前的 2.371 時，這背後折射出的不僅是數學上的美感，而是對 Token 成本的極致壓榨。如果你用過 ChatGPT 的 API 就會發現，推理速度的瓶頸從來不在於模型多聰明，而在於矩陣運算在硬體上的吞吐極限。現在有人跳出來說，我們可能一直高估了這個數學黑洞的胃口，這對那些正處於算力焦慮末期的架構師來說，無疑是一劑強心針。</p>
+    <p>從技術底層來看，矩陣乘法指數的每一次下修，理論上都預示著參數規模的進一步解鎖。Claude 在處理長文本任務時，對上下文窗口的檢索效率極大程度上依賴於矩陣運算的優化。如果 $\Theta(n^{2.25})$ 是真理，那麼 Claude 未來在 200k 甚至更高 token 下的注意力衰減問題，或許能通過底層算子重構得到緩解。這不是在修補軟體，這是在重新定義物理定律。</p>
+    <p>而在這場關於算力效率的軍備競賽中，觀察不同平台的反應很有趣。相較於 Qwen 在中文語境下的工程適配，OpenAI 顯然更痴迷於這種底層理論的重塑。當大家還在爭論模型會不會寫詩的時候，這群人已經在算計如何讓矩陣乘法少跑幾個循環。這種對「九分之四」的執念，其實是在為 AGI 鋪設一條更窄但更快的跑道。Gemini 在多模態對齊時，面對海量的張量運算，如果能吃下這波理論紅利，其推理成本的下降曲線將會非常驚人。</p>
+    <p>不過，理論上的 $2.25$ 真的能救命嗎？現實往往比論文殘酷。Grok 在處理實時推特數據流時，面對的是極其破碎且非對稱的矩陣，這種針對方陣的理論優化能不能跨越到長方形矩陣的實戰中，目前看來還是一團迷霧。即便是在 Qwen 等模型頻繁刷榜的基準測試裡，我們也很難看到這種底層算法更新帶來的直接體感提升。畢竟，從公式裡的 $n^{2.25}$ 到 CUDA 內核裡的熱量散發，中間隔著無數個編譯器的詛咒。</p>
+    <p>我們現在陷入了一種奇妙的境地：一方面是模型層面的競爭已經進入了堆料的死胡同，另一方面是數學家在後方拼命告訴你，其實不需要這麼多料。如果 $\omega$ 真的精確等於 2.25，那麼現有的硬體架構是不是從一開始就走偏了？當 OpenAI 的開發者在 GitHub 上貼出那些複雜度證明時，他們是在展示力量，還是在嘲諷我們對算力的浪費？</p>
+    <p>如果矩陣乘法的極限真的是 2 而不是 2.25，這世界會變成什麼樣？我們現在視若珍寶的那些算力集群，會不會在一夜之間變成堆積如山的電子垃圾？又或者，我們對 AGI 的想像力，其實一直被這些還沒算清楚的指數給限制住了？當模型終於能像大腦一樣高效運作時，我們還有理由抱怨 API 太貴嗎？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf" rel="nofollow noopener" target="_blank">Matrix Multiplication is Θ(n^2.25) [pdf]</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261125-1204-1a90c0/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

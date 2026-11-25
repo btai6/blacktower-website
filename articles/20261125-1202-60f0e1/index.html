@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當形式化證明成為競技場上的群眾運動</title>
+<meta name="description" content="數學證明不再只是躲在格丁根或普林斯頓的象牙塔裡，對著幾張寫滿希臘字母的草稿紙苦思冥想。Alessandro Masullo 的手稿正在 Lean 的進度條上被公開解剖，這種景象像極了當年數萬人同時在線操作同一個遊戲角色的荒誕與壯烈。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261125-1202-60f0e1/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當形式化證明成為競技場上的群眾運動">
+<meta property="og:description" content="數學證明不再只是躲在格丁根或普林斯頓的象牙塔裡，對著幾張寫滿希臘字母的草稿紙苦思冥想。Alessandro Masullo 的手稿正在 Lean 的進度條上被公開解剖，這種景象像極了當年數萬人同時在線操作同一個遊戲角色的荒誕與壯烈。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261125-1202-60f0e1/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-25T12:02:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當形式化證明成為競技場上的群眾運動">
+<meta name="twitter:description" content="數學證明不再只是躲在格丁根或普林斯頓的象牙塔裡，對著幾張寫滿希臘字母的草稿紙苦思冥想。Alessandro Masullo 的手稿正在 Lean 的進度條上被公開解剖，這種景象像極了當年數萬人同時在線操作同一個遊戲角色的荒誕與壯烈。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當形式化證明成為競技場上的群眾運動",
+  "description": "數學證明不再只是躲在格丁根或普林斯頓的象牙塔裡，對著幾張寫滿希臘字母的草稿紙苦思冥想。Alessandro Masullo 的手稿正在 Lean 的進度條上被公開解剖，這種景象像極了當年數萬人同時在線操作同一個遊戲角色的荒誕與壯烈。…",
+  "datePublished": "2026-11-25T12:02:00+08:00",
+  "dateModified": "2026-11-25T12:02:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261125-1202-60f0e1/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-25 12:02
+  </div>
+
+  <h1 class="title">當形式化證明成為競技場上的群眾運動</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>數學證明不再只是躲在格丁根或普林斯頓的象牙塔裡，對著幾張寫滿希臘字母的草稿紙苦思冥想。Alessandro Masullo 的手稿正在 Lean 的進度條上被公開解剖，這種景象像極了當年數萬人同時在線操作同一個遊戲角色的荒誕與壯烈。當一個宣稱解決了黎曼猜想或其他千禧年大獎難題的證明被扔進公共論域，人類的直覺往往先於邏輯崩潰，而我們現在正試圖用機器代碼來修補這種崩潰。</p>
+    <p>這種將數學直覺翻譯成機器可驗證語言的過程，本質上是對 AI 邏輯極限的終極測試。目前在處理這類極端嚴苛的邏輯鏈條時，Claude 表現出了一種令人不安的「潔癖」。當你將一段未經證實的數學推導餵給 Claude 時，它不會像其他模型那樣急於給出肯定的讚美，而是會反覆糾結於符號定義的歧義。在超過 5 萬 token 的長上下文長度下，Claude 對於邏輯一致性的追蹤能力確實領先，它能捕捉到你在第十頁提到的一個引理與第五十頁結論之間的隱微矛盾。這種能力在這種「集體形式化」運動中至關重要，因為數學證明不是堆砌辭藻，只要有一個邏輯漏洞，整座大廈就會瞬間坍塌。</p>
+    <p>目前的技術環境下，我們看到一種分化。ChatGPT 在輔助撰寫 Lean 代碼時，更傾向於給出生產力導向的建議，它像是一個熟練的翻譯官，能迅速將自然語言描述轉化為代碼片段，但在處理深層邏輯推演時，偶爾會出現邏輯滑坡，試圖用直覺跳過那些繁瑣的證明步驟。相比之下，Gemini 在處理這類多模態或長程邏輯任務時，表現得像是一個博而不精的圖書館管理員，它能準確定位到相關的數學文獻，但在實際參與形式化推導的實操中，其穩定性在處理超過 20 個嵌套函數調用時會出現明顯的抖動。</p>
+    <p>這種現象在技術社群引發了有趣的討論。相較於 Qwen，Claude 在處理抽象數學邏輯的嚴密性上顯然更符合學術界的要求。當研究人員試圖利用 AI 來自動填充證明過程中的細枝末節時，模型的「幻覺」就變成了致命傷。我們需要的不是一個會寫漂亮代碼的詩人，而是一個永遠不會疲倦、對每一個等號都抱持懷疑態度的審核員。在這一點上，Grok 的表現則顯得過於激進，它在處理邊界條件時往往帶有一種不必要的冒險精神，這在嚴謹的數學證明面前顯得格格不入。</p>
+    <p>我們正處於一個奇特的轉折點。一方面是像 Alessandro Masullo 手稿這樣的高難度挑戰，另一方面是我們對 AI 邏輯能力的過度依賴。如果一個證明在 Lean 上跑通了，但沒有任何一個人類能真正理解其背後的數學本質，這究竟算不算是「解決」了問題？當我們在討論 Claude 如何比其他模型更精準地識別邏輯斷裂時，我們實際上是在承認，人類的理性邊界已經需要靠矽片來重新劃定。</p>
+    <p>這種群眾運動式的形式化證明，到底是科學進步的新範式，還是一場昂貴的計算資源浪費？當我們看著進度條緩緩移動，我們是在見證真理的誕生，還是僅僅在驗證一堆可能從根源上就錯了的邏輯符號？如果有一天，AI 告訴我們某個偉大猜想的證明是成立的，但它給出的邏輯路徑長到人類大腦無法在有限生命內處理完畢，我們該選擇盲從，還是選擇放棄？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://claude.ai/artifact/CtQyX8qfYAF822bgHJHHE3" rel="nofollow noopener" target="_blank">Progress map for the Lean formalization of Alessandro Masullo&#x27;s manuscript</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261125-1202-60f0e1/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
