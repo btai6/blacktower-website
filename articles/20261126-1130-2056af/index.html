@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini 的榜單焦慮與工程師的體感溫差</title>
+<meta name="description" content="把一個大型 Monorepo 從 Java 遷移到 Go，這種枯燥且充滿陷阱的工作，往往是檢驗模型成色最好的試金石。最近 Gemini 在某些工程指標榜單上爬到了第一，但 Hacker News 上的討論卻顯得很冷淡。這種數據上的狂歡與開發者手中的體感，…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261126-1130-2056af/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini 的榜單焦慮與工程師的體感溫差">
+<meta property="og:description" content="把一個大型 Monorepo 從 Java 遷移到 Go，這種枯燥且充滿陷阱的工作，往往是檢驗模型成色最好的試金石。最近 Gemini 在某些工程指標榜單上爬到了第一，但 Hacker News 上的討論卻顯得很冷淡。這種數據上的狂歡與開發者手中的體感，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261126-1130-2056af/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-26T11:30:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gemini 的榜單焦慮與工程師的體感溫差">
+<meta name="twitter:description" content="把一個大型 Monorepo 從 Java 遷移到 Go，這種枯燥且充滿陷阱的工作，往往是檢驗模型成色最好的試金石。最近 Gemini 在某些工程指標榜單上爬到了第一，但 Hacker News 上的討論卻顯得很冷淡。這種數據上的狂歡與開發者手中的體感，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Gemini 的榜單焦慮與工程師的體感溫差",
+  "description": "把一個大型 Monorepo 從 Java 遷移到 Go，這種枯燥且充滿陷阱的工作，往往是檢驗模型成色最好的試金石。最近 Gemini 在某些工程指標榜單上爬到了第一，但 Hacker News 上的討論卻顯得很冷淡。這種數據上的狂歡與開發者手中的體感，…",
+  "datePublished": "2026-11-26T11:30:00+08:00",
+  "dateModified": "2026-11-26T11:30:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261126-1130-2056af/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-26 11:30
+  </div>
+
+  <h1 class="title">Gemini 的榜單焦慮與工程師的體感溫差</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>把一個大型 Monorepo 從 Java 遷移到 Go，這種枯燥且充滿陷阱的工作，往往是檢驗模型成色最好的試金石。最近 Gemini 在某些工程指標榜單上爬到了第一，但 Hacker News 上的討論卻顯得很冷淡。這種數據上的狂歡與開發者手中的體感，中間隔著一道深不見底的溝壑。很多人抱怨 Google 的模型總是給人一種為了跑分而優化的錯覺，一旦進入實際的 coding 場景，邏輯的斷裂感依然比 Claude 或 GPT-4o 明顯。</p>
+    <p>一個具體的技術細節在於長文本任務中的注意力分配。當我們在 Gemini 的 context window 裡塞進數萬行代碼，試圖進行跨模組的邏輯重構時，它展現出的速度確實令人驚艷。相較於 Claude 3.5 Sonnet 那種優雅但偶爾會因為 safety filter 誤觸而中斷的脾氣，Gemini 顯得更像一個不眠不休的搬運工。然而，速度不等於準確。在處理複雜的依賴注入或異步處理邏輯時，Gemini 容易在 context 的中段出現「幻覺」，它會憑空捏造一個不存在的 method，或者遺漏掉關鍵的 error handling。這種行為在小規模的 benchmark 測驗中很難被捕捉到，但在實際的生產環境裡，這意味著開發者需要花兩倍的時間去 debug 那些看起來寫得很漂亮的垃圾代碼。</p>
+    <p>Google 似乎一直陷在「參數與架構」的自我證明裡。從 API 的接入流程就能看出端倪，你想獲取一個簡單的 API Key，卻得在 Google Cloud Console 那迷宮般的菜單裡繞上十五分鐘，這種產品邏輯與開發者追求的「簡潔、直接」背道而馳。反觀 OpenAI 的 Playground 或 Anthropic 的接口設計，那種對工程直覺的尊重是 Google 至今仍未學會的。我們在乎的不僅是模型輸出的 token 速度，還有從想法到實現之間的摩擦係數。如果一個模型在榜單上是神，但在我的 IDE 裡卻像個聽不懂指令的實習生，那這個榜單的含金量就值得玩味了。</p>
+    <p>在目前的技術環境下，DeepSeek 的模型調用成本與響應速度常被提及，而 Google 在面對這種壓力時，選擇了用更激進的量化技術和推理優化來換取榜單上的排名。但在實際的長程語言遷移任務中，Gemini 的表現與 Claude 相比，依然缺乏一種對代碼語境的深層理解力。Claude 能夠在理解業務邏輯的前提下進行重構，而 Gemini 往往只是在做語法層面的對應。這種差異在處理遺留系統（Legacy System）時尤為致命，因為舊代碼裡充滿了不規範的命名和隱晦的邏輯，模型如果只會「跑分」，那它輸出的代碼質量通常只能停留在 demo 級別。</p>
+    <p>這種現象背後折射出的是開發者社群的一種信任危機。當一個基準測試是由模型開發者自己提交、自己定義規則時，它就失去了解釋力。我們在 Github 上看到越來越多的個人開發者開始建立自己的評測集，用那些真正折磨人的 bug 來測試模型。在這些非官方的戰場上，Gemini 想要贏得像 GPT-4 剛發布時那種統治地位，還有很長的路要走。</p>
+    <p>既然速度與成本已經不再是絕對的護城河，那麼下一步的競爭焦點會在哪裡？是更精準的長文本檢索（Needle In A Haystack），還是對開發者意圖的模糊捕捉能力？如果未來的模型都能在三秒內給出答案，我們是否還會在意誰在榜單上多拿了零點幾分？或者說，當代碼生成變得極度廉價且快速時，我們人類工程師的角色，是不是終將演變成一個疲於奔命的代碼審查員，去填補那些「榜單第一」模型留下的邏輯漏洞？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://git-aarvin.github.io/mei/" rel="nofollow noopener" target="_blank">Gemini 4 Neon is the new #1 on the Models Engineering Index</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261126-1130-2056af/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

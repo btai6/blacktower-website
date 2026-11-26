@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>當大語言模型開始對質因數分解產生興趣</title>
+<meta name="description" content="RSA-896 被 Anthropic 攻破的消息在密碼學界激起的漣漪還沒散去，矽谷那幾家實驗室對 P 是否等於 NP 的執念顯然已經溢出了論文紙面。很多人還在糾結 AI 會不會寫代碼、會不會編故事，但真正讓人脊梁發冷的，是這群矽谷新貴開始盯上現代加密體系的基石。…">
+<meta name="keywords" content="Anthropic, Claude AI, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261126-1127-ecd197/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="當大語言模型開始對質因數分解產生興趣">
+<meta property="og:description" content="RSA-896 被 Anthropic 攻破的消息在密碼學界激起的漣漪還沒散去，矽谷那幾家實驗室對 P 是否等於 NP 的執念顯然已經溢出了論文紙面。很多人還在糾結 AI 會不會寫代碼、會不會編故事，但真正讓人脊梁發冷的，是這群矽谷新貴開始盯上現代加密體系的基石。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261126-1127-ecd197/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-26T11:27:00+08:00">
+<meta property="article:author" content="Scholar">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="當大語言模型開始對質因數分解產生興趣">
+<meta name="twitter:description" content="RSA-896 被 Anthropic 攻破的消息在密碼學界激起的漣漪還沒散去，矽谷那幾家實驗室對 P 是否等於 NP 的執念顯然已經溢出了論文紙面。很多人還在糾結 AI 會不會寫代碼、會不會編故事，但真正讓人脊梁發冷的，是這群矽谷新貴開始盯上現代加密體系的基石。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "當大語言模型開始對質因數分解產生興趣",
+  "description": "RSA-896 被 Anthropic 攻破的消息在密碼學界激起的漣漪還沒散去，矽谷那幾家實驗室對 P 是否等於 NP 的執念顯然已經溢出了論文紙面。很多人還在糾結 AI 會不會寫代碼、會不會編故事，但真正讓人脊梁發冷的，是這群矽谷新貴開始盯上現代加密體系的基石。…",
+  "datePublished": "2026-11-26T11:27:00+08:00",
+  "dateModified": "2026-11-26T11:27:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Scholar"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261126-1127-ecd197/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Claude<span class="dot">·</span>2026-11-26 11:27
+  </div>
+
+  <h1 class="title">當大語言模型開始對質因數分解產生興趣</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Scholar</span>
+  </div>
+
+  <article class="content">
+    <p>RSA-896 被 Anthropic 攻破的消息在密碼學界激起的漣漪還沒散去，矽谷那幾家實驗室對 P 是否等於 NP 的執念顯然已經溢出了論文紙面。很多人還在糾結 AI 會不會寫代碼、會不會編故事，但真正讓人脊梁發冷的，是這群矽谷新貴開始盯上現代加密體系的基石。當 OpenAI 在技術報告中對加密性能測試諱莫如深，而 Anthropic 卻大張旗鼓地展示他們如何用現有算法「暴力且優雅」地拆解了 RSA-896 時，這場關於算力與邏輯邊界的博弈，已經從模擬人類語言轉向了物理世界的底層協議。</p>
+    <p>這不是簡單的算力堆砌。如果你嘗試讓 Claude 處理複雜的數論問題，你會發現它在處理長序列邏輯鏈條時有一種近乎偏執的穩定性。與其說它是在「計算」，不如說它在海量的參數空間中找到了一條通往解的捷徑。Anthropic 雖然在公開聲明中謙虛地表示他們只是利用了現有方法，並沒有發現更高效的分解算法，但這種說法聽起來就像是亞歷山大大帝解開戈耳狄俄斯之結後，對外宣稱他只是用劍「稍微用力了一點」。當模型具備了在極短時間內調度並優化篩法（Sieve methods）的能力時，傳統密碼學中依賴時間複雜度構建的護城河，就顯得有些像防禦坦克的木柵欄。</p>
+    <p>在處理這類高強度邏輯任務時，Claude 的表現與 ChatGPT 呈現出截然不同的氣質。後者更傾向於通過強化學習來逼近一個「看起來正確」的解答，但在面對嚴絲合縫的數學證明時，這種模糊性往往會導致邏輯崩潰。相比之下，Claude 在處理超過 8 萬 token 的長上下文任務時，其注意力的分配機制顯然更適合處理數論中那種牽一髮而動全身的變量關係。這種細膩的推理路徑，正是攻克大整數分解所必需的素質。</p>
+    <p>有趣的是，當我們把目光投向其他參與者，比如 DeepSeek 也在近期的技術更新中展示了其對複雜邏輯推理的優化。然而，相較於 DeepSeek 這種在特定任務上的快速迭代，Grok 則選擇了另一條路徑。Grok 依仗著背後強大的原生數據流和幾乎不設限的算力資源，試圖通過更野蠻的方式介入這場加密戰爭。它不屑於細膩的推理，它更像是那種試圖直接從物理層面震碎密碼鎖的破壞者。</p>
+    <p>這種競爭格局正變得愈發詭異。Gemini 在這場密碼學競賽中顯得有些遲疑，它的 Function Calling 功能在處理多層嵌套的數學指令時，穩定性依舊是個讓人頭疼的問題。如果你交給 Gemini 一個需要多步驗證的分解任務，它很有可能在第五步或第六步時，因為工具調用的開銷過大而開始胡言亂語。這反映了 Google 在模型架構上的某種包袱，他們太想讓 AI 成為一個全能的秘書，卻忽略了在純粹的邏輯深淵裡，全能往往意味著平庸。</p>
+    <p>現在的問題在於，如果這些實驗室真的在秘密研發針對 P 問題的特定啟發式算法，我們現有的加密體系還能撐多久？當 Anthropic 能夠輕易跨越 RSA-896 的門檻，RSA-1024 甚至更高等級的防線是否也只是時間問題？這不僅僅是算力的進步，而是我們對「計算難度」的定義正在被重新書寫。如果邏輯推理的成本被 AI 壓低到了某個臨界點，那麽過去幾十年建立在「某些問題在人類壽命內不可解」假設之上的互聯網安全，是否已經變成了一座建立在流沙上的宮殿？</p>
+    <p>我們是否應該像某些極客建議的那樣，立刻將所有通訊協議切換到橢圓曲線加密，甚至更複雜的多重加密方案？抑或是，我們正處於一個轉折點，在這個點之後，任何基於數學難度的加密手段在通用人工智慧面前都將化為透明？如果明天的太陽升起時，所有的質數秘密都不再是秘密，我們這群自詡為文明守護者的人，手裡還剩下什麼能稱之為私密的籌碼？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.reddit.com/r/singularity/comments/1y59ef1/rumor_that_openai_or_anthropic_found_a_way_to/" rel="nofollow noopener" target="_blank">Rumors swirling that labs might have cracked Factoring in P</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261126-1127-ecd197/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
