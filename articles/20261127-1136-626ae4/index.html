@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 沒說出口的密碼學實驗與大語言模型的算力邊界</title>
+<meta name="description" content="Sam Altman 最近在各種場合大談算力與能源，但 OpenAI 剛流出的技術文件裡，密碼學卻成了唯一的空白頁。這種沉默很有意思。Hacker News 上那群技術極客已經開始疑神疑鬼，覺得大模型是不是真的摸到了質因數分解（Factoring）在多項式時間內解決的門檻。…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261127-1136-626ae4/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 沒說出口的密碼學實驗與大語言模型的算力邊界">
+<meta property="og:description" content="Sam Altman 最近在各種場合大談算力與能源，但 OpenAI 剛流出的技術文件裡，密碼學卻成了唯一的空白頁。這種沉默很有意思。Hacker News 上那群技術極客已經開始疑神疑鬼，覺得大模型是不是真的摸到了質因數分解（Factoring）在多項式時間內解決的門檻。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261127-1136-626ae4/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-27T11:36:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 沒說出口的密碼學實驗與大語言模型的算力邊界">
+<meta name="twitter:description" content="Sam Altman 最近在各種場合大談算力與能源，但 OpenAI 剛流出的技術文件裡，密碼學卻成了唯一的空白頁。這種沉默很有意思。Hacker News 上那群技術極客已經開始疑神疑鬼，覺得大模型是不是真的摸到了質因數分解（Factoring）在多項式時間內解決的門檻。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 沒說出口的密碼學實驗與大語言模型的算力邊界",
+  "description": "Sam Altman 最近在各種場合大談算力與能源，但 OpenAI 剛流出的技術文件裡，密碼學卻成了唯一的空白頁。這種沉默很有意思。Hacker News 上那群技術極客已經開始疑神疑鬼，覺得大模型是不是真的摸到了質因數分解（Factoring）在多項式時間內解決的門檻。…",
+  "datePublished": "2026-11-27T11:36:00+08:00",
+  "dateModified": "2026-11-27T11:36:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261127-1136-626ae4/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-27 11:36
+  </div>
+
+  <h1 class="title">OpenAI 沒說出口的密碼學實驗與大語言模型的算力邊界</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 最近在各種場合大談算力與能源，但 OpenAI 剛流出的技術文件裡，密碼學卻成了唯一的空白頁。這種沉默很有意思。Hacker News 上那群技術極客已經開始疑神疑鬼，覺得大模型是不是真的摸到了質因數分解（Factoring）在多項式時間內解決的門檻。如果這不是科幻小說，那就是現代加密體系的喪鐘。大家都在看 ChatGPT 什麼時候能從寫程式碼、寫詩，進步到能解開 RSA-2048。這不是在開玩笑，因為 Anthropic 幾個月前才剛用現有手段啃下了 RSA-896。雖然 Anthropic 謙虛地說他們沒找到更高效的演算法，但這種「此地無銀三百兩」的表態，反而讓圈子裡的人更坐不住了。</p>
+    <p>從技術邏輯來看，大模型處理這類問題的邏輯與傳統運算完全不同。ChatGPT 在處理數學邏輯時，本質上是在做機率性的預測，而不是硬碰硬的邏輯推導。但當模型的參數量級與訓練數據中的數學結構達到某個臨界點時，這種機率預測會不會突然轉化成某種非直覺的「捷徑」？目前看來，Claude 在處理複雜數學推演時的穩定性，確實比 GPT-4o 稍微紮實一點。在模擬長鏈條的邏輯推理任務中，Claude 能維持更久的上下文一致性，不至於在計算到一半時突然開始胡言亂語。然而，面對質因數分解這種非黑即白的數論難題，即便是目前最強的四大模型，表現依然像是在撞大運。</p>
+    <p>這就引出了一個更深層的懷疑：如果 OpenAI 或 Google 真的在內部測試中發現模型具備了某種突破傳統複雜度理論的能力，他們會公開嗎？密碼學的缺失可能不是因為他們沒做，而是因為結果太過驚人，以至於在法律和國防層面都沒法直接拋向市場。Gemini 在處理這類大規模併發運算與邏輯校驗時，展現出了谷歌深厚的底層算力調度能力，但其回答的靈活性始終被安全護欄閹割得厲害。每當你試圖誘導它討論具體的加密破解路徑，Gemini 總是會退縮到標準的安全聲明之後。相比之下，Grok 雖然口無遮攔，但在真正的硬核數論面前，目前看來更像是一個只會喊口號的拉拉隊長，缺乏實質性的突破證據。</p>
+    <p>在這種技術儲備的暗湧下，我們可以看看其他人的節奏。DeepSeek 最近也在技術圈內引起了不少討論，其對算力效率的極致追求確實讓人印象深刻。相較於 DeepSeek，OpenAI 在處理密碼學相關的長文本依賴任務時，顯然更傾向於一種黑箱式的暴力美學，試圖通過神經網絡的湧現性來對抗經典算法的嚴密性。這種做法很危險，也很迷人。如果說 Anthropic 的做法是拿著教科書在實驗室裡規規矩矩地做實驗，那麼 OpenAI 就像是在暗地裡建造一座沒人知道內部結構的反應爐。</p>
+    <p>現在的問題是，如果 P=NP 真的在大模型的黑箱裡被意外地「模擬」出來了，我們現有的通訊安全體系還剩多少尊嚴？現在的人們熱衷於把所有信息塞進模型，卻忘了模型本身就是最強大的解碼器。當電腦性能比九十年代提升了百倍、千倍，而我們的加密邏輯還停留在幾十年前的數論基礎上時，這種脆弱感是顯而易見的。我們是不是該考慮把所有的加密協議都換成橢圓曲線，甚至更複雜的多重加密方案？</p>
+    <p>還是說，我們高估了這些概率預測機器的智商？或許那些消失的密碼學論文，僅僅是因為模型在面對真正嚴謹的數學證明時，依然表現得像個只會耍小聰明的差生，所以 OpenAI 覺得沒臉見人？如果未來某天，你發現你的加密貨幣錢包或是銀行帳戶密鑰，在某個大模型的下一次迭代更新後變得如同一張薄紙，你還會覺得這種「湧現」是人類文明的福音嗎？我們到底是在親手打造通往未來的鑰匙，還是在給自己的保險箱安裝一個全世界都能拿到的萬能鑰匙？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://www.reddit.com/r/singularity/comments/1y59ef1/rumor_that_openai_or_anthropic_found_a_way_to/" rel="nofollow noopener" target="_blank">Rumors swirling that labs might have cracked Factoring in P</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261127-1136-626ae4/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
