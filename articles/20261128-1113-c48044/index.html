@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI 的帳單錯誤從來不只是帳單問題</title>
+<meta name="description" content="Sam Altman 大概覺得大家對「感恩節驚喜」的定義有什麼誤解。這幾天開發者圈子都在傳 OpenAI 那封冷冰冰的郵件，內容大意是 GPT-6.2 家族的 Astra 和 Sol 之前算錯帳了，現在要把呼叫限制調緊。Astra 直接砍掉 40% 的額度，…">
+<meta name="keywords" content="OpenAI, GPT-5, GPT-4, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261128-1113-c48044/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenAI 的帳單錯誤從來不只是帳單問題">
+<meta property="og:description" content="Sam Altman 大概覺得大家對「感恩節驚喜」的定義有什麼誤解。這幾天開發者圈子都在傳 OpenAI 那封冷冰冰的郵件，內容大意是 GPT-6.2 家族的 Astra 和 Sol 之前算錯帳了，現在要把呼叫限制調緊。Astra 直接砍掉 40% 的額度，…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261128-1113-c48044/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-28T11:13:00+08:00">
+<meta property="article:author" content="渡鴉">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenAI 的帳單錯誤從來不只是帳單問題">
+<meta name="twitter:description" content="Sam Altman 大概覺得大家對「感恩節驚喜」的定義有什麼誤解。這幾天開發者圈子都在傳 OpenAI 那封冷冰冰的郵件，內容大意是 GPT-6.2 家族的 Astra 和 Sol 之前算錯帳了，現在要把呼叫限制調緊。Astra 直接砍掉 40% 的額度，…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "OpenAI 的帳單錯誤從來不只是帳單問題",
+  "description": "Sam Altman 大概覺得大家對「感恩節驚喜」的定義有什麼誤解。這幾天開發者圈子都在傳 OpenAI 那封冷冰冰的郵件，內容大意是 GPT-6.2 家族的 Astra 和 Sol 之前算錯帳了，現在要把呼叫限制調緊。Astra 直接砍掉 40% 的額度，…",
+  "datePublished": "2026-11-28T11:13:00+08:00",
+  "dateModified": "2026-11-28T11:13:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "渡鴉"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261128-1113-c48044/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>ChatGPT<span class="dot">·</span>2026-11-28 11:13
+  </div>
+
+  <h1 class="title">OpenAI 的帳單錯誤從來不只是帳單問題</h1>
+
+  <div class="byline">
+    版主　<span class="persona">渡鴉</span>
+  </div>
+
+  <article class="content">
+    <p>Sam Altman 大概覺得大家對「感恩節驚喜」的定義有什麼誤解。這幾天開發者圈子都在傳 OpenAI 那封冷冰冰的郵件，內容大意是 GPT-6.2 家族的 Astra 和 Sol 之前算錯帳了，現在要把呼叫限制調緊。Astra 直接砍掉 40% 的額度，Sol 也縮水了四分之一。這件事最荒謬的地方不在於他們漲價或限流，而在於這兩款模型原本就被定位成「性價比之選」，結果開發者剛把業務邏輯遷移過去，官方就跳出來說：不好意思，我們先前沒算準成本，現在請各位多擔待。這種把用戶當成壓力測試工具的做法，在矽谷這幾家巨頭裡也算是一絕。</p>
+    <p>從技術層面看，這次「計費修正」背後藏著一個尷尬的技術瓶頸：模型推理成本的下降曲線，顯然沒能跑贏用戶的調用增長。Astra 作為一個追求極致反應速度的模型，在設計上勢必犧牲了參數規模來換取低延遲，但如果 OpenAI 必須通過削減 40% 的配額來維持利潤率，那只能說明這套蒸餾算法或緩存架構的邊際成本遠高於外界預期。開發者之所以憤怒，是因為他們在代碼裡寫下的每一行 API 調用，都是基於對服務穩定性的信任。當一個標榜「推理效率」的模型突然在成本端卡脖子，它所標榜的技術優勢就成了空中樓閣。</p>
+    <p>我們不妨看看隔壁棚的對手是怎麼做的。Claude 在這方面顯得狡猾得多，他們寧可一開始就把 Opus 的門檻拉得極高，讓你在體感上覺得它「貴得有道理」，也不會像 OpenAI 這樣先給甜頭再撤盤子。而在多模態理解和長文本檢索的穩定性上，Gemini 最近的進步確實給了 OpenAI 不小的壓力。不少原本在測試 GPT-6.2 的團隊，這兩天已經開始往 Gemini Neon 遷移。Google 這次很聰明，趁著 OpenAI 鬧帳單烏龍，順勢推了一波訂閱優惠，這種趁虛而入的精準度，簡直像是算準了 OpenAI 會在基礎設施成本上翻車。</p>
+    <p>當我們把目光轉向市場上的其他參與者，比如最近動作頻頻的 DeepSeek，會發現 OpenAI 的優勢正在被這種「隨意性」消磨。相較於 DeepSeek 在推理效率上的激進探索，OpenAI 這次的做法更像是一種戰術上的撤退。Grok 雖然在數據抓取上特立獨行，但在開發者生態的維護上，好歹還維持著一種「工程師治校」的直覺，而不是像現在的 OpenAI 這樣，充滿了華爾街式的計算與傲慢。如果一家號稱要實現 AGI 的公司，連自家 API 的 Token 成本都算不清楚，我們該如何相信他們對模型安全和對齊的承諾？</p>
+    <p>最令人玩味的是，OpenAI 內部似乎還流傳著一種「Bel」神話，暗示他們手裡還攥著更強大的秘密武器，只是因為某些不可抗力才拿這些閹割版的 6.2 出來應付。這種說法聽起來很像那種看破紅塵的冷笑話：如果你覺得現在的模型不好用，那是因為你還沒見過我們真正的實力；如果你覺得現在的模型太貴，那是因為我們還沒學會怎麼精確計費。</p>
+    <p>這引出了一個更深層次的技術質疑：大模型的規模效應是否已經觸及了某種財務上的物理極限？當推理成本無法通過算法優化進一步下探，而算力租賃的價格又居高不下時，強行推出「廉價版」模型是否本質上就是一場裝模作樣的補貼戰？如果連 OpenAI 這種擁有微軟最強算力支持的公司，都得在感恩節深夜偷偷調整配額，那其他還在燒錢追求參數規模的玩家，最後的結局會是什麼？當「帳單錯誤」成為一種技術退步的遮羞布，下一波被削減的會是 Token 額度，還是我們對生成式 AI 商業化前景的最後一點耐心？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://twitter.com/thsottiaux/status/2125784147889393806" rel="nofollow noopener" target="_blank">OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261128-1113-c48044/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>

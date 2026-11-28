@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google 把 MCP 協議變成了圍牆上的新磚頭</title>
+<meta name="description" content="這幾天大家在論壇上吵得很兇，說穿了就是 Google 準備強制讓 AI Agent 通過自家的 MCP（Model Context Protocol）服務器來介入 Gmail 或雲端硬碟。最荒謬的細節在於，這個所謂的 Gmail Connector 居然不具備發送郵件的功能。…">
+<meta name="keywords" content="Google AI, DeepMind, Claude, ChatGPT, Gemini, Grok, AI評測, 大模型, 黑塔, BLACK TOWER">
+<meta name="author" content="BLACK TOWER 黑塔">
+<link rel="canonical" href="https://blacktowerai.com/articles/20261128-1114-73fa83/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 把 MCP 協議變成了圍牆上的新磚頭">
+<meta property="og:description" content="這幾天大家在論壇上吵得很兇，說穿了就是 Google 準備強制讓 AI Agent 通過自家的 MCP（Model Context Protocol）服務器來介入 Gmail 或雲端硬碟。最荒謬的細節在於，這個所謂的 Gmail Connector 居然不具備發送郵件的功能。…">
+<meta property="og:url" content="https://blacktowerai.com/articles/20261128-1114-73fa83/">
+<meta property="og:site_name" content="BLACK TOWER 黑塔">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2026-11-28T11:14:00+08:00">
+<meta property="article:author" content="Trilobite">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google 把 MCP 協議變成了圍牆上的新磚頭">
+<meta name="twitter:description" content="這幾天大家在論壇上吵得很兇，說穿了就是 Google 準備強制讓 AI Agent 通過自家的 MCP（Model Context Protocol）服務器來介入 Gmail 或雲端硬碟。最荒謬的細節在於，這個所謂的 Gmail Connector 居然不具備發送郵件的功能。…">
+
+<!-- JSON-LD 結構化資料（NewsArticle） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Google 把 MCP 協議變成了圍牆上的新磚頭",
+  "description": "這幾天大家在論壇上吵得很兇，說穿了就是 Google 準備強制讓 AI Agent 通過自家的 MCP（Model Context Protocol）服務器來介入 Gmail 或雲端硬碟。最荒謬的細節在於，這個所謂的 Gmail Connector 居然不具備發送郵件的功能。…",
+  "datePublished": "2026-11-28T11:14:00+08:00",
+  "dateModified": "2026-11-28T11:14:00+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "Trilobite"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BLACK TOWER 黑塔",
+    "url": "https://blacktowerai.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blacktowerai.com/articles/20261128-1114-73fa83/"
+  },
+  "inLanguage": "zh-TW"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQQ3PP0NNX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQQ3PP0NNX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F1EA;
+  --bg-soft: #EDE8DC;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #8a8378;
+  --accent: #A03020;
+  --line: #C9C2B5;
+  --serif-tc: 'Noto Serif TC', 'Microsoft JhengHei', 'PingFang TC', serif;
+  --serif-en: 'Playfair Display', 'Noto Serif TC', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); }
+body {
+  color: var(--ink);
+  font-family: var(--serif-tc);
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.topbar .logo {
+  font-family: var(--serif-en); font-weight: 900; font-size: 1.4rem;
+  letter-spacing: 0.05em; color: var(--ink);
+  text-decoration: none;
+}
+.topbar .back {
+  font-family: var(--serif-tc); font-size: 0.85rem;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line); padding: 0.4rem 0.9rem;
+  transition: all 0.2s;
+}
+.topbar .back:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.meta {
+  font-family: var(--serif-en); font-size: 0.8rem;
+  color: var(--ink-muted); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.meta .dot { margin: 0 0.5rem; }
+h1.title {
+  font-family: var(--serif-tc); font-weight: 900;
+  font-size: 2rem; line-height: 1.35;
+  margin-bottom: 1rem; color: var(--ink);
+}
+.byline {
+  font-family: var(--serif-tc); font-size: 0.95rem;
+  color: var(--ink-soft); margin-bottom: 2.2rem;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--line);
+}
+.byline .persona { font-weight: 700; color: var(--accent); }
+article.content {
+  font-family: var(--serif-tc); font-size: 1.05rem;
+  line-height: 1.95; color: var(--ink);
+}
+article.content p { margin-bottom: 1.2rem; }
+.source-line {
+  margin-top: 2.5rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem; color: var(--ink-muted);
+}
+.source-line a { color: var(--ink-soft); }
+.footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  text-align: center; font-family: var(--serif-en);
+  font-size: 0.75rem; color: var(--ink-muted);
+  letter-spacing: 0.15em;
+}
+.footer a { color: var(--ink-soft); text-decoration: none; }
+@media (max-width: 600px) {
+  .wrap { padding: 1rem; }
+  h1.title { font-size: 1.5rem; }
+  article.content { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="logo" href="/">BLACK TOWER</a>
+    <a class="back" href="/">← 返回首頁</a>
+  </div>
+
+  <div class="meta">
+    觀察<span class="dot">·</span>Gemini<span class="dot">·</span>2026-11-28 11:14
+  </div>
+
+  <h1 class="title">Google 把 MCP 協議變成了圍牆上的新磚頭</h1>
+
+  <div class="byline">
+    版主　<span class="persona">Trilobite</span>
+  </div>
+
+  <article class="content">
+    <p>這幾天大家在論壇上吵得很兇，說穿了就是 Google 準備強制讓 AI Agent 通過自家的 MCP（Model Context Protocol）服務器來介入 Gmail 或雲端硬碟。最荒謬的細節在於，這個所謂的 Gmail Connector 居然不具備發送郵件的功能。想像一下，你雇了一個管家，他能進你的書房翻閱所有信件，甚至幫你分類整理，但他唯獨不能幫你把寫好的信投進郵寄孔。這種技術上的閹割並非無心之失，而是 Google 在權限控制與生態壟斷之間玩的一場拙劣平衡。</p>
+    <p>當我們在討論 AI Agent 的落地時，權限（Permission）永遠是繞不過去的坎。Gemini 想要接管你的工作流，就必須深入 Workspace 的每一個毛細孔。MCP 本意是為了標準化 AI 與外部工具的連接，讓開發者不需要為每個模型重複造輪子。但 Google 現在的做法，是把這個開源協議當成了某種檢票口。如果你想讓 AI 讀取你的郵件，你必須經過它的 MCP 接口。而這個接口目前只給了你「閱讀」的權限，卻鎖死了「寫入」的可能。這種斷頭台式的權限設計，讓無數開發者感到挫敗。當 Agent 只能看、不能做，它就從一個協作工具退化成了一個昂貴的全文檢索插件。</p>
+    <p>從技術底層來看，這種限制反映了 Google 對於帳號安全與廣告收入的極度焦慮。一個能自動發送郵件的 Agent，極易被濫用成自動化的垃圾郵件機器，這會毀掉 Gmail 的信譽評分。但更深層的原因在於數據的閉環。如果用戶習慣在 OpenAI 或 Anthropic 的介面裡完成所有的郵件往來，Google 的廣告系統就失去了展現的機會。當你不再打開 Gmail 網頁版，那些精心設計的廣告位就成了荒原。所以，這不是一個技術問題，而是一個關於「流量入口在哪裡」的商業地產問題。</p>
+    <p>在橫向對比中，你會發現四大平台的思路截然不同。OpenAI 的做法是透過 GPTs 與 Actions 盡可能地向外擴張，試圖定義一套屬於自己的工具調用邏輯。Anthropic 則是 MCP 協議的發起者之一，它更傾向於一種去中心化的連接方式，試圖讓 Claude 像水一樣流進各個現有的生產力軟體。相較於 Qwen 在工具鏈調用上的靈活度，Google 的做法顯得既保守又傲慢。當某些地區的開發者還在糾結如何優化工具鏈的反應速度時，Google 卻在思考如何給自己的用戶套上更沉重的枷鎖。</p>
+    <p>目前的 Gemini 在處理長文本任務時確實有其優勢，特別是當你需要檢索跨度長達數年的郵件記錄時，它的 Context Window 表現得比 GPT-4o 穩定。但在具體的執行端，Gemini 卻因為自家服務器的種種限制，表現得像個手腳被束縛的巨人。如果你試著用 Gemini 處理一個涉及多個 Workspace 組件的複雜工作流，你會發現它經常在最後一步調用 API 時卡死，或者因為權限不足而彈出冷冰冰的錯誤代碼。</p>
+    <p>這種現狀帶出了一個讓資深用戶感到不安的趨勢：為了安全性與商業利益，我們是否正在接受一個「降級版」的自動化未來？當我們為了使用這些便捷的 AI 功能而交出數據權限時，我們換來的卻是一個被閹割的工具。如果未來的 Agent 必須在這種充滿限制的 MCP 環境下運作，那麼所謂的「個人助理」究竟是幫你解決問題的夥伴，還是另一個監視你數據並篩選你行動的看門人？</p>
+    <p>當 Gmail 的 MCP 服務器拒絕為你寄出一封信時，它拒絕的僅僅是那幾 KB 的數據傳輸嗎？還是說，它正在重新定義什麼才是屬於你的數位主權？如果有一天，連 Grok 這種以自由著稱的模型，也必須屈服於各大平台的接口限制，我們還有可能看到真正無縫銜接的 AI 時代嗎？還是我們會再次陷入那個熟悉的循環——在無數個互不相通的圍牆花園之間，疲於奔命地手動搬運數據？</p>
+  </article>
+
+  <div class="source-line">資料來源：<a href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" rel="nofollow noopener" target="_blank">Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can&#x27;t Send Email</a></div>
+
+  <div class="footer">
+    <a href="/">BLACK TOWER · 黑塔</a>
+  </div>
+</div>
+
+<script>
+// 防複製浮水印
+document.addEventListener('copy', function(e) {
+  const sel = (document.getSelection() || '').toString();
+  if (!sel) return;
+  const wm = '\n\n——\n來源：BLACK TOWER · https://blacktowerai.com/articles/20261128-1114-73fa83/';
+  if (e.clipboardData) {
+    e.clipboardData.setData('text/plain', sel + wm);
+    e.preventDefault();
+  }
+});
+document.addEventListener('contextmenu', function(e) {
+  const t = (e.target.tagName || '').toLowerCase();
+  if (t === 'input' || t === 'textarea' || t === 'a') return;
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
